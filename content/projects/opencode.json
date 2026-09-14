@@ -1,0 +1,72 @@
+{
+    "slug": "opencode",
+    "name": "opencode",
+    "owner": "anomalyco",
+    "repo": "opencode",
+    "tagline": "Open source coding agent, built for the terminal.",
+    "language": "TypeScript",
+    "stars": 207137,
+    "defaultBranch": "dev",
+    "file": {
+        "bytes": 8748,
+        "lines": 161,
+        "words": 1234,
+        "headings": 13,
+        "bullets": 36,
+        "codeBlocks": 12,
+        "docLinks": 0
+    },
+    "hook": "Twelve code blocks in 161 lines; most style rules show the wrong version beside the right one.",
+    "summary": "A style guide that argues against abstraction, followed by a set of runtime invariants for its session core. The highest ratio of code to prose in the directory.",
+    "patterns": ["worked-examples", "hard-prohibition", "generated-file-guard", "architecture-narrative", "behavioral-conditioning"],
+    "techniques": [
+        {
+            "pattern": "worked-examples",
+            "title": "Paired examples throughout",
+            "body": "Destructuring, variable count, control flow and schema definitions each get a two-block comparison. The rule is stated in one line and then shown twice, marked good and bad."
+        },
+        {
+            "pattern": "behavioral-conditioning",
+            "title": "A rule against extracting helpers",
+            "body": "Logic stays in one function unless it is reused, hides a genuinely complex boundary, or has a name that improves the caller. The same instruction appears twice in the file, once in the general principles and once under complex logic.",
+            "quote": "Do not extract single-use helpers preemptively. Inline the logic at the call site unless the helper is reused, hides a genuinely complex boundary, or has a clear independent name that improves the caller."
+        },
+        {
+            "title": "Dependency direction in one sentence",
+            "body": "A single line fixes the allowed direction across six packages, including which layers client runtime code may never reach. It can be checked at an import without opening a config file.",
+            "quote": "Client runtime code may depend on Schema and Protocol but never Core or Server"
+        },
+        {
+            "title": "A four-line branch naming convention",
+            "body": "At most three words, hyphenated, no slashes, no type prefixes, with three examples given."
+        },
+        {
+            "title": "Runtime invariants written as prose",
+            "body": "The session core section states properties the type system does not hold: durable admission stays separate from model execution, one provider stream call per turn, no bridging through the legacy loop. They are written as standing constraints rather than as style.",
+            "quote": "Preserve one explicit `llm.stream(request)` call per provider turn and reload projected history before durable continuation."
+        },
+        {
+            "title": "Environment facts that prevent dead ends",
+            "body": "The default branch is dev, a local main ref may not exist, and tests cannot run from the repository root because of a named guard. Three lines, each covering a state an agent would otherwise have to discover."
+        }
+    ],
+    "steal": [
+        "Pair every style rule with a wrong example.",
+        "If agents over-abstract in your codebase, state it directly. \"Do not extract single-use helpers\" is an instruction.",
+        "State dependency direction in one sentence, even where a config file already enforces it.",
+        "Write down the branch naming convention with three examples.",
+        "Note the default branch if it is not main, and any command that fails from the repository root."
+    ],
+    "outline": [
+        "Repo and SDK generation notes",
+        "Branch Names",
+        "Commits and PR Titles",
+        "Style Guide",
+        "Destructuring, Imports, Variables, Control Flow",
+        "Complex Logic",
+        "Schema Definitions",
+        "Testing",
+        "Type Checking",
+        "V2 Session Core"
+    ]
+}

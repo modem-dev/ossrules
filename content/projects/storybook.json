@@ -1,0 +1,76 @@
+{
+    "slug": "storybook",
+    "name": "Storybook",
+    "owner": "storybookjs",
+    "repo": "storybook",
+    "tagline": "Workshop for building, documenting and testing UI components in isolation.",
+    "language": "TypeScript",
+    "stars": 91055,
+    "defaultBranch": "next",
+    "file": {
+        "bytes": 26367,
+        "lines": 419,
+        "words": 3448,
+        "headings": 38,
+        "bullets": 112,
+        "codeBlocks": 14,
+        "docLinks": 7
+    },
+    "hook": "Carries a Learned User Preferences section recording corrections from maintainers.",
+    "summary": "Covers repository structure, architecture, commands, PR requirements and testing. Two of its sections are about the file itself: one instructs the agent to keep it updated, and one records preferences accumulated from previous work.",
+    "patterns": ["behavioral-conditioning", "single-source", "hard-prohibition", "verification-matrix", "nested-instructions"],
+    "techniques": [
+        {
+            "title": "A section of accumulated corrections",
+            "body": "Learned User Preferences records five specific preferences from earlier sessions: use worktrees for parallel work, avoid premature helpers, keep long interaction tests as a readable flow rather than forcing DRY, put story descriptions in JSDoc above the meta const, and keep telemetry string names stable across versions when renaming.",
+            "quote": "Keep e2e and long interaction tests as a readable continuous flow; do not force DRY with loops or heavy helpers when repetition is clearer."
+        },
+        {
+            "pattern": "single-source",
+            "title": "The file names itself as canonical",
+            "body": "Other agent entrypoints are directed to reference this file rather than duplicate it, and the agent is instructed to update it when architecture, commands, versions or release flows change. A Maintenance Rules section states both in full.",
+            "quote": "This file is the canonical instruction source for coding agents. Files like `CLAUDE.md` should point here instead of duplicating instructions."
+        },
+        {
+            "pattern": "behavioral-conditioning",
+            "title": "Principles labelled as observed failure modes",
+            "body": "The Code Authoring Principles section is introduced as recurring failure modes in agent-authored changes to this repo, and lists verifying environment assumptions with a throwaway probe before encoding them, preferring static checks over tests, and avoiding coverage already guaranteed by types or linting.",
+            "quote": "These are recurring failure modes in agent-authored changes to this repo. Apply them when writing or reviewing code, not just when asked."
+        },
+        {
+            "title": "An inverted default for component tests",
+            "body": "For React components the file directs behavior, accessibility and interaction assertions into stories with play functions, and reserves unit test files for pure utilities, hooks and non-React modules."
+        },
+        {
+            "pattern": "hard-prohibition",
+            "title": "A ban on direct global assignment in tests",
+            "body": "Assigning a global directly is prohibited, with the mechanism given: Vitest does not restore it, so the assignment leaks into unrelated test files and produces order-dependent flakiness. The replacement API and its cleanup call are both named.",
+            "quote": "Direct assignment leaks across tests and files — Vitest does not restore it — so it silently changes behavior in unrelated tests and creates order-dependent flakiness."
+        },
+        {
+            "title": "Commands the agent should not run",
+            "body": "Two commands are listed under a Commands To Avoid heading, with the reason that they start long-running development servers, which the file describes as the wrong default for an agent."
+        }
+    ],
+    "steal": [
+        "Keep a section for corrections that came up in review. It is the cheapest way to stop repeating the same feedback.",
+        "Name the commands that start long-running processes and tell the agent not to run them.",
+        "When a test rule exists because of a framework behavior, state the behavior. \"Vitest does not restore it\" is what makes the rule stick.",
+        "If your repo has several agent entrypoints, name one canonical file and make the rest point at it."
+    ],
+    "outline": [
+        "Repository Overview",
+        "Repository Structure",
+        "Architecture",
+        "Common Commands",
+        "NX and yarn task",
+        "How To Work In This Repo",
+        "Pull Request Requirements",
+        "Testing Expectations",
+        "Quality and Logging",
+        "Commands To Avoid",
+        "Code Authoring Principles",
+        "Maintenance Rules For Agents",
+        "Learned User Preferences"
+    ]
+}

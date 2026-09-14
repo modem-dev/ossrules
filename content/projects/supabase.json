@@ -1,0 +1,55 @@
+{
+    "slug": "supabase",
+    "name": "Supabase",
+    "owner": "supabase",
+    "repo": "supabase",
+    "tagline": "The Postgres development platform.",
+    "language": "TypeScript",
+    "stars": 109148,
+    "defaultBranch": "master",
+    "file": {
+        "bytes": 6604,
+        "lines": 75,
+        "words": 665,
+        "headings": 7,
+        "bullets": 7,
+        "codeBlocks": 2,
+        "docLinks": 0
+    },
+    "hook": "75 lines, including a rule about what may not appear in a public repository's pull requests and comments.",
+    "summary": "A directory table, a command list, and four short convention sections. Most subsystem detail is delegated to per-app instruction files and to a set of named skills.",
+    "patterns": ["skill-routing", "ratchet", "generated-file-guard", "nested-instructions", "single-source"],
+    "techniques": [
+        {
+            "title": "A rule about the repository being public",
+            "body": "PR descriptions, issues and code comments are identified as world-readable, and three categories are excluded from them: absolute production metrics, internal decision detail such as vendor or pricing discussions, and competitor names. Percentages and ratios are given as the permitted substitute for absolute figures, and the internal tracker is named as where that context belongs.",
+            "quote": "Keep internal content out of them: absolute production metrics (event counts, user counts, revenue figures: state percentages, ratios, or relative change instead), internal decision detail (vendor, legal, pricing, or strategy discussions), and competitor names"
+        },
+        {
+            "pattern": "skill-routing",
+            "title": "Skills mapped to when they apply",
+            "body": "Nine skills are listed, each with the trigger that should load it: user-facing text anywhere in the monorepo, anything under the docs app, code that builds SQL against user databases, any form code. The file states that the skills, not itself, are the source of truth for those conventions.",
+            "quote": "The skills in `.agents/skills/` are the source of truth for conventions — load the relevant ones before working, don't guess"
+        },
+        {
+            "pattern": "ratchet",
+            "title": "A lint warning count that may not increase",
+            "body": "Lint rules run at warning severity across all apps, and a ratchet check on the Studio app fails if the warning count goes up. The rule is enforced by a path-filtered CI job rather than by review."
+        },
+        {
+            "pattern": "generated-file-guard",
+            "title": "Generated paths listed explicitly",
+            "body": "Eight path patterns are named as never hand-edited, including API types, a route tree, generated docs content and database types. One entry carries the command that regenerates it."
+        },
+        {
+            "title": "One component named as the default",
+            "body": "The conventions section states which button component is the standard, and notes that a raw shadcn variant also exists but is rarely the right choice. Checking the package index before creating a new primitive is given as the rule."
+        }
+    ],
+    "steal": [
+        "If your repository is public, state what may not go into PR descriptions, issues and comments, and where that content belongs instead.",
+        "When two similarly named components exist, say which is the default and what the other one is for.",
+        "A warning count that may not increase turns a long tail of lint debt into a one-way door."
+    ],
+    "outline": ["Structure", "Common Commands", "CI", "Conventions", "Skills", "Studio"]
+}

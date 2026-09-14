@@ -1,0 +1,73 @@
+{
+    "slug": "astro",
+    "name": "Astro",
+    "owner": "withastro",
+    "repo": "astro",
+    "tagline": "The web framework for content-driven websites.",
+    "language": "TypeScript",
+    "stars": 62519,
+    "defaultBranch": "main",
+    "file": {
+        "bytes": 8903,
+        "lines": 165,
+        "words": 1310,
+        "headings": 15,
+        "bullets": 54,
+        "codeBlocks": 2,
+        "docLinks": 4
+    },
+    "hook": "Opens with four sections on how to approach work, before any repository detail.",
+    "summary": "The first third contains no Astro-specific content: it covers stating assumptions, scope, and success criteria. The rest is a tooling guide covering the monorepo layout, test invocation, background dev servers and browser automation.",
+    "patterns": ["behavioral-conditioning", "skill-routing", "hard-prohibition", "house-vocabulary"],
+    "techniques": [
+        {
+            "pattern": "behavioral-conditioning",
+            "title": "Four framing sections before any repository detail",
+            "body": "Think Before Coding, Simplicity First, Surgical Changes, Goal-Driven Execution. None reference Astro. They address stating assumptions out loud, building only what was asked, leaving adjacent code alone, and defining what done means before starting.",
+            "quote": "**Don't assume. Don't hide confusion. Surface tradeoffs.**"
+        },
+        {
+            "title": "A one-line test for scope",
+            "body": "The Surgical Changes section ends with a test the agent can apply to its own diff line by line, rather than a disposition to hold.",
+            "quote": "The test: Every changed line should trace directly to the user's request."
+        },
+        {
+            "pattern": "house-vocabulary",
+            "title": "A deletion test for comments",
+            "body": "A comment must state something the reader cannot recover from the code, written for someone reading at HEAD months later with no access to the conversation or the diff. Narrating change history and addressing the reviewer are both listed as prohibited.",
+            "quote": "Deletion test: a comment must state something the reader cannot recover from the code. If names or types already carry it, don't write it."
+        },
+        {
+            "title": "Tasks rewritten as verifiable loops",
+            "body": "Three conversions are given: \"fix the bug\" becomes \"write a test that reproduces it, then make it pass\". The stated reason is that criteria the agent can check let it iterate without returning to ask.",
+            "quote": "Strong success criteria let you loop independently. Weak criteria (\"make it work\") require constant clarification."
+        },
+        {
+            "title": "An instruction to fail rather than substitute",
+            "body": "The browser automation section covers the case where the tool is missing and no human is available to install it. It directs the agent to fail the job rather than work around the absence.",
+            "quote": "If you are running in headless mode with no human operator and need this tool to complete your job, it is best to fail the job vs. trying to work around not having the tool."
+        },
+        {
+            "title": "A managed lifecycle for long-running servers",
+            "body": "Dev servers are started through a four-command lifecycle, start, logs, status and stop, with a force flag for replacing a stale one. Backgrounding a server with an ampersand is listed as the thing not to do."
+        }
+    ],
+    "steal": [
+        "The four opening sections contain no repository-specific content and transfer to another repo unchanged.",
+        "Give scope creep a one-line test the agent can run against its own diff.",
+        "Adopt the deletion test for comments. It addresses the \"this now correctly handles\" habit in one rule.",
+        "If your repo has long-running processes, document a start, logs, status, stop lifecycle rather than leaving it to the agent."
+    ],
+    "outline": [
+        "Think Before Coding",
+        "Simplicity First",
+        "Surgical Changes",
+        "Goal-Driven Execution",
+        "Style Guide",
+        "Writing Comments",
+        "Monorepo Structure",
+        "Running Tests",
+        "Background Dev Servers",
+        "Deep Dives"
+    ]
+}

@@ -1,0 +1,79 @@
+{
+    "slug": "codex",
+    "name": "Codex",
+    "owner": "openai",
+    "repo": "codex",
+    "tagline": "OpenAI's coding agent, running in the terminal.",
+    "language": "Rust",
+    "stars": 123831,
+    "defaultBranch": "main",
+    "file": {
+        "bytes": 22397,
+        "lines": 320,
+        "words": 3125,
+        "headings": 28,
+        "bullets": 122,
+        "codeBlocks": 4,
+        "docLinks": 0
+    },
+    "hook": "Includes rules governing what may enter the agent's own model context.",
+    "summary": "Mostly rules rather than explanation: 122 bullets covering Rust idioms, module size limits, review criteria, snapshot testing and app-server API conventions. Several sections set limits on the change itself rather than on the code it touches.",
+    "patterns": [
+        "context-budget",
+        "hard-prohibition",
+        "verification-matrix",
+        "worked-examples",
+        "generated-file-guard",
+        "behavioral-conditioning"
+    ],
+    "techniques": [
+        {
+            "pattern": "context-budget",
+            "title": "Limits on the model context",
+            "body": "A review section governs the history Codex sends to the model: build it incrementally, do not rewrite it, avoid changes that cause cache misses, cap every injected item, and mark anything over 1,000 tokens for additional manual review. Injected fragments must be declared as structs implementing a named trait.",
+            "quote": "No unbounded items - everything injected in the model context must have a bounded size and a hard cap."
+        },
+        {
+            "title": "A section arguing against the largest crate",
+            "body": "The file states that codex-core grew because adding to it is easier than refactoring out of it, then instructs the agent to resist that and to push back in review on changes that add to it. Alternatives are listed: an existing crate, or a new workspace member with the refactor that requires.",
+            "quote": "To that end: **resist adding code to codex-core**!"
+        },
+        {
+            "title": "A line budget on the diff",
+            "body": "Non-mechanical changes are capped at 800 lines, and complex logic changes at 500. A change over the cap is expected to come back as a staging proposal based on the actual diff, dependencies and call sites, identifying the smallest coherent stage to land first.",
+            "quote": "Unless the change is mechanical the total number of changed lines should not exceed 800 lines."
+        },
+        {
+            "title": "Module size limits with the affected files listed",
+            "body": "Modules target 500 lines excluding tests, and past roughly 800 new functionality goes in a new module. The rule names the specific files it applies to most, on the stated grounds that they already attract unrelated changes."
+        },
+        {
+            "title": "The sandbox environment variables explained, not just protected",
+            "body": "Two environment variables are placed off limits, followed by the reason the code reads them: existing tests use them to exit early from cases the agent cannot run under its own sandbox. The explanation is what distinguishes the checks from dead code.",
+            "quote": "Any existing code that uses `CODEX_SANDBOX_NETWORK_DISABLED_ENV_VAR` was authored with this fact in mind. It is often used to early exit out of tests that the author knew you would not be able to run given your sandbox limitations."
+        },
+        {
+            "pattern": "verification-matrix",
+            "title": "Test scope that escalates, with a permission gate",
+            "body": "Run the changed project's tests first. If the change touched common, core or protocol, run the full suite, but ask the user before doing so because of its cost. A separate line tells the agent not to kill slow Rust commands by PID.",
+            "quote": "be patient with the command and never try to kill them using the PID"
+        }
+    ],
+    "steal": [
+        "Put a line budget on changes, and ask for a staging plan when one exceeds it.",
+        "Name the modules that are already too big. An agent cannot infer which files attract unrelated changes.",
+        "Where code exists because of a constraint the code cannot express, record the reason where an agent will read it before deleting it.",
+        "Gate expensive test runs behind asking, and state which changes make them mandatory."
+    ],
+    "outline": [
+        "Rust conventions",
+        "The codex-core crate",
+        "Code Review Rules",
+        "TUI style and code conventions",
+        "Tests, snapshots, benchmarks",
+        "Integration testing",
+        "App-server API practices",
+        "Python practices",
+        "Platform Support"
+    ]
+}

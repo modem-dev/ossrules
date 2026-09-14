@@ -1,11 +1,10 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import {
-    AGENTS_PROJECTS,
-    AGENTS_PROJECTS_BY_STARS,
     agentsFileUrl,
     formatStars,
-    getAgentsProject,
+    logoSrc,
     PATTERNS_BY_ID,
     rawAgentsFileUrl,
     repoUrl,
@@ -17,11 +16,12 @@ import Footer from '@/components/footer';
 import { JsonLd } from '@/components/json-ld';
 import Navigation from '@/components/navigation';
 import CTAButton from '@/components/ui/cta-button';
+import { getAgentsProject, getAgentsProjects } from '@/lib/agents-md';
 import { ogImageUrl } from '@/lib/og';
 import { webPageSchema } from '@/lib/schema';
 
 export async function generateStaticParams() {
-    return AGENTS_PROJECTS.map((project) => ({ slug: project.slug }));
+    return getAgentsProjects().map((project) => ({ slug: project.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
@@ -63,7 +63,7 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
 
     // Previous and next follow the list order on the index, so paging through
     // the collection matches the order the reader just saw.
-    const ordered = AGENTS_PROJECTS_BY_STARS;
+    const ordered = getAgentsProjects();
     const index = ordered.findIndex((entry) => entry.slug === project.slug);
     const previous = index > 0 ? ordered[index - 1] : undefined;
     const next = index < ordered.length - 1 ? ordered[index + 1] : undefined;
@@ -88,9 +88,18 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                         </Link>
 
                         <header className="mt-6">
-                            <h1 className="font-unit-medium text-4xl sm:text-5xl text-light-cream leading-tight tracking-tight">
-                                {project.name}
-                            </h1>
+                            <div className="flex items-center gap-4">
+                                <Image
+                                    src={logoSrc(project)}
+                                    alt=""
+                                    width={56}
+                                    height={56}
+                                    className="size-14 shrink-0 rounded-lg bg-gray-800 object-cover"
+                                />
+                                <h1 className="font-unit-medium text-4xl sm:text-5xl text-light-cream leading-tight tracking-tight">
+                                    {project.name}
+                                </h1>
+                            </div>
                             <p className="mt-3 font-roboto text-lg text-light-cream/70 leading-relaxed">{project.tagline}</p>
 
                             <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 font-inter text-sm">
@@ -150,7 +159,7 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
 
                         <section className="mt-14">
                             <h2 className="font-unit-medium text-2xl sm:text-3xl text-light-cream leading-snug tracking-tight">
-                                What it does well
+                                Techniques in this file
                             </h2>
                             <p className="mt-2 font-inter text-sm text-gray-550 leading-relaxed">
                                 Quoted lines are verbatim from the file.
@@ -176,7 +185,7 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
 
                         <section className="mt-14 rounded-xl border border-dark-teal/40 bg-medium-gray/40 p-6 sm:p-8">
                             <h2 className="font-unit-medium text-2xl text-light-cream leading-snug tracking-tight">
-                                What to steal for your own repo
+                                Takeaways for your own repo
                             </h2>
                             <ul className="mt-4 space-y-3">
                                 {project.steal.map((item) => (

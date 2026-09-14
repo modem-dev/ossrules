@@ -1,0 +1,88 @@
+{
+    "slug": "airflow",
+    "name": "Airflow",
+    "owner": "apache",
+    "repo": "airflow",
+    "tagline": "Platform to programmatically author, schedule and monitor workflows.",
+    "language": "Python",
+    "stars": 46850,
+    "defaultBranch": "main",
+    "file": {
+        "bytes": 36577,
+        "lines": 537,
+        "words": 4982,
+        "headings": 24,
+        "bullets": 114,
+        "codeBlocks": 24,
+        "docLinks": 14
+    },
+    "hook": "Covers naming, the security model, commit form, and when to open a pull request instead of an issue.",
+    "summary": "The broadest file in the directory. Alongside structure and commands it covers how to spell one domain term, how to classify a security finding, what a newsfragment is for, how the git remotes must be named, and what an agent may put in a commit trailer.",
+    "patterns": [
+        "house-vocabulary",
+        "contribution-etiquette",
+        "hard-prohibition",
+        "verification-matrix",
+        "nested-instructions",
+        "skill-routing"
+    ],
+    "techniques": [
+        {
+            "pattern": "house-vocabulary",
+            "title": "One word, with its exceptions enumerated",
+            "body": "The term is written in title case in all prose. The carve-out covers literal code tokens, which keep their original spelling even inside fenced code blocks, and includes a further exception for anti-pattern quotes that show the wrong form in order to teach the rule.",
+            "quote": "Write **Dag** (title case) in all prose. Keep the all-caps or lowercase\nspelling only when reproducing a literal code token — never rewrite these,\neven inside fenced code blocks"
+        },
+        {
+            "title": "How to classify a security finding",
+            "body": "Three categories are defined for anything the agent might flag: actual vulnerabilities that violate the documented security model, known limitations that are already tracked, and deployment hardening that belongs in operator guidance rather than as a code issue. The authoritative document is linked, including its chapter on what is not considered a vulnerability."
+        },
+        {
+            "pattern": "contribution-etiquette",
+            "title": "Open the pull request, not the issue",
+            "body": "When the fix is already known, the file directs the agent past filing an issue. Two reasons are given: the PR already carries the title, description, diff and discussion, and an open issue attracts duplicate submissions. The exception is a workaround whose real fix is deferred, where the issue outlives the PR.",
+            "quote": "Open issues attract drive-by submissions, often from other agents, that\n  haven't seen the in-flight work."
+        },
+        {
+            "title": "Deferred work linked from the code",
+            "body": "A workaround, version cap or partial fix requires a tracking issue opened before the PR body is finalised, referenced by number in the PR, and linked at the workaround site in the code. The link is specified as a full URL rather than a bare number, because bare references do not resolve outside GitHub's web interface."
+        },
+        {
+            "pattern": "hard-prohibition",
+            "title": "No agent co-author trailer",
+            "body": "The commit section ends with a line prohibiting the agent from adding itself as a co-author, with the stated distinction that agents are assistants rather than authors. A separate PR template field discloses the agent by name and version instead.",
+            "quote": "NEVER add Co-Authored-By with yourself as co-author of the commit. Agents cannot be authors, humans can be, Agents are assistants."
+        },
+        {
+            "title": "Remote names checked rather than assumed",
+            "body": "Two remote names are fixed by convention. The agent is told to run git remote -v before any remote command, and where the names do not match, to surface the mismatch and propose the exact rename commands rather than silently working with what is there."
+        },
+        {
+            "title": "A coverage target with an upper bound",
+            "body": "Tests are to cover exactly what the PR changes: every changed behavior gets a test, every test must fail without the change, and tests for pre-existing logic or third-party functions are excluded.",
+            "quote": "Target exactly 100% coverage of what the PR changes — no more, no less."
+        }
+    ],
+    "steal": [
+        "If your project has a term people spell three ways, fix the spelling and enumerate the exceptions.",
+        "Tell agents how to classify a security finding, including which categories not to report.",
+        "State whether an agent may add itself as a commit co-author.",
+        "Before any remote command, have the agent verify remote names rather than assume them.",
+        "\"Every test must fail without the change\" is a sharper instruction than a coverage percentage."
+    ],
+    "outline": [
+        "Naming",
+        "Environment Setup",
+        "Commands",
+        "Repository Structure",
+        "Architecture Boundaries",
+        "Security Model",
+        "Shared libraries",
+        "Coding Standards",
+        "Testing Standards",
+        "Commits and PRs",
+        "Creating Pull Requests",
+        "Tracking issues for deferred work",
+        "Boundaries"
+    ]
+}

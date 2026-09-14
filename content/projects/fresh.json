@@ -1,0 +1,65 @@
+{
+    "slug": "fresh",
+    "name": "Fresh",
+    "owner": "freshframework",
+    "repo": "fresh",
+    "tagline": "The Deno web framework built on Preact.",
+    "language": "TypeScript",
+    "stars": 13786,
+    "defaultBranch": "main",
+    "file": {
+        "bytes": 6575,
+        "lines": 156,
+        "words": 848,
+        "headings": 14,
+        "bullets": 36,
+        "codeBlocks": 0,
+        "docLinks": 0
+    },
+    "hook": "Nine numbered steps of the request lifecycle, with the owning file at each hop.",
+    "summary": "Over half its length is architecture: how a request becomes HTML, how islands hydrate on the client, how the two build paths differ. Rules are the minority of the file.",
+    "patterns": ["architecture-narrative", "hard-prohibition"],
+    "techniques": [
+        {
+            "pattern": "architecture-narrative",
+            "title": "The request lifecycle, numbered",
+            "body": "Nine steps from handler to response, naming the file at each hop: routing, context creation, the middleware chain built as nested closures, layout composition, render, the boot script, and the response headers."
+        },
+        {
+            "title": "The island mechanism, both halves",
+            "body": "On the server a diff hook wraps island components in HTML comment markers and collects their props into an array. On the client, boot walks the DOM for those markers and hydrates each one. The marker format is given, which is the contract the two halves share.",
+            "quote": "<!--frsh:island:NAME:PROPSIDX:KEY-->...<!--/frsh:island-->"
+        },
+        {
+            "pattern": "hard-prohibition",
+            "title": "Three git rules covering irreversible operations",
+            "body": "Never amend, never force push, always create new commits. Lockfile changes are not committed unless the PR is about dependencies, with the reason given as noisy and environment-specific diffs.",
+            "quote": "**Never amend commits or force push.** Always create new commits."
+        },
+        {
+            "title": "One command standing in for CI",
+            "body": "A single task runs formatting, linting, type checking and tests, and is named as the thing to run before pushing. The CI section below lists the eight steps the pipeline runs, so the coverage of the shortcut is visible."
+        },
+        {
+            "title": "A known-bad situation with its upstream issue",
+            "body": "Lockfile hashes pointing at a moving branch go stale, and the normal reload command cannot fix them. The file states that the hash is edited by hand in that case and links the upstream issue."
+        }
+    ],
+    "steal": [
+        "Write the request lifecycle as numbered steps with the owning file at each hop.",
+        "Give the agent one command that stands in for CI, and list what it covers.",
+        "State the irreversible git operations as absolute prohibitions.",
+        "Where a normal command cannot fix a known problem, say so and link the upstream issue."
+    ],
+    "outline": [
+        "Repository Overview",
+        "Packages",
+        "Git Workflow",
+        "Development",
+        "Architecture",
+        "Routing",
+        "Build system",
+        "Partials",
+        "CI"
+    ]
+}

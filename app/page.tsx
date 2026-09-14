@@ -1,11 +1,12 @@
 import Link from 'next/link';
-import { AGENTS_PROJECTS, STATS_AS_OF } from '@/components/agents-md/agents-md-data';
+import { STATS_AS_OF } from '@/components/agents-md/agents-md-data';
 import { ProjectExplorer } from '@/components/agents-md/project-explorer';
 import { PatternBackground } from '@/components/blog/pattern-background';
 import Footer from '@/components/footer';
 import { JsonLd } from '@/components/json-ld';
 import Navigation from '@/components/navigation';
 import CTAButton from '@/components/ui/cta-button';
+import { getAgentsProjects } from '@/lib/agents-md';
 import { ogImageUrl } from '@/lib/og';
 import { collectionPageSchema } from '@/lib/schema';
 
@@ -31,6 +32,8 @@ export const metadata = {
 };
 
 export default function AgentsMdPage() {
+    const projects = getAgentsProjects();
+
     return (
         <div className="min-h-screen bg-dark-gray flex flex-col">
             <JsonLd
@@ -38,7 +41,7 @@ export default function AgentsMdPage() {
                     title,
                     description,
                     path: '/agents-md',
-                    items: AGENTS_PROJECTS.map((project) => ({ name: project.name, path: `/agents-md/${project.slug}` })),
+                    items: projects.map((project) => ({ name: project.name, path: `/agents-md/${project.slug}` })),
                 })}
             />
             <Navigation />
@@ -63,7 +66,7 @@ export default function AgentsMdPage() {
                     </header>
 
                     <section className="mt-12" aria-label="Projects">
-                        <ProjectExplorer projects={AGENTS_PROJECTS} />
+                        <ProjectExplorer projects={projects} />
                     </section>
 
                     <section className="mt-16 max-w-3xl rounded-xl border border-dark-teal/40 bg-medium-gray/40 p-6 sm:p-8">
