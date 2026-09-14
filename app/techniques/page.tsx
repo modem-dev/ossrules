@@ -46,7 +46,7 @@ export default function TechniquesPage() {
             <SiteHeader />
 
             <main id="main" className="page-shell flex-1">
-                <header className="max-w-3xl">
+                <header className="brand-masthead modem-surface">
                     <p className="eyebrow">The transferable part / {PATTERNS.length} techniques</p>
                     <h1 className="page-title mt-5">Patterns worth borrowing.</h1>
                     <p className="mt-5 max-w-2xl text-gray-550 text-base leading-relaxed">

@@ -48,7 +48,7 @@ export default function AgentsMdPage() {
             <SiteHeader />
 
             <main id="main" className="page-shell flex-1">
-                <header className="directory-hero">
+                <header className="directory-hero brand-masthead modem-surface">
                     <div>
                         <p className="eyebrow">
                             {projects.length} projects / {PATTERNS.length} techniques / Open source
