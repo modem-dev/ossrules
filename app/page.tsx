@@ -83,7 +83,7 @@ export default function AgentsMdPage() {
                         </Link>
                     ) : null}
                 </header>
-                <section id="projects" aria-label="Projects" className="scroll-mt-24">
+                <section id="projects" aria-label="Projects">
                     <Suspense fallback={<ProjectExplorerContent projects={projects} />}>
                         <ProjectExplorer projects={projects} />
                     </Suspense>

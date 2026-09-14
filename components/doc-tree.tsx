@@ -110,7 +110,7 @@ function Lines({ lines, rootLabel, fileHref }: { lines: AsciiLine[]; rootLabel: 
                         <span className="text-gray-550">{line.name}</span>
                     )}
                     {line.reference?.kind === 'pattern' ? (
-                        <span className="text-gray-700"> — {line.reference.label ?? 'a shape, not one file'}</span>
+                        <span className="text-gray-600"> — {line.reference.label ?? 'a shape, not one file'}</span>
                     ) : null}
                     {'\n'}
                 </span>
