@@ -90,6 +90,7 @@ export function FileTrayProvider({ slug, owner, repo, sha, files, license, licen
     const [request, setRequest] = useState<TrayRequest | undefined>();
     const [source, setSource] = useState<string | undefined>();
     const [failed, setFailed] = useState(false);
+    const [copyStatus, setCopyStatus] = useState<'idle' | 'copied' | 'failed'>('idle');
     const cache = useRef(new Map<string, string>());
     const panel = useRef<HTMLDialogElement>(null);
     const returnFocus = useRef<HTMLElement | null>(null);
@@ -100,6 +101,7 @@ export function FileTrayProvider({ slug, owner, repo, sha, files, license, licen
 
     const open = useCallback((next: TrayRequest) => {
         returnFocus.current = document.activeElement as HTMLElement | null;
+        setCopyStatus('idle');
         setRequest(next);
     }, []);
 
@@ -111,6 +113,22 @@ export function FileTrayProvider({ slug, owner, repo, sha, files, license, licen
 
     const context = useMemo(() => ({ open, readable, missing }), [open, readable, missing]);
     const path = request?.path;
+
+    const copySource = async () => {
+        if (source === undefined) return;
+        try {
+            await navigator.clipboard.writeText(source);
+            setCopyStatus('copied');
+        } catch {
+            setCopyStatus('failed');
+        }
+    };
+
+    useEffect(() => {
+        if (copyStatus !== 'copied') return;
+        const timer = window.setTimeout(() => setCopyStatus('idle'), 2000);
+        return () => window.clearTimeout(timer);
+    }, [copyStatus]);
 
     useEffect(() => {
         if (!path) {
@@ -208,6 +226,15 @@ export function FileTrayProvider({ slug, owner, repo, sha, files, license, licen
                                 </p>
                             </div>
                             <div className="flex shrink-0 items-center gap-2">
+                                <button
+                                    type="button"
+                                    onClick={copySource}
+                                    disabled={source === undefined || failed}
+                                    className="source-control disabled:cursor-not-allowed disabled:opacity-50"
+                                    aria-label={file?.truncated ? 'Copy displayed source' : 'Copy source file'}
+                                >
+                                    {copyStatus === 'copied' ? 'Copied ✓' : 'Copy'}
+                                </button>
                                 <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="source-control">
                                     GitHub ↗
                                 </a>
@@ -265,6 +292,13 @@ export function FileTrayProvider({ slug, owner, repo, sha, files, license, licen
                             )}
                         </div>
                         <footer className="source-footer">
+                            <p role="status" className={copyStatus === 'failed' ? 'mb-2' : 'sr-only'}>
+                                {copyStatus === 'copied'
+                                    ? 'Source copied to clipboard.'
+                                    : copyStatus === 'failed'
+                                      ? 'Could not copy. Select the source text and copy it manually, or try again.'
+                                      : ''}
+                            </p>
                             {file?.truncated ? (
                                 <p>
                                     Showing the first {formatBytes(new Blob([source ?? '']).size)} of {formatBytes(file.bytes)}.{' '}
