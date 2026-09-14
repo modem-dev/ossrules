@@ -1,15 +1,16 @@
+import Image from 'next/image';
 import Link from 'next/link';
-import { STATS_AS_OF } from '@/components/agents-md-data';
-import CTAButton from '@/components/cta-button';
+import { Suspense } from 'react';
+import { logoSrc, PATTERNS } from '@/components/agents-md-data';
 import { JsonLd } from '@/components/json-ld';
-import { ProjectExplorer } from '@/components/project-explorer';
+import { ProjectExplorer, ProjectExplorerContent } from '@/components/project-explorer';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { getAgentsProjects } from '@/lib/agents-md';
 import { ogImageUrl } from '@/lib/og';
 import { collectionPageSchema } from '@/lib/schema';
 
-const title = 'AGENTS.md Directory | Modem';
+const title = 'AGENTS.md Directory';
 const description =
     'Browse AGENTS.md files from open source projects. Sort by stars or file length, filter by language and technique, and read what each one does that the others do not.';
 
@@ -32,6 +33,7 @@ export const metadata = {
 
 export default function AgentsMdPage() {
     const projects = getAgentsProjects();
+    const featured = projects.find((project) => project.slug === 'ghostty');
 
     return (
         <div className="min-h-screen bg-dark-gray flex flex-col">
@@ -45,41 +47,52 @@ export default function AgentsMdPage() {
             />
             <SiteHeader />
 
-            <main id="main" className="relative z-10 flex-1">
-                <div className="max-w-container mx-auto px-6 sm:px-12 pt-14 pb-20">
-                    <header className="max-w-3xl">
-                        <h1 className="font-unit-medium text-4xl sm:text-5xl text-light-cream leading-tight tracking-tight">
-                            AGENTS.md directory
+            <main id="main" className="page-shell flex-1">
+                <header className="directory-hero">
+                    <div>
+                        <p className="eyebrow">
+                            {projects.length} projects / {PATTERNS.length} techniques / Open source
+                        </p>
+                        <h1 className="page-title mt-5">
+                            Better instructions.
+                            <br />
+                            Better agents.
                         </h1>
-                        <p className="mt-4 font-roboto text-lg text-light-cream/70 leading-relaxed">
-                            Instruction files from open source projects, measured and read. Every entry has the file broken down and the
-                            techniques worth copying pulled out, so you can tell what is in one without opening it.
+                        <p className="mt-5 max-w-xl text-gray-550 text-base leading-relaxed">
+                            Explore the AGENTS.md files behind open source projects. See what works, read the source, and take the useful
+                            parts.
                         </p>
-                        <p className="mt-4 font-inter text-sm text-gray-550">
-                            <Link href="/techniques" className="text-teal hover:underline">
-                                Browse by technique
-                            </Link>{' '}
-                            for the moves that recur across the files. Star counts are a snapshot from {STATS_AS_OF}.
-                        </p>
-                    </header>
-
-                    <section className="mt-12" aria-label="Projects">
+                    </div>
+                    {featured ? (
+                        <Link href={`/${featured.slug}`} className="directory-feature group">
+                            <p className="eyebrow">A study in brevity</p>
+                            <p className="mt-4 font-mono text-xl leading-relaxed tracking-tight">
+                                {featured.file.lines} lines.
+                                <br />
+                                Two absolute rules.
+                                <br />
+                                One very clear brief.
+                            </p>
+                            <div className="mt-6 flex items-center gap-3 text-gray-550 text-xs">
+                                <Image src={logoSrc(featured)} alt="" width={28} height={28} className="size-7 rounded-md" />
+                                <span>Inside Ghostty’s AGENTS.md</span>
+                                <span aria-hidden className="ml-auto text-teal">
+                                    ↗
+                                </span>
+                            </div>
+                        </Link>
+                    ) : null}
+                </header>
+                <section id="projects" aria-label="Projects" className="scroll-mt-24">
+                    <Suspense fallback={<ProjectExplorerContent projects={projects} />}>
                         <ProjectExplorer projects={projects} />
-                    </section>
-
-                    <section className="mt-16 max-w-3xl rounded-xl border border-dark-teal/40 bg-medium-gray/40 p-6 sm:p-8">
-                        <h2 className="font-unit-medium text-2xl text-light-cream leading-snug tracking-tight">
-                            Your agents are only as good as their context
-                        </h2>
-                        <p className="mt-3 font-roboto text-base text-light-cream/70 leading-relaxed">
-                            A good AGENTS.md tells an agent how your codebase works. It cannot tell it which bug three customers hit this
-                            week, or which request is blocking a renewal. Modem keeps that context current and hands it to the agent with
-                            the ticket.
-                        </p>
-                        <div className="mt-6">
-                            <CTAButton>Try Modem</CTAButton>
-                        </div>
-                    </section>
+                    </Suspense>
+                </section>
+                <div className="mt-10 flex flex-wrap items-center justify-between gap-4">
+                    <p className="text-gray-550 text-sm">Different projects. Recurring ideas.</p>
+                    <Link href="/techniques" className="action-link">
+                        Explore all {PATTERNS.length} techniques <span aria-hidden>→</span>
+                    </Link>
                 </div>
             </main>
 

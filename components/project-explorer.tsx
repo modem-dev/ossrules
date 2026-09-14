@@ -1,17 +1,8 @@
 'use client';
 
-/**
- * The browsable index of AGENTS.md files.
- *
- * Built for a corpus that grows: every facet is derived from the entries, rows
- * are dense enough to scan a hundred of them, and nothing in here needs editing
- * to add a project. Filter and sort state is local component state rather than
- * URL state; the page has no server-side pagination to keep in sync, and the
- * site carries no query-state library today.
- */
-
 import Image from 'next/image';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { useMemo, useState } from 'react';
 import type { AgentsProject, PatternId, SortId } from './agents-md-data';
 import {
@@ -24,226 +15,199 @@ import {
     PATTERNS_BY_ID,
     patternFacets,
     SORTS,
+    STATS_AS_OF,
 } from './agents-md-data';
 import { RelativeTime } from './last-updated';
 
 const ALL = 'all';
 
-/** Shared chip styling for the filter rows and the sort row. */
-function Chip({ active, children, onClick }: { active: boolean; children: React.ReactNode; onClick: () => void }) {
+function ProjectEntry({ project }: { project: AgentsProject }) {
     return (
-        <button
-            type="button"
-            onClick={onClick}
-            aria-pressed={active}
-            className={`rounded-full border px-3 py-1.5 font-inter text-xs leading-none transition-colors ${
-                active
-                    ? 'border-teal/70 bg-dark-teal/40 text-teal'
-                    : 'border-gray-750 bg-transparent text-gray-550 hover:border-gray-650 hover:text-light-cream/80'
-            }`}
-        >
-            {children}
-        </button>
-    );
-}
-
-function LanguageDot({ language }: { language: string }) {
-    return (
-        <span className="inline-flex items-center" title={language}>
-            <span aria-hidden className="size-2.5 rounded-full" style={{ backgroundColor: languageColor(language) }} />
-            <span className="sr-only">{language}</span>
-        </span>
-    );
-}
-
-function ProjectRow({ project }: { project: AgentsProject }) {
-    return (
-        <li>
-            <Link
-                href={`/${project.slug}`}
-                className="group grid grid-cols-[40px_minmax(0,1fr)] gap-x-4 gap-y-2 border-b border-gray-750/50 px-2 py-5 transition-colors hover:bg-medium-gray/40 sm:grid-cols-[40px_minmax(0,1fr)_auto] sm:items-baseline"
-            >
-                <Image
-                    src={logoSrc(project)}
-                    alt=""
-                    width={40}
-                    height={40}
-                    className="row-span-2 size-10 rounded-md bg-gray-800 object-cover sm:row-span-1 sm:self-center"
-                />
-
+        <li className="min-w-0 border-gray-750 border-b">
+            <Link href={`/${project.slug}`} className="project-entry group">
+                <Image src={logoSrc(project)} alt="" width={44} height={44} className="size-11 rounded-lg bg-gray-800 object-cover" />
                 <div className="min-w-0">
-                    <div className="flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
-                        <span className="font-unit-medium text-lg text-light-cream leading-snug transition-colors group-hover:text-teal">
+                    <div className="flex items-center justify-between gap-3">
+                        <h2 className="font-mono font-medium text-lg tracking-tight transition-colors group-hover:text-teal">
                             {project.name}
-                        </span>
-                        <span className="font-mono text-xs text-gray-600">
-                            {project.owner}/{project.repo}
+                        </h2>
+                        <span aria-hidden className="text-gray-650 transition-colors group-hover:text-teal">
+                            ↗
                         </span>
                     </div>
-                    <p className="mt-1 font-roboto text-[15px] text-light-cream/75 leading-relaxed">{project.hook}</p>
-                    <div className="mt-2.5 flex flex-wrap gap-1.5">
-                        {project.patterns.map((pattern) => (
+                    <p className="mt-1 break-all font-mono text-[11px] text-gray-600">
+                        {project.owner}/{project.repo}
+                    </p>
+                    <p className="mt-3 text-[14px] text-gray-500 leading-relaxed">{project.hook}</p>
+                    <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[11px] text-gray-550">
+                        <span>{project.file.lines.toLocaleString()} lines</span>
+                        <span className="inline-flex items-center gap-1.5">
                             <span
-                                key={pattern}
-                                className="rounded-full border border-gray-750 px-2 py-0.5 font-inter text-[11px] leading-tight text-gray-550"
-                            >
-                                {PATTERNS_BY_ID[pattern].name}
-                            </span>
-                        ))}
+                                aria-hidden
+                                className="size-1.5 rounded-full"
+                                style={{ backgroundColor: languageColor(project.language) }}
+                            />
+                            {project.language}
+                        </span>
+                        <span>{formatStars(project.stars)} stars</span>
                     </div>
-                </div>
-
-                <div className="col-start-2 flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-xs text-gray-550 tabular-nums sm:col-start-3 sm:flex-nowrap sm:justify-end sm:gap-5">
-                    <span className="flex sm:w-6 sm:justify-end">
-                        <LanguageDot language={project.language} />
-                    </span>
-                    <span className="sm:w-14 sm:text-right">
-                        {formatStars(project.stars)}
-                        <span className="text-gray-600 sm:sr-only"> stars</span>
-                    </span>
-                    <span className="sm:w-12 sm:text-right">
-                        {project.file.lines}
-                        <span className="text-gray-600 sm:sr-only"> lines</span>
-                    </span>
-                    <span className="sm:w-16 sm:text-right">
-                        <RelativeTime iso={project.lastCommit.date} />
-                    </span>
+                    <div className="mt-4 flex flex-wrap gap-x-3 gap-y-1.5 text-[11px] text-teal">
+                        {project.patterns.slice(0, 2).map((pattern) => (
+                            <span key={pattern}>{PATTERNS_BY_ID[pattern].name}</span>
+                        ))}
+                        {project.patterns.length > 2 ? (
+                            <span>
+                                +{project.patterns.length - 2}
+                                <span className="sr-only"> more {project.patterns.length === 3 ? 'technique' : 'techniques'}</span>
+                            </span>
+                        ) : null}
+                    </div>
+                    <p className="mt-3 text-[11px] text-gray-600">
+                        File changed <RelativeTime iso={project.lastCommit.date} />
+                    </p>
                 </div>
             </Link>
         </li>
     );
 }
 
+/** Search parameters let technique pages link directly to the matching collection. */
 export function ProjectExplorer({ projects }: { projects: AgentsProject[] }) {
+    const searchParams = useSearchParams();
+    const requested = searchParams.get('technique');
+    const initialPattern = requested && Object.hasOwn(PATTERNS_BY_ID, requested) ? (requested as PatternId) : ALL;
+    return <ProjectExplorerContent key={initialPattern} projects={projects} initialPattern={initialPattern} />;
+}
+
+/** Also prerendered as the Suspense fallback, so the full directory is present without JavaScript. */
+export function ProjectExplorerContent({
+    projects,
+    initialPattern = ALL,
+}: {
+    projects: AgentsProject[];
+    initialPattern?: PatternId | typeof ALL;
+}) {
     const [query, setQuery] = useState('');
-    const [language, setLanguage] = useState<string>(ALL);
-    const [pattern, setPattern] = useState<PatternId | typeof ALL>(ALL);
+    const [language, setLanguage] = useState(ALL);
+    const [pattern, setPattern] = useState<PatternId | typeof ALL>(initialPattern);
     const [sort, setSort] = useState<SortId>('stars');
     const [descending, setDescending] = useState(true);
-
     const languages = useMemo(() => languageFacets(projects), [projects]);
     const patterns = useMemo(() => patternFacets(projects), [projects]);
+    const visible = useMemo(
+        () =>
+            projects
+                .filter((project) => matchesQuery(project, query))
+                .filter((project) => language === ALL || project.language === language)
+                .filter((project) => pattern === ALL || project.patterns.includes(pattern))
+                .sort((a, b) => compareProjects(a, b, sort, descending)),
+        [projects, query, language, pattern, sort, descending],
+    );
+    const filtered = query !== '' || language !== ALL || pattern !== ALL;
 
-    const visible = useMemo(() => {
-        return projects
-            .filter((project) => matchesQuery(project, query))
-            .filter((project) => language === ALL || project.language === language)
-            .filter((project) => pattern === ALL || project.patterns.includes(pattern))
-            .sort((a, b) => compareProjects(a, b, sort, descending));
-    }, [projects, query, language, pattern, sort, descending]);
-
-    const filtered = visible.length !== projects.length;
+    function clearFilters() {
+        setQuery('');
+        setLanguage(ALL);
+        setPattern(ALL);
+    }
 
     return (
         <div>
-            <div className="flex flex-col gap-4 border-b border-gray-750/50 pb-5">
-                <div className="flex flex-wrap items-center gap-3">
+            <div className="directory-toolbar">
+                <label className="directory-search">
+                    <svg viewBox="0 0 20 20" fill="none" aria-hidden className="size-4 shrink-0 text-gray-600">
+                        <circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" strokeWidth="1.5" />
+                        <path d="m13 13 4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                    </svg>
                     <input
                         type="search"
                         value={query}
                         onChange={(event) => setQuery(event.target.value)}
-                        placeholder="Search projects"
+                        placeholder="Search projects…"
                         aria-label="Search projects"
-                        className="h-9 w-full min-w-0 rounded-md border border-gray-750 bg-gray-850/60 px-3 font-inter text-sm text-light-cream placeholder:text-gray-600 focus:border-teal/70 focus:outline-none sm:w-64"
                     />
-                    <div className="flex flex-wrap items-center gap-2">
-                        <span className="font-inter text-xs text-gray-600">Sort</span>
-                        {SORTS.map((option) => (
-                            <Chip
-                                key={option.id}
-                                active={sort === option.id}
-                                onClick={() => {
-                                    // Re-picking the active column flips direction; a new
-                                    // column starts on its own sensible default.
-                                    if (sort === option.id) {
-                                        setDescending((value) => !value);
-                                        return;
-                                    }
-                                    setSort(option.id);
-                                    setDescending(option.id !== 'name');
-                                }}
-                            >
-                                {option.label}
-                                {sort === option.id ? <span aria-hidden> {descending ? '↓' : '↑'}</span> : null}
-                            </Chip>
+                </label>
+                <label className="directory-filter">
+                    <span className="sr-only">Language</span>
+                    <select value={language} onChange={(event) => setLanguage(event.target.value)}>
+                        <option value={ALL}>All languages</option>
+                        {languages.map((item) => (
+                            <option key={item.value} value={item.value}>
+                                {item.value} ({item.count})
+                            </option>
                         ))}
-                    </div>
-                </div>
-
-                <div className="flex flex-wrap items-center gap-2">
-                    <span className="font-inter text-xs text-gray-600">Language</span>
-                    <Chip active={language === ALL} onClick={() => setLanguage(ALL)}>
-                        All
-                    </Chip>
-                    {languages.map((item) => (
-                        <Chip key={item.value} active={language === item.value} onClick={() => setLanguage(item.value)}>
-                            <span className="inline-flex items-center gap-1.5">
-                                <span
-                                    aria-hidden
-                                    className="size-2.5 rounded-full"
-                                    style={{ backgroundColor: languageColor(item.value) }}
-                                />
-                                {item.value} <span className="text-gray-600">{item.count}</span>
-                            </span>
-                        </Chip>
-                    ))}
-                </div>
-
-                <div className="flex flex-wrap items-center gap-2">
-                    <span className="font-inter text-xs text-gray-600">Technique</span>
-                    <Chip active={pattern === ALL} onClick={() => setPattern(ALL)}>
-                        All
-                    </Chip>
-                    {patterns.map((item) => (
-                        <Chip key={item.id} active={pattern === item.id} onClick={() => setPattern(item.id)}>
-                            {item.name} <span className="text-gray-600">{item.count}</span>
-                        </Chip>
-                    ))}
+                    </select>
+                </label>
+                <label className="directory-filter">
+                    <span className="sr-only">Technique</span>
+                    <select value={pattern} onChange={(event) => setPattern(event.target.value as PatternId | typeof ALL)}>
+                        <option value={ALL}>All techniques</option>
+                        {patterns.map((item) => (
+                            <option key={item.id} value={item.id}>
+                                {item.name} ({item.count})
+                            </option>
+                        ))}
+                    </select>
+                </label>
+                <div className="directory-sort">
+                    <label className="directory-filter">
+                        <span className="sr-only">Sort projects</span>
+                        <select
+                            value={sort}
+                            onChange={(event) => {
+                                const next = event.target.value as SortId;
+                                setSort(next);
+                                setDescending(next !== 'name' && next !== 'lines');
+                            }}
+                        >
+                            {SORTS.map((option) => (
+                                <option key={option.id} value={option.id}>
+                                    Sort: {option.label}
+                                </option>
+                            ))}
+                        </select>
+                    </label>
+                    <button
+                        type="button"
+                        className="sort-direction"
+                        onClick={() => setDescending((value) => !value)}
+                        aria-label={descending ? 'Sort ascending' : 'Sort descending'}
+                        title={descending ? 'Descending; switch to ascending' : 'Ascending; switch to descending'}
+                    >
+                        <span aria-hidden>{descending ? '↓' : '↑'}</span>
+                    </button>
                 </div>
             </div>
-
-            <div className="flex items-center justify-between py-3">
-                <p className="font-inter text-xs text-gray-550">
+            {filtered ? (
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 border-gray-750 border-b py-3 text-xs">
+                    <span className="text-gray-550">Showing</span>
+                    {query ? <span>“{query}”</span> : null}
+                    {language !== ALL ? <span>{language}</span> : null}
+                    {pattern !== ALL ? <span>{PATTERNS_BY_ID[pattern].name}</span> : null}
+                    <button type="button" onClick={clearFilters} className="ml-auto min-h-8 text-teal hover:underline">
+                        Clear filters ×
+                    </button>
+                </div>
+            ) : null}
+            <div className="flex flex-wrap items-center justify-between gap-3 py-5 font-mono text-[11px] text-gray-600">
+                <p role="status">
                     {visible.length} {visible.length === 1 ? 'project' : 'projects'}
                     {filtered ? ` of ${projects.length}` : ''}
                 </p>
-                {filtered ? (
-                    <button
-                        type="button"
-                        onClick={() => {
-                            setQuery('');
-                            setLanguage(ALL);
-                            setPattern(ALL);
-                        }}
-                        className="font-inter text-xs text-teal hover:underline"
-                    >
+                <p>Star snapshot · {STATS_AS_OF}</p>
+            </div>
+            {visible.length === 0 ? (
+                <div className="rounded-lg border border-gray-750 bg-medium-gray px-6 py-12 text-center">
+                    <h2 className="section-title">No projects found</h2>
+                    <p className="mt-3 text-gray-550 text-sm">Try a different search or remove a filter.</p>
+                    <button type="button" onClick={clearFilters} className="action-link mt-5">
                         Clear filters
                     </button>
-                ) : null}
-            </div>
-
-            <div
-                aria-hidden
-                className="hidden border-y border-gray-750/50 px-2 py-2 font-inter text-[11px] uppercase tracking-wider text-gray-600 sm:grid sm:grid-cols-[40px_minmax(0,1fr)_auto] sm:gap-x-4"
-            >
-                <span />
-                <span>Project</span>
-                <span className="flex gap-5">
-                    <span className="w-6 text-right">Lang</span>
-                    <span className="w-14 text-right">Stars</span>
-                    <span className="w-12 text-right">Lines</span>
-                    <span className="w-16 text-right">Updated</span>
-                </span>
-            </div>
-
-            {visible.length === 0 ? (
-                <p className="border-t border-gray-750/50 py-16 text-center font-roboto text-base text-gray-550">
-                    Nothing matches those filters.
-                </p>
+                </div>
             ) : (
-                <ul>
+                <ul className="grid gap-x-10 md:grid-cols-2">
                     {visible.map((project) => (
-                        <ProjectRow key={project.slug} project={project} />
+                        <ProjectEntry key={project.slug} project={project} />
                     ))}
                 </ul>
             )}
