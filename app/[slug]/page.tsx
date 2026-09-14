@@ -307,23 +307,50 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                         </aside>
                     </div>
 
-                    <nav aria-label="More projects" className="mt-14 grid grid-cols-2 gap-5 border-gray-750 border-t pt-7">
-                        {previous ? (
-                            <Link href={`/${previous.slug}`} className="group">
-                                <span className="eyebrow">← Previous</span>
-                                <span className="mt-2 block font-mono text-sm group-hover:text-teal">{previous.name}</span>
-                                <span className="mt-1 block text-gray-600 text-xs">{formatStars(previous.stars)} stars</span>
-                            </Link>
-                        ) : (
-                            <span />
+                    <nav aria-label="More projects" className="mt-14 grid gap-4 border-gray-750 border-t pt-7 sm:grid-cols-2">
+                        {[
+                            { project: previous, direction: 'Previous', arrow: '←' },
+                            { project: next, direction: 'Next', arrow: '→' },
+                        ].map(({ project: neighbor, direction, arrow }) =>
+                            neighbor ? (
+                                <Link
+                                    key={direction}
+                                    href={`/${neighbor.slug}`}
+                                    rel={direction === 'Previous' ? 'prev' : 'next'}
+                                    className="group min-w-0 rounded-md border border-gray-750 bg-medium-gray p-5 transition-colors hover:border-teal"
+                                >
+                                    <span className={`eyebrow flex items-center gap-2 ${direction === 'Next' ? 'justify-end' : ''}`}>
+                                        {direction === 'Previous' ? <span aria-hidden>{arrow}</span> : null}
+                                        {direction}
+                                        {direction === 'Next' ? <span aria-hidden>{arrow}</span> : null}
+                                    </span>
+                                    <span className="mt-4 flex items-center gap-3">
+                                        <Image
+                                            src={logoSrc(neighbor)}
+                                            alt=""
+                                            width={40}
+                                            height={40}
+                                            className="size-10 shrink-0 rounded-md bg-gray-800 object-cover"
+                                        />
+                                        <span className="min-w-0">
+                                            <span className="block font-mono text-base transition-colors group-hover:text-teal">
+                                                {neighbor.name}
+                                            </span>
+                                            <span className="mt-1 block truncate font-mono text-[11px] text-gray-600">
+                                                {neighbor.owner}/{neighbor.repo}
+                                            </span>
+                                        </span>
+                                    </span>
+                                    <span className="mt-4 line-clamp-2 text-gray-550 text-sm leading-relaxed">{neighbor.tagline}</span>
+                                    <span className="mt-4 flex flex-wrap gap-x-4 gap-y-1 font-mono text-[11px] text-gray-600">
+                                        <span>{neighbor.file.lines.toLocaleString('en-US')} lines</span>
+                                        <span>{formatStars(neighbor.stars)} stars</span>
+                                    </span>
+                                </Link>
+                            ) : (
+                                <span key={direction} className="hidden sm:block" />
+                            ),
                         )}
-                        {next ? (
-                            <Link href={`/${next.slug}`} className="group text-right">
-                                <span className="eyebrow">Next →</span>
-                                <span className="mt-2 block font-mono text-sm group-hover:text-teal">{next.name}</span>
-                                <span className="mt-1 block text-gray-600 text-xs">{formatStars(next.stars)} stars</span>
-                            </Link>
-                        ) : null}
                     </nav>
                     <section className="mt-16 border-gray-750 border-t pt-10">
                         <h2 className="section-title">Context your AGENTS.md cannot carry</h2>
