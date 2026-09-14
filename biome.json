@@ -8,7 +8,7 @@
     },
     "files": {
         "ignoreUnknown": false,
-        "includes": ["**", "!**/dist", "!**/node_modules", "!**/.next", "!public/files"]
+        "includes": ["**", "!**/dist", "!**/node_modules", "!**/.next", "!public/files", "!content/skill-files", "!content/skills"]
     },
     "formatter": {
         "enabled": true,

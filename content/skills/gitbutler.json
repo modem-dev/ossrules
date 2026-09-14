@@ -1,0 +1,189 @@
+{
+    "version": 1,
+    "slug": "gitbutler",
+    "repository": "gitbutlerapp/gitbutler",
+    "branch": "master",
+    "sha": "1f5041d3da21d419ca9a151e90ad3495f3870cc1",
+    "scannedAt": "2026-09-14T23:22:59.690Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "but-performance-tests-fe098a85a57c",
+            "path": ".agents/skills/but-performance-tests/SKILL.md",
+            "name": "but-performance-tests",
+            "description": "Use when creating, changing, running, or debugging shell-based `but` CLI performance scenarios under `crates/but/tests/performance`, including Hyperfine runs, fixture setup, setup-to-test state, and output inspection.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d435b33c2f39e968ce40cab052f1812675e90cbb",
+                    "bytes": 1925,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "cli-commands-8636e6b7bed6",
+            "path": ".agents/skills/cli-commands/SKILL.md",
+            "name": "cli-commands",
+            "description": "Use when adding or modifying CLI command (`but` commands) under `crates/but/src`.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "2893d699d99639328598ab2bfffee1b52b5d172c",
+                    "bytes": 7624,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "lite-render-perf-cab43d2f1b98",
+            "path": ".agents/skills/lite-render-perf/SKILL.md",
+            "name": "lite-render-perf",
+            "description": "Use when working on React code in `apps/lite` that derives values during render, adds or consumes a context, subscribes to the redux store or a query, or renders lists of row components — and whenever the lite UI is reported slow, laggy, or re-rendering too much. React Compiler does not prevent these regressions; load this skill BEFORE writing such code, not only when debugging it.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "144f7eb3122e556f75079fac5763f520116f0998",
+                    "bytes": 10500,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "lite-screenshots-911269213e75",
+            "path": ".agents/skills/lite-screenshots/SKILL.md",
+            "name": "lite-screenshots",
+            "description": "Use when asked to add before/after screenshots of a Lite UI change to a pull request, when a PR touching apps/lite/ui needs its visual change shown, or when extending the screenshot catalogue in apps/lite/e2e/tests/screenshots.spec.ts. Captures both sides locally against seeded fixtures, publishes the surfaces that changed, and posts them to the PR.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "92f2f3346a3cbbd8c7a8180ffcc3db60166f347c",
+                    "bytes": 15229,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "tui-tests-d0d0cfb1f95a",
+            "path": ".agents/skills/tui-tests/SKILL.md",
+            "name": "tui-tests",
+            "description": "Use when adding or modifying tests for one of GitButler's Ratatui TUIs",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "63f5074cc08005ffeb33cf813d64c209427cde5c",
+                    "bytes": 3004,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "skill-4358a2ad8074",
+            "path": "crates/but-agentlog/skill/SKILL.md",
+            "name": "but-agentlog",
+            "description": "Use for prompts like \"get context for branch\", \"catch up on this branch\", \"recover branch context\", or \"what prior agent work happened here\". Skim prior agent work from `but agentlog` captures for a GitButler branch, review / pull request / merge request, or change. Prefer this over generic git branch/diff inspection when the user asks for context, history, prior work, or branch catch-up.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "31d173a452869773fb3ce391751d9dc12bed0844",
+                    "bytes": 6970,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "daa31623a8ad265499353490f669c855b05117e7",
+                    "bytes": 443,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "skill-7fddadf16902",
+            "path": "crates/but/skill/SKILL.md",
+            "name": "but",
+            "description": "Commit, push, branch, and manage version control with GitButler. Use for commits, selective dirty-file or hunk commits, branches, diffs, PRs, history edits, squashes, amends, undo, merge, apply, and unapply. For selected dirty files or hunks, inspect with `but diff`; use compact `but status` for commit order, branch/stack placement, or conflict overview; use `but status -fv` when file/hunk IDs or per-commit file details matter. Replaces git write commands.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "42d1f68de3e285465b45601b4ccebec57cd29602",
+                    "bytes": 23462,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "AGENTS.md",
+                    "blob": "d4f62508f8914a1ed5b5f424e72d681352bab3ea",
+                    "bytes": 2255,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "CLAUDE.md",
+                    "blob": "47dc3e3d863cfb5727b87d785d09abf9743c0a72",
+                    "bytes": 9,
+                    "text": false,
+                    "mode": "120000",
+                    "omitted": "Symlink; inspect the upstream target."
+                },
+                {
+                    "path": "README.md",
+                    "blob": "74758b55e255e3abe1d04bd6aa19081135cdfb0d",
+                    "bytes": 6183,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/concepts.md",
+                    "blob": "fcf1c7fd1a1b60b98d9fcba54d47f3f4f5e989c5",
+                    "bytes": 14722,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/examples.md",
+                    "blob": "9a89cbdd9418ba5567f0376fd5689ba5e8999872",
+                    "bytes": 13985,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/reference.md",
+                    "blob": "7b9f4f8d2c726fe2c8ed13bd332cdea146aa723d",
+                    "bytes": 33361,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "stub.md",
+                    "blob": "77c7dbad71365899b661884e78aa5d34f6e01ed8",
+                    "bytes": 532,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "e203c98b193bfdfdc831009e43699dc030324492",
+        "bytes": 1779,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE.md",
+        "blob": "11d87d8a56a7482062c1fa377a1f7f006c3e721b",
+        "bytes": 4218,
+        "text": true,
+        "mode": "100644"
+    }
+}

@@ -1,0 +1,293 @@
+{
+    "version": 1,
+    "slug": "airflow",
+    "repository": "apache/airflow",
+    "branch": "main",
+    "sha": "2aca1aa918ecb9465413a05b8b40a055a8c7a669",
+    "scannedAt": "2026-09-14T23:22:34.548Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "aip-user-stories-254ad3dd4ffd",
+            "path": ".agents/skills/aip-user-stories/SKILL.md",
+            "name": "aip-user-stories",
+            "description": "Generate verified recipe playbooks from AIPs with PR implementations (post mode), or speculative user stories from AIPs without implementations (pre mode). Use when the user provides an AIP URL or AIP content, optionally with PR URLs and file paths.",
+            "license": "Apache-2.0",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "f804b0554d3cca16fc004af513a627a659981c62",
+                    "bytes": 9993,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/playbook-template.md",
+                    "blob": "43a6948f6d18744669a84f7f10fc79d6ccbb33cd",
+                    "bytes": 2114,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "airflow-java-sdk-c517a9174761",
+            "path": ".agents/skills/airflow-java-sdk/SKILL.md",
+            "name": "airflow-java-sdk",
+            "description": "Guide for contributing to the Airflow Java SDK (AIP-108). Use this skill whenever a contributor is working in the `java-sdk/` directory or on the Java coordinator in `task-sdk/src/airflow/sdk/coordinators/java/` — whether they want to add a feature, write tests, fix a bug, understand the architecture, or prepare a PR. Trigger on phrases like \"Java SDK\", \"JavaCoordinator\", \"java-sdk\", \"annotation processor\", \"Builder.Task\", \"BundleBuilder\", or anything about running JVM tasks in Airflow.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "8edb742679535705003416d67499b53adc1d08af",
+                    "bytes": 6243,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "airflow-new-sdk-d3bafdf0f142",
+            "path": ".agents/skills/airflow-new-sdk/SKILL.md",
+            "name": "airflow-new-sdk",
+            "description": "Guide for implementing a brand-new language SDK for Airflow (AIP-108). Use this skill when a contributor wants to add support for a new programming language — designing the Python coordinator, implementing the wire protocol in the target language, writing the bundle format, and structuring the PR. Trigger on phrases like \"new language SDK\", \"new SDK\", \"add support for [language]\", \"implement coordinator for\", \"SubprocessCoordinator\", \"BaseCoordinator\", \"new runtime\", \"AFBNDL01\", \"supervisor schema\", or anything about bringing a new language into the Airflow executor ecosystem.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "6534be502d53e573834d00b77fc8ff3aa1c2be8d",
+                    "bytes": 6827,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "airflow-translations-ff00f545cae9",
+            "path": ".agents/skills/airflow-translations/SKILL.md",
+            "name": "airflow-translations",
+            "description": "Add or update translations for the Apache Airflow UI. Guides through setting up locales, scaffolding translation files, translating with locale-specific guidelines, and validating results. Use when working with i18n tasks in airflow-core/src/airflow/ui/public/i18n/locales/.\n",
+            "license": "Apache-2.0",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "badc9598022d1835046d39d938a0e34b8c4e7f60",
+                    "bytes": 9465,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "locales/ar.md",
+                    "blob": "d15af2df74f7cdff0a8f1551e446a368b399d9ff",
+                    "bytes": 6597,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "locales/ca.md",
+                    "blob": "1563f3377cdd8d7519f240291e75e3c56e629253",
+                    "bytes": 9031,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "locales/de.md",
+                    "blob": "f24973b5ae0a418fffd83164dae251879274138f",
+                    "bytes": 15041,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "locales/el.md",
+                    "blob": "76e9dd1b7829598f2127589d8cb392bc0c949762",
+                    "bytes": 12045,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "locales/es.md",
+                    "blob": "ac8e0479b5c8e408f9dc0fc2d095f2cb1eb00189",
+                    "bytes": 11837,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "locales/fr.md",
+                    "blob": "98427cab213ac49a83b65c569cb18e86131993e9",
+                    "bytes": 7958,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "locales/he.md",
+                    "blob": "463a75b7e1e4ac92404980c6d958f57c1ef2a61c",
+                    "bytes": 9915,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "locales/hi.md",
+                    "blob": "e874a26e40d6ab1f565442c05a0e506a9cdf4327",
+                    "bytes": 2235,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "locales/hu.md",
+                    "blob": "cfb44e5e9819d0396d95a7ce0c40ba1168a7a583",
+                    "bytes": 8998,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "locales/it.md",
+                    "blob": "4fb8a351e6b84d023279d7f51bf99ecde3a89b00",
+                    "bytes": 354,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "locales/ja.md",
+                    "blob": "b3c54bf9ce814e5adefe7f7fc5169a608ab837cf",
+                    "bytes": 2874,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "locales/ko.md",
+                    "blob": "67cfcd18652cb5231379a07ad5e7d0bde4319eb8",
+                    "bytes": 4303,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "locales/nl.md",
+                    "blob": "fe10cb9da582539f92b7b7e08036fb479e51a6df",
+                    "bytes": 6406,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "locales/pl.md",
+                    "blob": "1a38bbbb325d10eda0e7115eadcaa91bb25f1901",
+                    "bytes": 4820,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "locales/pt.md",
+                    "blob": "648f5f7a8d4963c8f315920abb3299463be1a111",
+                    "bytes": 2769,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "locales/th.md",
+                    "blob": "9cd5658648ee9959f8bfd56d562c96046b620817",
+                    "bytes": 11645,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "locales/tr.md",
+                    "blob": "3e7770f4655b11ede5766654c5473f6abbc7b545",
+                    "bytes": 10877,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "locales/zh-CN.md",
+                    "blob": "5733348ddba7e2a5dbe234b58db6c870308f4550",
+                    "bytes": 3447,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "locales/zh-TW.md",
+                    "blob": "f22b1dc8fb9b2c04bcd3bc426bcfdf0db27fbbc1",
+                    "bytes": 3958,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "prepare-providers-documentation-9a824df6a038",
+            "path": ".agents/skills/prepare-providers-documentation/SKILL.md",
+            "name": "prepare-providers-documentation",
+            "description": "Replace the manual commit-by-commit classification step in `breeze release-management prepare-provider-documentation` with AI-driven classification. For each provider with pending changes, analyze every PR (batched into one sub-agent per provider, not one per PR), pay special attention to potentially breaking changes by inspecting the actual diff, scope multi-provider PRs to the current provider's slice, ask the release manager when uncertain, and apply version bumps + changelog entries. Use during the regular provider release cycle as an alternative to the interactive breeze prompts.\n",
+            "license": "Apache-2.0",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "cfcfda858170d8dcece7cd713e22ace15ad1c467",
+                    "bytes": 58605,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "upgrade-fab-provider-e4f6f9da56ed",
+            "path": ".agents/skills/upgrade-fab-provider/SKILL.md",
+            "name": "upgrade-fab-provider",
+            "description": "Upgrade the pinned Flask-AppBuilder (FAB) dependency in the Apache Airflow FAB provider (`providers/fab/`). Bumps the exact `flask-appbuilder==` pin and its mirror constant, regenerates `uv.lock`, drives the `test_fab_alignment.py` drift tripwire, reviews the vendored security-manager `override.py` against the new upstream FAB, and conditionally re-vendors static assets / DB migrations. Use when asked to \"upgrade FAB\", \"bump flask-appbuilder\", or move the FAB provider to a newer Flask-AppBuilder release.\n",
+            "license": "Apache-2.0",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "1b08f8aa22adb7984ddc118d0dde9b7c6be9a8e7",
+                    "bytes": 12628,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "aip-tracker-f89502b97a63",
+            "path": "providers/common/ai/src/airflow/providers/common/ai/example_dags/skills/aip-tracker/SKILL.md",
+            "name": "aip-tracker",
+            "description": "Track Airflow Improvement Proposal (AIP) implementation progress by comparing Confluence specs against codebase evidence. Use when asked to assess, report on, or compare AIP status.",
+            "license": "Apache-2.0",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "19111931129aaf9d0b09e0a76e017a8d48e9df28",
+                    "bytes": 5493,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "sql-reporting-c26f9a64a790",
+            "path": "providers/common/ai/src/airflow/providers/common/ai/example_dags/skills/sql-reporting/SKILL.md",
+            "name": "sql-reporting",
+            "description": "Conventions and review steps for writing analytics SQL against the warehouse. Use whenever the task involves querying tables, building a report, or aggregating metrics.",
+            "license": "Apache-2.0",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b3bef6b2348d89cb1d70dbd7f0c338d787d92a4a",
+                    "bytes": 1407,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "1b4187e72f53a99458c960098e88f057cd7948ba",
+        "bytes": 36577,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "cda7cffa6aa85bc22615d650bbb52026a8863d21",
+        "bytes": 11752,
+        "text": true,
+        "mode": "100644"
+    }
+}

@@ -1,0 +1,42 @@
+{
+    "version": 1,
+    "slug": "ghostty",
+    "repository": "ghostty-org/ghostty",
+    "branch": "main",
+    "sha": "661e1e77f445057312666a74d9f5002e82f81764",
+    "scannedAt": "2026-09-14T23:22:57.631Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "writing-commit-messages-f3ed07ce1190",
+            "path": ".agents/skills/writing-commit-messages/SKILL.md",
+            "name": "writing-commit-messages",
+            "description": "Writes Git commit messages. Activates when the user asks to write a commit message, draft a commit message, or similar.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "fef12cd30e1a7377557932734e6eee211bf69ad5",
+                    "bytes": 2010,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "8a5254889f142a47d620914f3be4eaba3557fe21",
+        "bytes": 1388,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "0a07a66cd1ad6ea35cc3b8150e2c37702fe5989d",
+        "bytes": 1097,
+        "text": true,
+        "mode": "100644"
+    }
+}

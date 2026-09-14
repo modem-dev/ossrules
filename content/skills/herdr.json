@@ -1,0 +1,96 @@
+{
+    "version": 1,
+    "slug": "herdr",
+    "repository": "herdrdev/herdr",
+    "branch": "master",
+    "sha": "32503f81f7f22552d86f048afb3de179f44e049a",
+    "scannedAt": "2026-09-14T23:23:03.395Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [
+        "vendor/libghostty-vt/.agents/skills/writing-commit-messages/SKILL.md"
+    ],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "herdr-pre-release-audit-7eb33968f9db",
+            "path": ".agents/skills/herdr-pre-release-audit/SKILL.md",
+            "name": "herdr-pre-release-audit",
+            "description": "Audit herdr release readiness by comparing commits since the base release against next-release changelog and docs. Use when asked to run or apply the repo's pre-release audit, validate docs/next before release, inspect issue refs that release CI will close, or finalize release docs for herdr.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ce5e7d019eba6d2249affb907bf66a8d3104aceb",
+                    "bytes": 1154,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/pre-release-audit.md",
+                    "blob": "2c90b4cebfbca6119ffc1260e8092f752ad75899",
+                    "bytes": 10003,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "herdr-throwaway-repro-fbd26bdbe03a",
+            "path": ".agents/skills/herdr-throwaway-repro/SKILL.md",
+            "name": "herdr-throwaway-repro",
+            "description": "Create and control a disposable named Herdr session from inside an existing Herdr session. Use for isolated Herdr runtime, pane, terminal, process, API, persistence, or agent reproductions that should be driven through the CLI/API without touching the default session.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "0f1cd838db3d9c9f7c2df9eb71ed33fe0b71e590",
+                    "bytes": 9665,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "triage-e1a987817fd5",
+            "path": ".agents/skills/triage/SKILL.md",
+            "name": "triage",
+            "description": "Triage open herdr GitHub issues into a concise decision-first Markdown table. Use when the user says \"triage\", asks to triage open issues, asks which issues need attention, or wants issue priority/recommendation lights for herdr.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ad5bdc41e9c7bacd5b2c44d8ff4a31dd67aaa67b",
+                    "bytes": 2083,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "herdr-e694ac4cde8f",
+            "path": "skills/herdr/SKILL.md",
+            "name": "herdr",
+            "description": "Control Herdr, a terminal multiplexer for coding agents. Use only when the user explicitly mentions Herdr or asks to use Herdr to inspect or control panes, tabs, workspaces, commands, or another agent. Do not use merely because a task could benefit from a background terminal, delegation, or parallel work. Requires HERDR_ENV=1.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "be7b1f7cbb6902fe0af852a6a0fc52875f6d0ef8",
+                    "bytes": 12600,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "92b29da9bff79d73615d8c72ac26fbe97acbaa30",
+        "bytes": 27080,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+        "bytes": 11357,
+        "text": true,
+        "mode": "100644"
+    }
+}

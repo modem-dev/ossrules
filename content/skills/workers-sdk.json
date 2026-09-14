@@ -1,0 +1,42 @@
+{
+    "version": 1,
+    "slug": "workers-sdk",
+    "repository": "cloudflare/workers-sdk",
+    "branch": "main",
+    "sha": "b149147a1746d30fd8a868dbef7a4aac463444f1",
+    "scannedAt": "2026-09-14T23:23:32.468Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "local-explorer-979dbdd1978a",
+            "path": ".opencode/skills/local-explorer/SKILL.md",
+            "name": "local-explorer",
+            "description": "How to add products/resources to the local explorer or local API. Use when implementing new local APIs, or UI routes under packages/miniflare/src/workers/local-explorer or packages/local-explorer-ui.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b7f6bf5111edad1087a07c2c283feedb463f3ffa",
+                    "bytes": 5475,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/local-explorer-diagram.md",
+                    "blob": "d78d55028fcc071731e2cd8c0463357fc1d25c5f",
+                    "bytes": 1617,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "5400e37000e5e772c26187949c180ed33107c036",
+        "bytes": 9162,
+        "text": true,
+        "mode": "100644"
+    }
+}

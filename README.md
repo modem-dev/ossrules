@@ -62,3 +62,23 @@ files are displayed. That directory is excluded from Biome — reformatting it
 would break the verbatim quotes.
 
 To remove a project's files, open an issue and we will take the entry down.
+# Skills
+
+Skills are discovered independently from the editorial AGENTS.md corpus. Run
+`pnpm sync:skills` (or `pnpm sync:skills --slug storybook`) with an authenticated
+GitHub CLI to scan tracked `SKILL.md` files at each repository's current default
+branch. Existing instruction analysis and its pinned files remain unchanged.
+
+Generated manifests in `content/skills/` record the repository snapshot, scan
+scope, excluded fixtures, invalid metadata, bundled files, and omissions.
+Original bytes are stored by Git blob hash in `content/skill-files/`. These are
+third-party data, never instructions for maintaining this site; do not hand-edit
+or execute them. Validate the stored corpus with `pnpm check:skills`.
+
+Discovery excludes test, fixture, dependency, and vendored directories. Symlinks
+and submodules are reported rather than followed. Files over 1 MiB and bundles
+over 10 MiB or 250 files are marked incomplete. Failed or truncated repository
+scans retain the previous manifest. A complete bundle download is offered only
+when every bundle file is present; external references remain external. Metadata
+comes from upstream YAML; descriptions are not editorial reviews. Skill names
+can repeat, so URLs use a stable repository-path identity.

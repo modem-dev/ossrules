@@ -1,0 +1,451 @@
+{
+    "version": 1,
+    "slug": "storybook",
+    "repository": "storybookjs/storybook",
+    "branch": "next",
+    "sha": "bf830863e045d21e59eba0b550cb758eac12175c",
+    "scannedAt": "2026-09-14T23:23:12.182Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [
+        {
+            "path": ".claude/skills/canary/SKILL.md",
+            "reason": "Missing YAML frontmatter."
+        },
+        {
+            "path": ".claude/skills/docs-review/SKILL.md",
+            "reason": "Missing YAML frontmatter."
+        },
+        {
+            "path": ".claude/skills/fix-linting-types-on-pr/SKILL.md",
+            "reason": "Missing YAML frontmatter."
+        },
+        {
+            "path": ".claude/skills/github-qa-labels/SKILL.md",
+            "reason": "Missing YAML frontmatter."
+        },
+        {
+            "path": ".claude/skills/handle-pr-comments/SKILL.md",
+            "reason": "Missing YAML frontmatter."
+        },
+        {
+            "path": ".claude/skills/minor-release/SKILL.md",
+            "reason": "Missing YAML frontmatter."
+        },
+        {
+            "path": ".claude/skills/open-pr/SKILL.md",
+            "reason": "Missing YAML frontmatter."
+        },
+        {
+            "path": ".claude/skills/pr/SKILL.md",
+            "reason": "Missing YAML frontmatter."
+        },
+        {
+            "path": ".claude/skills/principle-encode-lessons-in-structure/SKILL.md",
+            "reason": "Missing YAML frontmatter."
+        },
+        {
+            "path": ".claude/skills/rebuild-restart-storybook/SKILL.md",
+            "reason": "Missing YAML frontmatter."
+        },
+        {
+            "path": ".claude/skills/storybook-startup-benchmark/SKILL.md",
+            "reason": "Missing YAML frontmatter."
+        },
+        {
+            "path": ".claude/skills/storybook-upgrade/SKILL.md",
+            "reason": "Missing YAML frontmatter."
+        },
+        {
+            "path": ".claude/skills/update-pr-description/SKILL.md",
+            "reason": "Missing YAML frontmatter."
+        }
+    ],
+    "skills": [
+        {
+            "id": "canary-446b0a18cb31",
+            "path": ".agents/skills/canary/SKILL.md",
+            "name": "canary",
+            "description": "Finds or publishes a pkg.pr.new canary release for a Storybook branch. Use when the user wants the canary package specifier for a branch or needs to trigger the canary workflow manually.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "27d950ef388796b4393581395470fd999c97a843",
+                    "bytes": 4875,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "docs-review-7e4bb9c1e837",
+            "path": ".agents/skills/docs-review/SKILL.md",
+            "name": "docs-review",
+            "description": "Review, improve, rewrite, author, or plan Storybook documentation in /docs. Use this when asked to review docs, improve a page, rewrite documentation, draft new docs, or advise on docs strategy.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "aabc282fdc830947b04f20b7cd19fb3568c58120",
+                    "bytes": 6779,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/docs-antipatterns.md",
+                    "blob": "4c730cebf8ea0e703b884c4d143960566a43d8f4",
+                    "bytes": 5911,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/docs-principles.md",
+                    "blob": "c0f088684a78bbee168da2e465b5cb2ba358daa5",
+                    "bytes": 2338,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/docs-strategy.md",
+                    "blob": "554c7dc8d0ec3ce315f6554322e7c0939c1eb90b",
+                    "bytes": 6206,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/storybook-style.md",
+                    "blob": "89ce0044798b08ea8edfe781790deffc8d078665",
+                    "bytes": 7701,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "fix-linting-types-on-pr-fd5a80b3a8cd",
+            "path": ".agents/skills/fix-linting-types-on-pr/SKILL.md",
+            "name": "fix-linting-types-on-pr",
+            "description": "Checks out a PR (including fork PRs), fixes all linting and TypeScript errors, then pushes the changes back. Use when asked to fix lint, types, or TS errors on a PR.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "68d2d6949bd5d4bc7ee5c8e9077420550990fe24",
+                    "bytes": 2276,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "github-qa-labels-438f25c44c5a",
+            "path": ".agents/skills/github-qa-labels/SKILL.md",
+            "name": "github-qa-labels",
+            "description": "Label GitHub issues and PRs found during QA testing. Use when organizing QA findings with proper labels.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "6783e7a09892750032e400252e95cb8111b31bd9",
+                    "bytes": 1828,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "handle-pr-comments-d36b7fd5f035",
+            "path": ".agents/skills/handle-pr-comments/SKILL.md",
+            "name": "handle-pr-comments",
+            "description": "Triage and resolve GitHub PR review comments one by one, interactively. Use when the user asks to handle, address, respond to, or resolve PR review comments, or mentions reviewer feedback on a pull request.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "9df27fa7e6d0e6692641888a2c3f0faaf47f291d",
+                    "bytes": 1721,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "minor-release-1a331aa05bba",
+            "path": ".agents/skills/minor-release/SKILL.md",
+            "name": "minor-release",
+            "description": "Write the changelog entry for a new minor or major Storybook release. Use when preparing a CHANGELOG.md entry for a X.Y.0 version.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "a8f23eb7025c9d74b952207c1461231296d41c91",
+                    "bytes": 6433,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "get-minor-changelog-summary.ts",
+                    "blob": "86a5599904fe6192cc4349d2ecd7552c10a0468a",
+                    "bytes": 7066,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "write-minor-changelog-section.ts",
+                    "blob": "5e6f39fe35583a3c4cb482ff6a47b361b5b0d1d6",
+                    "bytes": 5146,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "open-pr-da2a1937851f",
+            "path": ".agents/skills/open-pr/SKILL.md",
+            "name": "open-pr",
+            "description": "Opens a pull request from the current branch using the PR template. Use when the user asks to open a PR, create a pull request, or invokes /open-pr.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "6c0677aaec2b1b3f282890f098674de17aad4a88",
+                    "bytes": 2834,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/detect-base-branch.sh",
+                    "blob": "b77a92c982f9115785d6f086f9e44a93cc707ce1",
+                    "bytes": 3169,
+                    "text": true,
+                    "mode": "100755"
+                }
+            ]
+        },
+        {
+            "id": "pr-a334f57bc58f",
+            "path": ".agents/skills/pr/SKILL.md",
+            "name": "pr",
+            "description": "Creates a pull request following Storybook conventions. Use when creating PRs, opening pull requests, or submitting changes for review.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "21d84ae560d42ff22c9c8371081ba9b520aa0ebd",
+                    "bytes": 3945,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "principle-encode-lessons-in-structure-6eed02b201d9",
+            "path": ".agents/skills/principle-encode-lessons-in-structure/SKILL.md",
+            "name": "principle-encode-lessons-in-structure",
+            "description": "Apply when you catch yourself writing the same instruction a second time, or notice a recurring correction. Encode the rule as a lint, metadata flag, runtime check, or script instead of more text.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "1a90d7b8228d5b08af48cc157724e21cc7234ec6",
+                    "bytes": 2180,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "LICENSE",
+                    "blob": "6b5400237fdf6545be0b8fae370d6f2fcff8fb25",
+                    "bytes": 1067,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "rebuild-restart-storybook-12f97d4251b4",
+            "path": ".agents/skills/rebuild-restart-storybook/SKILL.md",
+            "name": "rebuild-restart-storybook",
+            "description": "Rebuild and restart the internal Storybook UI after changes to internal Storybook code (core, addons, frameworks, renderers, libs, etc.), then optionally display a UI review. Use after editing any package in the Storybook monorepo's code/ directory, or when the user asks to rebuild and/or restart Storybook.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "0afa193cca6ead4272eb89ac24299b2a228ba23f",
+                    "bytes": 2183,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "storybook-startup-benchmark-c2e10476d934",
+            "path": ".agents/skills/storybook-startup-benchmark/SKILL.md",
+            "name": "storybook-startup-benchmark",
+            "description": "Measure Storybook startup time from spawning `storybook dev` until the first story renders in the browser. Use when the user asks about Storybook boot time, server-ready timing, first story render timing, startup regressions, benchmarking with repeat runs, or comparing Storybook versions or feature flags.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "6cd23e6922d8fe46dfa8e06bcea2ae13064fec97",
+                    "bytes": 5066,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "storybook-upgrade-6037727ddef0",
+            "path": ".agents/skills/storybook-upgrade/SKILL.md",
+            "name": "storybook-upgrade",
+            "description": "Upgrade Storybook to a specific version (canary or release). Use this when upgrading Storybook packages in an external app, reproduction, or test project.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ad9bf40276b25dd66fed3152873c2f69469a902b",
+                    "bytes": 1510,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "update-pr-description-34580161a81d",
+            "path": ".agents/skills/update-pr-description/SKILL.md",
+            "name": "update-pr-description",
+            "description": "Evaluate a PR's title and description against its actual implementation, then iteratively suggest and apply updates. Use when the user asks to check, fix, or update a PR title or description.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "6ef85183a1cc1deb41cde26aa310ee6f4dcded64",
+                    "bytes": 1481,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "stories-0fde6ff4c258",
+            "path": "code/lib/claude-plugin/skills/stories/SKILL.md",
+            "name": "stories",
+            "description": "Invoke FIRST, before creating, editing, or deleting components, stories, styles, CSS, themes, colors, or design tokens — anything that changes how the UI looks, no exceptions. Also for starting or previewing Storybook to verify UI, requests to show, browse, or list components, stories, or UI states, and docs, props, or usage lookups.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d97358136197ff8823a603bc830056039b0add06",
+                    "bytes": 2873,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "storybook-init-9a9fb5bea0ad",
+            "path": "code/lib/claude-plugin/skills/storybook-init/SKILL.md",
+            "name": "storybook-init",
+            "description": "Use when adding Storybook to a project that does not have Storybook configured yet.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "63716ca09b0a33c55a38e5419722faf2daaa74cd",
+                    "bytes": 709,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "storybook-setup-c92dc953aee6",
+            "path": "code/lib/claude-plugin/skills/storybook-setup/SKILL.md",
+            "name": "storybook-setup",
+            "description": "Use this skill when Storybook is already installed and the user wants a working `preview` file and stories for real components.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "4ba0ac8823c6ced643adc1e37dac94b0a48805a0",
+                    "bytes": 760,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "storybook-upgrade-0f9dea67137b",
+            "path": "code/lib/claude-plugin/skills/storybook-upgrade/SKILL.md",
+            "name": "storybook-upgrade",
+            "description": "Use this skill when Storybook exists but needs an upgrade.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "05978a0d31ed7a505450fefe63f56680a3f9859b",
+                    "bytes": 519,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "init-a7fdfb129eb1",
+            "path": "code/lib/codex-plugin/plugins/storybook/skills/init/SKILL.md",
+            "name": "init",
+            "description": "Use when adding Storybook to a project that does not have Storybook configured yet.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "be3ac480804454b664b4c56abafaa90aafc32852",
+                    "bytes": 699,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "setup-66a6df81b87e",
+            "path": "code/lib/codex-plugin/plugins/storybook/skills/setup/SKILL.md",
+            "name": "setup",
+            "description": "Use this skill when Storybook is already installed and the user wants a working `preview` file and stories for real components.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "577ee924332353b9e299fd5303932676b4d21632",
+                    "bytes": 750,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "stories-2dbe49b1a4a6",
+            "path": "code/lib/codex-plugin/plugins/storybook/skills/stories/SKILL.md",
+            "name": "stories",
+            "description": "Invoke FIRST, before creating, editing, or deleting components, stories, styles, CSS, themes, colors, or design tokens — anything that changes how the UI looks, no exceptions. Also for starting or previewing Storybook to verify UI, requests to show, browse, or list components, stories, or UI states, and docs, props, or usage lookups.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "df5657514ca9ee7bca14d07c60078557fb9b5ba6",
+                    "bytes": 3500,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "upgrade-e9a675db40e1",
+            "path": "code/lib/codex-plugin/plugins/storybook/skills/upgrade/SKILL.md",
+            "name": "upgrade",
+            "description": "Use this skill when Storybook exists but needs an upgrade.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "cf91e353ef60ec0ec65a1a963b600f7da5057164",
+                    "bytes": 509,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "6f8ace9cbd550b5bb2cc6646f3d053b44b4ba6a9",
+        "bytes": 15964,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "c471193f579c9932de81221ec10008b5c68b2260",
+        "bytes": 1077,
+        "text": true,
+        "mode": "100644"
+    }
+}

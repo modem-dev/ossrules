@@ -1,0 +1,60 @@
+{
+    "version": 1,
+    "slug": "opencode",
+    "repository": "anomalyco/opencode",
+    "branch": "dev",
+    "sha": "e03db9bc6908f75c9334d8aa997deeaac81c0298",
+    "scannedAt": "2026-09-14T23:23:09.969Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [
+        "packages/opencode/test/fixture/skills/agents-sdk/SKILL.md",
+        "packages/opencode/test/fixture/skills/cloudflare/SKILL.md"
+    ],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "effect-5d302385e0b3",
+            "path": ".opencode/skills/effect/SKILL.md",
+            "name": "effect",
+            "description": "Work with Effect v4 / effect-smol TypeScript code in this repo",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "3a44fa88dcdd59ff04a94634a1bfecee05a5cc18",
+                    "bytes": 2794,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "rtl-aware-development-0289d54a5217",
+            "path": ".opencode/skills/rtl-aware-development/SKILL.md",
+            "name": "rtl-aware-development",
+            "description": "OpenCode Desktop should be RTL-aware. Use when implementing or reviewing RTL/LTR behavior in the web app, desktop app, CSS, menus, scrolling, resizing, icons, mixed-direction text, or Electron title bars.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "595c981ead81f0827d14a41ae0a86eb18bbc5819",
+                    "bytes": 4097,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "cd2327e888119bb084895b615f5abc8f81afcc3f",
+        "bytes": 8748,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "6439474beed8e0271df9862eff97ffd70ec2464c",
+        "bytes": 1065,
+        "text": true,
+        "mode": "100644"
+    }
+}
