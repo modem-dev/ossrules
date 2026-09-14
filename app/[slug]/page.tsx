@@ -19,6 +19,7 @@ import { Excerpt, FileStatGrid, PatternBadge } from '@/components/primitives';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { getAgentsProject, getAgentsProjects, getAgentsSource, getVendoredFiles, sourceExcerpt } from '@/lib/agents-md';
+import { documentMentions } from '@/lib/document-mentions';
 import { ogImageUrl } from '@/lib/og';
 import { webPageSchema } from '@/lib/schema';
 
@@ -82,6 +83,10 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
             repo={project.repo}
             sha={project.lastCommit.sha}
             files={vendored?.files ?? []}
+            mentions={documentMentions(
+                agentsSource,
+                project.references.filter((reference) => reference.kind !== 'pattern').map((reference) => reference.path),
+            )}
             license={vendored?.license}
             licensePath={vendored?.licensePath}
         >

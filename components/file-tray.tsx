@@ -1,6 +1,7 @@
 'use client';
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import type { DocumentMention } from '@/lib/document-mentions';
 import type { VendoredFile } from './agents-md-data';
 
 /**
@@ -21,6 +22,8 @@ interface TrayRequest {
     path: string;
     /** First line of a quote to scroll to and mark, when opened from a technique. */
     match?: string;
+    startLine?: number;
+    lineCount?: number;
 }
 
 interface TrayContext {
@@ -75,22 +78,107 @@ function formatBytes(bytes: number): string {
     return bytes < 1024 ? `${bytes} B` : `${(bytes / 1024).toFixed(1)} kB`;
 }
 
+function DocumentReferences({
+    path,
+    mentions,
+    canOpen,
+    onOpen,
+    expanded,
+    onExpandedChange,
+}: {
+    path: string;
+    mentions: DocumentMention[];
+    canOpen: boolean;
+    onOpen: (mention: DocumentMention) => void;
+    expanded: boolean;
+    onExpandedChange: (expanded: boolean) => void;
+}) {
+    const passage = (mention: DocumentMention) => {
+        const endLine = mention.startLine + mention.lines.length - 1;
+        const label = `AGENTS.md · ${endLine === mention.startLine ? `line ${mention.startLine}` : `lines ${mention.startLine}–${endLine}`}`;
+        return (
+            <div key={mention.startLine} className="mt-3">
+                {canOpen ? (
+                    <button
+                        type="button"
+                        onClick={() => onOpen(mention)}
+                        className="min-h-9 text-left font-mono text-teal text-xs hover:underline"
+                    >
+                        {label} <span aria-hidden>↗</span>
+                    </button>
+                ) : (
+                    <p className="py-2 font-mono text-gray-550 text-xs">{label}</p>
+                )}
+                <pre className="mt-1 rounded border border-gray-750 bg-medium-gray py-3 pr-3 font-mono text-xs leading-6">
+                    <code>
+                        {mention.lines.map((line, index) => (
+                            // biome-ignore lint/suspicious/noArrayIndexKey: source lines are identified by position.
+                            <span key={mention.startLine + index} className="excerpt-line">
+                                <span aria-hidden className="excerpt-line-number">
+                                    {mention.startLine + index}
+                                </span>
+                                <span className="min-w-0 whitespace-pre-wrap text-gray-400 [overflow-wrap:anywhere]">
+                                    {line.split(path).map((part, partIndex) => (
+                                        // biome-ignore lint/suspicious/noArrayIndexKey: segments are positions within a fixed source line.
+                                        <span key={partIndex}>
+                                            {partIndex > 0 ? (
+                                                <mark className="rounded-sm bg-dark-teal px-0.5 text-teal">{path}</mark>
+                                            ) : null}
+                                            {part}
+                                        </span>
+                                    ))}
+                                </span>
+                            </span>
+                        ))}
+                    </code>
+                </pre>
+            </div>
+        );
+    };
+    return (
+        <section aria-label="Reference context" className="border-gray-750 border-b bg-gray-850 px-4 py-4 sm:px-6">
+            <h2 className="eyebrow">Referenced from</h2>
+            {mentions.length > 0 ? (
+                <>
+                    {passage(mentions[0])}
+                    {mentions.length > 1 ? (
+                        <details className="mt-3" open={expanded} onToggle={(event) => onExpandedChange(event.currentTarget.open)}>
+                            <summary className="text-gray-550 text-xs">
+                                {mentions.length - 1} more {mentions.length === 2 ? 'reference' : 'references'}
+                            </summary>
+                            {mentions.slice(1).map(passage)}
+                        </details>
+                    ) : null}
+                </>
+            ) : (
+                <p className="mt-2 text-gray-550 text-xs leading-relaxed">
+                    No exact path mention found in the pinned AGENTS.md. This document may be referenced indirectly or through a pattern.
+                </p>
+            )}
+        </section>
+    );
+}
+
 interface TrayProps {
     slug: string;
     owner: string;
     repo: string;
     sha: string;
     files: VendoredFile[];
+    mentions: Record<string, DocumentMention[]>;
     license?: string;
     licensePath?: string;
     children: React.ReactNode;
 }
 
-export function FileTrayProvider({ slug, owner, repo, sha, files, license, licensePath, children }: TrayProps) {
+export function FileTrayProvider({ slug, owner, repo, sha, files, mentions, license, licensePath, children }: TrayProps) {
     const [request, setRequest] = useState<TrayRequest | undefined>();
     const [source, setSource] = useState<string | undefined>();
     const [failed, setFailed] = useState(false);
     const [copyStatus, setCopyStatus] = useState<'idle' | 'copied' | 'failed'>('idle');
+    const [returnDocument, setReturnDocument] = useState<{ request: TrayRequest; scrollTop: number }>();
+    const [expandedReferences, setExpandedReferences] = useState<Record<string, boolean>>({});
+    const scrollRestore = useRef<number | undefined>(undefined);
     const cache = useRef(new Map<string, string>());
     const panel = useRef<HTMLDialogElement>(null);
     const returnFocus = useRef<HTMLElement | null>(null);
@@ -102,17 +190,37 @@ export function FileTrayProvider({ slug, owner, repo, sha, files, license, licen
     const open = useCallback((next: TrayRequest) => {
         returnFocus.current = document.activeElement as HTMLElement | null;
         setCopyStatus('idle');
+        setReturnDocument(undefined);
+        scrollRestore.current = undefined;
         setRequest(next);
     }, []);
 
     const close = useCallback(() => {
         panel.current?.close();
         setRequest(undefined);
+        setReturnDocument(undefined);
         returnFocus.current?.focus({ preventScroll: true });
     }, []);
 
     const context = useMemo(() => ({ open, readable, missing }), [open, readable, missing]);
     const path = request?.path;
+
+    const visitMention = (mention: DocumentMention) => {
+        if (!request) return;
+        setReturnDocument({ request, scrollTop: panel.current?.querySelector('.source-scroll')?.scrollTop ?? 0 });
+        setSource(undefined);
+        setCopyStatus('idle');
+        setRequest({ path: 'AGENTS.md', startLine: mention.startLine, lineCount: mention.lines.length });
+    };
+
+    const backToDocument = () => {
+        if (!returnDocument) return;
+        scrollRestore.current = returnDocument.scrollTop;
+        setSource(undefined);
+        setCopyStatus('idle');
+        setRequest(returnDocument.request);
+        setReturnDocument(undefined);
+    };
 
     const copySource = async () => {
         if (source === undefined) return;
@@ -169,7 +277,11 @@ export function FileTrayProvider({ slug, owner, repo, sha, files, license, licen
         const previous = document.body.style.overflow;
         document.body.style.overflow = 'hidden';
         dialog?.showModal();
-        dialog?.querySelector<HTMLButtonElement>('[data-close-file]')?.focus();
+        (
+            dialog?.querySelector<HTMLButtonElement>('[data-back-source]') ?? dialog?.querySelector<HTMLButtonElement>('[data-close-file]')
+        )?.focus();
+        const scroll = dialog?.querySelector('.source-scroll');
+        if (scroll) scroll.scrollTop = 0;
         return () => {
             dialog?.close();
             document.body.style.overflow = previous;
@@ -179,20 +291,29 @@ export function FileTrayProvider({ slug, owner, repo, sha, files, license, licen
     const file = path ? byPath.get(path) : undefined;
     const lines = source === undefined ? undefined : classifyLines(source);
 
+    useEffect(() => {
+        if (source === undefined || scrollRestore.current === undefined) return;
+        const scroll = panel.current?.querySelector('.source-scroll');
+        if (scroll) scroll.scrollTop = scrollRestore.current;
+        scrollRestore.current = undefined;
+    }, [source]);
+
     // The line a technique quote starts on, so the tray can open where it is cited.
     const markedLine = useMemo(() => {
-        if (!lines || !request?.match) return -1;
+        if (!lines) return -1;
+        if (request?.startLine !== undefined) return request.startLine - 1;
+        if (!request?.match) return -1;
         const needle = request.match.trim().split('\n')[0].trim();
         if (needle.length === 0) return -1;
         return lines.findIndex((line) => line.text.includes(needle));
-    }, [lines, request?.match]);
+    }, [lines, request?.match, request?.startLine]);
 
     useEffect(() => {
         if (markedLine < 0) return;
         panel.current?.querySelector(`[data-line="${markedLine}"]`)?.scrollIntoView({ block: 'center' });
     }, [markedLine]);
 
-    const markedCount = request?.match?.trimEnd().split('\n').length ?? 0;
+    const markedCount = request?.lineCount ?? request?.match?.trimEnd().split('\n').length ?? 0;
     const sourceUrl = `https://github.com/${owner}/${repo}/blob/${sha}/${path?.split('/').map(encodeURIComponent).join('/') ?? ''}`;
 
     return (
@@ -269,7 +390,34 @@ export function FileTrayProvider({ slug, owner, repo, sha, files, license, licen
                                 </button>
                             </div>
                         </header>
+                        {returnDocument ? (
+                            <div className="border-gray-750 border-b px-4 py-2 sm:px-6">
+                                <button
+                                    type="button"
+                                    data-back-source
+                                    onClick={backToDocument}
+                                    className="min-h-9 break-all text-left text-teal text-xs"
+                                >
+                                    ← Back to {returnDocument.request.path}
+                                </button>
+                            </div>
+                        ) : null}
                         <div className="source-scroll" aria-busy={!failed && lines === undefined}>
+                            {path !== 'AGENTS.md' ? (
+                                <DocumentReferences
+                                    key={path}
+                                    path={path}
+                                    mentions={mentions[path] ?? []}
+                                    canOpen={readable.has('AGENTS.md')}
+                                    onOpen={visitMention}
+                                    expanded={expandedReferences[path] ?? false}
+                                    onExpandedChange={(expanded) =>
+                                        setExpandedReferences((previous) =>
+                                            previous[path] === expanded ? previous : { ...previous, [path]: expanded },
+                                        )
+                                    }
+                                />
+                            ) : null}
                             {failed ? (
                                 <p role="alert" className="p-6 text-gray-550 text-sm leading-relaxed">
                                     That file could not be loaded. It is still available{' '}
