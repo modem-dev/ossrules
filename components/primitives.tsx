@@ -7,7 +7,7 @@
 
 import Link from 'next/link';
 import type { AgentsProject, PatternId } from './agents-md-data';
-import { formatStars, PATTERNS_BY_ID, readMinutes } from './agents-md-data';
+import { formatStars, PATTERNS_BY_ID } from './agents-md-data';
 
 export function PatternBadge({ pattern, href }: { pattern: PatternId; href?: string }) {
     const label = PATTERNS_BY_ID[pattern].name;
@@ -25,10 +25,10 @@ export function PatternBadge({ pattern, href }: { pattern: PatternId; href?: str
 }
 
 /** The full measured profile of one AGENTS.md. */
-export function FileStatGrid({ project }: { project: AgentsProject }) {
+export function FileStatGrid({ project, tokens }: { project: AgentsProject; tokens?: number }) {
     const stats: { value: string; label: string; hint?: string }[] = [
         { value: project.file.lines.toLocaleString(), label: 'Lines' },
-        { value: project.file.words.toLocaleString(), label: 'Words', hint: `about ${readMinutes(project)} min read` },
+        { value: tokens?.toLocaleString('en-US') ?? 'Unavailable', label: 'Tokens', hint: tokens === undefined ? undefined : 'o200k_base' },
         { value: `${(project.file.bytes / 1024).toFixed(1)}kB`, label: 'File size' },
         { value: String(project.file.headings), label: 'Headings' },
         { value: String(project.file.bullets), label: 'Bullet rules' },

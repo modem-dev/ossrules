@@ -281,11 +281,6 @@ export function formatStars(stars: number): string {
     return `${(stars / 1000).toFixed(1).replace(/\.0$/, '')}k`;
 }
 
-/** Rough read time for the AGENTS.md itself, at 220 words per minute. */
-export function readMinutes(project: AgentsProject): number {
-    return Math.max(1, Math.round(project.file.words / 220));
-}
-
 /**
  * GitHub linguist colours, so the language column can be a dot rather than a
  * word. Only the languages in the directory need an entry; anything unlisted
