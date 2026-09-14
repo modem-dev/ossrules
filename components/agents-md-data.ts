@@ -1,7 +1,7 @@
 /**
  * Types, technique taxonomy and pure helpers for the /agents-md directory.
  *
- * The corpus itself lives in content/agents-md/*.json, one file per project,
+ * The corpus itself lives in content/projects/*.json, one file per project,
  * loaded and validated by lib/agents-md.ts. The split is what lets entries be
  * produced independently: writing one is a JSON file plus an avatar, with no
  * code change. The procedure is in .claude/skills/agents-md-entry/SKILL.md.
@@ -340,7 +340,7 @@ export function languageColor(language: string): string {
 
 /** Org avatar, committed under public/agents-md so the list needs no third-party request. */
 export function logoSrc(project: AgentsProject): string {
-    return `/agents-md/${project.slug}.png`;
+    return `/logos/${project.slug}.png`;
 }
 
 /**

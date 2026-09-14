@@ -25,7 +25,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 
-const CONTENT_DIR = path.join(process.cwd(), 'content', 'agents-md');
+const CONTENT_DIR = path.join(process.cwd(), 'content', 'projects');
 const WRITE = process.argv.includes('--write');
 
 interface Entry {

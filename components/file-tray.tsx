@@ -126,7 +126,7 @@ export function FileTrayProvider({ slug, owner, repo, sha, files, license, licen
         setFailed(false);
 
         let live = true;
-        const url = `/agents-md/files/${slug}/${path.split('/').map(encodeURIComponent).join('/')}`;
+        const url = `/files/${slug}/${path.split('/').map(encodeURIComponent).join('/')}`;
         fetch(url)
             .then((response) => (response.ok ? response.text() : Promise.reject(new Error(String(response.status)))))
             .then((text) => {
@@ -332,7 +332,7 @@ export function FileLink({
         );
     }
 
-    if (!tray || !tray.readable.has(path)) {
+    if (!tray?.readable.has(path)) {
         return (
             <a href={href} target="_blank" rel="noopener noreferrer" className={className} title={label}>
                 {children}
@@ -355,7 +355,7 @@ export function FileLink({
 export function QuoteLink({ quote, children }: { quote: string; children: React.ReactNode }) {
     const tray = useFileTray();
 
-    if (!tray || !tray.readable.has('AGENTS.md')) return <>{children}</>;
+    if (!tray?.readable.has('AGENTS.md')) return <>{children}</>;
 
     return (
         <button

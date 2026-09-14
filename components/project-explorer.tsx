@@ -60,7 +60,7 @@ function ProjectRow({ project }: { project: AgentsProject }) {
     return (
         <li>
             <Link
-                href={`/agents-md/${project.slug}`}
+                href={`/${project.slug}`}
                 className="group grid grid-cols-[40px_minmax(0,1fr)] gap-x-4 gap-y-2 border-b border-gray-750/50 px-2 py-5 transition-colors hover:bg-medium-gray/40 sm:grid-cols-[40px_minmax(0,1fr)_auto] sm:items-baseline"
             >
                 <Image

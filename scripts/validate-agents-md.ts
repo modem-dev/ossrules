@@ -1,5 +1,5 @@
 /**
- * Build-time check for the AGENTS.md corpus in content/agents-md/.
+ * Build-time check for the AGENTS.md corpus in content/projects/.
  *
  * Entries are produced by evaluating a repository's AGENTS.md, a job that fans
  * out across model runs, so this runs the same validation the site loader runs
@@ -17,11 +17,11 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { validateAgentsProject } from '../components/agents-md/agents-md-schema';
+import { validateAgentsProject } from '../components/agents-md-schema';
 
-const CONTENT_DIR = path.join(process.cwd(), 'content', 'agents-md');
-const LOGO_DIR = path.join(process.cwd(), 'public', 'agents-md');
-const FILES_DIR = path.join(process.cwd(), 'public', 'agents-md', 'files');
+const CONTENT_DIR = path.join(process.cwd(), 'content', 'projects');
+const LOGO_DIR = path.join(process.cwd(), 'public', 'logos');
+const FILES_DIR = path.join(process.cwd(), 'public', 'files');
 
 interface ManifestFile {
     path: string;
@@ -40,7 +40,7 @@ function checkVendoredFiles(
 ): string[] {
     const manifestPath = path.join(FILES_DIR, slug, 'manifest.json');
     if (!fs.existsSync(manifestPath)) {
-        return [`missing vendored files at public/agents-md/files/${slug}/ — run pnpm sync:agents-md-files`];
+        return [`missing vendored files at public/files/${slug}/ — run pnpm sync:agents-md-files`];
     }
 
     let manifest: { sha?: string; files?: ManifestFile[] };
@@ -108,7 +108,7 @@ function main() {
         }
 
         if (!fs.existsSync(path.join(LOGO_DIR, `${slug}.png`))) {
-            problems.push(`${name}: missing avatar at public/agents-md/${slug}.png`);
+            problems.push(`${name}: missing avatar at public/logos/${slug}.png`);
         }
 
         for (const message of checkVendoredFiles(slug, parsed as Parameters<typeof checkVendoredFiles>[1])) {
