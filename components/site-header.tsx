@@ -15,14 +15,6 @@ export function SiteHeader() {
                     <Link href="/techniques" className="text-gray-550 transition-colors hover:text-light-cream">
                         Techniques
                     </Link>
-                    <a
-                        href="https://github.com/modem-dev/ossrules"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-550 transition-colors hover:text-light-cream"
-                    >
-                        GitHub
-                    </a>
                 </nav>
             </div>
         </header>
