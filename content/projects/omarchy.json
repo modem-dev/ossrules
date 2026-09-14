@@ -7,6 +7,11 @@
     "language": "Shell",
     "stars": 40851,
     "defaultBranch": "quattro",
+    "lastCommit": {
+        "sha": "1c8f728b25cb8a42f1d02e4d2441230132cedb6c",
+        "date": "2026-08-17T10:11:02Z"
+    },
+    "evaluatedAt": "2026-09-14",
     "file": {
         "bytes": 7831,
         "lines": 133,
@@ -16,6 +21,47 @@
         "codeBlocks": 2,
         "docLinks": 11
     },
+    "references": [
+        {
+            "path": "agents/skills/acceptance-tests.md",
+            "label": "agents/skills/acceptance-tests.md"
+        },
+        {
+            "path": "agents/skills/command-metadata.md",
+            "label": "agents/skills/command-metadata.md"
+        },
+        {
+            "path": "agents/skills/icon-font.md",
+            "label": "agents/skills/icon-font.md"
+        },
+        {
+            "path": "agents/skills/install-scripts.md",
+            "label": "agents/skills/install-scripts.md"
+        },
+        {
+            "path": "agents/skills/migrations.md",
+            "label": "agents/skills/migrations.md"
+        },
+        {
+            "path": "agents/skills/shell-dev.md",
+            "label": "agents/skills/shell-dev.md"
+        },
+        {
+            "path": "agents/skills/visual-verification.md",
+            "label": "agents/skills/visual-verification.md"
+        },
+        {
+            "path": "default/agents/skills/omarchy/SKILL.md"
+        },
+        {
+            "path": "docs/menu.md",
+            "label": "docs/menu.md"
+        },
+        {
+            "path": "docs/testing.md",
+            "label": "docs/testing.md"
+        }
+    ],
     "hook": "Opens with seven task guides and keeps most of its detail in other files.",
     "summary": "The first section is a table of links, each naming a kind of work and the guide to read before starting it. Documentation is split into three trees by audience, and a section of helper commands replaces the equivalent raw shell tools.",
     "patterns": ["skill-routing", "hard-prohibition", "generated-file-guard", "single-source"],

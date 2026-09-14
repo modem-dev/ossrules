@@ -7,6 +7,11 @@
     "language": "Rust",
     "stars": 24276,
     "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "85e234697d687d4482b693483ac13fb6c93ae99d",
+        "date": "2026-09-09T14:29:00Z"
+    },
+    "evaluatedAt": "2026-09-14",
     "file": {
         "bytes": 8971,
         "lines": 165,
@@ -16,6 +21,47 @@
         "codeBlocks": 10,
         "docLinks": 9
     },
+    "references": [
+        {
+            "path": "CONTRIBUTING.md",
+            "label": "CONTRIBUTING.md"
+        },
+        {
+            "path": "docs/agent-guides/async-io-model.md",
+            "label": "Async I/O Model"
+        },
+        {
+            "path": "docs/agent-guides/code-quality.md",
+            "label": "Code Quality"
+        },
+        {
+            "path": "docs/agent-guides/debugging.md",
+            "label": "Debugging"
+        },
+        {
+            "path": "docs/agent-guides/mvcc.md",
+            "label": "MVCC"
+        },
+        {
+            "path": "docs/agent-guides/pr-workflow.md",
+            "label": "PR Workflow"
+        },
+        {
+            "path": "docs/agent-guides/storage-format.md",
+            "label": "Storage Format"
+        },
+        {
+            "path": "docs/agent-guides/testing.md",
+            "label": "Testing"
+        },
+        {
+            "path": "docs/agent-guides/transaction-correctness.md",
+            "label": "Transaction Correctness"
+        },
+        {
+            "path": "serverless/conformance/differential/README.md"
+        }
+    ],
     "hook": "Bans a specific list of metaphorical words and asks for plain language.",
     "summary": "A command reference, a map of where to find each subsystem, and a set of core principles. Three of its sections are about how code and comments are written rather than what they do.",
     "patterns": ["house-vocabulary", "behavioral-conditioning", "hard-prohibition", "skill-routing", "verification-matrix"],

@@ -25,6 +25,7 @@ import {
     patternFacets,
     SORTS,
 } from './agents-md-data';
+import { RelativeTime } from './last-updated';
 
 const ALL = 'all';
 
@@ -98,6 +99,9 @@ function ProjectRow({ project }: { project: AgentsProject }) {
                     </span>
                     <span className="sm:w-14 sm:text-right">{formatStars(project.stars)}</span>
                     <span className="sm:w-12 sm:text-right">{project.file.lines}</span>
+                    <span className="sm:w-16 sm:text-right">
+                        <RelativeTime iso={project.lastCommit.date} />
+                    </span>
                 </div>
             </Link>
         </li>
@@ -222,6 +226,7 @@ export function ProjectExplorer({ projects }: { projects: AgentsProject[] }) {
                     <span className="w-6 text-right">Lang</span>
                     <span className="w-14 text-right">Stars</span>
                     <span className="w-12 text-right">Lines</span>
+                    <span className="w-16 text-right">Updated</span>
                 </span>
             </div>
 

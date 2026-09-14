@@ -7,6 +7,11 @@
     "language": "Rust",
     "stars": 123831,
     "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "4875084025582f9443afeb907e2aa20644241dda",
+        "date": "2026-09-07T10:21:32Z"
+    },
+    "evaluatedAt": "2026-09-14",
     "file": {
         "bytes": 22397,
         "lines": 320,
@@ -16,6 +21,11 @@
         "codeBlocks": 4,
         "docLinks": 0
     },
+    "references": [
+        {
+            "path": "codex-rs/tui/styles.md"
+        }
+    ],
     "hook": "Includes rules governing what may enter the agent's own model context.",
     "summary": "Mostly rules rather than explanation: 122 bullets covering Rust idioms, module size limits, review criteria, snapshot testing and app-server API conventions. Several sections set limits on the change itself rather than on the code it touches.",
     "patterns": [

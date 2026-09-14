@@ -162,6 +162,19 @@ export interface FileStats {
     docLinks: number;
 }
 
+/** The upstream commit that last touched the project's AGENTS.md. */
+export interface LastCommit {
+    sha: string;
+    /** ISO 8601, UTC. */
+    date: string;
+}
+
+/** A document the AGENTS.md tells the agent to read. Not the repo map. */
+export interface DocReference {
+    path: string;
+    label?: string;
+}
+
 export interface Technique {
     title: string;
     body: string;
@@ -181,7 +194,13 @@ export interface AgentsProject {
     language: string;
     stars: number;
     defaultBranch: string;
+    /** Upstream commit that last changed AGENTS.md, for the permalink and the age. */
+    lastCommit: LastCommit;
+    /** ISO date (YYYY-MM-DD) this entry's analysis was last written against the file. */
+    evaluatedAt: string;
     file: FileStats;
+    /** Documents the file routes to. Empty when it is self-contained. */
+    references: DocReference[];
     /** The one-line reason this file is in the collection. Shown on the card. */
     hook: string;
     /** Two or three sentences on what kind of document this is. */
@@ -202,6 +221,19 @@ export function repoUrl(project: AgentsProject): string {
 
 export function agentsFileUrl(project: AgentsProject): string {
     return `https://github.com/${project.owner}/${project.repo}/blob/${project.defaultBranch}/AGENTS.md`;
+}
+
+/** Permalink to the exact revision this entry was written against. */
+export function agentsFileCommitUrl(project: AgentsProject): string {
+    return `https://github.com/${project.owner}/${project.repo}/blob/${project.lastCommit.sha}/AGENTS.md`;
+}
+
+/**
+ * True when the file changed upstream after this entry was written, which means
+ * the measurements and analysis describe an older revision.
+ */
+export function isEntryStale(project: AgentsProject): boolean {
+    return project.lastCommit.date.slice(0, 10) > project.evaluatedAt;
 }
 
 export function rawAgentsFileUrl(project: AgentsProject): string {
@@ -312,12 +344,13 @@ export function patternFacets(projects: AgentsProject[]): { id: PatternId; name:
  * file is (rules), and where something is when you already know its name.
  * `direction` is the sensible default for that column, not a fixed convention.
  */
-export type SortId = 'stars' | 'lines' | 'rules' | 'name';
+export type SortId = 'stars' | 'lines' | 'rules' | 'updated' | 'name';
 
 export const SORTS: { id: SortId; label: string }[] = [
     { id: 'stars', label: 'Stars' },
     { id: 'lines', label: 'Lines' },
     { id: 'rules', label: 'Rules' },
+    { id: 'updated', label: 'Updated' },
     { id: 'name', label: 'Name' },
 ];
 
@@ -325,6 +358,10 @@ export function compareProjects(a: AgentsProject, b: AgentsProject, sort: SortId
     const sign = descending ? -1 : 1;
     if (sort === 'name') {
         return sign * a.name.localeCompare(b.name, 'en', { sensitivity: 'base' });
+    }
+    if (sort === 'updated') {
+        const time = (p: AgentsProject) => Date.parse(p.lastCommit.date);
+        return sign * (time(a) - time(b)) || b.stars - a.stars;
     }
     const value = (p: AgentsProject) => (sort === 'stars' ? p.stars : sort === 'lines' ? p.file.lines : p.file.bullets);
     // Stars break ties so equal-length files keep a stable, meaningful order.

@@ -7,6 +7,11 @@
     "language": "TypeScript",
     "stars": 4530,
     "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "f8308360283f97d33e188aee2e19c1ef9c09524a",
+        "date": "2026-08-22T17:55:46Z"
+    },
+    "evaluatedAt": "2026-09-14",
     "file": {
         "bytes": 9162,
         "lines": 153,
@@ -16,6 +21,17 @@
         "codeBlocks": 0,
         "docLinks": 0
     },
+    "references": [
+        {
+            "path": ".changeset/README.md"
+        },
+        {
+            "path": ".github/PULL_REQUEST_TEMPLATE.md"
+        },
+        {
+            "path": "AGENTS.md"
+        }
+    ],
     "hook": "States that copied values go stale, and points at the config that defines them instead.",
     "summary": "Opens with a rule about its own maintenance, then covers commands, a task-to-location table, cross-tool development, and testing conventions. Subsystem detail is delegated to per-package files.",
     "patterns": ["single-source", "nested-instructions", "hard-prohibition", "verification-matrix"],

@@ -7,6 +7,11 @@
     "language": "TypeScript",
     "stars": 91055,
     "defaultBranch": "next",
+    "lastCommit": {
+        "sha": "5e6fcce59074f7f4889956ed37f254feec6aa9e9",
+        "date": "2026-09-10T18:21:40Z"
+    },
+    "evaluatedAt": "2026-09-14",
     "file": {
         "bytes": 26367,
         "lines": 419,
@@ -16,6 +21,39 @@
         "codeBlocks": 14,
         "docLinks": 7
     },
+    "references": [
+        {
+            "path": ".agents/guidelines/comments-and-jsdoc.md",
+            "label": ".agents/guidelines/comments-and-jsdoc.md"
+        },
+        {
+            "path": ".agents/skills/canary/SKILL.md",
+            "label": ".agents/skills/canary/SKILL.md"
+        },
+        {
+            "path": ".agents/skills/principle-encode-lessons-in-structure/SKILL.md",
+            "label": "principle-encode-lessons-in-structure"
+        },
+        {
+            "path": "AGENTS.md"
+        },
+        {
+            "path": "CLAUDE.md"
+        },
+        {
+            "path": "CONTRIBUTING/RELEASING.md",
+            "label": "CONTRIBUTING/RELEASING.md"
+        },
+        {
+            "path": "code/core/src/cli/tools/README.md"
+        },
+        {
+            "path": "code/core/src/cli/tools/architecture.md"
+        },
+        {
+            "path": "code/core/src/shared/open-service/README.md"
+        }
+    ],
     "hook": "Carries a Learned User Preferences section recording corrections from maintainers.",
     "summary": "Covers repository structure, architecture, commands, PR requirements and testing. Two of its sections are about the file itself: one instructs the agent to keep it updated, and one records preferences accumulated from previous work.",
     "patterns": ["behavioral-conditioning", "single-source", "hard-prohibition", "verification-matrix", "nested-instructions"],

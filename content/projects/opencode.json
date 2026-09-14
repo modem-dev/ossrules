@@ -7,6 +7,11 @@
     "language": "TypeScript",
     "stars": 207137,
     "defaultBranch": "dev",
+    "lastCommit": {
+        "sha": "f44423609b03a47baf8a771c821a1de17046309f",
+        "date": "2026-06-25T18:23:01Z"
+    },
+    "evaluatedAt": "2026-09-14",
     "file": {
         "bytes": 8748,
         "lines": 161,
@@ -16,6 +21,7 @@
         "codeBlocks": 12,
         "docLinks": 0
     },
+    "references": [],
     "hook": "Twelve code blocks in 161 lines; most style rules show the wrong version beside the right one.",
     "summary": "A style guide that argues against abstraction, followed by a set of runtime invariants for its session core. The highest ratio of code to prose in the directory.",
     "patterns": ["worked-examples", "hard-prohibition", "generated-file-guard", "architecture-narrative", "behavioral-conditioning"],

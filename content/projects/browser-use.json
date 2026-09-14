@@ -7,6 +7,11 @@
     "language": "Python",
     "stars": 114577,
     "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "29c12c32020482943fbde9460d6dae90f1335437",
+        "date": "2026-07-30T18:37:39Z"
+    },
+    "evaluatedAt": "2026-09-14",
     "file": {
         "bytes": 38463,
         "lines": 1017,
@@ -16,6 +21,7 @@
         "codeBlocks": 84,
         "docLinks": 1
     },
+    "references": [],
     "hook": "About 30 lines of rules followed by roughly 980 lines of the project's own product documentation.",
     "summary": "The longest file in the directory, and structured unlike the others. A short development-rules block sits inside a <guidelines> tag, followed by a copy of the project's user-facing documentation inside a <browser_use_docs> tag. The file is titled \"AGENTS.md Version 2\".",
     "patterns": ["hard-prohibition", "single-source"],

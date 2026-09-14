@@ -7,6 +7,11 @@
     "language": "TypeScript",
     "stars": 109148,
     "defaultBranch": "master",
+    "lastCommit": {
+        "sha": "f125126aec53c1ff4d4c144dccc1fa451372289d",
+        "date": "2026-09-03T13:58:29Z"
+    },
+    "evaluatedAt": "2026-09-14",
     "file": {
         "bytes": 6604,
         "lines": 75,
@@ -16,6 +21,20 @@
         "codeBlocks": 2,
         "docLinks": 0
     },
+    "references": [
+        {
+            "path": "apps/docs/AGENTS.md"
+        },
+        {
+            "path": "apps/docs/CONTRIBUTING.md"
+        },
+        {
+            "path": "apps/kb/AGENTS.md"
+        },
+        {
+            "path": "apps/studio/AGENTS.md"
+        }
+    ],
     "hook": "75 lines, including a rule about what may not appear in a public repository's pull requests and comments.",
     "summary": "A directory table, a command list, and four short convention sections. Most subsystem detail is delegated to per-app instruction files and to a set of named skills.",
     "patterns": ["skill-routing", "ratchet", "generated-file-guard", "nested-instructions", "single-source"],

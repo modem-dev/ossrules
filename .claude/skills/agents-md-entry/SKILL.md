@@ -61,7 +61,24 @@ curl -sSL -o /tmp/<slug>.md \
 If the file is under about 40 lines of build commands with nothing else, it is
 thin material for an entry. Say so rather than padding it.
 
-### 2. Measure the file
+### 2. Record the upstream commit
+
+The entry pins the revision it was written against, which is what the "last
+updated" link points at and what makes staleness detectable later. The REST API
+is blocked in some environments; a blobless clone is not, and takes seconds:
+
+```bash
+d=$(mktemp -d)
+git clone -q --filter=blob:none --no-checkout --single-branch \
+  --branch <default-branch> "https://github.com/<owner>/<repo>" "$d"
+git -C "$d" log -1 --format='%H|%cI' -- AGENTS.md
+rm -rf "$d"
+```
+
+That gives `lastCommit.sha` (full 40 characters) and `lastCommit.date` (convert
+to UTC ISO 8601). Set `evaluatedAt` to today's date in `YYYY-MM-DD`.
+
+### 3. Measure the file
 
 Every number in `file` is measured. Never estimate, and never adjust a stale
 number by eye — re-run this:
@@ -79,7 +96,7 @@ echo "docLinks=$(grep -oE '\]\([^)h][^)]*\)' $f | wc -l)"
 count relative to length is what distinguishes a router from a self-contained
 file.
 
-### 3. Read the whole file
+### 4. Read the whole file
 
 Read it end to end before writing anything. The entry's value is that a reader
 can skip the original, which only holds if you did not skim it.
@@ -93,7 +110,7 @@ While reading, look for what this file does that a generic one would not:
 - limits on the change rather than on the code
 - places the file admits a gap: a slow suite, a blind test, a known footgun
 
-### 4. Get the avatar
+### 5. Get the avatar
 
 ```bash
 curl -sL -o public/agents-md/<slug>.png \
@@ -103,7 +120,7 @@ curl -sL -o public/agents-md/<slug>.png \
 Use `avatars.githubusercontent.com/<owner>`, not `github.com/<owner>.png`, which
 can be proxy-blocked. Confirm it is a real PNG with `file`.
 
-### 5. Write the entry
+### 6. Write the entry
 
 Write `content/agents-md/<slug>.json`. The filename stem and `slug` must match.
 
@@ -117,7 +134,12 @@ Write `content/agents-md/<slug>.json`. The filename stem and `slug` must match.
     "language": "Zig",                    // GitHub's primary language, exact spelling
     "stars": 61058,                       // integer snapshot
     "defaultBranch": "main",
+    "lastCommit": { "sha": "<40 chars>", "date": "2026-04-08T17:34:52Z" },
+    "evaluatedAt": "2026-09-14",   // the day you wrote this analysis
     "file": { "bytes": 0, "lines": 0, "words": 0, "headings": 0, "bullets": 0, "codeBlocks": 0, "docLinks": 0 },
+    "references": [               // documents the file routes to; [] when self-contained
+        { "path": "docs/testing.md", "label": "Testing" }
+    ],
     "hook": "...",                        // one sentence, shown in the directory row
     "summary": "...",                     // two or three sentences: what kind of document this is
     "patterns": ["hard-prohibition"],     // ids from the taxonomy, see below
@@ -142,7 +164,7 @@ hooks name a number, a structure, or a rule: "42 lines that open with the
 precedence order between instruction sources." A hook that would fit any project
 is a wasted row.
 
-### 6. Choose technique ids
+### 7. Choose technique ids
 
 Valid ids are the `PATTERNS` array in
 `components/agents-md/agents-md-data.ts`. Read it before tagging; the validator
@@ -154,7 +176,7 @@ recurring move has no id and you have seen it in **two or more** projects,
 propose adding it to `PATTERNS` rather than forcing it into a near-match — a new
 id is a separate, deliberate change, not a side effect of adding a project.
 
-### 7. Verify
+### 8. Verify
 
 ```bash
 npx tsx scripts/validate-agents-md.ts   # schema, slug/filename match, avatar, duplicate repos
@@ -182,13 +204,42 @@ sys.exit(1 if bad else 0)
 PY
 ```
 
-## Refreshing an existing entry
+### The references list
 
-Star counts and file measurements go stale. Re-run steps 1, 2 and 7, update
-`stars`, `file` and `defaultBranch`, and update `STATS_AS_OF` in
-`agents-md-data.ts` when refreshing the whole corpus. If the AGENTS.md itself
-changed materially, re-read it and revise `techniques` — a stale analysis
-against fresh numbers is worse than either alone.
+`references` is the documents the file **tells the agent to read**: markdown
+links to other docs, and nested instruction files named in prose
+(`crates/AGENTS.md`, `.agents/skills/*/SKILL.md`). It is not the repo map — a
+path to source code is navigation, not routing, and does not belong here.
+
+Include `.md`, `.rst` and `.mdx` targets plus any `AGENTS.md` / `CLAUDE.md` /
+`SKILL.md`. Keep the markdown link text as `label` only when it says something
+the path does not. An empty array is a real answer: five of the first sixteen
+entries route nowhere, and that is what identifies a self-contained file.
+
+## Refreshing the corpus
+
+Entries go stale two ways, and only one is mechanical.
+
+**Mechanical.** Measurements and the upstream commit can be re-derived:
+
+```bash
+pnpm refresh:agents-md            # report what changed upstream
+pnpm refresh:agents-md -- --write # apply measurements and commits
+```
+
+**Not mechanical.** When the file itself has changed, the techniques and quotes
+describe a revision that no longer exists. The refresh script lists those
+entries; each one goes back through steps 4 to 8 above, and `evaluatedAt` moves
+to the day the analysis is rewritten. A stale analysis with fresh numbers is
+worse than either alone, because the numbers make it look current.
+
+The site flags this on its own: `isEntryStale` compares `lastCommit.date`
+against `evaluatedAt`.
+
+**Cadence.** Run the refresh monthly. Star counts are deliberately not touched
+by the script, since the GitHub API is unreachable from some environments and a
+wrong number is worse than a dated one; update `stars` and `STATS_AS_OF` by hand
+when the whole corpus is refreshed.
 
 ## Running a batch
 

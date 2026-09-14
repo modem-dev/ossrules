@@ -7,6 +7,11 @@
     "language": "Go",
     "stars": 23010,
     "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "109a38e8ca4827ae8c624fc1a9382290dcae0f69",
+        "date": "2026-08-26T17:00:40Z"
+    },
+    "evaluatedAt": "2026-09-14",
     "file": {
         "bytes": 8528,
         "lines": 105,
@@ -16,6 +21,7 @@
         "codeBlocks": 0,
         "docLinks": 0
     },
+    "references": [],
     "hook": "Opens by assigning the agent a persona and an output length limit.",
     "summary": "Begins with a role description and a set of core mandates, then covers tone, project structure, commands, testing and a planning procedure. Contains no code blocks.",
     "patterns": ["behavioral-conditioning", "hard-prohibition", "house-vocabulary", "verification-matrix"],

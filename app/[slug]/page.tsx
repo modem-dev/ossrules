@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import {
+    agentsFileCommitUrl,
     agentsFileUrl,
     formatStars,
     logoSrc,
@@ -10,6 +11,8 @@ import {
     repoUrl,
     STATS_AS_OF,
 } from '@/components/agents-md/agents-md-data';
+import { DocTree } from '@/components/agents-md/doc-tree';
+import { RelativeTime } from '@/components/agents-md/last-updated';
 import { Excerpt, FileStatGrid, PatternBadge } from '@/components/agents-md/primitives';
 import { PatternBackground } from '@/components/blog/pattern-background';
 import Footer from '@/components/footer';
@@ -128,10 +131,36 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                                 >
                                     Raw
                                 </a>
+                                <span aria-hidden className="text-gray-750">
+                                    /
+                                </span>
+                                <a
+                                    href={agentsFileCommitUrl(project)}
+                                    className="text-gray-550 hover:text-teal transition-colors"
+                                    rel="noopener noreferrer"
+                                    target="_blank"
+                                >
+                                    Last updated <RelativeTime iso={project.lastCommit.date} />
+                                </a>
                             </div>
                         </header>
 
                         <p className="mt-8 font-roboto text-lg text-light-cream/90 leading-relaxed">{project.hook}</p>
+
+                        {project.references.length > 0 ? (
+                            <section className="mt-10">
+                                <h2 className="font-inter text-xs font-semibold uppercase tracking-wider text-gray-550">
+                                    Documents it routes to
+                                </h2>
+                                <p className="mt-2 font-inter text-sm text-gray-550 leading-relaxed">
+                                    This file points the agent at {project.references.length} other{' '}
+                                    {project.references.length === 1 ? 'document' : 'documents'} in the repository.
+                                </p>
+                                <div className="mt-4">
+                                    <DocTree references={project.references} rootLabel="AGENTS.md" take="ascii" />
+                                </div>
+                            </section>
+                        ) : null}
 
                         <section className="mt-10">
                             <h2 className="font-inter text-xs font-semibold uppercase tracking-wider text-gray-550">By the numbers</h2>
@@ -139,8 +168,16 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                                 <FileStatGrid project={project} />
                             </div>
                             <p className="mt-3 font-inter text-xs text-gray-600 leading-relaxed">
-                                File measured on the <code className="font-mono text-gray-550">{project.defaultBranch}</code> branch. Star
-                                count is a snapshot from {STATS_AS_OF}.
+                                File measured on <code className="font-mono text-gray-550">{project.defaultBranch}</code> at commit{' '}
+                                <a
+                                    href={agentsFileCommitUrl(project)}
+                                    className="font-mono text-gray-550 hover:text-teal"
+                                    rel="noopener noreferrer"
+                                    target="_blank"
+                                >
+                                    {project.lastCommit.sha.slice(0, 7)}
+                                </a>
+                                . Analysis written {project.evaluatedAt}. Star count is a snapshot from {STATS_AS_OF}.
                             </p>
                         </section>
 

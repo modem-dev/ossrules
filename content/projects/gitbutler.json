@@ -7,6 +7,11 @@
     "language": "Rust",
     "stars": 21659,
     "defaultBranch": "master",
+    "lastCommit": {
+        "sha": "924a018bef8b4ffc70b51ecef5c434d1518858de",
+        "date": "2026-08-14T18:52:44Z"
+    },
+    "evaluatedAt": "2026-09-14",
     "file": {
         "bytes": 1779,
         "lines": 42,
@@ -16,6 +21,17 @@
         "codeBlocks": 0,
         "docLinks": 0
     },
+    "references": [
+        {
+            "path": "AGENTS.md"
+        },
+        {
+            "path": "apps/lite/AGENTS.md"
+        },
+        {
+            "path": "crates/AGENTS.md"
+        }
+    ],
     "hook": "42 lines that open with the precedence order between instruction sources.",
     "summary": "A repo map, a working-style list and two pointers to nested instruction files. Second shortest in the directory.",
     "patterns": ["nested-instructions", "behavioral-conditioning", "single-source"],
