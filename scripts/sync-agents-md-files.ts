@@ -14,6 +14,11 @@
  * model run that adds an entry gets its files by running this rather than by
  * pasting content into the repo.
  *
+ * The output directory is excluded from Biome (see biome.json). The files are
+ * other people's, and reformatting them would break the verbatim quotes the
+ * corpus depends on; the manifests are generated, and a formatter rewriting one
+ * would leave this script and the pre-commit hook overwriting each other.
+ *
  *   npx tsx scripts/sync-agents-md-files.ts           # write
  *   npx tsx scripts/sync-agents-md-files.ts --check   # verify, no writes (CI)
  *   npx tsx scripts/sync-agents-md-files.ts --slug x  # one project
