@@ -130,6 +130,15 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
 
                     <div className="project-layout">
                         <div className="min-w-0">
+                            <section id="documents" className="reading-section mb-8">
+                                <h2 className="eyebrow mb-3">Documents</h2>
+                                <DocTree
+                                    references={project.references}
+                                    rootLabel="AGENTS.md"
+                                    fileHref={(filePath) => repoFileUrl(project, filePath)}
+                                />
+                            </section>
+
                             <section id="overview" className="reading-section">
                                 <p className="eyebrow">The file, explained</p>
                                 <h2 className="section-title mt-3">What makes it useful</h2>
@@ -189,24 +198,6 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                                     ))}
                                 </ol>
                             </section>
-
-                            {project.references.length > 0 ? (
-                                <section id="documents" className="reading-section mt-12">
-                                    <h2 className="section-title">Documents it routes to</h2>
-                                    <p className="mt-3 text-gray-550 text-sm leading-relaxed">
-                                        This file points to {project.references.length} other{' '}
-                                        {project.references.length === 1 ? 'document' : 'documents'}. Open one to read the copy stored at
-                                        this commit.
-                                    </p>
-                                    <div className="mt-5">
-                                        <DocTree
-                                            references={project.references}
-                                            rootLabel="AGENTS.md"
-                                            fileHref={(filePath) => repoFileUrl(project, filePath)}
-                                        />
-                                    </div>
-                                </section>
-                            ) : null}
 
                             <section id="structure" className="reading-section mt-12">
                                 <h2 className="section-title">How the file is organized</h2>
@@ -268,6 +259,11 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                                 <p className="eyebrow">On this page</p>
                                 <ul className="mt-3 space-y-1 text-gray-550 text-xs">
                                     <li>
+                                        <a href="#documents" className="block py-2 hover:text-teal">
+                                            Documents
+                                        </a>
+                                    </li>
+                                    <li>
                                         <a href="#overview" className="block py-2 hover:text-teal">
                                             Overview
                                         </a>
@@ -282,13 +278,6 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                                             Takeaways
                                         </a>
                                     </li>
-                                    {project.references.length > 0 ? (
-                                        <li>
-                                            <a href="#documents" className="block py-2 hover:text-teal">
-                                                Related documents
-                                            </a>
-                                        </li>
-                                    ) : null}
                                     <li>
                                         <a href="#structure" className="block py-2 hover:text-teal">
                                             File structure
