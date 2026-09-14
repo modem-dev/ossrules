@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { STATS_AS_OF } from '@/components/agents-md-data';
 import CTAButton from '@/components/cta-button';
 import { JsonLd } from '@/components/json-ld';
-import { PatternBackground } from '@/components/pattern-background';
 import { ProjectExplorer } from '@/components/project-explorer';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
@@ -45,10 +44,9 @@ export default function AgentsMdPage() {
                 })}
             />
             <SiteHeader />
-            <PatternBackground fade />
 
-            <main className="relative z-10 flex-1">
-                <div className="max-w-container mx-auto px-6 sm:px-12 pt-32 pb-24">
+            <main id="main" className="relative z-10 flex-1">
+                <div className="max-w-container mx-auto px-6 sm:px-12 pt-14 pb-20">
                     <header className="max-w-3xl">
                         <h1 className="font-unit-medium text-4xl sm:text-5xl text-light-cream leading-tight tracking-tight">
                             AGENTS.md directory
@@ -58,7 +56,7 @@ export default function AgentsMdPage() {
                             techniques worth copying pulled out, so you can tell what is in one without opening it.
                         </p>
                         <p className="mt-4 font-inter text-sm text-gray-550">
-                            <Link href="/agents-md/techniques" className="text-teal hover:underline">
+                            <Link href="/techniques" className="text-teal hover:underline">
                                 Browse by technique
                             </Link>{' '}
                             for the moves that recur across the files. Star counts are a snapshot from {STATS_AS_OF}.
