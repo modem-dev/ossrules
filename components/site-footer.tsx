@@ -1,29 +1,29 @@
-import Image from 'next/image';
 import Link from 'next/link';
 
 export function SiteFooter() {
     return (
-        <footer className="relative z-10 mt-24 border-gray-750/60 border-t">
-            <div className="mx-auto flex max-w-container flex-col gap-4 px-6 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-12">
-                <nav className="flex flex-wrap items-center gap-5 font-inter text-gray-550 text-sm">
-                    <Link href="/" className="transition-colors hover:text-light-cream">
-                        Projects
-                    </Link>
-                    <Link href="/techniques" className="transition-colors hover:text-light-cream">
-                        Techniques
-                    </Link>
-                </nav>
-                <p className="font-inter text-gray-550 text-sm">
-                    Built by{' '}
-                    <a
-                        href="https://modem.dev"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex align-middle opacity-80 transition-opacity hover:opacity-100"
-                    >
-                        <Image src="/logos/modem-full-dark.svg" alt="Modem" width={800} height={146} className="h-[18px] w-auto" />
-                    </a>
-                </p>
+        <footer className="border-gray-750 border-t">
+            <div className="mx-auto flex max-w-container flex-col gap-6 px-5 py-8 sm:px-12 md:flex-row md:items-center md:justify-between">
+                <div>
+                    <p className="font-mono text-[13px] tracking-tight">Good instructions are worth sharing.</p>
+                    <nav aria-label="Footer navigation" className="mt-3 flex gap-5 text-gray-550 text-xs">
+                        <Link href="/" className="hover:text-teal">
+                            Projects
+                        </Link>
+                        <Link href="/techniques" className="hover:text-teal">
+                            Techniques
+                        </Link>
+                    </nav>
+                </div>
+                <a
+                    href="https://modem.dev"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group max-w-xs text-gray-550 text-xs leading-relaxed"
+                >
+                    From codebase context to customer context.
+                    <span className="mt-1 block text-light-cream transition-colors group-hover:text-teal">A project by Modem ↗</span>
+                </a>
             </div>
         </footer>
     );

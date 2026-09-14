@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { formatStars, logoSrc, PATTERNS } from '@/components/agents-md-data';
 import CTAButton from '@/components/cta-button';
 import { JsonLd } from '@/components/json-ld';
-import { PatternBackground } from '@/components/pattern-background';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { TechniqueIcon } from '@/components/technique-icons';
@@ -46,12 +45,11 @@ export default function TechniquesPage() {
                 })}
             />
             <SiteHeader />
-            <PatternBackground fade />
 
-            <main className="relative z-10 flex-1">
-                <div className="max-w-container mx-auto px-6 sm:px-12 pt-32 pb-24">
+            <main id="main" className="relative z-10 flex-1">
+                <div className="max-w-container mx-auto px-6 sm:px-12 pt-14 pb-20">
                     <div className="max-w-5xl mx-auto">
-                        <Link href="/agents-md" className="font-inter text-sm text-teal hover:underline">
+                        <Link href="/" className="font-inter text-sm text-teal hover:underline">
                             AGENTS.md directory
                         </Link>
 

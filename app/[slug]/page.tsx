@@ -17,7 +17,6 @@ import { DocTree } from '@/components/doc-tree';
 import { FileLink, FileTrayProvider, QuoteLink } from '@/components/file-tray';
 import { JsonLd } from '@/components/json-ld';
 import { RelativeTime } from '@/components/last-updated';
-import { PatternBackground } from '@/components/pattern-background';
 import { Excerpt, FileStatGrid, PatternBadge } from '@/components/primitives';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
@@ -96,12 +95,11 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                     })}
                 />
                 <SiteHeader />
-                <PatternBackground fade />
 
-                <main className="relative z-10 flex-1">
-                    <div className="max-w-container mx-auto px-6 sm:px-12 pt-32 pb-24">
+                <main id="main" className="relative z-10 flex-1">
+                    <div className="max-w-container mx-auto px-6 sm:px-12 pt-14 pb-20">
                         <div className="max-w-3xl mx-auto">
-                            <Link href="/agents-md" className="font-inter text-sm text-teal hover:underline">
+                            <Link href="/" className="font-inter text-sm text-teal hover:underline">
                                 AGENTS.md directory
                             </Link>
 
