@@ -38,8 +38,7 @@ entry gives them what it is. `steal` is the one place that is prescriptive,
 because a takeaway is advice by definition — keep it actionable and drop the
 adjectives.
 
-Site copy rules apply: **no em dashes**, and none of the filler list in
-`.cursor/rules/project.mdc`.
+Site copy rules in the root `AGENTS.md` apply: **no em dashes** or filler.
 
 ## Procedure
 
@@ -168,7 +167,7 @@ is a wasted row.
 ### 7. Choose technique ids
 
 Valid ids are the `PATTERNS` array in
-`components/agents-md/agents-md-data.ts`. Read it before tagging; the validator
+`components/agents-md-data.ts`. Read it before tagging; the validator
 rejects unknown ids.
 
 Tag a technique only when the file genuinely does that thing. An over-tagged
@@ -180,7 +179,7 @@ id is a separate, deliberate change, not a side effect of adding a project.
 ### 8. Download the files the entry reads
 
 ```bash
-pnpm sync:agents-md-files -- --slug <slug>
+pnpm sync:files -- --slug <slug>
 ```
 
 This writes `public/files/<slug>/` — a copy of the AGENTS.md and of
@@ -252,8 +251,8 @@ Entries go stale two ways, and only one is mechanical.
 **Mechanical.** Measurements and the upstream commit can be re-derived:
 
 ```bash
-pnpm refresh:agents-md            # report what changed upstream
-pnpm refresh:agents-md -- --write # apply measurements and commits, then re-download the files
+pnpm refresh            # report what changed upstream
+pnpm refresh -- --write # apply measurements and commits, then re-download the files
 ```
 
 `--write` re-runs the file sync for you, because moving an entry's pinned commit
@@ -261,7 +260,7 @@ without re-downloading its files would show one revision of a document beside
 measurements from another. To check for that drift without changing anything:
 
 ```bash
-pnpm check:agents-md-files        # every vendored copy still matches its pinned commit
+pnpm check:files        # every vendored copy still matches its pinned commit
 ```
 
 **Not mechanical.** When the file itself has changed, the techniques and quotes
