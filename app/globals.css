@@ -306,3 +306,37 @@ select {
         padding-inline: 0;
     }
 }
+
+.technique-jump {
+    padding-block: 1rem;
+    border-block: 1px solid var(--color-gray-750);
+}
+
+.technique-card {
+    min-width: 0;
+    padding: 1.75rem;
+    border: 1px solid var(--color-gray-750);
+    border-radius: 0.625rem;
+    background: var(--color-medium-gray);
+    scroll-margin-top: 1.5rem;
+}
+
+.technique-card:target {
+    border-color: var(--color-teal);
+    box-shadow: inset 3px 0 var(--color-teal);
+}
+
+.inline-summary {
+    width: fit-content;
+    padding-block: 0.5rem;
+}
+
+.inline-summary:hover {
+    color: var(--color-teal);
+}
+
+@media (max-width: 640px) {
+    .technique-card {
+        padding: 1.25rem;
+    }
+}
