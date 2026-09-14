@@ -143,7 +143,7 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
 
                             <div className="mt-5 flex flex-wrap gap-1.5">
                                 {project.patterns.map((pattern) => (
-                                    <PatternBadge key={pattern} pattern={pattern} href="/agents-md#patterns" />
+                                    <PatternBadge key={pattern} pattern={pattern} href="/agents-md#techniques" />
                                 ))}
                             </div>
                         </section>

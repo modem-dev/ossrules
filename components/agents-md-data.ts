@@ -705,10 +705,69 @@ export function readMinutes(project: AgentsProject): number {
     return Math.max(1, Math.round(project.file.words / 220));
 }
 
-/** Collection-wide totals for the landing page. */
-export const COLLECTION_TOTALS = {
-    projects: AGENTS_PROJECTS.length,
-    stars: AGENTS_PROJECTS.reduce((sum, p) => sum + p.stars, 0),
-    lines: AGENTS_PROJECTS.reduce((sum, p) => sum + p.file.lines, 0),
-    words: AGENTS_PROJECTS.reduce((sum, p) => sum + p.file.words, 0),
-};
+/** Org avatar, committed under public/agents-md so the list needs no third-party request. */
+export function logoSrc(project: AgentsProject): string {
+    return `/agents-md/${project.slug}.png`;
+}
+
+/**
+ * Facets for the index UI. Both derive from the entries rather than a hand list,
+ * so adding a project with a new language surfaces its filter with no edit here.
+ */
+export function languageFacets(projects: AgentsProject[]): { value: string; count: number }[] {
+    const counts = new Map<string, number>();
+    for (const project of projects) {
+        counts.set(project.language, (counts.get(project.language) ?? 0) + 1);
+    }
+    return [...counts.entries()]
+        .map(([value, count]) => ({ value, count }))
+        .sort((a, b) => b.count - a.count || a.value.localeCompare(b.value));
+}
+
+export function patternFacets(projects: AgentsProject[]): { id: PatternId; name: string; count: number }[] {
+    const counts = new Map<PatternId, number>();
+    for (const project of projects) {
+        for (const pattern of project.patterns) {
+            counts.set(pattern, (counts.get(pattern) ?? 0) + 1);
+        }
+    }
+    return PATTERNS.filter((pattern) => counts.has(pattern.id)).map((pattern) => ({
+        id: pattern.id,
+        name: pattern.name,
+        count: counts.get(pattern.id) ?? 0,
+    }));
+}
+
+/**
+ * Sort options offered by the index.
+ *
+ * Each one answers a different question a reader actually has: which projects
+ * carry weight (stars), how much there is to read (lines), how prescriptive the
+ * file is (rules), and where something is when you already know its name.
+ * `direction` is the sensible default for that column, not a fixed convention.
+ */
+export type SortId = 'stars' | 'lines' | 'rules' | 'name';
+
+export const SORTS: { id: SortId; label: string }[] = [
+    { id: 'stars', label: 'Stars' },
+    { id: 'lines', label: 'Lines' },
+    { id: 'rules', label: 'Rules' },
+    { id: 'name', label: 'Name' },
+];
+
+export function compareProjects(a: AgentsProject, b: AgentsProject, sort: SortId, descending: boolean): number {
+    const sign = descending ? -1 : 1;
+    if (sort === 'name') {
+        return sign * a.name.localeCompare(b.name, 'en', { sensitivity: 'base' });
+    }
+    const value = (p: AgentsProject) => (sort === 'stars' ? p.stars : sort === 'lines' ? p.file.lines : p.file.bullets);
+    // Stars break ties so equal-length files keep a stable, meaningful order.
+    return sign * (value(a) - value(b)) || b.stars - a.stars;
+}
+
+/** Free-text match over the fields a reader would type: name, org, repo, and the prose. */
+export function matchesQuery(project: AgentsProject, query: string): boolean {
+    const q = query.trim().toLowerCase();
+    if (!q) return true;
+    return [project.name, project.owner, project.repo, project.tagline, project.hook, project.language].join(' ').toLowerCase().includes(q);
+}
