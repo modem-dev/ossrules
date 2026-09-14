@@ -5,8 +5,8 @@ description: Evaluate an open source project's AGENTS.md and produce a corpus en
 
 # Adding a project to the AGENTS.md directory
 
-One entry is one JSON file in `content/agents-md/<slug>.json` plus one avatar in
-`public/agents-md/<slug>.png`. Nothing else changes: the directory page, the
+One entry is one JSON file in `content/projects/<slug>.json` plus one avatar in
+`public/logos/<slug>.png`. Nothing else changes: the directory page, the
 project page, the technique filters and the sitemap all derive from the corpus.
 Adding ten projects is ten JSON files and ten PNGs.
 
@@ -113,7 +113,7 @@ While reading, look for what this file does that a generic one would not:
 ### 5. Get the avatar
 
 ```bash
-curl -sL -o public/agents-md/<slug>.png \
+curl -sL -o public/logos/<slug>.png \
   "https://avatars.githubusercontent.com/<owner>?s=160"
 ```
 
@@ -122,7 +122,7 @@ can be proxy-blocked. Confirm it is a real PNG with `file`.
 
 ### 6. Write the entry
 
-Write `content/agents-md/<slug>.json`. The filename stem and `slug` must match.
+Write `content/projects/<slug>.json`. The filename stem and `slug` must match.
 
 ```jsonc
 {
@@ -183,7 +183,7 @@ id is a separate, deliberate change, not a side effect of adding a project.
 pnpm sync:agents-md-files -- --slug <slug>
 ```
 
-This writes `public/agents-md/files/<slug>/` — a copy of the AGENTS.md and of
+This writes `public/files/<slug>/` — a copy of the AGENTS.md and of
 every reference, taken at the entry's pinned commit, plus a `manifest.json` and
 the repository's detected license. The site serves these so a reader can open
 any of them without leaving the page, and so the file on screen is the same
@@ -212,7 +212,7 @@ Then verify the quotes mechanically. Nothing else catches a near-miss:
 python3 - <<'PY'
 import json, re, sys
 slug = "<slug>"
-entry = json.load(open(f"content/agents-md/{slug}.json"))
+entry = json.load(open(f"content/projects/{slug}.json"))
 source = open(f"/tmp/{slug}.md", encoding="utf-8").read()
 norm = lambda t: re.sub(r"\s+", " ", t).strip()
 bad = 0
@@ -282,7 +282,7 @@ when the whole corpus is refreshed.
 
 One project per run, one JSON file per run. Keep runs independent so a bad entry
 is one file to fix. Before starting a batch, check
-`content/agents-md/` for slugs that already exist; the validator also fails on
+`content/projects/` for slugs that already exist; the validator also fails on
 two entries claiming the same repository.
 
 Candidate repositories need a real `AGENTS.md` at the default branch. Check

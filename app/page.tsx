@@ -1,11 +1,11 @@
 import Link from 'next/link';
-import { STATS_AS_OF } from '@/components/agents-md/agents-md-data';
-import { ProjectExplorer } from '@/components/agents-md/project-explorer';
-import { PatternBackground } from '@/components/blog/pattern-background';
-import Footer from '@/components/footer';
+import { STATS_AS_OF } from '@/components/agents-md-data';
+import CTAButton from '@/components/cta-button';
 import { JsonLd } from '@/components/json-ld';
-import Navigation from '@/components/navigation';
-import CTAButton from '@/components/ui/cta-button';
+import { PatternBackground } from '@/components/pattern-background';
+import { ProjectExplorer } from '@/components/project-explorer';
+import { SiteFooter } from '@/components/site-footer';
+import { SiteHeader } from '@/components/site-header';
 import { getAgentsProjects } from '@/lib/agents-md';
 import { ogImageUrl } from '@/lib/og';
 import { collectionPageSchema } from '@/lib/schema';
@@ -17,7 +17,7 @@ const description =
 export const metadata = {
     title,
     description,
-    alternates: { canonical: '/agents-md' },
+    alternates: { canonical: '/' },
     openGraph: {
         title,
         description,
@@ -40,11 +40,11 @@ export default function AgentsMdPage() {
                 data={collectionPageSchema({
                     title,
                     description,
-                    path: '/agents-md',
-                    items: projects.map((project) => ({ name: project.name, path: `/agents-md/${project.slug}` })),
+                    path: '/',
+                    items: projects.map((project) => ({ name: project.name, path: `/${project.slug}` })),
                 })}
             />
-            <Navigation />
+            <SiteHeader />
             <PatternBackground fade />
 
             <main className="relative z-10 flex-1">
@@ -85,7 +85,7 @@ export default function AgentsMdPage() {
                 </div>
             </main>
 
-            <Footer />
+            <SiteFooter />
         </div>
     );
 }

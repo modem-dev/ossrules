@@ -1,0 +1,37 @@
+{
+    "name": "ossrules",
+    "version": "0.1.0",
+    "private": true,
+    "description": "A browsable directory of AGENTS.md files from open source projects.",
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "typecheck": "tsc --noEmit",
+        "lint": "biome check . && npx tsx scripts/validate-agents-md.ts",
+        "lint:fix": "biome check --fix .",
+        "format": "biome format --write .",
+        "validate": "npx tsx scripts/validate-agents-md.ts",
+        "sync:files": "npx tsx scripts/sync-agents-md-files.ts",
+        "check:files": "npx tsx scripts/sync-agents-md-files.ts --check",
+        "refresh": "npx tsx scripts/refresh-agents-md.ts"
+    },
+    "dependencies": {
+        "next": "^16.2.11",
+        "react": "^19.2.1",
+        "react-dom": "^19.2.1"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "^2.2.2",
+        "@tailwindcss/postcss": "^4.1.18",
+        "@types/node": "^22",
+        "@types/react": "^19",
+        "@types/react-dom": "^19",
+        "postcss": "^8.5.18",
+        "schema-dts": "^1.1.5",
+        "tailwindcss": "^4.1.18",
+        "tsx": "^4.19.2",
+        "typescript": "^5"
+    },
+    "packageManager": "pnpm@10.13.1"
+}

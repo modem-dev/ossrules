@@ -11,16 +11,16 @@ import {
     repoFileUrl,
     repoUrl,
     STATS_AS_OF,
-} from '@/components/agents-md/agents-md-data';
-import { DocTree } from '@/components/agents-md/doc-tree';
-import { FileLink, FileTrayProvider, QuoteLink } from '@/components/agents-md/file-tray';
-import { RelativeTime } from '@/components/agents-md/last-updated';
-import { Excerpt, FileStatGrid, PatternBadge } from '@/components/agents-md/primitives';
-import { PatternBackground } from '@/components/blog/pattern-background';
-import Footer from '@/components/footer';
+} from '@/components/agents-md-data';
+import CTAButton from '@/components/cta-button';
+import { DocTree } from '@/components/doc-tree';
+import { FileLink, FileTrayProvider, QuoteLink } from '@/components/file-tray';
 import { JsonLd } from '@/components/json-ld';
-import Navigation from '@/components/navigation';
-import CTAButton from '@/components/ui/cta-button';
+import { RelativeTime } from '@/components/last-updated';
+import { PatternBackground } from '@/components/pattern-background';
+import { Excerpt, FileStatGrid, PatternBadge } from '@/components/primitives';
+import { SiteFooter } from '@/components/site-footer';
+import { SiteHeader } from '@/components/site-header';
 import { getAgentsProject, getAgentsProjects, getVendoredFiles } from '@/lib/agents-md';
 import { ogImageUrl } from '@/lib/og';
 import { webPageSchema } from '@/lib/schema';
@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return {
         title,
         description,
-        alternates: { canonical: `/agents-md/${project.slug}` },
+        alternates: { canonical: `/${project.slug}` },
         openGraph: {
             title,
             description,
@@ -92,10 +92,10 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                     data={webPageSchema({
                         title: `${project.name}'s AGENTS.md, explained`,
                         description: project.hook,
-                        path: `/agents-md/${project.slug}`,
+                        path: `/${project.slug}`,
                     })}
                 />
-                <Navigation />
+                <SiteHeader />
                 <PatternBackground fade />
 
                 <main className="relative z-10 flex-1">
@@ -213,7 +213,7 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
 
                                 <div className="mt-5 flex flex-wrap gap-1.5">
                                     {project.patterns.map((pattern) => (
-                                        <PatternBadge key={pattern} pattern={pattern} href={`/agents-md/techniques#${pattern}`} />
+                                        <PatternBadge key={pattern} pattern={pattern} href={`/techniques#${pattern}`} />
                                     ))}
                                 </div>
                             </section>
@@ -288,7 +288,7 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
 
                             <nav className="mt-16 grid gap-4 border-t border-gray-750/50 pt-8 sm:grid-cols-2">
                                 {previous ? (
-                                    <Link href={`/agents-md/${previous.slug}`} className="group block">
+                                    <Link href={`/${previous.slug}`} className="group block">
                                         <span className="font-inter text-xs text-gray-600">Previous</span>
                                         <span className="mt-1 block font-roboto text-[17px] text-light-cream/90 transition-colors group-hover:text-teal">
                                             {previous.name}
@@ -301,7 +301,7 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                                     <span />
                                 )}
                                 {next ? (
-                                    <Link href={`/agents-md/${next.slug}`} className="group block sm:text-right">
+                                    <Link href={`/${next.slug}`} className="group block sm:text-right">
                                         <span className="font-inter text-xs text-gray-600">Next</span>
                                         <span className="mt-1 block font-roboto text-[17px] text-light-cream/90 transition-colors group-hover:text-teal">
                                             {next.name}
@@ -329,7 +329,7 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                     </div>
                 </main>
 
-                <Footer />
+                <SiteFooter />
             </div>
         </FileTrayProvider>
     );

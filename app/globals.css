@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+/* The palette is a subset of Modem's marketing tokens — only what this site uses. */
+@theme {
+    --color-dark-gray: #242424;
+    --color-medium-gray: #2c2b29;
+    --color-teal: #44bda3;
+    --color-teal-dark: #3da892;
+    --color-dark-teal: #243f40;
+    --color-light-cream: #fdfdfa;
+    --color-marketing-black: #0a0b0a;
+
+    --color-gray-850: #191815;
+    --color-gray-800: #272520;
+    --color-gray-750: #302e27;
+    --color-gray-700: #413e36;
+    --color-gray-650: #524f47;
+    --color-gray-600: #6c6860;
+    --color-gray-550: #9e9b94;
+    --color-gray-500: #b0ada6;
+    --color-gray-400: #c4c1bb;
+    --color-gray-200: #eae9e6;
+    --color-gray-150: #f1f1ee;
+
+    --max-width-container: 1200px;
+
+    --font-inter: var(--font-inter-variable), ui-sans-serif, system-ui, sans-serif;
+    --font-roboto: var(--font-roboto-variable), "Roboto", sans-serif;
+}
+
+/* FF Unit, served from Adobe Fonts. The kit is domain-scoped: ossrules.md must
+   be listed in the kit's allowed domains or this silently falls back. */
+.font-unit-medium {
+    font-family: "unit", var(--font-inter), sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+html {
+    color-scheme: dark;
+}
+
+body {
+    background-color: var(--color-dark-gray);
+}

@@ -2,11 +2,11 @@ import 'server-only';
 
 import fs from 'node:fs';
 import path from 'node:path';
-import type { AgentsProject, VendoredFiles } from '@/components/agents-md/agents-md-data';
-import { validateAgentsProject } from '@/components/agents-md/agents-md-schema';
+import type { AgentsProject, VendoredFiles } from '@/components/agents-md-data';
+import { validateAgentsProject } from '@/components/agents-md-schema';
 
 /**
- * Loads the AGENTS.md corpus from content/agents-md/*.json.
+ * Loads the AGENTS.md corpus from content/projects/*.json.
  *
  * Entries are one JSON file per project so a new one can be produced, reviewed
  * and merged on its own. The procedure for writing one is in
@@ -15,8 +15,8 @@ import { validateAgentsProject } from '@/components/agents-md/agents-md-schema';
  * at build time instead of rendering a half-empty page.
  */
 
-const CONTENT_DIR = path.join(process.cwd(), 'content', 'agents-md');
-const FILES_DIR = path.join(process.cwd(), 'public', 'agents-md', 'files');
+const CONTENT_DIR = path.join(process.cwd(), 'content', 'projects');
+const FILES_DIR = path.join(process.cwd(), 'public', 'files');
 
 let cache: AgentsProject[] | undefined;
 const manifestCache = new Map<string, VendoredFiles>();
@@ -29,11 +29,11 @@ export function getAgentsProjects(): AgentsProject[] {
         const raw = JSON.parse(fs.readFileSync(path.join(CONTENT_DIR, name), 'utf8')) as unknown;
         const errors = validateAgentsProject(raw, name);
         if (errors.length > 0) {
-            throw new Error(`Invalid AGENTS.md entry in content/agents-md/${name}:\n  ${errors.join('\n  ')}`);
+            throw new Error(`Invalid AGENTS.md entry in content/projects/${name}:\n  ${errors.join('\n  ')}`);
         }
         const project = raw as AgentsProject;
         if (project.slug !== name.replace(/\.json$/, '')) {
-            throw new Error(`content/agents-md/${name} declares slug "${project.slug}"; filename and slug must match.`);
+            throw new Error(`content/projects/${name} declares slug "${project.slug}"; filename and slug must match.`);
         }
         return project;
     });

@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { formatStars, logoSrc, PATTERNS } from '@/components/agents-md/agents-md-data';
-import { TechniqueIcon } from '@/components/agents-md/technique-icons';
-import { PatternBackground } from '@/components/blog/pattern-background';
-import Footer from '@/components/footer';
+import { formatStars, logoSrc, PATTERNS } from '@/components/agents-md-data';
+import CTAButton from '@/components/cta-button';
 import { JsonLd } from '@/components/json-ld';
-import Navigation from '@/components/navigation';
-import CTAButton from '@/components/ui/cta-button';
+import { PatternBackground } from '@/components/pattern-background';
+import { SiteFooter } from '@/components/site-footer';
+import { SiteHeader } from '@/components/site-header';
+import { TechniqueIcon } from '@/components/technique-icons';
 import { getAgentsProjects, projectsWithPattern } from '@/lib/agents-md';
 import { ogImageUrl } from '@/lib/og';
 import { collectionPageSchema } from '@/lib/schema';
@@ -18,7 +18,7 @@ const description =
 export const metadata = {
     title,
     description,
-    alternates: { canonical: '/agents-md/techniques' },
+    alternates: { canonical: '/techniques' },
     openGraph: {
         title,
         description,
@@ -41,11 +41,11 @@ export default function TechniquesPage() {
                 data={collectionPageSchema({
                     title,
                     description,
-                    path: '/agents-md/techniques',
-                    items: PATTERNS.map((pattern) => ({ name: pattern.name, path: `/agents-md/techniques#${pattern.id}` })),
+                    path: '/techniques',
+                    items: PATTERNS.map((pattern) => ({ name: pattern.name, path: `/techniques#${pattern.id}` })),
                 })}
             />
-            <Navigation />
+            <SiteHeader />
             <PatternBackground fade />
 
             <main className="relative z-10 flex-1">
@@ -114,7 +114,7 @@ export default function TechniquesPage() {
                                             {shown.map((project) => (
                                                 <li key={project.slug}>
                                                     <Link
-                                                        href={`/agents-md/${project.slug}`}
+                                                        href={`/${project.slug}`}
                                                         className="group flex items-center gap-2.5 border-b border-gray-750/50 py-2 transition-colors hover:bg-medium-gray/50"
                                                     >
                                                         <Image
@@ -158,7 +158,7 @@ export default function TechniquesPage() {
                 </div>
             </main>
 
-            <Footer />
+            <SiteFooter />
         </div>
     );
 }

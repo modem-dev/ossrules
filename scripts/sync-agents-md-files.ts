@@ -27,8 +27,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const CONTENT_DIR = path.join(process.cwd(), 'content', 'agents-md');
-const FILES_DIR = path.join(process.cwd(), 'public', 'agents-md', 'files');
+const CONTENT_DIR = path.join(process.cwd(), 'content', 'projects');
+const FILES_DIR = path.join(process.cwd(), 'public', 'files');
 
 /**
  * Bytes kept per file. Everything above this in the corpus today is a changelog
