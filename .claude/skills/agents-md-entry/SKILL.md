@@ -5,10 +5,10 @@ description: Evaluate an open source project's AGENTS.md and produce a corpus en
 
 # Adding a project to the AGENTS.md directory
 
-One entry is one JSON file in `content/projects/<slug>.json` plus one avatar in
-`public/logos/<slug>.png`. Nothing else changes: the directory page, the
-project page, the technique filters and the sitemap all derive from the corpus.
-Adding ten projects is ten JSON files and ten PNGs.
+An entry consists of `content/projects/<slug>.json`, its avatar in
+`public/logos/<slug>.png`, and generated pinned documents under
+`public/files/<slug>/`. The directory, project pages, and technique filters derive
+from the corpus; adding a project does not require a new page implementation.
 
 This is written to be run independently, one project per run, so the work can be
 fanned out. Do not read the other entries before writing yours — the analysis
