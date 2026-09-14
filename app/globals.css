@@ -2,24 +2,25 @@
 
 /* Semantic light/dark pairs keep every reading surface in the same palette. */
 @theme {
-    --color-dark-gray: light-dark(#f7f9f6, #141917);
-    --color-medium-gray: light-dark(#ffffff, #1c2420);
-    --color-teal: light-dark(#236e51, #a2dfb4);
-    --color-teal-dark: light-dark(#19573e, #c0edcb);
-    --color-dark-teal: light-dark(#dcebdd, #294132);
-    --color-light-cream: light-dark(#202c24, #edf1e9);
-    --color-marketing-black: #0a0f0c;
-    --color-gray-850: light-dark(#eef3ed, #111713);
-    --color-gray-800: light-dark(#e5ece4, #202b23);
-    --color-gray-750: light-dark(#d1ddd2, #35463a);
-    --color-gray-700: light-dark(#a5b6a8, #607465);
-    --color-gray-650: light-dark(#637b68, #8ca591);
-    --color-gray-600: light-dark(#5c7061, #9aac9e);
-    --color-gray-550: light-dark(#53675a, #b1beb3);
-    --color-gray-500: light-dark(#485d50, #becac0);
-    --color-gray-400: light-dark(#344b3b, #d0dbd1);
-    --color-gray-200: light-dark(#26382c, #eae9e6);
-    --color-gray-150: light-dark(#203126, #f1f1ee);
+    --color-dark-gray: light-dark(#f8f8ed, #242424);
+    --color-medium-gray: light-dark(#fffef8, #2c2b29);
+    --color-teal: light-dark(#187b69, #44bda3);
+    --color-teal-dark: light-dark(#116252, #71d0bb);
+    --color-brand-teal: #44bda3;
+    --color-dark-teal: light-dark(#e0eee7, #243f40);
+    --color-light-cream: light-dark(#242424, #f8f8ed);
+    --color-marketing-black: #0a0b0a;
+    --color-gray-850: light-dark(#f0f0e5, #1d1e1c);
+    --color-gray-800: light-dark(#e9e9de, #333431);
+    --color-gray-750: light-dark(#d6d7cb, #444640);
+    --color-gray-700: light-dark(#a6aaa0, #6b7169);
+    --color-gray-650: light-dark(#727b72, #929e94);
+    --color-gray-600: light-dark(#657065, #a1aaa0);
+    --color-gray-550: light-dark(#5c685e, #b4bdb1);
+    --color-gray-500: light-dark(#4f5c52, #c2c9bb);
+    --color-gray-400: light-dark(#394a40, #d4d9cc);
+    --color-gray-200: light-dark(#2c3830, #eae9e6);
+    --color-gray-150: light-dark(#242e27, #f1f1ee);
     --max-width-container: 1200px;
 }
 
@@ -173,7 +174,7 @@ select {
     position: relative;
     padding: 1.5rem 1.75rem;
     border: 1px solid var(--color-gray-750);
-    border-radius: 0.625rem;
+    border-radius: 0.25rem;
     background: var(--color-medium-gray);
     transition: border-color 150ms;
 }
@@ -316,7 +317,7 @@ select {
     min-width: 0;
     padding: 1.75rem;
     border: 1px solid var(--color-gray-750);
-    border-radius: 0.625rem;
+    border-radius: 0.25rem;
     background: var(--color-medium-gray);
     scroll-margin-top: 1.5rem;
 }
@@ -588,5 +589,93 @@ select {
     }
     .source-footer {
         padding: 0.75rem 1rem;
+    }
+}
+
+/* Modem's dark chassis and pixel texture frame the quieter reference pages. */
+.modem-surface {
+    --color-teal: #44bda3;
+    --color-light-cream: #f8f8ed;
+    --color-gray-550: #bbc5ba;
+    --color-gray-750: #3c4a43;
+    --color-medium-gray: #202623;
+    color: var(--color-light-cream);
+    background-color: var(--color-marketing-black);
+}
+
+.site-header {
+    border-top: 3px solid var(--color-brand-teal);
+}
+
+.brand-lockup {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.brand-home {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2rem;
+    padding-right: 1.25rem;
+    border-right: 1px solid var(--color-gray-750);
+}
+
+.brand-masthead {
+    position: relative;
+    isolation: isolate;
+    padding: 2.5rem;
+    margin-bottom: 1.75rem;
+    border: 1px solid #34473e;
+    border-top: 2px solid var(--color-brand-teal);
+    border-radius: 0.25rem;
+    overflow: hidden;
+    background-image: radial-gradient(#44bda320 0.7px, transparent 0.8px);
+    background-size: 5px 5px;
+}
+
+.brand-masthead::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(100deg, #0a0b0af5 35%, #0a0b0a40);
+    pointer-events: none;
+}
+
+.brand-masthead .page-title {
+    font-size: clamp(1.5rem, 3.2vw, 2.6rem);
+}
+
+.brand-masthead .directory-feature {
+    background: #1b2420eb;
+    padding: 1.5rem;
+}
+
+.site-footer {
+    border-top: 2px solid var(--color-brand-teal);
+}
+
+@media (max-width: 767px) {
+    html {
+        scroll-padding-top: 8rem;
+    }
+
+    .brand-lockup {
+        gap: 0.75rem;
+    }
+
+    .brand-home {
+        padding-right: 0.75rem;
+    }
+
+    .brand-home img {
+        height: 16px;
+        width: auto;
+    }
+
+    .brand-masthead {
+        padding: 1.5rem;
+        margin-inline: -0.5rem;
     }
 }

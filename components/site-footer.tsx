@@ -1,8 +1,9 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 export function SiteFooter() {
     return (
-        <footer className="border-gray-750 border-t">
+        <footer className="site-footer modem-surface">
             <div className="mx-auto flex max-w-container flex-col gap-6 px-5 py-8 sm:px-12 md:flex-row md:items-center md:justify-between">
                 <div>
                     <p className="font-mono text-[13px] tracking-tight">Good instructions are worth sharing.</p>
@@ -15,15 +16,17 @@ export function SiteFooter() {
                         </Link>
                     </nav>
                 </div>
-                <a
-                    href="https://modem.dev"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group max-w-xs text-gray-550 text-xs leading-relaxed"
-                >
-                    From codebase context to customer context.
-                    <span className="mt-1 block text-light-cream transition-colors group-hover:text-teal">A project by Modem ↗</span>
-                </a>
+                <p className="flex items-center gap-2.5 self-end font-mono text-gray-550 text-xs md:self-auto">
+                    Built by
+                    <a
+                        href="https://modem.dev"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex min-h-11 items-center opacity-90 transition-opacity hover:opacity-100"
+                    >
+                        <Image src="/logos/modem-full-dark.svg" alt="Modem" width={800} height={146} className="h-[18px] w-auto" />
+                    </a>
+                </p>
             </div>
         </footer>
     );
