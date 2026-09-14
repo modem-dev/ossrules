@@ -542,6 +542,21 @@ select {
     color: var(--color-teal);
 }
 
+.source-copy {
+    gap: 0.5rem;
+    min-width: 6rem;
+    border-color: var(--color-brand-teal);
+    background: var(--color-brand-teal);
+    color: var(--color-marketing-black);
+    font-weight: 500;
+}
+
+.source-copy:hover:not(:disabled) {
+    border-color: #71d0bb;
+    background: #71d0bb;
+    color: var(--color-marketing-black);
+}
+
 .source-scroll {
     flex: 1;
     min-height: 0;
