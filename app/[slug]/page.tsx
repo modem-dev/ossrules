@@ -325,6 +325,16 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                             </Link>
                         ) : null}
                     </nav>
+                    <section className="mt-16 border-gray-750 border-t pt-10">
+                        <h2 className="section-title">Context your AGENTS.md cannot carry</h2>
+                        <p className="prose-copy mt-3 max-w-3xl">
+                            {project.name}&apos;s file tells an agent how the codebase works. It cannot tell it which bug three customers
+                            hit this week. Modem keeps that context current and attaches it to the work.
+                        </p>
+                        <a href="https://modem.dev" target="_blank" rel="noopener noreferrer" className="action-link action-primary mt-6">
+                            Try Modem <span aria-hidden>↗</span>
+                        </a>
+                    </section>
                 </main>
 
                 <SiteFooter />
