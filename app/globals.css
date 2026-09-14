@@ -603,10 +603,6 @@ select {
     background-color: var(--color-marketing-black);
 }
 
-.site-header {
-    border-top: 3px solid var(--color-brand-teal);
-}
-
 .brand-lockup {
     display: flex;
     align-items: center;
@@ -650,10 +646,6 @@ select {
 .brand-masthead .directory-feature {
     background: #1b2420eb;
     padding: 1.5rem;
-}
-
-.site-footer {
-    border-top: 2px solid var(--color-brand-teal);
 }
 
 @media (max-width: 767px) {
