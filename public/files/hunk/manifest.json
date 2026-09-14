@@ -1,0 +1,80 @@
+{
+    "slug": "hunk",
+    "sha": "392cb7f99661270ff77df1f6c6bae9d9f5a0f156",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".changeset/README.md",
+            "bytes": 1707,
+            "lines": 38
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 16467,
+            "lines": 224
+        },
+        {
+            "path": "CHANGELOG.md",
+            "bytes": 116342,
+            "lines": 1269,
+            "truncated": true
+        },
+        {
+            "path": "CONTRIBUTING.md",
+            "bytes": 9518,
+            "lines": 146
+        },
+        {
+            "path": "docs/browser-review-rebuild.md",
+            "bytes": 18374,
+            "lines": 262
+        },
+        {
+            "path": "docs/browser-review-seam-audit.md",
+            "bytes": 54905,
+            "lines": 668
+        },
+        {
+            "path": "docs/changelog-on-hunk-dev.md",
+            "bytes": 9213,
+            "lines": 139
+        },
+        {
+            "path": "docs/extension-architecture.md",
+            "bytes": 26947,
+            "lines": 393
+        },
+        {
+            "path": "docs/extensions.md",
+            "bytes": 117850,
+            "lines": 2374,
+            "truncated": true
+        },
+        {
+            "path": "docs/module-boundaries.md",
+            "bytes": 18302,
+            "lines": 259
+        },
+        {
+            "path": "packages/hunk/skills/hunk-extensions/SKILL.md",
+            "bytes": 22258,
+            "lines": 347
+        },
+        {
+            "path": "packages/hunk/skills/hunk-review/SKILL.md",
+            "bytes": 13714,
+            "lines": 223
+        },
+        {
+            "path": "skills/hunk-release/SKILL.md",
+            "bytes": 12537,
+            "lines": 262
+        },
+        {
+            "path": "test/README.md",
+            "bytes": 3810,
+            "lines": 53
+        }
+    ]
+}

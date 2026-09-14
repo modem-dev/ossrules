@@ -23,7 +23,9 @@
     },
     "references": [
         {
-            "path": "AGENTS.md"
+            "path": "AGENTS.md",
+            "kind": "pattern",
+            "label": "the nearest nested AGENTS.md"
         },
         {
             "path": "apps/lite/AGENTS.md"

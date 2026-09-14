@@ -1,0 +1,23 @@
+{
+    "slug": "gitbutler",
+    "sha": "924a018bef8b4ffc70b51ecef5c434d1518858de",
+    "license": "FSL-1.1",
+    "licensePath": "LICENSE.md",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 1779,
+            "lines": 42
+        },
+        {
+            "path": "apps/lite/AGENTS.md",
+            "bytes": 2269,
+            "lines": 71
+        },
+        {
+            "path": "crates/AGENTS.md",
+            "bytes": 8876,
+            "lines": 147
+        }
+    ]
+}

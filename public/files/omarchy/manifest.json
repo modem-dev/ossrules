@@ -1,0 +1,63 @@
+{
+    "slug": "omarchy",
+    "sha": "1c8f728b25cb8a42f1d02e4d2441230132cedb6c",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 7831,
+            "lines": 133
+        },
+        {
+            "path": "agents/skills/acceptance-tests.md",
+            "bytes": 2172,
+            "lines": 46
+        },
+        {
+            "path": "agents/skills/command-metadata.md",
+            "bytes": 1197,
+            "lines": 31
+        },
+        {
+            "path": "agents/skills/icon-font.md",
+            "bytes": 3441,
+            "lines": 79
+        },
+        {
+            "path": "agents/skills/install-scripts.md",
+            "bytes": 1560,
+            "lines": 19
+        },
+        {
+            "path": "agents/skills/migrations.md",
+            "bytes": 4583,
+            "lines": 167
+        },
+        {
+            "path": "agents/skills/shell-dev.md",
+            "bytes": 2523,
+            "lines": 49
+        },
+        {
+            "path": "agents/skills/visual-verification.md",
+            "bytes": 1819,
+            "lines": 44
+        },
+        {
+            "path": "default/agents/skills/omarchy/SKILL.md",
+            "bytes": 13248,
+            "lines": 294
+        },
+        {
+            "path": "docs/menu.md",
+            "bytes": 9087,
+            "lines": 167
+        },
+        {
+            "path": "docs/testing.md",
+            "bytes": 6806,
+            "lines": 138
+        }
+    ]
+}

@@ -12,6 +12,10 @@
  * Star counts are left alone: the GitHub API is not reachable from every
  * environment this runs in, and a wrong number is worse than a dated one.
  *
+ * With --write this also re-runs the file sync, because moving an entry's pinned
+ * commit without re-downloading its files would leave the site showing one
+ * revision of a document beside measurements taken from another.
+ *
  *   npx tsx scripts/refresh-agents-md.ts            # report only
  *   npx tsx scripts/refresh-agents-md.ts --write    # apply the mechanical updates
  */
@@ -113,6 +117,14 @@ async function main() {
             fs.writeFileSync(filePath, `${JSON.stringify(entry, null, 4)}\n`);
         }
         process.stdout.write(`  ${contentChanged || commitChanged ? '~' : '='} ${entry.slug}\n`);
+    }
+
+    if (WRITE) {
+        console.log('\nRe-downloading vendored files for the pinned commits:');
+        execFileSync('npx', ['tsx', path.join(process.cwd(), 'scripts', 'sync-agents-md-files.ts')], {
+            stdio: 'inherit',
+            timeout: 900_000,
+        });
     }
 
     if (unreachable.length > 0) {

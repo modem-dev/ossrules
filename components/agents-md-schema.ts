@@ -110,6 +110,9 @@ export function validateAgentsProject(value: unknown, label: string): string[] {
             if (reference.label !== undefined && !isNonEmptyString(reference.label)) {
                 at(`references[${index}].label must be a non-empty string when present.`);
             }
+            if (reference.kind !== undefined && reference.kind !== 'pattern') {
+                at(`references[${index}].kind must be "pattern" when present.`);
+            }
         });
     }
 

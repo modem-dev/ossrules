@@ -173,6 +173,35 @@ export interface LastCommit {
 export interface DocReference {
     path: string;
     label?: string;
+    /**
+     * Set when the reference names a shape rather than one file — "the nearest
+     * nested AGENTS.md", "the changed provider's changelog". These have no single
+     * copy to vendor and no single file to open.
+     */
+    kind?: 'pattern';
+}
+
+/** One locally stored copy of a file the project's AGENTS.md reads. */
+export interface VendoredFile {
+    path: string;
+    /** Size upstream, before any truncation. */
+    bytes: number;
+    lines: number;
+    /** Only the first part of the file is stored; the rest is a link away. */
+    truncated?: boolean;
+    /** The path does not resolve at this commit — the AGENTS.md points at nothing. */
+    missing?: true;
+}
+
+/** The index written by scripts/sync-agents-md-files.ts for one project. */
+export interface VendoredFiles {
+    slug: string;
+    /** The commit every stored file was taken from. Matches the entry's lastCommit. */
+    sha: string;
+    /** SPDX id, when the repository's license file was recognised. */
+    license?: string;
+    licensePath?: string;
+    files: VendoredFile[];
 }
 
 export interface Technique {
@@ -225,7 +254,12 @@ export function agentsFileUrl(project: AgentsProject): string {
 
 /** Permalink to the exact revision this entry was written against. */
 export function agentsFileCommitUrl(project: AgentsProject): string {
-    return `https://github.com/${project.owner}/${project.repo}/blob/${project.lastCommit.sha}/AGENTS.md`;
+    return repoFileUrl(project, 'AGENTS.md');
+}
+
+/** Any file in the repository, pinned to the commit this entry was measured at. */
+export function repoFileUrl(project: AgentsProject, filePath: string): string {
+    return `https://github.com/${project.owner}/${project.repo}/blob/${project.lastCommit.sha}/${filePath}`;
 }
 
 /**

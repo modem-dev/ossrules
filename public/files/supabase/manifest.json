@@ -1,0 +1,33 @@
+{
+    "slug": "supabase",
+    "sha": "f125126aec53c1ff4d4c144dccc1fa451372289d",
+    "license": "Apache-2.0",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 6604,
+            "lines": 75
+        },
+        {
+            "path": "apps/docs/AGENTS.md",
+            "bytes": 1354,
+            "lines": 27
+        },
+        {
+            "path": "apps/docs/CONTRIBUTING.md",
+            "bytes": 25254,
+            "lines": 456
+        },
+        {
+            "path": "apps/kb/AGENTS.md",
+            "bytes": 985,
+            "lines": 36
+        },
+        {
+            "path": "apps/studio/AGENTS.md",
+            "bytes": 11166,
+            "lines": 89
+        }
+    ]
+}

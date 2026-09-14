@@ -1,0 +1,13 @@
+{
+    "slug": "ghostty",
+    "sha": "9897d6caba05c0cbf256f86bec2e2935f164a9c7",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 1388,
+            "lines": 39
+        }
+    ]
+}

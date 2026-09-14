@@ -1,0 +1,24 @@
+{
+    "slug": "workers-sdk",
+    "sha": "f8308360283f97d33e188aee2e19c1ef9c09524a",
+    "license": "Apache-2.0",
+    "licensePath": "LICENSE-APACHE",
+    "files": [
+        {
+            "path": ".changeset/README.md",
+            "bytes": 5462,
+            "lines": 135
+        },
+        {
+            "path": ".github/PULL_REQUEST_TEMPLATE.md",
+            "bytes": 0,
+            "lines": 0,
+            "missing": true
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 9162,
+            "lines": 153
+        }
+    ]
+}
