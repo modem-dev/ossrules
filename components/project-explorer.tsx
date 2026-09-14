@@ -17,6 +17,7 @@ import type { AgentsProject, PatternId, SortId } from './agents-md-data';
 import {
     compareProjects,
     formatStars,
+    languageColor,
     languageFacets,
     logoSrc,
     matchesQuery,
@@ -42,6 +43,15 @@ function Chip({ active, children, onClick }: { active: boolean; children: React.
         >
             {children}
         </button>
+    );
+}
+
+function LanguageDot({ language }: { language: string }) {
+    return (
+        <span className="inline-flex items-center" title={language}>
+            <span aria-hidden className="size-2.5 rounded-full" style={{ backgroundColor: languageColor(language) }} />
+            <span className="sr-only">{language}</span>
+        </span>
     );
 }
 
@@ -83,7 +93,9 @@ function ProjectRow({ project }: { project: AgentsProject }) {
                 </div>
 
                 <div className="col-start-2 flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-xs text-gray-550 tabular-nums sm:col-start-3 sm:flex-nowrap sm:justify-end sm:gap-5">
-                    <span className="sm:w-20 sm:text-right">{project.language}</span>
+                    <span className="flex sm:w-6 sm:justify-end">
+                        <LanguageDot language={project.language} />
+                    </span>
                     <span className="sm:w-14 sm:text-right">{formatStars(project.stars)}</span>
                     <span className="sm:w-12 sm:text-right">{project.file.lines}</span>
                 </div>
@@ -155,7 +167,14 @@ export function ProjectExplorer({ projects }: { projects: AgentsProject[] }) {
                     </Chip>
                     {languages.map((item) => (
                         <Chip key={item.value} active={language === item.value} onClick={() => setLanguage(item.value)}>
-                            {item.value} <span className="text-gray-600">{item.count}</span>
+                            <span className="inline-flex items-center gap-1.5">
+                                <span
+                                    aria-hidden
+                                    className="size-2.5 rounded-full"
+                                    style={{ backgroundColor: languageColor(item.value) }}
+                                />
+                                {item.value} <span className="text-gray-600">{item.count}</span>
+                            </span>
                         </Chip>
                     ))}
                 </div>
@@ -200,7 +219,7 @@ export function ProjectExplorer({ projects }: { projects: AgentsProject[] }) {
                 <span />
                 <span>Project</span>
                 <span className="flex gap-5">
-                    <span className="w-20 text-right">Language</span>
+                    <span className="w-6 text-right">Lang</span>
                     <span className="w-14 text-right">Stars</span>
                     <span className="w-12 text-right">Lines</span>
                 </span>

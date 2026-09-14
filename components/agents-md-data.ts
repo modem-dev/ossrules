@@ -705,6 +705,58 @@ export function readMinutes(project: AgentsProject): number {
     return Math.max(1, Math.round(project.file.words / 220));
 }
 
+/**
+ * GitHub linguist colours, so the language column can be a dot rather than a
+ * word. Only the languages in the directory need an entry; anything unlisted
+ * falls back to a neutral grey rather than breaking, which is what keeps adding
+ * a project in a new language from requiring an edit here.
+ *
+ * A colour alone is not an accessible label, so every dot also carries the
+ * language name as text for assistive tech, and the language filter chips show
+ * the same dots beside their names to act as an on-page legend.
+ */
+const LANGUAGE_COLORS: Record<string, string> = {
+    C: '#555555',
+    'C++': '#f34b7d',
+    'C#': '#178600',
+    Clojure: '#db5855',
+    CSS: '#563d7c',
+    Dart: '#00b4ab',
+    Elixir: '#6e4a7e',
+    Erlang: '#b83998',
+    Go: '#00add8',
+    Haskell: '#5e5086',
+    HTML: '#e34c26',
+    Java: '#b07219',
+    JavaScript: '#f1e05a',
+    Julia: '#a270ba',
+    Kotlin: '#a97bff',
+    Lua: '#000080',
+    Nix: '#7e7eff',
+    'Objective-C': '#438eff',
+    OCaml: '#ef7a08',
+    Perl: '#0298c3',
+    PHP: '#4f5d95',
+    PowerShell: '#012456',
+    Python: '#3572a5',
+    R: '#198ce7',
+    Ruby: '#701516',
+    Rust: '#dea584',
+    Scala: '#c22d40',
+    Shell: '#89e051',
+    Svelte: '#ff3e00',
+    Swift: '#f05138',
+    TypeScript: '#3178c6',
+    Vue: '#41b883',
+    Zig: '#ec915c',
+};
+
+const UNKNOWN_LANGUAGE_COLOR = '#6c6860';
+
+export function languageColor(language: string): string {
+    return LANGUAGE_COLORS[language] ?? UNKNOWN_LANGUAGE_COLOR;
+}
+
 /** Org avatar, committed under public/agents-md so the list needs no third-party request. */
 export function logoSrc(project: AgentsProject): string {
     return `/agents-md/${project.slug}.png`;
