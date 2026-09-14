@@ -1,0 +1,42 @@
+{
+    "version": 1,
+    "slug": "temporal",
+    "repository": "temporalio/temporal",
+    "branch": "main",
+    "sha": "34f6679d2f5e09755a16a715a73bfec92486cd83",
+    "scannedAt": "2026-09-14T23:23:27.295Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "review-23666010263d",
+            "path": ".claude/skills/review/SKILL.md",
+            "name": "review",
+            "description": "Review code for common issues. Use when reviewing PRs, suggesting code changes, or when user asks to review code.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "fa94556524275eb5c6b3161c6b64e2c026bc8f2f",
+                    "bytes": 235,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "5d5f73fe9db431ed97784bf92193545e3a597d9c",
+        "bytes": 8528,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "3349f76795f4409cba6ae18ea56adf9fbd8346f3",
+        "bytes": 1152,
+        "text": true,
+        "mode": "100644"
+    }
+}

@@ -1,0 +1,106 @@
+{
+    "version": 1,
+    "slug": "omarchy",
+    "repository": "omacom/omarchy",
+    "branch": "quattro",
+    "sha": "86a2e5830eae4d660a66df8cf37f0a35bf4fe8a2",
+    "scannedAt": "2026-09-14T23:23:07.315Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "diagnose-crash-c9ed8f52c1ac",
+            "path": "default/agents/skills/diagnose-crash/SKILL.md",
+            "name": "diagnose-crash",
+            "description": "Diagnose why a program crashed on this machine, from a systemd-coredump core dump. Use when a process has segfaulted, aborted, or otherwise dumped core, when asked why an application crashed or disappeared, or when a \"Process crashed:\" desktop notification is acted on. Triggers: crash, segfault, SIGSEGV, SIGABRT, core dump, coredumpctl, \"why did X crash\", \"X keeps crashing\", backtrace symbolization. Covers reporting a confirmed Omarchy bug upstream — see reporting.md.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ea77300721c7b9e2ecb39fd03acb8d1a2e7427d7",
+                    "bytes": 5710,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reporting.md",
+                    "blob": "15bd08bc54d8dcb9c3b1085454434b2dfeab3452",
+                    "bytes": 3935,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "omarchy-557d1bfba929",
+            "path": "default/agents/skills/omarchy/SKILL.md",
+            "name": "omarchy",
+            "description": "REQUIRED for end-user customization of Linux desktop, window manager, or system config. Use when editing ~/.config/hypr/, ~/.config/omarchy/, ~/.config/alacritty/, ~/.config/foot/, ~/.config/kitty/, or ~/.config/ghostty/. Triggers: Hyprland, window rules, animations, keybindings, monitors, gaps, borders, blur, opacity, omarchy-shell, bar, terminal config, themes, background, night light, idle, lock screen, screenshots, reminders, layer rules, workspace settings, display config, and user-facing omarchy commands. Excludes Omarchy source development through `omarchy dev link` workflows.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "4ce34bb04da88e66afcc92d1984edfe3a76ba12e",
+                    "bytes": 13257,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "capture.md",
+                    "blob": "41a52b6cd2056cb76686c5ac6ee50bacde8f0c9b",
+                    "bytes": 2217,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "contributing.md",
+                    "blob": "b5fd05335d3371f28b8daf0e09cc7c68a4d19b86",
+                    "bytes": 2377,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "hooks.md",
+                    "blob": "4f8236ac0b79a6345fa114312fc97c322a469dc6",
+                    "bytes": 1063,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "hyprland.md",
+                    "blob": "fd518ad3b1a524204ef5e81a49118151f7540f25",
+                    "bytes": 3393,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "plugins.md",
+                    "blob": "6e3ab0695ea57fd2dc8fa04c51ae18871e67a3f3",
+                    "bytes": 1820,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "theming.md",
+                    "blob": "5212aa15b0ae37ea2ec732508803d59092274afd",
+                    "bytes": 3245,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "e4a0084eadf8e90649dd32407a6082aeffebddb5",
+        "bytes": 7831,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "f12cfa766c55541c9d8e008e310c95a721e70a97",
+        "bytes": 1063,
+        "text": true,
+        "mode": "100644"
+    }
+}

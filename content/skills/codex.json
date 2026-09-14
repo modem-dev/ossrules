@@ -1,0 +1,695 @@
+{
+    "version": 1,
+    "slug": "codex",
+    "repository": "openai/codex",
+    "branch": "main",
+    "sha": "18d7ace2210a1cc65c0de85a2a6af6905e26d634",
+    "scannedAt": "2026-09-14T23:22:48.230Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "babysit-pr-a3a8cd18e961",
+            "path": ".codex/skills/babysit-pr/SKILL.md",
+            "name": "babysit-pr",
+            "description": "Babysit a GitHub pull request after creation by continuously polling review comments, CI checks/workflow runs, and mergeability state until the PR is merged/closed or user help is required. Diagnose failures, retry likely flaky failures up to 3 times, auto-fix/push branch-related issues when appropriate, and keep watching open PRs so fresh review feedback is surfaced promptly. Use when the user asks Codex to monitor a PR, watch CI, handle review comments, or keep an eye on failures and feedback on an open PR.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "36c6bd093a11eb6de82815a12cb0a068c98ac2fd",
+                    "bytes": 16861,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "e07637b903c2615760ac6260c7c41401e5e4aaee",
+                    "bytes": 1416,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/github-api-notes.md",
+                    "blob": "645e7453c1c9ae251d5dbdf030d3fe1f703bcd43",
+                    "bytes": 2343,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/heuristics.md",
+                    "blob": "ee44c4a194848f00095628bfb04d37c5379b91a2",
+                    "bytes": 3308,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/gh_pr_watch.py",
+                    "blob": "1572133c92666def502e60f29cce3d6d18c1c443",
+                    "bytes": 30134,
+                    "text": true,
+                    "mode": "100755"
+                },
+                {
+                    "path": "scripts/test_gh_pr_watch.py",
+                    "blob": "76293b56f8293552ad22488a64f800a87eea70b0",
+                    "bytes": 8080,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "code-review-breaking-changes-8ed96b41fd13",
+            "path": ".codex/skills/code-review-breaking-changes/SKILL.md",
+            "name": "code-breaking-changes",
+            "description": "Breaking changes",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d0bddf281e8b54c30088e4a3de2f73af2fadb79e",
+                    "bytes": 324,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "code-review-change-size-c0f68ae2e9e3",
+            "path": ".codex/skills/code-review-change-size/SKILL.md",
+            "name": "code-review-change-size",
+            "description": "Change size guidance (800 lines)",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "4e8048dcd4b4b73572fdb6040b45ebd5d3430091",
+                    "bytes": 467,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "code-review-context-08a0ce369368",
+            "path": ".codex/skills/code-review-context/SKILL.md",
+            "name": "code-review-context",
+            "description": "Model visible context",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7faf3d7cd25ba4b9084e9c54cb0bcb9ee09643bf",
+                    "bytes": 661,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "code-review-testing-11669d80d5a3",
+            "path": ".codex/skills/code-review-testing/SKILL.md",
+            "name": "code-review-testing",
+            "description": "Test authoring guidance",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "c8d99e13cdeb0d711e7bff27b7a722ccac678b97",
+                    "bytes": 604,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "code-review-832b0ee4b02a",
+            "path": ".codex/skills/code-review/SKILL.md",
+            "name": "code-review",
+            "description": "Run a final code review on a pull request",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ccd37a98680a4e9c7cac5aaf4c51e427191a1f1f",
+                    "bytes": 652,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "codex-pr-body-768740e07e4d",
+            "path": ".codex/skills/codex-pr-body/SKILL.md",
+            "name": "codex-pr-body",
+            "description": "Update the title and body of one or more pull requests.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "332ba0a268e96294f1012ac9cd361c88cef6bc09",
+                    "bytes": 4447,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "path-types-99236fa71a76",
+            "path": ".codex/skills/path-types/SKILL.md",
+            "name": "path-types",
+            "description": "Choose Rust types for operating system paths across the Codex repository. Use when defining new path-bearing types or explicitly migrating existing ones.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "87be423d58b63a2b1c3b59b320fe37ed65b611e8",
+                    "bytes": 2424,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "remote-tests-296cfcc9b83d",
+            "path": ".codex/skills/remote-tests/SKILL.md",
+            "name": "remote-tests",
+            "description": "Testing against remote executors in integration tests.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "9a5fcdff34c84106ad99791a3eb8150124532b9f",
+                    "bytes": 3367,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "test-tui-685a03943497",
+            "path": ".codex/skills/test-tui/SKILL.md",
+            "name": "test-tui",
+            "description": "Guide for testing Codex TUI interactively",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "e58e67730efee0db71350e25e349789af5d2d3dd",
+                    "bytes": 531,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "update-v8-version-b331dbf3e592",
+            "path": ".codex/skills/update-v8-version/SKILL.md",
+            "name": "update-v8-version",
+            "description": "Update Codex's pinned `v8` / `rusty_v8` versions, validate the release-candidate path, and investigate failed V8 canary or artifact builds. Use when asked to bump V8, update `rusty_v8` artifacts, prepare or validate a V8 release candidate, check `v8-canary`, or diagnose why a V8 version update no longer builds.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "512cc0d5a787906cfc514c8c71211445cafe7b99",
+                    "bytes": 3378,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "36e7af80d8d868298f13eb52f7424b1169f46878",
+                    "bytes": 228,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "imagegen-1f925bcdd54b",
+            "path": "codex-rs/skills/src/assets/samples/imagegen/SKILL.md",
+            "name": "imagegen",
+            "description": "Generate or edit raster images when the task benefits from AI-created bitmap visuals such as photos, illustrations, textures, sprites, mockups, or transparent-background cutouts. Use when Codex should create a brand-new image, transform an existing image, or derive visual variants from references, and the output should be a bitmap asset rather than repo-native code or vector. Do not use when the task is better handled by editing existing SVG/vector/code-native assets, extending an established icon or logo system, or building the visual directly in HTML/CSS/canvas.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "c39b1f921ce679f08416ab16ceb01945835bb950",
+                    "bytes": 19201,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "LICENSE.txt",
+                    "blob": "13e25df86ce06eb6488e6a6bc5c5847f5dedc352",
+                    "bytes": 10776,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "5e01d4410ef4918b45d942175e7ddc39ba7ab5d2",
+                    "bytes": 275,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/imagegen-small.svg",
+                    "blob": "20128b2dba2b93ecd7c398bb379b6049dc94a944",
+                    "bytes": 2889,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/imagegen.png",
+                    "blob": "94b54541a9affd39a7aa09d0efd5bc6b712b723b",
+                    "bytes": 1711,
+                    "text": false,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/cli.md",
+                    "blob": "748c83c745b6f010d4afba27224cb947c02e9485",
+                    "bytes": 9655,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/codex-network.md",
+                    "blob": "5ce1fbc748bdccdd837c35b37b6cc1c95c0aa89b",
+                    "bytes": 1779,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/image-api.md",
+                    "blob": "64eff30ee6ab19671ff31b83c992ac19e9829430",
+                    "bytes": 6072,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/prompting.md",
+                    "blob": "5a826563580bc014897fa61629314ae8a6171513",
+                    "bytes": 8282,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/sample-prompts.md",
+                    "blob": "3e6b46fd02ed7bc85d771a1c35c1c85e9db16ddd",
+                    "bytes": 17617,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/image_gen.py",
+                    "blob": "ca78422d715585f6983a300199ed79e45bdb7ac0",
+                    "bytes": 34667,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/remove_chroma_key.py",
+                    "blob": "f14df3551888464cd9dc7b75c9678c20f084ed97",
+                    "bytes": 13905,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "openai-docs-d061d41d87c3",
+            "path": "codex-rs/skills/src/assets/samples/openai-docs/SKILL.md",
+            "name": "openai-docs",
+            "description": "Use for Codex models/pricing, scheduled tasks, skills, settings, setup, troubleshooting, customization, automations, and self-knowledge—including 'you,' 'your,' 'this app,' or 'this coding agent' when they refer to Codex—and for OpenAI APIs/products and ChatGPT Work. Also use for model choice/migration, prompting, SDKs, Responses, Realtime, agents, evals, and Chat/Work/Codex comparisons. Do not use for generic app/software tasks that merely mention Codex.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "a872d0cb9bbbd7dabf17ef7328befbc73a19e8b4",
+                    "bytes": 5437,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "LICENSE.txt",
+                    "blob": "13e25df86ce06eb6488e6a6bc5c5847f5dedc352",
+                    "bytes": 10776,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "da825cdd657d8de29f7fd9eb2f29eb98c34a4661",
+                    "bytes": 370,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/openai-small.svg",
+                    "blob": "1d075dc04f617247747ca8e44f8aa9193e0ab3e6",
+                    "bytes": 1091,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/openai.png",
+                    "blob": "e9b9eb80cd90ccdfc7e276b07f4046aa9c9d1887",
+                    "bytes": 1429,
+                    "text": false,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/codex-self-knowledge.md",
+                    "blob": "f0195313661d0a12531cbaa8c26fcda03803a5ae",
+                    "bytes": 7417,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/latest-model.md",
+                    "blob": "d4fca8c4f0cde0f146f78143e5816aacd16dea3f",
+                    "bytes": 2147,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/mcp-diagnostics.md",
+                    "blob": "a49d0f2993dc6c08c14bd5c6bee7c710b3f0296c",
+                    "bytes": 2318,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/model-migration.md",
+                    "blob": "934c5c1ec32766088680ae1a996ecf60357e23ba",
+                    "bytes": 5094,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/model-selection.md",
+                    "blob": "6ff3dfaecaead748e4ff2fa6f65d6eae314e8264",
+                    "bytes": 1344,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/official-docs.md",
+                    "blob": "204e31ed993a2caab225571350af7fa874fbee53",
+                    "bytes": 3337,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/prompting-guide.md",
+                    "blob": "2370a8a1ab15a97337b7640f0ea0aba9901bf3c1",
+                    "bytes": 10166,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/upgrade-guide.md",
+                    "blob": "c367ee4d52ee0df60428ec6bb8208e3fd550aaa4",
+                    "bytes": 1027,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/upgrading-to-gpt-6-astra.md",
+                    "blob": "49d138ee291f508b6ca251988f6c846fc2f86355",
+                    "bytes": 18993,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/fetch-codex-manual.mjs",
+                    "blob": "b2605520dc54aa3b71769e90887b9fdf06c97da4",
+                    "bytes": 16085,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/resolve-latest-model-info",
+                    "blob": "7d00122a37c81a30a7d91d8d74126398975f6493",
+                    "bytes": 1038,
+                    "text": true,
+                    "mode": "100755"
+                },
+                {
+                    "path": "scripts/resolve-latest-model-info.cjs",
+                    "blob": "498e19d256572dc5a6bf5575ed13de834f0a2787",
+                    "bytes": 3937,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "plugin-creator-cd7a5f8eaf39",
+            "path": "codex-rs/skills/src/assets/samples/plugin-creator/SKILL.md",
+            "name": "plugin-creator",
+            "description": "Create and scaffold plugin directories for Codex with a required `.codex-plugin/plugin.json`, optional plugin folders/files, valid manifest defaults, and personal-marketplace entries by default. Use when Codex needs to create a new personal plugin, add optional plugin structure, generate or update marketplace entries for plugin ordering and availability metadata, or update an existing local plugin during development with the CLI-driven cachebuster and reinstall flow.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "a1a6504d67a66af480f922db12831f6e5faa16df",
+                    "bytes": 11467,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "19a9a6fc5b08354fad82817971937bb1ee06dbdf",
+                    "bytes": 339,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/plugin-creator-small.svg",
+                    "blob": "c6e4f67c624a00705a662dbd0230b8c531180f56",
+                    "bytes": 1319,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/plugin-creator.png",
+                    "blob": "4f3d6d82fa78fbdce97af3c17f6a25c683aa3290",
+                    "bytes": 1563,
+                    "text": false,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/installing-and-updating.md",
+                    "blob": "a2ff127af201a27f57fb6eb2df7961dcdcc4759f",
+                    "bytes": 6000,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/plugin-json-spec.md",
+                    "blob": "40d3ae6b5435c4372c38dcdeead4706eef42b4b2",
+                    "bytes": 9179,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/create_basic_plugin.py",
+                    "blob": "40edaa86005e71d0e199fbff94ae425afc099939",
+                    "bytes": 11731,
+                    "text": true,
+                    "mode": "100755"
+                },
+                {
+                    "path": "scripts/identifier_validation.py",
+                    "blob": "41a1a2f1b503c165f5d4b93f7f0e99eb0b3add6e",
+                    "bytes": 784,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/read_marketplace_name.py",
+                    "blob": "249b564e38b1ecb9af0ed75c441fceebc1faeed9",
+                    "bytes": 1644,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/update_plugin_cachebuster.py",
+                    "blob": "7818f15b5cc078aacb5cfd8aeb23b82f75e44b54",
+                    "bytes": 3045,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/validate_plugin.py",
+                    "blob": "b5be462c3b4fe3ea6083cca948ccf52e05301546",
+                    "bytes": 21739,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "review-agent-a347dcb048f3",
+            "path": "codex-rs/skills/src/assets/samples/review-agent/SKILL.md",
+            "name": "review-agent",
+            "description": "Perform a read-only, defect-first review of a specified code change and return every actionable finding. Use when another agent delegates review of uncommitted changes, a base-branch diff, a commit, or custom review instructions.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "c694020c1c5de0e8fee4e933f55e0f6b3d055d8a",
+                    "bytes": 2661,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "ebbb0b041fb2d88c226fdaef198f9c8e53396552",
+                    "bytes": 252,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "skill-creator-14f2da461107",
+            "path": "codex-rs/skills/src/assets/samples/skill-creator/SKILL.md",
+            "name": "skill-creator",
+            "description": "Create or update a Codex skill with appropriately scoped instructions and any needed supporting resources.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "490ccc6c3e0015eb982bb5c108c2df083be2c6c2",
+                    "bytes": 15311,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "3095c600ce769c862519df036ab5777a5a947fec",
+                    "bytes": 183,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/skill-creator-small.svg",
+                    "blob": "c6e4f67c624a00705a662dbd0230b8c531180f56",
+                    "bytes": 1319,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/skill-creator.png",
+                    "blob": "4f3d6d82fa78fbdce97af3c17f6a25c683aa3290",
+                    "bytes": 1563,
+                    "text": false,
+                    "mode": "100644"
+                },
+                {
+                    "path": "license.txt",
+                    "blob": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+                    "bytes": 11358,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/openai_yaml.md",
+                    "blob": "90f9e8e863dff501c0125e2ead20c1dd6c3028d5",
+                    "bytes": 2356,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/generate_openai_yaml.py",
+                    "blob": "870eefcea9bd0184806b8eb305526e883d2f7241",
+                    "bytes": 6669,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/init_skill.py",
+                    "blob": "2ed2fa3125c720fcce60a29f3dd82d04b14d9fa0",
+                    "bytes": 10314,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/quick_validate.py",
+                    "blob": "e27023ece4bd259ef36560e19995eec7b6a345bf",
+                    "bytes": 4249,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "skill-installer-aa7a20a9a4ac",
+            "path": "codex-rs/skills/src/assets/samples/skill-installer/SKILL.md",
+            "name": "skill-installer",
+            "description": "Install Codex skills into $CODEX_HOME/skills from a curated list or a GitHub repo path. Use when a user asks to list installable skills, install a curated skill, or install a skill from another repo (including private repos).",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "030135b6e015f3c4b9976d80f4f46dbd8487b016",
+                    "bytes": 3367,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "LICENSE.txt",
+                    "blob": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+                    "bytes": 11358,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "88d40cd9468441cfc83ffed52f9d71867392b850",
+                    "bytes": 221,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/skill-installer-small.svg",
+                    "blob": "ccfc034241ae8e6bea7284e188aed142a67c53e9",
+                    "bytes": 923,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/skill-installer.png",
+                    "blob": "2977cd5bb49b3b8bd50d8bf476d7cffbb3f88a46",
+                    "bytes": 1086,
+                    "text": false,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/github_utils.py",
+                    "blob": "711f597e4cf0c08b897083c1c337e13524a76260",
+                    "bytes": 659,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/install-skill-from-github.py",
+                    "blob": "2d05f74924037738dbcc60cb677412ddc7e17d36",
+                    "bytes": 11917,
+                    "text": true,
+                    "mode": "100755"
+                },
+                {
+                    "path": "scripts/list-skills.py",
+                    "blob": "0015571c5a64b4c7f54ee435b7f91b8ec4694a72",
+                    "bytes": 2948,
+                    "text": true,
+                    "mode": "100755"
+                }
+            ]
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "fd0b9ed9e781bdb29bb11a8f62b777ad773fec81",
+        "bytes": 22397,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "4606e72e042564097e8780d66c1d4dcb611869bd",
+        "bytes": 10926,
+        "text": true,
+        "mode": "100644"
+    }
+}

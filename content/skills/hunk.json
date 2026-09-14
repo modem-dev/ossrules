@@ -1,0 +1,87 @@
+{
+    "version": 1,
+    "slug": "hunk",
+    "repository": "modem-dev/hunk",
+    "branch": "main",
+    "sha": "ee556ac841c1b5a872b80f247816a71e8104605f",
+    "scannedAt": "2026-09-14T23:23:05.415Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "hunk-extensions-2546ad133e3e",
+            "path": "packages/hunk/skills/hunk-extensions/SKILL.md",
+            "name": "hunk-extensions",
+            "description": "Maps the `hunkdiff/extension` authoring surface for Hunk, the terminal diff viewer — hiding or reordering reviewed files, docked panes, alternate file views, commands and key bindings, dialogs, workspace writes, themes, syntax languages, VCS backends, lifecycle events. Use when writing, debugging, or installing a Hunk extension, or when a request asks Hunk itself to behave differently. Not for reviewing a diff in a live session — that is hunk-review.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "cc6c18cf51df912f3e893169af7ce668ae05c0d7",
+                    "bytes": 22752,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "hunk-review-481ffb255a06",
+            "path": "packages/hunk/skills/hunk-review/SKILL.md",
+            "name": "hunk-review",
+            "description": "Interacts with live Hunk diff review sessions via CLI. Inspects review focus, navigates files, hunks, and exact lines, reloads session contents, adds inline review comments, and paints attention marks on character ranges. Use when the user has a Hunk session running or wants to review diffs interactively.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ff0e6ef97a439c83bb65e4492b1b71cf83e80680",
+                    "bytes": 13714,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "hunk-launch-video-ec26edcc4e2c",
+            "path": "skills/hunk-launch-video/SKILL.md",
+            "name": "hunk-launch-video",
+            "description": "Produces Hunk videos by driving the real TUI headlessly in a PTY, compositing captioned 1080p frames in Chromium, and encoding with ffmpeg. Use for feature demos, workflow explainers, announcements, launch videos, and full-release roundups.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "bfcfb19e52580182eb6e43224a689404265e2384",
+                    "bytes": 22268,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "hunk-release-9b2e0e23522f",
+            "path": "skills/hunk-release/SKILL.md",
+            "name": "hunk-release",
+            "description": "Prepares, publishes, verifies, and curates Hunk releases. Use for release metadata, benchmarks, tags, publishing, release videos, backports, or recovery.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ae2c299726bd1f88a52a573872b77e74bd09c474",
+                    "bytes": 12537,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "1e991885078974deb8b635f1a35f568d15d377a2",
+        "bytes": 16467,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "21f202055ba0338ff0413375928594a67bd1dd3d",
+        "bytes": 1067,
+        "text": true,
+        "mode": "100644"
+    }
+}

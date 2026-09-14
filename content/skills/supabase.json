@@ -1,0 +1,758 @@
+{
+    "version": 1,
+    "slug": "supabase",
+    "repository": "supabase/supabase",
+    "branch": "master",
+    "sha": "2cd9b42e803277edefaa02e8aa5e4cdc27c19bb2",
+    "scannedAt": "2026-09-14T23:23:18.624Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "api-types-c348843bd659",
+            "path": ".agents/skills/api-types/SKILL.md",
+            "name": "api-types",
+            "description": "Maintain Supabase API types. Use when changing generated API type declarations, OpenAPI schemas, or investigating API type deployment drift.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "3d206497a2ce7e0385d6c684fd298782a697093c",
+                    "bytes": 1939,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "ask-the-docs-a7e8286e017e",
+            "path": ".agents/skills/ask-the-docs/SKILL.md",
+            "name": "ask-the-docs",
+            "description": "Answer questions about the Supabase docs app (apps/docs) using documented architecture, build pipeline, and review-pattern notes, and apply feature-design principles (codebase reuse, coding minimalism) when proposing or critiquing changes. Use when the user asks \"how does X work in the docs app?\", \"where does Y live?\", \"is this approach OK for the docs app?\", or before writing non-trivial changes under apps/docs/ — especially anything touching the MDX pipeline, markdown generation, content components, federated docs, or contributor-facing authoring patterns. Can answer architecture questions with Mermaid diagrams when helpful.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "3f87e86fefca935f3dd5bcee983a6758b56bdeb0",
+                    "bytes": 9625,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/adding-features.md",
+                    "blob": "60a56a155292372dbc3791d1e8f34c1655db760a",
+                    "bytes": 10403,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/app-map.md",
+                    "blob": "25423c428ce85b5a5d10915011b4eb20e315d3df",
+                    "bytes": 16815,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/build-pipeline.md",
+                    "blob": "74f0318bb3fc89a7984b8afe8254b29d1f1320a1",
+                    "bytes": 6019,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/ci-and-lint.md",
+                    "blob": "99b5f166173d260f2fda86e041b2b73895569bb1",
+                    "bytes": 4744,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/docs-app-direction.md",
+                    "blob": "29bcad18d880b216e89b5c5406a66f025070b53e",
+                    "bytes": 2873,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/federated-docs.md",
+                    "blob": "988a8922d4e686f2cfbb31997465495176c98ec0",
+                    "bytes": 10901,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/gotchas.md",
+                    "blob": "54cbd296a64bc452e29617f2e841616fbad3bb1c",
+                    "bytes": 6850,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/graphql-endpoint.md",
+                    "blob": "4dc149e86fa92ee1218ff0ae164ec9c0e8f59bb0",
+                    "bytes": 6912,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/known-issues.md",
+                    "blob": "45486038e5a50b0aa35714281c11fcc80c50c234",
+                    "bytes": 5538,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/llm-agent-parity.md",
+                    "blob": "49f5008c8fb8dffb0c37b480caafdf849389554f",
+                    "bytes": 3745,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/llm-agent-surface.md",
+                    "blob": "a162b0014451f94400950c8b118d616002ca2ae0",
+                    "bytes": 10669,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/management-api-reference.md",
+                    "blob": "f4707a8af61fd89520f8adfb2c41ae01d1cade69",
+                    "bytes": 5868,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/search-embeddings.md",
+                    "blob": "37983f45f024eaf3ddf1caa98621bf15f3bc441a",
+                    "bytes": 3484,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "clickhouse-logs-queries-760b20aee229",
+            "path": ".agents/skills/clickhouse-logs-queries/SKILL.md",
+            "name": "clickhouse-logs-queries",
+            "description": "Write, review, and migrate Supabase logs queries against the ClickHouse-backed `logs` table (the `logs.all.otel` analytics endpoint). Use this whenever a task involves Logs Explorer SQL, the `log_attributes` map, querying a log `source` (edge_logs, postgres_logs, auth_logs, etc.), translating an old BigQuery `cross join unnest(metadata)` logs query to ClickHouse, or wiring analytics log SQL in `apps/studio/data/logs` and `apps/studio/components/interfaces/Settings/Logs`. Reach for it even when the user just says \"logs query\", \"Logs Explorer\", or pastes a BigQuery logs query to convert, not only when they name ClickHouse.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "91960c73179cad255efe619f9ad96ff54fcb4877",
+                    "bytes": 9520,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/bigquery-migration.md",
+                    "blob": "09d84f813b05f3663818887f26fcbf6413f747d1",
+                    "bytes": 3647,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/codebase-integration.md",
+                    "blob": "d49866ffe560b720aecfaeff92b247f739c340c9",
+                    "bytes": 6292,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "copywriting-cac7226a9df5",
+            "path": ".agents/skills/copywriting/SKILL.md",
+            "name": "copywriting",
+            "description": "Write or audit UI copy (buttons, labels, empty states, error messages, tooltips, form text) anywhere in the monorepo. Load it before shipping or reviewing any user-facing text — including when copy is incidental to the task, like a new feature that adds buttons, toasts, dialogs, or validation messages.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "f69a7e0ed9055aa5fd1ba13279ad5dc0958f609e",
+                    "bytes": 594,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "dev-toolbar-review-6b383e41e540",
+            "path": ".agents/skills/dev-toolbar-review/SKILL.md",
+            "name": "dev-toolbar-review",
+            "description": "Safety rules for the dev toolbar, PostHog client, and feature flags. Use when writing or reviewing any change to packages/dev-tools/, packages/common/posthog-client.ts, or packages/common/feature-flags.tsx. Covers environment guards, flag override cookies, telemetry event subscription, and SSE stream safety.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "fae84992088407149733100703f217a7c0cd3cbc",
+                    "bytes": 6138,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "edit-the-docs-342d4075b2c2",
+            "path": ".agents/skills/edit-the-docs/SKILL.md",
+            "name": "edit-the-docs",
+            "description": "Restructure, reorder, and improve existing Supabase docs pages under apps/docs: clarity, connective text, section grouping, and brevity. Use when asked to edit, reorganize, restructure, tighten prose, add glue between sections, or split a page edit into stacked PRs. Not for net-new feature drafts, which belong to write-the-docs, and not for PR triage or verification, which belong to review-the-docs.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "0eb6f0109eedbf9f3e2aad188f6a22874ba5496f",
+                    "bytes": 19545,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/stacked-prs.md",
+                    "blob": "82c6aeaf8c8704a0d9e0b276fce83c4cbbb3d04f",
+                    "bytes": 5162,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "pm-the-docs-46cbee291dd7",
+            "path": ".agents/skills/pm-the-docs/SKILL.md",
+            "name": "pm-the-docs",
+            "description": "Docs-PM decision support for the \"Write the docs\" authoring process — makes audience, stage, and cross-cutting scope calls during the Frame and Shape stages (including cross-repo product lookup via universe when accessible, else the public OSS path), and helps decide when a docs question needs to self-serve vs. escalate to a docs PM. Use when framing a new docs page or launch, deciding what product stage or audience a feature targets, judging whether a docs question needs PM sign-off, or confirming which product repos a launch spans.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d17a30cab70931c04b03660d9e28ddc25231d691",
+                    "bytes": 4534,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/universe-lookup.md",
+                    "blob": "0ee205b50eb07535e433435b9cfe19afea039e44",
+                    "bytes": 4119,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/write-the-docs-checklist.md",
+                    "blob": "27aef67c5aae0c92049daccdcef6b341330d4a49",
+                    "bytes": 4422,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "react-hook-form-babe32ebd566",
+            "path": ".agents/skills/react-hook-form/SKILL.md",
+            "name": "react-hook-form",
+            "description": "Correct React Hook Form usage anywhere in the monorepo — data flow, subscriptions, reset, dirty state, number inputs, and controlled-input rules. Load this BEFORE writing or modifying ANY form code, adding a field to an existing form, touching watch/useWatch/formState/getValues/setValue/reset, wiring a form into a dialog or sheet, or building a submit/cancel footer — even when the change looks trivial. The codebase contains widespread RHF anti-patterns; without this skill you will copy them. For form layout and which components to use, also load studio-ui-patterns.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "064fd1fd45439503804105cfa2feef2faed6aac3",
+                    "bytes": 15924,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "review-the-docs-ac56c3330695",
+            "path": ".agents/skills/review-the-docs/SKILL.md",
+            "name": "review-the-docs",
+            "description": "Review Supabase docs changes locally in your `supabase/supabase` checkout — either an open PR (triage, classify, verify) or your own branch before opening a PR (local self-review). Covers markdown pipeline, MDX content, tutorials, examples, Studio links, and docs tooling. Use when asked to review docs PRs, self-review a draft branch, check who has approved, verify build output, or evaluate supabase/supabase documentation changes.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "0316e3fc613f2342ec1b51ca2945f856f1f49060",
+                    "bytes": 17338,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "safe-sql-execution-82d5031c7ee9",
+            "path": ".agents/skills/safe-sql-execution/SKILL.md",
+            "name": "safe-sql-execution",
+            "description": "Use whenever code will build, return, fetch, or execute SQL that runs against a user's real Postgres database — even when the request reads like an ordinary feature or bug fix and never says \"security,\" \"injection,\" or \"SafeSqlFragment.\" This covers: writing or editing any pg-meta function, query builder, or endpoint that builds/returns SQL for database objects (tables, views, functions, DB triggers, indexes, RLS policies); interpolating a schema/table/column/search/route-param value into SQL text; storing, fetching, or re-running SQL that round-trips from the database (a policy's definition, a function/view definition, a snippet's saved content); and any \"Run\"/\"Apply\"/\"Execute\" action that sends SQL to a project's database (SQL editor run-selection, policy editor apply, snippet runner). Load this BEFORE writing such code, not only when reviewing a finished diff. Skip only for changes that never touch SQL text or execution — styling, unrelated data hooks, non-SQL form validation, or UI layout work.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "cec2d5341181ea79eb87e35a128fa617922f40ff",
+                    "bytes": 16776,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "studio-e2e-tests-db765b5fa79d",
+            "path": ".agents/skills/studio-e2e-tests/SKILL.md",
+            "name": "studio-e2e-tests",
+            "description": "Write and run Playwright E2E tests for Supabase Studio (e2e/studio). Use when asked to run e2e tests, write new E2E tests, or debug flaky or failing Playwright tests. Covers running commands, avoiding race conditions, waiting strategies, selectors, helper functions, and CI vs local differences.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "9e618ae4e781e39fb332603acf8aa267d0acc443",
+                    "bytes": 11071,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "studio-error-handling-9b7379913059",
+            "path": ".agents/skills/studio-error-handling/SKILL.md",
+            "name": "studio-error-handling",
+            "description": "Error display and troubleshooting pattern for Supabase Studio. Use when showing a failed API request or query error in the UI (AlertError, toast, inline message), adding troubleshooting steps for a new error type, or wiring up the AI assistant debug button from an error state.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "313a9f0a3a93f15c46ed3e1d81d1bb555f3b0bca",
+                    "bytes": 5381,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "studio-mock-api-tests-3c622a19bc14",
+            "path": ".agents/skills/studio-mock-api-tests/SKILL.md",
+            "name": "studio-mock-api-tests",
+            "description": "Component tests for Supabase Studio that mock API requests at the network layer with MSW. Use when writing or reviewing a component test that exercises a React Query hook or mutation, or when migrating an existing test away from vi.mock('@/data/...'). Covers the customRender + addAPIMock template and the jsdom/MSW gotchas that cost real debugging time.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "6aab3a81368352a9454df827576d41ac59f8c3f4",
+                    "bytes": 12174,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "studio-queries-93936a681ec9",
+            "path": ".agents/skills/studio-queries/SKILL.md",
+            "name": "studio-queries",
+            "description": "React Query conventions for data fetching in Supabase Studio. Use when writing or reviewing query hooks, mutation hooks, or query keys in apps/studio/data/ — including adding the first fetch or mutation for a new API endpoint or resource. Covers queryOptions pattern, keys.ts structure, mutation hook template, and imperative fetching.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "04241f61550609ca3d7c961beb5b161a640ff969",
+                    "bytes": 5228,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "studio-shortcuts-d3d9ec836251",
+            "path": ".agents/skills/studio-shortcuts/SKILL.md",
+            "name": "studio-shortcuts",
+            "description": "Keyboard shortcut conventions for Supabase Studio. Use when adding a repeated user action, toolbar action, list/table operation, or sub-page navigation that should have shortcut coverage, when registering or changing a shortcut, or when adding a search/filter Input (which needs the staged-Escape handler). Covers the shortcut registry, useShortcut, ShortcutTooltip/ShortcutBadge, the reference sheet, and collision rules.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "772148987ab48475156897aa6793af32f92cd713",
+                    "bytes": 3689,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "studio-testing-bf7af8159b56",
+            "path": ".agents/skills/studio-testing/SKILL.md",
+            "name": "studio-testing",
+            "description": "Testing strategy for Supabase Studio. Use when writing tests, deciding whether a change needs tests and which type, extracting logic from components into testable utility functions, or reviewing test coverage. Covers unit tests, component tests, and E2E test selection criteria.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "27a8855892e9f46e5f5a07d85b73c56295c9871c",
+                    "bytes": 8937,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "studio-ui-patterns-eed899dfc912",
+            "path": ".agents/skills/studio-ui-patterns/SKILL.md",
+            "name": "studio-ui-patterns",
+            "description": "Design system UI patterns for Supabase Studio. Use when building or updating pages, forms, tables, charts, empty states, navigation, cards, alerts, or side panels (sheets). Covers layout selection, component choice, and placement conventions.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "3af2297df93dce3d1b93f3d9912d2736ed534990",
+                    "bytes": 6647,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "telemetry-standards-6c376c60f1ac",
+            "path": ".agents/skills/telemetry-standards/SKILL.md",
+            "name": "telemetry-standards",
+            "description": "PostHog event tracking standards for Supabase Studio. Use when adding useTrack() calls, defining events in packages/common/telemetry-constants.ts, implementing tracking for a new feature, or reviewing PRs for telemetry compliance. Covers event naming, property conventions, approved patterns, and implementation guide.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d79530bb5337bb63d30e8df7d63a9b95ecbd2d06",
+                    "bytes": 7898,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "test-the-docs-4834ca89bf1e",
+            "path": ".agents/skills/test-the-docs/SKILL.md",
+            "name": "test-the-docs",
+            "description": "Execute runnable docs snippets and examples inside a disposable Docker Compose sandbox (runner container + local Supabase stack via `supabase start`). Use after Draft or during Self-review when asked to test the docs, fact-check CLI/SQL/code samples, or produce a verification report for a docs PR. Complements review-the-docs lint/build checks; does not replace them.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "1261958ff9576cd8ccbcb1e3668490a85cea545b",
+                    "bytes": 5218,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/sandbox-setup.md",
+                    "blob": "647d9840076c28473a6d223191a481768e5bd72c",
+                    "bytes": 6284,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/snippet-classes.md",
+                    "blob": "5823c9e9988adbbdc1bde41ef641754e3c832348",
+                    "bytes": 2451,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/verification-report.md",
+                    "blob": "0d19fd3209309f2719376e1b5a6c43314b945183",
+                    "bytes": 1903,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "sandbox/.empty/.keep",
+                    "blob": "9c664e38e37609df5053a69c540250a1fbcd9093",
+                    "bytes": 71,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "sandbox/.gitignore",
+                    "blob": "6d9a510bfea4d247cfa2e48cc1b353dc888cd4bf",
+                    "bytes": 22,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "sandbox/Dockerfile",
+                    "blob": "87e003adaa05a520b2950dc1f6f5456d1c60cc26",
+                    "bytes": 1059,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "sandbox/compose.yaml",
+                    "blob": "00d24f3b73c7493339801c86c94f7c5e41fb53bf",
+                    "bytes": 2094,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "sandbox/run.sh",
+                    "blob": "85fd7c235cbce38547d5e4c42f17c1aa9b1a8221",
+                    "bytes": 6011,
+                    "text": true,
+                    "mode": "100755"
+                }
+            ]
+        },
+        {
+            "id": "vercel-composition-patterns-fda658358261",
+            "path": ".agents/skills/vercel-composition-patterns/SKILL.md",
+            "name": "vercel-composition-patterns",
+            "description": "React composition patterns that scale. Use when refactoring components with boolean prop proliferation, building flexible component libraries, or designing reusable APIs. Triggers on tasks involving compound components, render props, context providers, or component architecture. Includes React 19 API changes.",
+            "license": "MIT",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "e6dbfdbc7dc7afad4b37538483db8ae11e87e912",
+                    "bytes": 2908,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/architecture-avoid-boolean-props.md",
+                    "blob": "ccee19ce495b9d7fdf08867db3c6b6282006312e",
+                    "bytes": 2267,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/architecture-compound-components.md",
+                    "blob": "e5e3043cb5a81b83dce0389848b828455f00854f",
+                    "bytes": 2600,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/patterns-children-over-render-props.md",
+                    "blob": "d4345ee30aea5f1b11815251edca7ebd0aefe2e2",
+                    "bytes": 1886,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/patterns-explicit-variants.md",
+                    "blob": "56e32e8bee5e5768f747db4e9718a6c2b54bfce5",
+                    "bytes": 2395,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/react19-no-forwardref.md",
+                    "blob": "e0d8f8a76f14888f2fafc8cccd3d9395e4711d0d",
+                    "bytes": 953,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/state-context-interface.md",
+                    "blob": "d961bede0c6c6e318f6ba3aca9b5dfcdb768d8f9",
+                    "bytes": 4974,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/state-decouple-implementation.md",
+                    "blob": "71a5afaa7d7078c262c92d32c3b97723de62f99f",
+                    "bytes": 2699,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/state-lift-state.md",
+                    "blob": "d7fe27b54933135f9050365b6c2001c101029d51",
+                    "bytes": 3224,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "vitest-3b3cabb27704",
+            "path": ".agents/skills/vitest/SKILL.md",
+            "name": "vitest",
+            "description": "Vitest API and config reference (Jest-compatible) — mocking with vi.*, spies, fake timers, coverage configuration, fixtures, snapshots, and test filtering. Use for Vitest API and configuration questions anywhere in the monorepo; for Studio-specific test strategy and component-test setup, start with studio-testing and studio-mock-api-tests.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "69776b6edad0e4014cdd7de776a1b0885c03d8c1",
+                    "bytes": 4361,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "GENERATION.md",
+                    "blob": "9bc76640e49d48fc461335ee15d25c2d64e96516",
+                    "bytes": 136,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/advanced-environments.md",
+                    "blob": "25a1d5b07880da432ace8d3c4b1563b512734383",
+                    "bytes": 4349,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/advanced-projects.md",
+                    "blob": "57b9a7356419d0e31c17b6965820c1731390175f",
+                    "bytes": 4986,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/advanced-type-testing.md",
+                    "blob": "f67a034e30e4e02dae8eec985cd5759d342b8dc3",
+                    "bytes": 4618,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/advanced-vi.md",
+                    "blob": "57a47842524139129e065781659f470b3f14a51a",
+                    "bytes": 4566,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/core-cli.md",
+                    "blob": "7a05c049bee734771d946031ef490881e806dbfd",
+                    "bytes": 3419,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/core-config.md",
+                    "blob": "76002a58fbc4a6b5c66a62989e9727c408bb90bf",
+                    "bytes": 3511,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/core-describe.md",
+                    "blob": "3f7f3fe1cb67fa4154ad0c3316b3c03caee046ad",
+                    "bytes": 3456,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/core-expect.md",
+                    "blob": "91de00a64ed4aec73aa74d7678713e32ebda235c",
+                    "bytes": 4671,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/core-hooks.md",
+                    "blob": "d0c2bfa098d83f6941c5d7f0203af5189be5fe37",
+                    "bytes": 4470,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/core-test-api.md",
+                    "blob": "1f3c93238a386f54a10854b0e949c405f5ba8a73",
+                    "bytes": 4005,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/features-concurrency.md",
+                    "blob": "412f60d8214bee1e3b5a7ffc5e8cc7439f27b6ba",
+                    "bytes": 4228,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/features-context.md",
+                    "blob": "a9db0a1f61b0bfeb4a9c03f6bb8509da2383540a",
+                    "bytes": 4425,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/features-coverage.md",
+                    "blob": "aaf44cfb2bf0779dd615d40c40f80736ad36e945",
+                    "bytes": 3479,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/features-filtering.md",
+                    "blob": "24a41cb521d1a8c9fdd2245f7a0a698d83843572",
+                    "bytes": 3534,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/features-mocking.md",
+                    "blob": "e351efef62a6a6462dfa3c222d1505b436189f8d",
+                    "bytes": 4787,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/features-snapshots.md",
+                    "blob": "6868fb13b7a6ac6dfe747c688c2dc661261e23eb",
+                    "bytes": 3595,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "write-the-docs-438e52ed643d",
+            "path": ".agents/skills/write-the-docs/SKILL.md",
+            "name": "write-the-docs",
+            "description": "Draft new or updated Supabase docs content for a feature or launch, grounded in product intent (Linear when available), a read of the actual code, and the docs style guide once one exists. Use when asked to write docs for a new feature, a product launch, or a Linear ticket that needs net-new content rather than a bug fix. Not for implementing existing docs bug reports — use work-linear-issue for that. Not for restructuring existing pages — use edit-the-docs for that.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "80b892e4feeee3d7270e9883f4721a1851059c6a",
+                    "bytes": 15283,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/common-pitfalls.md",
+                    "blob": "87df439528d83ad8d20d110add458a0201f75fef",
+                    "bytes": 4530,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/content-type-gate.md",
+                    "blob": "a12f15f4b85ff7448b17fcc63a49b75a24c00313",
+                    "bytes": 2067,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/drafting-mechanics.md",
+                    "blob": "0097c98b47c98bcc45e64f55ba1ca4347c9cb10d",
+                    "bytes": 1528,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/style-fallback.md",
+                    "blob": "f89cd073210895516fb3e3b45322a892908239df",
+                    "bytes": 1182,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "explorer-611f9522400e",
+            "path": "apps/studio/.claude/skills/explorer/SKILL.md",
+            "name": "explorer",
+            "description": "Build and modify Studio Explorer surfaces, including notebooks, chats, SQL snippets, query cells, and their shared toolbar patterns.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "96af375105e2b77e6bc57efcf775fa76d8bab029",
+                    "bytes": 3379,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "207950b9d5f5fc920a425ac337fe5a712ba77f7e",
+        "bytes": 6604,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "49ea124025275674563eeff03af0f653ca49fdc0",
+        "bytes": 11338,
+        "text": true,
+        "mode": "100644"
+    }
+}

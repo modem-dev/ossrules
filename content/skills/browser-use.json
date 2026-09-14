@@ -1,0 +1,286 @@
+{
+    "version": 1,
+    "slug": "browser-use",
+    "repository": "browser-use/browser-use",
+    "branch": "main",
+    "sha": "843819cb8131e1370948d381ede9be7f8366ddc4",
+    "scannedAt": "2026-09-14T23:22:43.722Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "browser-use-43928102e3f2",
+            "path": "browser_use/skills/browser-use/SKILL.md",
+            "name": "browser-use",
+            "description": "Direct browser control via CDP for web interaction: automation, scraping, testing, screenshots, and site/app work.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d47beef3bcdf7ea42275442bb1fdaaf87f9185ed",
+                    "bytes": 10526,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "browser-use-538fc253c964",
+            "path": "skills/browser-use/SKILL.md",
+            "name": "browser-use",
+            "description": "Direct browser control via CDP for web interaction: automation, scraping, testing, screenshots, and site/app work.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d47beef3bcdf7ea42275442bb1fdaaf87f9185ed",
+                    "bytes": 10526,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "cloud-484f7bec1442",
+            "path": "skills/cloud/SKILL.md",
+            "name": "cloud",
+            "description": "Documentation reference for using Browser Use Cloud — the hosted API and SDK for browser automation. Use this skill whenever the user needs help with the Cloud REST API (v2, v3, or v4), browser-use-sdk (Python or TypeScript), X-Browser-Use-API-Key authentication, cloud sessions, browser profiles, profile sync, CDP WebSocket connections, stealth browsers, residential proxies, CAPTCHA handling, webhooks, workspaces, skills marketplace, liveUrl streaming, pricing, or integration patterns (chat UI, subagent, adding browser tools to existing agents). Also trigger for questions about n8n/Make/Zapier integration, Playwright/ Puppeteer/Selenium on cloud infrastructure, or 1Password vault integration. Do NOT use this for the open-source Python library (Agent, Browser, Tools config) — use the open-source skill instead.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "1c65f5d40618336ede2f6cc261c2bd54e0281732",
+                    "bytes": 4092,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/api-v2.md",
+                    "blob": "c2ff38560d381652ff5ce0d1553bc9200c6ed6af",
+                    "bytes": 11803,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/api-v3.md",
+                    "blob": "f1f6ef07519fe4800a46c5a7531d9bde1246b8a8",
+                    "bytes": 8268,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/api-v4.md",
+                    "blob": "9dfa1a7d60fb74d49f2e8cfccd97fdaf6b2a7995",
+                    "bytes": 5593,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/browser-api.md",
+                    "blob": "c8ec6ac6ced76173e345f2fbfd38c3f990561b8a",
+                    "bytes": 3471,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/features.md",
+                    "blob": "55a1a4a5f63a4e9eb176a4f338ae310b91aee5fb",
+                    "bytes": 5429,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/guides/chat-ui.md",
+                    "blob": "75b68d5dd4aad8b898e05cea7e2e1d3678b91030",
+                    "bytes": 6673,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/guides/subagent.md",
+                    "blob": "058d895a36f89bb4367372fea0f18d096a828edb",
+                    "bytes": 7342,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/guides/tools-integration.md",
+                    "blob": "04ec9019ee5ec59b2fcef2dd19d10c5c2a123ff0",
+                    "bytes": 7006,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/patterns.md",
+                    "blob": "b7e98e92b560b5a61ec5c0988af0522111f2a9f4",
+                    "bytes": 4355,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/quickstart.md",
+                    "blob": "2193ccb7a9707083882c67d6b87c136cf8568c12",
+                    "bytes": 4005,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/sessions.md",
+                    "blob": "cad8991945a7586210dc697cc65fcf4fb645b4a6",
+                    "bytes": 4382,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "open-source-b4dcd3457597",
+            "path": "skills/open-source/SKILL.md",
+            "name": "open-source",
+            "description": "Documentation reference for writing Python code using the browser-use open-source library. Use this skill whenever the user needs help with Agent, Browser, or Tools configuration, is writing code that imports from browser_use, asks about @sandbox deployment, supported LLM models, Actor API, custom tools, lifecycle hooks, MCP server setup, or monitoring/observability with Laminar or OpenLIT. Also trigger for questions about browser-use installation, prompting strategies, or sensitive data handling. Do NOT use this for Cloud API/SDK usage or pricing — use the cloud skill instead. Do NOT use this for directly automating a browser via CLI commands — use the browser-use skill instead.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "1a32db1476bdde8f138697210f25d07438524915",
+                    "bytes": 2151,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/actor.md",
+                    "blob": "5cc8e39b8464356a6426d90931c4d0151a806190",
+                    "bytes": 4300,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/agent.md",
+                    "blob": "8bb19b0978b91c0091d538c76c83bed9efbd3899",
+                    "bytes": 9815,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/browser.md",
+                    "blob": "4b28dd4428269196e2c1026846b913d5772633ce",
+                    "bytes": 7219,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/examples.md",
+                    "blob": "dd6f772456acd3e1144b910dcc5dec91de106538",
+                    "bytes": 4864,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/integrations.md",
+                    "blob": "4bb789238f208fa6b730e6423a8b032b681bbf64",
+                    "bytes": 4686,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/models.md",
+                    "blob": "d8c63b395a2f28f12b122f8c1897c10ae78bac83",
+                    "bytes": 9212,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/monitoring.md",
+                    "blob": "46ab5be2ddc5b1cf75df07e62ce6d7cab38b69a3",
+                    "bytes": 1903,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/quickstart.md",
+                    "blob": "d7db46cef21b7f1d3127aafdd8a60c993fae472c",
+                    "bytes": 5019,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/tools.md",
+                    "blob": "b040f7fde31739ef71dd9fef7f42f3bed4914814",
+                    "bytes": 6072,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "qa-371f0a9311b9",
+            "path": "skills/qa/SKILL.md",
+            "name": "qa",
+            "description": "QA-test a website or web app and return a 1-5 quality score (5 = flawless, 1 = broken) with evidence. Use when the user wants to test, QA, evaluate, score, or \"check how good\" a site, page, flow, or app — including a local dev server (e.g. \"qa test localhost:5173\", \"does the checkout work?\", \"rate this landing page\"). Drives a real Browser Use cloud browser, tunneling localhost automatically.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "eb9a2277cca2d763c190f8b652767fcf2de05e47",
+                    "bytes": 9154,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/browser-use-v2.md",
+                    "blob": "273b593d70da6f5e8b8fc75757844546cc85d667",
+                    "bytes": 11879,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/methodology.md",
+                    "blob": "263690ca310abd09ad58c0d85c283653784bd38f",
+                    "bytes": 15995,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "remote-browser-0ee8afa61fa6",
+            "path": "skills/remote-browser/SKILL.md",
+            "name": "remote-browser",
+            "description": "Controls an isolated Browser Use Cloud browser from a sandboxed machine with the current Browser Use CLI.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7c0e52d6b0f317b827826a1996c222a8bc93b658",
+                    "bytes": 2322,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "x402-d0bc4df56976",
+            "path": "skills/x402/SKILL.md",
+            "name": "x402",
+            "description": "Set up Browser Use Cloud payments with x402 — pay per request from a crypto wallet (USDC on Base mainnet), no signup or API key. Two setups it works out up front — \"just use it\" (set up a wallet so you or Claude Code can run cloud browser tasks paid from the wallet — Claude writes and runs throwaway scripts, nothing touches your codebase) or \"build it in\" (install the SDK and write the key + code into your project). Walks through wallet setup, funding, .env, and a ~$1 test run. Use when the user asks about x402, pay-per-use, USDC payments, or wants Browser Use Cloud without an API key. For the free-tier signup (reverse-CAPTCHA → API key), use `browser-use cloud signup` or the `cloud` skill instead.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "2e01df02a10264791f362140c59feb93082d928e",
+                    "bytes": 15205,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "d8f2f6150b237b1a4bbd52e564831460f5083a86",
+        "bytes": 38463,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "1ea3836ce58a4cd32c90c0b4f4e736d840d23780",
+        "bytes": 1069,
+        "text": true,
+        "mode": "100644"
+    }
+}

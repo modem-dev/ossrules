@@ -1,0 +1,238 @@
+{
+    "version": 1,
+    "slug": "turso",
+    "repository": "tursodatabase/turso",
+    "branch": "main",
+    "sha": "0f7f30eacd2d24d4e5823c900e087920202af07c",
+    "scannedAt": "2026-09-14T23:23:29.341Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "async-io-model-ccaca84ac153",
+            "path": ".claude/skills/async-io-model/SKILL.md",
+            "name": "async-io-model",
+            "description": "Explanations of common asynchronous patterns used in tursodb. Involves IOResult, state machines, re-entrancy pitfalls, CompletionGroup. Always use these patterns in `core` when doing anything IO",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "47937bf7ab9427a3baa38715d65236e1ff200739",
+                    "bytes": 5830,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "cdc-0cfc92984233",
+            "path": ".claude/skills/cdc/SKILL.md",
+            "name": "cdc",
+            "description": "Change Data Capture - architecture, entrypoints, bytecode emission, sync engine integration, tests",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "46741f5548f5e6b3e745475c1321435cff862af8",
+                    "bytes": 18417,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "code-quality-bf89e4e8ade4",
+            "path": ".claude/skills/code-quality/SKILL.md",
+            "name": "code-quality",
+            "description": "General Correctness rules, Rust patterns, comments, avoiding over-engineering. When writing code always take these into account",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "dd4f054951c3fe7d639fd6279817676fe45fe37a",
+                    "bytes": 2253,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "debugging-ea59349b2cbc",
+            "path": ".claude/skills/debugging/SKILL.md",
+            "name": "debugging",
+            "description": "How to debug tursodb using Bytecode comparison, logging, ThreadSanitizer, deterministic simulation, and corruption analysis tools",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b53b984d0340b7d73d31945c406d0111883bfe63",
+                    "bytes": 1914,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/CORRUPTION-TOOLS.md",
+                    "blob": "94999bac927fd87df5d152a68d081e97b5318ec5",
+                    "bytes": 52,
+                    "text": false,
+                    "mode": "120000",
+                    "omitted": "Symlink; inspect the upstream target."
+                },
+                {
+                    "path": "scripts",
+                    "blob": "78cc714201324a641b8af59d09edda2a94c37093",
+                    "bytes": 39,
+                    "text": false,
+                    "mode": "120000",
+                    "omitted": "Symlink; inspect the upstream target."
+                }
+            ]
+        },
+        {
+            "id": "differential-fuzzer-491459dde8d7",
+            "path": ".claude/skills/differential-fuzzer/SKILL.md",
+            "name": "differential-fuzzer",
+            "description": "Information about the differential fuzzer tool, how to run it and use it catch bugs in Turso. Always load this skill when running this tool",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "1744079be6f2f409f52640cb18232949ba693780",
+                    "bytes": 5744,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "index-knowledge-e1c6fa0cd36a",
+            "path": ".claude/skills/index-knowledge/SKILL.md",
+            "name": "index-knowledge",
+            "description": "Generate hierarchical AGENTS.md knowledge base for a codebase. Creates root + complexity-scored subdirectory documentation.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "6ae654a192901f9b6837fd79508ffd7aa26d207e",
+                    "bytes": 10049,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "memory-benchmark-0a264d3ce346",
+            "path": ".claude/skills/memory-benchmark/SKILL.md",
+            "name": "memory-benchmark",
+            "description": "How to benchmark and analyze memory usage in Turso using the memory-benchmark crate and dhat heap profiler. Use this skill whenever the user mentions memory usage, memory profiling, allocation tracking, heap analysis, memory regression, memory benchmarking, dhat, or wants to understand where memory is being allocated during SQL workloads. Also use when investigating memory growth in WAL or MVCC mode. IMPORTANT - If you modify the perf/memory crate (add profiles, change CLI flags, change output format, etc.), update this skill document to reflect those changes so it stays accurate for future agents.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "fe7d7871ed7b0549cc5d28555448c759e585b841",
+                    "bytes": 22360,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "mvcc-cdd878eb81a6",
+            "path": ".claude/skills/mvcc/SKILL.md",
+            "name": "mvcc",
+            "description": "Overview of Experimental MVCC feature - snapshot isolation, versioning, limitations",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "85cd872e5c8541c8ec0c39b94160e2c0b8b35430",
+                    "bytes": 2739,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "pr-workflow-4501764c1c83",
+            "path": ".claude/skills/pr-workflow/SKILL.md",
+            "name": "pr-workflow",
+            "description": "General guidelines for Commits, formatting, CI, dependencies, security",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "eb8abc274f9def271b03fe44486b96302f878901",
+                    "bytes": 1062,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "storage-format-ae3dddf7ae85",
+            "path": ".claude/skills/storage-format/SKILL.md",
+            "name": "storage-format",
+            "description": "SQLite file format, B-trees, pages, cells, overflow, freelist that is used in tursodb",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "5567573a72440147f25c0ee37670fff2f33611d8",
+                    "bytes": 3790,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "testing-b1da981924f7",
+            "path": ".claude/skills/testing/SKILL.md",
+            "name": "testing",
+            "description": "How to write tests, when to use each type of test, and how to run them. Contains information about conversion of `.test` to `.sqltest`, and how to write `.sqltest` and rust tests",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "fcd58240b0b6a84e8457804c7771a8cd99eecce4",
+                    "bytes": 3116,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "transaction-correctness-ea782075f3cb",
+            "path": ".claude/skills/transaction-correctness/SKILL.md",
+            "name": "transaction-correctness",
+            "description": "How WAL mechanics, checkpointing, concurrency rules, recovery work in tursodb",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "cfef4363759c5d8a8b4c0a00040069d58c15ccf7",
+                    "bytes": 3066,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "yield-injections-09dd42b38998",
+            "path": ".claude/skills/yield-injections/SKILL.md",
+            "name": "yield-injections",
+            "description": "Use when working with Turso yield injection or synthetic failure injection machinery for safe resumable state-machine boundaries, including YieldInjector, FailureInjector, YieldPointMarker, inject_transition_yield!, inject_io_yield!, inject_transition_failure!, CommitYieldPoint, CheckpointYieldPoint, CursorYieldPoint, deterministic interleaving tests, abandoned statement/commit tests, and concurrent-simulator yield plans.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "96a2db59b499cc30d44d7ca30fb1691d0a1f8c79",
+                    "bytes": 8827,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "216afc1ffbac693cc25a95ad1b9652ca0593419e",
+        "bytes": 8971,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE.md",
+        "blob": "9573cadaf0b69893bf64bb595f06c4be150366e3",
+        "bytes": 1070,
+        "text": true,
+        "mode": "100644"
+    }
+}

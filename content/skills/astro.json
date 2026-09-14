@@ -1,0 +1,282 @@
+{
+    "version": 1,
+    "slug": "astro",
+    "repository": "withastro/astro",
+    "branch": "main",
+    "sha": "63ca342910edcd9770e6e796c9ad7fa8677e8cd7",
+    "scannedAt": "2026-09-14T23:22:39.690Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "analyze-github-action-logs-c37ab16149f2",
+            "path": ".agents/skills/analyze-github-action-logs/SKILL.md",
+            "name": "analyze-github-action-logs",
+            "description": "Analyze recent GitHub Actions workflow runs to identify patterns, mistakes, and improvements. Use when asked to \"analyze workflow logs\", \"review action runs\", or \"analyze GitHub Actions\".",
+            "compatibility": "Requires gh CLI and access to the GitHub repository.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "96926c7b30444d7a5478a17efa074f670e8599e8",
+                    "bytes": 5257,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "evals/evals.json",
+                    "blob": "c0583f57e5cfc23f95dd50ed26a33ddadcdf2850",
+                    "bytes": 6708,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "astro-code-review-54e5d444783a",
+            "path": ".agents/skills/astro-code-review/SKILL.md",
+            "name": "astro-code-review",
+            "description": "Perform a static, read-only code review of an Astro pull request or of a local branch, commit range, diff, patch, or working tree being prepared as a pull request. Determine whether the change satisfies its stated business requirements and is good enough to merge, using the PR description, linked requirement issues and roadmap items, and PR or issue discussions when available. Use this skill only for PR review or self-review, not issue triage or bug investigation. It reports only merge-relevant findings and never edits code or runs project code, tests, builds, checks, or scripts.",
+            "compatibility": "Uses read-only GitHub tools, `gh`, and `git` when available; can review a supplied diff and provided PR context without them.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "6cd230297dba3faa92d26405993af3eb0ed3e849",
+                    "bytes": 30529,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "evals/evals.json",
+                    "blob": "526e6a568f167b22712b9f5373d4db12e0b4be97",
+                    "bytes": 22803,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "astro-developer-23de14e8e8ff",
+            "path": ".agents/skills/astro-developer/SKILL.md",
+            "name": "astro-developer",
+            "description": "Comprehensive guide for developing in the Astro monorepo. Covers architecture, debugging, testing, and critical constraints. Use when working on features, fixes, tests, or understanding the codebase structure.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b78d441c65eac5c57aff21c9e0788fb144daa3a2",
+                    "bytes": 5891,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "architecture.md",
+                    "blob": "a2dad80d51ca9e29d6d61a2041566b61589eb601",
+                    "bytes": 14279,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "constraints.md",
+                    "blob": "99384f0f86b669f4bc7def29d2b312bf8594acb0",
+                    "bytes": 13214,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "debugging.md",
+                    "blob": "3fd4136fbea62a7a566cf7ffb84050c611d22343",
+                    "bytes": 13942,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "evals/evals.json",
+                    "blob": "36d19ca0c22527e21c495a44c015d55d3549bc12",
+                    "bytes": 8083,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "testing.md",
+                    "blob": "453f87b7d30254ddc59f108b17a60537aab72873",
+                    "bytes": 21991,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "astro-pr-writer-1e4b0793c867",
+            "path": ".agents/skills/astro-pr-writer/SKILL.md",
+            "name": "astro-pr-writer",
+            "description": "Write and update Astro pull requests with reviewer-friendly titles and high-signal bodies. Trigger whenever the user asks to create a PR, open a PR, draft a PR, update PR title/body, or write PR notes/summary/description.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7fb5076a09e9aae65afe6974aeca831c09151e07",
+                    "bytes": 4997,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "evals/evals.json",
+                    "blob": "ff03acbed7fdfbf11cbfd89253f2ca599c8d2220",
+                    "bytes": 5249,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "changeset-c0e5e0189ab7",
+            "path": ".agents/skills/changeset/SKILL.md",
+            "name": "changeset",
+            "description": "Create a changeset for the Astro monorepo. Use this skill whenever you need to add a changeset file to a PR, write a changelog entry, or document a package version bump. Also trigger when the user says \"add a changeset\", \"write a changeset\", \"create a changeset\", or when another skill instructs you to create a changeset.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "0f7125bf880e22692f24ffa165f704f7b17c9f51",
+                    "bytes": 4449,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "evals/evals.json",
+                    "blob": "0839b2f48cbc8185763da51a154904fd1d91e400",
+                    "bytes": 4583,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "merge-dc625ddf99fb",
+            "path": ".agents/skills/merge/SKILL.md",
+            "name": "merge",
+            "description": "Handle main-to-next merge tasks including conflict resolution, changeset cleanup, and CI fix-ups. Use when merging main into next.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "3f2692387c3a4bf5806d96ae6ac95493a9f4fdbe",
+                    "bytes": 616,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "clean-changesets.md",
+                    "blob": "b632b4b6227c678464aebd475d444bc2c9912b44",
+                    "bytes": 2449,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "evals/evals.json",
+                    "blob": "1f5e56617936139736241bea4eda269f58b35058",
+                    "bytes": 7219,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "fix-ci.md",
+                    "blob": "7ced7bab984d461970fa8372714787dd15ab76d4",
+                    "bytes": 6077,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "resolve-conflicts.md",
+                    "blob": "85b1b75c5219a4f91e0b96265a0750cbfbaed111",
+                    "bytes": 3195,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "triage-e1a987817fd5",
+            "path": ".agents/skills/triage/SKILL.md",
+            "name": "triage",
+            "description": "Triage a bug report. Reproduces the bug, diagnoses the root cause, verifies whether the behavior is intentional, and attempts a fix. Use when asked to \"triage issue",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "e5527ee5f19b3c720a47554f4a55b3292656d679",
+                    "bytes": 2571,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "diagnose.md",
+                    "blob": "055bb01a618726dd260e47fa9a1acc26f4c8f3fd",
+                    "bytes": 5715,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "evals/evals.json",
+                    "blob": "2b9bac57798894cb328a5a325b09dcb473b7216b",
+                    "bytes": 6243,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "fix.md",
+                    "blob": "010978e06c8522c68b98db18155f69ad7a7bd72f",
+                    "bytes": 10412,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reproduce.md",
+                    "blob": "8a92e7dcb35faf4d529ea07606f9f6b7c5071bd1",
+                    "bytes": 11032,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "verify.md",
+                    "blob": "951f475bd027d3bc3fa62e7331d08e6902c2a0dc",
+                    "bytes": 10556,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        },
+        {
+            "id": "writing-comments-5d88b4e2d7fc",
+            "path": ".agents/skills/writing-comments/SKILL.md",
+            "name": "writing-comments",
+            "description": "How to write JSDoc (/** */) and inline (//) comments in the Astro codebase, for contributors reading the source — not end users. Use whenever writing or editing comments in .ts/.js source, including comments added incidentally while fixing bugs or building features. Does not cover the @docs-generated config/error reference.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "e168aa9db37ea5b9f5520be5a791f6ebc65cadd5",
+                    "bytes": 11024,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "evals/evals.json",
+                    "blob": "b3ff3061794c00a73ecd72fefd818bd806546f95",
+                    "bytes": 5528,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ]
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "9007c47b4260a1bd8faa5f0eac15818f9fababd4",
+        "bytes": 8903,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "b3cd0c0f0e01d20109fc8660a4d6b7dc9a22bc49",
+        "bytes": 3628,
+        "text": true,
+        "mode": "100644"
+    }
+}

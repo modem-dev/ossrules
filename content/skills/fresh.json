@@ -1,0 +1,12 @@
+{
+    "version": 1,
+    "slug": "fresh",
+    "repository": "freshframework/fresh",
+    "branch": "main",
+    "sha": "86d6cdeb331a719cf8b1c85bf5e43c8ffa889b3b",
+    "scannedAt": "2026-09-14T23:22:56.306Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": []
+}
