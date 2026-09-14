@@ -46,9 +46,9 @@ const LINE_CLASS = {
     heading: 'text-teal',
     code: 'text-gray-500',
     fence: 'text-gray-600',
-    bullet: 'text-light-cream/80',
+    bullet: 'text-gray-400',
     quote: 'text-gray-550 italic',
-    text: 'text-light-cream/70',
+    text: 'text-gray-400',
 } as const;
 
 /**
@@ -91,7 +91,7 @@ export function FileTrayProvider({ slug, owner, repo, sha, files, license, licen
     const [source, setSource] = useState<string | undefined>();
     const [failed, setFailed] = useState(false);
     const cache = useRef(new Map<string, string>());
-    const panel = useRef<HTMLDivElement>(null);
+    const panel = useRef<HTMLDialogElement>(null);
     const returnFocus = useRef<HTMLElement | null>(null);
 
     const byPath = useMemo(() => new Map(files.map((file) => [file.path, file])), [files]);
@@ -104,8 +104,9 @@ export function FileTrayProvider({ slug, owner, repo, sha, files, license, licen
     }, []);
 
     const close = useCallback(() => {
+        panel.current?.close();
         setRequest(undefined);
-        returnFocus.current?.focus();
+        returnFocus.current?.focus({ preventScroll: true });
     }, []);
 
     const context = useMemo(() => ({ open, readable, missing }), [open, readable, missing]);
@@ -117,6 +118,7 @@ export function FileTrayProvider({ slug, owner, repo, sha, files, license, licen
             setFailed(false);
             return;
         }
+        setFailed(false);
         const cached = cache.current.get(path);
         if (cached !== undefined) {
             setSource(cached);
@@ -142,25 +144,19 @@ export function FileTrayProvider({ slug, owner, repo, sha, files, license, licen
         };
     }, [path, slug]);
 
-    // Escape closes, and the page behind must not scroll while the tray is over it.
+    // A native modal makes the page behind it inert and contains keyboard focus.
     useEffect(() => {
         if (!path) return;
-        const abort = new AbortController();
-        window.addEventListener(
-            'keydown',
-            (event) => {
-                if (event.key === 'Escape') close();
-            },
-            { signal: abort.signal },
-        );
+        const dialog = panel.current;
         const previous = document.body.style.overflow;
         document.body.style.overflow = 'hidden';
-        panel.current?.focus();
+        dialog?.showModal();
+        dialog?.querySelector<HTMLButtonElement>('[data-close-file]')?.focus();
         return () => {
-            abort.abort();
+            dialog?.close();
             document.body.style.overflow = previous;
         };
-    }, [path, close]);
+    }, [path]);
 
     const file = path ? byPath.get(path) : undefined;
     const lines = source === undefined ? undefined : classifyLines(source);
@@ -178,123 +174,129 @@ export function FileTrayProvider({ slug, owner, repo, sha, files, license, licen
         panel.current?.querySelector(`[data-line="${markedLine}"]`)?.scrollIntoView({ block: 'center' });
     }, [markedLine]);
 
+    const markedCount = request?.match?.trimEnd().split('\n').length ?? 0;
+    const sourceUrl = `https://github.com/${owner}/${repo}/blob/${sha}/${path?.split('/').map(encodeURIComponent).join('/') ?? ''}`;
+
     return (
         <FileTrayContext.Provider value={context}>
             {children}
             {path ? (
-                <div className="fixed inset-0 z-50 flex justify-end">
+                <dialog
+                    ref={panel}
+                    aria-label={path}
+                    className="source-dialog"
+                    onCancel={(event) => {
+                        event.preventDefault();
+                        close();
+                    }}
+                >
                     <button
                         type="button"
+                        tabIndex={-1}
                         aria-label="Close file"
                         onClick={close}
-                        className="absolute inset-0 cursor-default bg-marketing-black/70 backdrop-blur-sm"
+                        className="absolute inset-0 cursor-default"
                     />
-                    <div
-                        ref={panel}
-                        tabIndex={-1}
-                        role="dialog"
-                        aria-modal="true"
-                        aria-label={path}
-                        className="relative flex h-full w-full max-w-[46rem] flex-col border-gray-750/70 border-l bg-dark-gray shadow-2xl outline-none"
-                    >
-                        <div className="flex items-start gap-3 border-gray-750/70 border-b px-5 py-4">
+                    <div className="source-panel">
+                        <header className="source-header">
                             <div className="min-w-0 flex-1">
-                                <p className="truncate font-mono text-light-cream text-sm">{path}</p>
-                                <p className="mt-1 font-inter text-gray-550 text-xs">
-                                    {owner}/{repo} at {sha.slice(0, 7)}
+                                <p className="break-all font-mono text-sm">{path}</p>
+                                <p className="mt-2 break-words font-mono text-[11px] text-gray-550 leading-relaxed">
+                                    {owner}/{repo} · {sha.slice(0, 7)}
                                     {file ? ` · ${formatBytes(file.bytes)} · ${file.lines} lines` : ''}
                                     {license ? ` · ${license}` : ''}
                                 </p>
                             </div>
-                            <a
-                                href={`https://github.com/${owner}/${repo}/blob/${sha}/${path}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="shrink-0 font-inter text-teal text-xs hover:underline"
-                            >
-                                GitHub
-                            </a>
-                            <button
-                                type="button"
-                                onClick={close}
-                                aria-label="Close"
-                                className="-mr-1 shrink-0 cursor-pointer px-1 font-inter text-gray-550 text-sm transition-colors hover:text-light-cream"
-                            >
-                                ✕
-                            </button>
-                        </div>
-
-                        <div className="min-h-0 flex-1 overflow-auto bg-gray-850">
+                            <div className="flex shrink-0 items-center gap-2">
+                                <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="source-control">
+                                    GitHub ↗
+                                </a>
+                                <button
+                                    type="button"
+                                    data-close-file
+                                    onClick={close}
+                                    className="source-control"
+                                    aria-label="Close source file"
+                                >
+                                    Close ×
+                                </button>
+                            </div>
+                        </header>
+                        <div className="source-scroll" aria-busy={!failed && lines === undefined}>
                             {failed ? (
-                                <p className="p-5 font-roboto text-gray-550 text-sm">
+                                <p role="alert" className="p-6 text-gray-550 text-sm leading-relaxed">
                                     That file could not be loaded. It is still available{' '}
-                                    <a
-                                        href={`https://github.com/${owner}/${repo}/blob/${sha}/${path}`}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-teal hover:underline"
-                                    >
+                                    <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="text-teal underline">
                                         on GitHub
                                     </a>
                                     .
                                 </p>
                             ) : lines === undefined ? (
-                                <p className="p-5 font-inter text-gray-600 text-xs">Loading…</p>
+                                <p role="status" className="p-6 font-mono text-gray-600 text-xs">
+                                    Loading source…
+                                </p>
                             ) : (
-                                <pre className="p-5 font-mono text-[12.5px] leading-5">
-                                    {lines.map((line, index) => (
-                                        <div
-                                            // biome-ignore lint/suspicious/noArrayIndexKey: source lines are identified by position.
-                                            key={index}
-                                            data-line={index}
-                                            className={`flex gap-4 ${index === markedLine ? 'bg-dark-teal/50' : ''}`}
-                                        >
-                                            <span className="w-8 shrink-0 select-none text-right text-gray-700">{index + 1}</span>
-                                            <span className={`whitespace-pre-wrap break-words ${LINE_CLASS[line.tone]}`}>
-                                                {line.text || ' '}
+                                <pre className="source-code">
+                                    <code>
+                                        {lines.map((line, index) => (
+                                            <span
+                                                // biome-ignore lint/suspicious/noArrayIndexKey: source lines are identified by position.
+                                                key={index}
+                                                data-line={index}
+                                                data-highlight={
+                                                    markedLine >= 0 && index >= markedLine && index < markedLine + markedCount
+                                                        ? true
+                                                        : undefined
+                                                }
+                                                className="source-line"
+                                            >
+                                                <span aria-hidden className="source-line-number">
+                                                    {index + 1}
+                                                </span>
+                                                <span
+                                                    className={`min-w-0 whitespace-pre-wrap [overflow-wrap:anywhere] ${LINE_CLASS[line.tone]}`}
+                                                >
+                                                    {line.text || ' '}
+                                                </span>
                                             </span>
-                                        </div>
-                                    ))}
+                                        ))}
+                                    </code>
                                 </pre>
                             )}
                         </div>
-
-                        {file?.truncated ? (
-                            <p className="border-gray-750/70 border-t px-5 py-3 font-inter text-gray-550 text-xs">
-                                Showing the first {formatBytes(new Blob([source ?? '']).size)} of {formatBytes(file.bytes)}.{' '}
-                                <a
-                                    href={`https://github.com/${owner}/${repo}/blob/${sha}/${path}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-teal hover:underline"
-                                >
-                                    Read the rest on GitHub
-                                </a>
-                                .
-                            </p>
-                        ) : (
-                            <p className="border-gray-750/70 border-t px-5 py-3 font-inter text-gray-600 text-xs">
-                                Copy stored at the pinned commit.{' '}
-                                {license ? `${owner}/${repo} is ${license}-licensed` : `See ${owner}/${repo} for its license`}
-                                {licensePath ? (
-                                    <>
-                                        {' ('}
-                                        <a
-                                            href={`https://github.com/${owner}/${repo}/blob/${sha}/${licensePath}`}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="text-teal hover:underline"
-                                        >
-                                            {licensePath}
-                                        </a>
-                                        {')'}
-                                    </>
-                                ) : null}
-                                .
-                            </p>
-                        )}
+                        <footer className="source-footer">
+                            {file?.truncated ? (
+                                <p>
+                                    Showing the first {formatBytes(new Blob([source ?? '']).size)} of {formatBytes(file.bytes)}.{' '}
+                                    <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="text-teal hover:underline">
+                                        Read the rest on GitHub
+                                    </a>
+                                    .
+                                </p>
+                            ) : (
+                                <p>
+                                    Copy stored at the pinned commit.{' '}
+                                    {license ? `${owner}/${repo} is ${license}-licensed` : `See ${owner}/${repo} for its license`}
+                                    {licensePath ? (
+                                        <>
+                                            {' ('}
+                                            <a
+                                                href={`https://github.com/${owner}/${repo}/blob/${sha}/${licensePath}`}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-teal hover:underline"
+                                            >
+                                                {licensePath}
+                                            </a>
+                                            {')'}
+                                        </>
+                                    ) : null}
+                                    .
+                                </p>
+                            )}
+                        </footer>
                     </div>
-                </div>
+                </dialog>
             ) : null}
         </FileTrayContext.Provider>
     );
@@ -358,16 +360,11 @@ export function QuoteLink({ quote, children }: { quote: string; children: React.
     if (!tray?.readable.has('AGENTS.md')) return <>{children}</>;
 
     return (
-        <button
-            type="button"
-            onClick={() => tray.open({ path: 'AGENTS.md', match: quote })}
-            className="group block w-full cursor-pointer text-left"
-            title="Show this in the file"
-        >
+        <div className="quote-block">
             {children}
-            <span className="mt-1.5 block font-inter text-gray-600 text-xs transition-colors group-hover:text-teal">
-                Show in AGENTS.md →
-            </span>
-        </button>
+            <button type="button" onClick={() => tray.open({ path: 'AGENTS.md', match: quote })} className="quote-open">
+                AGENTS.md · View in source <span aria-hidden>↗</span>
+            </button>
+        </div>
     );
 }

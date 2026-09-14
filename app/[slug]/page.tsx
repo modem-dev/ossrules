@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import {
     agentsFileCommitUrl,
-    agentsFileUrl,
     formatStars,
     logoSrc,
     PATTERNS_BY_ID,
@@ -12,7 +11,6 @@ import {
     repoUrl,
     STATS_AS_OF,
 } from '@/components/agents-md-data';
-import CTAButton from '@/components/cta-button';
 import { DocTree } from '@/components/doc-tree';
 import { FileLink, FileTrayProvider, QuoteLink } from '@/components/file-tray';
 import { JsonLd } from '@/components/json-ld';
@@ -36,7 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         return {};
     }
 
-    const title = `${project.name}'s AGENTS.md, explained | Modem`;
+    const title = `${project.name}'s AGENTS.md, explained`;
     const description = `${project.hook} A breakdown of the AGENTS.md in ${project.owner}/${project.repo}, with the techniques worth copying.`;
 
     return {
@@ -96,146 +94,68 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                 />
                 <SiteHeader />
 
-                <main id="main" className="relative z-10 flex-1">
-                    <div className="max-w-container mx-auto px-6 sm:px-12 pt-14 pb-20">
-                        <div className="max-w-3xl mx-auto">
-                            <Link href="/" className="font-inter text-sm text-teal hover:underline">
-                                AGENTS.md directory
-                            </Link>
+                <main id="main" className="page-shell flex-1">
+                    <nav
+                        aria-label="Breadcrumb"
+                        className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[11px] text-gray-600"
+                    >
+                        <Link href="/" className="text-teal hover:underline">
+                            Projects
+                        </Link>
+                        <span aria-hidden>/</span>
+                        <a href={repoUrl(project)} target="_blank" rel="noopener noreferrer" className="break-all hover:text-teal">
+                            {project.owner}/{project.repo} ↗
+                        </a>
+                    </nav>
+                    <header className="project-heading">
+                        <div className="min-w-0">
+                            <div className="flex items-center gap-4">
+                                <Image
+                                    src={logoSrc(project)}
+                                    alt=""
+                                    width={56}
+                                    height={56}
+                                    className="size-14 shrink-0 rounded-xl bg-gray-800 object-cover"
+                                />
+                                <h1 className="page-title">{project.name}</h1>
+                            </div>
+                            <p className="mt-4 max-w-2xl text-gray-550 text-sm leading-relaxed">{project.tagline}</p>
+                        </div>
+                        <FileLink path="AGENTS.md" href={agentsFileCommitUrl(project)} className="action-link action-primary shrink-0">
+                            Read AGENTS.md <span aria-hidden>↗</span>
+                        </FileLink>
+                    </header>
+                    <p className="max-w-3xl text-gray-400 text-lg leading-relaxed">{project.hook}</p>
 
-                            <header className="mt-6">
-                                <div className="flex items-center gap-4">
-                                    <Image
-                                        src={logoSrc(project)}
-                                        alt=""
-                                        width={56}
-                                        height={56}
-                                        className="size-14 shrink-0 rounded-lg bg-gray-800 object-cover"
-                                    />
-                                    <h1 className="font-unit-medium text-4xl sm:text-5xl text-light-cream leading-tight tracking-tight">
-                                        {project.name}
-                                    </h1>
-                                </div>
-                                <p className="mt-3 font-roboto text-lg text-light-cream/70 leading-relaxed">{project.tagline}</p>
-
-                                <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 font-inter text-sm">
-                                    <a
-                                        href={repoUrl(project)}
-                                        className="text-teal hover:underline"
-                                        rel="noopener noreferrer"
-                                        target="_blank"
-                                    >
-                                        {project.owner}/{project.repo}
-                                    </a>
-                                    <span aria-hidden className="text-gray-750">
-                                        /
-                                    </span>
-                                    <FileLink
-                                        path="AGENTS.md"
-                                        href={agentsFileUrl(project)}
-                                        className="cursor-pointer text-teal hover:underline"
-                                    >
-                                        Read the AGENTS.md
-                                    </FileLink>
-                                    <span aria-hidden className="text-gray-750">
-                                        /
-                                    </span>
-                                    <a
-                                        href={rawAgentsFileUrl(project)}
-                                        className="text-gray-550 hover:text-teal transition-colors"
-                                        rel="noopener noreferrer"
-                                        target="_blank"
-                                    >
-                                        Raw
-                                    </a>
-                                    <span aria-hidden className="text-gray-750">
-                                        /
-                                    </span>
-                                    <a
-                                        href={agentsFileCommitUrl(project)}
-                                        className="text-gray-550 hover:text-teal transition-colors"
-                                        rel="noopener noreferrer"
-                                        target="_blank"
-                                    >
-                                        Last updated <RelativeTime iso={project.lastCommit.date} />
-                                    </a>
-                                </div>
-                            </header>
-
-                            <p className="mt-8 font-roboto text-lg text-light-cream/90 leading-relaxed">{project.hook}</p>
-
-                            {project.references.length > 0 ? (
-                                <section className="mt-10">
-                                    <h2 className="font-inter text-xs font-semibold uppercase tracking-wider text-gray-550">
-                                        Documents it routes to
-                                    </h2>
-                                    <p className="mt-2 font-inter text-sm text-gray-550 leading-relaxed">
-                                        This file points the agent at {project.references.length} other{' '}
-                                        {project.references.length === 1 ? 'document' : 'documents'} in the repository. Open any of them to
-                                        read it here, as it was at this commit.
-                                    </p>
-                                    <div className="mt-4">
-                                        <DocTree
-                                            references={project.references}
-                                            rootLabel="AGENTS.md"
-                                            fileHref={(filePath) => repoFileUrl(project, filePath)}
-                                        />
-                                    </div>
-                                </section>
-                            ) : null}
-
-                            <section className="mt-10">
-                                <h2 className="font-inter text-xs font-semibold uppercase tracking-wider text-gray-550">By the numbers</h2>
-                                <div className="mt-4">
-                                    <FileStatGrid project={project} />
-                                </div>
-                                <p className="mt-3 font-inter text-xs text-gray-600 leading-relaxed">
-                                    File measured on <code className="font-mono text-gray-550">{project.defaultBranch}</code> at commit{' '}
-                                    <a
-                                        href={agentsFileCommitUrl(project)}
-                                        className="font-mono text-gray-550 hover:text-teal"
-                                        rel="noopener noreferrer"
-                                        target="_blank"
-                                    >
-                                        {project.lastCommit.sha.slice(0, 7)}
-                                    </a>
-                                    . Analysis written {project.evaluatedAt}. Star count is a snapshot from {STATS_AS_OF}.
-                                </p>
-                            </section>
-
-                            <section className="mt-14">
-                                <h2 className="font-unit-medium text-2xl sm:text-3xl text-light-cream leading-snug tracking-tight">
-                                    What kind of file this is
-                                </h2>
-                                <p className="mt-3 font-roboto text-[17px] text-light-cream/80 leading-relaxed">{project.summary}</p>
-
-                                <div className="mt-5 flex flex-wrap gap-1.5">
+                    <div className="project-layout">
+                        <div className="min-w-0">
+                            <section id="overview" className="reading-section">
+                                <p className="eyebrow">The file, explained</p>
+                                <h2 className="section-title mt-3">What makes it useful</h2>
+                                <p className="prose-copy mt-4">{project.summary}</p>
+                                <div className="mt-5 flex flex-wrap gap-2">
                                     {project.patterns.map((pattern) => (
                                         <PatternBadge key={pattern} pattern={pattern} href={`/techniques#${pattern}`} />
                                     ))}
                                 </div>
                             </section>
 
-                            <section className="mt-14">
-                                <h2 className="font-unit-medium text-2xl sm:text-3xl text-light-cream leading-snug tracking-tight">
-                                    Techniques in this file
-                                </h2>
-                                <p className="mt-2 font-inter text-sm text-gray-550 leading-relaxed">
-                                    Quoted lines are verbatim from the file. Open one to see it where it sits.
+                            <section id="techniques" className="reading-section mt-12">
+                                <h2 className="section-title">Techniques in this file</h2>
+                                <p className="mt-3 text-gray-600 text-xs leading-relaxed">
+                                    Quoted passages are verbatim. Open one to see it in the source.
                                 </p>
-
-                                <div className="mt-8 space-y-10">
-                                    {project.techniques.map((technique) => (
-                                        <article key={technique.title}>
-                                            <h3 className="font-unit-medium text-xl text-light-cream leading-snug">{technique.title}</h3>
-                                            {technique.pattern ? (
-                                                <p className="mt-1.5 font-inter text-xs text-teal/80">
-                                                    {PATTERNS_BY_ID[technique.pattern].name}
-                                                </p>
-                                            ) : null}
-                                            <p className="mt-2.5 font-roboto text-[17px] text-light-cream/80 leading-relaxed">
-                                                {technique.body}
+                                <div className="mt-8 space-y-9">
+                                    {project.techniques.map((technique, position) => (
+                                        <article key={technique.title} className="border-gray-750 border-t pt-6">
+                                            <p className="eyebrow">
+                                                {String(position + 1).padStart(2, '0')}
+                                                {technique.pattern ? ` / ${PATTERNS_BY_ID[technique.pattern].name}` : ' / From this file'}
                                             </p>
+                                            <h3 className="mt-3 font-mono font-medium text-[17px] leading-relaxed tracking-tight">
+                                                {technique.title}
+                                            </h3>
+                                            <p className="prose-copy mt-3">{technique.body}</p>
                                             {technique.quote ? (
                                                 <QuoteLink quote={technique.quote}>
                                                     <Excerpt>{technique.quote}</Excerpt>
@@ -246,85 +166,159 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                                 </div>
                             </section>
 
-                            <section className="mt-14 rounded-xl border border-dark-teal/40 bg-medium-gray/40 p-6 sm:p-8">
-                                <h2 className="font-unit-medium text-2xl text-light-cream leading-snug tracking-tight">
-                                    Takeaways for your own repo
-                                </h2>
-                                <ul className="mt-4 space-y-3">
-                                    {project.steal.map((item) => (
-                                        <li key={item} className="flex gap-3">
-                                            <span aria-hidden className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-teal" />
-                                            <span className="font-roboto text-[17px] text-light-cream/80 leading-relaxed">{item}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </section>
-
-                            <section className="mt-14">
-                                <h2 className="font-unit-medium text-2xl sm:text-3xl text-light-cream leading-snug tracking-tight">
-                                    How the file is organized
-                                </h2>
-                                <ol className="mt-5 space-y-2">
-                                    {project.outline.map((section, position) => (
-                                        <li key={section} className="flex gap-4">
-                                            <span className="font-mono text-sm text-gray-650 tabular-nums">
+                            <section
+                                id="takeaways"
+                                className="reading-section mt-12 rounded-lg border border-gray-750 bg-dark-teal/40 p-6 sm:p-7"
+                            >
+                                <p className="eyebrow">Put it to work</p>
+                                <h2 className="section-title mt-3">Borrow this for your repo</h2>
+                                <ol className="mt-5 space-y-4">
+                                    {project.steal.map((item, position) => (
+                                        <li key={item} className="flex gap-4">
+                                            <span aria-hidden className="pt-1 font-mono text-teal text-xs">
                                                 {String(position + 1).padStart(2, '0')}
                                             </span>
-                                            <span className="font-roboto text-[15px] text-light-cream/75 leading-relaxed">{section}</span>
+                                            <span className="text-gray-400 text-[15px] leading-relaxed">{item}</span>
+                                        </li>
+                                    ))}
+                                </ol>
+                            </section>
+
+                            {project.references.length > 0 ? (
+                                <section id="documents" className="reading-section mt-12">
+                                    <h2 className="section-title">Documents it routes to</h2>
+                                    <p className="mt-3 text-gray-550 text-sm leading-relaxed">
+                                        This file points to {project.references.length} other{' '}
+                                        {project.references.length === 1 ? 'document' : 'documents'}. Open one to read the copy stored at
+                                        this commit.
+                                    </p>
+                                    <div className="mt-5">
+                                        <DocTree
+                                            references={project.references}
+                                            rootLabel="AGENTS.md"
+                                            fileHref={(filePath) => repoFileUrl(project, filePath)}
+                                        />
+                                    </div>
+                                </section>
+                            ) : null}
+
+                            <section id="structure" className="reading-section mt-12">
+                                <h2 className="section-title">How the file is organized</h2>
+                                <ol className="mt-5 divide-y divide-gray-750 border-gray-750 border-y">
+                                    {project.outline.map((section, position) => (
+                                        <li key={section} className="flex gap-4 py-3">
+                                            <span className="font-mono text-gray-600 text-xs">{String(position + 1).padStart(2, '0')}</span>
+                                            <span className="text-gray-500 text-sm">{section}</span>
                                         </li>
                                     ))}
                                 </ol>
                                 <a
-                                    href={agentsFileUrl(project)}
-                                    className="mt-6 inline-block font-inter text-sm text-teal hover:underline"
-                                    rel="noopener noreferrer"
+                                    href={agentsFileCommitUrl(project)}
+                                    className="mt-5 inline-block text-teal text-sm hover:underline"
                                     target="_blank"
+                                    rel="noopener noreferrer"
                                 >
-                                    Read the full file on GitHub
+                                    Read this revision on GitHub ↗
                                 </a>
                             </section>
-
-                            <nav className="mt-16 grid gap-4 border-t border-gray-750/50 pt-8 sm:grid-cols-2">
-                                {previous ? (
-                                    <Link href={`/${previous.slug}`} className="group block">
-                                        <span className="font-inter text-xs text-gray-600">Previous</span>
-                                        <span className="mt-1 block font-roboto text-[17px] text-light-cream/90 transition-colors group-hover:text-teal">
-                                            {previous.name}
-                                        </span>
-                                        <span className="mt-0.5 block font-inter text-xs text-gray-550 tabular-nums">
-                                            {formatStars(previous.stars)} stars
-                                        </span>
-                                    </Link>
-                                ) : (
-                                    <span />
-                                )}
-                                {next ? (
-                                    <Link href={`/${next.slug}`} className="group block sm:text-right">
-                                        <span className="font-inter text-xs text-gray-600">Next</span>
-                                        <span className="mt-1 block font-roboto text-[17px] text-light-cream/90 transition-colors group-hover:text-teal">
-                                            {next.name}
-                                        </span>
-                                        <span className="mt-0.5 block font-inter text-xs text-gray-550 tabular-nums">
-                                            {formatStars(next.stars)} stars
-                                        </span>
-                                    </Link>
-                                ) : null}
-                            </nav>
-
-                            <section className="mt-16 border-t border-gray-750/50 pt-10">
-                                <h2 className="font-unit-medium text-2xl text-light-cream leading-snug tracking-tight">
-                                    Context your AGENTS.md cannot carry
-                                </h2>
-                                <p className="mt-3 font-roboto text-base text-light-cream/70 leading-relaxed">
-                                    {project.name}&apos;s file tells an agent how the codebase works. It cannot tell it which bug three
-                                    customers hit this week. Modem keeps that context current and attaches it to the work.
-                                </p>
-                                <div className="mt-6">
-                                    <CTAButton>Try Modem</CTAButton>
-                                </div>
-                            </section>
                         </div>
+
+                        <aside className="project-facts" aria-label="File facts and page navigation">
+                            <h2 className="eyebrow">File at a glance</h2>
+                            <div className="mt-3">
+                                <FileStatGrid project={project} />
+                            </div>
+                            <dl className="provenance">
+                                <div>
+                                    <dt>Measured on</dt>
+                                    <dd>
+                                        {project.defaultBranch} ·{' '}
+                                        <a
+                                            href={agentsFileCommitUrl(project)}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-teal hover:underline"
+                                        >
+                                            {project.lastCommit.sha.slice(0, 7)}
+                                        </a>
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>File changed</dt>
+                                    <dd>
+                                        <RelativeTime iso={project.lastCommit.date} />
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>Analysis written</dt>
+                                    <dd>{project.evaluatedAt}</dd>
+                                </div>
+                                <div>
+                                    <dt>Star snapshot</dt>
+                                    <dd>{STATS_AS_OF}</dd>
+                                </div>
+                            </dl>
+                            <nav aria-label="On this page" className="mt-7 border-gray-750 border-t pt-5">
+                                <p className="eyebrow">On this page</p>
+                                <ul className="mt-3 space-y-1 text-gray-550 text-xs">
+                                    <li>
+                                        <a href="#overview" className="block py-2 hover:text-teal">
+                                            Overview
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#techniques" className="block py-2 hover:text-teal">
+                                            Techniques
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#takeaways" className="block py-2 hover:text-teal">
+                                            Takeaways
+                                        </a>
+                                    </li>
+                                    {project.references.length > 0 ? (
+                                        <li>
+                                            <a href="#documents" className="block py-2 hover:text-teal">
+                                                Related documents
+                                            </a>
+                                        </li>
+                                    ) : null}
+                                    <li>
+                                        <a href="#structure" className="block py-2 hover:text-teal">
+                                            File structure
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <a
+                                href={rawAgentsFileUrl(project)}
+                                className="mt-5 inline-block text-gray-600 text-xs hover:text-teal"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Latest raw file ↗
+                            </a>
+                        </aside>
                     </div>
+
+                    <nav aria-label="More projects" className="mt-14 grid grid-cols-2 gap-5 border-gray-750 border-t pt-7">
+                        {previous ? (
+                            <Link href={`/${previous.slug}`} className="group">
+                                <span className="eyebrow">← Previous</span>
+                                <span className="mt-2 block font-mono text-sm group-hover:text-teal">{previous.name}</span>
+                                <span className="mt-1 block text-gray-600 text-xs">{formatStars(previous.stars)} stars</span>
+                            </Link>
+                        ) : (
+                            <span />
+                        )}
+                        {next ? (
+                            <Link href={`/${next.slug}`} className="group text-right">
+                                <span className="eyebrow">Next →</span>
+                                <span className="mt-2 block font-mono text-sm group-hover:text-teal">{next.name}</span>
+                                <span className="mt-1 block text-gray-600 text-xs">{formatStars(next.stars)} stars</span>
+                            </Link>
+                        ) : null}
+                    </nav>
                 </main>
 
                 <SiteFooter />
