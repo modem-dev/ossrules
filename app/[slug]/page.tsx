@@ -18,7 +18,7 @@ import { RelativeTime } from '@/components/last-updated';
 import { Excerpt, FileStatGrid, PatternBadge } from '@/components/primitives';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
-import { getAgentsProject, getAgentsProjects, getVendoredFiles } from '@/lib/agents-md';
+import { getAgentsProject, getAgentsProjects, getAgentsSource, getVendoredFiles, sourceExcerpt } from '@/lib/agents-md';
 import { ogImageUrl } from '@/lib/og';
 import { webPageSchema } from '@/lib/schema';
 
@@ -73,6 +73,7 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
     // Local copies of the files this AGENTS.md reads, pinned to the same commit
     // the entry was measured at. See scripts/sync-agents-md-files.ts.
     const vendored = getVendoredFiles(project.slug);
+    const agentsSource = getAgentsSource(project.slug);
 
     return (
         <FileTrayProvider
@@ -146,23 +147,28 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                                     Quoted passages are verbatim. Open one to see it in the source.
                                 </p>
                                 <div className="mt-8 space-y-9">
-                                    {project.techniques.map((technique, position) => (
-                                        <article key={technique.title} className="border-gray-750 border-t pt-6">
-                                            <p className="eyebrow">
-                                                {String(position + 1).padStart(2, '0')}
-                                                {technique.pattern ? ` / ${PATTERNS_BY_ID[technique.pattern].name}` : ' / From this file'}
-                                            </p>
-                                            <h3 className="mt-3 font-mono font-medium text-[17px] leading-relaxed tracking-tight">
-                                                {technique.title}
-                                            </h3>
-                                            <p className="prose-copy mt-3">{technique.body}</p>
-                                            {technique.quote ? (
-                                                <QuoteLink quote={technique.quote}>
-                                                    <Excerpt>{technique.quote}</Excerpt>
-                                                </QuoteLink>
-                                            ) : null}
-                                        </article>
-                                    ))}
+                                    {project.techniques.map((technique, position) => {
+                                        const excerpt = technique.quote ? sourceExcerpt(agentsSource, technique.quote) : undefined;
+                                        return (
+                                            <article key={technique.title} className="border-gray-750 border-t pt-6">
+                                                <p className="eyebrow">
+                                                    {String(position + 1).padStart(2, '0')}
+                                                    {technique.pattern
+                                                        ? ` / ${PATTERNS_BY_ID[technique.pattern].name}`
+                                                        : ' / From this file'}
+                                                </p>
+                                                <h3 className="mt-3 font-mono font-medium text-[17px] leading-relaxed tracking-tight">
+                                                    {technique.title}
+                                                </h3>
+                                                <p className="prose-copy mt-3">{technique.body}</p>
+                                                {excerpt ? (
+                                                    <QuoteLink quote={excerpt.text}>
+                                                        <Excerpt {...excerpt} />
+                                                    </QuoteLink>
+                                                ) : null}
+                                            </article>
+                                        );
+                                    })}
                                 </div>
                             </section>
 
