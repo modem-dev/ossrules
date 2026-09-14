@@ -1,0 +1,74 @@
+{
+    "slug": "omarchy",
+    "name": "Omarchy",
+    "owner": "omacom",
+    "repo": "omarchy",
+    "tagline": "Opinionated Arch Linux desktop, configured as a product.",
+    "language": "Shell",
+    "stars": 40851,
+    "defaultBranch": "quattro",
+    "file": {
+        "bytes": 7831,
+        "lines": 133,
+        "words": 1050,
+        "headings": 12,
+        "bullets": 50,
+        "codeBlocks": 2,
+        "docLinks": 11
+    },
+    "hook": "Opens with seven task guides and keeps most of its detail in other files.",
+    "summary": "The first section is a table of links, each naming a kind of work and the guide to read before starting it. Documentation is split into three trees by audience, and a section of helper commands replaces the equivalent raw shell tools.",
+    "patterns": ["skill-routing", "hard-prohibition", "generated-file-guard", "single-source"],
+    "techniques": [
+        {
+            "pattern": "skill-routing",
+            "title": "Task guides before rules",
+            "body": "Seven links open the file, covering command metadata, install scripts, the desktop shell, the icon font, acceptance tests, visual verification and migrations. Work that touches migrations loads the migrations guide; work that does not, does not pay for it."
+        },
+        {
+            "title": "Three documentation trees, split by audience",
+            "body": "Task procedure, system reference and end-user documentation each have their own directory, with the audience stated for each. The user manual carries an explicit exclusion.",
+            "quote": "`manual/` - end-user documentation for using Omarchy, published; never codebase internals"
+        },
+        {
+            "title": "Helper commands in place of the obvious tool",
+            "body": "A list maps project commands onto the tools they replace: a package helper rather than pacman, a notification helper rather than notify-send. The wrappers handle cases the raw commands do not."
+        },
+        {
+            "pattern": "hard-prohibition",
+            "title": "Defensive checks ruled out where they are noise",
+            "body": "Commands from the default package set are stated to be runtime invariants, so presence checks around them are wrong. Presence helpers are reserved for genuinely optional dependencies and code that can run before the default set is installed, with a listed set of exceptions.",
+            "quote": "Commands installed by Omarchy's default package set are runtime invariants. Invoke them directly; do not add defensive `omarchy-cmd-present` / `omarchy-cmd-missing` checks around them."
+        },
+        {
+            "pattern": "single-source",
+            "title": "One list, not two",
+            "body": "The command prefix section gives common examples, then points at the array in the router as authoritative, with the stated reason that a second copy drifts.",
+            "quote": "Do not maintain a second exhaustive prefix list here."
+        },
+        {
+            "title": "A documented footgun",
+            "body": "The config refresh helper interpolates its argument into two paths and checks only for existence, so a path containing a traversal resolves and writes outside the config directory. The file states the behavior rather than describing the helper as validating."
+        }
+    ],
+    "steal": [
+        "Lead with a table of task guides. It is the main lever on what every request pays for.",
+        "If you have more than one documentation directory, state the audience for each.",
+        "List the wrapper commands that replace the obvious tool, and say which defensive checks are noise.",
+        "Where two copies of a list could drift, name the authoritative one and refuse to keep the second."
+    ],
+    "outline": [
+        "Task Guides",
+        "Documentation Layout",
+        "Style",
+        "Command Naming",
+        "Runtime Environment",
+        "Privileged Commands",
+        "Git",
+        "Helper Commands",
+        "Menu",
+        "Config Structure",
+        "Tests",
+        "Refresh Pattern"
+    ]
+}

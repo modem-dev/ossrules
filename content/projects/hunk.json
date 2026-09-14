@@ -1,0 +1,79 @@
+{
+    "slug": "hunk",
+    "name": "hunk",
+    "owner": "modem-dev",
+    "repo": "hunk",
+    "tagline": "Review-first terminal diff viewer built for reading agent-authored changesets.",
+    "language": "TypeScript",
+    "stars": 9251,
+    "defaultBranch": "main",
+    "file": {
+        "bytes": 16467,
+        "lines": 224,
+        "words": 2059,
+        "headings": 18,
+        "bullets": 77,
+        "codeBlocks": 6,
+        "docLinks": 0
+    },
+    "hook": "Documents a shared review seam as two ASCII data flows, then forbids re-deriving it in a renderer.",
+    "summary": "Organized around one constraint: several surfaces share review semantics and none may reimplement them. Also carries a verification section that maps each kind of change to its specific test command, and a naming section defining three words.",
+    "patterns": ["architecture-narrative", "ratchet", "verification-matrix", "generated-file-guard", "house-vocabulary"],
+    "techniques": [
+        {
+            "pattern": "architecture-narrative",
+            "title": "The seam drawn as a pipeline",
+            "body": "Two ASCII flows show how a diff becomes a review document and how an intent becomes a surface projection. Each stage names the module that owns it and the facts a renderer is to consume rather than recompute.",
+            "quote": "Consume them; never re-derive those facts in a renderer."
+        },
+        {
+            "pattern": "ratchet",
+            "title": "Shrink-only baselines and append-only tombstones",
+            "body": "The known-violations baseline may only shrink and the tombstone lists may only grow. Paying off a violation has a defined sequence: delete the copies, add a tombstone and an adversarial fixture, register the consumers, update the audit document.",
+            "quote": "The known-violations baseline is shrink-only: fix an edge, rerun `bun run deps:baseline`, and never add to it."
+        },
+        {
+            "pattern": "verification-matrix",
+            "title": "Checks selected by kind of change",
+            "body": "Rendering changes take a typecheck, tests, integration, TTY smoke and one real terminal run. Interaction and scrolling changes take PTY coverage. Broker changes take the Node adapter suite. The section also states which four suites the default test command excludes.",
+            "quote": "`bun run test` does not include review conformance, PTY, TTY smoke, or real-Node adapter\nconformance"
+        },
+        {
+            "pattern": "house-vocabulary",
+            "title": "A stated voice for comments",
+            "body": "Header comments are written in active voice and lead with what the module does. Two phrasings are named as the ones to avoid, both of which describe the architecture's opinion of itself rather than its behavior.",
+            "quote": "Avoid passive or self-important framing (\"The one place where…\", \"the single\n  source of truth for…\") — name the behavior, not the architecture's opinion of itself."
+        },
+        {
+            "pattern": "house-vocabulary",
+            "title": "Three words defined",
+            "body": "layout for structural arrangement, geometry for aggregate spatial data, bounds for one concrete visible extent. Three definitions that settle naming for everything in that area."
+        },
+        {
+            "pattern": "generated-file-guard",
+            "title": "Generated files named with their generators",
+            "body": "The agent-facing skill document, the theme colors, the changelog page and the session wire fixtures are each identified as generated, with the source to edit and the command to run. One of them requires a protocol version bump and deleting the previous fixture in the same change."
+        }
+    ],
+    "steal": [
+        "If several surfaces share semantics, draw the pipeline and name the owner of each stage.",
+        "Give every known-violations baseline a stated direction of travel, and enforce it in CI.",
+        "If your default test command excludes suites, say which ones. Agents run the obvious command.",
+        "Define the three or four words your domain keeps arguing about."
+    ],
+    "outline": [
+        "purpose",
+        "architecture and workspace map",
+        "shared review seam",
+        "architectural rules",
+        "component guidance",
+        "theme guidance",
+        "testing",
+        "code comments",
+        "naming",
+        "review behavior",
+        "verification",
+        "cross-platform support",
+        "releases"
+    ]
+}

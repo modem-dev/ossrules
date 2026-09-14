@@ -1,0 +1,56 @@
+{
+    "slug": "gitbutler",
+    "name": "GitButler",
+    "owner": "gitbutlerapp",
+    "repo": "gitbutler",
+    "tagline": "Git client backed by Tauri, Rust and Svelte.",
+    "language": "Rust",
+    "stars": 21659,
+    "defaultBranch": "master",
+    "file": {
+        "bytes": 1779,
+        "lines": 42,
+        "words": 268,
+        "headings": 4,
+        "bullets": 17,
+        "codeBlocks": 0,
+        "docLinks": 0
+    },
+    "hook": "42 lines that open with the precedence order between instruction sources.",
+    "summary": "A repo map, a working-style list and two pointers to nested instruction files. Second shortest in the directory.",
+    "patterns": ["nested-instructions", "behavioral-conditioning", "single-source"],
+    "techniques": [
+        {
+            "pattern": "nested-instructions",
+            "title": "A numbered precedence order",
+            "body": "Three instruction sources are ranked in the opening lines: explicit human instructions, then the nearest nested AGENTS.md, then this file. The conflict case is answered before any rule is given.",
+            "quote": "Apply all relevant instruction files. If instructions conflict, resolve them in\nthis order:\n\n1. Explicit human instructions\n2. Nearest nested `AGENTS.md`\n3. This file"
+        },
+        {
+            "pattern": "behavioral-conditioning",
+            "title": "Questions treated as read-only",
+            "body": "A question about the codebase does not imply permission to change it. The default is stated in one line at the top of the working style section.",
+            "quote": "Treat questions about the codebase as read-only unless the user asks for changes."
+        },
+        {
+            "title": "Reproduce before adding machinery",
+            "body": "A behavior bug is to be reproduced in a failing test first, and the existing loops and classifications in the target file surveyed as candidate homes for the fix. The tests, rather than the diagnosis, are named as what sets how much implementation the fix needs.",
+            "quote": "let the tests, not the diagnosis, set how much implementation the fix needs"
+        },
+        {
+            "title": "Propose a new mechanism before building it",
+            "body": "A fix requiring a new module, a new public API, or a parallel walk where one already exists is to be proposed in shape before implementation."
+        },
+        {
+            "title": "A cross-surface completion check",
+            "body": "Before shared behavior is called done, each applicable surface is checked and either updated or explicitly determined to be unaffected. Six surfaces and docs are named.",
+            "quote": "Before declaring shared behavior done, check each applicable surface and contract\n  (desktop, web, Lite, CLI/TUI, N-API, SDK, and docs) and update it or explicitly\n  determine that it is unaffected."
+        }
+    ],
+    "steal": [
+        "If you have nested instruction files, state the precedence order in the first paragraph.",
+        "State that a question is a question. Agents otherwise read \"why does this happen\" as \"fix this\".",
+        "List the surfaces that shared behavior has to reach, and require each to be checked or ruled out by name."
+    ],
+    "outline": ["Precedence", "Repo Map", "Working Style", "Scoped Instructions"]
+}

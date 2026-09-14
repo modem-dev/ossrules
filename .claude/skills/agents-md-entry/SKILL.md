@@ -1,0 +1,202 @@
+---
+name: agents-md-entry
+description: Evaluate an open source project's AGENTS.md and produce a corpus entry for the /agents-md directory. Use when adding a project to the directory, refreshing an existing entry, or running a batch of candidate repositories.
+---
+
+# Adding a project to the AGENTS.md directory
+
+One entry is one JSON file in `content/agents-md/<slug>.json` plus one avatar in
+`public/agents-md/<slug>.png`. Nothing else changes: the directory page, the
+project page, the technique filters and the sitemap all derive from the corpus.
+Adding ten projects is ten JSON files and ten PNGs.
+
+This is written to be run independently, one project per run, so the work can be
+fanned out. Do not read the other entries before writing yours — the analysis
+should come from the file in front of you, not from matching the house voice of
+entries someone else wrote.
+
+## The rule that matters most
+
+**Every `quote` is verbatim.** Character for character, from the real file, on
+the repository's default branch. Paraphrase belongs in `body`, never inside a
+quote. One misquote makes the whole directory untrustworthy, so the last step
+below verifies them mechanically rather than by eye.
+
+## Voice
+
+Describe what the file does. Do not rate it.
+
+| Write this | Not this |
+| --- | --- |
+| "Lists thirteen metaphorical words that may not appear." | "Has a brilliant section on plain language." |
+| "The rule names the exact files it applies to." | "This is the best example in the collection." |
+| "39 lines: build commands, three directories, two absolute rules." | "Proof that a short AGENTS.md can be great." |
+
+No superlatives, no ranking against other entries, no "unusually", "genuinely",
+"clearest", "most". A reader decides whether a technique suits their repo; the
+entry gives them what it is. `steal` is the one place that is prescriptive,
+because a takeaway is advice by definition — keep it actionable and drop the
+adjectives.
+
+Site copy rules apply: **no em dashes**, and none of the filler list in
+`.cursor/rules/project.mdc`.
+
+## Procedure
+
+### 1. Confirm the repository and get the canonical file
+
+Resolve renames first. `sst/opencode` now lives at `anomalyco/opencode`, and
+`denoland/fresh` at `freshframework/fresh`; raw URLs still redirect, so a fetch
+succeeding does not mean the owner is current. Search the repo to get the
+current `full_name`, `stargazers_count`, `language` and `default_branch`.
+
+Fetch from the **default branch**, not `main` by habit. Storybook's default is
+`next` and its `main` carried an older file; Omarchy's is `quattro`.
+
+```bash
+curl -sSL -o /tmp/<slug>.md \
+  "https://raw.githubusercontent.com/<owner>/<repo>/<default-branch>/AGENTS.md"
+```
+
+If the file is under about 40 lines of build commands with nothing else, it is
+thin material for an entry. Say so rather than padding it.
+
+### 2. Measure the file
+
+Every number in `file` is measured. Never estimate, and never adjust a stale
+number by eye — re-run this:
+
+```bash
+f=/tmp/<slug>.md
+echo "bytes=$(wc -c < $f) lines=$(wc -l < $f) words=$(wc -w < $f)"
+echo "headings=$(grep -cE '^#{1,6} ' $f)"
+echo "bullets=$(grep -cE '^\s*[-*] ' $f)"
+echo "codeBlocks=$(grep -cE '^\s*```' $f)"
+echo "docLinks=$(grep -oE '\]\([^)h][^)]*\)' $f | wc -l)"
+```
+
+`docLinks` counts relative links out to other files in the same repo. A high
+count relative to length is what distinguishes a router from a self-contained
+file.
+
+### 3. Read the whole file
+
+Read it end to end before writing anything. The entry's value is that a reader
+can skip the original, which only holds if you did not skim it.
+
+While reading, look for what this file does that a generic one would not:
+
+- rules aimed at agent behavior rather than at the codebase
+- a rule with its reason attached, especially where the reason is non-obvious
+- prohibitions, and what happens when the user asks anyway
+- anything about the file's own maintenance, or its precedence against other files
+- limits on the change rather than on the code
+- places the file admits a gap: a slow suite, a blind test, a known footgun
+
+### 4. Get the avatar
+
+```bash
+curl -sL -o public/agents-md/<slug>.png \
+  "https://avatars.githubusercontent.com/<owner>?s=160"
+```
+
+Use `avatars.githubusercontent.com/<owner>`, not `github.com/<owner>.png`, which
+can be proxy-blocked. Confirm it is a real PNG with `file`.
+
+### 5. Write the entry
+
+Write `content/agents-md/<slug>.json`. The filename stem and `slug` must match.
+
+```jsonc
+{
+    "slug": "ghostty",                    // kebab-case, matches filename and avatar
+    "name": "Ghostty",                    // as the project writes it
+    "owner": "ghostty-org",               // current GitHub owner
+    "repo": "ghostty",
+    "tagline": "...",                     // what the project is, one line, for readers who have not heard of it
+    "language": "Zig",                    // GitHub's primary language, exact spelling
+    "stars": 61058,                       // integer snapshot
+    "defaultBranch": "main",
+    "file": { "bytes": 0, "lines": 0, "words": 0, "headings": 0, "bullets": 0, "codeBlocks": 0, "docLinks": 0 },
+    "hook": "...",                        // one sentence, shown in the directory row
+    "summary": "...",                     // two or three sentences: what kind of document this is
+    "patterns": ["hard-prohibition"],     // ids from the taxonomy, see below
+    "techniques": [
+        {
+            "title": "...",               // names the move, not a verdict on it
+            "body": "...",                // two to four sentences: what it does and the reason the file gives
+            "quote": "...",               // optional, VERBATIM
+            "pattern": "hard-prohibition" // optional, when this technique is an instance of a taxonomy entry
+        }
+    ],
+    "steal": ["..."],                     // three to five takeaways, each actionable in another repo
+    "outline": ["..."]                    // the file's own top-level sections, in order
+}
+```
+
+Aim for four to six `techniques`. Fewer than three usually means the file was
+skimmed; more than seven usually means routine content was included.
+
+**`hook` is the one line most readers see.** Make it specific to this file. Good
+hooks name a number, a structure, or a rule: "42 lines that open with the
+precedence order between instruction sources." A hook that would fit any project
+is a wasted row.
+
+### 6. Choose technique ids
+
+Valid ids are the `PATTERNS` array in
+`components/agents-md/agents-md-data.ts`. Read it before tagging; the validator
+rejects unknown ids.
+
+Tag a technique only when the file genuinely does that thing. An over-tagged
+entry makes the filter useless, which is the one thing the taxonomy is for. If a
+recurring move has no id and you have seen it in **two or more** projects,
+propose adding it to `PATTERNS` rather than forcing it into a near-match — a new
+id is a separate, deliberate change, not a side effect of adding a project.
+
+### 7. Verify
+
+```bash
+npx tsx scripts/validate-agents-md.ts   # schema, slug/filename match, avatar, duplicate repos
+pnpm typecheck
+pnpm build                              # the corpus is read at build time
+```
+
+Then verify the quotes mechanically. Nothing else catches a near-miss:
+
+```bash
+python3 - <<'PY'
+import json, re, sys
+slug = "<slug>"
+entry = json.load(open(f"content/agents-md/{slug}.json"))
+source = open(f"/tmp/{slug}.md", encoding="utf-8").read()
+norm = lambda t: re.sub(r"\s+", " ", t).strip()
+bad = 0
+for t in entry["techniques"]:
+    q = t.get("quote")
+    if q and norm(q) not in norm(source):
+        bad += 1
+        print("NOT VERBATIM:", q[:120])
+print("mismatched:", bad)
+sys.exit(1 if bad else 0)
+PY
+```
+
+## Refreshing an existing entry
+
+Star counts and file measurements go stale. Re-run steps 1, 2 and 7, update
+`stars`, `file` and `defaultBranch`, and update `STATS_AS_OF` in
+`agents-md-data.ts` when refreshing the whole corpus. If the AGENTS.md itself
+changed materially, re-read it and revise `techniques` — a stale analysis
+against fresh numbers is worse than either alone.
+
+## Running a batch
+
+One project per run, one JSON file per run. Keep runs independent so a bad entry
+is one file to fix. Before starting a batch, check
+`content/agents-md/` for slugs that already exist; the validator also fails on
+two entries claiming the same repository.
+
+Candidate repositories need a real `AGENTS.md` at the default branch. Check
+before assigning the work — a symlink to `CLAUDE.md` shows as a file of about
+nine bytes and is not an entry.

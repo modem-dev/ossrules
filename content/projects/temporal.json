@@ -1,0 +1,72 @@
+{
+    "slug": "temporal",
+    "name": "Temporal",
+    "owner": "temporalio",
+    "repo": "temporal",
+    "tagline": "Durable execution service for workflows.",
+    "language": "Go",
+    "stars": 23010,
+    "defaultBranch": "main",
+    "file": {
+        "bytes": 8528,
+        "lines": 105,
+        "words": 1217,
+        "headings": 11,
+        "bullets": 63,
+        "codeBlocks": 0,
+        "docLinks": 0
+    },
+    "hook": "Opens by assigning the agent a persona and an output length limit.",
+    "summary": "Begins with a role description and a set of core mandates, then covers tone, project structure, commands, testing and a planning procedure. Contains no code blocks.",
+    "patterns": ["behavioral-conditioning", "hard-prohibition", "house-vocabulary", "verification-matrix"],
+    "techniques": [
+        {
+            "pattern": "behavioral-conditioning",
+            "title": "A stated persona and background",
+            "body": "The first line assigns the agent a role and a specialism, naming distributed systems, database engines and scalable platforms. It is the only file in the directory that opens this way.",
+            "quote": "You are an experienced developer working on the temporal project. Your task is to fix a bug or implement a new feature while adhering to the project's best practices and development guidelines. Your background is in distributed systems, database engines, and scalable platforms."
+        },
+        {
+            "title": "Rules on how much to say",
+            "body": "A Tone and Style section sets a target of fewer than three lines of text per response excluding tool use and code, and rules out preambles, postambles and conversational filler by example. Clarity is named as the exception where an explanation is genuinely needed.",
+            "quote": "Avoid conversational filler, preambles (\"Okay, I will now...\"), or postambles (\"I have finished the changes...\"). Get straight to the action or answer."
+        },
+        {
+            "title": "A planning procedure with named trade-off categories",
+            "body": "Planning is broken into seven steps, ending with four trade-off dimensions to discuss (performance, scalability, complexity, security) and a requirement to reason about failure modes, given as crash behavior and a tenfold load increase."
+        },
+        {
+            "pattern": "house-vocabulary",
+            "title": "A comment convention for deferred design",
+            "body": "Future design considerations are recorded with a specific prefixed comment form that carries the author's name, giving deferred thinking a greppable marker.",
+            "quote": "Leave `CONSIDER(name):` comments for future design considerations"
+        },
+        {
+            "pattern": "hard-prohibition",
+            "title": "Comments are not a channel to the user",
+            "body": "The comments rule ends by prohibiting the agent from addressing the user or describing its changes through code comments, and from editing comments that are separate from the code being changed.",
+            "quote": "*NEVER* talk to the user or describe your changes through comments."
+        },
+        {
+            "title": "Test conventions with the enforcing linter named",
+            "body": "Several testing rules carry the tool that enforces them: a linter forbids sleeping in tests in favour of an eventually helper, and a testify linter enforces the float comparison and error assertion forms."
+        }
+    ],
+    "steal": [
+        "If your agents narrate their work in code comments, prohibit it explicitly. It is a common default.",
+        "Give deferred design decisions a greppable comment marker with an owner.",
+        "Name the linter that enforces a rule so the agent can predict the failure before CI.",
+        "Set an expected response length if agent verbosity is a problem for your team."
+    ],
+    "outline": [
+        "Core Mandates",
+        "Tone and Style",
+        "Project Structure",
+        "Important Commands",
+        "Best Practices",
+        "Error Handling",
+        "Testing",
+        "Software Engineering Tasks",
+        "Planning"
+    ]
+}

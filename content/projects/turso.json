@@ -1,0 +1,74 @@
+{
+    "slug": "turso",
+    "name": "Turso",
+    "owner": "tursodatabase",
+    "repo": "turso",
+    "tagline": "SQLite-compatible database written in Rust.",
+    "language": "Rust",
+    "stars": 24276,
+    "defaultBranch": "main",
+    "file": {
+        "bytes": 8971,
+        "lines": 165,
+        "words": 1198,
+        "headings": 15,
+        "bullets": 26,
+        "codeBlocks": 10,
+        "docLinks": 9
+    },
+    "hook": "Bans a specific list of metaphorical words and asks for plain language.",
+    "summary": "A command reference, a map of where to find each subsystem, and a set of core principles. Three of its sections are about how code and comments are written rather than what they do.",
+    "patterns": ["house-vocabulary", "behavioral-conditioning", "hard-prohibition", "skill-routing", "verification-matrix"],
+    "techniques": [
+        {
+            "pattern": "house-vocabulary",
+            "title": "Named words that may not be used",
+            "body": "A section headed in block capitals asks for plain language over jargon, shows two renamed examples, and then lists thirteen individual metaphorical words that may not appear: load-bearing, pin, bite, sharp, arm, guard, bless, wedge, retire, retarget, answer, settle, carry, land. Inventing terms where a common domain equivalent exists is ruled out in the same paragraph.",
+            "quote": "Do not use metaphorical language, such as the following terms: load-bearing, pin, bite, sharp, arm, guard, bless, wedge,\nretire, retarget, answer, settle, carry, land."
+        },
+        {
+            "pattern": "behavioral-conditioning",
+            "title": "A named debugging shortcut, ruled out",
+            "body": "Tests failing after a change are defined as that change's regressions, to be debugged directly. Stashing or reverting to check whether they also fail on main is described as a waste of time and prohibited by name.",
+            "quote": "Never stash/revert to \"check if they fail on main\" — that wastes time and is categorically banned."
+        },
+        {
+            "title": "Reading order fixed top to bottom",
+            "body": "A file should read from the top without jumping ahead: callers come first, callees follow, and a new helper goes below the functions that call it rather than at the end of the file. A three-line example shows the ordering."
+        },
+        {
+            "pattern": "hard-prohibition",
+            "title": "Comments ruled out entirely",
+            "body": "A two-line section states that comments are not to be added, and directs the effort into making the code expressive instead. It is the most absolute position on comments in the directory, where other files ask for comments that explain why.",
+            "quote": "Do not add comments. Instead, focus on making your code expressive."
+        },
+        {
+            "title": "A test harness chosen by narrowness",
+            "body": "Nine test directories are listed with what each is for, under a default: add coverage to the narrowest existing harness that can express the bug, and extend an existing file rather than create one. Imported upstream golden tests are marked as not to be modified for local behavior changes."
+        },
+        {
+            "title": "A note about running inside CI",
+            "body": "A closing section tells the agent it may be running in a GitHub Action with a turn limit, that pushing work in progress and continuing in another run is acceptable, and to avoid rabbit holes."
+        }
+    ],
+    "steal": [
+        "If reviewers keep rewriting the same vague phrasing, list the words rather than describing the tone.",
+        "Name the debugging shortcuts that waste time in your codebase, such as reverting to check whether a failure predates the change.",
+        "State which test directory a new test belongs in, and which are off limits.",
+        "If agents run in CI with a turn limit, tell them what to do when they hit it."
+    ],
+    "outline": [
+        "Quick Reference",
+        "Testing",
+        "Structure",
+        "Where to Look",
+        "Guides",
+        "Commit Messages",
+        "Benchmark Naming",
+        "Core Principles",
+        "Plain language",
+        "Code flows top to bottom",
+        "Comments",
+        "CI Note"
+    ]
+}
