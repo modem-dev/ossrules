@@ -1,0 +1,18 @@
+{
+    "slug": "codex",
+    "sha": "4875084025582f9443afeb907e2aa20644241dda",
+    "license": "Apache-2.0",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 22397,
+            "lines": 320
+        },
+        {
+            "path": "codex-rs/tui/styles.md",
+            "bytes": 1213,
+            "lines": 21
+        }
+    ]
+}

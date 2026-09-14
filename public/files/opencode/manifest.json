@@ -1,0 +1,13 @@
+{
+    "slug": "opencode",
+    "sha": "f44423609b03a47baf8a771c821a1de17046309f",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 8748,
+            "lines": 161
+        }
+    ]
+}

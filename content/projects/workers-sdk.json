@@ -29,7 +29,9 @@
             "path": ".github/PULL_REQUEST_TEMPLATE.md"
         },
         {
-            "path": "AGENTS.md"
+            "path": "AGENTS.md",
+            "kind": "pattern",
+            "label": "each package's own AGENTS.md"
         }
     ],
     "hook": "States that copied values go stale, and points at the config that defines them instead.",

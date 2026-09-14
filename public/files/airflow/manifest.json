@@ -1,0 +1,101 @@
+{
+    "slug": "airflow",
+    "sha": "485107f1340a167e7ae68cfed8667c9f7cfb4e0d",
+    "license": "Apache-2.0",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".github/instructions/code-review.instructions.md",
+            "bytes": 6838,
+            "lines": 74
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 36577,
+            "lines": 537
+        },
+        {
+            "path": "airflow-core/docs/security/jwt_token_authentication.rst",
+            "bytes": 24153,
+            "lines": 552
+        },
+        {
+            "path": "airflow-core/docs/security/security_model.rst",
+            "bytes": 73743,
+            "lines": 1300,
+            "truncated": true
+        },
+        {
+            "path": "airflow-ctl/RELEASE_NOTES.rst",
+            "bytes": 10127,
+            "lines": 234
+        },
+        {
+            "path": "contributing-docs/03a_contributors_quick_start_beginners.rst",
+            "bytes": 8606,
+            "lines": 229
+        },
+        {
+            "path": "contributing-docs/04_how_to_contribute.rst",
+            "bytes": 7826,
+            "lines": 163
+        },
+        {
+            "path": "contributing-docs/05_pull_requests.rst",
+            "bytes": 26332,
+            "lines": 501
+        },
+        {
+            "path": "contributing-docs/07_local_virtualenv.rst",
+            "bytes": 15473,
+            "lines": 345
+        },
+        {
+            "path": "contributing-docs/08_static_code_checks.rst",
+            "bytes": 15499,
+            "lines": 369
+        },
+        {
+            "path": "contributing-docs/12_provider_distributions.rst",
+            "bytes": 25727,
+            "lines": 468
+        },
+        {
+            "path": "contributing-docs/19_execution_api_versioning.rst",
+            "bytes": 4780,
+            "lines": 108
+        },
+        {
+            "path": "dev/breeze/doc/adr/0017-use-uvx-to-run-breeze-from-local-sources.md",
+            "bytes": 13417,
+            "lines": 228
+        },
+        {
+            "path": "dev/breeze/doc/ci/04_selective_checks.md",
+            "bytes": 58881,
+            "lines": 692
+        },
+        {
+            "path": "dev/README_RELEASE_AIRFLOWCTL.md",
+            "bytes": 66089,
+            "lines": 1630,
+            "truncated": true
+        },
+        {
+            "path": "dev/README_RELEASE_PROVIDERS.md",
+            "bytes": 101982,
+            "lines": 2140,
+            "truncated": true
+        },
+        {
+            "path": "providers/AGENTS.md",
+            "bytes": 6206,
+            "lines": 114
+        },
+        {
+            "path": "README.md",
+            "bytes": 41263,
+            "lines": 595
+        }
+    ]
+}

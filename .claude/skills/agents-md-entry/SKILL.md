@@ -138,7 +138,8 @@ Write `content/agents-md/<slug>.json`. The filename stem and `slug` must match.
     "evaluatedAt": "2026-09-14",   // the day you wrote this analysis
     "file": { "bytes": 0, "lines": 0, "words": 0, "headings": 0, "bullets": 0, "codeBlocks": 0, "docLinks": 0 },
     "references": [               // documents the file routes to; [] when self-contained
-        { "path": "docs/testing.md", "label": "Testing" }
+        { "path": "docs/testing.md", "label": "Testing" },
+        { "path": "AGENTS.md", "kind": "pattern", "label": "the nearest nested AGENTS.md" }
     ],
     "hook": "...",                        // one sentence, shown in the directory row
     "summary": "...",                     // two or three sentences: what kind of document this is
@@ -176,10 +177,31 @@ recurring move has no id and you have seen it in **two or more** projects,
 propose adding it to `PATTERNS` rather than forcing it into a near-match — a new
 id is a separate, deliberate change, not a side effect of adding a project.
 
-### 8. Verify
+### 8. Download the files the entry reads
 
 ```bash
-npx tsx scripts/validate-agents-md.ts   # schema, slug/filename match, avatar, duplicate repos
+pnpm sync:agents-md-files -- --slug <slug>
+```
+
+This writes `public/agents-md/files/<slug>/` — a copy of the AGENTS.md and of
+every reference, taken at the entry's pinned commit, plus a `manifest.json` and
+the repository's detected license. The site serves these so a reader can open
+any of them without leaving the page, and so the file on screen is the same
+revision the analysis describes.
+
+Never hand-write anything under that directory. It is generated, and the
+validator fails when it disagrees with the entry.
+
+Read what the run prints. A path reported as not resolving is a finding, not a
+mistake to correct: it means the AGENTS.md names a document the repository does
+not contain. Leave the path exactly as the file writes it — the site renders it
+as unresolved, which is the honest result. Only fix it if you transcribed it
+wrong in step 6.
+
+### 9. Verify
+
+```bash
+npx tsx scripts/validate-agents-md.ts   # schema, slug/filename match, avatar, vendored files, duplicate repos
 pnpm typecheck
 pnpm build                              # the corpus is read at build time
 ```
@@ -216,6 +238,13 @@ Include `.md`, `.rst` and `.mdx` targets plus any `AGENTS.md` / `CLAUDE.md` /
 the path does not. An empty array is a real answer: five of the first sixteen
 entries route nowhere, and that is what identifies a self-contained file.
 
+Mark a reference `"kind": "pattern"` when it names a **shape rather than one
+file** — "the nearest nested `AGENTS.md`", "the changed provider's changelog".
+These have no single copy to download and nothing to open, so give them a
+`label` that says what they stand for. A path that merely happens to be broken
+is *not* a pattern; leave it as an ordinary reference and let step 8 record it
+as missing.
+
 ## Refreshing the corpus
 
 Entries go stale two ways, and only one is mechanical.
@@ -224,12 +253,20 @@ Entries go stale two ways, and only one is mechanical.
 
 ```bash
 pnpm refresh:agents-md            # report what changed upstream
-pnpm refresh:agents-md -- --write # apply measurements and commits
+pnpm refresh:agents-md -- --write # apply measurements and commits, then re-download the files
+```
+
+`--write` re-runs the file sync for you, because moving an entry's pinned commit
+without re-downloading its files would show one revision of a document beside
+measurements from another. To check for that drift without changing anything:
+
+```bash
+pnpm check:agents-md-files        # every vendored copy still matches its pinned commit
 ```
 
 **Not mechanical.** When the file itself has changed, the techniques and quotes
 describe a revision that no longer exists. The refresh script lists those
-entries; each one goes back through steps 4 to 8 above, and `evaluatedAt` moves
+entries; each one goes back through steps 4 to 9 above, and `evaluatedAt` moves
 to the day the analysis is rewritten. A stale analysis with fresh numbers is
 worse than either alone, because the numbers make it look current.
 

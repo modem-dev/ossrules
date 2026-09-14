@@ -1,0 +1,28 @@
+{
+    "slug": "astro",
+    "sha": "5be09d64c56eb2688c5a46bf700842f28fd4e998",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".agents/skills/writing-comments/SKILL.md",
+            "bytes": 8981,
+            "lines": 198
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 8903,
+            "lines": 165
+        },
+        {
+            "path": "reference/optimize-deps.md",
+            "bytes": 13306,
+            "lines": 242
+        },
+        {
+            "path": "reference/unit-testing.md",
+            "bytes": 6039,
+            "lines": 90
+        }
+    ]
+}

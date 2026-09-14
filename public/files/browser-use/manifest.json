@@ -1,0 +1,13 @@
+{
+    "slug": "browser-use",
+    "sha": "29c12c32020482943fbde9460d6dae90f1335437",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 38463,
+            "lines": 1017
+        }
+    ]
+}

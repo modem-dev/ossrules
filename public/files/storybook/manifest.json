@@ -1,0 +1,54 @@
+{
+    "slug": "storybook",
+    "sha": "5e6fcce59074f7f4889956ed37f254feec6aa9e9",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".agents/guidelines/comments-and-jsdoc.md",
+            "bytes": 4378,
+            "lines": 62
+        },
+        {
+            "path": ".agents/skills/canary/SKILL.md",
+            "bytes": 4875,
+            "lines": 149
+        },
+        {
+            "path": ".agents/skills/principle-encode-lessons-in-structure/SKILL.md",
+            "bytes": 2180,
+            "lines": 30
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 26367,
+            "lines": 419
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 11,
+            "lines": 1
+        },
+        {
+            "path": "code/core/src/cli/tools/architecture.md",
+            "bytes": 13504,
+            "lines": 197
+        },
+        {
+            "path": "code/core/src/cli/tools/README.md",
+            "bytes": 6558,
+            "lines": 103
+        },
+        {
+            "path": "code/core/src/shared/open-service/README.md",
+            "bytes": 73085,
+            "lines": 1024,
+            "truncated": true
+        },
+        {
+            "path": "CONTRIBUTING/RELEASING.md",
+            "bytes": 41725,
+            "lines": 634
+        }
+    ]
+}

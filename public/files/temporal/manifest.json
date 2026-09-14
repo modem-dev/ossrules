@@ -1,0 +1,13 @@
+{
+    "slug": "temporal",
+    "sha": "109a38e8ca4827ae8c624fc1a9382290dcae0f69",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 8528,
+            "lines": 105
+        }
+    ]
+}

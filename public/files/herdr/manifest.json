@@ -1,0 +1,50 @@
+{
+    "slug": "herdr",
+    "sha": "2778411b6cc31ff804655753c2dee3efe78ad413",
+    "license": "Apache-2.0",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 27080,
+            "lines": 317
+        },
+        {
+            "path": "CHANGELOG.md",
+            "bytes": 123036,
+            "lines": 1162,
+            "truncated": true
+        },
+        {
+            "path": "CONTRIBUTING.md",
+            "bytes": 8809,
+            "lines": 147
+        },
+        {
+            "path": "docs/next/CHANGELOG.md",
+            "bytes": 123036,
+            "lines": 1162,
+            "truncated": true
+        },
+        {
+            "path": "docs/next/README.md",
+            "bytes": 4837,
+            "lines": 85
+        },
+        {
+            "path": "README.md",
+            "bytes": 4837,
+            "lines": 85
+        },
+        {
+            "path": "skills/herdr/SKILL.md",
+            "bytes": 12600,
+            "lines": 202
+        },
+        {
+            "path": "vendor/libghostty-vt.patches.md",
+            "bytes": 3307,
+            "lines": 91
+        }
+    ]
+}

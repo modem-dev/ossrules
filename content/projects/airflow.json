@@ -83,7 +83,9 @@
             "label": "dev/breeze/doc/ci/04_selective_checks.md"
         },
         {
-            "path": "providers/<provider>/docs/changelog.rst"
+            "path": "providers/<provider>/docs/changelog.rst",
+            "kind": "pattern",
+            "label": "the changed provider's changelog"
         },
         {
             "path": "providers/AGENTS.md"
@@ -104,7 +106,7 @@
             "pattern": "house-vocabulary",
             "title": "One word, with its exceptions enumerated",
             "body": "The term is written in title case in all prose. The carve-out covers literal code tokens, which keep their original spelling even inside fenced code blocks, and includes a further exception for anti-pattern quotes that show the wrong form in order to teach the rule.",
-            "quote": "Write **Dag** (title case) in all prose. Keep the all-caps or lowercase\nspelling only when reproducing a literal code token — never rewrite these,\neven inside fenced code blocks"
+            "quote": "Write **Dag** (title case) in all prose. Keep the all-caps or lowercase\nspelling only when reproducing a literal code token \u2014 never rewrite these,\neven inside fenced code blocks"
         },
         {
             "title": "How to classify a security finding",
@@ -133,7 +135,7 @@
         {
             "title": "A coverage target with an upper bound",
             "body": "Tests are to cover exactly what the PR changes: every changed behavior gets a test, every test must fail without the change, and tests for pre-existing logic or third-party functions are excluded.",
-            "quote": "Target exactly 100% coverage of what the PR changes — no more, no less."
+            "quote": "Target exactly 100% coverage of what the PR changes \u2014 no more, no less."
         }
     ],
     "steal": [

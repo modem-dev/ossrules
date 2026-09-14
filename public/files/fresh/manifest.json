@@ -1,0 +1,13 @@
+{
+    "slug": "fresh",
+    "sha": "86d6cdeb331a719cf8b1c85bf5e43c8ffa889b3b",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 6575,
+            "lines": 156
+        }
+    ]
+}

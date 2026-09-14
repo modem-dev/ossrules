@@ -1,0 +1,63 @@
+{
+    "slug": "turso",
+    "sha": "85e234697d687d4482b693483ac13fb6c93ae99d",
+    "license": "MIT",
+    "licensePath": "LICENSE.md",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 8971,
+            "lines": 165
+        },
+        {
+            "path": "CONTRIBUTING.md",
+            "bytes": 23467,
+            "lines": 580
+        },
+        {
+            "path": "docs/agent-guides/async-io-model.md",
+            "bytes": 5699,
+            "lines": 210
+        },
+        {
+            "path": "docs/agent-guides/code-quality.md",
+            "bytes": 2492,
+            "lines": 92
+        },
+        {
+            "path": "docs/agent-guides/debugging.md",
+            "bytes": 1632,
+            "lines": 74
+        },
+        {
+            "path": "docs/agent-guides/mvcc.md",
+            "bytes": 2714,
+            "lines": 106
+        },
+        {
+            "path": "docs/agent-guides/pr-workflow.md",
+            "bytes": 1154,
+            "lines": 48
+        },
+        {
+            "path": "docs/agent-guides/storage-format.md",
+            "bytes": 3766,
+            "lines": 141
+        },
+        {
+            "path": "docs/agent-guides/testing.md",
+            "bytes": 2452,
+            "lines": 87
+        },
+        {
+            "path": "docs/agent-guides/transaction-correctness.md",
+            "bytes": 3009,
+            "lines": 88
+        },
+        {
+            "path": "serverless/conformance/differential/README.md",
+            "bytes": 5664,
+            "lines": 139
+        }
+    ]
+}
