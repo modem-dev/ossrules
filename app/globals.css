@@ -429,6 +429,20 @@ select {
     border-color: var(--color-teal);
 }
 
+.excerpt-line {
+    display: grid;
+    grid-template-columns: calc(4ch + 0.5rem) minmax(0, 1fr);
+    column-gap: 1rem;
+}
+
+.excerpt-line-number {
+    border-right: 1px solid var(--color-gray-750);
+    padding-right: 0.5rem;
+    color: var(--color-gray-600);
+    text-align: right;
+    user-select: none;
+}
+
 .quote-open {
     margin-top: 1rem;
     font-size: 0.6875rem;

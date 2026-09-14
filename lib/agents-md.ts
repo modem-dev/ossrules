@@ -75,3 +75,32 @@ export function getVendoredFiles(slug: string): VendoredFiles | undefined {
     manifestCache.set(slug, manifest);
     return manifest;
 }
+
+/** Resolve excerpt lines at build time without sending the full file to the client. */
+export function getAgentsSource(slug: string): string | undefined {
+    if (!getAgentsProject(slug)) return undefined;
+    const sourcePath = path.join(FILES_DIR, slug, 'AGENTS.md');
+    return fs.existsSync(sourcePath) ? fs.readFileSync(sourcePath, 'utf8') : undefined;
+}
+
+export function sourceExcerpt(source: string | undefined, quote: string): { text: string; startLine?: number } {
+    if (!source || !quote.trim()) return { text: quote };
+    // Editorial quotes may flatten whitespace. Locate the words, then restore
+    // the original source lines so wrapping never invents file line numbers.
+    const pattern = quote
+        .trim()
+        .split(/\s+/)
+        .map((word) => word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+        .join('\\s+');
+    const match = new RegExp(pattern).exec(source);
+    if (!match) return { text: quote };
+    const startLine = source.slice(0, match.index).split('\n').length;
+    const endLine = source.slice(0, match.index + match[0].length).split('\n').length;
+    return {
+        text: source
+            .split('\n')
+            .slice(startLine - 1, endLine)
+            .join('\n'),
+        startLine,
+    };
+}

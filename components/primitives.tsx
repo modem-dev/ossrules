@@ -60,12 +60,25 @@ export function FileStatGrid({ project }: { project: AgentsProject }) {
  * A verbatim excerpt. Rendered in mono so it reads as source rather than as our
  * prose, which matters when the surrounding paragraph is our analysis.
  */
-export function Excerpt({ children }: { children: React.ReactNode }) {
+export function Excerpt({ text, startLine }: { text: string; startLine?: number }) {
     return (
         <blockquote className="m-0">
-            <p className="whitespace-pre-wrap break-words font-mono text-[13px] text-gray-400 leading-7 [overflow-wrap:anywhere]">
-                {children}
-            </p>
+            {startLine !== undefined ? <span className="sr-only">Source excerpt starting at line {startLine}.</span> : null}
+            <pre className="font-mono text-[13px] text-gray-400 leading-7">
+                <code>
+                    {text.split('\n').map((line, index) => (
+                        // biome-ignore lint/suspicious/noArrayIndexKey: source lines are identified by position.
+                        <span key={index} className={startLine === undefined ? 'block' : 'excerpt-line'}>
+                            {startLine !== undefined ? (
+                                <span aria-hidden className="excerpt-line-number">
+                                    {startLine + index}
+                                </span>
+                            ) : null}
+                            <span className="min-w-0 whitespace-pre-wrap [overflow-wrap:anywhere]">{line || ' '}</span>
+                        </span>
+                    ))}
+                </code>
+            </pre>
         </blockquote>
     );
 }
