@@ -230,10 +230,30 @@ export function FileTrayProvider({ slug, owner, repo, sha, files, license, licen
                                     type="button"
                                     onClick={copySource}
                                     disabled={source === undefined || failed}
-                                    className="source-control disabled:cursor-not-allowed disabled:opacity-50"
+                                    className="source-control source-copy disabled:cursor-not-allowed disabled:opacity-50"
                                     aria-label={file?.truncated ? 'Copy displayed source' : 'Copy source file'}
                                 >
-                                    {copyStatus === 'copied' ? 'Copied ✓' : 'Copy'}
+                                    <svg
+                                        aria-hidden="true"
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="1.75"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    >
+                                        {copyStatus === 'copied' ? (
+                                            <path d="m5 12 4 4L19 6" />
+                                        ) : (
+                                            <>
+                                                <rect x="8" y="3" width="8" height="4" rx="1" />
+                                                <path d="M8 5H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2" />
+                                            </>
+                                        )}
+                                    </svg>
+                                    {copyStatus === 'copied' ? 'Copied' : 'Copy'}
                                 </button>
                                 <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="source-control">
                                     GitHub ↗
