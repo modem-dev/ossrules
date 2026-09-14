@@ -632,20 +632,6 @@ select {
     background-color: var(--color-marketing-black);
 }
 
-.brand-lockup {
-    display: flex;
-    align-items: center;
-    gap: 1.25rem;
-}
-
-.brand-home {
-    display: inline-flex;
-    align-items: center;
-    min-height: 2rem;
-    padding-right: 1.25rem;
-    border-right: 1px solid var(--color-gray-750);
-}
-
 .brand-masthead {
     position: relative;
     isolation: isolate;
@@ -680,19 +666,6 @@ select {
 @media (max-width: 767px) {
     html {
         scroll-padding-top: 8rem;
-    }
-
-    .brand-lockup {
-        gap: 0.75rem;
-    }
-
-    .brand-home {
-        padding-right: 0.75rem;
-    }
-
-    .brand-home img {
-        height: 16px;
-        width: auto;
     }
 
     .brand-masthead {

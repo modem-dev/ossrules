@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -14,17 +13,9 @@ export function SiteHeader() {
                 Skip to content
             </a>
             <div className="mx-auto flex max-w-container flex-wrap items-center justify-between gap-x-6 gap-y-2 px-5 py-4 sm:px-12">
-                <div className="brand-lockup">
-                    <a href="https://modem.dev" className="brand-home" aria-label="Modem home">
-                        <Image src="/logos/modem-full-dark.svg" alt="Modem" width={800} height={146} className="h-5 w-auto" />
-                    </a>
-                    <Link
-                        href="/"
-                        className="font-mono font-medium text-[17px] tracking-tight transition-colors hover:text-teal sm:text-lg"
-                    >
-                        OSS Rules<span className="text-teal">.md</span>
-                    </Link>
-                </div>
+                <Link href="/" className="font-mono font-medium text-[17px] tracking-tight transition-colors hover:text-teal sm:text-lg">
+                    OSS Rules<span className="text-teal">.md</span>
+                </Link>
                 <nav aria-label="Main navigation" className="flex items-center gap-6 text-[13px]">
                     <Link
                         href="/"
