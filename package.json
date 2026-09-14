@@ -17,6 +17,7 @@
         "refresh": "npx tsx scripts/refresh-agents-md.ts"
     },
     "dependencies": {
+        "js-tiktoken": "^1.0.21",
         "next": "^16.2.11",
         "react": "^19.2.1",
         "react-dom": "^19.2.1"

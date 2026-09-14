@@ -22,6 +22,7 @@ import { getAgentsProject, getAgentsProjects, getAgentsSource, getVendoredFiles,
 import { documentMentions } from '@/lib/document-mentions';
 import { ogImageUrl } from '@/lib/og';
 import { webPageSchema } from '@/lib/schema';
+import { countSourceTokens } from '@/lib/token-count';
 
 export async function generateStaticParams() {
     return getAgentsProjects().map((project) => ({ slug: project.slug }));
@@ -228,7 +229,7 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                         <aside className="project-facts" aria-label="File facts and page navigation">
                             <h2 className="eyebrow">File at a glance</h2>
                             <div className="mt-3">
-                                <FileStatGrid project={project} />
+                                <FileStatGrid project={project} tokens={countSourceTokens(agentsSource)} />
                             </div>
                             <dl className="provenance">
                                 <div>
