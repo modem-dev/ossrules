@@ -84,7 +84,7 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                 <div className="max-w-container mx-auto px-6 sm:px-12 pt-32 pb-24">
                     <div className="max-w-3xl mx-auto">
                         <Link href="/agents-md" className="font-inter text-sm text-teal hover:underline">
-                            The AGENTS.md Collection
+                            AGENTS.md directory
                         </Link>
 
                         <header className="mt-6">
@@ -143,7 +143,7 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
 
                             <div className="mt-5 flex flex-wrap gap-1.5">
                                 {project.patterns.map((pattern) => (
-                                    <PatternBadge key={pattern} pattern={pattern} href="/agents-md#techniques" />
+                                    <PatternBadge key={pattern} pattern={pattern} href={`/agents-md/techniques#${pattern}`} />
                                 ))}
                             </div>
                         </section>

@@ -1,0 +1,148 @@
+import Image from 'next/image';
+import Link from 'next/link';
+import { AGENTS_PROJECTS, formatStars, logoSrc, PATTERNS, projectsWithPattern } from '@/components/agents-md/agents-md-data';
+import { PatternBackground } from '@/components/blog/pattern-background';
+import Footer from '@/components/footer';
+import { JsonLd } from '@/components/json-ld';
+import Navigation from '@/components/navigation';
+import CTAButton from '@/components/ui/cta-button';
+import { ogImageUrl } from '@/lib/og';
+import { collectionPageSchema } from '@/lib/schema';
+
+const title = 'AGENTS.md techniques | Modem';
+const description =
+    'The techniques that recur across AGENTS.md files: hard prohibitions, router files, verification by change type, ratchets, scope layering, and more, with the projects that use each one.';
+
+export const metadata = {
+    title,
+    description,
+    alternates: { canonical: '/agents-md/techniques' },
+    openGraph: {
+        title,
+        description,
+        images: [{ url: ogImageUrl('AGENTS.md techniques'), width: 1200, height: 630 }],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title,
+        description,
+        images: [ogImageUrl('AGENTS.md techniques')],
+    },
+};
+
+export default function TechniquesPage() {
+    return (
+        <div className="min-h-screen bg-dark-gray flex flex-col">
+            <JsonLd
+                data={collectionPageSchema({
+                    title,
+                    description,
+                    path: '/agents-md/techniques',
+                    items: PATTERNS.map((pattern) => ({ name: pattern.name, path: `/agents-md/techniques#${pattern.id}` })),
+                })}
+            />
+            <Navigation />
+            <PatternBackground fade />
+
+            <main className="relative z-10 flex-1">
+                <div className="max-w-container mx-auto px-6 sm:px-12 pt-32 pb-24">
+                    <div className="max-w-3xl mx-auto">
+                        <Link href="/agents-md" className="font-inter text-sm text-teal hover:underline">
+                            AGENTS.md directory
+                        </Link>
+
+                        <header className="mt-6">
+                            <h1 className="font-unit-medium text-4xl sm:text-5xl text-light-cream leading-tight tracking-tight">
+                                Techniques
+                            </h1>
+                            <p className="mt-4 font-roboto text-lg text-light-cream/70 leading-relaxed">
+                                These files disagree about almost everything, including how long an AGENTS.md should be. Ghostty gets it
+                                done in 39 lines; herdr takes 317. But the same moves keep turning up, and those are the transferable part:
+                                one file teaches you about one repo, these apply to yours.
+                            </p>
+                            <p className="mt-4 font-roboto text-lg text-light-cream/70 leading-relaxed">
+                                Roughly easiest to adopt first. Each one lists the projects in the directory that use it.
+                            </p>
+                        </header>
+
+                        <nav aria-label="Techniques" className="mt-10 flex flex-wrap gap-2 border-y border-gray-750/50 py-5">
+                            {PATTERNS.map((pattern) => (
+                                <a
+                                    key={pattern.id}
+                                    href={`#${pattern.id}`}
+                                    className="rounded-full border border-gray-750 px-3 py-1.5 font-inter text-xs leading-none text-gray-550 transition-colors hover:border-teal/70 hover:text-teal"
+                                >
+                                    {pattern.name}
+                                </a>
+                            ))}
+                        </nav>
+
+                        <div className="mt-16 space-y-16">
+                            {PATTERNS.map((pattern, index) => {
+                                const used = projectsWithPattern(pattern.id);
+                                return (
+                                    <section key={pattern.id} id={pattern.id} className="scroll-mt-28">
+                                        <p className="font-mono text-xs text-gray-650 tabular-nums">{String(index + 1).padStart(2, '0')}</p>
+                                        <h2 className="mt-2 font-unit-medium text-2xl sm:text-3xl text-light-cream leading-snug tracking-tight">
+                                            {pattern.name}
+                                        </h2>
+                                        <p className="mt-3 font-roboto text-[17px] text-light-cream/85 leading-relaxed">
+                                            {pattern.summary}
+                                        </p>
+                                        <p className="mt-3 font-roboto text-[17px] text-light-cream/70 leading-relaxed">{pattern.detail}</p>
+
+                                        <p className="mt-8 font-inter text-xs uppercase tracking-wider text-gray-550">
+                                            {used.length} of {AGENTS_PROJECTS.length} projects
+                                        </p>
+                                        <ul className="mt-3 border-t border-gray-750/50">
+                                            {used.map((project) => (
+                                                <li key={project.slug}>
+                                                    <Link
+                                                        href={`/agents-md/${project.slug}`}
+                                                        className="group flex items-center gap-3 border-b border-gray-750/50 py-3 transition-colors hover:bg-medium-gray/40"
+                                                    >
+                                                        <Image
+                                                            src={logoSrc(project)}
+                                                            alt=""
+                                                            width={24}
+                                                            height={24}
+                                                            className="size-6 shrink-0 rounded bg-gray-800 object-cover"
+                                                        />
+                                                        <span className="font-roboto text-[15px] text-light-cream/90 transition-colors group-hover:text-teal">
+                                                            {project.name}
+                                                        </span>
+                                                        <span className="min-w-0 flex-1 truncate font-inter text-xs text-gray-600">
+                                                            {project.tagline}
+                                                        </span>
+                                                        <span className="shrink-0 font-mono text-xs text-gray-550 tabular-nums">
+                                                            {formatStars(project.stars)}
+                                                        </span>
+                                                    </Link>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </section>
+                                );
+                            })}
+                        </div>
+
+                        <section className="mt-20 border-t border-gray-750/50 pt-10">
+                            <h2 className="font-unit-medium text-2xl text-light-cream leading-snug tracking-tight">
+                                Context your AGENTS.md cannot carry
+                            </h2>
+                            <p className="mt-3 font-roboto text-base text-light-cream/70 leading-relaxed">
+                                These techniques tell an agent how your codebase works. None of them can tell it which bug three customers
+                                hit this week. Modem keeps that context current and attaches it to the work.
+                            </p>
+                            <div className="mt-6">
+                                <CTAButton>Try Modem</CTAButton>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </main>
+
+            <Footer />
+        </div>
+    );
+}
