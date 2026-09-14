@@ -97,8 +97,14 @@ function ProjectRow({ project }: { project: AgentsProject }) {
                     <span className="flex sm:w-6 sm:justify-end">
                         <LanguageDot language={project.language} />
                     </span>
-                    <span className="sm:w-14 sm:text-right">{formatStars(project.stars)}</span>
-                    <span className="sm:w-12 sm:text-right">{project.file.lines}</span>
+                    <span className="sm:w-14 sm:text-right">
+                        {formatStars(project.stars)}
+                        <span className="text-gray-600 sm:sr-only"> stars</span>
+                    </span>
+                    <span className="sm:w-12 sm:text-right">
+                        {project.file.lines}
+                        <span className="text-gray-600 sm:sr-only"> lines</span>
+                    </span>
                     <span className="sm:w-16 sm:text-right">
                         <RelativeTime iso={project.lastCommit.date} />
                     </span>

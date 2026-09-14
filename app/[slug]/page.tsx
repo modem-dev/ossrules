@@ -157,7 +157,7 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                                     {project.references.length === 1 ? 'document' : 'documents'} in the repository.
                                 </p>
                                 <div className="mt-4">
-                                    <DocTree references={project.references} rootLabel="AGENTS.md" take="ascii" />
+                                    <DocTree references={project.references} rootLabel="AGENTS.md" />
                                 </div>
                             </section>
                         ) : null}
