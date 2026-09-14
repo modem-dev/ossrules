@@ -2,8 +2,8 @@
  * The documents an AGENTS.md routes to, drawn as a tree.
  *
  * The input is the entry's `references`: the docs the file tells the agent to
- * read, which is a different thing from its repo map. A file with none renders
- * nothing, which is itself the signal that it is self-contained.
+ * read, which is a different thing from its repo map. The root AGENTS.md
+ * remains available even when it does not reference any other documents.
  *
  * Long trees clip to a fixed height with a fade and an expander. The lines are
  * rendered here, on the server, and handed to the client wrapper as children, so
@@ -19,8 +19,8 @@ import type { DocReference } from './agents-md-data';
 import { Expandable } from './expandable';
 import { FileLink } from './file-tray';
 
-/** Tree lines shown before collapsing. Airflow is 34, Omarchy 18. */
-const COLLAPSE_AFTER_LINES = 20;
+/** Keep the document list compact near the top of the project page. */
+const COLLAPSE_AFTER_LINES = 8;
 
 /** Must match the `leading-5` on the <pre> for the clip to land on a line boundary. */
 const LINE_HEIGHT_PX = 20;
@@ -129,8 +129,6 @@ export function DocTree({
     /** Where a file lives on GitHub, for the fallback when it has no local copy. */
     fileHref: (path: string) => string;
 }) {
-    if (references.length === 0) return null;
-
     const lines = asciiLines(buildTree(references));
     const total = lines.length + 1; // the root label occupies a line too
     const shell = 'overflow-hidden rounded-lg border border-gray-750/70 bg-gray-850';
