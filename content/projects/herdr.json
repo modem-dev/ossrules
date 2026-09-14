@@ -7,6 +7,11 @@
     "language": "Rust",
     "stars": 38229,
     "defaultBranch": "master",
+    "lastCommit": {
+        "sha": "2778411b6cc31ff804655753c2dee3efe78ad413",
+        "date": "2026-09-11T12:35:35Z"
+    },
+    "evaluatedAt": "2026-09-14",
     "file": {
         "bytes": 27080,
         "lines": 317,
@@ -16,6 +21,29 @@
         "codeBlocks": 12,
         "docLinks": 0
     },
+    "references": [
+        {
+            "path": "CHANGELOG.md"
+        },
+        {
+            "path": "CONTRIBUTING.md"
+        },
+        {
+            "path": "README.md"
+        },
+        {
+            "path": "docs/next/CHANGELOG.md"
+        },
+        {
+            "path": "docs/next/README.md"
+        },
+        {
+            "path": "skills/herdr/SKILL.md"
+        },
+        {
+            "path": "vendor/libghostty-vt.patches.md"
+        }
+    ],
     "hook": "Splits itself into four audiences and tells the agent how to determine which one it is.",
     "summary": "Opens by dividing its own contents into universal rules, maintainer-only workflow, one person's local machine setup, and an external contributor guardrail. The remainder covers performance paths, wire-compatibility contracts, release channels, and what an agent may open on the repository.",
     "patterns": ["scope-layering", "contribution-etiquette", "ratchet", "verification-matrix", "architecture-narrative"],

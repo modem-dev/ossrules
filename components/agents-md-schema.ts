@@ -84,6 +84,35 @@ export function validateAgentsProject(value: unknown, label: string): string[] {
         });
     }
 
+    if (!isRecord(value.lastCommit)) {
+        at('"lastCommit" must be an object with "sha" and "date".');
+    } else {
+        if (typeof value.lastCommit.sha !== 'string' || !/^[0-9a-f]{40}$/.test(value.lastCommit.sha)) {
+            at('"lastCommit.sha" must be a full 40-character commit sha.');
+        }
+        if (typeof value.lastCommit.date !== 'string' || Number.isNaN(Date.parse(value.lastCommit.date))) {
+            at('"lastCommit.date" must be an ISO 8601 timestamp.');
+        }
+    }
+
+    if (typeof value.evaluatedAt !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value.evaluatedAt)) {
+        at('"evaluatedAt" must be an ISO date (YYYY-MM-DD).');
+    }
+
+    if (!Array.isArray(value.references)) {
+        at('"references" must be an array (empty when the file routes to no documents).');
+    } else {
+        value.references.forEach((reference, index) => {
+            if (!isRecord(reference) || !isNonEmptyString(reference.path)) {
+                at(`references[${index}] must be an object with a non-empty "path".`);
+                return;
+            }
+            if (reference.label !== undefined && !isNonEmptyString(reference.label)) {
+                at(`references[${index}].label must be a non-empty string when present.`);
+            }
+        });
+    }
+
     if (!isStringArray(value.steal, 1)) at('"steal" must be a non-empty array of strings.');
     if (!isStringArray(value.outline, 1)) at('"outline" must be a non-empty array of section names.');
 

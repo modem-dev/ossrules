@@ -7,6 +7,11 @@
     "language": "Python",
     "stars": 46850,
     "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "485107f1340a167e7ae68cfed8667c9f7cfb4e0d",
+        "date": "2026-09-13T15:05:45Z"
+    },
+    "evaluatedAt": "2026-09-14",
     "file": {
         "bytes": 36577,
         "lines": 537,
@@ -16,6 +21,74 @@
         "codeBlocks": 24,
         "docLinks": 14
     },
+    "references": [
+        {
+            "path": ".github/instructions/code-review.instructions.md",
+            "label": ".github/instructions/code-review.instructions.md"
+        },
+        {
+            "path": "README.md",
+            "label": "Agent-assisted contributionsection of README.md"
+        },
+        {
+            "path": "airflow-core/docs/security/jwt_token_authentication.rst",
+            "label": "airflow-core/docs/security/jwt_token_authentication.rst"
+        },
+        {
+            "path": "airflow-core/docs/security/security_model.rst",
+            "label": "airflow-core/docs/security/security_model.rst"
+        },
+        {
+            "path": "airflow-ctl/RELEASE_NOTES.rst"
+        },
+        {
+            "path": "contributing-docs/03a_contributors_quick_start_beginners.rst",
+            "label": "contributing-docs/03a_contributors_quick_start_beginners.rst"
+        },
+        {
+            "path": "contributing-docs/04_how_to_contribute.rst"
+        },
+        {
+            "path": "contributing-docs/05_pull_requests.rst",
+            "label": "contributing-docs/05_pull_requests.rst"
+        },
+        {
+            "path": "contributing-docs/07_local_virtualenv.rst",
+            "label": "contributing-docs/07_local_virtualenv.rst"
+        },
+        {
+            "path": "contributing-docs/08_static_code_checks.rst",
+            "label": "contributing-docs/08_static_code_checks.rst"
+        },
+        {
+            "path": "contributing-docs/12_provider_distributions.rst",
+            "label": "contributing-docs/12_provider_distributions.rst"
+        },
+        {
+            "path": "contributing-docs/19_execution_api_versioning.rst",
+            "label": "contributing-docs/19_execution_api_versioning.rst"
+        },
+        {
+            "path": "dev/README_RELEASE_AIRFLOWCTL.md"
+        },
+        {
+            "path": "dev/README_RELEASE_PROVIDERS.md"
+        },
+        {
+            "path": "dev/breeze/doc/adr/0017-use-uvx-to-run-breeze-from-local-sources.md",
+            "label": "ADR 0017"
+        },
+        {
+            "path": "dev/breeze/doc/ci/04_selective_checks.md",
+            "label": "dev/breeze/doc/ci/04_selective_checks.md"
+        },
+        {
+            "path": "providers/<provider>/docs/changelog.rst"
+        },
+        {
+            "path": "providers/AGENTS.md"
+        }
+    ],
     "hook": "Covers naming, the security model, commit form, and when to open a pull request instead of an issue.",
     "summary": "The broadest file in the directory. Alongside structure and commands it covers how to spell one domain term, how to classify a security finding, what a newsfragment is for, how the git remotes must be named, and what an agent may put in a commit trailer.",
     "patterns": [

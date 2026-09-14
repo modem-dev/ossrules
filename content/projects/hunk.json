@@ -7,6 +7,11 @@
     "language": "TypeScript",
     "stars": 9251,
     "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "392cb7f99661270ff77df1f6c6bae9d9f5a0f156",
+        "date": "2026-09-11T18:48:44Z"
+    },
+    "evaluatedAt": "2026-09-14",
     "file": {
         "bytes": 16467,
         "lines": 224,
@@ -16,6 +21,47 @@
         "codeBlocks": 6,
         "docLinks": 0
     },
+    "references": [
+        {
+            "path": ".changeset/README.md"
+        },
+        {
+            "path": "CHANGELOG.md"
+        },
+        {
+            "path": "CONTRIBUTING.md"
+        },
+        {
+            "path": "docs/browser-review-rebuild.md"
+        },
+        {
+            "path": "docs/browser-review-seam-audit.md"
+        },
+        {
+            "path": "docs/changelog-on-hunk-dev.md"
+        },
+        {
+            "path": "docs/extension-architecture.md"
+        },
+        {
+            "path": "docs/extensions.md"
+        },
+        {
+            "path": "docs/module-boundaries.md"
+        },
+        {
+            "path": "packages/hunk/skills/hunk-extensions/SKILL.md"
+        },
+        {
+            "path": "packages/hunk/skills/hunk-review/SKILL.md"
+        },
+        {
+            "path": "skills/hunk-release/SKILL.md"
+        },
+        {
+            "path": "test/README.md"
+        }
+    ],
     "hook": "Documents a shared review seam as two ASCII data flows, then forbids re-deriving it in a renderer.",
     "summary": "Organized around one constraint: several surfaces share review semantics and none may reimplement them. Also carries a verification section that maps each kind of change to its specific test command, and a naming section defining three words.",
     "patterns": ["architecture-narrative", "ratchet", "verification-matrix", "generated-file-guard", "house-vocabulary"],

@@ -7,6 +7,11 @@
     "language": "TypeScript",
     "stars": 62519,
     "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "5be09d64c56eb2688c5a46bf700842f28fd4e998",
+        "date": "2026-07-20T13:39:08Z"
+    },
+    "evaluatedAt": "2026-09-14",
     "file": {
         "bytes": 8903,
         "lines": 165,
@@ -16,6 +21,20 @@
         "codeBlocks": 2,
         "docLinks": 4
     },
+    "references": [
+        {
+            "path": ".agents/skills/writing-comments/SKILL.md",
+            "label": ".agents/skills/writing-comments/SKILL.md"
+        },
+        {
+            "path": "reference/optimize-deps.md",
+            "label": "reference/optimize-deps.md"
+        },
+        {
+            "path": "reference/unit-testing.md",
+            "label": "reference/unit-testing.md"
+        }
+    ],
     "hook": "Opens with four sections on how to approach work, before any repository detail.",
     "summary": "The first third contains no Astro-specific content: it covers stating assumptions, scope, and success criteria. The rest is a tooling guide covering the monorepo layout, test invocation, background dev servers and browser automation.",
     "patterns": ["behavioral-conditioning", "skill-routing", "hard-prohibition", "house-vocabulary"],

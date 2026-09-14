@@ -7,6 +7,11 @@
     "language": "TypeScript",
     "stars": 13786,
     "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "86d6cdeb331a719cf8b1c85bf5e43c8ffa889b3b",
+        "date": "2026-06-03T14:35:21Z"
+    },
+    "evaluatedAt": "2026-09-14",
     "file": {
         "bytes": 6575,
         "lines": 156,
@@ -16,6 +21,7 @@
         "codeBlocks": 0,
         "docLinks": 0
     },
+    "references": [],
     "hook": "Nine numbered steps of the request lifecycle, with the owning file at each hop.",
     "summary": "Over half its length is architecture: how a request becomes HTML, how islands hydrate on the client, how the two build paths differ. Rules are the minority of the file.",
     "patterns": ["architecture-narrative", "hard-prohibition"],

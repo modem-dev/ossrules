@@ -7,6 +7,11 @@
     "language": "Zig",
     "stars": 61058,
     "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "9897d6caba05c0cbf256f86bec2e2935f164a9c7",
+        "date": "2026-04-08T17:34:52Z"
+    },
+    "evaluatedAt": "2026-09-14",
     "file": {
         "bytes": 1388,
         "lines": 39,
@@ -16,6 +21,7 @@
         "codeBlocks": 0,
         "docLinks": 0
     },
+    "references": [],
     "hook": "Thirty-nine lines: build commands, three directories and two absolute rules.",
     "summary": "The shortest file in the directory. It covers how to build, how to run a subset of tests, where the three main source trees are, and what the agent may not open on GitHub.",
     "patterns": ["contribution-etiquette", "hard-prohibition", "verification-matrix"],
