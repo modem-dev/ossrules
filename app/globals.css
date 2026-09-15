@@ -327,25 +327,32 @@ select {
     padding-bottom: 2.75rem;
 }
 
-.directory-feature {
-    position: relative;
-    padding: 1.5rem 1.75rem;
-    border: 1px solid var(--color-gray-750);
-    border-radius: 0.25rem;
-    background: var(--color-medium-gray);
-    transition: border-color 150ms;
+.directory-stats {
+    display: grid;
+    gap: 1.25rem;
+    padding-left: 2.5rem;
+    border-left: 1px solid #34473e;
 }
 
-.directory-feature::before {
-    content: "";
-    position: absolute;
-    inset: 1.5rem auto 1.5rem -1px;
-    width: 3px;
-    background: var(--color-teal);
+.directory-stats > div {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
 }
 
-.directory-feature:hover {
-    border-color: var(--color-teal);
+.directory-stats dt {
+    color: var(--color-gray-550);
+    font-size: 0.8125rem;
+    white-space: nowrap;
+}
+
+.directory-stats dd {
+    order: -1;
+    color: var(--color-teal);
+    font: 2.5rem / 1.1 var(--font-mono);
+    letter-spacing: -0.05em;
+    font-variant-numeric: tabular-nums;
 }
 
 .directory-toolbar {
@@ -433,8 +440,8 @@ select {
     .directory-hero {
         gap: 1.5rem;
     }
-    .directory-feature {
-        padding: 1.25rem;
+    .directory-stats {
+        padding-left: 1.5rem;
     }
 }
 
@@ -443,8 +450,22 @@ select {
         grid-template-columns: 1fr;
         padding-bottom: 2rem;
     }
-    .directory-feature {
-        display: none;
+    .directory-stats {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+        padding: 1.5rem 0 0;
+        border-left: 0;
+        border-top: 1px solid #34473e;
+    }
+    .directory-stats > div {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .directory-stats dd {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+    }
+    .directory-stats dt {
+        font-size: 0.75rem;
     }
 }
 
@@ -954,11 +975,6 @@ select {
 
 .brand-masthead .page-title {
     font-size: clamp(1.5rem, 3.2vw, 2.6rem);
-}
-
-.brand-masthead .directory-feature {
-    background: #1b2420eb;
-    padding: 1.5rem;
 }
 
 @media (max-width: 767px) {
