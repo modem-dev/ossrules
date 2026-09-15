@@ -90,7 +90,7 @@ export default function AgentsMdPage() {
                 </section>
                 <div className="mt-10 flex flex-wrap items-center justify-between gap-4">
                     <p className="text-gray-550 text-sm">Different projects. Recurring ideas.</p>
-                    <Link href="/techniques" className="action-link">
+                    <Link href="/agent-rules" className="action-link">
                         Explore all {PATTERNS.length} techniques <span aria-hidden>→</span>
                     </Link>
                 </div>

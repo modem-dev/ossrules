@@ -5,7 +5,8 @@ import { usePathname } from 'next/navigation';
 
 export function SiteHeader() {
     const pathname = usePathname();
-    const techniques = pathname === '/techniques';
+    const techniques = pathname === '/agent-rules';
+    const skills = pathname === '/skills';
 
     return (
         <header className="site-header modem-surface sticky inset-x-0 top-0 z-40 border-gray-750 border-b">
@@ -20,16 +21,23 @@ export function SiteHeader() {
                     <Link
                         href="/"
                         aria-current={pathname === '/' ? 'page' : undefined}
-                        className={`border-b-2 py-2 transition-colors hover:text-light-cream ${!techniques ? 'border-teal text-light-cream' : 'border-transparent text-gray-550'}`}
+                        className={`border-b-2 py-2 transition-colors hover:text-light-cream ${!techniques && !skills ? 'border-teal text-light-cream' : 'border-transparent text-gray-550'}`}
                     >
                         Projects
                     </Link>
                     <Link
-                        href="/techniques"
+                        href="/agent-rules"
                         aria-current={techniques ? 'page' : undefined}
                         className={`border-b-2 py-2 transition-colors hover:text-light-cream ${techniques ? 'border-teal text-light-cream' : 'border-transparent text-gray-550'}`}
                     >
-                        Techniques
+                        Agent Rules
+                    </Link>
+                    <Link
+                        href="/skills"
+                        aria-current={skills ? 'page' : undefined}
+                        className={`border-b-2 py-2 transition-colors hover:text-light-cream ${skills ? 'border-teal text-light-cream' : 'border-transparent text-gray-550'}`}
+                    >
+                        Skills
                     </Link>
                 </nav>
             </div>

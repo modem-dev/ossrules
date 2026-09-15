@@ -11,8 +11,11 @@ export function SiteFooter() {
                         <Link href="/" className="hover:text-teal">
                             Projects
                         </Link>
-                        <Link href="/techniques" className="hover:text-teal">
-                            Techniques
+                        <Link href="/agent-rules" className="hover:text-teal">
+                            Agent Rules
+                        </Link>
+                        <Link href="/skills" className="hover:text-teal">
+                            Skills
                         </Link>
                     </nav>
                 </div>
