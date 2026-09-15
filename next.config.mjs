@@ -3,6 +3,12 @@ import path from 'node:path';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    images: {
+        localPatterns: [
+            { pathname: '/**', search: '' },
+            { pathname: '/logos/*', search: '?v=2' },
+        ],
+    },
     // Every project page is generated from content/projects at build time.
     outputFileTracingIncludes: {
         '/**': ['./content/**'],

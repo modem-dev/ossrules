@@ -343,9 +343,11 @@ export function languageColor(language: string): string {
     return LANGUAGE_COLORS[language] ?? UNKNOWN_LANGUAGE_COLOR;
 }
 
-/** Org avatar, committed under public/agents-md so the list needs no third-party request. */
+/** Org avatar, committed under public/logos so the list needs no third-party request. */
 export function logoSrc(project: AgentsProject): string {
-    return `/logos/${project.slug}.png`;
+    // Refresh previously cached GitHub placeholders in browsers and Next's image optimizer.
+    const version = ['deno', 'bun', 'langflow', 'better-auth'].includes(project.slug) ? '?v=2' : '';
+    return `/logos/${project.slug}.png${version}`;
 }
 
 /**
