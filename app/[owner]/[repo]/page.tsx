@@ -77,11 +77,11 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
     }
 
     // Previous and next follow the list order on the index, so paging through
-    // the collection matches the order the reader just saw.
+    // the collection matches the order the reader just saw, wrapping at either end.
     const ordered = getAgentsProjects();
     const index = ordered.findIndex((entry) => entry.slug === project.slug);
-    const previous = index > 0 ? ordered[index - 1] : undefined;
-    const next = index < ordered.length - 1 ? ordered[index + 1] : undefined;
+    const previous = ordered[(index - 1 + ordered.length) % ordered.length];
+    const next = ordered[(index + 1) % ordered.length];
 
     // Local copies of the files this AGENTS.md reads, pinned to the same commit
     // the entry was measured at. See scripts/sync-agents-md-files.ts.
@@ -302,46 +302,42 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                         {[
                             { project: previous, direction: 'Previous', arrow: '←' },
                             { project: next, direction: 'Next', arrow: '→' },
-                        ].map(({ project: neighbor, direction, arrow }) =>
-                            neighbor ? (
-                                <Link
-                                    key={direction}
-                                    href={projectHref(neighbor)}
-                                    rel={direction === 'Previous' ? 'prev' : 'next'}
-                                    className="group min-w-0 rounded-md border border-gray-750 bg-medium-gray p-5 transition-colors hover:border-teal"
-                                >
-                                    <span className={`eyebrow flex items-center gap-2 ${direction === 'Next' ? 'justify-end' : ''}`}>
-                                        {direction === 'Previous' ? <span aria-hidden>{arrow}</span> : null}
-                                        {direction}
-                                        {direction === 'Next' ? <span aria-hidden>{arrow}</span> : null}
-                                    </span>
-                                    <span className="mt-4 flex items-center gap-3">
-                                        <Image
-                                            src={logoSrc(neighbor)}
-                                            alt=""
-                                            width={40}
-                                            height={40}
-                                            className="size-10 shrink-0 rounded-md bg-gray-800 object-cover"
-                                        />
-                                        <span className="min-w-0">
-                                            <span className="block font-mono text-base transition-colors group-hover:text-teal">
-                                                {neighbor.name}
-                                            </span>
-                                            <span className="mt-1 block truncate font-mono text-[11px] text-gray-600">
-                                                {neighbor.owner}/{neighbor.repo}
-                                            </span>
+                        ].map(({ project: neighbor, direction, arrow }) => (
+                            <Link
+                                key={direction}
+                                href={projectHref(neighbor)}
+                                rel={direction === 'Previous' ? 'prev' : 'next'}
+                                className="group min-w-0 rounded-md border border-gray-750 bg-medium-gray p-5 transition-colors hover:border-teal"
+                            >
+                                <span className={`eyebrow flex items-center gap-2 ${direction === 'Next' ? 'justify-end' : ''}`}>
+                                    {direction === 'Previous' ? <span aria-hidden>{arrow}</span> : null}
+                                    {direction}
+                                    {direction === 'Next' ? <span aria-hidden>{arrow}</span> : null}
+                                </span>
+                                <span className="mt-4 flex items-center gap-3">
+                                    <Image
+                                        src={logoSrc(neighbor)}
+                                        alt=""
+                                        width={40}
+                                        height={40}
+                                        className="size-10 shrink-0 rounded-md bg-gray-800 object-cover"
+                                    />
+                                    <span className="min-w-0">
+                                        <span className="block font-mono text-base transition-colors group-hover:text-teal">
+                                            {neighbor.name}
+                                        </span>
+                                        <span className="mt-1 block truncate font-mono text-[11px] text-gray-600">
+                                            {neighbor.owner}/{neighbor.repo}
                                         </span>
                                     </span>
-                                    <span className="mt-4 line-clamp-2 text-gray-550 text-sm leading-relaxed">{neighbor.tagline}</span>
-                                    <span className="mt-4 flex flex-wrap gap-x-4 gap-y-1 font-mono text-[11px] text-gray-600">
-                                        <span>{neighbor.file.lines.toLocaleString('en-US')} lines</span>
-                                        <span>{formatStars(neighbor.stars)} stars</span>
-                                    </span>
-                                </Link>
-                            ) : (
-                                <span key={direction} className="hidden sm:block" />
-                            ),
-                        )}
+                                </span>
+                                <span className="mt-4 line-clamp-2 text-gray-550 text-sm leading-relaxed">{neighbor.tagline}</span>
+                                <span className="mt-4 flex flex-wrap gap-x-4 gap-y-1 font-mono text-[11px] text-gray-600">
+                                    <span>{neighbor.file.lines.toLocaleString('en-US')} lines</span>
+                                    <span>{formatStars(neighbor.stars)} stars</span>
+                                </span>
+                            </Link>
+                        ))}
                     </nav>
                     <ModemSponsor>
                         {project.name}&apos;s file tells an agent how the codebase works. It cannot tell it which bug three customers hit
