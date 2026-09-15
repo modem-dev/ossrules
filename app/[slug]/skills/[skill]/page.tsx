@@ -75,8 +75,7 @@ export default async function SkillPage({
                 </nav>
                 <header className="mt-9 flex flex-col items-start justify-between gap-5 sm:flex-row">
                     <div className="min-w-0 flex-1">
-                        <p className="eyebrow">{project.name} / Skill</p>
-                        <h1 className="page-title mt-3 [overflow-wrap:anywhere]">{skill.name}</h1>
+                        <h1 className="page-title [overflow-wrap:anywhere]">{skill.name}</h1>
                         {skill.contributions?.contributors.length ? (
                             <div className="mt-3 flex items-center gap-2">
                                 <SkillContributors
