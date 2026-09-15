@@ -1,0 +1,13 @@
+{
+    "slug": "varlock",
+    "sha": "04dc94bdaddf9e05809d8b9777db83818df3f121",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 7485,
+            "lines": 89
+        }
+    ]
+}

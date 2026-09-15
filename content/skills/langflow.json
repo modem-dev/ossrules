@@ -1,0 +1,416 @@
+{
+    "version": 1,
+    "slug": "langflow",
+    "repository": "langflow-ai/langflow",
+    "branch": "main",
+    "sha": "595cd72a2b2021f2375fa31109af02d20bb17648",
+    "scannedAt": "2026-09-15T01:39:07.893Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [
+        {
+            "path": ".agents/skills/frontend-testing/SKILL.md",
+            "reason": "Missing YAML frontmatter."
+        }
+    ],
+    "skills": [
+        {
+            "id": "backend-code-review-850842ca2fec",
+            "path": ".agents/skills/backend-code-review/SKILL.md",
+            "name": "backend-code-review",
+            "description": "Review backend code for quality, security, maintainability, and best practices based on established checklist rules. Use when the user requests a review, analysis, or improvement of backend files (e.g., `.py`) under the `src/backend/` directory. Do NOT use for frontend files (e.g., `.tsx`, `.ts`, `.js`). Supports pending-change review, code snippets review, and file-focused review.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "59b349987cbeb86d63f21bca4782a32dfad0a122",
+                    "bytes": 13919,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/architecture-rule.md",
+                    "blob": "e7d1bfa1d67c0cc8a1518299c05ad6122d7e091e",
+                    "bytes": 11739,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/db-schema-rule.md",
+                    "blob": "8de00e2c4e50f0d8b97dd125fec28228946dc378",
+                    "bytes": 12894,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/repositories-rule.md",
+                    "blob": "faf42a81ab3ed134b311d42237e6bd983120c2ce",
+                    "bytes": 11711,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/sqlalchemy-rule.md",
+                    "blob": "3ba455576a8f844097e5e24dc3f2b048b01362f9",
+                    "bytes": 11340,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 72977554,
+                        "login": "Cristhianzl",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "component-refactoring-54fe2ac00db9",
+            "path": ".agents/skills/component-refactoring/SKILL.md",
+            "name": "component-refactoring",
+            "description": "Refactor high-complexity React components in Langflow frontend. Use when manual complexity assessment shows complexity > 50 or lineCount > 300, when the user asks for code splitting, hook extraction, or complexity reduction; avoid for simple/well-structured components, third-party wrappers, or when the user explicitly wants testing without refactoring.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b7219a1d81074e20e7b3572386f54458781a99fa",
+                    "bytes": 14117,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/complexity-patterns.md",
+                    "blob": "c41ca69b7b27b5177863f8548be9ea000bb6720c",
+                    "bytes": 12933,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/component-splitting.md",
+                    "blob": "37d3ea7ef4df40832f5f90438445c4ae0f36a9a9",
+                    "bytes": 17102,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/hook-extraction.md",
+                    "blob": "f230019712ade659192fec98fb5b464add726881",
+                    "bytes": 13097,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 72977554,
+                        "login": "Cristhianzl",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "e2e-testing-2b8834d00935",
+            "path": ".agents/skills/e2e-testing/SKILL.md",
+            "name": "e2e-testing",
+            "description": "Write and review Playwright E2E tests for Langflow. Trigger when the user asks to write, fix, or review E2E tests, spec files, Playwright tests, or integration tests that exercise the full UI. Also trigger when modifying data-testid attributes, test helpers in tests/utils/, or fixture configuration.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ef764349a4da1ec8aae9b4dda070a5313540e8bf",
+                    "bytes": 13437,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/fixtures.md",
+                    "blob": "3b6bd199c2fc713cef4119e3ace19dce33367105",
+                    "bytes": 3511,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/helpers.md",
+                    "blob": "1939aaf1bc54346c387d2315ee947ee1b4be65ee",
+                    "bytes": 6443,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/selectors.md",
+                    "blob": "2ba0ea5fe53715d887a0ab2e213dc6369b47ac39",
+                    "bytes": 5096,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 149833988,
+                        "login": "Adam-Aghili",
+                        "commits": 1
+                    },
+                    {
+                        "id": 72977554,
+                        "login": "Cristhianzl",
+                        "commits": 1
+                    },
+                    {
+                        "id": 107264769,
+                        "login": "tarciorodrigues",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "frontend-code-review-62e5035275fc",
+            "path": ".agents/skills/frontend-code-review/SKILL.md",
+            "name": "frontend-code-review",
+            "description": "Review frontend code (.tsx, .ts, .js files) for quality, performance, and correctness against Langflow's frontend conventions. Supports pending-change reviews and file-targeted reviews.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "e6e6eb0538962d66eac388e4e9fb7bc40515c9b4",
+                    "bytes": 6368,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/business-logic.md",
+                    "blob": "83ceeed4d3a9946ae39505ae5ff6ce1862681599",
+                    "bytes": 9691,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/code-quality.md",
+                    "blob": "9ec8918d3c46f83b052673aa093e93af961dd7cf",
+                    "bytes": 20403,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/performance.md",
+                    "blob": "40cf49772eb6383ba57583095ff7eddfccbbeb67",
+                    "bytes": 8595,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 72977554,
+                        "login": "Cristhianzl",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "frontend-i18n-899e1e263c71",
+            "path": ".agents/skills/frontend-i18n/SKILL.md",
+            "name": "frontend-i18n",
+            "description": "Add, change, or review user-facing text in the Langflow frontend using the i18n system (i18next / react-i18next). Use whenever a change adds or edits UI strings — labels, buttons, tooltips, modals, toasts, error messages, empty states — or when reviewing a diff that contains user-facing text. Every user-facing string must go through the translation system and every new key must exist in ALL locale files. Do NOT use for backend strings, log messages, or code identifiers.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "cc3f6b2978e173fc472392de8708df7c13509d70",
+                    "bytes": 4049,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 72977554,
+                        "login": "Cristhianzl",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "frontend-query-mutation-0b6ae3c3b4d7",
+            "path": ".agents/skills/frontend-query-mutation/SKILL.md",
+            "name": "frontend-query-mutation",
+            "description": "Guide for implementing Langflow frontend query and mutation patterns with Axios and TanStack React Query v5. Trigger when creating or updating API hooks in controllers/API/queries, consuming UseRequestProcessor in components, deciding whether to use useQuery or useMutation, handling conditional queries, cache invalidation, mutation error handling, or migrating legacy API calls to the query hook pattern.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "4d94813203620014c77e1a3fc7b9ba327fa946d2",
+                    "bytes": 3914,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/query-patterns.md",
+                    "blob": "633014fc36fcf2d16af389dad9ded1f8a9f6919d",
+                    "bytes": 13223,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/runtime-rules.md",
+                    "blob": "64a13c557bda25934d6d32e55e24d80306461b84",
+                    "bytes": 12561,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 72977554,
+                        "login": "Cristhianzl",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "ibm-a11y-level1-audit-e315e6f4e5d8",
+            "path": ".agents/skills/ibm-a11y-level1-audit/SKILL.md",
+            "name": "ibm-a11y-level1-audit",
+            "description": "Perform a scoped IBM Equal Access Level 1 compliance audit of a chosen Langflow frontend surface (routes, components, or a PR) and produce a findings report mapped to WCAG/IBM Level 1 criteria. Default behavior is audit and report only — fixes are applied only when the user explicitly asks for remediation in the same request. Use when the user asks for an IBM Level 1 audit, a Level 1 compliance report, or to find/report Level 1 WCAG issues on a specific surface. For scanning a batch of routes without a report, see ibm-a11y-route-scan. For scanning and fixing an entire PR/branch end-to-end by default, see ibm-a11y-pr-remediation.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "e22c6d4953ac28e8c6636a866e188a8bf6d9005d",
+                    "bytes": 9481,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/ibm-level1-criteria.md",
+                    "blob": "7cff41c9c99bbeab2b2a83c006958ccd1119e430",
+                    "bytes": 18360,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/report-template.md",
+                    "blob": "559c67022584a6786f1804f68cf2cde4ed939e46",
+                    "bytes": 1493,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 69873175,
+                        "login": "deon-sanchez",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "ibm-a11y-pr-remediation-f75bf3f3346d",
+            "path": ".agents/skills/ibm-a11y-pr-remediation/SKILL.md",
+            "name": "ibm-a11y-pr-remediation",
+            "description": "Scan every frontend surface touched by the current PR/branch for IBM Equal Access Level 1 accessibility issues and fix all in-scope violations by default. Discovers changed files, maps them to routes/components/states, runs both axe and IBM engines, remediates until both are green (or only documented baselines remain), and reports back. Use when the user asks to check, scan, or clean up accessibility for \"this PR\", \"my branch\", or \"my changes\" and wants fixes applied, not just a report. For a single scoped audit report without a default fix pass, use ibm-a11y-level1-audit; for a route batch scan only, use ibm-a11y-route-scan.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "34b8a0588ee447b464b67e37c7c3acad7b2af328",
+                    "bytes": 8224,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 69873175,
+                        "login": "deon-sanchez",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "ibm-a11y-route-scan-2010f1e5f6ab",
+            "path": ".agents/skills/ibm-a11y-route-scan/SKILL.md",
+            "name": "ibm-a11y-route-scan",
+            "description": "Batch-scan Langflow frontend routes for accessibility issues using the Python IBM Equal Access scanner (scripts/a11y/a11y_scan.py) and produce JSON/Markdown/HTML reports. Scans the default-loaded state of each route only (use explicit state files for modals). Use when asked to scan one or more routes, produce an accessibility report for pages, or batch-check static routes. Reports findings only — does not fix code, run Playwright/axe tests, or perform a formal Level 1 audit; see ibm-a11y-testing-guide, ibm-a11y-level1-audit, and ibm-a11y-pr-remediation for those.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d6da9889e69e29cce20aed0fbbd73c04f1e6483a",
+                    "bytes": 6224,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 69873175,
+                        "login": "deon-sanchez",
+                        "commits": 1
+                    },
+                    {
+                        "id": 64113566,
+                        "login": "viktoravelino",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "ibm-a11y-testing-guide-045172338cb6",
+            "path": ".agents/skills/ibm-a11y-testing-guide/SKILL.md",
+            "name": "ibm-a11y-testing-guide",
+            "description": "Reference guide for writing and running Langflow frontend accessibility tests with axe (Jest) and IBM Equal Access (Playwright `page.runA11yScan`). Covers which engine/test layer to pick, the POUR checklist, axe-vs-IBM rule gaps, Radix/AG-Grid component gotchas, and IBM baselines. Use when writing or reviewing a11y tests, debugging a specific axe/IBM violation, or deciding which test layer fits a UI surface. Does not run scans, audit a whole surface, or fix a PR end-to-end — see ibm-a11y-route-scan, ibm-a11y-level1-audit, and ibm-a11y-pr-remediation for those.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "178aa26e656b00ac35cccba23a295596a063b397",
+                    "bytes": 18516,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 69873175,
+                        "login": "deon-sanchez",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "337f9fc18434034f38ca94f4f4833b97b10b1396",
+        "bytes": 11859,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "ee3d6be71bdd1b5e4cc5b85da4a4aabc7bfe3347",
+        "bytes": 1065,
+        "text": true,
+        "mode": "100644"
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "slug": "ollama",
+    "sha": "96201a623a62b4434ff434a0a4a6b5b247fce481",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 358,
+            "lines": 21
+        },
+        {
+            "path": "docs/development.md",
+            "bytes": 5884,
+            "lines": 187
+        }
+    ]
+}

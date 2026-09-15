@@ -1,0 +1,13 @@
+{
+    "slug": "better-auth",
+    "sha": "cfedf97dbc8e35fa44c4d517026433660bc91963",
+    "license": "MIT",
+    "licensePath": "LICENSE.md",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 5563,
+            "lines": 91
+        }
+    ]
+}

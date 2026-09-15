@@ -1,0 +1,92 @@
+{
+    "slug": "anarlog",
+    "name": "Anarlog",
+    "owner": "fastrepl",
+    "repo": "anarlog",
+    "tagline": "An AI notepad for meetings, with desktop, mobile, and developer interfaces.",
+    "language": "TypeScript",
+    "stars": 9307,
+    "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "b93a8c809a977feb3d95f6d64354d52433f0b679",
+        "date": "2026-09-13T08:01:10Z"
+    },
+    "evaluatedAt": "2026-09-14",
+    "file": {
+        "bytes": 21172,
+        "lines": 135,
+        "words": 2447,
+        "headings": 12,
+        "bullets": 60,
+        "codeBlocks": 2,
+        "docLinks": 1
+    },
+    "references": [
+        {
+            "path": ".agents/skills/anarlog-workflow/SKILL.md"
+        },
+        {
+            "path": "crates/db-app/AGENTS.md"
+        },
+        {
+            "path": ".agents/skills/release-new-version/SKILL.md"
+        },
+        {
+            "path": "**/AGENTS.md",
+            "kind": "pattern",
+            "label": "Nearest component instructions"
+        }
+    ],
+    "hook": "A green workflow is not proof that skipped native jobs tested the release candidate.",
+    "summary": "Anarlog maps a TypeScript and Rust workspace to component-specific verification. It distinguishes desktop JavaScript checks from scheduled native jobs, requires evidence from the exact release candidate, and names generated artifacts and database compatibility constraints. The guide also keeps simple CLI screens from acquiring an unnecessary reducer and effect architecture.",
+    "patterns": ["verification-matrix", "generated-file-guard", "architecture-narrative", "behavioral-conditioning"],
+    "techniques": [
+        {
+            "title": "Match checks to the affected component",
+            "body": "The verification table covers desktop, web, API, CLI, mobile, databases, billing, and a separate enterprise workspace. It warns that workflow path filters can miss consumers of shared packages.",
+            "quote": "A skipped workflow/job is not passing coverage.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Verify the job and the candidate",
+            "body": "Native desktop and mobile coverage is not implied by a green PR result. Release verification requires the relevant job on the recorded candidate SHA.",
+            "quote": "Check each required job and SHA, not only the aggregate green result.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Name generated outputs and their owners",
+            "body": "OpenAPI, native bindings, permissions, and translations each have an owning generation command. Stable regeneration is required; hand-editing output would leave the source of truth unchanged.",
+            "quote": "Regenerate native bindings and permissions using their owning Rust build/generator; do not hand-edit generated output.",
+            "pattern": "generated-file-guard"
+        },
+        {
+            "title": "Design migrations for the installed older build",
+            "body": "Nightly and stable share a database. The file requires additive migrations by default and an explicit marker when older versions must refuse to open a newer schema.",
+            "quote": "Nightly and stable desktop builds share one database, so a breaking migration published in Nightly locks stable out until stable ships it.",
+            "pattern": "architecture-narrative"
+        },
+        {
+            "title": "Scale command architecture to its state",
+            "body": "The reducer/effect/runtime split is conditional on actual orchestration or state complexity. Simple browse and select flows are directed to a smaller structure.",
+            "quote": "Use the full reducer/effect/runtime split only when the command has async orchestration, a multi-step workflow, or substantial state transitions that benefit from reducer-style tests.",
+            "pattern": "behavioral-conditioning"
+        }
+    ],
+    "steal": [
+        "Map changed components to complete validation jobs, including setup.",
+        "Report skipped checks separately from passing checks.",
+        "Bind release evidence to one immutable candidate.",
+        "Name generated files together with the command that owns them.",
+        "Document how schema changes affect older installed clients."
+    ],
+    "outline": [
+        "Commands",
+        "Pre-commit verification",
+        "Release verification",
+        "Guidelines",
+        "Code Style",
+        "CLI TUI Command Architecture",
+        "Misc",
+        "Cursor Cloud specific instructions"
+    ]
+}

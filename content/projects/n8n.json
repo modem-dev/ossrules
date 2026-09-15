@@ -1,0 +1,118 @@
+{
+    "slug": "n8n",
+    "name": "n8n",
+    "owner": "n8n-io",
+    "repo": "n8n",
+    "tagline": "Workflow automation for technical teams.",
+    "language": "TypeScript",
+    "stars": 204321,
+    "defaultBranch": "master",
+    "lastCommit": {
+        "sha": "b67870cdbcc8c038051bc52396b2b2787be0d919",
+        "date": "2026-09-14T09:06:03Z"
+    },
+    "evaluatedAt": "2026-09-14",
+    "file": {
+        "bytes": 22804,
+        "lines": 428,
+        "words": 3145,
+        "headings": 29,
+        "bullets": 89,
+        "codeBlocks": 10,
+        "docLinks": 6
+    },
+    "references": [
+        {
+            "path": ".github/DEVELOPING_V3.md"
+        },
+        {
+            "path": ".agents/skills/AGENTS.md"
+        },
+        {
+            "path": ".claude/plugins/n8n/README.md"
+        },
+        {
+            "path": "scripts/instance-seeding/AGENTS.md"
+        },
+        {
+            "path": "packages/@n8n/instance-ai/CLAUDE.md"
+        },
+        {
+            "path": "packages/frontend/AGENTS.md"
+        },
+        {
+            "path": "packages/testing/playwright/README.md"
+        },
+        {
+            "path": ".devcontainer/codespaces/README.md"
+        },
+        {
+            "path": "packages/testing/playwright/AGENTS.md"
+        },
+        {
+            "path": "scripts/backend-module/backend-module-guide.md"
+        },
+        {
+            "path": "packages/@n8n/module-cli/frontend-module-guide.md"
+        },
+        {
+            "path": ".github/pull_request_template.md"
+        },
+        {
+            "path": ".github/pull_request_title_conventions.md"
+        }
+    ],
+    "hook": "Architecture rules name the lint checks that enforce them, including a baseline that can only shrink.",
+    "summary": "n8n's root guide covers setup, package architecture, testing, and public contribution practices. Its architecture sections describe boundaries around persistence, encryption, and lint configuration. They name prohibited workarounds as well as the intended API, while command guidance accounts for memory limits, large logs, package-local checks, and shared runtime state in tests.",
+    "patterns": ["architecture-narrative", "ratchet", "hard-prohibition", "worked-examples", "context-budget"],
+    "techniques": [
+        {
+            "title": "Keep persistence behind domain methods",
+            "body": "The TypeORM boundary requires use-case-named repository methods with plain inputs and domain-shaped results. Renaming imports or hiding query builders in services does not satisfy the boundary.",
+            "quote": "**Pattern:** when a query needs operators (`In`, `IsNull`, `LessThan`,\n  `FindOptionsWhere`, …), put it behind a **use-case-named repository method**\n  that takes plain parameters and returns domain-shaped values — not a generic\n  `find(options)` passthrough.",
+            "pattern": "architecture-narrative"
+        },
+        {
+            "title": "Prevent quiet downgrades of lint policy",
+            "body": "Because lint runs with --quiet, a package-wide downgrade to warning would look configured while enforcing nothing. The file connects this to a shared rule and a shrinking debt baseline.",
+            "quote": "It must not turn a rule\ndown for the whole package: every lint script runs with `--quiet`, so a `warn`\nenforces nothing and reads as if it did. The code-health rule\n`lint-config-layering` enforces this, with existing debt in\n`.code-health-baseline.json`, which only shrinks.",
+            "pattern": "ratchet"
+        },
+        {
+            "title": "Explain irreversible key loss",
+            "body": "The encryption section gives both the data consequence and the enforcement points for its no-deletion rule. Deactivation is the intended operation.",
+            "quote": "**Deployment keys are never deleted** — data encrypted with a key becomes\n  unreadable without it. Deactivate keys instead; the repository's delete\n  surface throws at runtime and the lint rule rejects call sites.",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Show the direction of graph connections",
+            "body": "A parent-node lookup needs an inverted connection map; a child lookup uses the original map. The worked code ties the shared helper to the data structure's indexing direction.",
+            "quote": "**Key concept:** `workflow.connections` is indexed by **source node**.\nTo find parent nodes, use `mapConnectionsByDestination()` to invert it first.",
+            "pattern": "worked-examples"
+        },
+        {
+            "title": "Design setup output for constrained agents",
+            "body": "The setup command caps memory and concurrency, writes logs, and always produces a machine-readable summary. The file explains how to inspect a run without loading all its output.",
+            "quote": "It chains them in one process, caps per-process memory and turbo\nconcurrency so a 6GB box doesn't OOM, streams all output to\n`.agent-setup/<step>.log` (gitignored), and surfaces only a one-line summary\nper step plus the tail of the failing log. A machine-readable\n`.agent-setup/summary.json` is always written so a backgrounded run is\nreadable in a single shot — no polling, no scrolling logs.",
+            "pattern": "context-budget"
+        }
+    ],
+    "steal": [
+        "Name enforcement mechanisms alongside architectural rules.",
+        "Call out workarounds that conceal a forbidden dependency.",
+        "Make technical-debt baselines decrease-only.",
+        "Pair shared utility names with an example of the data they expect.",
+        "Give long-running setup a bounded summary and durable logs."
+    ],
+    "outline": [
+        "Project Overview",
+        "General Guidelines",
+        "Agent Skills and Claude Code Plugin",
+        "Essential Commands",
+        "Architecture Overview",
+        "Technology Stack",
+        "Key Development Patterns",
+        "Design Principles",
+        "Github Guidelines"
+    ]
+}

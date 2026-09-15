@@ -1,0 +1,677 @@
+{
+    "version": 1,
+    "slug": "anarlog",
+    "repository": "fastrepl/anarlog",
+    "branch": "main",
+    "sha": "143e3d8caa0ebf5c0769af7b566a7bd615d889f2",
+    "scannedAt": "2026-09-15T01:39:18.184Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "add-plugin-77ad51042a32",
+            "path": ".agents/skills/add-plugin/SKILL.md",
+            "name": "add-plugin",
+            "description": "Scaffold a new Tauri plugin in this repository when asked to add or create a plugin under `plugins/`. Use this for plugin generation and repository integration work, not for editing an existing plugin unless the request is specifically about bringing a freshly generated plugin in line with project conventions.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "363a815ba27b8d4dd591e271be960afe45b98dc1",
+                    "bytes": 1214,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 63365510,
+                        "login": "ComputelessComputer",
+                        "commits": 2
+                    },
+                    {
+                        "id": 61503739,
+                        "login": "yujonglee",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "anarlog-workflow-192432e58eeb",
+            "path": ".agents/skills/anarlog-workflow/SKILL.md",
+            "name": "anarlog-workflow",
+            "description": "Execute Anarlog work immediately while recording issues, decisions, progress, and lessons in Linear. Use for Anarlog repository or Anarlog desktop, web, mobile, and API work, including related worktrees and ANLG issues. Explicit brainstorming stays discussion-first. Do not use for unrelated repositories or meeting-data queries.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7b7789c6cc38dcf1de702894e00fd33ef8aaec42",
+                    "bytes": 2977,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 63365510,
+                        "login": "ComputelessComputer",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "axum-test-transport-59cf1da8faf1",
+            "path": ".agents/skills/axum-test-transport/SKILL.md",
+            "name": "axum-test-transport",
+            "description": "Choose between in-process `tower::ServiceExt::oneshot` tests and real `tokio::net::TcpListener` server tests for Axum services in this repository.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "6a9a4ee8936ee650fb94a29fb9272827d9831350",
+                    "bytes": 1316,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 63365510,
+                        "login": "ComputelessComputer",
+                        "commits": 2
+                    },
+                    {
+                        "id": 61503739,
+                        "login": "yujonglee",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "fix-ready-prs-db9722dc48da",
+            "path": ".agents/skills/fix-ready-prs/SKILL.md",
+            "name": "fix-ready-prs",
+            "description": "Inspect every open non-draft PR for CI failures and unresolved Cursor Bugbot findings, then fix them on the existing PR branches. Use when asked to check active PRs, triage ready PRs, fix CI, or address Bugbot comments.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "3e7d6cd7c632a337200278670713617ee6f66b37",
+                    "bytes": 5040,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 63365510,
+                        "login": "ComputelessComputer",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "migrate-to-sqlite-1e3a5a2593cc",
+            "path": ".agents/skills/migrate-to-sqlite/SKILL.md",
+            "name": "migrate-to-sqlite",
+            "description": "Migrate a TinyBase table to SQLite. Use when asked to move a data domain (e.g. templates, vocabs) from the TinyBase store to the app SQLite database.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "0a8a10ec3fd8e656e6f8ccc01d0553b6c2f21575",
+                    "bytes": 8413,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 61503739,
+                        "login": "yujonglee",
+                        "commits": 5
+                    },
+                    {
+                        "id": 63365510,
+                        "login": "ComputelessComputer",
+                        "commits": 4
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "new-changelog-29d5fc47e3c2",
+            "path": ".agents/skills/new-changelog/SKILL.md",
+            "name": "new-changelog",
+            "description": "Create stable or Nightly desktop changelogs. Keep stable entries under packages/changelog/content for website publication and Nightly notes in packages/changelog/nightly.md for app and GitHub release snapshots.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "aec9610dd0189c0de7450d2a85cff79b662d1009",
+                    "bytes": 3489,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 63365510,
+                        "login": "ComputelessComputer",
+                        "commits": 6
+                    },
+                    {
+                        "id": 61503739,
+                        "login": "yujonglee",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "product-update-newsletter-8d17b497b90f",
+            "path": ".agents/skills/product-update-newsletter/SKILL.md",
+            "name": "product-update-newsletter",
+            "description": "Draft, update, or audit a crisp, changelog-grounded Anarlog product-update newsletter in Loops (app.loops.so) for a desktop release. Use after the changelog is merged, when asked to draft, revise, or pre-send check the release announcement email.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "efdc8fca1cfef49e855bda789df5aad043418e3b",
+                    "bytes": 12059,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "nightly-announcement.md",
+                    "blob": "e24d6a7890ce6ad1a6707bb9496c1aa582f0c29a",
+                    "bytes": 774,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 63365510,
+                        "login": "ComputelessComputer",
+                        "commits": 4
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "qa-cli-mcp-api-6bb176c1df44",
+            "path": ".agents/skills/qa-cli-mcp-api/SKILL.md",
+            "name": "qa-cli-mcp-api",
+            "description": "Select and run explicitly requested, risk-based QA for Anarlog's CLI, webhooks, stdio MCP, hosted Cloud API, and remote MCP. Test only affected lanes unless comprehensive coverage is requested.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "9dc46448968ae359ddd5fc5162c6ab160867433f",
+                    "bytes": 13413,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 63365510,
+                        "login": "ComputelessComputer",
+                        "commits": 7
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "qa-critical-ux-54e10c084a0d",
+            "path": ".agents/skills/qa-critical-ux/SKILL.md",
+            "name": "qa-critical-ux",
+            "description": "QA Anarlog's critical Pro user journey on a signed staging candidate — onboarding, responsive launch, microphone and system-audio capture, automated summaries, and cloud sync.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b1498c7567d93621f64f5d6464359a004296ae42",
+                    "bytes": 5776,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/reset-native-qa-permissions.sh",
+                    "blob": "8cbb35a7c837f0275d7658682906a186d2d03ff5",
+                    "bytes": 826,
+                    "text": true,
+                    "mode": "100755"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 63365510,
+                        "login": "ComputelessComputer",
+                        "commits": 22
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "reactive-sqlite-ui-8e58d2fe76e7",
+            "path": ".agents/skills/reactive-sqlite-ui/SKILL.md",
+            "name": "reactive-sqlite-ui",
+            "description": "Build SQLite-backed reactive UI in `apps/desktop` using stable patterns for reads, selection, forms, writes, and loading states. Use when implementing or reviewing screens built on `useDrizzleLiveQuery` and SQLite mutations.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "590d366d351b4beede2801e58ea3368193651a3b",
+                    "bytes": 2793,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 63365510,
+                        "login": "ComputelessComputer",
+                        "commits": 1
+                    },
+                    {
+                        "id": 61503739,
+                        "login": "yujonglee",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "release-new-version-8637d8ef18f3",
+            "path": ".agents/skills/release-new-version/SKILL.md",
+            "name": "release-new-version",
+            "description": "Prepare Anarlog Nightly builds and promote tested desktop stable versions with current CLI, local and hosted MCP, API, agent packages, and documentation. Deploy any required hosted services during the release. Validate and merge release updates before publishing. Distribute mobile builds when requested.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d8cecfadc93dd53c8f5138dfa5aeb4aa94a73427",
+                    "bytes": 36656,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 63365510,
+                        "login": "ComputelessComputer",
+                        "commits": 23
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "sqlite-schema-design-aab684e963a5",
+            "path": ".agents/skills/sqlite-schema-design/SKILL.md",
+            "name": "sqlite-schema-design",
+            "description": "Design or review schemas for `crates/cloudsync` using SQLite Sync constraints, not generic SQLite advice. Use when adding synced tables, changing synced columns, or planning CloudSync-safe migrations.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "efffe05500c1ebb4ea35ccf68a83c033b43f69ff",
+                    "bytes": 7612,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 63365510,
+                        "login": "ComputelessComputer",
+                        "commits": 1
+                    },
+                    {
+                        "id": 61503739,
+                        "login": "yujonglee",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "fix-ready-prs-f3475f83802a",
+            "path": ".claude/skills/fix-ready-prs/SKILL.md",
+            "name": "fix-ready-prs",
+            "description": "Inspect every open non-draft PR for CI failures and unresolved Cursor Bugbot findings, then fix them on the existing PR branches. Use when asked to check active PRs, triage ready PRs, fix CI, or address Bugbot comments.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "243780c7e1cbdf53ab97884d63be648127f8238e",
+                    "bytes": 604,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 63365510,
+                        "login": "ComputelessComputer",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "product-update-newsletter-b9600394e437",
+            "path": ".claude/skills/product-update-newsletter/SKILL.md",
+            "name": "product-update-newsletter",
+            "description": "Draft, update, or audit a crisp, changelog-grounded Anarlog product-update newsletter in Loops for a desktop release.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "6dfc6a9ac929f6227abec2cbfe486a4ea9cc288b",
+                    "bytes": 561,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 63365510,
+                        "login": "ComputelessComputer",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "qa-critical-ux-3723ecb1c1d9",
+            "path": ".claude/skills/qa-critical-ux/SKILL.md",
+            "name": "qa-critical-ux",
+            "description": "QA the critical Pro user journey before a desktop release — onboards from scratch, launches without hanging, captures microphone and system audio, produces an automated summary, and restores the note from cloud sync. Use before cutting a stable release or when asked to QA the app.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "3a0f3362feeffe49fe9880a7645798cb6b24633b",
+                    "bytes": 671,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 63365510,
+                        "login": "ComputelessComputer",
+                        "commits": 4
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "release-new-version-34472005894f",
+            "path": ".claude/skills/release-new-version/SKILL.md",
+            "name": "release-new-version",
+            "description": "Release a new desktop stable version for Anarlog after checking and merging the changelog.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "c6750f2fbdd4a2eb773c8ceeb26ad16da0b120da",
+                    "bytes": 517,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 63365510,
+                        "login": "ComputelessComputer",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "new-changelog-382ae0a8a783",
+            "path": ".cursor/skills/new-changelog/SKILL.md",
+            "name": "new-changelog",
+            "description": "Create the next desktop changelog entry when asked to add a changelog file or prepare the next release note under `packages/changelog/content`. Use this when the task is specifically about determining the next version and creating the markdown entry.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "848f87573796cd3cd627b87840fafdc67aa32ad0",
+                    "bytes": 635,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 63365510,
+                        "login": "ComputelessComputer",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "qa-cli-mcp-api-44f8420f75a7",
+            "path": ".cursor/skills/qa-cli-mcp-api/SKILL.md",
+            "name": "qa-cli-mcp-api",
+            "description": "Select and run explicitly requested, risk-based QA for Anarlog's CLI, webhooks, stdio MCP, hosted Cloud API, and remote MCP. Test only affected lanes unless comprehensive coverage is requested.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "2f257cc0b174587ec52ab397aee4aad9266fcf40",
+                    "bytes": 562,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 63365510,
+                        "login": "ComputelessComputer",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "qa-critical-ux-88bb66ff33c0",
+            "path": ".cursor/skills/qa-critical-ux/SKILL.md",
+            "name": "qa-critical-ux",
+            "description": "QA Anarlog's critical Pro user journey when explicitly asked — onboarding, responsive launch, microphone and system-audio capture, automated summaries, and cloud sync.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ff6d91707daa5c2ef62891a78e74bc9660b062f5",
+                    "bytes": 557,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 63365510,
+                        "login": "ComputelessComputer",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "release-new-version-84aef57dac5a",
+            "path": ".cursor/skills/release-new-version/SKILL.md",
+            "name": "release-new-version",
+            "description": "Release a new desktop stable version for Anarlog. Use when asked to cut, publish, or prepare a new stable desktop release after checking and merging the changelog.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "8dba3cb8ad4f62fdeea164c394ea029fcc5e20fa",
+                    "bytes": 590,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 63365510,
+                        "login": "ComputelessComputer",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "anarlog-174d97d7dacb",
+            "path": "agent-plugins/anarlog/skills/anarlog/SKILL.md",
+            "name": "anarlog",
+            "description": "Query Anarlog meetings, notes, summaries, transcripts, participants, action items, and recurring history. Use when a user asks about their Anarlog meeting data or needs meeting context for another task.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "fb76b25be185803b2f8da73c9b0c2e794d4b86b1",
+                    "bytes": 3309,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/cli.md",
+                    "blob": "66a2ee6f0f82ef40a2b88f3439345bd63a2aec4f",
+                    "bytes": 2830,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/errors.md",
+                    "blob": "e86f1cca88dd967ad7e40460031bd79b12c0e8dd",
+                    "bytes": 1974,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/mcp.md",
+                    "blob": "c27e6e5d0c0b58e7ce7561d2cc4d5dbced0302b0",
+                    "bytes": 2548,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/setup.md",
+                    "blob": "b19038f82d1d9e995c604b9bb81b7418d364a095",
+                    "bytes": 2405,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 63365510,
+                        "login": "ComputelessComputer",
+                        "commits": 4
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "anarlog-95c1904e9db9",
+            "path": "skills/anarlog/SKILL.md",
+            "name": "anarlog",
+            "description": "Query Anarlog meetings, notes, summaries, transcripts, participants, action items, and recurring history. Use when a user asks about their Anarlog meeting data or needs meeting context for another task.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "fb76b25be185803b2f8da73c9b0c2e794d4b86b1",
+                    "bytes": 3309,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/cli.md",
+                    "blob": "66a2ee6f0f82ef40a2b88f3439345bd63a2aec4f",
+                    "bytes": 2830,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/errors.md",
+                    "blob": "e86f1cca88dd967ad7e40460031bd79b12c0e8dd",
+                    "bytes": 1974,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/mcp.md",
+                    "blob": "c27e6e5d0c0b58e7ce7561d2cc4d5dbced0302b0",
+                    "bytes": 2548,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/setup.md",
+                    "blob": "b19038f82d1d9e995c604b9bb81b7418d364a095",
+                    "bytes": 2405,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 63365510,
+                        "login": "ComputelessComputer",
+                        "commits": 5
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "363405bb16adc6441995a0e0d73128ee5ae5d9ec",
+        "bytes": 21172,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "ba16e1f5cd2e7bbe4ab64b6eff901c57f94ac20e",
+        "bytes": 1079,
+        "text": true,
+        "mode": "100644"
+    }
+}

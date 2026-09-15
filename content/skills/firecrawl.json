@@ -1,0 +1,227 @@
+{
+    "version": 1,
+    "slug": "firecrawl",
+    "repository": "firecrawl/firecrawl",
+    "branch": "main",
+    "sha": "36da7a6a53863597f3dc51ec6e3728a340f4e58e",
+    "scannedAt": "2026-09-15T01:39:05.100Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "firecrawl-build-interact-ce8f5c4421eb",
+            "path": "skills/firecrawl-build-interact/SKILL.md",
+            "name": "firecrawl-build-interact",
+            "description": "Integrate Firecrawl `/interact` into product code for dynamic pages and browser actions after scraping. Use when a feature needs clicks, form fills, pagination, authentication-aware flows, or other multi-step interactions that plain `/scrape` cannot complete.",
+            "license": "ISC",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "66bcf97b6a36ce1b85f3d0c25716e0c349a5e422",
+                    "bytes": 2924,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 71162231,
+                        "login": "chenxin-yan",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "firecrawl-build-onboarding-cffa33c2be46",
+            "path": "skills/firecrawl-build-onboarding/SKILL.md",
+            "name": "firecrawl-build-onboarding",
+            "description": "Get Firecrawl credentials and SDK setup into a project. Use when an application needs `FIRECRAWL_API_KEY`, when an agent should add Firecrawl to `.env`, when the user wants to authenticate Firecrawl for app code, or when choosing the first SDK and docs for a new Firecrawl integration. This skill includes its own browser auth flow, so it does not depend on the website onboarding skill.",
+            "license": "ISC",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ae3d3cb7f22487804546cd47951184417a252774",
+                    "bytes": 4579,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/auth-flow.md",
+                    "blob": "54722dd05b0e23dc5e6373c1a4e7b45f691bd488",
+                    "bytes": 1062,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/project-setup.md",
+                    "blob": "ac083147ac9dc0db00604b39bc86c952b1f054f2",
+                    "bytes": 495,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/sdk-installation.md",
+                    "blob": "6e0a9fac352b4c8d0b91a0506376c4cf5db747ff",
+                    "bytes": 330,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 71162231,
+                        "login": "chenxin-yan",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "firecrawl-build-scrape-11ef1762f134",
+            "path": "skills/firecrawl-build-scrape/SKILL.md",
+            "name": "firecrawl-build-scrape",
+            "description": "Integrate Firecrawl `/scrape` into product code for single-page extraction. Use when an app already has a URL and needs markdown, HTML, links, screenshots, metadata, or structured page output. Prefer this skill over broader crawl patterns when the feature is page-level.",
+            "license": "ISC",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "deb25772c77237c7d43baf601e83422f4ad4678d",
+                    "bytes": 3776,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/freshness-and-liveness.md",
+                    "blob": "b598ce89b03ccc64aead0a34bf1a762c25e97613",
+                    "bytes": 2345,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 71162231,
+                        "login": "chenxin-yan",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "firecrawl-build-search-e2330d5b2865",
+            "path": "skills/firecrawl-build-search/SKILL.md",
+            "name": "firecrawl-build-search",
+            "description": "Integrate Firecrawl `/search` into product code and agent workflows. Use when an app needs discovery before extraction, when the feature starts with a query instead of a URL, or when the system should search the web and optionally hydrate result content.",
+            "license": "ISC",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "5595695e47cd703e429a899523650c6abd743178",
+                    "bytes": 4295,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 71162231,
+                        "login": "chenxin-yan",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "firecrawl-build-ea040f3073d6",
+            "path": "skills/firecrawl-build/SKILL.md",
+            "name": "firecrawl-build",
+            "description": "Integrate Firecrawl into application code whenever a product, agent, or workflow needs web data inside the app — web search, live search results, page scraping, structured extraction, or browser interaction. Use when building any feature that needs data from the web in code, even if the user does not mention Firecrawl explicitly and only describes wanting web data, website content, search, scraping, or interaction in an application. Trigger for Firecrawl requests, \"fire girl\" shorthand, and generic app-level web-data needs that should map to `/scrape`, `/search`, or `/interact`. Do not use this skill for one-off terminal-only web tasks during the current session; use `firecrawl/cli` for those.",
+            "license": "ISC",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "2d190209c1f0c50392ada4c9ae09604a334cb13d",
+                    "bytes": 8302,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/auth-and-env.md",
+                    "blob": "6e6e249fee8dc7d13b03cdca8e069f050aa5b4f6",
+                    "bytes": 524,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/endpoint-selection.md",
+                    "blob": "78fb9c2d8a5686052e40e095ad72a61cef6945d4",
+                    "bytes": 2210,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/integration-patterns.md",
+                    "blob": "439ccd7408180ae507d345f106e84d9425795f70",
+                    "bytes": 1044,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/project-intake.md",
+                    "blob": "686a1cc855695710b6d7cf221d527a411a8782da",
+                    "bytes": 1289,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/sdk-installation.md",
+                    "blob": "f562af104e48162f85088e58e0b14fe05d912bfb",
+                    "bytes": 1545,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/verification.md",
+                    "blob": "fbf3783416f4d585f5f02f7d7ae0891c0cb6df54",
+                    "bytes": 1067,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 71162231,
+                        "login": "chenxin-yan",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "fb2ac4163230c142a0729f4100d67dab8065f255",
+        "bytes": 1464,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "c3670aecd9a8bce47d9be8daa62811a99b809113",
+        "bytes": 35064,
+        "text": true,
+        "mode": "100644"
+    }
+}

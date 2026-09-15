@@ -1,0 +1,13 @@
+{
+    "slug": "langflow",
+    "sha": "38e1fdbc08b8ef85bbf81ed1438e3fed5142c735",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 11859,
+            "lines": 243
+        }
+    ]
+}
