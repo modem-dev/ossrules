@@ -1,0 +1,458 @@
+{
+    "version": 1,
+    "slug": "effect",
+    "repository": "Effect-TS/effect",
+    "branch": "main",
+    "sha": "90695b0d5bee3aa33e67cbea1aa2e6298816a64f",
+    "scannedAt": "2026-09-15T12:12:09.631Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "ai-docs-90892aa2bdb7",
+            "path": ".agents/skills/ai-docs/SKILL.md",
+            "name": "ai-docs",
+            "description": "AI documentation. Use when editing ai-docs/src or regenerating LLMS.md.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "02e675733032313367d08d1c08fd0652ebc128df",
+                    "bytes": 688,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1172528,
+                        "login": "fubhy",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "bundle-analysis-03dff0218d12",
+            "path": ".agents/skills/bundle-analysis/SKILL.md",
+            "name": "bundle-analysis",
+            "description": "Bundle analysis. Use when measuring current bundle size, comparing stable or selected fixtures, inspecting composition, or cleaning retained comparison state.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "28d88976e108f40c50e08f9b4c1314b77986d91f",
+                    "bytes": 1440,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1172528,
+                        "login": "fubhy",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "changesets-5744419d5de8",
+            "path": ".agents/skills/changesets/SKILL.md",
+            "name": "changesets",
+            "description": "Changesets. Use after consumer-visible runtime, public API, entrypoint, lifecycle, or wire-format changes, when deciding whether a change is breaking, or when authoring changesets and consumer release notes.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "0f4186cfc2fa474fb52b000f0d15ba900dc7167d",
+                    "bytes": 2854,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "authoring.md",
+                    "blob": "cb8fcb99c665bc543c57aeb1252029421aa92994",
+                    "bytes": 1287,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1172528,
+                        "login": "fubhy",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "ci-maintenance-9090184ebf63",
+            "path": ".agents/skills/ci-maintenance/SKILL.md",
+            "name": "ci-maintenance",
+            "description": "GitHub Actions maintenance. Use when authoring or reviewing workflows or composite actions, especially event, permission, action-reference, artifact, setup, or concurrency changes.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "bfabe0b4d9c113b6f363609c66a588390e7bb94a",
+                    "bytes": 2712,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "privileged-workflows.md",
+                    "blob": "3cc61cd8f8b5b65b701c60f72ecf40beb35bddd3",
+                    "bytes": 1049,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1172528,
+                        "login": "fubhy",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "dependency-maintenance-7ab438d0e5e5",
+            "path": ".agents/skills/dependency-maintenance/SKILL.md",
+            "name": "dependency-maintenance",
+            "description": "Dependency maintenance. Use when adding, moving, or upgrading dependencies, changing pnpm or JavaScript runtimes, updating TypeScript or build/test tools, or changing native-build policy, patches, or test images.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "5a409b3ad3d93779a216d4c56e9f29281a0d134a",
+                    "bytes": 2729,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "coordinated-upgrades.md",
+                    "blob": "8bb028021c966096b4350af9a96ea7f4ba5642d0",
+                    "bytes": 2577,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "manifest-roles.md",
+                    "blob": "0023a32f9faba7e7ce4d4c6b967107344e4fcf1b",
+                    "bytes": 2138,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1172528,
+                        "login": "fubhy",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "effect-development-9487db8eeeb0",
+            "path": ".agents/skills/effect-development/SKILL.md",
+            "name": "effect-development",
+            "description": "Effect development guidance. Use when implementing or reviewing code that composes Effect APIs or patterns.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "079f8e08db501c839b895c285c50a4c52d4db750",
+                    "bytes": 721,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1172528,
+                        "login": "fubhy",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "jsdocs-aa06944cb171",
+            "path": ".agents/skills/jsdocs/SKILL.md",
+            "name": "jsdocs",
+            "description": "Public API JSDoc. Use when authoring or reviewing Effect API documentation, refining a module's documentation, or fixing documentation related diagnostics.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "dac9327eedbda2d8055c01ce9bc9a421b6dc33da",
+                    "bytes": 1777,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "categories.md",
+                    "blob": "1b0817e5755b12a2f33adda61e102a285bd97af1",
+                    "bytes": 1234,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "declarations.md",
+                    "blob": "62937bd366b3e2d4a8309f386b2da588065cfd93",
+                    "bytes": 2913,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "examples.md",
+                    "blob": "2b78e6daf82259aecb0743eeda16b0e655e5b5f2",
+                    "bytes": 1225,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1172528,
+                        "login": "fubhy",
+                        "commits": 8
+                    },
+                    {
+                        "id": 878912,
+                        "login": "gcanti",
+                        "commits": 5
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "migration-guidance-f916e16306e5",
+            "path": ".agents/skills/migration-guidance/SKILL.md",
+            "name": "migration-guidance",
+            "description": "Use when changing how a v3 public API maps to v4, editing migration annotations, or regenerating migration/v3-to-v4.md.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "752cba35e541d3183ad5a075b8528b5697c4bcc8",
+                    "bytes": 1129,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "annotations.md",
+                    "blob": "ac5a1ca8870a2286cd1540574490e71baa869809",
+                    "bytes": 547,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "generation.md",
+                    "blob": "2eeb6155c61ee0df9d93dffae0b510edffe84355",
+                    "bytes": 574,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1172528,
+                        "login": "fubhy",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "package-development-6716900d82f0",
+            "path": ".agents/skills/package-development/SKILL.md",
+            "name": "package-development",
+            "description": "Package registration. Use when adding a workspace package, making a private package publishable, renaming a package, or moving its workspace path.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "5b419895e5ad452eedcf4f000d52e68331c66baa",
+                    "bytes": 1959,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "dependencies.md",
+                    "blob": "45dd603f3468c2c883fb4e530245e10a3c4a507c",
+                    "bytes": 2166,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "publishing.md",
+                    "blob": "0058c874fd16926ce3c2b842df0355be31899515",
+                    "bytes": 921,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "registration.md",
+                    "blob": "5fdf21a32497990bab3969484d10a732ad44a524",
+                    "bytes": 4390,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1172528,
+                        "login": "fubhy",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "performance-analysis-f43211f2d3b3",
+            "path": ".agents/skills/performance-analysis/SKILL.md",
+            "name": "performance-analysis",
+            "description": "Performance analysis. Use for runtime throughput or latency benchmarks, TypeScript compiler cost, performance regressions, comparison harnesses, or thresholds.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d21e7f4b3ac1f3e7b270fe937cb2e157fd325443",
+                    "bytes": 692,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "runtime.md",
+                    "blob": "501b5c900d0f243bd3ccfdc8e004f4a7dff969c4",
+                    "bytes": 1080,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "types.md",
+                    "blob": "2028c2d6b51221691fe4783ab4e06269bef24998",
+                    "bytes": 928,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1172528,
+                        "login": "fubhy",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "test-development-2f654bec3a65",
+            "path": ".agents/skills/test-development/SKILL.md",
+            "name": "test-development",
+            "description": "Test development. Use when adding or changing runtime Vitest coverage or Tstyche contracts for behavior, inference, assignability, or displayed public types.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "3c6082e7cab77fbb9cdf34dfb5c43a16788caf7a",
+                    "bytes": 579,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "displayed-types.md",
+                    "blob": "6edcc977a0096a9f85dc69ba01558ba1f50b9e1e",
+                    "bytes": 593,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "runtime.md",
+                    "blob": "864755bef9361296c1e9b2aace8f76e4d19cac1c",
+                    "bytes": 617,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "types.md",
+                    "blob": "3bc747789ef52bdf6c4d139caabac448cff9aabf",
+                    "bytes": 723,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1172528,
+                        "login": "fubhy",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "vendored-assets-2c58f2a5d53b",
+            "path": ".agents/skills/vendored-assets/SKILL.md",
+            "name": "vendored-assets",
+            "description": "Vendored assets. Use when importing or updating checked-in third-party or externally generated JavaScript, CSS, registries, schemas, snapshots, or Scalar, Swagger, and MIME artifacts.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "6c84d0a8266817d9e7d9eeda5cd4ab18482d371e",
+                    "bytes": 2934,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "browser-assets.md",
+                    "blob": "a95b21fe727d5de7be530dbdac6cee5ec7068f57",
+                    "bytes": 510,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1172528,
+                        "login": "fubhy",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": ".agents/AGENTS.md",
+        "blob": "1f33cf814c6043175252089e357da8e433ccd786",
+        "bytes": 2604,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "be1f5c14c7b3bc63d9ae786dca566728999d3808",
+        "bytes": 1083,
+        "text": true,
+        "mode": "100644"
+    }
+}

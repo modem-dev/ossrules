@@ -1,0 +1,150 @@
+{
+    "slug": "kody",
+    "name": "Kody",
+    "owner": "kentcdodds",
+    "repo": "kody",
+    "tagline": "A personal assistant that keeps each user’s memory, tools, secrets, and automations isolated.",
+    "language": "TypeScript",
+    "stars": 628,
+    "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "79a9a1fc40a89aa5cc331762c3263dd35ba530c3",
+        "date": "2026-09-12T16:11:21Z"
+    },
+    "evaluatedAt": "2026-09-15",
+    "file": {
+        "bytes": 4267,
+        "lines": 73,
+        "words": 318,
+        "headings": 2,
+        "bullets": 38,
+        "codeBlocks": 0,
+        "docLinks": 30
+    },
+    "references": [
+        {
+            "path": "docs/contributing/index.md"
+        },
+        {
+            "path": "docs/contributing/friction-log.md"
+        },
+        {
+            "path": "docs/contributing/project-intent.md"
+        },
+        {
+            "path": "docs/contributing/decisions/index.md"
+        },
+        {
+            "path": "docs/contributing/setup/index.md"
+        },
+        {
+            "path": "docs/contributing/preview-manual-testing.md"
+        },
+        {
+            "path": ".agents/skills/preview-manual-test/SKILL.md"
+        },
+        {
+            "path": "docs/contributing/control-kody.md"
+        },
+        {
+            "path": ".agents/skills/control-kody/SKILL.md"
+        },
+        {
+            "path": "docs/contributing/documentation.md"
+        },
+        {
+            "path": "docs/contributing/code-style.md"
+        },
+        {
+            "path": "docs/contributing/import-boundaries.md"
+        },
+        {
+            "path": "docs/contributing/testing-principles.md"
+        },
+        {
+            "path": "docs/contributing/end-to-end-testing.md"
+        },
+        {
+            "path": "docs/contributing/harness-engineering.md"
+        },
+        {
+            "path": "docs/contributing/oxlint-js-plugins.md"
+        },
+        {
+            "path": "docs/contributing/remix.md"
+        },
+        {
+            "path": ".agents/skills/remix/SKILL.md"
+        },
+        {
+            "path": "docs/contributing/no-flash-navigation.md"
+        },
+        {
+            "path": "docs/contributing/cloudflare-agents-sdk.md"
+        },
+        {
+            "path": "docs/contributing/adding-capabilities.md"
+        },
+        {
+            "path": "docs/contributing/getting-started.md"
+        },
+        {
+            "path": "docs/contributing/environment-variables.md"
+        },
+        {
+            "path": "docs/contributing/setup-manifest.md"
+        },
+        {
+            "path": "docs/contributing/architecture/index.md"
+        },
+        {
+            "path": "docs/use/webhooks.md"
+        },
+        {
+            "path": "docs/contributing/architecture/webhooks.md"
+        },
+        {
+            "path": ".agents/skills/visual-recap/SKILL.md"
+        },
+        {
+            "path": "docs/contributing/cloud-agents.md"
+        }
+    ],
+    "hook": "A 73-line index routes proposals through decision records and higher-risk changes through realistic preview testing.",
+    "summary": "Kody keeps its root instructions as a navigation layer over focused contributor documentation and skills. The index names one authoritative validation command, directs new product surfaces through prior decisions, and separates preview testing and cloud-agent setup from general repository guidance.",
+    "patterns": ["single-source", "skill-routing"],
+    "techniques": [
+        {
+            "title": "Use one authoritative local gate",
+            "body": "The index names a single validation command instead of repeating the individual checks it contains. Contributors have one place to start, while detailed setup and testing guidance remains in linked documents.",
+            "quote": "`npm run validate` is the single authoritative local gate.",
+            "pattern": "single-source"
+        },
+        {
+            "title": "Read prior decisions before proposing a new surface",
+            "body": "Decision records are presented as a list of steering vetoes, with a trigger to read them before proposing a primitive or surface. This routes design work through earlier constraints before implementation starts.",
+            "quote": "- Decision records (steering veto list — open before proposing a new primitive\n  or surface):\n  [docs/contributing/decisions/index.md](./docs/contributing/decisions/index.md)",
+            "pattern": "skill-routing"
+        },
+        {
+            "title": "Tie preview testing to risk and realistic state",
+            "body": "Manual preview testing is called out for medium- and high-risk work and specifies a logged-in user with data. The index pairs a contributor document with a dedicated skill so the workflow can be loaded when that work needs it.",
+            "quote": "- Manual PR preview testing (medium/high risk, logged-in user + data):\n- [docs/contributing/preview-manual-testing.md](./docs/contributing/preview-manual-testing.md)\n  and the\n  [preview-manual-test skill](./.agents/skills/preview-manual-test/SKILL.md)",
+            "pattern": "skill-routing"
+        },
+        {
+            "title": "Move cloud-environment gotchas into a focused guide",
+            "body": "The cloud-specific section names runtime setup, browser-install hangs, seeding, and local limitations. It sends those environment details to a separate reference rather than mixing them into every contributor instruction.",
+            "quote": "Cloud Agent VM gotchas (Node 26 on `PATH`, the Playwright browser-install hang\nand manual workaround, dev server, seeding, and local limitations) live in a\ndedicated reference:",
+            "pattern": "skill-routing"
+        }
+    ],
+    "steal": [
+        "Expose a single authoritative local validation command.",
+        "Route new design proposals through the decisions that constrain them.",
+        "Specify realistic user state and a risk threshold for manual preview tests.",
+        "Keep environment-specific setup and failure workarounds in a dedicated guide."
+    ],
+    "outline": ["Cursor Cloud-specific instructions"],
+    "instructionFile": "AGENTS.md"
+}

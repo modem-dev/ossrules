@@ -1,0 +1,56 @@
+{
+    "slug": "effect",
+    "name": "Effect",
+    "owner": "Effect-TS",
+    "repo": "effect",
+    "tagline": "A TypeScript library for composing applications with typed effects, concurrency, and resource management.",
+    "language": "TypeScript",
+    "stars": 16057,
+    "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "078cdbf6a37d209819ad504274fe72e1080573e0",
+        "date": "2026-08-27T09:31:58Z"
+    },
+    "evaluatedAt": "2026-09-15",
+    "file": {
+        "bytes": 2604,
+        "lines": 46,
+        "words": 321,
+        "headings": 3,
+        "bullets": 7,
+        "codeBlocks": 0,
+        "docLinks": 0
+    },
+    "references": [],
+    "hook": "Validation distinguishes type tests, JSDoc text, and runnable examples; generated-file rules apply only to marked sections.",
+    "summary": "Effect keeps its contributor instructions in .agents/AGENTS.md. The guide maps change types to focused validation and describes which source files own generated outputs. It also draws two boundaries that prevent overbroad work: avoid watch-mode full suites, and preserve hand-maintained index files and unmarked sections.",
+    "patterns": ["verification-matrix", "hard-prohibition", "generated-file-guard"],
+    "techniques": [
+        {
+            "title": "Distinguish type checks, prose, and executable examples",
+            "body": "The validation table gives API type changes, JSDoc text changes, and JSDoc examples different commands. Documentation-only work does not need tests unless examples or code changed.",
+            "quote": "Use the narrowest validation that covers the change:\n\n| Change type                      | Validation                                                                         |\n| -------------------------------- | ---------------------------------------------------------------------------------- |\n| Code changes                     | `pnpm lint-fix`, targeted `pnpm test --run <test_file.ts>`, `pnpm check`           |\n| Tests-only changes               | `pnpm lint-fix`, targeted `pnpm test --run <test_file.ts>`, `pnpm check`           |\n| Type-level/API type changes      | Targeted `pnpm test-types <filename>`, plus `pnpm check` when source types changed |\n| JSDoc text/category/link changes | `pnpm jsdocs --check`, `pnpm lint`                                                 |\n| JSDoc example changes            | `pnpm jsdocs --check`, `pnpm lint`, root `pnpm doctest --run <files>`              |\n| Docs-only changes                | `pnpm lint-fix`; no tests unless examples or code changed                          |",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Prevent accidental watch-mode suites",
+            "body": "The guide explains why bare test commands are prohibited: they start the whole suite in watch mode. It requires explicit run mode and file selection, leaving the full suite to CI.",
+            "quote": "Never run bare `pnpm test` or `pnpm doctest`; both start the full suite in watch mode. Always pass `--run` and the\nspecific files covering the change. CI runs the full suite.",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Guard generated regions without freezing the whole file",
+            "body": "The barrel rule applies to marked sections, with an explicit exception for hand-maintained index files and unmarked sections. The following paragraph names the source directories for generated AI documentation and migration notes.",
+            "quote": "Some `index.ts` sections marked with `@barrel` are generated. Do not edit those\nsections manually; update their source modules and run `pnpm codegen`.\nHand-maintained `index.ts` files and unmarked sections are not covered by this\nrule.",
+            "pattern": "generated-file-guard"
+        }
+    ],
+    "steal": [
+        "Give type-level changes and executable documentation their own validation paths.",
+        "Name commands that unexpectedly start full suites or watch mode, and provide bounded alternatives.",
+        "Define generated regions precisely, including what remains hand-maintained.",
+        "Point each generated artifact at the source and command used to rebuild it."
+    ],
+    "outline": ["Layout", "Validation", "Generated Files"],
+    "instructionFile": ".agents/AGENTS.md"
+}

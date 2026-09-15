@@ -1,0 +1,13 @@
+{
+    "slug": "effect",
+    "sha": "078cdbf6a37d209819ad504274fe72e1080573e0",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".agents/AGENTS.md",
+            "bytes": 2604,
+            "lines": 46
+        }
+    ]
+}

@@ -1,0 +1,158 @@
+{
+    "slug": "kody",
+    "sha": "79a9a1fc40a89aa5cc331762c3263dd35ba530c3",
+    "license": "FSL-1.1",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".agents/skills/control-kody/SKILL.md",
+            "bytes": 2158,
+            "lines": 56
+        },
+        {
+            "path": ".agents/skills/preview-manual-test/SKILL.md",
+            "bytes": 2352,
+            "lines": 66
+        },
+        {
+            "path": ".agents/skills/remix/SKILL.md",
+            "bytes": 27677,
+            "lines": 594
+        },
+        {
+            "path": ".agents/skills/visual-recap/SKILL.md",
+            "bytes": 14358,
+            "lines": 337
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 4267,
+            "lines": 73
+        },
+        {
+            "path": "docs/contributing/adding-capabilities.md",
+            "bytes": 21344,
+            "lines": 497
+        },
+        {
+            "path": "docs/contributing/architecture/index.md",
+            "bytes": 14093,
+            "lines": 198
+        },
+        {
+            "path": "docs/contributing/architecture/webhooks.md",
+            "bytes": 11745,
+            "lines": 196
+        },
+        {
+            "path": "docs/contributing/cloud-agents.md",
+            "bytes": 9266,
+            "lines": 156
+        },
+        {
+            "path": "docs/contributing/cloudflare-agents-sdk.md",
+            "bytes": 9801,
+            "lines": 230
+        },
+        {
+            "path": "docs/contributing/code-style.md",
+            "bytes": 4662,
+            "lines": 106
+        },
+        {
+            "path": "docs/contributing/control-kody.md",
+            "bytes": 3486,
+            "lines": 77
+        },
+        {
+            "path": "docs/contributing/decisions/index.md",
+            "bytes": 10153,
+            "lines": 143
+        },
+        {
+            "path": "docs/contributing/documentation.md",
+            "bytes": 4686,
+            "lines": 82
+        },
+        {
+            "path": "docs/contributing/end-to-end-testing.md",
+            "bytes": 8140,
+            "lines": 162
+        },
+        {
+            "path": "docs/contributing/environment-variables.md",
+            "bytes": 31111,
+            "lines": 556
+        },
+        {
+            "path": "docs/contributing/friction-log.md",
+            "bytes": 6844,
+            "lines": 149
+        },
+        {
+            "path": "docs/contributing/getting-started.md",
+            "bytes": 5433,
+            "lines": 171
+        },
+        {
+            "path": "docs/contributing/harness-engineering.md",
+            "bytes": 3890,
+            "lines": 91
+        },
+        {
+            "path": "docs/contributing/import-boundaries.md",
+            "bytes": 3960,
+            "lines": 68
+        },
+        {
+            "path": "docs/contributing/index.md",
+            "bytes": 5109,
+            "lines": 101
+        },
+        {
+            "path": "docs/contributing/no-flash-navigation.md",
+            "bytes": 9193,
+            "lines": 206
+        },
+        {
+            "path": "docs/contributing/oxlint-js-plugins.md",
+            "bytes": 4324,
+            "lines": 101
+        },
+        {
+            "path": "docs/contributing/preview-manual-testing.md",
+            "bytes": 6082,
+            "lines": 139
+        },
+        {
+            "path": "docs/contributing/project-intent.md",
+            "bytes": 6817,
+            "lines": 138
+        },
+        {
+            "path": "docs/contributing/remix.md",
+            "bytes": 6012,
+            "lines": 113
+        },
+        {
+            "path": "docs/contributing/setup-manifest.md",
+            "bytes": 48702,
+            "lines": 784
+        },
+        {
+            "path": "docs/contributing/setup/index.md",
+            "bytes": 651,
+            "lines": 16
+        },
+        {
+            "path": "docs/contributing/testing-principles.md",
+            "bytes": 16023,
+            "lines": 257
+        },
+        {
+            "path": "docs/use/webhooks.md",
+            "bytes": 12897,
+            "lines": 346
+        }
+    ]
+}

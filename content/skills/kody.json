@@ -1,0 +1,576 @@
+{
+    "version": 1,
+    "slug": "kody",
+    "repository": "kentcdodds/kody",
+    "branch": "main",
+    "sha": "8beb6cdae5fa90c5bb6c1bd07cf2aff2386f45e0",
+    "scannedAt": "2026-09-15T12:12:14.271Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "cleanup-after-migrations-9c792d075ec5",
+            "path": ".agents/skills/cleanup-after-migrations/SKILL.md",
+            "name": "cleanup-after-migrations",
+            "description": "Clean up leftover code, schema, shims, dual-writes, compatibility aliases, feature flags, and docs after a migration or similar change. Use when you introduce transitional leftovers, leave a deprecated path, need a soak or follow-up migration before dropping something, or are finishing a migration runbook. Remove the leftover in the same change when it is safe; otherwise open a GitHub issue so it is not forgotten.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "e7b918eb9040a971b1f3776a129f1700a84b2242",
+                    "bytes": 1710,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1500684,
+                        "login": "kentcdodds",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "conduct-0dc551ba1bab",
+            "path": ".agents/skills/conduct/SKILL.md",
+            "name": "conduct",
+            "description": "Coordinate a fleet of cloud agents across separate environments for large multi-track programs (migrations, purges, upgrades). The conductor audits, partitions, spawns one agent per track, monitors, and QAs — but implements nothing. Use only when work needs multiple environments; otherwise load orchestrate or implement directly.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "a7b9073d0e39d6c4f7b8263ce32f1e3ac0e5fb54",
+                    "bytes": 5862,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1500684,
+                        "login": "kentcdodds",
+                        "commits": 9
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "control-kody-e7407dca8d51",
+            "path": ".agents/skills/control-kody/SKILL.md",
+            "name": "control-kody",
+            "description": "Drive and verify the Kody app with a Feature Map and one CLI. Use when changing UI, account routes, preview deploys, or proving a Cloud Agent change with a real origin, session, and /health SHA.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d6e22241a51ec6c26710fbe81ca698c1ba85be0a",
+                    "bytes": 2158,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/features/README.md",
+                    "blob": "9ec5acdb0387c6f9bda9a5bc7ecf847ae85d059e",
+                    "bytes": 2518,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/features/account.md",
+                    "blob": "fd0c0722d92d4ca0ce76a0e39c2f1e15d38df8d1",
+                    "bytes": 1827,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/features/activity.md",
+                    "blob": "739341ab3054d9e62242d8faedb27399a71e6cb8",
+                    "bytes": 457,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/features/admin.md",
+                    "blob": "d49c545c84f2159d66b1bf8f183b8eea8d15d2ad",
+                    "bytes": 1616,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/features/billing.md",
+                    "blob": "b634948d16fe04c50fd63f5c7eea5b9e7158e34d",
+                    "bytes": 1502,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/features/community.md",
+                    "blob": "3d515aa056cc0104aa7f30ae8e306ca43dde20e4",
+                    "bytes": 2488,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/features/connections.md",
+                    "blob": "7198a09da72c8e96f03f2ea803bdaecb4f12ea3b",
+                    "bytes": 2558,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/features/email.md",
+                    "blob": "62f98b5583b78eae6149de4c46cf3324c5c53080",
+                    "bytes": 1260,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/features/integrations.md",
+                    "blob": "56fa0bff1016e9eb47521a551c4699cedcccbc83",
+                    "bytes": 1082,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/features/jobs.md",
+                    "blob": "290788addda293a0f2eb7b387549572270040ba5",
+                    "bytes": 440,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/features/login.md",
+                    "blob": "18c3d337c60478ea58734c05165c7da76971fcfd",
+                    "bytes": 695,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/features/marketing.md",
+                    "blob": "07f8e5aa749160c91810c499e06823596c1ca041",
+                    "bytes": 1994,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/features/mcp-servers.md",
+                    "blob": "e0569014fb8dd235e094dcaceac6c443e74af11d",
+                    "bytes": 1097,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/features/memories.md",
+                    "blob": "f6d13ed778ef025b10ab922137c64b34f501a573",
+                    "bytes": 436,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/features/onboarding.md",
+                    "blob": "43d4729429ac12c5005764d200cd8dc7f5251c13",
+                    "bytes": 1915,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/features/packages.md",
+                    "blob": "cbc85c5e20296a42a179ddd27376b9255f420a01",
+                    "bytes": 5599,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/features/passkeys.md",
+                    "blob": "f0bf90fcbf598650fc7c1b76e6f947afbd358457",
+                    "bytes": 464,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/features/password-reset.md",
+                    "blob": "08368291d7dc8f7ee43fdba95219dfe63c96ae24",
+                    "bytes": 681,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/features/secrets.md",
+                    "blob": "bf60a91bd42ed996e26fa22db58224d0dc43d7ca",
+                    "bytes": 1102,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/features/shared.md",
+                    "blob": "1e54b032e20133a358dec7e294a87c597e97431c",
+                    "bytes": 1156,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/features/signup.md",
+                    "blob": "0ca25809a7426a7bcd9de8356467fe37d2a4b1b9",
+                    "bytes": 1118,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/features/two-factor.md",
+                    "blob": "f1141d52131de38bff6856d26112e0e3bfa20394",
+                    "bytes": 485,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/features/values.md",
+                    "blob": "2d3708567e310f323a7f29dd5c0c91b411f6b31d",
+                    "bytes": 445,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/features/waiting.md",
+                    "blob": "0a5aa005cb25df5cf165016089eb2b7ff0bda6bc",
+                    "bytes": 992,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/features/webhooks.md",
+                    "blob": "e39550a0729443adec746b4705561d5c1fa2e8d8",
+                    "bytes": 2494,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/features/workflows.md",
+                    "blob": "d0ec383df4f3cffe003195f9710c9cbbab53012b",
+                    "bytes": 468,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1500684,
+                        "login": "kentcdodds",
+                        "commits": 4
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "orchestrate-536b91ef4459",
+            "path": ".agents/skills/orchestrate/SKILL.md",
+            "name": "orchestrate",
+            "description": "Orchestrate sub-agents for large tasks inside a single environment: plan, delegate coding to cheap/fast models, parallelize the critical path, keep reviews lean, and close every loop. Use when acting as an orchestrator or writing a kickoff for one. Prefer implement when fan-out does not clearly pay. For multi-environment fleets, use conduct instead.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "de58578d379474b24a91e71022e18ab69e3cb9b8",
+                    "bytes": 2131,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1500684,
+                        "login": "kentcdodds",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "preview-manual-test-1a1a3e6bc513",
+            "path": ".agents/skills/preview-manual-test/SKILL.md",
+            "name": "preview-manual-test",
+            "description": "Discover, wait for, sign in, create specific user data, and assert a PR preview deploy. Use on medium or high risk PRs, after pushing a ready-for-review PR, or when the user asks to test the preview URL.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7a917ec0a7ddefd36d67221194bbb2a4d293098e",
+                    "bytes": 2352,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1500684,
+                        "login": "kentcdodds",
+                        "commits": 4
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "remix-8b1ca55bc87b",
+            "path": ".agents/skills/remix/SKILL.md",
+            "name": "remix",
+            "description": "Build and review Remix 3 applications using the `remix` npm package and subpath imports. Use when working on Remix app structure, routes, controllers, middleware, validation, data access, auth, sessions, file uploads, server setup, UI components, hydration, navigation, or tests.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "4944df9bcdab1c8ed3da98223e4113e013308159",
+                    "bytes": 27677,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/animate-elements.md",
+                    "blob": "344d6f643c1986ae6596bc23a385c3ac6f9e2943",
+                    "bytes": 5044,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/assets-and-browser-modules.md",
+                    "blob": "f91cc46c19ee58d040fa843f3511603edb9009a2",
+                    "bytes": 6560,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/auth-and-sessions.md",
+                    "blob": "0e5e54abcf24552b0d4b19925e0a155a0ffed369",
+                    "bytes": 11527,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/component-model.md",
+                    "blob": "91d61490d9eff1249c14de09c9f8ce6e52170a50",
+                    "bytes": 7537,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/create-mixins.md",
+                    "blob": "e0b7d6f4190ea0bca7baaddb56fadd01aa051865",
+                    "bytes": 4162,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/data-and-validation.md",
+                    "blob": "22a2f65d70baa846e9841c6a04ffca2e748e35e2",
+                    "bytes": 11270,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/hydration-frames-navigation.md",
+                    "blob": "7388375b181963877b08b470e43ed35af26e0fc8",
+                    "bytes": 11870,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/middleware-and-server.md",
+                    "blob": "f01ab1488778f67c3b50b41125d12a5f86bcd916",
+                    "bytes": 9593,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/mixins-styling-events.md",
+                    "blob": "7bb245011be767828b88bc9a97640252a90a6357",
+                    "bytes": 5811,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/routing-and-controllers.md",
+                    "blob": "2ec925838e4a787ce8f0a8447dd350fbdb7c2e46",
+                    "bytes": 9797,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/testing-patterns.md",
+                    "blob": "bdc944047daa65aa75dadd306ee2fa8d4d2068ad",
+                    "bytes": 4939,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1500684,
+                        "login": "kentcdodds",
+                        "commits": 4
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "review-and-recommend-ee7dedae5710",
+            "path": ".agents/skills/review-and-recommend/SKILL.md",
+            "name": "review-and-recommend",
+            "description": "Review data, issues, code, and git history; present options with effort; recommend one path and name the right fix (explain if they differ). Use before implementing when a decision needs evidence-backed options.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "577e27392f72092a070acb27aa119213fac74516",
+                    "bytes": 618,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1500684,
+                        "login": "kentcdodds",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "ship-pr-a4a503945457",
+            "path": ".agents/skills/ship-pr/SKILL.md",
+            "name": "ship-pr",
+            "description": "Babysit a PR: iterate with AI reviewers and CI until green, get it ready, optionally squash-merge as Kody and watch the deploy, then send a Discord summary. Medium risk waits for AI reviewer(s) and addresses valid feedback. Use when a pull request needs to be shepherded to done.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "741982b16a77d78f17505ec2d8c06a57c53cf98d",
+                    "bytes": 6292,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1500684,
+                        "login": "kentcdodds",
+                        "commits": 12
+                    },
+                    {
+                        "id": 199161495,
+                        "login": "cursoragent",
+                        "commits": 4
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "testing-multi-worker-dev-2d24699029b9",
+            "path": ".agents/skills/testing-multi-worker-dev/SKILL.md",
+            "name": "testing-multi-worker-dev",
+            "description": "How to run and test kody's multi-worker local dev (origin kody worker + kody-platform + kody-runtime + kody-jobs secondary configs), including known wrangler multi-config pitfalls (secondary worker env-name suffix, remote AI binding, .env secrets not propagated) and how to verify runtime-worker forwarding.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "50361478155c842d41148ef85592d0636b45acf4",
+                    "bytes": 6414,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1500684,
+                        "login": "kentcdodds",
+                        "commits": 8
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "visual-recap-4f6bd87ace81",
+            "path": ".agents/skills/visual-recap/SKILL.md",
+            "name": "visual-recap",
+            "description": "Generate and maintain the system recap block in a PR description - a GitHub-rendered visual summary of which system primitives a change touches, how risky it is, and what changed. Prefer mermaid sequence diagrams for the change; pick another graph type when it explains the diff better. Use when planning a non-trivial change (plan mode), when creating or updating a pull request (recap mode), or when the user asks for a visual recap, visual plan, system review, or PR recap.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "1a462d8ca4b3053cb0ce482df9a40f8375f56284",
+                    "bytes": 14358,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/check-primitives-map.mjs",
+                    "blob": "1e0f3ea81066c82bade52d5f875642949624a8f3",
+                    "bytes": 2152,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/classify-primitives.mjs",
+                    "blob": "321936dda9a76a0846feb3edaf00067f7830c69f",
+                    "bytes": 2785,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/primitives-map.mjs",
+                    "blob": "993ff22d283a246f0afe9cef6eff20c96c10091e",
+                    "bytes": 8328,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/primitives-map.node.test.ts",
+                    "blob": "cf7f5fc44b407a529463ec7540e1b7592bad786e",
+                    "bytes": 3055,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/upsert-recap-block.mjs",
+                    "blob": "b4e63563a2fbafbda5bd29e141517a2f233d239b",
+                    "bytes": 3485,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1500684,
+                        "login": "kentcdodds",
+                        "commits": 7
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "8785a80ac6a16bf431237feb5becb21008ed4d21",
+        "bytes": 4267,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "494c1c4ce9e10cfeea3368b5c6495a6b40288655",
+        "bytes": 3745,
+        "text": true,
+        "mode": "100644"
+    }
+}
