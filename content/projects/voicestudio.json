@@ -1,0 +1,106 @@
+{
+    "slug": "voicestudio",
+    "name": "VoiceStudio",
+    "owner": "debpalash",
+    "repo": "VoiceStudio",
+    "tagline": "A local desktop application for voice cloning, dubbing, transcription, and audio production.",
+    "language": "Python",
+    "stars": 30188,
+    "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "99a534882ccdb870f8b74fc4364c79f5a6279b49",
+        "date": "2026-09-09T13:25:19Z"
+    },
+    "evaluatedAt": "2026-09-15",
+    "file": {
+        "bytes": 4496,
+        "lines": 57,
+        "words": 632,
+        "headings": 10,
+        "bullets": 20,
+        "codeBlocks": 0,
+        "docLinks": 0
+    },
+    "references": [
+        {
+            "path": "CLAUDE.md"
+        },
+        {
+            "path": "docs/agents/issue-tracker.md"
+        },
+        {
+            "path": "docs/agents/triage-labels.md"
+        },
+        {
+            "path": "docs/agents/domain.md"
+        },
+        {
+            "path": "CONTEXT.md"
+        },
+        {
+            "path": "docs/adr/",
+            "kind": "pattern",
+            "label": "Architecture decision records"
+        },
+        {
+            "path": ".agents/skills/",
+            "kind": "pattern",
+            "label": "Pinned development skills"
+        }
+    ],
+    "hook": "Cross-platform parity means the same user-visible behavior, not the same hardware performance.",
+    "summary": "VoiceStudio uses AGENTS.md as a compact operating contract and names CLAUDE.md as the fuller authority when the two conflict. The contract turns platform parity, offline testing, review handling, and local-first behavior into concrete checks while routing tracker and domain details to separate documents.",
+    "patterns": ["house-vocabulary", "verification-matrix", "single-source", "contribution-etiquette", "hard-prohibition"],
+    "techniques": [
+        {
+            "title": "State the relationship between instruction files",
+            "body": "The opening sentence identifies the audience of AGENTS.md and the role of CLAUDE.md. It also makes the project's intended precedence explicit instead of leaving the two files to appear interchangeable.",
+            "quote": "Binding for every AI agent (Claude, Codex, Cursor, review bots, …). CLAUDE.md is the full constitution; this is the operating contract. When they conflict, CLAUDE.md wins."
+        },
+        {
+            "title": "Define parity in terms of what users can do",
+            "body": "Hardware acceleration is allowed to vary by host. The guide distinguishes that from a missing user-visible feature and rejects disabling a working optimization everywhere as a way to satisfy parity.",
+            "quote": "- The parity rule covers user-visible BEHAVIOUR. Hardware acceleration varies by host by design (CUDA/MPS/DirectML, Triton availability, `torch.compile`); skipping an optimization where it physically cannot work is not a parity violation.\n- Do not \"fix\" a parity finding by disabling a working optimization everywhere. That trades a real regression for a semantic one.\n- A feature the user can see and use on one OS but not another IS a violation. Judge by what the user can do, not by how fast it runs.",
+            "pattern": "house-vocabulary"
+        },
+        {
+            "title": "Test offline behavior without a warm cache",
+            "body": "The offline-test rule requires both an offline flag and an empty model cache. It names the reason: a populated development cache can hide the failure that CI will encounter.",
+            "quote": "- Tests and CI simulate CI honestly: `HF_HUB_OFFLINE=1` + empty `HF_HUB_CACHE` — a populated dev cache masks real failures.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Give mechanical rules to deterministic checks",
+            "body": "The file points at existing tests for changelog style, locale parity, version consistency, and CJK text. It directs the agent to read computed results before repeating their work.",
+            "quote": "- Mechanical rules live in deterministic tests, never in agent effort: changelog style (`tests/test_changelog_style.py`), locale parity (`tests/test_locale_parity.py`), version lockstep (`tests/test_app_version.py`), CJK (`tests/test_no_hardcoded_cjk.py`).",
+            "pattern": "single-source"
+        },
+        {
+            "title": "Re-evaluate stale branches under current checks",
+            "body": "The merge protocol warns that a green result from an older workflow is not evidence that current main will pass. It requires updating stale branches before evaluating their CI and watching the post-merge runs.",
+            "quote": "3. Merge current `main` into stale branches before judging their CI — PR-green under an old workflow ≠ main-green.\n4. Gate: \"Tests (backend + frontend)\" green + MERGEABLE.\n5. After EVERY merge: watch `main`'s own post-merge runs to green (`gh run list --branch main`). Red main = drop everything and fix.",
+            "pattern": "contribution-etiquette"
+        },
+        {
+            "title": "Route synthetic audio through one boundary",
+            "body": "The local-first rule bans new required network calls, gates model downloads, and names the shared synthetic-audio function. These are specific implementation boundaries for preserving the product promise.",
+            "quote": "- Local-first: no new required network calls; any HF download gated on installed-ness or explicit user action; all synthetic audio through the `mark_synthetic` chokepoint.",
+            "pattern": "hard-prohibition"
+        }
+    ],
+    "steal": [
+        "Describe how multiple instruction files relate and resolve conflicts.",
+        "Define cross-platform guarantees in observable behavior rather than machine speed.",
+        "Use empty caches when testing first-run and offline behavior.",
+        "Point mechanical checks at deterministic tests instead of asking agents to reproduce them.",
+        "Check integration results under the current workflow, not just an earlier branch snapshot."
+    ],
+    "outline": [
+        "Token economy (owner directive, 2026-07-20; tightened 2026-07-28)",
+        "Cross-platform parity: behaviour, not performance",
+        "Merge protocol (hard rules)",
+        "Change rules (see CLAUDE.md for full text)",
+        "Shared select controls",
+        "Agent skills"
+    ]
+}

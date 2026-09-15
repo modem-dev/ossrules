@@ -1,0 +1,29 @@
+{
+    "slug": "pierre",
+    "sha": "43c4783f330efe068f7248cc4f4417c4920da01c",
+    "license": "Apache-2.0",
+    "licensePath": "LICENSE.md",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 3957,
+            "lines": 103
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "AGENTS.md"
+                }
+            ]
+        },
+        {
+            "path": "CONTRIBUTING.md",
+            "bytes": 4487,
+            "lines": 105
+        }
+    ]
+}

@@ -1,0 +1,161 @@
+{
+    "slug": "paperclip",
+    "sha": "728f7185f6dcf2fda7a1286f6dd115573a02cd65",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".github/PULL_REQUEST_TEMPLATE.md",
+            "bytes": 4627,
+            "lines": 108
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 10407,
+            "lines": 225
+        },
+        {
+            "path": "CONTRIBUTING.md",
+            "bytes": 11760,
+            "lines": 192
+        },
+        {
+            "path": "DESIGN.md",
+            "bytes": 10554,
+            "lines": 94
+        },
+        {
+            "path": "doc/AGENT-ARTIFACTS.md",
+            "bytes": 5436,
+            "lines": 146
+        },
+        {
+            "path": "doc/connections/CONNECTOR-PLAYBOOK.md",
+            "bytes": 105763,
+            "lines": 2053,
+            "truncated": true
+        },
+        {
+            "path": "doc/DATABASE.md",
+            "bytes": 22045,
+            "lines": 403
+        },
+        {
+            "path": "doc/DEVELOPING.md",
+            "bytes": 84870,
+            "lines": 1442,
+            "truncated": true
+        },
+        {
+            "path": "doc/GOAL.md",
+            "bytes": 3703,
+            "lines": 58
+        },
+        {
+            "path": "doc/observability.md",
+            "bytes": 55391,
+            "lines": 846
+        },
+        {
+            "path": "doc/PRODUCT.md",
+            "bytes": 15994,
+            "lines": 201
+        },
+        {
+            "path": "doc/run-log-events.md",
+            "bytes": 9097,
+            "lines": 170
+        },
+        {
+            "path": "doc/SPEC-implementation.md",
+            "bytes": 102315,
+            "lines": 1680,
+            "truncated": true
+        },
+        {
+            "path": "doc/SPEC.md",
+            "bytes": 33136,
+            "lines": 597
+        },
+        {
+            "path": "packages/plugins/plugin-llm-wiki/agents/wiki-maintainer/AGENTS.md",
+            "bytes": 4687,
+            "lines": 65
+        },
+        {
+            "path": "packages/plugins/plugin-llm-wiki/templates/AGENTS.md",
+            "bytes": 7752,
+            "lines": 137
+        },
+        {
+            "path": "packages/shared/src/telemetry/README.md",
+            "bytes": 10736,
+            "lines": 198
+        },
+        {
+            "path": "packages/teams-catalog/catalog/bundled/company-defaults/core-exec-team/agents/ceo/AGENTS.md",
+            "bytes": 2492,
+            "lines": 51
+        },
+        {
+            "path": "packages/teams-catalog/catalog/bundled/company-defaults/core-exec-team/agents/cto/AGENTS.md",
+            "bytes": 1449,
+            "lines": 33
+        },
+        {
+            "path": "packages/teams-catalog/catalog/bundled/company-defaults/core-exec-team/agents/qa/AGENTS.md",
+            "bytes": 1307,
+            "lines": 31
+        },
+        {
+            "path": "packages/teams-catalog/catalog/bundled/product/product-design/agents/ux-designer/AGENTS.md",
+            "bytes": 2136,
+            "lines": 45
+        },
+        {
+            "path": "packages/teams-catalog/catalog/bundled/software-development/product-engineering/agents/cto/AGENTS.md",
+            "bytes": 1499,
+            "lines": 34
+        },
+        {
+            "path": "packages/teams-catalog/catalog/bundled/software-development/product-engineering/agents/qa/AGENTS.md",
+            "bytes": 1223,
+            "lines": 30
+        },
+        {
+            "path": "packages/teams-catalog/catalog/bundled/software-development/product-engineering/agents/senior-coder/AGENTS.md",
+            "bytes": 1413,
+            "lines": 35
+        },
+        {
+            "path": "packages/teams-catalog/catalog/optional/content/content-machine/agents/content-lead/AGENTS.md",
+            "bytes": 251,
+            "lines": 11
+        },
+        {
+            "path": "server/src/built-ins/agents/reflection-coach/AGENTS.md",
+            "bytes": 3732,
+            "lines": 47
+        },
+        {
+            "path": "server/src/built-ins/agents/summarizer/AGENTS.md",
+            "bytes": 3968,
+            "lines": 36
+        },
+        {
+            "path": "server/src/onboarding-assets/ceo/AGENTS.md",
+            "bytes": 4703,
+            "lines": 64
+        },
+        {
+            "path": "server/src/onboarding-assets/default/AGENTS.md",
+            "bytes": 4230,
+            "lines": 24
+        },
+        {
+            "path": "server/src/onboarding-assets/first-task/chief-of-staff/AGENTS.md",
+            "bytes": 2963,
+            "lines": 25
+        }
+    ]
+}

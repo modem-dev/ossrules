@@ -1,0 +1,113 @@
+{
+    "slug": "t3code",
+    "name": "T3 Code",
+    "owner": "pingdotgg",
+    "repo": "t3code",
+    "tagline": "Web, desktop, and mobile clients for controlling coding agents on your own machines.",
+    "language": "TypeScript",
+    "stars": 22741,
+    "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "50ff4c371eab927a9650c114975241999f4cd7b1",
+        "date": "2026-09-15T07:47:06Z"
+    },
+    "evaluatedAt": "2026-09-15",
+    "file": {
+        "bytes": 15904,
+        "lines": 169,
+        "words": 2551,
+        "headings": 20,
+        "bullets": 64,
+        "codeBlocks": 2,
+        "docLinks": 2
+    },
+    "references": [
+        {
+            "path": "docs/operations/development.md"
+        },
+        {
+            "path": "docs/internals/glossary.md"
+        },
+        {
+            "path": ".repos/effect-smol/LLMS.md"
+        },
+        {
+            "path": "CONTRIBUTING.md"
+        },
+        {
+            "path": "test-t3-app",
+            "kind": "pattern",
+            "label": "test-t3-app verification skill"
+        },
+        {
+            "path": "test-t3-mobile",
+            "kind": "pattern",
+            "label": "test-t3-mobile verification skill"
+        }
+    ],
+    "hook": "The contributor may be running inside the app they are changing, so process and database rules protect the live session.",
+    "summary": "T3 Code grounds its contributor guide in product priorities, shared vocabulary, and the risks of developing through the running app itself. It checks changes across clients, providers, connection modes, and reverse actions, then explains the command-to-event architecture and when documentation adds lasting value.",
+    "patterns": ["hard-prohibition", "behavioral-conditioning", "architecture-narrative", "single-source", "house-vocabulary"],
+    "techniques": [
+        {
+            "title": "Protect the process hosting the contributor",
+            "body": "The process rule bans selecting a process to kill by a name or path match because the agent itself can match that pattern. It gives two narrower ways to identify a process the contributor owns.",
+            "quote": "1. **Killing by pattern.** Never `pkill -f`, `pgrep | kill`, or `kill` a PID you found by matching a name, path, or worktree string. Your own agent process has this worktree's path in its argv, and this machine runs several other dev servers at once. Kill only a PID you captured at spawn, or the owner of your port from `ss -H -ltnp` after confirming `/proc/<pid>/cwd` is your worktree.",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Keep test data separate from live state",
+            "body": "The guide permits reading and copying the developer's live database while forbidding write access or starting a server against it. The test-data section explains consistent snapshots and requires one-way copying rather than symlinks.",
+            "quote": "2. **Writing to the live install.** `~/.t3/userdata` is the developer's real T3 Code database, in use while you work. Reading it and copying from it are fine, and a good way to get real test data (see Test data). Never start a server against it, never open it read-write, never clean it up.",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Check the reverse operation",
+            "body": "The cross-surface checklist includes entry points, clients, providers, contracts, and connection modes. One item requires a way back out of a new state, with snooze and close as concrete examples.",
+            "quote": "- **Reverse states.** If you added a way in, add the way out and the way to see it. Snooze needs unsnooze. Close needs reopen. A one-way door is a bug.",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Describe the event pipeline",
+            "body": "The architecture paragraph traces a request through commands, decisions, persisted events, projections, adapters, and reactors. It connects typed completion receipts with the checkpoints used for diffing and restoring a turn.",
+            "quote": "Clients send typed WebSocket requests. The server turns them into _commands_, a pure _decider_ turns commands into persisted _events_, and a _projector_ derives the read model the UI renders. Provider CLIs run as subprocesses; per-provider _adapters_ translate their native protocols into orchestration events. Side effects run in queue-backed _reactors_ that emit _receipts_ when milestones land. Each turn ends with a _checkpoint_, a hidden git ref, so the app can diff and restore.",
+            "pattern": "architecture-narrative"
+        },
+        {
+            "title": "Reserve documentation for reasoning the code does not carry",
+            "body": "Internal documentation is for decisions, cross-component constraints, and traps. The guide asks what a maintainer would get wrong without the paragraph and rejects duplicating facts that the relevant code already answers.",
+            "quote": "- `docs/internals/` is for architectural decisions and their reasons, constraints that span components, and implementation traps that are hard to discover from the source. Before adding a paragraph, ask what a maintainer would get wrong without it. If reading the relevant code answers the question, leave it out.",
+            "pattern": "single-source"
+        },
+        {
+            "title": "Disambiguate the actor from the agent being built",
+            "body": "The glossary separates the contributor agent, maintainers, end user, provider, and client. It also defines environment, project, thread, and turn so discussions about this agent product use the same terms.",
+            "quote": "- **you** means the agent reading this file and changing T3 Code.\n- **we, us, and maintainers** mean Theo, Julius and the people building T3 Code. These are who you are talking to now.\n- **user** means the person using T3 Code to direct coding agents.\n- **agent** means the coding agent a user runs inside T3 Code. Depending on context, that may also include you.\n- **provider** means the agent runtime or harness T3 Code talks to, such as Codex, Claude, Cursor, or OpenCode.\n- **client** means the web, desktop, or mobile UI.",
+            "pattern": "house-vocabulary"
+        }
+    ],
+    "steal": [
+        "Protect the live application that contributors may be using to do the work.",
+        "Create isolated test data with a documented, consistent snapshot method.",
+        "Check reverse actions and alternate entry points alongside the main flow.",
+        "Explain the system as a sequence of transformations and completion signals.",
+        "Keep internal documentation focused on reasoning and constraints that code cannot explain alone."
+    ],
+    "outline": [
+        "What makes T3 Code special?",
+        "A note from Theo",
+        "A small glossary",
+        "The three ways to hurt yourself",
+        "Hit every surface",
+        "Dev servers",
+        "Test data",
+        "Verifying",
+        "Pull requests",
+        "Documentation",
+        "Plans and work artifacts",
+        "How it works",
+        "Where code lives",
+        "Taste",
+        "Additional tips"
+    ]
+}

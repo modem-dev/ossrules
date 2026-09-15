@@ -1,0 +1,683 @@
+{
+    "version": 1,
+    "slug": "opentui",
+    "repository": "anomalyco/opentui",
+    "branch": "main",
+    "sha": "ac753b48d386707a931dcf881d0741905b64b4f9",
+    "scannedAt": "2026-09-15T12:00:15.096Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "content-c2c8a5539153",
+            "path": "packages/web/src/content/SKILL.md",
+            "name": "opentui",
+            "description": "Build terminal UIs with OpenTUI. Covers Core, frameworks, components, application APIs, testing, extensions, integrations, deployment, and public API lookup.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "c27e0ece7cb439b68c469e21294472903ea27f2e",
+                    "bytes": 11750,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/application-apis/animation.mdx",
+                    "blob": "7999ec4d6f8eac8f42050654b679d3faa81af3bd",
+                    "bytes": 18352,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/application-apis/audio-capture.mdx",
+                    "blob": "06f72ca54523901738e77c022615ab932b60a98a",
+                    "bytes": 18308,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/application-apis/audio-streaming.mdx",
+                    "blob": "14eb5e1f8a9740ebaaa9c8a113aca375d00eba8a",
+                    "bytes": 27842,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/bindings/react.mdx",
+                    "blob": "814d2a9e5a567511cc124d51296ee6a69cb20b5c",
+                    "bytes": 12255,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/bindings/solid.mdx",
+                    "blob": "30ce445516ff1cd20027db4f1667c8688b534977",
+                    "bytes": 15257,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/components/ascii-font.mdx",
+                    "blob": "73ac776e0d62e6984cd0785d5c618cc8c3dd4d41",
+                    "bytes": 6020,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/components/box.mdx",
+                    "blob": "45fcd80444025a87925d2a6697dec6ddcacd20d0",
+                    "bytes": 7194,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/components/code.mdx",
+                    "blob": "ee72ed0eb09518cda5163364bf611ec61454bcdc",
+                    "bytes": 10827,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/components/diff.mdx",
+                    "blob": "60f610e11ebf2ca0419469c3d62865bb6727ed4b",
+                    "bytes": 6250,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/components/embedded-terminal.mdx",
+                    "blob": "f3f897cac2927c7bbc929f6944816689a7259318",
+                    "bytes": 16041,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/components/frame-buffer.mdx",
+                    "blob": "a6baf228a4f7e4e5ec27addd8f69ac366a72fdbc",
+                    "bytes": 8274,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/components/image.mdx",
+                    "blob": "a1bbce15edec84edddd7c0a7fdf5131466164455",
+                    "bytes": 12446,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/components/input.mdx",
+                    "blob": "0431e2f9ad26d12a2d147aa095029a75ab4d6332",
+                    "bytes": 6524,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/components/line-number.mdx",
+                    "blob": "c40f38bf2d146b46da4f832d8b322be5342a0404",
+                    "bytes": 5789,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/components/markdown.mdx",
+                    "blob": "ec663902894c20fd9232cffe7ef295358b76d16d",
+                    "bytes": 12464,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/components/overview.mdx",
+                    "blob": "3b46ee0ec7e2fb91cc642a46bda6d4eb007e171c",
+                    "bytes": 10169,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/components/qr-code.mdx",
+                    "blob": "d0fd51d3fee9411871351888d1e1b07be8a7d935",
+                    "bytes": 6297,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/components/scrollbar.mdx",
+                    "blob": "0ea088102a904de372b5416cd6b79b56ee1a803c",
+                    "bytes": 3125,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/components/scrollbox.mdx",
+                    "blob": "672344aeecdd2825fee68fde0e945fe8b388064d",
+                    "bytes": 8991,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/components/select.mdx",
+                    "blob": "eeac0f0d33d9d037473f811921f390cd8456eb5d",
+                    "bytes": 7687,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/components/slider.mdx",
+                    "blob": "fcb9282253dd17e7b04c20139109541302405cc6",
+                    "bytes": 3058,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/components/tab-select.mdx",
+                    "blob": "611b1233ea1fda53e40d78e9b3ba24fef26cef48",
+                    "bytes": 7102,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/components/text-table.mdx",
+                    "blob": "ecabb07db6f1c8fdb5d8c0cf457a70b02434d73c",
+                    "bytes": 10445,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/components/text.mdx",
+                    "blob": "fbb454ef0fe4ee72e10aceb83ad4d7f14dd8bf32",
+                    "bytes": 5835,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/components/textarea.mdx",
+                    "blob": "d75e5783284153f53843c4429e6256484c3d70a0",
+                    "bytes": 10423,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/components/time-to-first-draw.mdx",
+                    "blob": "5047088d26c9091c49442438f476b5fc51c16f7b",
+                    "bytes": 5522,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/core-concepts/audio.mdx",
+                    "blob": "421802c8454f54878ca77a7f8c3fdc4273bd53b7",
+                    "bytes": 17345,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/core-concepts/clipboard.mdx",
+                    "blob": "55b1cb0cb586974a2be8be18095d4aa0c7f45058",
+                    "bytes": 14974,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/core-concepts/colors.mdx",
+                    "blob": "558cf7b736696cf3ad99f2a93f54ad0a6ac77c83",
+                    "bytes": 7286,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/core-concepts/console.mdx",
+                    "blob": "e9fbd43494d39eb775992b973b5edef16e625bd9",
+                    "bytes": 9782,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/core-concepts/interaction.mdx",
+                    "blob": "d71d9453592d3fe5d7b384b09c1c16e1fb184ed5",
+                    "bytes": 14588,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/core-concepts/keyboard.mdx",
+                    "blob": "fe65110e826fbb1dfe6f793708a6d9c38c4095d2",
+                    "bytes": 8052,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/core-concepts/layout.mdx",
+                    "blob": "026c34b5708ffa9b7d788f8e43f93a293dce2585",
+                    "bytes": 13450,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/core-concepts/lifecycle.mdx",
+                    "blob": "f4515dbbfeb94e49ebce69490cf5e46cd45b35ae",
+                    "bytes": 13043,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/core-concepts/notifications.mdx",
+                    "blob": "f25e4e17289417421327e99c4a6ccc0e77f1080a",
+                    "bytes": 6686,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/core-concepts/renderables.mdx",
+                    "blob": "3d9bdf82bf5cf1ab24a1dfabb612f37562176d5b",
+                    "bytes": 7189,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/core-concepts/renderer.mdx",
+                    "blob": "bb8696a968da907ffbbd1bbeda11cf47af938afd",
+                    "bytes": 8911,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/core-concepts/rendering-pipeline.mdx",
+                    "blob": "4f97b7f562dadff0cd305265846471231c09ba74",
+                    "bytes": 5565,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/core-concepts/testing.mdx",
+                    "blob": "d364cd90daa739af3e5a3b6989d3d70fa5043938",
+                    "bytes": 18494,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/core-concepts/text-and-cells.mdx",
+                    "blob": "ec246a4085633d35c43c1fc2ed581b34d0632fd1",
+                    "bytes": 8482,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/extend/custom-renderables.mdx",
+                    "blob": "bb45badf88a0893cce770ccd0df0ac65148668ce",
+                    "bytes": 11122,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/extend/editing.mdx",
+                    "blob": "64730573b250a231727acead1d4906bae1aebfe7",
+                    "bytes": 20857,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/extend/post-processing.mdx",
+                    "blob": "b7818fcc75264c841f7aa54f0c9e35a62aff07b8",
+                    "bytes": 10907,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/extend/runtime-plugins.mdx",
+                    "blob": "2c5dbd5edcf5983017d35bd5bc6845658baa92fa",
+                    "bytes": 12108,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/getting-started.mdx",
+                    "blob": "41eba19bf892fce06bef756de1b155be22a0f5d9",
+                    "bytes": 2950,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/getting-started/quickstart.mdx",
+                    "blob": "d2570cb989e8579d59bd9a8318aaf9f50c6bb3df",
+                    "bytes": 3548,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/getting-started/runtime-support.mdx",
+                    "blob": "7127a6431b1197136f4eff659c77e7a8c8842155",
+                    "bytes": 9314,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/keymap/addons.mdx",
+                    "blob": "9f368e06c2c9132f37b3e90aac0ee3e8e7cb4a11",
+                    "bytes": 17264,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/keymap/core.mdx",
+                    "blob": "a11f9d5acfeb535067bdbb4e5e5a9c029f069f46",
+                    "bytes": 37335,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/keymap/custom-addons.mdx",
+                    "blob": "9269ad1f212d19f0c31755ebdbb579c0eb62285f",
+                    "bytes": 24241,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/keymap/hosts.mdx",
+                    "blob": "588194b49960047cc31dbdd87f79a4ec0ac7957a",
+                    "bytes": 14678,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/keymap/overview.mdx",
+                    "blob": "d03353b3cfc150a3bc780360b73383f12e49417f",
+                    "bytes": 5451,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/keymap/react.mdx",
+                    "blob": "e2aa2f3e78cc8251632f2c72387b5ae9ff6d9ede",
+                    "bytes": 7029,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/keymap/solid.mdx",
+                    "blob": "27186de83fa4ac19b6a4079c71d5a6fe092c07bf",
+                    "bytes": 6911,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/plugins/core.mdx",
+                    "blob": "ba8f87fb7d668dfb80420b51a95ed7fa691dbe1e",
+                    "bytes": 11710,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/plugins/react.mdx",
+                    "blob": "15417b1cbd71e1a7934c2828bd1d40b4c30118d4",
+                    "bytes": 6321,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/plugins/slots.mdx",
+                    "blob": "102a82a852c8c3f7c9d2a33c36f1e39563a61447",
+                    "bytes": 12026,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/plugins/solid.mdx",
+                    "blob": "56e89b132e7bf0278d72e25278314b141e0c5e9f",
+                    "bytes": 6346,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/reference/api-index.mdx",
+                    "blob": "e7c91dcd9552b43e62709e1cec99c81bf923ed5a",
+                    "bytes": 116729,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/reference/buffer-api.mdx",
+                    "blob": "62f4ef3c2a98b0e3a631b15dae91def6046ac332",
+                    "bytes": 13852,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/reference/color-matrix.mdx",
+                    "blob": "63f9b18a6adcbfe6afe25a323c960263d9722ff2",
+                    "bytes": 6484,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/reference/data-paths.mdx",
+                    "blob": "67919f60e60a7f38a69de0e75e1500103deea820",
+                    "bytes": 5536,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/reference/env-vars.mdx",
+                    "blob": "c983f0352ae09d15869cfa59dd2ed5b117e084a7",
+                    "bytes": 10761,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/reference/native-image.mdx",
+                    "blob": "2324a466653d0fa52af15cd2f9cbae35a6d761af",
+                    "bytes": 17460,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/reference/native-span-feed.mdx",
+                    "blob": "4f0390e363dad99a5adc46cf8d5b993fee72cac2",
+                    "bytes": 10591,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/reference/package-entrypoints.mdx",
+                    "blob": "b3731756b6e5d3016a600de13006942b47594736",
+                    "bytes": 14655,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/reference/qr-encoder.mdx",
+                    "blob": "5b07e46a6d110ea91e13b75d4009dee211fab0d5",
+                    "bytes": 14755,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/reference/ssh.mdx",
+                    "blob": "4e572bc9317844c7ad73d1493fca53c5f85fe5e3",
+                    "bytes": 16242,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/reference/standalone-executables.mdx",
+                    "blob": "fd07b1e408401d2de188356c8d9153635f0ef135",
+                    "bytes": 7926,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/reference/terminal-capabilities.mdx",
+                    "blob": "b8b1127bb0c746637baf1360ad28af9b215444ba",
+                    "bytes": 13677,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/reference/three.mdx",
+                    "blob": "fa9299c5803c155dc37d549c5a287ede18439937",
+                    "bytes": 16204,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/reference/tree-sitter.mdx",
+                    "blob": "5b33867c3ab158002b35092edbd77dfae4ae31ad",
+                    "bytes": 22345,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/reference/yoga.mdx",
+                    "blob": "4c04d763b7533ce76b3734c1c1ef20c9fd79d411",
+                    "bytes": 21128,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/ship/deploy.mdx",
+                    "blob": "96ef14c271da49d00ba0f7c805d6786cfa9856d2",
+                    "bytes": 6357,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/test-and-debug/native-crashes.mdx",
+                    "blob": "074db030dddf3f1bef979c8b5da7d3c9ada14a8c",
+                    "bytes": 2194,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/test-and-debug/rendering-diagnostics.mdx",
+                    "blob": "dffea5a81eda4827a9cf2db956e362aecafd2182",
+                    "bytes": 11271,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/test-and-debug/troubleshooting.mdx",
+                    "blob": "5447cdca9bf6cfe665053fc675a469af94307764",
+                    "bytes": 17777,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "packages/opentui-core.mdx",
+                    "blob": "a503d93cce8a5eae57aa3017b937750b30a056d3",
+                    "bytes": 1775,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "packages/opentui-examples.mdx",
+                    "blob": "1dd5dc0ce5b9dfe812bf746fd1250ebc518217a4",
+                    "bytes": 1341,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "packages/opentui-keymap.mdx",
+                    "blob": "150f4f79462ba015255e0db916660d073e5fba61",
+                    "bytes": 958,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "packages/opentui-qrcode.mdx",
+                    "blob": "51c119b3d6550a5151b7edf20c20efc15e829436",
+                    "bytes": 1246,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "packages/opentui-react.mdx",
+                    "blob": "3ee4d3f072ed771b2fd87fd9dbffc8ea5e9ae660",
+                    "bytes": 1431,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "packages/opentui-solid.mdx",
+                    "blob": "93c1e7b928efc96436a87161f37e192ada5cb570",
+                    "bytes": 1446,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "packages/opentui-ssh.mdx",
+                    "blob": "0f1454c0992c81fc0e5f5f95c217061c008cedcc",
+                    "bytes": 1047,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "packages/opentui-three.mdx",
+                    "blob": "9d09c04831eeff0865019bc94954a518339df7e0",
+                    "bytes": 991,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scrollback/fixing-markdown-tables.mdx",
+                    "blob": "8d7aa41ff1d96834bda4fecd7c22009e7f68284e",
+                    "bytes": 3757,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scrollback/packages.md",
+                    "blob": "342b38275c0c168eebd0d7c1e92deb7ab2051b6b",
+                    "bytes": 2047,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scrollback/whats-next-for-opentui.mdx",
+                    "blob": "08db3bdde12c402db2e1641289f18fec18cf8bc1",
+                    "bytes": 9248,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 52795,
+                        "login": "simonklee",
+                        "commits": 6
+                    },
+                    {
+                        "id": 335157,
+                        "login": "kommander",
+                        "commits": 4
+                    },
+                    {
+                        "id": 790655,
+                        "login": "m-pa",
+                        "commits": 1
+                    },
+                    {
+                        "id": 7691252,
+                        "login": "msmps",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "ae2d8f692007f816a716ef5efa7a9adbb3325878",
+        "bytes": 4405,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "3cd7ff6e31124b3077894c19747e4b4751a08968",
+        "bytes": 1063,
+        "text": true,
+        "mode": "100644"
+    }
+}

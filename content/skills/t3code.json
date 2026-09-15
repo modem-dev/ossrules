@@ -1,0 +1,196 @@
+{
+    "version": 1,
+    "slug": "t3code",
+    "repository": "pingdotgg/t3code",
+    "branch": "main",
+    "sha": "50ff4c371eab927a9650c114975241999f4cd7b1",
+    "scannedAt": "2026-09-15T12:00:16.760Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [
+        ".repos/effect-smol/.agents/skills/jsdocs/SKILL.md",
+        ".repos/effect-smol/.agents/skills/scratchpad/SKILL.md"
+    ],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "ios-debugger-agent-69e5584392c8",
+            "path": ".agents/skills/ios-debugger-agent/SKILL.md",
+            "name": "ios-debugger-agent",
+            "description": "Build, launch, inspect, and drive iOS apps with the repository-configured XcodeBuildMCP server. Use on macOS for iOS Simulator builds, focused native test runs, semantic UI automation, screenshots, logs, or debugging, including T3 Code Mobile verification.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "8d204ff201bc57f637e639a90dc265916c078b34",
+                    "bytes": 5028,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "LICENSE",
+                    "blob": "0d193abe04f2d20e76d96762ecb6b4c432c8bc06",
+                    "bytes": 1058,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "094bae6620be2702397c70c87e0ce6953385d6a7",
+                    "bytes": 393,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 51714798,
+                        "login": "juliusmarminge",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "ios-simulator-browser-6a378e58a892",
+            "path": ".agents/skills/ios-simulator-browser/SKILL.md",
+            "name": "ios-simulator-browser",
+            "description": "Stream an explicit iOS Simulator through pinned serve-sim into the T3 Code in-app browser or another agent browser. Use on Apple Silicon macOS when the user should watch simulator verification live or when browser-visible simulator evidence is needed.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "74b97530799c1894049df06946f66e023e3ac023",
+                    "bytes": 3132,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "LICENSE",
+                    "blob": "0d193abe04f2d20e76d96762ecb6b4c432c8bc06",
+                    "bytes": 1058,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "9e8cdf7a16b0294e2c61bb5f3e94328d893fa517",
+                    "bytes": 227,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 51714798,
+                        "login": "juliusmarminge",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "test-t3-app-dff7b690a437",
+            "path": ".agents/skills/test-t3-app/SKILL.md",
+            "name": "test-t3-app",
+            "description": "Launch, retain, and test the T3 Code web app in isolated development environments, including first-try browser authentication with one-time pairing URLs, pairing-token recovery, worktree-safe state directories, cross-turn dev server lifecycle, and direct SQLite inspection or fixture seeding. Use when an agent needs to run T3 locally, iteratively test UI behavior with a human, recover from an expired or consumed pairing token, isolate dev state, or prepare test data in state.sqlite.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "0e11b50e1c83c31194ca40db8851d69d29bbb730",
+                    "bytes": 7979,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "0445ee4cb9ec1c2ba8838da9e9d665a27ae6dc4b",
+                    "bytes": 252,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/sqlite-fixtures.md",
+                    "blob": "8eca543cf9793220ab267b3c655556a6193a97c2",
+                    "bytes": 2755,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6751787,
+                        "login": "t3dotgg",
+                        "commits": 4
+                    },
+                    {
+                        "id": 51714798,
+                        "login": "juliusmarminge",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "test-t3-mobile-bb55a22b34bb",
+            "path": ".agents/skills/test-t3-mobile/SKILL.md",
+            "name": "test-t3-mobile",
+            "description": "Launch and test T3 Code Mobile on an iOS Simulator or Android Emulator against disposable local T3 environments, including Metro and dev-client reuse, native rebuild decisions, per-client pairing, seeded projects, semantic UI control, screenshots, and iOS serve-sim streaming. Use after mobile UI or native changes, when reproducing phone or tablet behavior, pairing an emulator to isolated state, or verifying mobile behavior on macOS, Linux, or Windows.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "afebcb7aa7d53b121bf86a3e90b96f45b770000d",
+                    "bytes": 12800,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "e9518ce9e04ad964b4f9f67aad732709ec553843",
+                    "bytes": 252,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/pair-client.sh",
+                    "blob": "9caa060728ec9c741dd0d891dcd5d7ea520a2dab",
+                    "bytes": 1778,
+                    "text": true,
+                    "mode": "100755"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 51714798,
+                        "login": "juliusmarminge",
+                        "commits": 4
+                    },
+                    {
+                        "id": 185146821,
+                        "login": "Lucenx9",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "38df1e94fa8c1d9cc7bc262f028f9115efe70702",
+        "bytes": 15904,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "55ee675bb1de9e580b69f3dd68684df2a4dffba7",
+        "bytes": 1070,
+        "text": true,
+        "mode": "100644"
+    }
+}

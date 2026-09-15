@@ -49,7 +49,7 @@ export function safeRelativePath(value: string): boolean {
 }
 
 export function excludedSkillPath(value: string): boolean {
-    return /(^|\/)(__fixtures__|fixtures|__tests__|tests?|testdata|node_modules|vendor|third_party)(\/|$)/i.test(value);
+    return /(^|\/)(__fixtures__|fixtures|__tests__|tests?|testdata|node_modules|vendor|third_party|\.repos)(\/|$)/i.test(value);
 }
 
 /** Names can collide. The URL identity follows the repository path. */

@@ -1,0 +1,560 @@
+{
+    "version": 1,
+    "slug": "pierre",
+    "repository": "pierrecomputer/pierre",
+    "branch": "main",
+    "sha": "1831817daa18465fac3a54661f2e53706effb57d",
+    "scannedAt": "2026-09-15T12:00:15.190Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "browser-automation-5aabe07c29dd",
+            "path": ".agents/skills/browser-automation/SKILL.md",
+            "name": "browser-automation",
+            "description": "Use when opening, inspecting, clicking, filling, snapshotting, or otherwise automating web pages for this repo, including local dev servers and browser-based verification.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "5c040fe1dd35a3baf00c0291dfeb11175091efcd",
+                    "bytes": 746,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 239676,
+                        "login": "necolas",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "testing-and-verification-46298582d56a",
+            "path": ".agents/skills/testing-and-verification/SKILL.md",
+            "name": "testing-and-verification",
+            "description": "Use when adding or running tests, checking snapshots, choosing between Bun tests and Playwright, running lint/format/typecheck, or deciding the verification scope for a change.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "3e6bdbbdfbbac4c1e8241f66a22d07bf3e95dbd8",
+                    "bytes": 2431,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 96554,
+                        "login": "SlexAxton",
+                        "commits": 3
+                    },
+                    {
+                        "id": 83376,
+                        "login": "amadeus",
+                        "commits": 1
+                    },
+                    {
+                        "id": 239676,
+                        "login": "necolas",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "tooling-and-dependencies-9c6559a99042",
+            "path": ".agents/skills/tooling-and-dependencies/SKILL.md",
+            "name": "tooling-and-dependencies",
+            "description": "Use when running repo scripts, adding or changing dependencies, editing package.json files, installing packages, publishing packages, or deciding when pnpm package operations versus Bun runtime commands should be invoked.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d8e6f4fbb71a9d8a3f2506704d8b5cbb05939734",
+                    "bytes": 4495,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 96554,
+                        "login": "SlexAxton",
+                        "commits": 3
+                    },
+                    {
+                        "id": 239676,
+                        "login": "necolas",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "typescript-monorepo-e3bf80ca9a82",
+            "path": ".agents/skills/typescript-monorepo/SKILL.md",
+            "name": "typescript-monorepo",
+            "description": "Use when adding or changing packages/apps, TypeScript configs, workspace dependencies, package references, exports, or monorepo project-reference relationships.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "1598e508358bcb5673441abf4cf0227942df6f8d",
+                    "bytes": 1797,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 96554,
+                        "login": "SlexAxton",
+                        "commits": 2
+                    },
+                    {
+                        "id": 83376,
+                        "login": "amadeus",
+                        "commits": 1
+                    },
+                    {
+                        "id": 239676,
+                        "login": "necolas",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "worktrees-and-dev-servers-815a2a3cf472",
+            "path": ".agents/skills/worktrees-and-dev-servers/SKILL.md",
+            "name": "worktrees-and-dev-servers",
+            "description": "Use when working with the repo's moonx root:wt worktree helper, Pierre-managed worktrees, dev-server port offsets, stale server cleanup, Playwright fixtures, or Chrome debug instances. Do not use this as a substitute for host-provided workspace isolation.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "42de7fd86266769a1bf924c2c7646d702731becf",
+                    "bytes": 2292,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 96554,
+                        "login": "SlexAxton",
+                        "commits": 2
+                    },
+                    {
+                        "id": 239676,
+                        "login": "necolas",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "diffs-9bf1cace1627",
+            "path": "skills/diffs/SKILL.md",
+            "name": "diffs",
+            "description": "Use when an app uses @pierre/diffs to render or edit code files, diffs, patches, merge conflicts, or CodeView review surfaces, including React, vanilla JavaScript, SSR, workers, annotations, selection, and custom Shiki languages or themes.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "25ba00509a032b4762b61e721775bc10e6f2ce3e",
+                    "bytes": 3091,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/api-core.md",
+                    "blob": "22b01286236c0b9d5d61ff199d1506165837fb88",
+                    "bytes": 15103,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/api-editor.md",
+                    "blob": "f90332d1805587c96e89a43f6f4608bb951f52e8",
+                    "bytes": 18018,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/api-highlighting.md",
+                    "blob": "861d8884f338479eb70e2c4fc409d667e0f0b334",
+                    "bytes": 7942,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/api-react.md",
+                    "blob": "523346c8ea2124f0596fb2c5d037009fd23ad85a",
+                    "bytes": 5474,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/api-rendering.md",
+                    "blob": "5e9de97077f635b8710cf343f95dc61fe700e0b3",
+                    "bytes": 16311,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/api-ssr.md",
+                    "blob": "6f5b7e61f1856473da93b2c8eecd61b762a4efe3",
+                    "bytes": 2551,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/api-types.md",
+                    "blob": "5632a4c5e2a4ef9df4429a358d8a3bbf036a7105",
+                    "bytes": 13681,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/api-worker.md",
+                    "blob": "cb204dac6fb3beed18c9e61de8df077432f3bc25",
+                    "bytes": 7634,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/recipe-annotations.md",
+                    "blob": "7707e93f3fe6d459080bbb8931d7c3cc1947fbad",
+                    "bytes": 814,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/recipe-code-view.md",
+                    "blob": "84d9c2eefea9e0db8ae21aa5b7ef689f8d9700f8",
+                    "bytes": 7076,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/recipe-custom-highlighting.md",
+                    "blob": "22efc967fb3d5cee7aaceee47e7cd4f167f4264e",
+                    "bytes": 537,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/recipe-edit-react.md",
+                    "blob": "c04e7b62f42b0cc1c5c8b16d9f8c283be35ad4f2",
+                    "bytes": 5790,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/recipe-edit-vanilla.md",
+                    "blob": "ce1a009ff6b5c38ff6b45a624c54f293078bad6a",
+                    "bytes": 5269,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/recipe-react.md",
+                    "blob": "f1048230f3ba04a2affe21419169327d3d4b9271",
+                    "bytes": 1391,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/recipe-ssr.md",
+                    "blob": "6899453e3cd006f2cd94ae34ed0d8bad8ede8aba",
+                    "bytes": 661,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/recipe-vanilla.md",
+                    "blob": "ebb8841b121f38e1a89d1f32c63f5715b12bcd44",
+                    "bytes": 1563,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/recipe-workers.md",
+                    "blob": "fbe7cc6f828d34b9152c789d589216c3d39c4541",
+                    "bytes": 744,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 2883484,
+                        "login": "ije",
+                        "commits": 1
+                    },
+                    {
+                        "id": 239676,
+                        "login": "necolas",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "theme-c8855e0d34da",
+            "path": "skills/theme/SKILL.md",
+            "name": "theme",
+            "description": "Use when an app needs a Pierre light or dark theme from @pierre/theme for Shiki, VS Code, Cursor, or Zed, including soft, vibrant, protanopia, deuteranopia, and tritanopia variants.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "8b69b1c1965d290a123128e8bb41f7e155f1f14c",
+                    "bytes": 1296,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/api.md",
+                    "blob": "e9f41981fc95e48c3bef60f1e5406c7217413261",
+                    "bytes": 3264,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/recipe-editor.md",
+                    "blob": "40fa453920f6748eb284f5503edd33ab65a3f884",
+                    "bytes": 439,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/recipe-shiki.md",
+                    "blob": "0f3fdda7ecdb580e66099f2545cd740081afd207",
+                    "bytes": 497,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/variants.md",
+                    "blob": "1986a4142a49d79567b78971c10c0a91535b6463",
+                    "bytes": 1438,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 239676,
+                        "login": "necolas",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "theming-8b275a25abe1",
+            "path": "skills/theming/SKILL.md",
+            "name": "theming",
+            "description": "Use when an app uses @pierre/theming to list, resolve, select, switch, persist, or apply themes, including color modes, theme controllers, React state, UI colors, and bundled Pierre or Shiki collections.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "230562d652aa645d7d5a2cfded1a50b0dc63f399",
+                    "bytes": 2643,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/collections.md",
+                    "blob": "a5e1aa095e8f79e1baf4c04531d55b11191b7825",
+                    "bytes": 4011,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/colors.md",
+                    "blob": "6c5156873d980edc5b2bfeaf81c835c4577beb76",
+                    "bytes": 2139,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/controller.md",
+                    "blob": "fa94b39f8bb36ee17ba4d15455b7656d040f850e",
+                    "bytes": 4568,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/react.md",
+                    "blob": "94e3bccb773b74a4ee1fe496e3304f727eb0553c",
+                    "bytes": 535,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/recipe-multiple-controllers.md",
+                    "blob": "8dfa29942c4947010409b879bb6e1d4f1a0f6657",
+                    "bytes": 983,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/recipe-one-controller.md",
+                    "blob": "01e4ce9edde0540729378061213c09a790e601c4",
+                    "bytes": 741,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/recipe-react.md",
+                    "blob": "b486b5637909b5e8dafa009b8318b5243616365c",
+                    "bytes": 915,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/recipe-vanilla.md",
+                    "blob": "1a9a21f9e306d47a1dd20254a933236c14a3c3f5",
+                    "bytes": 1100,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/resolver.md",
+                    "blob": "73568b4f0826a4569a27a8312980fdb8baf7b5b3",
+                    "bytes": 2563,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 239676,
+                        "login": "necolas",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "trees-f366ad6dc4b0",
+            "path": "skills/trees/SKILL.md",
+            "name": "trees",
+            "description": "Use when an app uses @pierre/trees to render or control a file tree, including React, vanilla JavaScript, SSR, web components, selection, search, rename, drag and drop, icons, git status, and themes.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d3cc23fb73fc066583c3a096675d5142f3fa7c81",
+                    "bytes": 1891,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/api-core.md",
+                    "blob": "22727767e0f609f50dfd1b035eb4cadee2376cfc",
+                    "bytes": 14646,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/api-react.md",
+                    "blob": "39ba73da373beccc369b186cc2891ce86ce9cecf",
+                    "bytes": 2144,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/api-ssr.md",
+                    "blob": "3ef00b4c37f70c1e3700d3d8be8095769fbea109",
+                    "bytes": 721,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/api-web-components.md",
+                    "blob": "b03a9635b1d73147939adad2c48db770f1c939e3",
+                    "bytes": 859,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/recipe-interactions.md",
+                    "blob": "b96d98af4d29fe6b93e0d5faadc875afa203aafd",
+                    "bytes": 710,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/recipe-react.md",
+                    "blob": "393c78e22bbab20ca28cdf289727423e81c9da52",
+                    "bytes": 546,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/recipe-ssr.md",
+                    "blob": "9b225804f9160af619348af17d3373d327ccfaab",
+                    "bytes": 789,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/recipe-theme.md",
+                    "blob": "b7d90fbc5110ac2a91f7d8754c99b73f84c5a375",
+                    "bytes": 488,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/recipe-vanilla.md",
+                    "blob": "ea258f439416fd4139d2dde2c0ae9ef6f99ce052",
+                    "bytes": 597,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 239676,
+                        "login": "necolas",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "9292ed7c3347e4f517538fa77862d991e2237218",
+        "bytes": 3957,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE.md",
+        "blob": "e2c2b06060d8fea2f1f5d744a99d58e5954975ee",
+        "bytes": 10899,
+        "text": true,
+        "mode": "100644"
+    }
+}
