@@ -35,7 +35,7 @@ export function ProjectSkillsShell({ project, count, children }: { project: Agen
                         <p className="mt-4 max-w-2xl text-gray-550 text-sm leading-relaxed">{project.tagline}</p>
                     </div>
                 </header>
-                <ProjectTabs slug={project.slug} skills={count} active="skills" />
+                <ProjectTabs project={project} skills={count} active="skills" />
                 {children}
                 <section className="mt-16">
                     <h2 className="section-title">Context your instructions cannot carry</h2>

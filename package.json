@@ -8,6 +8,7 @@
         "build": "next build",
         "start": "next start",
         "typecheck": "tsc --noEmit",
+        "check:routes": "node --import tsx scripts/check-project-routes.ts",
         "lint": "biome check . && npx tsx scripts/validate-agents-md.ts && node --import tsx scripts/validate-skills.ts",
         "lint:fix": "biome check --fix .",
         "format": "biome format --write .",

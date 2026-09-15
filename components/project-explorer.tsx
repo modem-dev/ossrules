@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { useMemo, useState } from 'react';
+import { projectHref } from '@/lib/project-paths';
 import type { AgentsProject, PatternId, SortId } from './agents-md-data';
 import {
     compareProjects,
@@ -24,7 +25,7 @@ const ALL = 'all';
 function ProjectEntry({ project }: { project: AgentsProject }) {
     return (
         <li className="min-w-0 border-gray-750 border-b">
-            <Link href={`/${project.slug}`} className="project-entry group">
+            <Link href={projectHref(project)} className="project-entry group">
                 <Image src={logoSrc(project)} alt="" width={44} height={44} className="size-11 rounded-lg bg-gray-800 object-cover" />
                 <div className="min-w-0">
                     <div className="flex items-center justify-between gap-3">

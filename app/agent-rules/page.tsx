@@ -7,6 +7,7 @@ import { SiteHeader } from '@/components/site-header';
 import { TechniqueIcon } from '@/components/technique-icons';
 import { getAgentsProjects, projectsWithPattern } from '@/lib/agents-md';
 import { ogImageUrl } from '@/lib/og';
+import { projectHref } from '@/lib/project-paths';
 import { collectionPageSchema } from '@/lib/schema';
 
 const title = 'Agent Rules';
@@ -90,7 +91,7 @@ export default function TechniquesPage() {
                                         {used.slice(0, 5).map((project) => (
                                             <li key={project.slug}>
                                                 <Link
-                                                    href={`/${project.slug}`}
+                                                    href={projectHref(project)}
                                                     className="block rounded-md transition-opacity hover:opacity-75"
                                                     title={project.name}
                                                 >

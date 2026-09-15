@@ -8,6 +8,7 @@ import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { getAgentsProjects } from '@/lib/agents-md';
 import { ogImageUrl } from '@/lib/og';
+import { projectHref } from '@/lib/project-paths';
 import { collectionPageSchema } from '@/lib/schema';
 
 const title = 'Agent instructions and skills';
@@ -42,7 +43,7 @@ export default function AgentsMdPage() {
                     title,
                     description,
                     path: '/',
-                    items: projects.map((project) => ({ name: project.name, path: `/${project.slug}` })),
+                    items: projects.map((project) => ({ name: project.name, path: projectHref(project) })),
                 })}
             />
             <SiteHeader />
@@ -64,7 +65,7 @@ export default function AgentsMdPage() {
                         </p>
                     </div>
                     {featured ? (
-                        <Link href={`/${featured.slug}`} className="directory-feature group">
+                        <Link href={projectHref(featured)} className="directory-feature group">
                             <p className="eyebrow">A study in brevity</p>
                             <p className="mt-4 font-mono text-xl leading-relaxed tracking-tight">
                                 {featured.file.lines} lines.

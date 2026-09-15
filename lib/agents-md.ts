@@ -48,6 +48,12 @@ export function getAgentsProject(slug: string): AgentsProject | undefined {
     return getAgentsProjects().find((project) => project.slug === slug);
 }
 
+export function getAgentsProjectByRepository(owner: string, repo: string): AgentsProject | undefined {
+    return getAgentsProjects().find(
+        (project) => project.owner.toLowerCase() === owner.toLowerCase() && project.repo.toLowerCase() === repo.toLowerCase(),
+    );
+}
+
 export function agentsProjectSlugs(): string[] {
     return getAgentsProjects().map((project) => project.slug);
 }
