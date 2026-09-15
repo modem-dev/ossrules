@@ -28,7 +28,9 @@
     display: grid;
     grid-template-columns: 220px minmax(0, 1fr);
     gap: 2.5rem;
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--color-gray-750);
+    padding-top: 1.5rem;
     align-items: start;
 }
 .skill-files {
