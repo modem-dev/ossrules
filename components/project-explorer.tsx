@@ -23,7 +23,7 @@ const ALL = 'all';
 
 function ProjectEntry({ project }: { project: AgentsProject }) {
     return (
-        <li className="min-w-0">
+        <li className="min-w-0 border-gray-750 border-b">
             <Link href={`/${project.slug}`} className="project-entry group">
                 <Image src={logoSrc(project)} alt="" width={44} height={44} className="size-11 rounded-lg bg-gray-800 object-cover" />
                 <div className="min-w-0">
