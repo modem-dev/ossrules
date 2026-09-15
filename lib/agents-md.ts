@@ -4,6 +4,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import type { AgentsProject, VendoredFiles } from '@/components/agents-md-data';
 import { validateAgentsProject } from '@/components/agents-md-schema';
+import { type DocumentMention, documentMentions } from './document-mentions';
+import { countSourceTokens } from './token-count';
 
 /**
  * Loads the AGENTS.md corpus from content/projects/*.json.
@@ -84,8 +86,15 @@ export function getVendoredFiles(slug: string): VendoredFiles | undefined {
 
 /** Resolve excerpt lines at build time without sending the full file to the client. */
 export function getAgentsSource(slug: string): string | undefined {
-    if (!getAgentsProject(slug)) return undefined;
-    const sourcePath = path.join(FILES_DIR, slug, 'AGENTS.md');
+    const project = getAgentsProject(slug);
+    if (!project) return undefined;
+    return getDocumentSource(slug, project.instructionFile ?? 'AGENTS.md');
+}
+
+export function getDocumentSource(slug: string, filePath: string): string | undefined {
+    const file = getVendoredFiles(slug)?.files.find((item) => item.path === filePath);
+    if (!file || file.missing || file.unavailable) return undefined;
+    const sourcePath = path.join(FILES_DIR, slug, file.resolvedPath ?? filePath);
     return fs.existsSync(sourcePath) ? fs.readFileSync(sourcePath, 'utf8') : undefined;
 }
 
@@ -109,4 +118,29 @@ export function sourceExcerpt(source: string | undefined, quote: string): { text
             .join('\n'),
         startLine,
     };
+}
+
+/** Enrich only on the server; source and tokenizer remain out of browser bundles. */
+export function getInstructionDocuments(slug: string) {
+    const files = (getVendoredFiles(slug)?.files ?? []).map((file) => ({
+        ...file,
+        ...(!file.symlink ? { tokens: countSourceTokens(getDocumentSource(slug, file.path)) } : {}),
+    }));
+    const mentions: Record<string, DocumentMention[]> = {};
+    for (const file of files) {
+        if (file.symlink || !/(^|\/)(AGENTS|CLAUDE)\.md$/.test(file.path)) continue;
+        for (const [target, passages] of Object.entries(
+            documentMentions(
+                getDocumentSource(slug, file.path),
+                files.map((f) => f.path),
+                file.path,
+            ),
+        )) {
+            if (passages.length) {
+                mentions[target] ??= [];
+                mentions[target].push(...passages);
+            }
+        }
+    }
+    return { files, mentions };
 }

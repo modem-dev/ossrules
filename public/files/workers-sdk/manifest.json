@@ -19,6 +19,57 @@
             "path": "AGENTS.md",
             "bytes": 9162,
             "lines": 153
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 132,
+            "lines": 5,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "AGENTS.md"
+                }
+            ]
+        },
+        {
+            "path": "packages/auto-triage-bot/AGENTS.md",
+            "bytes": 3374,
+            "lines": 52
+        },
+        {
+            "path": "packages/create-cloudflare/AGENTS.md",
+            "bytes": 1323,
+            "lines": 31
+        },
+        {
+            "path": "packages/miniflare/AGENTS.md",
+            "bytes": 3162,
+            "lines": 61
+        },
+        {
+            "path": "packages/vite-plugin-cloudflare/AGENTS.md",
+            "bytes": 6762,
+            "lines": 116
+        },
+        {
+            "path": "packages/vitest-plugin/AGENTS.md",
+            "bytes": 3257,
+            "lines": 78
+        },
+        {
+            "path": "packages/workers-auth/AGENTS.md",
+            "bytes": 14908,
+            "lines": 201
+        },
+        {
+            "path": "packages/workers-utils/AGENTS.md",
+            "bytes": 3188,
+            "lines": 41
+        },
+        {
+            "path": "packages/wrangler/AGENTS.md",
+            "bytes": 5019,
+            "lines": 57
         }
     ]
 }

@@ -10,6 +10,13 @@
             "lines": 165
         },
         {
+            "path": "CLAUDE.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "AGENTS.md"
+        },
+        {
             "path": "CONTRIBUTING.md",
             "bytes": 23467,
             "lines": 580

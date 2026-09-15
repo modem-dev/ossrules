@@ -8,6 +8,26 @@
             "path": "AGENTS.md",
             "bytes": 1388,
             "lines": 39
+        },
+        {
+            "path": "example/AGENTS.md",
+            "bytes": 1490,
+            "lines": 39
+        },
+        {
+            "path": "macos/AGENTS.md",
+            "bytes": 1634,
+            "lines": 34
+        },
+        {
+            "path": "src/inspector/AGENTS.md",
+            "bytes": 589,
+            "lines": 12
+        },
+        {
+            "path": "src/terminal/c/AGENTS.md",
+            "bytes": 1196,
+            "lines": 27
         }
     ]
 }

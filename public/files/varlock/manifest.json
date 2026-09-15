@@ -8,6 +8,17 @@
             "path": "AGENTS.md",
             "bytes": 7485,
             "lines": 89
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 10,
+            "lines": 0,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "AGENTS.md"
+                }
+            ]
         }
     ]
 }

@@ -5,9 +5,31 @@
     "licensePath": "LICENSE",
     "files": [
         {
+            "path": ".claude/CLAUDE.md",
+            "bytes": 0,
+            "lines": 0,
+            "missing": true
+        },
+        {
             "path": "AGENTS.md",
             "bytes": 11859,
             "lines": 243
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 427,
+            "lines": 6,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "AGENTS.md"
+                },
+                {
+                    "target": ".claude/CLAUDE.md",
+                    "path": ".claude/CLAUDE.md",
+                    "unavailable": "Not in this repository snapshot"
+                }
+            ]
         }
     ]
 }

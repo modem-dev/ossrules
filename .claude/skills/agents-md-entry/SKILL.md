@@ -3,7 +3,7 @@ name: agents-md-entry
 description: Evaluate an open source project's AGENTS.md and produce a corpus entry for the /agents-md directory. Use when adding a project to the directory, refreshing an existing entry, or running a batch of candidate repositories.
 ---
 
-# Adding a project to the AGENTS.md directory
+# Adding a project to the instruction library
 
 An entry consists of `content/projects/<slug>.json`, its avatar in
 `public/logos/<slug>.png`, and generated pinned documents under
@@ -14,6 +14,25 @@ This is written to be run independently, one project per run, so the work can be
 fanned out. Do not read the other entries before writing yours — the analysis
 should come from the file in front of you, not from matching the house voice of
 entries someone else wrote.
+
+## Instruction sources
+
+Accept either `AGENTS.md` or `CLAUDE.md`. Inspect Git tree modes to distinguish a
+real symlink from an ordinary file containing an import or prose reference.
+Resolve symlinks within the same repository commit and analyze the actual target.
+Set `instructionFile` to `CLAUDE.md` when it is the analyzed source; omitted means
+`AGENTS.md`. Use that filename in every fetch, last-change lookup, measurement,
+and quote check below.
+
+When both files contain independent instructions, retain both. Choose the source
+for the editorial analysis explicitly; do not combine their measurements or imply
+that one tool's instructions override another's. `sourcePath` on a technique can
+attribute an excerpt to another vendored document at the same commit.
+
+The sync script discovers root and nested instruction files, records symlinks,
+identical content, and explicit CLAUDE imports, and preserves unavailable targets.
+A tiny import wrapper is a relationship to its source, not a separate substantive
+analysis. Never fetch private local files or follow a target outside the snapshot.
 
 ## The rule that matters most
 
@@ -284,6 +303,6 @@ is one file to fix. Before starting a batch, check
 `content/projects/` for slugs that already exist; the validator also fails on
 two entries claiming the same repository.
 
-Candidate repositories need a real `AGENTS.md` at the default branch. Check
-before assigning the work — a symlink to `CLAUDE.md` shows as a file of about
-nine bytes and is not an entry.
+Candidate repositories need usable `AGENTS.md` or `CLAUDE.md` instructions on
+the default branch. Symlinks are supported when their target resolves inside the
+same repository snapshot. An unavailable target is recorded, not fabricated.

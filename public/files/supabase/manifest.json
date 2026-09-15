@@ -15,6 +15,18 @@
             "lines": 27
         },
         {
+            "path": "apps/docs/CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "apps/docs/AGENTS.md"
+                }
+            ],
+            "sameContentAs": "CLAUDE.md"
+        },
+        {
             "path": "apps/docs/CONTRIBUTING.md",
             "bytes": 25254,
             "lines": 456
@@ -25,9 +37,44 @@
             "lines": 36
         },
         {
+            "path": "apps/kb/CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "apps/kb/AGENTS.md"
+                }
+            ],
+            "sameContentAs": "CLAUDE.md"
+        },
+        {
             "path": "apps/studio/AGENTS.md",
             "bytes": 11166,
             "lines": 89
+        },
+        {
+            "path": "apps/studio/CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "apps/studio/AGENTS.md"
+                }
+            ],
+            "sameContentAs": "CLAUDE.md"
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "AGENTS.md"
+                }
+            ]
         }
     ]
 }

@@ -29,6 +29,7 @@ const CONTENT_DIR = path.join(process.cwd(), 'content', 'projects');
 const WRITE = process.argv.includes('--write');
 
 interface Entry {
+    instructionFile?: 'AGENTS.md' | 'CLAUDE.md';
     slug: string;
     owner: string;
     repo: string;
@@ -71,7 +72,7 @@ function lastCommit(entry: Entry): { sha: string; date: string } | undefined {
             ],
             { stdio: 'ignore', timeout: 300_000 },
         );
-        const out = execFileSync('git', ['-C', dir, 'log', '-1', '--format=%H|%cI', '--', 'AGENTS.md'], {
+        const out = execFileSync('git', ['-C', dir, 'log', '-1', '--format=%H|%cI', '--', entry.instructionFile ?? 'AGENTS.md'], {
             encoding: 'utf8',
             timeout: 240_000,
         }).trim();
@@ -94,9 +95,13 @@ async function main() {
         const filePath = path.join(CONTENT_DIR, name);
         const entry = JSON.parse(fs.readFileSync(filePath, 'utf8')) as Entry;
 
-        const response = await fetch(`https://raw.githubusercontent.com/${entry.owner}/${entry.repo}/${entry.defaultBranch}/AGENTS.md`);
+        const response = await fetch(
+            `https://raw.githubusercontent.com/${entry.owner}/${entry.repo}/${entry.defaultBranch}/${entry.instructionFile ?? 'AGENTS.md'}`,
+        );
         if (!response.ok) {
-            unreachable.push(`${entry.slug}: AGENTS.md returned ${response.status} on ${entry.defaultBranch}`);
+            unreachable.push(
+                `${entry.slug}: ${entry.instructionFile ?? 'AGENTS.md'} returned ${response.status} on ${entry.defaultBranch}`,
+            );
             continue;
         }
         const source = await response.text();

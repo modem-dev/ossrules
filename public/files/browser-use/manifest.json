@@ -8,6 +8,11 @@
             "path": "AGENTS.md",
             "bytes": 38463,
             "lines": 1017
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 11149,
+            "lines": 163
         }
     ]
 }

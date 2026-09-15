@@ -24,6 +24,9 @@ const LOGO_DIR = path.join(process.cwd(), 'public', 'logos');
 const FILES_DIR = path.join(process.cwd(), 'public', 'files');
 
 interface ManifestFile {
+    symlink?: string;
+    resolvedPath?: string;
+    unavailable?: string;
     path: string;
     missing?: true;
 }
@@ -36,7 +39,12 @@ interface ManifestFile {
  */
 function checkVendoredFiles(
     slug: string,
-    entry: { lastCommit?: { sha?: string }; references?: { path: string; kind?: string }[] },
+    entry: {
+        instructionFile?: string;
+        lastCommit?: { sha?: string };
+        references?: { path: string; kind?: string }[];
+        techniques?: { sourcePath?: string }[];
+    },
 ): string[] {
     const manifestPath = path.join(FILES_DIR, slug, 'manifest.json');
     if (!fs.existsSync(manifestPath)) {
@@ -57,8 +65,26 @@ function checkVendoredFiles(
         );
     }
 
+    const primary = manifest.files?.find((file) => file.path === (entry.instructionFile ?? 'AGENTS.md'));
+    if (!primary || primary.missing || primary.unavailable || primary.symlink !== undefined) {
+        problems.push('The analyzed instructionFile must be a readable regular file, not a symlink.');
+    }
+    for (const file of manifest.files ?? []) {
+        if (
+            file.resolvedPath &&
+            !manifest.files?.some(
+                (target) => target.path === file.resolvedPath && !target.missing && !target.unavailable && !target.symlink,
+            )
+        ) {
+            problems.push(`${file.path}: resolved symlink target is not readable.`);
+        }
+    }
     const stored = new Map((manifest.files ?? []).map((file) => [file.path, file]));
-    const expected = ['AGENTS.md', ...(entry.references ?? []).filter((r) => r.kind !== 'pattern').map((r) => r.path)];
+    const expected = [
+        entry.instructionFile ?? 'AGENTS.md',
+        ...(entry.references ?? []).filter((r) => r.kind !== 'pattern').map((r) => r.path),
+        ...(entry.techniques ?? []).flatMap((technique) => (technique.sourcePath ? [technique.sourcePath] : [])),
+    ];
     for (const filePath of new Set(expected)) {
         const file = stored.get(filePath);
         if (!file) {
@@ -123,7 +149,7 @@ function main() {
         process.exit(1);
     }
 
-    console.log(`✅ All ${files.length} AGENTS.md entries are valid.`);
+    console.log(`✅ All ${files.length} instruction entries are valid.`);
 }
 
 main();

@@ -15,14 +15,176 @@
             "lines": 640
         },
         {
+            "path": ".github/AGENTS.md",
+            "bytes": 104,
+            "lines": 1
+        },
+        {
             "path": "AGENTS.md",
             "bytes": 21172,
             "lines": 135
         },
         {
+            "path": "apps/api/AGENTS.md",
+            "bytes": 4598,
+            "lines": 84
+        },
+        {
+            "path": "apps/mobile/AGENTS.md",
+            "bytes": 2745,
+            "lines": 23
+        },
+        {
+            "path": "apps/mobile/CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "apps/mobile/AGENTS.md"
+                }
+            ]
+        },
+        {
+            "path": "apps/web/AGENTS.md",
+            "bytes": 3657,
+            "lines": 79
+        },
+        {
+            "path": "apps/web/content/AGENTS.md",
+            "bytes": 5252,
+            "lines": 124
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 13,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "./AGENTS.md",
+                    "path": "AGENTS.md"
+                }
+            ]
+        },
+        {
+            "path": "crates/api-ticket/src/github/AGENTS.md",
+            "bytes": 182,
+            "lines": 3
+        },
+        {
+            "path": "crates/chrome-native-host/AGENTS.md",
+            "bytes": 5066,
+            "lines": 148
+        },
+        {
+            "path": "crates/cloudsync/AGENTS.md",
+            "bytes": 1903,
+            "lines": 31
+        },
+        {
             "path": "crates/db-app/AGENTS.md",
             "bytes": 2072,
             "lines": 27
+        },
+        {
+            "path": "crates/db-change/AGENTS.md",
+            "bytes": 1402,
+            "lines": 23
+        },
+        {
+            "path": "crates/db-core/AGENTS.md",
+            "bytes": 1243,
+            "lines": 30
+        },
+        {
+            "path": "crates/db-execute/AGENTS.md",
+            "bytes": 374,
+            "lines": 16
+        },
+        {
+            "path": "crates/db-migrate/AGENTS.md",
+            "bytes": 1191,
+            "lines": 26
+        },
+        {
+            "path": "crates/db-reactive/AGENTS.md",
+            "bytes": 1780,
+            "lines": 24
+        },
+        {
+            "path": "crates/mobile-bridge/AGENTS.md",
+            "bytes": 1645,
+            "lines": 23
+        },
+        {
+            "path": "crates/notification-linux/AGENTS.md",
+            "bytes": 206,
+            "lines": 9
+        },
+        {
+            "path": "crates/notification-macos/AGENTS.md",
+            "bytes": 710,
+            "lines": 19
+        },
+        {
+            "path": "crates/notification-windows/AGENTS.md",
+            "bytes": 317,
+            "lines": 5
+        },
+        {
+            "path": "crates/template-app/AGENTS.md",
+            "bytes": 797,
+            "lines": 15
+        },
+        {
+            "path": "docs/AGENTS.md",
+            "bytes": 2007,
+            "lines": 39
+        },
+        {
+            "path": "e2e/blackbox/AGENTS.md",
+            "bytes": 183,
+            "lines": 3
+        },
+        {
+            "path": "enterprise/AGENTS.md",
+            "bytes": 743,
+            "lines": 8
+        },
+        {
+            "path": "examples/plugins/AGENTS.md",
+            "bytes": 1258,
+            "lines": 28
+        },
+        {
+            "path": "packages/changelog/content/AGENTS.md",
+            "bytes": 3797,
+            "lines": 106
+        },
+        {
+            "path": "packages/db/AGENTS.md",
+            "bytes": 921,
+            "lines": 20
+        },
+        {
+            "path": "plugins/AGENTS.md",
+            "bytes": 220,
+            "lines": 1
+        },
+        {
+            "path": "plugins/db/AGENTS.md",
+            "bytes": 1327,
+            "lines": 22
+        },
+        {
+            "path": "plugins/fs-sync/src/AGENTS.md",
+            "bytes": 88,
+            "lines": 1
+        },
+        {
+            "path": "plugins/hooks/AGENTS.md",
+            "bytes": 81,
+            "lines": 1
         }
     ]
 }

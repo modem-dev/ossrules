@@ -26,3 +26,9 @@ test('leaves missing or indirect mentions unresolved', () => {
     assert.deepEqual(documentMentions(undefined, ['docs/a.md']), { 'docs/a.md': [] });
     assert.deepEqual(documentMentions('Read the nearest README.', ['docs/README.md', 'AGENTS.md']), { 'docs/README.md': [] });
 });
+
+test('attributes nested references to their actual source and resolves relative paths', () => {
+    assert.deepEqual(documentMentions('@../AGENTS.md', ['AGENTS.md', '.claude/CLAUDE.md'], '.claude/CLAUDE.md'), {
+        'AGENTS.md': [{ sourcePath: '.claude/CLAUDE.md', startLine: 1, lines: ['@../AGENTS.md'] }],
+    });
+});

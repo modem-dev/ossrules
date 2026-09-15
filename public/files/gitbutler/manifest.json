@@ -15,9 +15,47 @@
             "lines": 71
         },
         {
+            "path": "apps/lite/CLAUDE.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "apps/lite/AGENTS.md"
+        },
+        {
             "path": "crates/AGENTS.md",
             "bytes": 8876,
             "lines": 147
+        },
+        {
+            "path": "crates/but/AGENTS.md",
+            "bytes": 2761,
+            "lines": 60
+        },
+        {
+            "path": "crates/but/CLAUDE.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "crates/but/AGENTS.md"
+        },
+        {
+            "path": "crates/but/skill/AGENTS.md",
+            "bytes": 2033,
+            "lines": 33
+        },
+        {
+            "path": "crates/but/skill/CLAUDE.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "crates/but/skill/AGENTS.md"
+        },
+        {
+            "path": "crates/CLAUDE.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "crates/AGENTS.md"
         }
     ]
 }

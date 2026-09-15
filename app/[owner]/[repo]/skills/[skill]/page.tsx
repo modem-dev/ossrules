@@ -55,6 +55,7 @@ export default async function SkillPage({
     const sourceUrl = skillSourceUrl(manifest, selectedPath);
     const rendered = source !== undefined && /\.mdx?$/i.test(file.path) && query.view !== 'source';
     const complete = skill.files.every((file) => !file.omitted) && !manifest.repositoryLicense?.omitted;
+    const instructionPath = manifest.agentsFile?.path ?? project.instructionFile ?? 'AGENTS.md';
     const agentsSource = manifest.agentsFile?.text ? readSkillFile(slug, manifest.agentsFile)?.toString('utf8') : undefined;
     const mentions = documentMentions(agentsSource, [skill.path])[skill.path] ?? [];
     const rootFile = skill.files.find((file) => file.path === 'SKILL.md');
@@ -231,25 +232,25 @@ export default async function SkillPage({
                         {file.path === 'SKILL.md' ? (
                             <details className="mt-10">
                                 <summary className="text-teal text-xs">
-                                    {mentions.length ? 'Referenced from AGENTS.md' : 'Discovery context'}
+                                    {mentions.length ? `Referenced from ${instructionPath}` : 'Discovery context'}
                                 </summary>
                                 <p className="mt-4 text-gray-550 text-xs">
                                     {mentions.length
-                                        ? 'These references come from AGENTS.md at the skill snapshot.'
+                                        ? `These references come from ${instructionPath} at the skill snapshot.`
                                         : agentsSource === undefined
-                                          ? 'Discovered by repository scan. AGENTS.md was unavailable for reference checking.'
-                                          : 'Discovered by repository scan. No exact path reference found in the snapshot’s root AGENTS.md.'}
+                                          ? `Discovered by repository scan. ${instructionPath} was unavailable for reference checking.`
+                                          : `Discovered by repository scan. No exact path reference found in the snapshot’s root ${instructionPath}.`}
                                 </p>
                                 {mentions.map((mention) => (
                                     <div key={mention.startLine} className="mt-4 rounded border border-gray-750 bg-medium-gray p-4">
                                         <Excerpt startLine={mention.startLine} text={mention.lines.join('\n')} />
                                         <a
-                                            href={`${skillSourceUrl(manifest, 'AGENTS.md')}#L${mention.startLine}`}
+                                            href={`${skillSourceUrl(manifest, instructionPath)}#L${mention.startLine}`}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="mt-3 inline-block text-teal text-xs"
                                         >
-                                            AGENTS.md · same revision ↗
+                                            {instructionPath} · same revision ↗
                                         </a>
                                     </div>
                                 ))}

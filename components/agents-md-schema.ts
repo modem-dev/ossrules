@@ -36,6 +36,10 @@ export function validateAgentsProject(value: unknown, label: string): string[] {
         if (!isNonEmptyString(value[key])) at(`"${key}" must be a non-empty string.`);
     }
 
+    if (value.instructionFile !== undefined && !['AGENTS.md', 'CLAUDE.md'].includes(value.instructionFile as string)) {
+        at('"instructionFile" must be AGENTS.md or CLAUDE.md.');
+    }
+
     if (typeof value.stars !== 'number' || !Number.isInteger(value.stars) || value.stars < 0) {
         at('"stars" must be a non-negative integer.');
     }
@@ -75,6 +79,14 @@ export function validateAgentsProject(value: unknown, label: string): string[] {
             }
             if (!isNonEmptyString(technique.title)) at(`${where}.title must be a non-empty string.`);
             if (!isNonEmptyString(technique.body)) at(`${where}.body must be a non-empty string.`);
+            if (
+                technique.sourcePath !== undefined &&
+                (typeof technique.sourcePath !== 'string' ||
+                    technique.sourcePath.includes('\\') ||
+                    technique.sourcePath.split('/').some((part) => !part || part === '.' || part === '..'))
+            ) {
+                at(`${where}.sourcePath must be a safe repository-relative path.`);
+            }
             if (technique.quote !== undefined && !isNonEmptyString(technique.quote)) {
                 at(`${where}.quote must be a non-empty string when present.`);
             }

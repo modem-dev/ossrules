@@ -28,6 +28,7 @@ interface TreeFile {
     size?: number;
 }
 interface Entry {
+    instructionFile?: 'AGENTS.md' | 'CLAUDE.md';
     slug: string;
     owner: string;
     repo: string;
@@ -141,7 +142,7 @@ async function sync(entry: Entry) {
         });
     }
     if (manifest.skills.length) {
-        const agents = tree.tree.find((f) => f.path === 'AGENTS.md');
+        const agents = tree.tree.find((f) => f.path === (entry.instructionFile ?? 'AGENTS.md'));
         if (agents) manifest.agentsFile = await read(agents, agents.path);
         const license = tree.tree.find((f) => /^(LICENSE|LICENCE|COPYING)(\.(md|txt))?$/i.test(f.path));
         if (license) manifest.repositoryLicense = await read(license, license.path);
