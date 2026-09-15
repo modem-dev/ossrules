@@ -718,6 +718,7 @@ select {
     flex-wrap: wrap;
     gap: 0.25rem 1rem;
     padding: 0.375rem 1.5rem;
+    border-bottom: 1px solid var(--color-gray-750);
     font-family: var(--font-mono);
     font-size: 0.6875rem;
     color: var(--color-gray-600);
@@ -726,6 +727,7 @@ select {
 .source-metadata {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 0.5rem;
 }
 

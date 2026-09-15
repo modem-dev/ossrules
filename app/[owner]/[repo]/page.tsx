@@ -96,6 +96,7 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
             repo={project.repo}
             sha={project.lastCommit.sha}
             primaryFile={primaryFile}
+            primaryFileModifiedAt={project.lastCommit.date}
             files={documents.files}
             mentions={documents.mentions}
             license={vendored?.license}
