@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { Suspense, useState } from 'react';
+import { Suspense, useRef } from 'react';
 import type { SkillContributions } from '@/lib/skill-contributors';
 import { SkillContributors } from './skill-contributors';
 
@@ -30,37 +30,32 @@ export function SkillExplorer({ entries, projectOnly = false }: { entries: Skill
 
 function SkillExplorerWithFilters({ entries, projectOnly }: { entries: SkillEntry[]; projectOnly: boolean }) {
     const params = useSearchParams();
-    return (
-        <SkillExplorerContent
-            entries={entries}
-            projectOnly={projectOnly}
-            initialQuery={params.get('q') ?? ''}
-            initialProject={projectOnly ? 'all' : (params.get('project') ?? 'all')}
-            initialResources={params.get('resources') === '1'}
-        />
-    );
+    return <SkillExplorerContent entries={entries} projectOnly={projectOnly} search={params.toString()} />;
 }
+
+const PAGE_SIZE = 50;
 
 function SkillExplorerContent({
     entries,
     projectOnly = false,
-    initialQuery = '',
-    initialProject = 'all',
-    initialResources = false,
+    search = '',
 }: {
     entries: SkillEntry[];
     projectOnly?: boolean;
-    initialQuery?: string;
-    initialProject?: string;
-    initialResources?: boolean;
+    search?: string;
 }) {
-    const [query, setQuery] = useState(initialQuery);
-    const [project, setProject] = useState(initialProject);
-    const [resources, setResources] = useState(initialResources);
-    function remember(key: string, value: string) {
+    const params = new URLSearchParams(search);
+    const query = params.get('q') ?? '';
+    const project = projectOnly ? 'all' : (params.get('project') ?? 'all');
+    const resources = params.get('resources') === '1';
+    const resultsRef = useRef<HTMLDivElement>(null);
+    function remember(values: Record<string, string>) {
         const url = new URL(window.location.href);
-        if (value) url.searchParams.set(key, value);
-        else url.searchParams.delete(key);
+        for (const [key, value] of Object.entries(values)) {
+            if (value) url.searchParams.set(key, value);
+            else url.searchParams.delete(key);
+        }
+        url.searchParams.delete('page');
         window.history.replaceState(null, '', url);
     }
     const projects = [...new Map(entries.map((entry) => [entry.project.slug, entry.project])).values()].sort((a, b) =>
@@ -74,6 +69,57 @@ function SkillExplorerContent({
                 .toLowerCase()
                 .includes(query.trim().toLowerCase()),
     );
+    const pageCount = Math.max(1, Math.ceil(visible.length / PAGE_SIZE));
+    const requestedPage = Number(params.get('page') ?? 1);
+    const page = Math.min(pageCount, Number.isSafeInteger(requestedPage) && requestedPage > 0 ? requestedPage : 1);
+    const start = (page - 1) * PAGE_SIZE;
+    const pageEntries = visible.slice(start, start + PAGE_SIZE);
+
+    function pagination() {
+        if (pageCount <= 1) return null;
+        return (
+            <nav aria-label="Skills pagination" className="flex items-center gap-3 font-mono text-[11px]">
+                {[-1, 1].map((direction) => {
+                    const nextPage = page + direction;
+                    const disabled = nextPage < 1 || nextPage > pageCount;
+                    const nextParams = new URLSearchParams(search);
+                    if (nextPage === 1) nextParams.delete('page');
+                    else nextParams.set('page', String(nextPage));
+                    const href = `?${nextParams.toString()}`;
+                    const label = direction === -1 ? '← Previous' : 'Next →';
+                    return (
+                        <span key={direction} className="contents">
+                            {direction === 1 ? (
+                                <span className="whitespace-nowrap text-gray-600">
+                                    Page {page} of {pageCount}
+                                </span>
+                            ) : null}
+                            {disabled ? (
+                                <span aria-disabled="true" className="inline-flex min-h-11 items-center px-2 text-gray-650">
+                                    {label}
+                                </span>
+                            ) : (
+                                <a
+                                    href={href}
+                                    rel={direction === -1 ? 'prev' : 'next'}
+                                    className="inline-flex min-h-11 items-center px-2 text-teal hover:underline"
+                                    onClick={(event) => {
+                                        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+                                        event.preventDefault();
+                                        window.history.pushState(null, '', href);
+                                        resultsRef.current?.focus({ preventScroll: true });
+                                        resultsRef.current?.scrollIntoView({ block: 'start' });
+                                    }}
+                                >
+                                    {label}
+                                </a>
+                            )}
+                        </span>
+                    );
+                })}
+            </nav>
+        );
+    }
     return (
         <div>
             <div className="directory-toolbar">
@@ -82,8 +128,7 @@ function SkillExplorerContent({
                         type="search"
                         value={query}
                         onChange={(event) => {
-                            setQuery(event.target.value);
-                            remember('q', event.target.value);
+                            remember({ q: event.target.value });
                         }}
                         aria-label="Search skills"
                         placeholder={projectOnly ? 'Search this project’s skills…' : 'Search skills, tasks, or projects…'}
@@ -95,8 +140,7 @@ function SkillExplorerContent({
                         <select
                             value={project}
                             onChange={(event) => {
-                                setProject(event.target.value);
-                                remember('project', event.target.value === 'all' ? '' : event.target.value);
+                                remember({ project: event.target.value === 'all' ? '' : event.target.value });
                             }}
                         >
                             <option value="all">All projects</option>
@@ -113,21 +157,24 @@ function SkillExplorerContent({
                         type="checkbox"
                         checked={resources}
                         onChange={(event) => {
-                            setResources(event.target.checked);
-                            remember('resources', event.target.checked ? '1' : '');
+                            remember({ resources: event.target.checked ? '1' : '' });
                         }}
                         className="accent-teal"
                     />
                     With supporting files
                 </label>
             </div>
-            <p role="status" className="py-5 font-mono text-[11px] text-gray-600">
-                {visible.length} {visible.length === 1 ? 'skill' : 'skills'}
-                {visible.length !== entries.length ? ` of ${entries.length}` : ''}
-            </p>
+            <div ref={resultsRef} tabIndex={-1} className="flex scroll-mt-6 flex-wrap items-center justify-between gap-x-6 gap-y-1 py-4">
+                <p role="status" className="font-mono text-[11px] text-gray-600">
+                    {visible.length ? `${start + 1}–${start + pageEntries.length} of ` : ''}
+                    {visible.length} {visible.length === 1 ? 'skill' : 'skills'}
+                    {visible.length !== entries.length ? ` · ${entries.length} total` : ''}
+                </p>
+                {pagination()}
+            </div>
             {visible.length ? (
                 <ul className="grid gap-x-10 md:grid-cols-2">
-                    {visible.map((entry) => (
+                    {pageEntries.map((entry) => (
                         <li key={`${entry.project.slug}/${entry.id}`} className="skill-entry">
                             <Link href={entry.href} className="group block min-w-0">
                                 <div className="flex items-start justify-between gap-4">
@@ -185,18 +232,14 @@ function SkillExplorerContent({
                         type="button"
                         className="action-link mt-5"
                         onClick={() => {
-                            setQuery('');
-                            setProject('all');
-                            setResources(false);
-                            remember('q', '');
-                            remember('project', '');
-                            remember('resources', '');
+                            remember({ q: '', project: '', resources: '' });
                         }}
                     >
                         Clear filters
                     </button>
                 </div>
             )}
+            {pageCount > 1 ? <div className="mt-6 flex justify-center">{pagination()}</div> : null}
         </div>
     );
 }

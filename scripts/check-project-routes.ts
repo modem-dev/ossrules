@@ -34,6 +34,16 @@ async function main() {
     const home = await page('/');
     const rules = await page('/agent-rules');
     const skillsIndex = await page('/skills');
+    const skillPaths = new Set(
+        projects.flatMap((project) => {
+            const manifest = JSON.parse(fs.readFileSync(`content/skills/${project.slug}.json`, 'utf8')) as SkillManifest;
+            return manifest.skills.map((skill) => `/${project.owner}/${project.repo}/skills/${skill.id}`);
+        }),
+    );
+    const initialSkillLinks = [...skillsIndex.matchAll(/<li class="skill-entry"><a\b[^>]*href="([^"]+)"/g)].map((match) => match[1]);
+    assert.equal(initialSkillLinks.length, Math.min(50, skillPaths.size), 'skills index renders one page');
+    assert.equal(new Set(initialSkillLinks).size, initialSkillLinks.length, 'skills index has no duplicate entries');
+    for (const href of initialSkillLinks) assert.ok(skillPaths.has(href), `skills index repository link: ${href}`);
     // Rules show a capped sample of projects, so a larger corpus need not appear in full.
     const projectPaths = new Set(projects.map((project) => `/${project.owner}/${project.repo}`));
     const ruleProjectLinks = [...rules.matchAll(/<a\b[^>]*href="(\/[^"?#]+\/[^"?#]+)"/g)].map((match) => match[1]);
@@ -54,7 +64,6 @@ async function main() {
         if (skill) {
             const detail = `${root}/skills/${skill.id}`;
             const legacy = `/${project.slug}/skills/${skill.id}`;
-            assert.ok(skillsIndex.includes(`href="${detail}"`), `skills index: ${detail}`);
             await page(`${detail}?file=SKILL.md&view=source`, detail);
             await redirected(`${legacy}?file=SKILL.md&view=source`, `${detail}?file=SKILL.md&view=source`);
             await redirected(`${legacy}/file?path=SKILL.md`, `${detail}/file?path=SKILL.md`);
