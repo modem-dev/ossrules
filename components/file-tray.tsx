@@ -418,7 +418,7 @@ export function FileTrayProvider({
                                             </>
                                         )}
                                     </svg>
-                                    {copyStatus === 'copied' ? 'Copied' : 'Copy'}
+                                    <span className="hidden md:inline">{copyStatus === 'copied' ? 'Copied' : 'Copy'}</span>
                                 </button>
                                 <a
                                     href={sourceUrl}
