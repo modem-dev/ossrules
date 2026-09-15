@@ -1,6 +1,6 @@
-# OSS Rules
+# ossrules.md
 
-OSS Rules is a Modem-built reference library of real open-source agent instructions and skills.
+ossrules.md is a Modem-built reference library of real open-source agent instructions and skills.
 This is the canonical project guidance; `CLAUDE.md` is a relative symlink to it.
 
 ## What we are building

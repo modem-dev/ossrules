@@ -1,7 +1,7 @@
 import type { CollectionPage, WebPage, WithContext } from 'schema-dts';
 
 export const SITE_URL = 'https://ossrules.md';
-export const SITE_NAME = 'OSS Rules';
+export const SITE_NAME = 'ossrules.md';
 
 export function webPageSchema(page: { title: string; description: string; path: string }): WithContext<WebPage> {
     return {
