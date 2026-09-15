@@ -9,7 +9,7 @@ export function SiteHeader() {
     const skills = pathname === '/skills';
 
     return (
-        <header className="site-header modem-surface sticky inset-x-0 top-0 z-40 border-gray-750 border-b">
+        <header className="site-header modem-surface sticky inset-x-0 top-0 z-40">
             <a href="#main" className="skip-link action-link">
                 Skip to content
             </a>

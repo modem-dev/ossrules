@@ -168,7 +168,7 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                                     {project.techniques.map((technique, position) => {
                                         const excerpt = technique.quote ? sourceExcerpt(agentsSource, technique.quote) : undefined;
                                         return (
-                                            <article key={technique.title} className="border-gray-750 border-t pt-6">
+                                            <article key={technique.title}>
                                                 <p className="eyebrow">
                                                     {String(position + 1).padStart(2, '0')}
                                                     {technique.pattern
@@ -210,7 +210,7 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
 
                             <section id="structure" className="reading-section mt-12">
                                 <h2 className="section-title">How the file is organized</h2>
-                                <ol className="mt-5 divide-y divide-gray-750 border-gray-750 border-y">
+                                <ol className="mt-5">
                                     {project.outline.map((section, position) => (
                                         <li key={section} className="flex gap-4 py-3">
                                             <span className="font-mono text-gray-600 text-xs">{String(position + 1).padStart(2, '0')}</span>
@@ -264,7 +264,7 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                                     <dd>{STATS_AS_OF}</dd>
                                 </div>
                             </dl>
-                            <nav aria-label="On this page" className="mt-7 border-gray-750 border-t pt-5">
+                            <nav aria-label="On this page" className="mt-7">
                                 <p className="eyebrow">On this page</p>
                                 <ul className="mt-3 space-y-1 text-gray-550 text-xs">
                                     <li>
@@ -305,7 +305,7 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                         </aside>
                     </div>
 
-                    <nav aria-label="More projects" className="mt-14 grid gap-4 border-gray-750 border-t pt-7 sm:grid-cols-2">
+                    <nav aria-label="More projects" className="mt-14 grid gap-4 sm:grid-cols-2">
                         {[
                             { project: previous, direction: 'Previous', arrow: '←' },
                             { project: next, direction: 'Next', arrow: '→' },
@@ -350,7 +350,7 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                             ),
                         )}
                     </nav>
-                    <section className="mt-16 border-gray-750 border-t pt-10">
+                    <section className="mt-16">
                         <h2 className="section-title">Context your AGENTS.md cannot carry</h2>
                         <p className="prose-copy mt-3 max-w-3xl">
                             {project.name}&apos;s file tells an agent how the codebase works. It cannot tell it which bug three customers

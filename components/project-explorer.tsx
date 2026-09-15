@@ -23,7 +23,7 @@ const ALL = 'all';
 
 function ProjectEntry({ project }: { project: AgentsProject }) {
     return (
-        <li className="min-w-0 border-gray-750 border-b">
+        <li className="min-w-0">
             <Link href={`/${project.slug}`} className="project-entry group">
                 <Image src={logoSrc(project)} alt="" width={44} height={44} className="size-11 rounded-lg bg-gray-800 object-cover" />
                 <div className="min-w-0">
@@ -179,7 +179,7 @@ export function ProjectExplorerContent({
                 </div>
             </div>
             {filtered ? (
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 border-gray-750 border-b py-3 text-xs">
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 py-3 text-xs">
                     <span className="text-gray-550">Showing</span>
                     {query ? <span>“{query}”</span> : null}
                     {language !== ALL ? <span>{language}</span> : null}

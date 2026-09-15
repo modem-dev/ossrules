@@ -85,7 +85,7 @@ export default function TechniquesPage() {
                                     <summary className="inline-summary text-gray-550 text-xs">Why it works</summary>
                                     <p className="mt-3 text-gray-550 text-sm leading-relaxed">{pattern.detail}</p>
                                 </details>
-                                <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-gray-750 border-t pt-5">
+                                <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
                                     <ul className="flex gap-1.5" aria-label="Example projects">
                                         {used.slice(0, 5).map((project) => (
                                             <li key={project.slug}>
