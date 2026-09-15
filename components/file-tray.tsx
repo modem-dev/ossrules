@@ -5,6 +5,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useRef, use
 import type { DocumentMention } from '@/lib/document-mentions';
 import type { VendoredFile } from './agents-md-data';
 import { HighlightedSource } from './highlighted-source';
+import { RelativeTime } from './last-updated';
 import { SourceComparison } from './source-comparison';
 
 const InstructionMarkdown = dynamic(() => import('./instruction-markdown').then((module) => module.InstructionMarkdown), {
@@ -463,11 +464,6 @@ export function FileTrayProvider({
                             <div className="source-context">
                                 <div className="source-metadata">
                                     {file?.tokens !== undefined ? <span>{file.tokens.toLocaleString()} tokens</span> : null}
-                                    {path === primaryFile && primaryFileModifiedAt ? (
-                                        <time dateTime={primaryFileModifiedAt} title={`Last modified: ${primaryFileModifiedAt}`}>
-                                            Modified {primaryFileModifiedAt.slice(0, 10)}
-                                        </time>
-                                    ) : null}
                                     <details className="source-info" key={path}>
                                         <summary aria-label="File information" title="File information">
                                             <svg
@@ -548,6 +544,11 @@ export function FileTrayProvider({
                                     >
                                         {comparePath ? 'Close comparison' : 'Compare files'}
                                     </button>
+                                ) : null}
+                                {path === primaryFile && primaryFileModifiedAt ? (
+                                    <span className="ml-auto whitespace-nowrap text-right">
+                                        Last modified <RelativeTime iso={primaryFileModifiedAt} />
+                                    </span>
                                 ) : null}
                             </div>
                             {request.via ? (
