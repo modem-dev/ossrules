@@ -16,12 +16,14 @@ import { FileLink, FileTrayProvider, QuoteLink } from '@/components/file-tray';
 import { JsonLd } from '@/components/json-ld';
 import { RelativeTime } from '@/components/last-updated';
 import { Excerpt, FileStatGrid, PatternBadge } from '@/components/primitives';
+import { ProjectTabs } from '@/components/project-tabs';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { getAgentsProject, getAgentsProjects, getAgentsSource, getVendoredFiles, sourceExcerpt } from '@/lib/agents-md';
 import { documentMentions } from '@/lib/document-mentions';
 import { ogImageUrl } from '@/lib/og';
 import { webPageSchema } from '@/lib/schema';
+import { getSkillManifest } from '@/lib/skills';
 import { countSourceTokens } from '@/lib/token-count';
 
 export async function generateStaticParams() {
@@ -132,6 +134,7 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                             Read AGENTS.md <span aria-hidden>↗</span>
                         </FileLink>
                     </header>
+                    <ProjectTabs slug={project.slug} skills={getSkillManifest(project.slug)?.skills.length} active="instructions" />
                     <p className="max-w-3xl text-gray-400 text-lg leading-relaxed">{project.hook}</p>
 
                     <div className="project-layout">
@@ -151,7 +154,7 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                                 <p className="prose-copy mt-4">{project.summary}</p>
                                 <div className="mt-5 flex flex-wrap gap-2">
                                     {project.patterns.map((pattern) => (
-                                        <PatternBadge key={pattern} pattern={pattern} href={`/techniques#${pattern}`} />
+                                        <PatternBadge key={pattern} pattern={pattern} href={`/agent-rules#${pattern}`} />
                                     ))}
                                 </div>
                             </section>

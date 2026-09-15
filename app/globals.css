@@ -1,5 +1,163 @@
 @import "tailwindcss";
 
+.project-tabs {
+    display: flex;
+    gap: 1.75rem;
+    border-bottom: 1px solid var(--color-gray-750);
+    margin: 1.75rem 0 2rem;
+}
+.project-tabs a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 0;
+    border-bottom: 2px solid transparent;
+    color: var(--color-gray-550);
+    font-size: 0.8125rem;
+}
+.project-tabs a[aria-current="page"] {
+    border-bottom-color: var(--color-teal);
+    color: var(--color-teal);
+}
+.skill-entry {
+    min-width: 0;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--color-gray-750);
+}
+.skill-reader {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 2.5rem;
+    margin-top: 2.5rem;
+    align-items: start;
+}
+.skill-files {
+    min-width: 0;
+    border-right: 1px solid var(--color-gray-750);
+    padding-right: 1.25rem;
+}
+.skill-files :where(nav a) {
+    display: flex;
+    align-items: start;
+    gap: 0.5rem;
+    padding: 0.55rem 0.6rem;
+    border-radius: 0.25rem;
+    color: var(--color-gray-550);
+    font: 0.6875rem / 1.75 var(--font-mono);
+}
+.skill-files :where(nav a:hover) {
+    color: var(--color-teal);
+}
+.skill-files :where(nav a[aria-current="page"]) {
+    background: var(--color-dark-teal);
+    color: var(--color-teal);
+}
+.skill-markdown {
+    color: var(--color-gray-500);
+    font-size: 0.9375rem;
+    line-height: 1.9;
+    overflow-wrap: anywhere;
+}
+.skill-markdown h1,
+.skill-markdown h2,
+.skill-markdown h3,
+.skill-markdown h4,
+.skill-markdown h5,
+.skill-markdown h6 {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    color: var(--color-light-cream);
+    margin: 1.75rem 0 0.8rem;
+    line-height: 1.5;
+    letter-spacing: -0.025em;
+}
+.skill-markdown h1 {
+    font-size: 1.5rem;
+}
+.skill-markdown h2 {
+    font-size: 1.25rem;
+}
+.skill-markdown h3 {
+    font-size: 1.05rem;
+}
+.skill-markdown > :first-child {
+    margin-top: 0;
+}
+.skill-markdown p,
+.skill-markdown ul,
+.skill-markdown ol,
+.skill-markdown blockquote,
+.skill-markdown pre {
+    margin: 1rem 0;
+}
+.skill-markdown ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+}
+.skill-markdown ol {
+    list-style: decimal;
+    padding-left: 1.5rem;
+}
+.skill-markdown li {
+    margin: 0.4rem 0;
+}
+.skill-markdown a {
+    color: var(--color-teal);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+.skill-markdown code {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+}
+.skill-markdown pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    background: var(--color-medium-gray);
+    border: 1px solid var(--color-gray-750);
+    padding: 1rem;
+    border-radius: 0.25rem;
+}
+.skill-markdown blockquote {
+    border-left: 3px solid var(--color-teal);
+    padding-left: 1rem;
+}
+.skill-markdown table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.8125rem;
+}
+.skill-markdown th,
+.skill-markdown td {
+    border-bottom: 1px solid var(--color-gray-750);
+    padding: 0.5rem;
+    text-align: left;
+}
+.skill-markdown hr {
+    margin: 2rem 0;
+    border-color: var(--color-gray-750);
+}
+.skill-source {
+    padding: 1.25rem;
+    background: var(--color-medium-gray);
+    border: 1px solid var(--color-gray-750);
+    border-radius: 0.25rem;
+}
+@media (max-width: 760px) {
+    .skill-reader {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.5rem;
+    }
+    .skill-files {
+        border-right: 0;
+        border-bottom: 1px solid var(--color-gray-750);
+        padding: 0 0 1.5rem;
+    }
+    .skill-source {
+        padding: 0.75rem;
+    }
+}
+
 /* Semantic light/dark pairs keep every reading surface in the same palette. */
 @theme {
     --color-dark-gray: light-dark(#f8f8ed, #242424);
