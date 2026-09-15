@@ -16,7 +16,7 @@ export function ModemSponsor({ children }: { children: ReactNode }) {
                     <p className="mt-3 text-gray-550 text-base leading-relaxed">{children}</p>
                 </div>
                 <a href="https://modem.dev" target="_blank" rel="noopener noreferrer" className="action-link action-primary shrink-0">
-                    Try Modem <span aria-hidden>↗</span>
+                    Try Modem Free <span aria-hidden>↗</span>
                 </a>
             </div>
         </section>
