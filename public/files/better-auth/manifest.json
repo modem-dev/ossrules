@@ -8,6 +8,13 @@
             "path": "AGENTS.md",
             "bytes": 5563,
             "lines": 91
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "AGENTS.md"
         }
     ]
 }

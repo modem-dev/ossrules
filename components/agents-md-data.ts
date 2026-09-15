@@ -183,6 +183,12 @@ export interface DocReference {
 
 /** One locally stored copy of a file the project's AGENTS.md reads. */
 export interface VendoredFile {
+    symlink?: string;
+    resolvedPath?: string;
+    unavailable?: string;
+    imports?: { target: string; path?: string; unavailable?: string }[];
+    sameContentAs?: string;
+    tokens?: number;
     path: string;
     /** Size upstream, before any truncation. */
     bytes: number;
@@ -205,6 +211,8 @@ export interface VendoredFiles {
 }
 
 export interface Technique {
+    /** Source of this excerpt, when different from the entry's primary file. */
+    sourcePath?: string;
     title: string;
     body: string;
     /** Verbatim excerpt. Must appear in the real file, character for character. */
@@ -213,6 +221,8 @@ export interface Technique {
 }
 
 export interface AgentsProject {
+    /** The real source analyzed by this entry. Defaults to AGENTS.md for existing entries. */
+    instructionFile?: 'AGENTS.md' | 'CLAUDE.md';
     slug: string;
     /** Display name of the project. */
     name: string;
@@ -249,17 +259,17 @@ export function repoUrl(project: AgentsProject): string {
 }
 
 export function agentsFileUrl(project: AgentsProject): string {
-    return `https://github.com/${project.owner}/${project.repo}/blob/${project.defaultBranch}/AGENTS.md`;
+    return `https://github.com/${project.owner}/${project.repo}/blob/${project.defaultBranch}/${project.instructionFile ?? 'AGENTS.md'}`;
 }
 
 /** Permalink to the exact revision this entry was written against. */
 export function agentsFileCommitUrl(project: AgentsProject): string {
-    return repoFileUrl(project, 'AGENTS.md');
+    return repoFileUrl(project, project.instructionFile ?? 'AGENTS.md');
 }
 
 /** Any file in the repository, pinned to the commit this entry was measured at. */
 export function repoFileUrl(project: AgentsProject, filePath: string): string {
-    return `https://github.com/${project.owner}/${project.repo}/blob/${project.lastCommit.sha}/${filePath}`;
+    return `https://github.com/${project.owner}/${project.repo}/blob/${project.lastCommit.sha}/${filePath.split('/').map(encodeURIComponent).join('/')}`;
 }
 
 /**
@@ -271,7 +281,7 @@ export function isEntryStale(project: AgentsProject): boolean {
 }
 
 export function rawAgentsFileUrl(project: AgentsProject): string {
-    return `https://raw.githubusercontent.com/${project.owner}/${project.repo}/${project.defaultBranch}/AGENTS.md`;
+    return `https://raw.githubusercontent.com/${project.owner}/${project.repo}/${project.defaultBranch}/${project.instructionFile ?? 'AGENTS.md'}`;
 }
 
 /** "38.2k" for list display. Whole numbers under 1,000 stay as-is. */

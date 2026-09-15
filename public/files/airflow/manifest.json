@@ -26,9 +26,31 @@
             "truncated": true
         },
         {
+            "path": "airflow-core/src/airflow/_shared/AGENTS.md",
+            "bytes": 740,
+            "lines": 14
+        },
+        {
+            "path": "airflow-core/src/airflow/api_fastapi/execution_api/AGENTS.md",
+            "bytes": 4320,
+            "lines": 80
+        },
+        {
+            "path": "airflow-core/src/airflow/ui/AGENTS.md",
+            "bytes": 2346,
+            "lines": 27
+        },
+        {
             "path": "airflow-ctl/RELEASE_NOTES.rst",
             "bytes": 10127,
             "lines": 234
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "AGENTS.md"
         },
         {
             "path": "contributing-docs/03a_contributors_quick_start_beginners.rst",
@@ -66,6 +88,11 @@
             "lines": 108
         },
         {
+            "path": "dev/AGENTS.md",
+            "bytes": 1344,
+            "lines": 44
+        },
+        {
             "path": "dev/breeze/doc/adr/0017-use-uvx-to-run-breeze-from-local-sources.md",
             "bytes": 13417,
             "lines": 228
@@ -74,6 +101,11 @@
             "path": "dev/breeze/doc/ci/04_selective_checks.md",
             "bytes": 58881,
             "lines": 692
+        },
+        {
+            "path": "dev/ide_setup/AGENTS.md",
+            "bytes": 800,
+            "lines": 22
         },
         {
             "path": "dev/README_RELEASE_AIRFLOWCTL.md",
@@ -93,9 +125,53 @@
             "lines": 114
         },
         {
+            "path": "providers/common/ai/AGENTS.md",
+            "bytes": 4118,
+            "lines": 75
+        },
+        {
+            "path": "providers/elasticsearch/AGENTS.md",
+            "bytes": 1623,
+            "lines": 28
+        },
+        {
+            "path": "providers/opensearch/AGENTS.md",
+            "bytes": 1647,
+            "lines": 28
+        },
+        {
             "path": "README.md",
             "bytes": 41263,
             "lines": 595
+        },
+        {
+            "path": "registry/AGENTS.md",
+            "bytes": 20339,
+            "lines": 578
+        },
+        {
+            "path": "registry/CLAUDE.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "registry/AGENTS.md"
+        },
+        {
+            "path": "scripts/ci/prek/AGENTS.md",
+            "bytes": 1580,
+            "lines": 34
+        },
+        {
+            "path": "task-sdk/src/airflow/sdk/_shared/AGENTS.md",
+            "bytes": 57,
+            "lines": 0,
+            "symlink": "../../../../../airflow-core/src/airflow/_shared/AGENTS.md",
+            "resolvedPath": "airflow-core/src/airflow/_shared/AGENTS.md"
+        },
+        {
+            "path": "task-sdk/src/airflow/sdk/execution_time/schema/AGENTS.md",
+            "bytes": 4857,
+            "lines": 125
         }
     ]
 }

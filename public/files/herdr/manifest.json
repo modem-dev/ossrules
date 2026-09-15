@@ -16,6 +16,13 @@
             "truncated": true
         },
         {
+            "path": "CLAUDE.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "AGENTS.md"
+        },
+        {
             "path": "CONTRIBUTING.md",
             "bytes": 8809,
             "lines": 147

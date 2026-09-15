@@ -27,7 +27,13 @@
         {
             "path": "CLAUDE.md",
             "bytes": 11,
-            "lines": 1
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "AGENTS.md"
+                }
+            ]
         },
         {
             "path": "code/core/src/cli/tools/architecture.md",

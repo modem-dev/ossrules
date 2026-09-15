@@ -5,9 +5,64 @@
     "licensePath": "LICENSE",
     "files": [
         {
+            "path": ".agents/skills/autoreview/AGENTS.md",
+            "bytes": 437,
+            "lines": 6
+        },
+        {
+            "path": ".agents/skills/autoreview/CLAUDE.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "AGENTS.md",
+            "resolvedPath": ".agents/skills/autoreview/AGENTS.md"
+        },
+        {
             "path": "AGENTS.md",
             "bytes": 21803,
             "lines": 123
+        },
+        {
+            "path": "apps/android/AGENTS.md",
+            "bytes": 2704,
+            "lines": 26
+        },
+        {
+            "path": "apps/android/CLAUDE.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "apps/android/AGENTS.md"
+        },
+        {
+            "path": "apps/ios/AGENTS.md",
+            "bytes": 5655,
+            "lines": 41
+        },
+        {
+            "path": "apps/ios/CLAUDE.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "apps/ios/AGENTS.md"
+        },
+        {
+            "path": "apps/macos/AGENTS.md",
+            "bytes": 1692,
+            "lines": 20
+        },
+        {
+            "path": "apps/macos/CLAUDE.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "apps/macos/AGENTS.md"
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "AGENTS.md"
         },
         {
             "path": "CONTRIBUTING.md",
@@ -23,6 +78,13 @@
             "path": "docs/auth-credential-semantics.md",
             "bytes": 18662,
             "lines": 248
+        },
+        {
+            "path": "docs/CLAUDE.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "docs/AGENTS.md"
         },
         {
             "path": "docs/gateway/audit.md",
@@ -81,14 +143,77 @@
             "truncated": true
         },
         {
+            "path": "docs/reference/templates/AGENTS.md",
+            "bytes": 6437,
+            "lines": 132
+        },
+        {
+            "path": "docs/reference/templates/roles/coordinator/workspace/AGENTS.md",
+            "bytes": 3174,
+            "lines": 60
+        },
+        {
+            "path": "docs/reference/templates/roles/researcher/workspace/AGENTS.md",
+            "bytes": 2401,
+            "lines": 50
+        },
+        {
+            "path": "docs/reference/templates/roles/reviewer/workspace/AGENTS.md",
+            "bytes": 2495,
+            "lines": 51
+        },
+        {
+            "path": "docs/reference/templates/roles/writer/workspace/AGENTS.md",
+            "bytes": 2435,
+            "lines": 50
+        },
+        {
+            "path": "extensions/acpx/AGENTS.md",
+            "bytes": 2957,
+            "lines": 54
+        },
+        {
+            "path": "extensions/acpx/CLAUDE.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "extensions/acpx/AGENTS.md"
+        },
+        {
             "path": "extensions/AGENTS.md",
             "bytes": 4341,
             "lines": 83
         },
         {
+            "path": "extensions/CLAUDE.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "extensions/AGENTS.md"
+        },
+        {
+            "path": "extensions/telegram/AGENTS.md",
+            "bytes": 7248,
+            "lines": 136
+        },
+        {
+            "path": "extensions/telegram/CLAUDE.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "extensions/telegram/AGENTS.md"
+        },
+        {
             "path": "scripts/AGENTS.md",
             "bytes": 18015,
             "lines": 56
+        },
+        {
+            "path": "scripts/CLAUDE.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "scripts/AGENTS.md"
         },
         {
             "path": "SECURITY.md",
@@ -101,9 +226,59 @@
             "lines": 64
         },
         {
+            "path": "src/agents/CLAUDE.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "src/agents/AGENTS.md"
+        },
+        {
+            "path": "src/agents/embedded-agent-runner/run/AGENTS.md",
+            "bytes": 1309,
+            "lines": 28
+        },
+        {
+            "path": "src/agents/embedded-agent-runner/run/CLAUDE.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "src/agents/embedded-agent-runner/run/AGENTS.md"
+        },
+        {
+            "path": "src/agents/tools/AGENTS.md",
+            "bytes": 1149,
+            "lines": 27
+        },
+        {
+            "path": "src/agents/tools/CLAUDE.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "src/agents/tools/AGENTS.md"
+        },
+        {
             "path": "src/channels/AGENTS.md",
             "bytes": 2758,
             "lines": 57
+        },
+        {
+            "path": "src/channels/CLAUDE.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "src/channels/AGENTS.md"
+        },
+        {
+            "path": "src/channels/plugins/contracts/test-helpers/AGENTS.md",
+            "bytes": 1467,
+            "lines": 31
+        },
+        {
+            "path": "src/channels/plugins/contracts/test-helpers/CLAUDE.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "src/channels/plugins/contracts/test-helpers/AGENTS.md"
         },
         {
             "path": "src/gateway/AGENTS.md",
@@ -111,9 +286,47 @@
             "lines": 67
         },
         {
+            "path": "src/gateway/CLAUDE.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "src/gateway/AGENTS.md"
+        },
+        {
+            "path": "src/gateway/server-methods/AGENTS.md",
+            "bytes": 325,
+            "lines": 3
+        },
+        {
+            "path": "src/gateway/server-methods/CLAUDE.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "src/gateway/server-methods/AGENTS.md"
+        },
+        {
+            "path": "src/infra/outbound/AGENTS.md",
+            "bytes": 1422,
+            "lines": 32
+        },
+        {
+            "path": "src/infra/outbound/CLAUDE.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "src/infra/outbound/AGENTS.md"
+        },
+        {
             "path": "src/plugin-sdk/AGENTS.md",
             "bytes": 6178,
             "lines": 102
+        },
+        {
+            "path": "src/plugin-sdk/CLAUDE.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "src/plugin-sdk/AGENTS.md"
         },
         {
             "path": "src/plugins/AGENTS.md",
@@ -121,9 +334,35 @@
             "lines": 97
         },
         {
+            "path": "src/plugins/CLAUDE.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "src/plugins/AGENTS.md"
+        },
+        {
+            "path": "src/tui/AGENTS.md",
+            "bytes": 887,
+            "lines": 8
+        },
+        {
+            "path": "src/tui/CLAUDE.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "src/tui/AGENTS.md"
+        },
+        {
             "path": "ui/AGENTS.md",
             "bytes": 9087,
             "lines": 80
+        },
+        {
+            "path": "ui/CLAUDE.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "ui/AGENTS.md"
         },
         {
             "path": "VISION.md",

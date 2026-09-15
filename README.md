@@ -1,24 +1,30 @@
 # OSS Rules
 
 A reference library of agent instructions and skills from open source projects,
-with editorial analysis of `AGENTS.md`, original source, and bundled skill resources.
+with editorial analysis of `AGENTS.md` and `CLAUDE.md`, original source, and bundled skill resources.
 
 Live at **[ossrules.md](https://ossrules.md)**. Built by [Modem](https://modem.dev).
 
 ## What it is
 
-Three surfaces, all generated from the corpus in `content/projects/`:
+The main surfaces, all generated from the corpus in `content/projects/`:
 
 - **`/`** — the directory. Sortable by stars, lines, rule count, last change and
   name; filterable by language and technique.
-- **`/techniques`** — the recurring moves across the corpus, and which projects
+- **`/agent-rules`** — the recurring moves across the corpus, and which projects
   use each one.
-- **`/<slug>`** — one page per project: the documents its `AGENTS.md` routes to,
+- **`/<owner>/<repo>`** — one page per project: its instruction files and referenced documents,
   the file's measurements pinned to a commit, the techniques in it with verbatim
   quotes, and takeaways.
 
-Any file a project's `AGENTS.md` reads opens in a tray without leaving the page,
-and a technique's quote opens the file at the line it came from.
+Instruction files and referenced documents open in a tray without leaving the page,
+and a technique's quote opens the file at the line it came from. Symlinks open
+their resolved source; imports and identical files are labeled separately. The
+reader includes per-file token counts and a side-by-side comparison.
+
+Entries default to analyzing `AGENTS.md`; set `instructionFile: "CLAUDE.md"` to
+analyze that source instead. All instruction discovery and link resolution use
+the analysis commit. Skills retain their independent discovery snapshot.
 
 ## Adding a project
 

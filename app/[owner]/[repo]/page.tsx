@@ -19,8 +19,15 @@ import { Excerpt, FileStatGrid, PatternBadge } from '@/components/primitives';
 import { ProjectTabs } from '@/components/project-tabs';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
-import { getAgentsProjectByRepository, getAgentsProjects, getAgentsSource, getVendoredFiles, sourceExcerpt } from '@/lib/agents-md';
-import { documentMentions } from '@/lib/document-mentions';
+import {
+    getAgentsProjectByRepository,
+    getAgentsProjects,
+    getAgentsSource,
+    getDocumentSource,
+    getInstructionDocuments,
+    getVendoredFiles,
+    sourceExcerpt,
+} from '@/lib/agents-md';
 import { ogImageUrl } from '@/lib/og';
 import { projectHref } from '@/lib/project-paths';
 import { webPageSchema } from '@/lib/schema';
@@ -39,8 +46,8 @@ export async function generateMetadata({ params }: { params: Promise<{ owner: st
         return {};
     }
 
-    const title = `${project.name}'s AGENTS.md, explained`;
-    const description = `${project.hook} A breakdown of the AGENTS.md in ${project.owner}/${project.repo}, with the techniques worth copying.`;
+    const title = `${project.name}'s ${project.instructionFile ?? 'AGENTS.md'}, explained`;
+    const description = `${project.hook} A breakdown of ${project.instructionFile ?? 'AGENTS.md'} in ${project.owner}/${project.repo}, with the techniques worth copying.`;
 
     return {
         title,
@@ -49,13 +56,13 @@ export async function generateMetadata({ params }: { params: Promise<{ owner: st
         openGraph: {
             title,
             description,
-            images: [{ url: ogImageUrl(`${project.name}'s AGENTS.md`), width: 1200, height: 630 }],
+            images: [{ url: ogImageUrl(`${project.name}'s ${project.instructionFile ?? 'AGENTS.md'}`), width: 1200, height: 630 }],
         },
         twitter: {
             card: 'summary_large_image',
             title,
             description,
-            images: [ogImageUrl(`${project.name}'s AGENTS.md`)],
+            images: [ogImageUrl(`${project.name}'s ${project.instructionFile ?? 'AGENTS.md'}`)],
         },
     };
 }
@@ -79,6 +86,8 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
     // the entry was measured at. See scripts/sync-agents-md-files.ts.
     const vendored = getVendoredFiles(project.slug);
     const agentsSource = getAgentsSource(project.slug);
+    const primaryFile = project.instructionFile ?? 'AGENTS.md';
+    const documents = getInstructionDocuments(project.slug);
 
     return (
         <FileTrayProvider
@@ -86,18 +95,16 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
             owner={project.owner}
             repo={project.repo}
             sha={project.lastCommit.sha}
-            files={vendored?.files ?? []}
-            mentions={documentMentions(
-                agentsSource,
-                project.references.filter((reference) => reference.kind !== 'pattern').map((reference) => reference.path),
-            )}
+            primaryFile={primaryFile}
+            files={documents.files}
+            mentions={documents.mentions}
             license={vendored?.license}
             licensePath={vendored?.licensePath}
         >
             <div className="min-h-screen bg-dark-gray flex flex-col">
                 <JsonLd
                     data={webPageSchema({
-                        title: `${project.name}'s AGENTS.md, explained`,
+                        title: `${project.name}'s ${project.instructionFile ?? 'AGENTS.md'}, explained`,
                         description: project.hook,
                         path: projectHref(project),
                     })}
@@ -131,8 +138,8 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                             </div>
                             <p className="mt-4 max-w-2xl text-gray-550 text-sm leading-relaxed">{project.tagline}</p>
                         </div>
-                        <FileLink path="AGENTS.md" href={agentsFileCommitUrl(project)} className="action-link action-primary shrink-0">
-                            Read AGENTS.md <span aria-hidden>↗</span>
+                        <FileLink path={primaryFile} href={agentsFileCommitUrl(project)} className="action-link action-primary shrink-0">
+                            Read {primaryFile} <span aria-hidden>↗</span>
                         </FileLink>
                     </header>
                     <ProjectTabs project={project} skills={getSkillManifest(project.slug)?.skills.length} active="instructions" />
@@ -144,7 +151,8 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                                 <h2 className="eyebrow mb-3">Documents</h2>
                                 <DocTree
                                     references={project.references}
-                                    rootLabel="AGENTS.md"
+                                    rootLabel={primaryFile}
+                                    files={documents.files}
                                     fileHref={(filePath) => repoFileUrl(project, filePath)}
                                 />
                             </section>
@@ -167,7 +175,14 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                                 </p>
                                 <div className="mt-8 space-y-9">
                                     {project.techniques.map((technique, position) => {
-                                        const excerpt = technique.quote ? sourceExcerpt(agentsSource, technique.quote) : undefined;
+                                        const excerpt = technique.quote
+                                            ? sourceExcerpt(
+                                                  technique.sourcePath
+                                                      ? getDocumentSource(project.slug, technique.sourcePath)
+                                                      : agentsSource,
+                                                  technique.quote,
+                                              )
+                                            : undefined;
                                         return (
                                             <article key={technique.title}>
                                                 <p className="eyebrow">
@@ -181,7 +196,7 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                                                 </h3>
                                                 <p className="prose-copy mt-3">{technique.body}</p>
                                                 {excerpt ? (
-                                                    <QuoteLink quote={excerpt.text}>
+                                                    <QuoteLink quote={excerpt.text} sourcePath={technique.sourcePath}>
                                                         <Excerpt {...excerpt} />
                                                     </QuoteLink>
                                                 ) : null}
@@ -231,7 +246,7 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                         </div>
 
                         <aside className="project-facts" aria-label="File facts and page navigation">
-                            <h2 className="eyebrow">File at a glance</h2>
+                            <h2 className="eyebrow">{primaryFile} at a glance</h2>
                             <div className="mt-3">
                                 <FileStatGrid project={project} tokens={countSourceTokens(agentsSource)} />
                             </div>
@@ -352,7 +367,7 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                         )}
                     </nav>
                     <section className="mt-16">
-                        <h2 className="section-title">Context your AGENTS.md cannot carry</h2>
+                        <h2 className="section-title">Context your instructions cannot carry</h2>
                         <p className="prose-copy mt-3 max-w-3xl">
                             {project.name}&apos;s file tells an agent how the codebase works. It cannot tell it which bug three customers
                             hit this week. Modem keeps that context current and attaches it to the work.

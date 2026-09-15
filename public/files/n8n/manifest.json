@@ -19,6 +19,17 @@
             "lines": 351
         },
         {
+            "path": ".github/CLAUDE.md",
+            "bytes": 1511,
+            "lines": 48,
+            "imports": [
+                {
+                    "target": "../AGENTS.md",
+                    "path": "AGENTS.md"
+                }
+            ]
+        },
+        {
             "path": ".github/DEVELOPING_V3.md",
             "bytes": 12758,
             "lines": 244
@@ -39,6 +50,54 @@
             "lines": 428
         },
         {
+            "path": "CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "AGENTS.md"
+                }
+            ]
+        },
+        {
+            "path": "packages/@n8n/agents/AGENTS.md",
+            "bytes": 6587,
+            "lines": 158
+        },
+        {
+            "path": "packages/@n8n/ai-utilities/AGENTS.md",
+            "bytes": 628,
+            "lines": 25
+        },
+        {
+            "path": "packages/@n8n/ai-workflow-builder.ee/AGENTS.md",
+            "bytes": 1308,
+            "lines": 44
+        },
+        {
+            "path": "packages/@n8n/ai-workflow-builder.ee/CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "packages/@n8n/ai-workflow-builder.ee/AGENTS.md"
+                }
+            ],
+            "sameContentAs": "CLAUDE.md"
+        },
+        {
+            "path": "packages/@n8n/db/AGENTS.md",
+            "bytes": 1691,
+            "lines": 36
+        },
+        {
+            "path": "packages/@n8n/engine/AGENTS.md",
+            "bytes": 5845,
+            "lines": 104
+        },
+        {
             "path": "packages/@n8n/instance-ai/CLAUDE.md",
             "bytes": 3597,
             "lines": 71
@@ -49,14 +108,108 @@
             "lines": 688
         },
         {
+            "path": "packages/@n8n/node-cli/src/template/templates/shared/default/AGENTS.md",
+            "bytes": 5052,
+            "lines": 102
+        },
+        {
+            "path": "packages/@n8n/node-cli/src/template/templates/shared/default/CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "packages/@n8n/node-cli/src/template/templates/shared/default/AGENTS.md"
+                }
+            ],
+            "sameContentAs": "CLAUDE.md"
+        },
+        {
+            "path": "packages/cli/AGENTS.md",
+            "bytes": 3179,
+            "lines": 64
+        },
+        {
+            "path": "packages/cli/src/modules/n8n-packages/CLAUDE.md",
+            "bytes": 4999,
+            "lines": 84
+        },
+        {
+            "path": "packages/frontend/@n8n/design-system/AGENTS.md",
+            "bytes": 1127,
+            "lines": 20
+        },
+        {
             "path": "packages/frontend/AGENTS.md",
             "bytes": 1237,
             "lines": 21
         },
         {
+            "path": "packages/frontend/CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "packages/frontend/AGENTS.md"
+                }
+            ],
+            "sameContentAs": "CLAUDE.md"
+        },
+        {
+            "path": "packages/frontend/editor-ui/src/app/stores/workflowDocument/CLAUDE.md",
+            "bytes": 3894,
+            "lines": 102
+        },
+        {
+            "path": "packages/nodes-base/AGENTS.md",
+            "bytes": 5362,
+            "lines": 145
+        },
+        {
+            "path": "packages/nodes-base/CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "packages/nodes-base/AGENTS.md"
+                }
+            ],
+            "sameContentAs": "CLAUDE.md"
+        },
+        {
+            "path": "packages/testing/janitor/CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "README.md",
+                    "path": "packages/testing/janitor/README.md"
+                }
+            ]
+        },
+        {
+            "path": "packages/testing/janitor/README.md",
+            "bytes": 32584,
+            "lines": 985
+        },
+        {
             "path": "packages/testing/playwright/AGENTS.md",
             "bytes": 18709,
             "lines": 522
+        },
+        {
+            "path": "packages/testing/playwright/CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "packages/testing/playwright/AGENTS.md"
+                }
+            ],
+            "sameContentAs": "CLAUDE.md"
         },
         {
             "path": "packages/testing/playwright/README.md",

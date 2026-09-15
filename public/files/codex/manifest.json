@@ -10,6 +10,11 @@
             "lines": 320
         },
         {
+            "path": "codex-rs/tui/src/bottom_pane/AGENTS.md",
+            "bytes": 564,
+            "lines": 12
+        },
+        {
             "path": "codex-rs/tui/styles.md",
             "bytes": 1213,
             "lines": 21

@@ -1,21 +1,10 @@
 /**
- * The documents an AGENTS.md routes to, drawn as a tree.
- *
- * The input is the entry's `references`: the docs the file tells the agent to
- * read, which is a different thing from its repo map. The root AGENTS.md
- * remains available even when it does not reference any other documents.
- *
- * Long trees clip to a fixed height with a fade and an expander. The lines are
- * rendered here, on the server, and handed to the client wrapper as children, so
- * the whole tree is in the prerendered HTML either way.
- *
- * Every file with a local copy opens in the tray. The two kinds that do not are
- * left as plain text and say why: a reference that names a shape rather than a
- * file ("the nearest nested AGENTS.md"), and one whose path does not resolve in
- * the repository at all — an AGENTS.md pointing at a document that is not there.
+ * Pinned instruction files and supporting documents, with explicit relationships.
+ * Files are siblings in the repository tree; discovery does not imply that the
+ * primary instruction file references every document. Long trees stay collapsed.
  */
 
-import type { DocReference } from './agents-md-data';
+import type { DocReference, VendoredFile } from './agents-md-data';
 import { Expandable } from './expandable';
 import { FileLink } from './file-tray';
 
@@ -87,13 +76,19 @@ function asciiLines(nodes: TreeNode[], prefix = ''): AsciiLine[] {
     return out;
 }
 
-function Lines({ lines, rootLabel, fileHref }: { lines: AsciiLine[]; rootLabel: string; fileHref: (path: string) => string }) {
+function Lines({
+    lines,
+    rootLabel,
+    fileHref,
+    files,
+}: {
+    lines: AsciiLine[];
+    rootLabel: string;
+    fileHref: (path: string) => string;
+    files: VendoredFile[];
+}) {
     return (
         <pre className="overflow-x-auto p-4 font-mono text-[12.5px] text-gray-400 leading-5">
-            <FileLink path="AGENTS.md" href={fileHref('AGENTS.md')} className="cursor-pointer text-teal hover:underline">
-                {rootLabel}
-            </FileLink>
-            {'\n'}
             {lines.map((line) => (
                 <span key={line.key}>
                     <span className="text-gray-550">{line.stem}</span>
@@ -102,7 +97,7 @@ function Lines({ lines, rootLabel, fileHref }: { lines: AsciiLine[]; rootLabel: 
                             path={line.reference?.path ?? line.key}
                             label={line.reference?.label}
                             href={fileHref(line.reference?.path ?? line.key)}
-                            className="cursor-pointer text-gray-400 hover:text-teal hover:underline"
+                            className={`cursor-pointer hover:text-teal hover:underline ${line.key === rootLabel ? 'text-teal' : 'text-gray-400'}`}
                         >
                             {line.name}
                         </FileLink>
@@ -112,6 +107,7 @@ function Lines({ lines, rootLabel, fileHref }: { lines: AsciiLine[]; rootLabel: 
                     {line.reference?.kind === 'pattern' ? (
                         <span className="text-gray-600"> — {line.reference.label ?? 'a shape, not one file'}</span>
                     ) : null}
+                    <Relationships file={files.find((file) => file.path === line.key)} />
                     {'\n'}
                 </span>
             ))}
@@ -122,21 +118,31 @@ function Lines({ lines, rootLabel, fileHref }: { lines: AsciiLine[]; rootLabel: 
 export function DocTree({
     references,
     rootLabel,
+    files = [],
     fileHref,
 }: {
     references: DocReference[];
+    files?: VendoredFile[];
     rootLabel: string;
     /** Where a file lives on GitHub, for the fallback when it has no local copy. */
     fileHref: (path: string) => string;
 }) {
-    const lines = asciiLines(buildTree(references));
-    const total = lines.length + 1; // the root label occupies a line too
+    const documents = new Map<string, DocReference>([[rootLabel, { path: rootLabel }], ...references.map((r) => [r.path, r] as const)]);
+    for (const file of files) if (!documents.has(file.path)) documents.set(file.path, { path: file.path });
+    const tree = buildTree([...documents.values()]);
+    tree.sort(
+        (a, b) =>
+            Number(b.path === rootLabel) - Number(a.path === rootLabel) ||
+            Number(/^(AGENTS|CLAUDE)\.md$/.test(b.path)) - Number(/^(AGENTS|CLAUDE)\.md$/.test(a.path)),
+    );
+    const lines = asciiLines(tree);
+    const total = lines.length;
     const shell = 'overflow-hidden rounded-lg border border-gray-750/70 bg-gray-850';
 
     if (total <= COLLAPSE_AFTER_LINES) {
         return (
             <div className={shell}>
-                <Lines lines={lines} rootLabel={rootLabel} fileHref={fileHref} />
+                <Lines lines={lines} rootLabel={rootLabel} fileHref={fileHref} files={files} />
             </div>
         );
     }
@@ -144,8 +150,21 @@ export function DocTree({
     return (
         <div className={shell}>
             <Expandable collapsedHeight={COLLAPSE_AFTER_LINES * LINE_HEIGHT_PX + 32} expandLabel={`Show all ${total} lines`}>
-                <Lines lines={lines} rootLabel={rootLabel} fileHref={fileHref} />
+                <Lines lines={lines} rootLabel={rootLabel} fileHref={fileHref} files={files} />
             </Expandable>
         </div>
+    );
+}
+
+function Relationships({ file }: { file?: VendoredFile }) {
+    if (!file) return null;
+    return (
+        <span className="text-gray-600">
+            {file.symlink !== undefined ? ` · symlink → ${file.symlink}${file.unavailable ? ` (${file.unavailable})` : ''}` : ''}
+            {file.sameContentAs ? ` · same content as ${file.sameContentAs}` : ''}
+            {file.imports?.length
+                ? ` · imports ${file.imports.map((item) => `${item.target}${item.unavailable ? ' (unavailable)' : ''}`).join(', ')}`
+                : ''}
+        </span>
     );
 }

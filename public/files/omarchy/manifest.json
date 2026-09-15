@@ -45,6 +45,17 @@
             "lines": 44
         },
         {
+            "path": "CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "AGENTS.md"
+                }
+            ]
+        },
+        {
             "path": "default/agents/skills/omarchy/SKILL.md",
             "bytes": 13248,
             "lines": 294

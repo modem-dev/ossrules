@@ -3,6 +3,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import type { DocumentMention } from '@/lib/document-mentions';
 import type { VendoredFile } from './agents-md-data';
+import { SourceComparison } from './source-comparison';
 
 /**
  * Reads the files a project's AGENTS.md points at, without leaving the page.
@@ -19,6 +20,7 @@ import type { VendoredFile } from './agents-md-data';
  */
 
 interface TrayRequest {
+    via?: string;
     path: string;
     /** First line of a quote to scroll to and mark, when opened from a technique. */
     match?: string;
@@ -27,6 +29,7 @@ interface TrayRequest {
 }
 
 interface TrayContext {
+    primaryFile: string;
     open: (request: TrayRequest) => void;
     /** Paths with a local copy, so a caller can avoid offering a file that will 404. */
     readable: Set<string>;
@@ -80,6 +83,7 @@ function formatBytes(bytes: number): string {
 
 function DocumentReferences({
     path,
+    primaryFile,
     mentions,
     canOpen,
     onOpen,
@@ -87,6 +91,7 @@ function DocumentReferences({
     onExpandedChange,
 }: {
     path: string;
+    primaryFile: string;
     mentions: DocumentMention[];
     canOpen: boolean;
     onOpen: (mention: DocumentMention) => void;
@@ -95,9 +100,9 @@ function DocumentReferences({
 }) {
     const passage = (mention: DocumentMention) => {
         const endLine = mention.startLine + mention.lines.length - 1;
-        const label = `AGENTS.md · ${endLine === mention.startLine ? `line ${mention.startLine}` : `lines ${mention.startLine}–${endLine}`}`;
+        const label = `${mention.sourcePath ?? primaryFile} · ${endLine === mention.startLine ? `line ${mention.startLine}` : `lines ${mention.startLine}–${endLine}`}`;
         return (
-            <div key={mention.startLine} className="mt-3">
+            <div key={`${mention.sourcePath}:${mention.startLine}`} className="mt-3">
                 {canOpen ? (
                     <button
                         type="button"
@@ -152,7 +157,7 @@ function DocumentReferences({
                 </>
             ) : (
                 <p className="mt-2 text-gray-550 text-xs leading-relaxed">
-                    No exact path mention found in the pinned AGENTS.md. This document may be referenced indirectly or through a pattern.
+                    No exact path mention found in the pinned instructions. This document may be referenced indirectly or through a pattern.
                 </p>
             )}
         </section>
@@ -160,6 +165,7 @@ function DocumentReferences({
 }
 
 interface TrayProps {
+    primaryFile?: string;
     slug: string;
     owner: string;
     repo: string;
@@ -171,8 +177,20 @@ interface TrayProps {
     children: React.ReactNode;
 }
 
-export function FileTrayProvider({ slug, owner, repo, sha, files, mentions, license, licensePath, children }: TrayProps) {
+export function FileTrayProvider({
+    primaryFile = 'AGENTS.md',
+    slug,
+    owner,
+    repo,
+    sha,
+    files,
+    mentions,
+    license,
+    licensePath,
+    children,
+}: TrayProps) {
     const [request, setRequest] = useState<TrayRequest | undefined>();
+    const [comparePath, setComparePath] = useState<string>();
     const [source, setSource] = useState<string | undefined>();
     const [failed, setFailed] = useState(false);
     const [copyStatus, setCopyStatus] = useState<'idle' | 'copied' | 'failed'>('idle');
@@ -184,33 +202,43 @@ export function FileTrayProvider({ slug, owner, repo, sha, files, mentions, lice
     const returnFocus = useRef<HTMLElement | null>(null);
 
     const byPath = useMemo(() => new Map(files.map((file) => [file.path, file])), [files]);
-    const readable = useMemo(() => new Set(files.filter((file) => !file.missing).map((file) => file.path)), [files]);
-    const missing = useMemo(() => new Set(files.filter((file) => file.missing).map((file) => file.path)), [files]);
+    const readable = useMemo(() => new Set(files.filter((file) => !file.missing && !file.unavailable).map((file) => file.path)), [files]);
+    const missing = useMemo(() => new Set(files.filter((file) => file.missing || file.unavailable).map((file) => file.path)), [files]);
 
-    const open = useCallback((next: TrayRequest) => {
-        returnFocus.current = document.activeElement as HTMLElement | null;
-        setCopyStatus('idle');
-        setReturnDocument(undefined);
-        scrollRestore.current = undefined;
-        setRequest(next);
-    }, []);
+    const open = useCallback(
+        (next: TrayRequest) => {
+            if (!panel.current?.open) returnFocus.current = document.activeElement as HTMLElement | null;
+            setCopyStatus('idle');
+            setReturnDocument(undefined);
+            scrollRestore.current = undefined;
+            const resolvedPath = byPath.get(next.path)?.resolvedPath;
+            setComparePath(undefined);
+            setRequest(resolvedPath ? { ...next, via: next.path, path: resolvedPath } : next);
+        },
+        [byPath],
+    );
 
     const close = useCallback(() => {
         panel.current?.close();
+        setComparePath(undefined);
         setRequest(undefined);
         setReturnDocument(undefined);
         returnFocus.current?.focus({ preventScroll: true });
     }, []);
 
-    const context = useMemo(() => ({ open, readable, missing }), [open, readable, missing]);
+    const context = useMemo(() => ({ open, readable, missing, primaryFile }), [open, readable, missing, primaryFile]);
     const path = request?.path;
+    const instructionFiles = files.filter(
+        (file) => !file.symlink && !file.missing && !file.unavailable && /(^|\/)(AGENTS|CLAUDE)\.md$/.test(file.path),
+    );
+    const alternatives = instructionFiles.filter((file) => file.path !== path);
 
     const visitMention = (mention: DocumentMention) => {
         if (!request) return;
         setReturnDocument({ request, scrollTop: panel.current?.querySelector('.source-scroll')?.scrollTop ?? 0 });
         setSource(undefined);
         setCopyStatus('idle');
-        setRequest({ path: 'AGENTS.md', startLine: mention.startLine, lineCount: mention.lines.length });
+        setRequest({ path: mention.sourcePath ?? primaryFile, startLine: mention.startLine, lineCount: mention.lines.length });
     };
 
     const backToDocument = () => {
@@ -340,9 +368,13 @@ export function FileTrayProvider({ slug, owner, repo, sha, files, mentions, lice
                         <header className="source-header">
                             <div className="min-w-0 flex-1">
                                 <p className="break-all font-mono text-sm">{path}</p>
+                                {request.via ? (
+                                    <p className="mt-1 font-mono text-xs text-gray-600">Opened via {request.via} symlink</p>
+                                ) : null}
                                 <p className="mt-2 break-words font-mono text-[11px] text-gray-550 leading-relaxed">
                                     {owner}/{repo} · {sha.slice(0, 7)}
                                     {file ? ` · ${formatBytes(file.bytes)} · ${file.lines} lines` : ''}
+                                    {file?.tokens !== undefined ? ` · ${file.tokens.toLocaleString()} tokens (o200k_base)` : ''}
                                     {license ? ` · ${license}` : ''}
                                 </p>
                             </div>
@@ -402,13 +434,83 @@ export function FileTrayProvider({ slug, owner, repo, sha, files, mentions, lice
                                 </button>
                             </div>
                         ) : null}
+                        {instructionFiles.some((item) => item.path === path) && instructionFiles.length > 1 ? (
+                            <div className="flex flex-wrap items-center gap-3 px-4 py-3 text-xs sm:px-6">
+                                <label className="flex min-w-0 flex-1 items-center gap-2 text-gray-550">
+                                    <span>File</span>
+                                    <select
+                                        aria-label="Instruction file"
+                                        value={path}
+                                        className="min-w-0 flex-1 rounded border border-gray-750 bg-medium-gray p-2 font-mono"
+                                        onChange={(event) => {
+                                            setComparePath(undefined);
+                                            setRequest({ path: event.target.value });
+                                        }}
+                                    >
+                                        {instructionFiles.map((item) => (
+                                            <option key={item.path} value={item.path}>
+                                                {item.path}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </label>
+                                <button
+                                    type="button"
+                                    className="min-h-9 text-teal hover:underline"
+                                    onClick={() => setComparePath(comparePath ? undefined : alternatives[0]?.path)}
+                                >
+                                    {comparePath ? 'Close comparison' : 'Compare files'}
+                                </button>
+                                {comparePath ? (
+                                    <label className="flex w-full items-center gap-2 text-gray-550">
+                                        Compare with
+                                        <select
+                                            aria-label="Compare with"
+                                            value={comparePath}
+                                            className="min-w-0 flex-1 rounded border border-gray-750 bg-medium-gray p-2 font-mono"
+                                            onChange={(event) => setComparePath(event.target.value)}
+                                        >
+                                            {alternatives.map((item) => (
+                                                <option key={item.path} value={item.path}>
+                                                    {item.path}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    </label>
+                                ) : null}
+                            </div>
+                        ) : null}
+                        {file?.imports?.length || file?.sameContentAs ? (
+                            <div className="px-4 pb-3 font-mono text-xs text-gray-600 sm:px-6">
+                                {file.sameContentAs ? <p>Same content as {file.sameContentAs}</p> : null}
+                                {file.imports?.map((imported) => (
+                                    <p key={imported.target} className="py-1">
+                                        Imports{' '}
+                                        {imported.path && !imported.unavailable && readable.has(imported.path) ? (
+                                            <button
+                                                type="button"
+                                                className="text-teal hover:underline"
+                                                onClick={() => {
+                                                    if (imported.path) open({ path: imported.path });
+                                                }}
+                                            >
+                                                {imported.target} ↗
+                                            </button>
+                                        ) : (
+                                            `${imported.target} · ${imported.unavailable ?? 'Unavailable'}`
+                                        )}
+                                    </p>
+                                ))}
+                            </div>
+                        ) : null}
                         <div className="source-scroll" aria-busy={!failed && lines === undefined}>
-                            {path !== 'AGENTS.md' ? (
+                            {mentions[path]?.length || (!instructionFiles.some((item) => item.path === path) && path !== primaryFile) ? (
                                 <DocumentReferences
                                     key={path}
                                     path={path}
+                                    primaryFile={primaryFile}
                                     mentions={mentions[path] ?? []}
-                                    canOpen={readable.has('AGENTS.md')}
+                                    canOpen={true}
                                     onOpen={visitMention}
                                     expanded={expandedReferences[path] ?? false}
                                     onExpandedChange={(expanded) =>
@@ -430,6 +532,14 @@ export function FileTrayProvider({ slug, owner, repo, sha, files, mentions, lice
                                 <p role="status" className="p-6 font-mono text-gray-600 text-xs">
                                     Loading source…
                                 </p>
+                            ) : comparePath && source !== undefined ? (
+                                <SourceComparison
+                                    slug={slug}
+                                    leftPath={path}
+                                    left={source}
+                                    rightPath={comparePath}
+                                    rightTruncated={byPath.get(comparePath)?.truncated}
+                                />
                             ) : (
                                 <pre className="source-code">
                                     <code>
@@ -531,7 +641,7 @@ export function FileLink({
         return (
             <span className="text-gray-650" title={label}>
                 <span className="line-through decoration-gray-700">{children}</span>
-                <span className="text-gray-700"> — not in the repository at this commit</span>
+                <span className="text-gray-700"> · unavailable at this commit</span>
             </span>
         );
     }
@@ -556,16 +666,17 @@ export function FileLink({
  * from. Every quote in the corpus is character-for-character from the file, so
  * the first line of one is enough to find it.
  */
-export function QuoteLink({ quote, children }: { quote: string; children: React.ReactNode }) {
+export function QuoteLink({ quote, sourcePath, children }: { quote: string; sourcePath?: string; children: React.ReactNode }) {
     const tray = useFileTray();
 
-    if (!tray?.readable.has('AGENTS.md')) return <>{children}</>;
+    const path = sourcePath ?? tray?.primaryFile ?? 'AGENTS.md';
+    if (!tray?.readable.has(path)) return <>{children}</>;
 
     return (
         <div className="quote-block">
             {children}
-            <button type="button" onClick={() => tray.open({ path: 'AGENTS.md', match: quote })} className="quote-open">
-                AGENTS.md · View in source <span aria-hidden>↗</span>
+            <button type="button" onClick={() => tray.open({ path, match: quote })} className="quote-open">
+                {path} · View in source <span aria-hidden>↗</span>
             </button>
         </div>
     );

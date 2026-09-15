@@ -8,6 +8,61 @@
             "path": "AGENTS.md",
             "bytes": 8748,
             "lines": 161
+        },
+        {
+            "path": "packages/app/AGENTS.md",
+            "bytes": 1221,
+            "lines": 35
+        },
+        {
+            "path": "packages/app/e2e/performance/AGENTS.md",
+            "bytes": 813,
+            "lines": 13
+        },
+        {
+            "path": "packages/core/src/tool/AGENTS.md",
+            "bytes": 3743,
+            "lines": 59
+        },
+        {
+            "path": "packages/desktop/AGENTS.md",
+            "bytes": 160,
+            "lines": 4
+        },
+        {
+            "path": "packages/effect-drizzle-sqlite/AGENTS.md",
+            "bytes": 1364,
+            "lines": 19
+        },
+        {
+            "path": "packages/llm/AGENTS.md",
+            "bytes": 24684,
+            "lines": 321
+        },
+        {
+            "path": "packages/opencode/AGENTS.md",
+            "bytes": 6453,
+            "lines": 131
+        },
+        {
+            "path": "packages/opencode/src/server/routes/instance/httpapi/AGENTS.md",
+            "bytes": 2716,
+            "lines": 39
+        },
+        {
+            "path": "packages/opencode/src/session/llm/AGENTS.md",
+            "bytes": 7072,
+            "lines": 90
+        },
+        {
+            "path": "packages/schema/AGENTS.md",
+            "bytes": 6430,
+            "lines": 88
+        },
+        {
+            "path": "packages/stats/AGENTS.md",
+            "bytes": 73,
+            "lines": 1
         }
     ]
 }

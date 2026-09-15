@@ -10,6 +10,11 @@
             "lines": 21
         },
         {
+            "path": "CLAUDE.md",
+            "bytes": 84,
+            "lines": 3
+        },
+        {
             "path": "docs/development.md",
             "bytes": 5884,
             "lines": 187

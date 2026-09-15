@@ -24,8 +24,12 @@
  *   npx tsx scripts/sync-agents-md-files.ts --slug x  # one project
  */
 
+import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import { instructionImports, localTarget, resolveSymlink } from '../lib/instruction-files';
+import { excludedSkillPath } from '../lib/skill-schema';
 
 const CONTENT_DIR = path.join(process.cwd(), 'content', 'projects');
 const FILES_DIR = path.join(process.cwd(), 'public', 'files');
@@ -49,16 +53,23 @@ interface Reference {
 }
 
 interface Entry {
+    instructionFile?: 'AGENTS.md' | 'CLAUDE.md';
     slug: string;
     owner: string;
     repo: string;
     defaultBranch: string;
     lastCommit: { sha: string };
     references: Reference[];
+    techniques?: { sourcePath?: string }[];
     license?: string;
 }
 
 interface ManifestFile {
+    symlink?: string;
+    resolvedPath?: string;
+    unavailable?: string;
+    imports?: ReturnType<typeof instructionImports>;
+    sameContentAs?: string;
     path: string;
     /** Size upstream, before any truncation. */
     bytes: number;
@@ -79,7 +90,7 @@ interface Manifest {
 }
 
 const rawUrl = (entry: Entry, filePath: string) =>
-    `https://raw.githubusercontent.com/${entry.owner}/${entry.repo}/${entry.lastCommit.sha}/${filePath}`;
+    `https://raw.githubusercontent.com/${entry.owner}/${entry.repo}/${entry.lastCommit.sha}/${filePath.split('/').map(encodeURIComponent).join('/')}`;
 
 /** Refuses anything that could write outside the project's own directory. */
 function isSafePath(filePath: string): boolean {
@@ -141,30 +152,95 @@ async function syncEntry(entry: Entry, problems: string[]): Promise<{ changed: b
     const wanted = new Map<string, string>();
     const files: ManifestFile[] = [];
 
-    const paths = ['AGENTS.md', ...entry.references.filter((reference) => reference.kind !== 'pattern').map((r) => r.path)];
-
-    for (const filePath of [...new Set(paths)]) {
-        if (!isSafePath(filePath)) {
-            problems.push(`${entry.slug}: reference path ${JSON.stringify(filePath)} is not a safe relative path.`);
+    const tree = JSON.parse(
+        execFileSync('gh', ['api', `repos/${entry.owner}/${entry.repo}/git/trees/${entry.lastCommit.sha}?recursive=1`], {
+            maxBuffer: 64 * 1024 * 1024,
+        }).toString(),
+    ) as {
+        truncated: boolean;
+        tree: { path: string; mode: string; type: string; sha: string }[];
+    };
+    if (tree.truncated) throw new Error(`${entry.slug}: incomplete repository tree; previous snapshot retained.`);
+    const nodes = new Map(tree.tree.map((file) => [file.path, file]));
+    const available = new Set(tree.tree.filter((file) => file.type === 'blob').map((file) => file.path));
+    const paths = new Set([
+        entry.instructionFile ?? 'AGENTS.md',
+        ...entry.references.filter((reference) => reference.kind !== 'pattern').map((r) => r.path),
+        ...(entry.techniques ?? []).flatMap((technique) => (technique.sourcePath ? [technique.sourcePath] : [])),
+        ...tree.tree
+            .filter((file) => /(^|\/)(AGENTS|CLAUDE)\.md$/.test(file.path) && !excludedSkillPath(file.path))
+            .map((file) => file.path),
+    ]);
+    const symlinks = new Map<string, string>();
+    const records = new Map<string, ManifestFile>();
+    const sourceCache = new Map<string, string>();
+    const parsedImports = new Set<string>();
+    const pending = [...paths].map((filePath) => ({ path: filePath, imports: /(^|\/)CLAUDE\.md$/.test(filePath) }));
+    // Imports can revisit a file already discovered through AGENTS.md. Fetch once,
+    // but parse imported prose as Claude instructions even when its name differs.
+    for (const task of pending) {
+        const filePath = task.path;
+        if (!isSafePath(filePath)) throw new Error(`Unsafe instruction path: ${filePath}`);
+        const node = nodes.get(filePath);
+        let record = records.get(filePath);
+        if (!record) {
+            if (node?.type !== 'blob') {
+                record = { path: filePath, bytes: 0, lines: 0, missing: true };
+                problems.push(`${entry.slug}: ${filePath} is not a file in the pinned tree.`);
+            } else {
+                const response = await fetch(rawUrl(entry, filePath));
+                if (!response.ok) throw new Error(`${entry.slug}: ${filePath} returned ${response.status}; previous snapshot retained.`);
+                const bytes = Buffer.from(await response.arrayBuffer());
+                const hash = createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex');
+                if (hash !== node.sha) throw new Error(`${entry.slug}: ${filePath} source hash mismatch.`);
+                const source = new TextDecoder('utf-8', { fatal: true, ignoreBOM: true }).decode(bytes);
+                const { text, truncated } = clip(source);
+                sourceCache.set(filePath, source);
+                wanted.set(filePath, text);
+                record = {
+                    path: filePath,
+                    bytes: bytes.length,
+                    lines: source.split('\n').length - 1,
+                    ...(truncated ? { truncated: true } : {}),
+                };
+                if (node.mode === '120000') {
+                    record.symlink = source;
+                    symlinks.set(filePath, record.symlink);
+                    const resolved = localTarget(filePath, record.symlink);
+                    if (resolved) pending.push({ path: resolved, imports: task.imports });
+                }
+            }
+            records.set(filePath, record);
+            files.push(record);
+        }
+        if (!task.imports || record.missing || parsedImports.has(filePath)) continue;
+        parsedImports.add(filePath);
+        if (record.symlink !== undefined) {
+            const resolved = localTarget(filePath, record.symlink);
+            if (resolved) pending.push({ path: resolved, imports: true });
             continue;
         }
-        const response = await fetch(rawUrl(entry, filePath));
-        if (!response.ok) {
-            // An AGENTS.md that points at a path which does not exist is a fact about
-            // the file, not a failure here. It is recorded so the tree can say so.
-            files.push({ path: filePath, bytes: 0, lines: 0, missing: true });
-            problems.push(`${entry.slug}: ${filePath} is ${response.status} at ${entry.lastCommit.sha.slice(0, 8)}.`);
-            continue;
+        const imports = instructionImports(filePath, sourceCache.get(filePath) ?? '', available);
+        if (imports.length) record.imports = imports;
+        for (const imported of imports) if (imported.path) pending.push({ path: imported.path, imports: true });
+    }
+    const identities = new Map<string, string>();
+    for (const file of files) {
+        if (file.symlink !== undefined) {
+            const resolved = resolveSymlink(file.path, symlinks, available);
+            file.resolvedPath = resolved.path;
+            file.unavailable = resolved.unavailable;
+        } else if (!file.missing && /(^|\/)(AGENTS|CLAUDE)\.md$/.test(file.path)) {
+            const sha = nodes.get(file.path)?.sha;
+            if (sha) {
+                const original = identities.get(sha);
+                if (original) file.sameContentAs = original;
+                else identities.set(sha, file.path);
+            }
         }
-        const source = await response.text();
-        const { text, truncated } = clip(source);
-        wanted.set(filePath, text);
-        files.push({
-            path: filePath,
-            bytes: Buffer.byteLength(source, 'utf8'),
-            lines: source.split('\n').length - 1,
-            ...(truncated ? { truncated: true } : {}),
-        });
+        for (const imported of file.imports ?? []) {
+            if (imported.path && !available.has(imported.path)) imported.unavailable = 'Not in this repository snapshot';
+        }
     }
 
     files.sort((a, b) => a.path.localeCompare(b.path));

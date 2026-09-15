@@ -12,7 +12,7 @@ import { collectionPageSchema } from '@/lib/schema';
 
 const title = 'Agent Rules';
 const description =
-    'The techniques that recur across AGENTS.md files: hard prohibitions, router files, verification by change type, ratchets, scope layering, and more, with the projects that use each one.';
+    'The techniques that recur across AGENTS.md and CLAUDE.md files: hard prohibitions, router files, verification by change type, ratchets, scope layering, and more, with the projects that use each one.';
 
 export const metadata = {
     title,
