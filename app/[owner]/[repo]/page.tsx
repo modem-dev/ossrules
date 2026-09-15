@@ -224,26 +224,6 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                                     ))}
                                 </ol>
                             </section>
-
-                            <section id="structure" className="reading-section mt-12">
-                                <h2 className="section-title">How the file is organized</h2>
-                                <ol className="mt-5">
-                                    {project.outline.map((section, position) => (
-                                        <li key={section} className="flex gap-4 py-3">
-                                            <span className="font-mono text-gray-600 text-xs">{String(position + 1).padStart(2, '0')}</span>
-                                            <span className="text-gray-500 text-sm">{section}</span>
-                                        </li>
-                                    ))}
-                                </ol>
-                                <a
-                                    href={agentsFileCommitUrl(project)}
-                                    className="mt-5 inline-block text-teal text-sm hover:underline"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    Read this revision on GitHub ↗
-                                </a>
-                            </section>
                         </div>
 
                         <aside className="project-facts" aria-label="File facts and page navigation">
@@ -302,11 +282,6 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                                     <li>
                                         <a href="#takeaways" className="block py-2 hover:text-teal">
                                             Takeaways
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#structure" className="block py-2 hover:text-teal">
-                                            File structure
                                         </a>
                                     </li>
                                 </ul>
