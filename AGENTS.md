@@ -19,6 +19,9 @@ Describe what a file does and why it matters; let readers judge whether it fits.
 - Keep the reference-library feel: a scannable two-column directory on desktop,
   comfortable reading layouts, clear hierarchy, compact metadata, and generous
   enough spacing to make dense material approachable.
+- Prioritize readable content over viewer controls and secondary metadata. Keep
+  supporting detail available on demand. Use borders to clarify entries, tabs,
+  and section boundaries where spacing or controls do not already do that work.
 - Keep the site recognizable as Modem: teal, cream, warm black and charcoal,
   with a little retro, modem-inspired character. Pixel texture should be subtle;
   avoid turning the site into a literal terminal or overwhelming the content.
@@ -54,6 +57,11 @@ label, or placement. Improve details in service of those intentions.
   patterns, and unresolved references rather than presenting guesses as facts.
 - Updating measurements does not update analysis. Re-read changed source and
   check its quotes and takeaways before marking an entry reviewed.
+- Derive catalog totals from the dataset. Make their scope clear and distinguish
+  stored snapshots from live measurements; popularity is not a quality score.
+- Grow the corpus through the sync and validation workflows. Preserve the last
+  valid snapshot when an import fails, and keep incomplete or excluded material
+  visible as such. Do not publish a partial import as a complete snapshot.
 - Measure LLM tokens from the pinned source and name the encoding. Human reading
   time is not a useful metric here. Keep tokenization and filesystem work on the
   server, outside browser bundles.
@@ -68,6 +76,10 @@ label, or placement. Improve details in service of those intentions.
 Use pnpm. `package.json` defines commands; `README.md` explains the corpus workflow.
 Before adding or refreshing entries, read
 [the entry guide](.claude/skills/agents-md-entry/SKILL.md).
+
+When a substantial visual change has an unresolved direction, compare a few
+concrete mockups before implementing it. Build on the established design and
+working interactions; a redesign should not silently discard useful behavior.
 
 For application changes, run `pnpm lint` and `pnpm typecheck`. Run `pnpm build`
 when dependencies, server/client boundaries, data loading, routing, or static
