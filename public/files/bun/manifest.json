@@ -1,0 +1,79 @@
+{
+    "slug": "bun",
+    "sha": "62838e13c3a17eb2f8212e505461340388eebb32",
+    "licensePath": "LICENSE.md",
+    "files": [
+        {
+            "path": ".claude/docs/landing-prs.md",
+            "bytes": 24917,
+            "lines": 68
+        },
+        {
+            "path": ".github/workflows/CLAUDE.md",
+            "bytes": 8873,
+            "lines": 139
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "CLAUDE.md",
+            "resolvedPath": "CLAUDE.md"
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 17609,
+            "lines": 240
+        },
+        {
+            "path": "REVIEW.md",
+            "bytes": 26174,
+            "lines": 72
+        },
+        {
+            "path": "scripts/build/CLAUDE.md",
+            "bytes": 25783,
+            "lines": 268
+        },
+        {
+            "path": "scripts/verify-baseline-static/CLAUDE.md",
+            "bytes": 13501,
+            "lines": 280
+        },
+        {
+            "path": "src/AGENTS.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "CLAUDE.md",
+            "resolvedPath": "src/CLAUDE.md"
+        },
+        {
+            "path": "src/CLAUDE.md",
+            "bytes": 21393,
+            "lines": 428
+        },
+        {
+            "path": "src/js/AGENTS.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "CLAUDE.md",
+            "resolvedPath": "src/js/CLAUDE.md"
+        },
+        {
+            "path": "src/js/CLAUDE.md",
+            "bytes": 2606,
+            "lines": 99
+        },
+        {
+            "path": "src/jsc/bindings/v8/AGENTS.md",
+            "bytes": 10263,
+            "lines": 337
+        },
+        {
+            "path": "src/jsc/bindings/v8/CLAUDE.md",
+            "bytes": 10263,
+            "lines": 337,
+            "sameContentAs": "src/jsc/bindings/v8/AGENTS.md"
+        }
+    ]
+}

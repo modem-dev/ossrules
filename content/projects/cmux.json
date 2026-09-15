@@ -1,0 +1,103 @@
+{
+    "slug": "cmux",
+    "instructionFile": "CLAUDE.md",
+    "name": "cmux",
+    "owner": "manaflow-ai",
+    "repo": "cmux",
+    "tagline": "A terminal for working with coding agents on macOS.",
+    "language": "Swift",
+    "stars": 27099,
+    "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "c8827b6e4b47ea08c3cc1537001a0a2d1cb50246",
+        "date": "2026-09-11T21:55:18Z"
+    },
+    "evaluatedAt": "2026-09-14",
+    "file": {
+        "bytes": 20800,
+        "lines": 182,
+        "words": 2804,
+        "headings": 17,
+        "bullets": 32,
+        "codeBlocks": 12,
+        "docLinks": 0
+    },
+    "references": [
+        {
+            "path": "Packages/iOS/AGENTS.md"
+        },
+        {
+            "path": ".github/review-bot-rules/remote-relay-authorization.md"
+        },
+        {
+            "path": "skills/*/SKILL.md",
+            "kind": "pattern",
+            "label": "Task-specific contributor skills"
+        }
+    ],
+    "hook": "Tagged builds isolate app identities and sockets so agents do not control the wrong running application.",
+    "summary": "cmux centers its instructions on isolated development builds, explicit verification, and shared behavior across UI and CLI surfaces. A tag identifies the application, socket, and build output; companion helpers remove ambient terminal context before targeting that build. The guide also calls out ways a green test run can miss coverage and routes component work to contributor skills. AGENTS.md symlinks to this CLAUDE.md.",
+    "patterns": ["behavioral-conditioning", "hard-prohibition", "verification-matrix", "single-source"],
+    "techniques": [
+        {
+            "title": "Isolate the complete development identity",
+            "body": "The build tag controls more than the filename. It isolates the bundle ID, socket, and derived data, allowing development builds to coexist with the user's main application.",
+            "quote": "A tag gives the app its own name, bundle ID, socket, and derived data path, so it runs side-by-side with the user's main app.",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Remove ambient routing state",
+            "body": "The debug helper refuses an unspecified tag and strips inherited terminal identifiers before selecting the tagged socket. This makes the target explicit instead of depending on whichever build was launched most recently.",
+            "quote": "The helper refuses to run without `CMUX_TAG`, targets `/tmp/cmux-debug-<tag>.sock`, and uses the matching tagged CLI from DerivedData. It scrubs ambient cmux terminal context (`CMUX_SOCKET`, `CMUX_SOCKET_PASSWORD`, workspace/surface/tab/panel IDs, cmuxd socket, debug log), then sets `CMUX_SOCKET_PATH`, `CMUX_BUNDLE_ID`, and `CMUX_BUNDLED_CLI_PATH` for the tag.",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Expose the failing regression test in history",
+            "body": "The instructions ask for the test and fix in separate commits so CI can show the transition from failure to success.",
+            "quote": "Two commits, so CI proves the test catches the bug: commit 1 adds the failing test only (CI red), commit 2 adds the fix (CI green).",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Check whether tests are wired into the target",
+            "body": "The file describes a silent failure mode: a Swift test file can exist without Xcode project entries and a successful invocation can execute no tests. It names the guard that checks this wiring.",
+            "quote": "a `.swift` file in `cmuxTests/` without a `PBXFileReference` + `PBXSourcesBuildPhase` entry is silently skipped, and both `xcodebuild test` and bot reviews pass with \"Executed 0 tests\". `workflow-guard-tests` runs `./scripts/lint-pbxproj-test-wiring.sh` to catch it.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Reproduce on the reporter's platform",
+            "body": "A documented Foundation difference explains how maintainer machines can miss a bug affecting an older macOS release. The instruction makes the reporter's version part of reproduction.",
+            "quote": "Test on the reporter's macOS before declaring a repro disproven.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Give all entry points one behavior owner",
+            "body": "Shortcuts, menus, CLI, and settings must use the same action path. Optimistic updates also share one mutation path and reconcile against the authoritative result.",
+            "quote": "When a behavior is exposed through multiple entrypoints (shortcut, command palette, context menu, CLI, settings, debug menu), implement one shared action path and verify every entrypoint.",
+            "pattern": "single-source"
+        }
+    ],
+    "steal": [
+        "Isolate runtime identifiers as well as build output in parallel development.",
+        "Make control helpers reject an unspecified target and scrub inherited routing context.",
+        "Verify that added test files are actually part of the test target.",
+        "Reproduce platform-sensitive failures on the reported operating-system version.",
+        "Route UI and CLI entry points through the same action implementation."
+    ],
+    "outline": [
+        "Setup",
+        "Build and reload",
+        "Shared Mac fleet capacity",
+        "Tag-bound debug CLI",
+        "iOS UI follows the Apple HIG",
+        "iOS builds open on the iPhone by default",
+        "All fleet slots are general-purpose",
+        "Cross-tag Mac access for DEV iPhone builds",
+        "iOS dev auth",
+        "Regression test commits",
+        "First pass, then dogfood",
+        "Pitfalls",
+        "Shared behavior policy",
+        "Remote CLI relay authorization (GHSA-9vmv-3hjw-j28c)",
+        "Skills"
+    ]
+}

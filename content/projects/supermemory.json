@@ -1,0 +1,63 @@
+{
+    "slug": "supermemory",
+    "instructionFile": "CLAUDE.md",
+    "name": "Supermemory",
+    "owner": "supermemoryai",
+    "repo": "supermemory",
+    "tagline": "A memory and context engine for AI applications.",
+    "language": "TypeScript",
+    "stars": 29671,
+    "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "c6792e5100a6d7f4057d5151657ff1bdca6c2b3b",
+        "date": "2025-12-30T20:03:21Z"
+    },
+    "evaluatedAt": "2026-09-14",
+    "file": {
+        "bytes": 3963,
+        "lines": 120,
+        "words": 562,
+        "headings": 25,
+        "bullets": 62,
+        "codeBlocks": 0,
+        "docLinks": 0
+    },
+    "references": [],
+    "hook": "The content-ingestion pipeline gives contributors a route through extraction, tagging, embeddings, and search.",
+    "summary": "Supermemory's CLAUDE.md is primarily an architecture and command reference. It describes the web and MCP applications, API routes, shared dependencies, and the content-processing workflow. It also lists deployment bindings and conventions for generated schema types. The guide has gaps, including an unfinished Web Application section, so its value is orientation rather than a complete change or verification policy.",
+    "patterns": ["architecture-narrative", "verification-matrix"],
+    "techniques": [
+        {
+            "title": "Describe the content-processing path",
+            "body": "The named workflow connects content detection and extraction to summarization, embeddings, chunking, and space relationships. That sequence helps locate where a change in ingestion behavior belongs.",
+            "quote": "All content goes through the `IngestContentWorkflow` which handles:\n- Content type detection and extraction\n- AI-powered summarization and automatic tagging\n- Vector embedding generation using Cloudflare AI\n- Chunking for semantic search optimization\n- Space relationship management",
+            "pattern": "architecture-narrative"
+        },
+        {
+            "title": "Distinguish workspace and application commands",
+            "body": "Root commands operate across the monorepo, while the web application has its own development and build commands. The file supplies both scopes rather than leaving working-directory assumptions implicit.",
+            "quote": "### Root Level (Monorepo)\n- `bun run dev` - Start all applications in development mode\n- `bun run build` - Build all applications\n- `bun run check-types` - Run TypeScript checks across all apps\n- `bun run format-lint` - Format and lint code using Biome\n\n### Web Application (`apps/web/`)\n- `bun run dev` - Start Next.js development server\n- `bun run build` - Build Next.js application\n- `bun run lint` - Run Next.js linting",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "List the deployment dependencies",
+            "body": "The environment section names the Cloudflare bindings and the connection-import schedule. These details explain which external capabilities the processing architecture expects.",
+            "quote": "### Environment Configuration\n- Uses `wrangler.jsonc` for Cloudflare Workers configuration\n- Supports staging and production environments\n- Requires Cloudflare bindings: Hyperdrive (DB), AI, KV storage, Workflows\n- Cron triggers every 4 hours for connection imports",
+            "pattern": "architecture-narrative"
+        }
+    ],
+    "steal": [
+        "Describe the processing stages a contributor must trace when changing behavior.",
+        "Label commands by workspace or application scope.",
+        "List required runtime bindings beside the workflows that depend on them."
+    ],
+    "outline": [
+        "Repository Structure",
+        "Development Commands",
+        "Architecture Overview",
+        "Key Libraries & Dependencies",
+        "Development Workflow",
+        "Code Quality & Standards",
+        "Security & Best Practices"
+    ]
+}

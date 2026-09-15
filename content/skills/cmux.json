@@ -1,0 +1,1152 @@
+{
+    "version": 1,
+    "slug": "cmux",
+    "repository": "manaflow-ai/cmux",
+    "branch": "main",
+    "sha": "6f118af63b68630f3cf603794c6cb63d15845032",
+    "scannedAt": "2026-09-15T02:10:32.896Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "cmux-architecture-51ac2bad0060",
+            "path": "skills/cmux-architecture/SKILL.md",
+            "name": "cmux-architecture",
+            "description": "cmux package architecture, refactor layering, dependency inversion, file organization, DocC documentation, package design discipline, testability, and Swift 6 concurrency rules. Use before adding or meaningfully rewriting Swift files, Swift packages, coordinators, services, repositories, or public package APIs.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "1f0c6f9fb3210ef879810b6470a0d33a4d851684",
+                    "bytes": 16596,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "a3918c5711a06d9801f564ba1fe059f75d253c56",
+                    "bytes": 352,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/concurrency-carveouts.md",
+                    "blob": "e82798b56fa7cc2d6ded5741311c9e40d7b5fba8",
+                    "bytes": 1758,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/file-api-discipline.md",
+                    "blob": "d29798d6e28b491a892261746b5329aa30baf734",
+                    "bytes": 1398,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/package-boundaries.md",
+                    "blob": "13ab716418edabc663c31ea133b2ca0112875279",
+                    "bytes": 2120,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 67667005,
+                        "login": "azooz2003-bit",
+                        "commits": 2
+                    },
+                    {
+                        "id": 54008264,
+                        "login": "lawrencecchen",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "cmux-backend-70b85fc1c86e",
+            "path": "skills/cmux-backend/SKILL.md",
+            "name": "cmux-backend",
+            "description": "Backend TypeScript and Cloud VM development rules for cmux. Use when editing web/app/api, web/services, backend scripts, Cloud VM lifecycle, provider integrations, Postgres, Stack Auth pricing gates, migrations, or provider image build scripts.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "70e6f6a0fd89b013150eee19cc9fc162b0da6698",
+                    "bytes": 2643,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "4fa42b6a7b6aaed6b2c2b858d707ba1833a5b142",
+                    "bytes": 329,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/cloud-vm-control-plane.md",
+                    "blob": "4be2fc9463b09c12eaff97b4ed26af06d3e6d4f7",
+                    "bytes": 1846,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/effect-boundaries.md",
+                    "blob": "9ef1ad5b4c55e2ec63917bb294082630dab57d42",
+                    "bytes": 2232,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 67667005,
+                        "login": "azooz2003-bit",
+                        "commits": 1
+                    },
+                    {
+                        "id": 54008264,
+                        "login": "lawrencecchen",
+                        "commits": 1
+                    },
+                    {
+                        "id": 38309438,
+                        "login": "theswerd",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "cmux-billing-8ef339a2a81e",
+            "path": "skills/cmux-billing/SKILL.md",
+            "name": "cmux-billing",
+            "description": "Stripe checkout, pricing, subscription, Pro plan, webhook, and entitlement runbook for cmux billing work. Use when editing or debugging billing, pricing, Stripe Checkout, subscription recording, Pro plan status, webhooks, entitlement metadata, or pricing dev/prod tooling.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "90d8c2e6a57e52cf1d5bac57412e1a1a2e7f5449",
+                    "bytes": 7956,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 54008264,
+                        "login": "lawrencecchen",
+                        "commits": 14
+                    },
+                    {
+                        "id": 38676809,
+                        "login": "austinywang",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "cmux-browser-d619e74d2620",
+            "path": "skills/cmux-browser/SKILL.md",
+            "name": "cmux-browser",
+            "description": "End-user browser automation with cmux. Use when you need to open sites, inspect or interact with browser surfaces, wait for page state, and extract data without stealing focus.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "417ed7c06eb27f7aab025e9fc1e185aff774048d",
+                    "bytes": 10963,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "AGENTS.md",
+                    "blob": "27913d3dd5d8e552cf4339284405995ec7d48b53",
+                    "bytes": 821,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "5252cbd7801ca620f2f6c2a9dba6624446fe0d2a",
+                    "bytes": 442,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/authentication.md",
+                    "blob": "c5faf2a871c28f6599a5c6b5ba2a263a22453604",
+                    "bytes": 5035,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/commands.md",
+                    "blob": "313e4e9190ccad57e07d26fce86b71471a790733",
+                    "bytes": 8307,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/proxy-support.md",
+                    "blob": "5d3c91ae0c116ba332add2a3b88a5e3f53b47b94",
+                    "bytes": 800,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/session-management.md",
+                    "blob": "c21357a47293d786c0edc341bad9dc0b87543529",
+                    "bytes": 2461,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/snapshot-refs.md",
+                    "blob": "908d42367b400cc4b02e31d348014a97101ff95c",
+                    "bytes": 1237,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/surface-discovery.md",
+                    "blob": "839cb58cf0eacbe4eb92c40d3c81a08b62ecdf10",
+                    "bytes": 4117,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/video-recording.md",
+                    "blob": "5dbd893950eaf7b541caee28fd9d035e43dfe109",
+                    "bytes": 995,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "templates/authenticated-session.sh",
+                    "blob": "f2b474bc711eb3815a88f51195bcdfaa7a8446c3",
+                    "bytes": 733,
+                    "text": true,
+                    "mode": "100755"
+                },
+                {
+                    "path": "templates/capture-workflow.sh",
+                    "blob": "ec5494993e08d181a6105a0b1bb73f972bb5cb9c",
+                    "bytes": 491,
+                    "text": true,
+                    "mode": "100755"
+                },
+                {
+                    "path": "templates/form-automation.sh",
+                    "blob": "77765863394e427ae67dc69c1ee4a11eff6f3d34",
+                    "bytes": 468,
+                    "text": true,
+                    "mode": "100755"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 54008264,
+                        "login": "lawrencecchen",
+                        "commits": 4
+                    },
+                    {
+                        "id": 38676809,
+                        "login": "austinywang",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "cmux-cloud-vm-3ef4c6d3f301",
+            "path": "skills/cmux-cloud-vm/SKILL.md",
+            "name": "cmux-cloud-vm",
+            "description": "Route work to cmux Cloud machines from the plain `cmux vm` CLI (alias `cmux cloud`): route/run/agent pick a machine, `vm tree` and `surface ls` catalog This Mac and cloud surfaces, and open, exec, transfer, workspace, terminal, port, checkpoint, and domain operations share the same app paths. Use when an agent should run builds, tests, servers, desktop/browser tasks, or another agent on a cloud machine, or when the user says \"cloud machine\", \"cloud VM\", \"run it in the cloud\", \"cmux vm\", or \"cmux cloud\".",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "813d40243ea1e0b68799440d12af16daf64f0906",
+                    "bytes": 51807,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "a98c4c118f3538b15bfcb8558a06be5729c4525b",
+                    "bytes": 502,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/agent-workflows.md",
+                    "blob": "a559f33ab0dd774bf81cbca3cff55f00a36e9b0a",
+                    "bytes": 23836,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/commands.md",
+                    "blob": "71cbf10b04c36529ca6f7976520c89e6f059157b",
+                    "bytes": 78927,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/sidebar-parity.md",
+                    "blob": "f07afda382e84e8fb4cc0fa1c810e491f1f32809",
+                    "bytes": 13841,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 38676809,
+                        "login": "austinywang",
+                        "commits": 12
+                    },
+                    {
+                        "id": 54008264,
+                        "login": "lawrencecchen",
+                        "commits": 2
+                    },
+                    {
+                        "id": 38309438,
+                        "login": "theswerd",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "cmux-cua-8420a63e0bcf",
+            "path": "skills/cmux-cua/SKILL.md",
+            "name": "cmux-cua",
+            "description": "Use only after the user explicitly asks for Computer Use: drive real macOS apps from a cmux agent session via the bundled engine (accessibility tree + screenshots, click/type/scroll/drag, branded cursor), or explain its user-directed permission setup. Reading or discovering this skill is not consent.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "5442a5765dddaa05253631a51dc7e6c649c2063d",
+                    "bytes": 16976,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "a060c13e147e986676ae1da81168e4b7ba0f7004",
+                    "bytes": 307,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "link-policy.sh",
+                    "blob": "57fb18ef8b1b168da39fa22ae033c419a6a94f64",
+                    "bytes": 13512,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 38676809,
+                        "login": "austinywang",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "cmux-custom-sidebar-cde2f94cecd1",
+            "path": "skills/cmux-custom-sidebar/SKILL.md",
+            "name": "cmux-custom-sidebar",
+            "description": "Build a custom cmux sidebar from a plain-language request. Use when the user asks for a custom sidebar, a sidebar that shows their workspaces/tabs/PRs/clock, a vibe-coded sidebar, or anything involving files in ~/.config/cmux/sidebars/. Covers authoring the interpreted SwiftUI-style file, enabling the beta flag, selecting it, and iterating with hot reload.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "0873fc84ca6b2f1e18d127ebdb308387e4be5295",
+                    "bytes": 6244,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 67667005,
+                        "login": "azooz2003-bit",
+                        "commits": 1
+                    },
+                    {
+                        "id": 54008264,
+                        "login": "lawrencecchen",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "cmux-customization-dae3dc7a3791",
+            "path": "skills/cmux-customization/SKILL.md",
+            "name": "cmux-customization",
+            "description": "Customize cmux for an end user. Use when changing cmux.json actions, custom commands, workspace layouts, plus-button behavior, surface tab bar buttons, Command Palette entries, Dock controls, sidebar and app settings, shortcuts, notifications, browser routing, examples-library presets, or Ghostty-backed terminal preferences.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ad3d14ea2340d1198d226293614aad783d777ef7",
+                    "bytes": 5399,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "9098b80c85ede1047208b001533c29138776241a",
+                    "bytes": 255,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/examples.md",
+                    "blob": "1d4b5aad441be33e55d6068ef38aa310b20504d8",
+                    "bytes": 5910,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 54008264,
+                        "login": "lawrencecchen",
+                        "commits": 4
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "cmux-debugging-b20cb3f14b45",
+            "path": "skills/cmux-debugging/SKILL.md",
+            "name": "cmux-debugging",
+            "description": "Debug logging, Debug menu, runtime pitfalls, typing-latency-sensitive paths, SwiftUI list snapshot boundaries, OS-version repros, and local visual iteration for cmux. Use when adding debug probes, diagnosing UI/runtime issues, touching terminal rendering, tab/sidebar list views, drag/drop UTTypes, or using the Debug menu.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "2061bfbdceb881d4816bab8eb3fcfc83faf15c0a",
+                    "bytes": 4009,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "e260edfd5478d191733f19a2e81c100e8e591113",
+                    "bytes": 358,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/debug-event-log.md",
+                    "blob": "7234d3be324eb9b5d5564f790210161a834cab4b",
+                    "bytes": 1067,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/runtime-pitfalls.md",
+                    "blob": "7935d1ad43ea6aab108e016dc1e05eac95bae801",
+                    "bytes": 3659,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 67667005,
+                        "login": "azooz2003-bit",
+                        "commits": 2
+                    },
+                    {
+                        "id": 54008264,
+                        "login": "lawrencecchen",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "cmux-dev-workflow-5a2612e3a440",
+            "path": "skills/cmux-dev-workflow/SKILL.md",
+            "name": "cmux-dev-workflow",
+            "description": "Contributor workflow rules for cmux setup, Xcode project normalization, tagged sidebar ExtensionKit development, and dev builds. Use when setting up the cmux repo, changing Xcode project files, adding sidebar extensions, or working with tagged debug builds.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "4f5be97aa32a5cd78dabfdb1d98db1ca5522fe86",
+                    "bytes": 3950,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "8eda0cdd2ef9d13cb0baac8e30d4b6f8185f93b4",
+                    "bytes": 330,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/sidebar-extension-tagging.md",
+                    "blob": "03e791f2e002e65ddfb7d37ef2a201569be0149f",
+                    "bytes": 1580,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/tagged-builds.md",
+                    "blob": "63d0aaeba89019653b13038f71b9e859f2997fd6",
+                    "bytes": 1663,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/xcode-project-normalization.md",
+                    "blob": "4099d0299f9650887bd3def79407494ab8a64441",
+                    "bytes": 529,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 67667005,
+                        "login": "azooz2003-bit",
+                        "commits": 2
+                    },
+                    {
+                        "id": 35414964,
+                        "login": "aniruddhamurali",
+                        "commits": 1
+                    },
+                    {
+                        "id": 54008264,
+                        "login": "lawrencecchen",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "cmux-diagnostics-03ae63263fb7",
+            "path": "skills/cmux-diagnostics/SKILL.md",
+            "name": "cmux-diagnostics",
+            "description": "Run end-user cmux diagnostics. Use when cmux hooks, notifications, session restore, settings, browser automation, socket access, CLI control, or agent resume behavior is not working, or when the user asks for a cmux health check, doctor report, or support-safe debug summary.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "5bb5ac6a79d546f1f87b21f3da20350ea9f3c230",
+                    "bytes": 3274,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "364b6e193551dcef8bb8c8accb589fea8b5be09b",
+                    "bytes": 249,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/cmux-diagnostics",
+                    "blob": "623374247b0cabbbf2b29bb840f6eeae6a3a7694",
+                    "bytes": 6045,
+                    "text": true,
+                    "mode": "100755"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 54008264,
+                        "login": "lawrencecchen",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "cmux-ghostty-7f0b32c3ef4e",
+            "path": "skills/cmux-ghostty/SKILL.md",
+            "name": "cmux-ghostty",
+            "description": "Ghostty submodule and GhosttyKit workflow rules for cmux. Use when modifying the ghostty submodule, rebuilding GhosttyKit.xcframework, updating the parent submodule pointer, or documenting fork conflict notes.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "e1edc4f6a6838788d7f0e4ea85cc55469598d32f",
+                    "bytes": 2318,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "543ab81abfd2764445838244beb3d375f239bb0b",
+                    "bytes": 345,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/submodule-safety.md",
+                    "blob": "99055ea5c44670e784bebddcea086ad465461dce",
+                    "bytes": 1015,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 67667005,
+                        "login": "azooz2003-bit",
+                        "commits": 1
+                    },
+                    {
+                        "id": 54008264,
+                        "login": "lawrencecchen",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "cmux-keyboard-shortcuts-2104dd363b68",
+            "path": "skills/cmux-keyboard-shortcuts/SKILL.md",
+            "name": "cmux-keyboard-shortcuts",
+            "description": "Guide and apply cmux keyboard shortcut customization. Use when the user asks to customize, rebind, unbind, reset, audit, or create shortcut templates for cmux, including tmux-style, Vim-style, terminal-first, browser-heavy, iTerm/Terminal-like, or agent-triage layouts.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "8a1dbd4cc2b7991d0903037986a2edd377427aaf",
+                    "bytes": 9994,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "c9bb64f554a7c8dbf0093e0a1e76c6a0fa8fc37e",
+                    "bytes": 341,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 54008264,
+                        "login": "lawrencecchen",
+                        "commits": 9
+                    }
+                ],
+                "unlinkedAuthors": 1
+            }
+        },
+        {
+            "id": "cmux-localization-a755f577d014",
+            "path": "skills/cmux-localization/SKILL.md",
+            "name": "cmux-localization",
+            "description": "Localization rules and audit workflow for cmux UI strings, settings rows, menus, shortcuts, schema/config text, docs, command/help text, alerts, tooltips, and web messages. Use whenever changing user-facing text.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7f4e0611ceddc72a017f70ee540ffdb650105543",
+                    "bytes": 3747,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "c09dd5e190241c1bcf5d1dc80bf6d64e0e27c57c",
+                    "bytes": 324,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/audit-workflow.md",
+                    "blob": "e2ef9b092f03601ca5c9acbae422fe8b6c856d28",
+                    "bytes": 1473,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 67667005,
+                        "login": "azooz2003-bit",
+                        "commits": 2
+                    },
+                    {
+                        "id": 38676809,
+                        "login": "austinywang",
+                        "commits": 1
+                    },
+                    {
+                        "id": 54008264,
+                        "login": "lawrencecchen",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "cmux-markdown-30b96d5d602d",
+            "path": "skills/cmux-markdown/SKILL.md",
+            "name": "cmux-markdown",
+            "description": "Open markdown files in a formatted viewer panel with live reload. Use when you need to display plans, documentation, or notes alongside the terminal with rich rendering (headings, code blocks, tables, lists).",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "eb6e070c2a1e1b7815a7a8e0b8312fefac62fe29",
+                    "bytes": 2107,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "0ce42fe4296b3477df2e67deb8696beb7d0f01c0",
+                    "bytes": 353,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/commands.md",
+                    "blob": "c738b2718ca1cd9825c30339314affa4a3ad191d",
+                    "bytes": 1066,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/live-reload.md",
+                    "blob": "158a49c8cdf8683f16ff03e9b9b64635f638f938",
+                    "bytes": 1259,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 2464556,
+                        "login": "homanp",
+                        "commits": 1
+                    },
+                    {
+                        "id": 54008264,
+                        "login": "lawrencecchen",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "cmux-release-671ffbf37008",
+            "path": "skills/cmux-release/SKILL.md",
+            "name": "cmux-release",
+            "description": "cmux release workflow, version bumping, changelog updates, pretag guard, release tags, and release asset expectations. Use when preparing or troubleshooting a cmux release.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "32604cd4a8a546b037d11ac9ec61085d6da84a01",
+                    "bytes": 1874,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "dd7821043ec1a8feb4ec60986ef4f27a6abb4f07",
+                    "bytes": 326,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/release-checklist.md",
+                    "blob": "2cbb41452490247f40f36641f841ab9ee8accc29",
+                    "bytes": 951,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 67667005,
+                        "login": "azooz2003-bit",
+                        "commits": 1
+                    },
+                    {
+                        "id": 54008264,
+                        "login": "lawrencecchen",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "cmux-settings-549cd56f873d",
+            "path": "skills/cmux-settings/SKILL.md",
+            "name": "cmux-settings",
+            "description": "View and edit cmux settings in ~/.config/cmux/cmux.json. Use when the user wants to change cmux preferences (appearance, sidebar, notifications, automation, browser, shortcuts), set a value by JSON path, validate the file, open it in an editor, or look up which keys cmux recognizes. Triggers on '/cmux-settings', 'change cmux setting', 'set <something> in cmux', 'cmux config', 'cmux.json', or 'rebind a cmux shortcut'.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d4c657e2e187f08df7ecae3362ea1295a285cb7a",
+                    "bytes": 5065,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "68f98b042bb5f3cd134f9b1e67e2263969a2a695",
+                    "bytes": 332,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/all-keys.md",
+                    "blob": "d0156065865f6af1b3ce48332081fab9da8bd205",
+                    "bytes": 11998,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/shortcut-actions.md",
+                    "blob": "ef1fb90e97cdf05f29968be44196a4926a3a310c",
+                    "bytes": 5451,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/cmux-settings",
+                    "blob": "ddff2b9b9090fb367a26241a0d4e8b1a267dab9e",
+                    "bytes": 13856,
+                    "text": true,
+                    "mode": "100755"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 54008264,
+                        "login": "lawrencecchen",
+                        "commits": 2
+                    },
+                    {
+                        "id": 38676809,
+                        "login": "austinywang",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "cmux-shared-behavior-2e6fcc788506",
+            "path": "skills/cmux-shared-behavior/SKILL.md",
+            "name": "cmux-shared-behavior",
+            "description": "Shared behavior and mutation-path rules for cmux. Use when a behavior is exposed through multiple entrypoints such as keyboard shortcuts, command palette, context menu, CLI, settings, debug menu, optimistic UI, or tests that previously missed a bug.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "96283fac76fb13f3c1e8a0b9a1346c091b89d512",
+                    "bytes": 1095,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "429c8a61dc196ce13f41939589c1902344487566",
+                    "bytes": 337,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 67667005,
+                        "login": "azooz2003-bit",
+                        "commits": 1
+                    },
+                    {
+                        "id": 54008264,
+                        "login": "lawrencecchen",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "cmux-socket-policy-72e0aee4fb0d",
+            "path": "skills/cmux-socket-policy/SKILL.md",
+            "name": "cmux-socket-policy",
+            "description": "Socket command threading and focus policy for cmux CLI/socket work. Use when adding or changing socket commands, CLI commands, telemetry commands, focus/select/open/close/send-key behavior, or automation that could steal app focus.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ea97518bcc1bd22ad6bd29281fbc2929d8252b28",
+                    "bytes": 1670,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "30f43185c637a9f8b5b63355055f862bc44e593d",
+                    "bytes": 348,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/threading-and-focus.md",
+                    "blob": "4e75f56974c30799083d38cb2ca6b7621dc999f9",
+                    "bytes": 1369,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 67667005,
+                        "login": "azooz2003-bit",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "cmux-testing-278ddc008244",
+            "path": "skills/cmux-testing/SKILL.md",
+            "name": "cmux-testing",
+            "description": "cmux testing rules for Swift Testing, test target compilation, test wiring, and package/refactor validation. Use when adding or changing tests, touching package/refactor code, or deciding whether reload.sh is enough validation.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b60fb22c7ffcd7881d4065befafc65695a561ad5",
+                    "bytes": 4603,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "003888a5d86f018e59162c9a70644c8c6ca72ec2",
+                    "bytes": 306,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/local-vs-ci-validation.md",
+                    "blob": "b8d9f40315960983ea5d27fb265cbe10794ec851",
+                    "bytes": 1136,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/regression-and-quality.md",
+                    "blob": "8dd0a554cdd027b0efd4a4ef9a712991815deb50",
+                    "bytes": 975,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/remote-tmux-sizing-e2e.md",
+                    "blob": "8afd0725b7fbe1cf7469b9016abf8dc3d2230a92",
+                    "bytes": 7341,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/swift-testing-migration.md",
+                    "blob": "1ebf982ad6f868f9fff92b118ab971cc2ac2a0d8",
+                    "bytes": 1402,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 67667005,
+                        "login": "azooz2003-bit",
+                        "commits": 3
+                    },
+                    {
+                        "id": 1694850,
+                        "login": "ejc3",
+                        "commits": 2
+                    },
+                    {
+                        "id": 54008264,
+                        "login": "lawrencecchen",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "cmux-workspace-13258240c267",
+            "path": "skills/cmux-workspace/SKILL.md",
+            "name": "cmux-workspace",
+            "description": "Work inside the current cmux workspace and terminal. Use for cmux workspace, current workspace, caller surface, panes, surfaces, socket targeting, and non-interfering cmux automation.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "82baa06d0efe5b6920ac73aafcf7d4930855e17e",
+                    "bytes": 6990,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "e71720a9e6cf2b121126b256ee45a254c0ca7f33",
+                    "bytes": 392,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/commands.md",
+                    "blob": "876276fcb859212e0b67bc1e8879ff2d38ab742a",
+                    "bytes": 4393,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 54008264,
+                        "login": "lawrencecchen",
+                        "commits": 2
+                    },
+                    {
+                        "id": 38676809,
+                        "login": "austinywang",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "cmux-752a454075ac",
+            "path": "skills/cmux/SKILL.md",
+            "name": "cmux",
+            "description": "End-user control of cmux topology and routing (windows, workspaces, panes/surfaces, focus, moves, reorder, identify, trigger flash). Use when automation needs deterministic placement and navigation in a multi-pane cmux layout.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "c02dcc035b250ee0ea05438bac681879cb3ab2e2",
+                    "bytes": 4541,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "8c8f26dfa1df18e2405b1082cb59649e041771df",
+                    "bytes": 349,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/handles-and-identify.md",
+                    "blob": "3c70c4c1ee795e92fa0355e5d0cdd75c62d6708b",
+                    "bytes": 564,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/panes-surfaces.md",
+                    "blob": "d6e8f4eb2beaf69f23117b216de70283d39a41e3",
+                    "bytes": 2231,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/trigger-flash-and-health.md",
+                    "blob": "f4f55951bcaa22426093fe0332f22857d5b01921",
+                    "bytes": 380,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/windows-workspaces.md",
+                    "blob": "93224b78b97f0df2bf660cbaad1aa221f6415d1d",
+                    "bytes": 1520,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 54008264,
+                        "login": "lawrencecchen",
+                        "commits": 9
+                    },
+                    {
+                        "id": 38676809,
+                        "login": "austinywang",
+                        "commits": 2
+                    },
+                    {
+                        "id": 2464556,
+                        "login": "homanp",
+                        "commits": 1
+                    },
+                    {
+                        "id": 2884297,
+                        "login": "Vesely",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "CLAUDE.md",
+        "blob": "189f2989975251d7bab3b58aac6463e4555c7abe",
+        "bytes": 20800,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "d10fe411b3ae74c27d15742e3ccb723b232a4b4c",
+        "bytes": 36050,
+        "text": true,
+        "mode": "100644"
+    }
+}

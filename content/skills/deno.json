@@ -1,0 +1,177 @@
+{
+    "version": 1,
+    "slug": "deno",
+    "repository": "denoland/deno",
+    "branch": "main",
+    "sha": "c8401c52c2b8f4c914ad6bd33585f4eb9ddc8e1d",
+    "scannedAt": "2026-09-15T02:10:36.691Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "fmt-aada7e5d215c",
+            "path": ".claude/skills/fmt/SKILL.md",
+            "name": "fmt",
+            "description": "Format all code in the repository. Run before opening a PR or committing changes.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "2aad801807ea932ac16006adc1a0f81fb075b8ef",
+                    "bytes": 278,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 13602871,
+                        "login": "bartlomieju",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "issue-triage-684cee86a62d",
+            "path": ".claude/skills/issue-triage/SKILL.md",
+            "name": "issue-triage",
+            "description": "Triage a Deno GitHub issue — reproduce bugs, classify, label, and comment with findings. Use when asked to triage an issue or when an issue number/URL is provided for triage.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "407c0f0ffe30f6486cbc4078fc381102a40c79be",
+                    "bytes": 10063,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 13602871,
+                        "login": "bartlomieju",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "lint-all-c902381ed69d",
+            "path": ".claude/skills/lint-all/SKILL.md",
+            "name": "lint-all",
+            "description": "Lint all code (Rust + JS/TS). Use before opening a PR when Rust code was changed.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "09740510e7f4143ec841e98cb485cc3890d33b59",
+                    "bytes": 303,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 13602871,
+                        "login": "bartlomieju",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "lint-js-8241fe4f97c8",
+            "path": ".claude/skills/lint-js/SKILL.md",
+            "name": "lint-js",
+            "description": "Lint JS/TS code only. Use before opening a PR when only JavaScript or TypeScript files were changed (no Rust).",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b73f18e45ea73e5647c27a7a68bd98a9f8cade06",
+                    "bytes": 325,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 13602871,
+                        "login": "bartlomieju",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "node-compat-c4356c4f8f1b",
+            "path": ".claude/skills/node-compat/SKILL.md",
+            "name": "node-compat",
+            "description": "Run a Node.js compatibility test, diagnose failures, and either fix the implementation, skip, or ignore the test. Use when asked to work on node compat tests.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "cd7b5eb2ed9f19edfecf686fdafcf39ff4ed7361",
+                    "bytes": 5233,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 13602871,
+                        "login": "bartlomieju",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "review-pr-d3868df87b01",
+            "path": ".claude/skills/review-pr/SKILL.md",
+            "name": "review-pr",
+            "description": "Review a Deno runtime pull request for correctness, tests, security, and conventions. Use when asked to review a PR or when a PR number/URL is provided for review.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "0aa8e9e3cde58a62128caaae1cb765717df32242",
+                    "bytes": 6905,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 13602871,
+                        "login": "bartlomieju",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "CLAUDE.md",
+        "blob": "0276c23c589c0399f8ed51d9128e34f9a1d1ce56",
+        "bytes": 11866,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE.md",
+        "blob": "b641c75c0b04ccfddcb1145d2554ab49b6ca9411",
+        "bytes": 1074,
+        "text": true,
+        "mode": "100644"
+    }
+}

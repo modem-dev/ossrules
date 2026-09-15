@@ -1,0 +1,81 @@
+{
+    "slug": "cmux",
+    "sha": "c8827b6e4b47ea08c3cc1537001a0a2d1cb50246",
+    "license": "GPL-3.0",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".github/review-bot-rules/remote-relay-authorization.md",
+            "bytes": 3211,
+            "lines": 25
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "CLAUDE.md",
+            "resolvedPath": "CLAUDE.md"
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 20800,
+            "lines": 182
+        },
+        {
+            "path": "cmux-browser/AGENTS.md",
+            "bytes": 2350,
+            "lines": 29
+        },
+        {
+            "path": "cmux-tui/AGENTS.md",
+            "bytes": 1268,
+            "lines": 14
+        },
+        {
+            "path": "cmux-tui/CLAUDE.md",
+            "bytes": 98,
+            "lines": 3
+        },
+        {
+            "path": "ios/AGENTS.md",
+            "bytes": 180,
+            "lines": 5
+        },
+        {
+            "path": "ios/CLAUDE.md",
+            "bytes": 82,
+            "lines": 3
+        },
+        {
+            "path": "Packages/iOS/AGENTS.md",
+            "bytes": 618,
+            "lines": 12
+        },
+        {
+            "path": "Packages/iOS/CLAUDE.md",
+            "bytes": 90,
+            "lines": 3
+        },
+        {
+            "path": "skills/cmux-browser/AGENTS.md",
+            "bytes": 821,
+            "lines": 16
+        },
+        {
+            "path": "web/AGENTS.md",
+            "bytes": 2278,
+            "lines": 37
+        },
+        {
+            "path": "web/CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "web/AGENTS.md"
+                }
+            ]
+        }
+    ]
+}
