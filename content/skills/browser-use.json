@@ -22,7 +22,32 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 70768382,
+                        "login": "laithrw",
+                        "commits": 8
+                    },
+                    {
+                        "id": 67061560,
+                        "login": "MagMueller",
+                        "commits": 6
+                    },
+                    {
+                        "id": 36313686,
+                        "login": "gregpr07",
+                        "commits": 2
+                    },
+                    {
+                        "id": 12201824,
+                        "login": "sauravpanda",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "browser-use-538fc253c964",
@@ -37,7 +62,37 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 129362299,
+                        "login": "ShawnPana",
+                        "commits": 39
+                    },
+                    {
+                        "id": 36313686,
+                        "login": "gregpr07",
+                        "commits": 9
+                    },
+                    {
+                        "id": 70768382,
+                        "login": "laithrw",
+                        "commits": 9
+                    },
+                    {
+                        "id": 67061560,
+                        "login": "MagMueller",
+                        "commits": 6
+                    },
+                    {
+                        "id": 12201824,
+                        "login": "sauravpanda",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 1
+            }
         },
         {
             "id": "cloud-484f7bec1442",
@@ -129,7 +184,27 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 36313686,
+                        "login": "gregpr07",
+                        "commits": 2
+                    },
+                    {
+                        "id": 129362299,
+                        "login": "ShawnPana",
+                        "commits": 2
+                    },
+                    {
+                        "id": 67061560,
+                        "login": "MagMueller",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "open-source-b4dcd3457597",
@@ -207,7 +282,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 129362299,
+                        "login": "ShawnPana",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "qa-371f0a9311b9",
@@ -236,7 +321,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 129362299,
+                        "login": "ShawnPana",
+                        "commits": 4
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "remote-browser-0ee8afa61fa6",
@@ -251,7 +346,27 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 129362299,
+                        "login": "ShawnPana",
+                        "commits": 25
+                    },
+                    {
+                        "id": 36313686,
+                        "login": "gregpr07",
+                        "commits": 1
+                    },
+                    {
+                        "id": 67061560,
+                        "login": "MagMueller",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "x402-d0bc4df56976",
@@ -266,7 +381,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 70768382,
+                        "login": "laithrw",
+                        "commits": 7
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         }
     ],
     "agentsFile": {

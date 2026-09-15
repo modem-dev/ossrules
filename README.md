@@ -82,3 +82,12 @@ scans retain the previous manifest. A complete bundle download is offered only
 when every bundle file is present; external references remain external. Metadata
 comes from upstream YAML; descriptions are not editorial reviews. Skill names
 can repeat, so URLs use a stable repository-path identity.
+
+Contributor avatars come from GitHub-linked commit authors for each `SKILL.md`
+path, up to the pinned skill snapshot. `pnpm sync:skills` refreshes this metadata
+with discovery; `pnpm sync:skill-contributors` (optionally `--slug opencode`)
+refreshes only attribution at existing snapshots. The stored account IDs and
+usernames support avatar groups without live API requests while browsing.
+Known bot accounts are filtered; co-author trailers and history before path
+renames are not included. Unlinked commit authors are recorded as a coverage
+notice rather than guessed GitHub identities.

@@ -75,7 +75,27 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 199161495,
+                        "login": "cursoragent",
+                        "commits": 9
+                    },
+                    {
+                        "id": 5678122,
+                        "login": "JReinhold",
+                        "commits": 2
+                    },
+                    {
+                        "id": 1035299,
+                        "login": "kasperpeulen",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "docs-review-7e4bb9c1e837",
@@ -118,7 +138,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 486540,
+                        "login": "kylegach",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "fix-linting-types-on-pr-fd5a80b3a8cd",
@@ -133,7 +163,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5889929,
+                        "login": "valentinpalkovic",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "github-qa-labels-438f25c44c5a",
@@ -148,7 +188,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1035299,
+                        "login": "kasperpeulen",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "handle-pr-comments-d36b7fd5f035",
@@ -163,7 +213,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 321738,
+                        "login": "ghengeveld",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "minor-release-1a331aa05bba",
@@ -192,7 +252,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5678122,
+                        "login": "JReinhold",
+                        "commits": 4
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "open-pr-da2a1937851f",
@@ -214,7 +284,22 @@
                     "text": true,
                     "mode": "100755"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 199161495,
+                        "login": "cursoragent",
+                        "commits": 2
+                    },
+                    {
+                        "id": 321738,
+                        "login": "ghengeveld",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "pr-a334f57bc58f",
@@ -229,7 +314,27 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 199161495,
+                        "login": "cursoragent",
+                        "commits": 3
+                    },
+                    {
+                        "id": 5678122,
+                        "login": "JReinhold",
+                        "commits": 2
+                    },
+                    {
+                        "id": 1035299,
+                        "login": "kasperpeulen",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "principle-encode-lessons-in-structure-6eed02b201d9",
@@ -251,7 +356,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5889929,
+                        "login": "valentinpalkovic",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "rebuild-restart-storybook-12f97d4251b4",
@@ -266,7 +381,22 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 321738,
+                        "login": "ghengeveld",
+                        "commits": 1
+                    },
+                    {
+                        "id": 5678122,
+                        "login": "JReinhold",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "storybook-startup-benchmark-c2e10476d934",
@@ -281,7 +411,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 321738,
+                        "login": "ghengeveld",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "storybook-upgrade-6037727ddef0",
@@ -296,7 +436,22 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 199161495,
+                        "login": "cursoragent",
+                        "commits": 4
+                    },
+                    {
+                        "id": 1035299,
+                        "login": "kasperpeulen",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "update-pr-description-34580161a81d",
@@ -311,7 +466,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 321738,
+                        "login": "ghengeveld",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "stories-0fde6ff4c258",
@@ -326,7 +491,27 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 63512348,
+                        "login": "huang-julien",
+                        "commits": 29
+                    },
+                    {
+                        "id": 1035299,
+                        "login": "kasperpeulen",
+                        "commits": 18
+                    },
+                    {
+                        "id": 321738,
+                        "login": "ghengeveld",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "storybook-init-9a9fb5bea0ad",
@@ -341,7 +526,22 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1035299,
+                        "login": "kasperpeulen",
+                        "commits": 7
+                    },
+                    {
+                        "id": 63512348,
+                        "login": "huang-julien",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "storybook-setup-c92dc953aee6",
@@ -356,7 +556,22 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1035299,
+                        "login": "kasperpeulen",
+                        "commits": 10
+                    },
+                    {
+                        "id": 63512348,
+                        "login": "huang-julien",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "storybook-upgrade-0f9dea67137b",
@@ -371,7 +586,22 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1035299,
+                        "login": "kasperpeulen",
+                        "commits": 11
+                    },
+                    {
+                        "id": 63512348,
+                        "login": "huang-julien",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "init-a7fdfb129eb1",
@@ -386,7 +616,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1035299,
+                        "login": "kasperpeulen",
+                        "commits": 6
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "setup-66a6df81b87e",
@@ -401,7 +641,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1035299,
+                        "login": "kasperpeulen",
+                        "commits": 10
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "stories-2dbe49b1a4a6",
@@ -416,7 +666,27 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 63512348,
+                        "login": "huang-julien",
+                        "commits": 30
+                    },
+                    {
+                        "id": 1035299,
+                        "login": "kasperpeulen",
+                        "commits": 19
+                    },
+                    {
+                        "id": 321738,
+                        "login": "ghengeveld",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "upgrade-e9a675db40e1",
@@ -431,7 +701,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1035299,
+                        "login": "kasperpeulen",
+                        "commits": 9
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         }
     ],
     "agentsFile": {

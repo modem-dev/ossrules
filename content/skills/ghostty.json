@@ -22,7 +22,22 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 10311,
+                        "login": "jparise",
+                        "commits": 1
+                    },
+                    {
+                        "id": 1299,
+                        "login": "mitchellh",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         }
     ],
     "agentsFile": {

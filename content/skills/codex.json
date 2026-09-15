@@ -57,7 +57,27 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 223546144,
+                        "login": "etraut-openai",
+                        "commits": 4
+                    },
+                    {
+                        "id": 286154589,
+                        "login": "anp-oai",
+                        "commits": 2
+                    },
+                    {
+                        "id": 176426546,
+                        "login": "wiltzius-openai",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "code-review-breaking-changes-8ed96b41fd13",
@@ -72,7 +92,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 204937752,
+                        "login": "pakrym-oai",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "code-review-change-size-c0f68ae2e9e3",
@@ -87,7 +117,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 204937752,
+                        "login": "pakrym-oai",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "code-review-context-08a0ce369368",
@@ -102,7 +142,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 204937752,
+                        "login": "pakrym-oai",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "code-review-testing-11669d80d5a3",
@@ -117,7 +167,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 204937752,
+                        "login": "pakrym-oai",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "code-review-832b0ee4b02a",
@@ -132,7 +192,22 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 204937752,
+                        "login": "pakrym-oai",
+                        "commits": 2
+                    },
+                    {
+                        "id": 286154589,
+                        "login": "anp-oai",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "codex-pr-body-768740e07e4d",
@@ -147,7 +222,22 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 286154589,
+                        "login": "anp-oai",
+                        "commits": 1
+                    },
+                    {
+                        "id": 655869,
+                        "login": "bolinfest",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "path-types-99236fa71a76",
@@ -162,7 +252,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 286154589,
+                        "login": "anp-oai",
+                        "commits": 8
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "remote-tests-296cfcc9b83d",
@@ -177,7 +277,22 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 286154589,
+                        "login": "anp-oai",
+                        "commits": 3
+                    },
+                    {
+                        "id": 204937752,
+                        "login": "pakrym-oai",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "test-tui-685a03943497",
@@ -192,7 +307,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 204937752,
+                        "login": "pakrym-oai",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "update-v8-version-b331dbf3e592",
@@ -214,7 +339,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 200563,
+                        "login": "cconger",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "imagegen-1f925bcdd54b",
@@ -306,7 +441,27 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 307245258,
+                        "login": "alicec-oai",
+                        "commits": 1
+                    },
+                    {
+                        "id": 200841172,
+                        "login": "dkundel-openai",
+                        "commits": 1
+                    },
+                    {
+                        "id": 250380837,
+                        "login": "vb-openai",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "openai-docs-d061d41d87c3",
@@ -433,7 +588,32 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 269039836,
+                        "login": "kkahadze-oai",
+                        "commits": 5
+                    },
+                    {
+                        "id": 250380837,
+                        "login": "vb-openai",
+                        "commits": 2
+                    },
+                    {
+                        "id": 248761262,
+                        "login": "cguo-oai",
+                        "commits": 1
+                    },
+                    {
+                        "id": 264274861,
+                        "login": "mifan-oai",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "plugin-creator-cd7a5f8eaf39",
@@ -518,7 +698,32 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 263771262,
+                        "login": "efrazer-oai",
+                        "commits": 3
+                    },
+                    {
+                        "id": 184293535,
+                        "login": "xl-openai",
+                        "commits": 2
+                    },
+                    {
+                        "id": 256201575,
+                        "login": "alexsong-oai",
+                        "commits": 1
+                    },
+                    {
+                        "id": 213687408,
+                        "login": "caseychow-oai",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "review-agent-a347dcb048f3",
@@ -540,7 +745,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 230027070,
+                        "login": "jif-oai",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "skill-creator-14f2da461107",
@@ -611,7 +826,32 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 655869,
+                        "login": "bolinfest",
+                        "commits": 1
+                    },
+                    {
+                        "id": 1794715,
+                        "login": "ebrevdo",
+                        "commits": 1
+                    },
+                    {
+                        "id": 288160983,
+                        "login": "provencher-oai",
+                        "commits": 1
+                    },
+                    {
+                        "id": 184293535,
+                        "login": "xl-openai",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "skill-installer-aa7a20a9a4ac",
@@ -675,7 +915,22 @@
                     "text": true,
                     "mode": "100755"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 655869,
+                        "login": "bolinfest",
+                        "commits": 1
+                    },
+                    {
+                        "id": 244841968,
+                        "login": "sayan-oai",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         }
     ],
     "agentsFile": {

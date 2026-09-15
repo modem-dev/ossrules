@@ -31,7 +31,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 7064011,
+                        "login": "ogulcancelik",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "herdr-throwaway-repro-fbd26bdbe03a",
@@ -46,7 +56,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 7064011,
+                        "login": "ogulcancelik",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "triage-e1a987817fd5",
@@ -61,7 +81,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 7064011,
+                        "login": "ogulcancelik",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "herdr-e694ac4cde8f",
@@ -76,7 +106,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 7064011,
+                        "login": "ogulcancelik",
+                        "commits": 5
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         }
     ],
     "agentsFile": {

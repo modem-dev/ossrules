@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { parseDocument } from 'yaml';
+import type { SkillContributions } from './skill-contributors';
 
 export interface SkillFile {
     path: string;
@@ -19,6 +20,7 @@ export interface SkillRecord {
     license?: string;
     compatibility?: string;
     files: SkillFile[];
+    contributions?: SkillContributions;
 }
 
 export interface SkillManifest {

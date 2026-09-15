@@ -22,7 +22,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 63058033,
+                        "login": "pedrocarlo",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "cdc-0cfc92984233",
@@ -37,7 +47,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1395040,
+                        "login": "sivukhin",
+                        "commits": 9
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "code-quality-bf89e4e8ade4",
@@ -52,7 +72,27 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 9677399,
+                        "login": "ofek",
+                        "commits": 2
+                    },
+                    {
+                        "id": 92514129,
+                        "login": "Pavan-Nambi",
+                        "commits": 1
+                    },
+                    {
+                        "id": 63058033,
+                        "login": "pedrocarlo",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "debugging-ea59349b2cbc",
@@ -83,7 +123,17 @@
                     "mode": "120000",
                     "omitted": "Symlink; inspect the upstream target."
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 63058033,
+                        "login": "pedrocarlo",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "differential-fuzzer-491459dde8d7",
@@ -98,7 +148,22 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 22619982,
+                        "login": "jussisaurio",
+                        "commits": 1
+                    },
+                    {
+                        "id": 63058033,
+                        "login": "pedrocarlo",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "index-knowledge-e1c6fa0cd36a",
@@ -113,7 +178,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 63058033,
+                        "login": "pedrocarlo",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "memory-benchmark-0a264d3ce346",
@@ -128,7 +203,37 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 63058033,
+                        "login": "pedrocarlo",
+                        "commits": 7
+                    },
+                    {
+                        "id": 81847,
+                        "login": "claude",
+                        "commits": 3
+                    },
+                    {
+                        "id": 289058786,
+                        "login": "ampagent",
+                        "commits": 2
+                    },
+                    {
+                        "id": 121899304,
+                        "login": "PThorpe92",
+                        "commits": 2
+                    },
+                    {
+                        "id": 22619982,
+                        "login": "jussisaurio",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "mvcc-cdd878eb81a6",
@@ -143,7 +248,22 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 144266052,
+                        "login": "erenworld",
+                        "commits": 1
+                    },
+                    {
+                        "id": 63058033,
+                        "login": "pedrocarlo",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "pr-workflow-4501764c1c83",
@@ -158,7 +278,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 63058033,
+                        "login": "pedrocarlo",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "storage-format-ae3dddf7ae85",
@@ -173,7 +303,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 63058033,
+                        "login": "pedrocarlo",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "testing-b1da981924f7",
@@ -188,7 +328,22 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 63058033,
+                        "login": "pedrocarlo",
+                        "commits": 5
+                    },
+                    {
+                        "id": 81939,
+                        "login": "penberg",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "transaction-correctness-ea782075f3cb",
@@ -203,7 +358,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 63058033,
+                        "login": "pedrocarlo",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "yield-injections-09dd42b38998",
@@ -218,7 +383,22 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 640792,
+                        "login": "avinassh",
+                        "commits": 2
+                    },
+                    {
+                        "id": 1395040,
+                        "login": "sivukhin",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         }
     ],
     "agentsFile": {

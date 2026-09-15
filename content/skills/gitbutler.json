@@ -22,7 +22,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 14223379,
+                        "login": "slarse",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "cli-commands-8636e6b7bed6",
@@ -37,7 +47,22 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 718941,
+                        "login": "davidpdrsn",
+                        "commits": 4
+                    },
+                    {
+                        "id": 4030927,
+                        "login": "krlvi",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "lite-render-perf-cab43d2f1b98",
@@ -52,7 +77,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 4030927,
+                        "login": "krlvi",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "lite-screenshots-911269213e75",
@@ -67,7 +102,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 18498712,
+                        "login": "PavelLaptev",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "tui-tests-d0d0cfb1f95a",
@@ -82,7 +127,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 718941,
+                        "login": "davidpdrsn",
+                        "commits": 9
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "skill-4358a2ad8074",
@@ -104,7 +159,22 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 718941,
+                        "login": "davidpdrsn",
+                        "commits": 2
+                    },
+                    {
+                        "id": 4030927,
+                        "login": "krlvi",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "skill-7fddadf16902",
@@ -169,7 +239,52 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 4030927,
+                        "login": "krlvi",
+                        "commits": 56
+                    },
+                    {
+                        "id": 14223379,
+                        "login": "slarse",
+                        "commits": 6
+                    },
+                    {
+                        "id": 35891811,
+                        "login": "estib-vega",
+                        "commits": 4
+                    },
+                    {
+                        "id": 718941,
+                        "login": "davidpdrsn",
+                        "commits": 3
+                    },
+                    {
+                        "id": 13354155,
+                        "login": "Caleb-T-Owens",
+                        "commits": 1
+                    },
+                    {
+                        "id": 261791092,
+                        "login": "krlclaw",
+                        "commits": 1
+                    },
+                    {
+                        "id": 65483435,
+                        "login": "reneleonhardt",
+                        "commits": 1
+                    },
+                    {
+                        "id": 70,
+                        "login": "schacon",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 1
+            }
         }
     ],
     "agentsFile": {

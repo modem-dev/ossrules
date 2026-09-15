@@ -3,9 +3,10 @@ import type { AgentsProject } from '@/components/agents-md-data';
 import { logoSrc } from '@/components/agents-md-data';
 import type { SkillEntry } from '@/components/skill-explorer';
 import type { SkillRecord } from './skill-schema';
-import { skillHref } from './skills';
+import { getSkillManifest, skillHref } from './skills';
 
 export function skillEntry(skill: SkillRecord, project: AgentsProject): SkillEntry {
+    const manifest = getSkillManifest(project.slug);
     return {
         id: skill.id,
         href: skillHref(project.slug, skill.id),
@@ -14,6 +15,10 @@ export function skillEntry(skill: SkillRecord, project: AgentsProject): SkillEnt
         path: skill.path,
         files: skill.files.length,
         complete: skill.files.every((file) => !file.omitted),
+        contributions: skill.contributions,
+        historyUrl: manifest
+            ? `https://github.com/${manifest.repository}/commits/${manifest.sha}/${skill.path.split('/').map(encodeURIComponent).join('/')}`
+            : undefined,
         project: { slug: project.slug, name: project.name, logo: logoSrc(project), repository: `${project.owner}/${project.repo}` },
     };
 }

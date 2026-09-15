@@ -22,7 +22,27 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 2153,
+                        "login": "benvinegar",
+                        "commits": 3
+                    },
+                    {
+                        "id": 2888,
+                        "login": "elucid",
+                        "commits": 3
+                    },
+                    {
+                        "id": 66745745,
+                        "login": "saadjs",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "hunk-review-481ffb255a06",
@@ -37,7 +57,22 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 2153,
+                        "login": "benvinegar",
+                        "commits": 2
+                    },
+                    {
+                        "id": 2888,
+                        "login": "elucid",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "hunk-launch-video-ec26edcc4e2c",
@@ -52,7 +87,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 2153,
+                        "login": "benvinegar",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "hunk-release-9b2e0e23522f",
@@ -67,7 +112,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 2153,
+                        "login": "benvinegar",
+                        "commits": 6
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         }
     ],
     "agentsFile": {
