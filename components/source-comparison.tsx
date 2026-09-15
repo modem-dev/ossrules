@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { HighlightedSource } from './highlighted-source';
 
 /** Comparison reads the same pinned, verbatim files as the source tray. */
 export function SourceComparison({
@@ -49,21 +50,7 @@ export function SourceComparison({
                             {failed ? 'Could not load comparison file.' : 'Loading source…'}
                         </p>
                     ) : (
-                        <pre className="font-mono text-xs leading-6">
-                            <code>
-                                {source.split('\n').map((line, index) => (
-                                    // biome-ignore lint/suspicious/noArrayIndexKey: line numbers identify immutable source positions.
-                                    <span key={index} className="excerpt-line">
-                                        <span aria-hidden className="excerpt-line-number">
-                                            {index + 1}
-                                        </span>
-                                        <span className="min-w-0 whitespace-pre-wrap text-gray-400 [overflow-wrap:anywhere]">
-                                            {line || ' '}
-                                        </span>
-                                    </span>
-                                ))}
-                            </code>
-                        </pre>
+                        <HighlightedSource source={source} language="markdown" numbered />
                     )}
                 </div>
             ))}

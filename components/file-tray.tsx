@@ -1,9 +1,19 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import type { DocumentMention } from '@/lib/document-mentions';
 import type { VendoredFile } from './agents-md-data';
+import { HighlightedSource } from './highlighted-source';
 import { SourceComparison } from './source-comparison';
+
+const InstructionMarkdown = dynamic(() => import('./instruction-markdown').then((module) => module.InstructionMarkdown), {
+    loading: () => (
+        <p role="status" className="p-6 text-xs text-gray-600">
+            Rendering Markdown…
+        </p>
+    ),
+});
 
 /**
  * Reads the files a project's AGENTS.md points at, without leaving the page.
@@ -14,9 +24,7 @@ import { SourceComparison } from './source-comparison';
  * a reader opens one rather than inlined, because a project like Airflow routes
  * to eighteen documents and nobody opens all of them.
  *
- * Files are shown as source, not rendered. This is a directory of instruction
- * files: the markdown syntax is part of what is being read, and rendering it
- * away would show something an agent never sees.
+ * Markdown is rendered for reading; raw source preserves exact lines for citations.
  */
 
 interface TrayRequest {
@@ -41,40 +49,6 @@ const FileTrayContext = createContext<TrayContext | undefined>(undefined);
 
 export function useFileTray(): TrayContext | undefined {
     return useContext(FileTrayContext);
-}
-
-const FENCE = /^\s*(```|~~~)/;
-const HEADING = /^#{1,6} /;
-const QUOTE = /^\s*>/;
-const BULLET = /^\s*([-*+]|\d+\.)\s/;
-
-const LINE_CLASS = {
-    heading: 'text-teal',
-    code: 'text-gray-500',
-    fence: 'text-gray-600',
-    bullet: 'text-gray-400',
-    quote: 'text-gray-550 italic',
-    text: 'text-gray-400',
-} as const;
-
-/**
- * Tints a line by what it is in the source. Deliberately a line-level classifier
- * rather than a markdown parser: it never has to escape or trust the content,
- * and it works the same on the .rst files in the corpus.
- */
-function classifyLines(source: string): { text: string; tone: keyof typeof LINE_CLASS }[] {
-    let inFence = false;
-    return source.split('\n').map((text) => {
-        if (FENCE.test(text)) {
-            inFence = !inFence;
-            return { text, tone: 'fence' as const };
-        }
-        if (inFence) return { text, tone: 'code' as const };
-        if (HEADING.test(text)) return { text, tone: 'heading' as const };
-        if (QUOTE.test(text)) return { text, tone: 'quote' as const };
-        if (BULLET.test(text)) return { text, tone: 'bullet' as const };
-        return { text, tone: 'text' as const };
-    });
 }
 
 function formatBytes(bytes: number): string {
@@ -191,10 +165,11 @@ export function FileTrayProvider({
 }: TrayProps) {
     const [request, setRequest] = useState<TrayRequest | undefined>();
     const [comparePath, setComparePath] = useState<string>();
+    const [view, setView] = useState<'markdown' | 'raw'>('markdown');
     const [source, setSource] = useState<string | undefined>();
     const [failed, setFailed] = useState(false);
     const [copyStatus, setCopyStatus] = useState<'idle' | 'copied' | 'failed'>('idle');
-    const [returnDocument, setReturnDocument] = useState<{ request: TrayRequest; scrollTop: number }>();
+    const [returnDocument, setReturnDocument] = useState<{ request: TrayRequest; scrollTop: number; view: 'markdown' | 'raw' }>();
     const [expandedReferences, setExpandedReferences] = useState<Record<string, boolean>>({});
     const scrollRestore = useRef<number | undefined>(undefined);
     const cache = useRef(new Map<string, string>());
@@ -213,6 +188,7 @@ export function FileTrayProvider({
             scrollRestore.current = undefined;
             const resolvedPath = byPath.get(next.path)?.resolvedPath;
             setComparePath(undefined);
+            setView(next.startLine !== undefined || next.match ? 'raw' : 'markdown');
             setRequest(resolvedPath ? { ...next, via: next.path, path: resolvedPath } : next);
         },
         [byPath],
@@ -235,7 +211,8 @@ export function FileTrayProvider({
 
     const visitMention = (mention: DocumentMention) => {
         if (!request) return;
-        setReturnDocument({ request, scrollTop: panel.current?.querySelector('.source-scroll')?.scrollTop ?? 0 });
+        setReturnDocument({ request, scrollTop: panel.current?.querySelector('.source-scroll')?.scrollTop ?? 0, view });
+        setView('raw');
         setSource(undefined);
         setCopyStatus('idle');
         setRequest({ path: mention.sourcePath ?? primaryFile, startLine: mention.startLine, lineCount: mention.lines.length });
@@ -247,6 +224,7 @@ export function FileTrayProvider({
         setSource(undefined);
         setCopyStatus('idle');
         setRequest(returnDocument.request);
+        setView(returnDocument.view);
         setReturnDocument(undefined);
     };
 
@@ -317,7 +295,8 @@ export function FileTrayProvider({
     }, [path]);
 
     const file = path ? byPath.get(path) : undefined;
-    const lines = source === undefined ? undefined : classifyLines(source);
+    const lines = useMemo(() => source?.split('\n'), [source]);
+    const isMarkdown = /\.(md|markdown|mdx)$/i.test(path ?? '');
 
     useEffect(() => {
         if (source === undefined || scrollRestore.current === undefined) return;
@@ -333,13 +312,13 @@ export function FileTrayProvider({
         if (!request?.match) return -1;
         const needle = request.match.trim().split('\n')[0].trim();
         if (needle.length === 0) return -1;
-        return lines.findIndex((line) => line.text.includes(needle));
+        return lines.findIndex((line) => line.includes(needle));
     }, [lines, request?.match, request?.startLine]);
 
     useEffect(() => {
-        if (markedLine < 0) return;
+        if (markedLine < 0 || view !== 'raw' || comparePath || source === undefined) return;
         panel.current?.querySelector(`[data-line="${markedLine}"]`)?.scrollIntoView({ block: 'center' });
-    }, [markedLine]);
+    }, [markedLine, view, comparePath, source]);
 
     const markedCount = request?.lineCount ?? request?.match?.trimEnd().split('\n').length ?? 0;
     const sourceUrl = `https://github.com/${owner}/${repo}/blob/${sha}/${path?.split('/').map(encodeURIComponent).join('/') ?? ''}`;
@@ -422,6 +401,21 @@ export function FileTrayProvider({
                                 </button>
                             </div>
                         </header>
+                        {isMarkdown && !comparePath ? (
+                            <fieldset aria-label="File view" className="flex gap-1 px-4 py-2 sm:px-6">
+                                {(['markdown', 'raw'] as const).map((mode) => (
+                                    <button
+                                        type="button"
+                                        key={mode}
+                                        aria-pressed={view === mode}
+                                        onClick={() => setView(mode)}
+                                        className={`source-control ${view === mode ? 'bg-dark-teal text-teal' : ''}`}
+                                    >
+                                        {mode === 'markdown' ? 'Markdown' : 'Raw'}
+                                    </button>
+                                ))}
+                            </fieldset>
+                        ) : null}
                         {returnDocument ? (
                             <div className="border-gray-750 border-b px-4 py-2 sm:px-6">
                                 <button
@@ -444,6 +438,7 @@ export function FileTrayProvider({
                                         className="min-w-0 flex-1 rounded border border-gray-750 bg-medium-gray p-2 font-mono"
                                         onChange={(event) => {
                                             setComparePath(undefined);
+                                            setView('markdown');
                                             setRequest({ path: event.target.value });
                                         }}
                                     >
@@ -540,33 +535,21 @@ export function FileTrayProvider({
                                     rightPath={comparePath}
                                     rightTruncated={byPath.get(comparePath)?.truncated}
                                 />
+                            ) : isMarkdown && view === 'markdown' && source !== undefined ? (
+                                <InstructionMarkdown
+                                    source={source}
+                                    sourceUrl={sourceUrl}
+                                    readable={readable}
+                                    onOpen={(path) => open({ path })}
+                                />
                             ) : (
-                                <pre className="source-code">
-                                    <code>
-                                        {lines.map((line, index) => (
-                                            <span
-                                                // biome-ignore lint/suspicious/noArrayIndexKey: source lines are identified by position.
-                                                key={index}
-                                                data-line={index}
-                                                data-highlight={
-                                                    markedLine >= 0 && index >= markedLine && index < markedLine + markedCount
-                                                        ? true
-                                                        : undefined
-                                                }
-                                                className="source-line"
-                                            >
-                                                <span aria-hidden className="source-line-number">
-                                                    {index + 1}
-                                                </span>
-                                                <span
-                                                    className={`min-w-0 whitespace-pre-wrap [overflow-wrap:anywhere] ${LINE_CLASS[line.tone]}`}
-                                                >
-                                                    {line.text || ' '}
-                                                </span>
-                                            </span>
-                                        ))}
-                                    </code>
-                                </pre>
+                                <HighlightedSource
+                                    source={source ?? ''}
+                                    language={isMarkdown ? 'markdown' : (path.split('.').pop() ?? 'text')}
+                                    numbered
+                                    markedLine={markedLine}
+                                    markedCount={markedCount}
+                                />
                             )}
                         </div>
                         <footer className="source-footer">
