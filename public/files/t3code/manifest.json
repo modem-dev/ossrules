@@ -1,0 +1,44 @@
+{
+    "slug": "t3code",
+    "sha": "50ff4c371eab927a9650c114975241999f4cd7b1",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".repos/effect-smol/LLMS.md",
+            "bytes": 17096,
+            "lines": 394
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 15904,
+            "lines": 169
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "AGENTS.md"
+                }
+            ]
+        },
+        {
+            "path": "CONTRIBUTING.md",
+            "bytes": 2642,
+            "lines": 76
+        },
+        {
+            "path": "docs/internals/glossary.md",
+            "bytes": 6682,
+            "lines": 66
+        },
+        {
+            "path": "docs/operations/development.md",
+            "bytes": 8237,
+            "lines": 202
+        }
+    ]
+}

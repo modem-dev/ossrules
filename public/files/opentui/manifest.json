@@ -1,0 +1,18 @@
+{
+    "slug": "opentui",
+    "sha": "0733b5382cff539e7d8d9a0c3f90762c38c8d1c9",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 4405,
+            "lines": 58
+        },
+        {
+            "path": "packages/web/AGENTS.md",
+            "bytes": 7474,
+            "lines": 121
+        }
+    ]
+}

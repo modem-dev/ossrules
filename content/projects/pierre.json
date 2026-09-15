@@ -1,0 +1,84 @@
+{
+    "slug": "pierre",
+    "name": "Pierre",
+    "owner": "pierrecomputer",
+    "repo": "pierre",
+    "tagline": "Open-source interface libraries for diffs, trees, and theming.",
+    "language": "TypeScript",
+    "stars": 6183,
+    "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "43c4783f330efe068f7248cc4f4417c4920da01c",
+        "date": "2026-07-21T03:53:07Z"
+    },
+    "evaluatedAt": "2026-09-15",
+    "file": {
+        "bytes": 3957,
+        "lines": 103,
+        "words": 550,
+        "headings": 9,
+        "bullets": 15,
+        "codeBlocks": 4,
+        "docLinks": 0
+    },
+    "references": [
+        {
+            "path": "CONTRIBUTING.md"
+        },
+        {
+            "path": ".agents/skills/*/SKILL.md",
+            "kind": "pattern",
+            "label": "Relevant development skills"
+        }
+    ],
+    "hook": "Skills are selected from their frontmatter before their full instructions enter the context.",
+    "summary": "Pierre keeps repository-wide instructions short and sends domain detail to task-specific skills. The root guide defines tool and dependency authorities, explains how agent environments affect task execution, and ties package licensing and verification rules to concrete checks.",
+    "patterns": ["skill-routing", "single-source", "verification-matrix"],
+    "techniques": [
+        {
+            "title": "Select skills before loading their full context",
+            "body": "The skill workflow asks the agent to inspect descriptions first and read complete instructions only for relevant tasks. An explicit exclusion keeps unrelated domain guidance out of the working context.",
+            "quote": "Domain-specific context and conventions live in `.agents/skills/`. Before\nstarting any task:\n\n1. List `.agents/skills/*/SKILL.md`\n2. Read only each skill's frontmatter description to identify relevant skills\n3. Read only the full `SKILL.md` files relevant to your task\n\nDo not load skills that are not relevant to the task.",
+            "pattern": "skill-routing"
+        },
+        {
+            "title": "Point tool versions at their authority",
+            "body": "The guide names the file that pins the toolchain and the manager that installs it. This avoids maintaining a second list of current versions inside the instructions.",
+            "quote": "- Tool versions (bun, pnpm, node, moon, gh) are pinned in `.prototools` and\n  managed by [proto](https://moonrepo.dev/docs/proto); run `proto use` if a tool\n  is missing or a pin changed. Never install toolchain versions globally; bump\n  pins only in `.prototools`.",
+            "pattern": "single-source"
+        },
+        {
+            "title": "Keep dependency versions in the shared catalog",
+            "body": "Package manifests normally consume the workspace catalog instead of introducing their own version declarations. The rule includes an exception for a published package that intentionally needs its own range.",
+            "quote": "- Dependencies use the `catalog` in `pnpm-workspace.yaml`. Never add dependency\n  versions directly to package-level `package.json` files unless a published\n  package intentionally needs its own range.",
+            "pattern": "single-source"
+        },
+        {
+            "title": "Account for CI-marked agent shells",
+            "body": "The environment section explains why some tasks run under CI flags while dev servers and build-graph tasks are skipped. It gives an explicit override for the latter rather than assuming a failed launch means the task is unavailable.",
+            "quote": "Most local moon tasks (formatters, benchmarks, worktree management) are\nconfigured with `runInCI: 'always'` so they keep working in CI-marked shells\nlike agent harnesses. Tasks connected to the build graph (dev servers, prod\nserves, e2e variants, publish guards) stay CI-skipped — run those with\n`moonx <target> --ignore-ci-checks`, e.g.\n`moonx docs:dev-diffs --ignore-ci-checks`. For non-moon commands that CI-gate\nthemselves, unset the var: `CI= pnpm publish --dry-run`."
+        },
+        {
+            "title": "Separate the verification baseline from affected checks",
+            "body": "Formatting and linting form the common baseline. Type checks and focused tests depend on the changed area, while docs and instruction edits can stop at the baseline unless executable code or package configuration also changed.",
+            "quote": "Also run the affected typecheck and focused tests for the changed area, e.g.\n`moonx <project>:typecheck` and `moonx <project>:test` (or\n`moonx :typecheck --affected`). For docs-only or AGENTS/skill-only changes,\nformatting and linting are sufficient unless the edit touches executable code or\npackage config.",
+            "pattern": "verification-matrix"
+        }
+    ],
+    "steal": [
+        "Use short skill descriptions to choose which full instructions to load.",
+        "Point version and dependency guidance at the files that own those values.",
+        "Document how agent environment flags change task-runner behavior.",
+        "Give documentation edits a verification path distinct from code edits."
+    ],
+    "outline": [
+        "Agent Environment",
+        "Toolchain",
+        "Core Rules",
+        "Licensing",
+        "Skills",
+        "Agent Artifacts",
+        "Verification Baseline",
+        "Code Readability"
+    ]
+}

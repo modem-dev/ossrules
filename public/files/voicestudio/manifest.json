@@ -1,0 +1,39 @@
+{
+    "slug": "voicestudio",
+    "sha": "99a534882ccdb870f8b74fc4364c79f5a6279b49",
+    "license": "AGPL-3.0",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 4496,
+            "lines": 57
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 18301,
+            "lines": 108
+        },
+        {
+            "path": "CONTEXT.md",
+            "bytes": 0,
+            "lines": 0,
+            "missing": true
+        },
+        {
+            "path": "docs/agents/domain.md",
+            "bytes": 2157,
+            "lines": 54
+        },
+        {
+            "path": "docs/agents/issue-tracker.md",
+            "bytes": 4853,
+            "lines": 65
+        },
+        {
+            "path": "docs/agents/triage-labels.md",
+            "bytes": 1858,
+            "lines": 32
+        }
+    ]
+}

@@ -1,0 +1,128 @@
+{
+    "slug": "paperclip",
+    "name": "Paperclip",
+    "owner": "paperclipai",
+    "repo": "paperclip",
+    "tagline": "An application for coordinating AI agents, tasks, approvals, and company operations.",
+    "language": "TypeScript",
+    "stars": 80722,
+    "defaultBranch": "master",
+    "lastCommit": {
+        "sha": "728f7185f6dcf2fda7a1286f6dd115573a02cd65",
+        "date": "2026-09-14T15:19:54Z"
+    },
+    "evaluatedAt": "2026-09-15",
+    "file": {
+        "bytes": 10407,
+        "lines": 225,
+        "words": 1406,
+        "headings": 13,
+        "bullets": 59,
+        "codeBlocks": 16,
+        "docLinks": 2
+    },
+    "references": [
+        {
+            "path": "doc/GOAL.md"
+        },
+        {
+            "path": "doc/PRODUCT.md"
+        },
+        {
+            "path": "doc/SPEC-implementation.md"
+        },
+        {
+            "path": "doc/DEVELOPING.md"
+        },
+        {
+            "path": "doc/DATABASE.md"
+        },
+        {
+            "path": "doc/SPEC.md"
+        },
+        {
+            "path": "doc/connections/CONNECTOR-PLAYBOOK.md"
+        },
+        {
+            "path": "doc/AGENT-ARTIFACTS.md"
+        },
+        {
+            "path": "doc/observability.md"
+        },
+        {
+            "path": "doc/run-log-events.md"
+        },
+        {
+            "path": "packages/shared/src/telemetry/README.md"
+        },
+        {
+            "path": ".github/PULL_REQUEST_TEMPLATE.md"
+        },
+        {
+            "path": "CONTRIBUTING.md"
+        },
+        {
+            "path": "DESIGN.md"
+        }
+    ],
+    "hook": "Telemetry, observability, and the run log get different review rules, determined by file path rather than terminology.",
+    "summary": "Paperclip starts with an ordered product and engineering reading list, then records the invariants of its agent control plane. Its instructions distinguish company boundaries, shared contracts, data destinations, and review expectations, with separate workflows for database changes and browser verification.",
+    "patterns": ["skill-routing", "house-vocabulary", "verification-matrix", "single-source"],
+    "techniques": [
+        {
+            "title": "Separate the implementation contract from long-term context",
+            "body": "The reading list distinguishes the current V1 build contract from the longer-horizon product specification. Naming each role tells contributors which document should decide the scope of an implementation.",
+            "quote": "`doc/SPEC.md` is long-horizon product context.\n`doc/SPEC-implementation.md` is the concrete V1 build contract.",
+            "pattern": "skill-routing"
+        },
+        {
+            "title": "State invariants across layers",
+            "body": "The root guide lists the control-plane behaviors that changes must preserve, including atomic checkout, approval gates, budget stops, and mutation logging. This gives contributors constraints that span a schema, API, and interface change.",
+            "quote": "3. Preserve control-plane invariants.\n- Single-assignee task model\n- Atomic issue checkout semantics\n- Approval gates for governed actions\n- Budget hard-stop auto-pause behavior\n- Activity logging for mutating actions"
+        },
+        {
+            "title": "Classify data paths before assigning review",
+            "body": "The guide distinguishes first-party telemetry, operator-configured tracing, and local run events. It maps each to source paths and different review requirements, and explicitly says that a matching word in a filename is not enough.",
+            "quote": "7. Name the three data paths correctly.\nThis repo has three separate data paths. Do not confuse them. Match a change to a path by its file path, not by the word \"observability\" or \"telemetry\" alone.",
+            "pattern": "house-vocabulary"
+        },
+        {
+            "title": "Match review to where data goes",
+            "body": "The telemetry rule ties contract and documentation updates plus privacy review to the default outbound destination. The following rules distinguish opt-in tracing and instance-local run logs, avoiding one review policy for all three systems.",
+            "quote": "- **Telemetry change (strict review).** The author updates the generated contract first. The author updates `packages/shared/src/telemetry/README.md` in the same pull request. The author requests a privacy review. Reason: a Telemetry event goes to a Paperclip endpoint by default, so a mistake sends data immediately."
+        },
+        {
+            "title": "Name what the default test command excludes",
+            "body": "The file says the cheap default runs Vitest and keeps browser suites opt-in. It reserves the fuller check for a PR-ready hand-off or changes whose scope needs it.",
+            "quote": "This is the cheap default and only runs the Vitest suite. Browser suites stay opt-in:\n\n```sh\npnpm test:e2e\npnpm test:release-smoke\n```\n\nRun the browser suites only when your change touches them or when you are explicitly verifying CI/release flows.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Enforce UI tokens with a named check",
+            "body": "The design-system section points to the token layer, spells out the disallowed literal values, and names the command that catches violations. Its allowlist lives with the implementation rather than in an agent's judgment.",
+            "quote": "`DESIGN.md` at the repo root is the source of truth for UI design decisions. The token-only rule applies to all `ui/` changes: every color, spacing, radius, type, shadow, and motion value in `ui/src/components/**` and `ui/src/pages/**` comes from the token layer in `ui/src/index.css` — no hex, raw px, arbitrary Tailwind bracket values, or raw `font-size`/`fontSize` declarations in components, outside the documented allowlist in `ui/src/index.css`. Run `pnpm check:token-gates` (`scripts/check-token-gates.mjs`) before committing UI changes — it fails on any violation not covered by that allowlist.",
+            "pattern": "single-source"
+        }
+    ],
+    "steal": [
+        "Distinguish current implementation scope from long-term product context.",
+        "Write down the invariants that must hold across schema, API, and UI changes.",
+        "Use concrete code paths and data destinations to select the right review.",
+        "State which suites a default test command does not run.",
+        "Pair design rules with an executable check and a defined exception list."
+    ],
+    "outline": [
+        "1. Purpose",
+        "2. Read This First",
+        "3. Repo Map",
+        "4. Dev Setup (Auto DB)",
+        "5. Core Engineering Rules",
+        "6. Database Change Workflow",
+        "7. Verification Before Hand-off",
+        "8. API and Auth Expectations",
+        "9. UI Expectations",
+        "10. Pull Request Requirements",
+        "11. Definition of Done",
+        "Design system"
+    ]
+}

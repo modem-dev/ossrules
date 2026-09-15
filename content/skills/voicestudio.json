@@ -1,0 +1,199 @@
+{
+    "version": 1,
+    "slug": "voicestudio",
+    "repository": "debpalash/VoiceStudio",
+    "branch": "main",
+    "sha": "4e55180f700e2ce1b39195ec7377b9b3da8e20b2",
+    "scannedAt": "2026-09-15T12:00:15.152Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "fastapi-python-a7086c9cd905",
+            "path": ".agents/skills/fastapi-python/SKILL.md",
+            "name": "fastapi-python",
+            "description": "Expert in FastAPI Python development with best practices for APIs and async operations",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "86983a29850c233360afd60d40c728736202ff08",
+                    "bytes": 2495,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 4178343,
+                        "login": "debpalash",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "vite-8d937aabe1ef",
+            "path": ".agents/skills/vite/SKILL.md",
+            "name": "vite",
+            "description": "Expert guidance for Vite development with modern build tooling, HMR, framework integrations, and performance optimization",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "012618b5a744f86796ebb5cad405723be54cf493",
+                    "bytes": 6740,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 4178343,
+                        "login": "debpalash",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "omnivoice-7bd277b13927",
+            "path": ".claude/skills/omnivoice/SKILL.md",
+            "name": "omnivoice",
+            "description": "Local TTS, voice cloning, voice design, and video dubbing via the VoiceStudio MCP server (open-source ElevenLabs alternative; nothing leaves the machine, runs on MPS/CUDA/CPU). Use when: (1) generating speech from text in any of 646 languages, (2) cloning a voice from a 3-second reference clip, (3) designing a voice by gender/age/accent/pitch/style, (4) dubbing a video into another language, (5) listing voice profiles or personality presets, (6) producing narration where privacy, cost, or absent API keys matter, (7) non-English narration where Edge TTS/kokoro fall short, (8) batch audio for blog posts or content pipelines. Triggers: 'omnivoice', 'voice clone', 'clone this voice', 'tts', 'narrate', 'generate speech', 'voice synthesis', 'dub video', 'voice design', 'local tts', 'multilingual voice', 'narrate this post', 'elevenlabs alternative'.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "1c7fa9f58fa8937375c8dee5321a53640e26e31b",
+                    "bytes": 9276,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/engines-comparison.md",
+                    "blob": "cb789b933b206d788a09a1d291eef4bb1a959885",
+                    "bytes": 3922,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/mcp-setup.md",
+                    "blob": "b8da6454603dc3b3e629c214abfa2b3f36154c6e",
+                    "bytes": 5049,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/check-health.sh",
+                    "blob": "2c57289beb33c44b85c8b8e079fb73421db1f586",
+                    "bytes": 236,
+                    "text": true,
+                    "mode": "100755"
+                },
+                {
+                    "path": "scripts/record-reference.sh",
+                    "blob": "9adc8dd89dd16d24a07fd6d623a2bc56898fb7c6",
+                    "bytes": 5803,
+                    "text": true,
+                    "mode": "100755"
+                },
+                {
+                    "path": "scripts/start-backend.sh",
+                    "blob": "c5c4f4a749b7e4c2b7c4e8e12be93115d513f1bf",
+                    "bytes": 2400,
+                    "text": true,
+                    "mode": "100755"
+                },
+                {
+                    "path": "scripts/stop-backend.sh",
+                    "blob": "a38388d86ef7860ac2ff756a16998eb1edd1d467",
+                    "bytes": 2284,
+                    "text": true,
+                    "mode": "100755"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 4178343,
+                        "login": "debpalash",
+                        "commits": 3
+                    },
+                    {
+                        "id": 11726633,
+                        "login": "broomva",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "omnivoice-edf401e39bb3",
+            "path": "skills/omnivoice/SKILL.md",
+            "name": "omnivoice",
+            "description": "Speak and transcribe through the user's local VoiceStudio — free, offline, no API key. Text-to-speech (including the user's cloned voices) and speech-to-text via the OpenAI-compatible API at localhost:3900.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "77207338fd8002a2d9b0b0b5329c6857653421f4",
+                    "bytes": 3302,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 4178343,
+                        "login": "debpalash",
+                        "commits": 4
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "oss-maintainer-3268f6832835",
+            "path": "skills/oss-maintainer/SKILL.md",
+            "name": "oss-maintainer",
+            "description": "Run an open-source project's issue/PR/release loop like a careful human maintainer — triage to root cause, absorb community PRs before duplicating them, gate every merge, ship honest releases, and thank the people doing your QA for free.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b5e99757969d170c1bec20426fd374c9a21d946b",
+                    "bytes": 7103,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 4178343,
+                        "login": "debpalash",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "6ba7f3d0677a79725ab4c9d4b5efcc170c5d204f",
+        "bytes": 4496,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "be3f7b28e564e7dd05eaf59d64adba1a4065ac0e",
+        "bytes": 34523,
+        "text": true,
+        "mode": "100644"
+    }
+}

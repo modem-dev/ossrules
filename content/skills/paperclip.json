@@ -1,0 +1,1869 @@
+{
+    "version": 1,
+    "slug": "paperclip",
+    "repository": "paperclipai/paperclip",
+    "branch": "master",
+    "sha": "5b913e794315530b95f2bc95dd80e3ebc266b257",
+    "scannedAt": "2026-09-15T12:00:18.386Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [
+        {
+            "path": "packages/skills-catalog/catalog/bundled/paperclip-operations/summarize-status/SKILL.md",
+            "reason": "Invalid YAML frontmatter."
+        }
+    ],
+    "skills": [
+        {
+            "id": "check-pr-e87b0a91b627",
+            "path": ".agents/skills/check-pr/SKILL.md",
+            "name": "check-pr",
+            "description": "Check a GitHub, GitLab, or Perforce PR/MR/CL for review comments, failing checks, and PR-body gaps. Use when asked to inspect, fix, or prepare a change for submission.\n",
+            "license": "MIT",
+            "compatibility": "Requires git and gh (GitHub CLI), glab (GitLab CLI), or p4 (Perforce CLI) installed and authenticated.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b02e2c941fa25260520705ff9cbcecd220b36e1b",
+                    "bytes": 14599,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/gitlab-api.md",
+                    "blob": "134fe6bd0f9a21f885bd5ea4917af72ce55f31f9",
+                    "bytes": 2527,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/graphql-queries.md",
+                    "blob": "3a3889e300668b43aefc9af7a382e1d64101dc30",
+                    "bytes": 2096,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 1
+                    },
+                    {
+                        "id": 331803,
+                        "login": "nickyleach",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "company-creator-91479aa32e39",
+            "path": ".agents/skills/company-creator/SKILL.md",
+            "name": "company-creator",
+            "description": "Create agent company packages that conform to agentcompanies/v1. Use when asked to create a company, scaffold an agent team, hire agents, or turn a repo/skills collection into a company package.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "afe4be9b62139c89d9e406a1dd074163d85bc96f",
+                    "bytes": 11849,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/companies-spec.md",
+                    "blob": "cc8e84e9e030680ab03e6ba58158c316653f2075",
+                    "bytes": 3561,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/example-company.md",
+                    "blob": "cbc10d28f15ee50222b9a217fc44ca6a4b172283",
+                    "bytes": 4197,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/from-repo-guide.md",
+                    "blob": "b9458693b4be4bea512b203802dd95659959ee7a",
+                    "bytes": 2965,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 4
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "create-agent-adapter-f7d11c9f7cda",
+            "path": ".agents/skills/create-agent-adapter/SKILL.md",
+            "name": "create-agent-adapter",
+            "description": "Create or modify Paperclip agent adapters across server, UI, and CLI surfaces. Use when adding support for a new CLI agent, API agent, custom process, or adapter package.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "8c87c349e57e3fd897c16f582c588b25650af63e",
+                    "bytes": 31960,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 4
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "create-issue-interaction-ui-faba24eef6e2",
+            "path": ".agents/skills/create-issue-interaction-ui/SKILL.md",
+            "name": "create-issue-interaction-ui",
+            "description": "Add a new Paperclip issue-thread interaction kind end-to-end. Use when repo work introduces or extends interaction cards like request_confirmation, checkbox confirmations, ask_user_questions, or suggest_tasks.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "9cebfacc95bb0e687804b4e0f8946e6005d88f88",
+                    "bytes": 13659,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 4
+                    },
+                    {
+                        "id": 139239,
+                        "login": "devinfoley",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "create-paperclip-bundled-skill-caf476090b44",
+            "path": ".agents/skills/create-paperclip-bundled-skill/SKILL.md",
+            "name": "create-paperclip-bundled-skill",
+            "description": "Turn an idea, tweet, or task into a skill in the Paperclip skills catalog (packages/skills-catalog). Use when asked to FIND or MAKE a skill and publish it as a bundled/optional catalog skill: research prior art, reference or author it, add examples, regenerate the manifest, open a PR.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "50b4dd57ab42abbb2d2c7723fa6326cd0699df35",
+                    "bytes": 10859,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "examples/external-reference.md",
+                    "blob": "6c2084794df57ea0819386adc4751fecc99b81f4",
+                    "bytes": 2726,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "examples/new-local-skill.md",
+                    "blob": "7a0d1c4aa852d3ecbaf296bc53a5de9f129553e2",
+                    "bytes": 3145,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "deal-with-security-advisory-75cd4c7a195f",
+            "path": ".agents/skills/deal-with-security-advisory/SKILL.md",
+            "name": "deal-with-security-advisory",
+            "description": "Handle confidential GitHub Security Advisory response for Paperclip. Use when coordinating advisory triage, private-fork fixes, CVE/publication steps, and immediate security releases.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "8ddccd52cc81b105e2c031ef270f70112cfb3c3e",
+                    "bytes": 7910,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "diagnose-why-work-stopped-4731b31e2596",
+            "path": ".agents/skills/diagnose-why-work-stopped/SKILL.md",
+            "name": "diagnose-why-work-stopped",
+            "description": "Diagnose stalled, looping, or over-recovered Paperclip issue trees and propose a no-code product-rule plan. Use when asked why work stopped, why it looped, or how to prevent a tree from going too deep.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "91caa62fa8bc3d4a38639a80cf921677e49df12b",
+                    "bytes": 11404,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "doc-maintenance-422f80936ae7",
+            "path": ".agents/skills/doc-maintenance/SKILL.md",
+            "name": "doc-maintenance",
+            "description": "Audit README, SPEC, and PRODUCT docs against recent git history for drift and make minimal PR-ready edits. Use when asked to review docs for accuracy, after major feature merges, or on a schedule.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "839786bc82622499c1cad4750b7abe33e960c7b5",
+                    "bytes": 6636,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/audit-checklist.md",
+                    "blob": "9c13a437d54f19f10f67b53b4e00b13ca11b9b4e",
+                    "bytes": 2720,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/section-map.md",
+                    "blob": "4ec64f83875ac5b4eb4b8e352b1cac5176405a8e",
+                    "bytes": 1410,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "garden-inbox-a140e6c861ac",
+            "path": ".agents/skills/garden-inbox/SKILL.md",
+            "name": "garden-inbox",
+            "description": "Scan a Paperclip user's Mine inbox, classify reversible archive candidates, request checkbox confirmation, and archive only accepted selections. Use when asked to garden, clean up, prune, or tidy a Paperclip inbox without changing issues, branches, or workspaces.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "8317916bc782dc791ac12b2c98ea2c1058f2a5f4",
+                    "bytes": 4408,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/garden-inbox.mjs",
+                    "blob": "17eedf954d1c03c71e9fdb2fe28f2abe4f7778c8",
+                    "bytes": 29125,
+                    "text": true,
+                    "mode": "100755"
+                },
+                {
+                    "path": "scripts/garden-inbox.test.mjs",
+                    "blob": "3e9a892f2c2ed6d6e5169dfd037517b0760b2838",
+                    "bytes": 6736,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "paperclip-create-plugin-8056d43498ca",
+            "path": ".agents/skills/paperclip-create-plugin/SKILL.md",
+            "name": "paperclip-create-plugin",
+            "description": "Create and develop external Paperclip plugins with the CLI-first workflow. Use when scaffolding a plugin, iterating on a local plugin, installing it into Paperclip, or updating plugin authoring docs.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7e660eadd6a6a995b17ca6a2e37451228292b295",
+                    "bytes": 6532,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "paperclip-dev-workspace-run-verify-fix-776201eaf77c",
+            "path": ".agents/skills/paperclip-dev-workspace-run-verify-fix/SKILL.md",
+            "name": "paperclip-dev-workspace-run-verify-fix",
+            "description": "Run, verify, reseed, and repair Paperclip isolated dev workspace services. Use when asked to start or fix a managed project/worktree service and prove health, login readiness, cloned data, runtime visibility, and correct port ownership.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "06e6b2efe5903798b468d3d0d764da2e5dff75e8",
+                    "bytes": 21532,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 3
+                    },
+                    {
+                        "id": 331803,
+                        "login": "nickyleach",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "paperclip-page-59c1cd4dc009",
+            "path": ".agents/skills/paperclip-page/SKILL.md",
+            "name": "paperclip-page",
+            "description": "Publish static HTML pages and asset folders to the Paperclip S3/CloudFront page host. Use when asked to deploy, host, or share a persistent page, viewer, prototype, report, or static site without here.now.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "df77444874d40ac9fd839234f51c5126d4a481da",
+                    "bytes": 4185,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "README.md",
+                    "blob": "21bf74d3349f74e29820fdfdd37abe7295f634de",
+                    "bytes": 18306,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/publish.sh",
+                    "blob": "086003a1e1199e6e8b50ab82ab9714c2da4fcace",
+                    "bytes": 12039,
+                    "text": true,
+                    "mode": "100755"
+                },
+                {
+                    "path": "scripts/publish.test.mjs",
+                    "blob": "bb8384bfb0b90d942bfa6d5f4cad3f6e2e45d5b6",
+                    "bytes": 11401,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "pr-gardening-c5f870feff3a",
+            "path": ".agents/skills/pr-gardening/SKILL.md",
+            "name": "pr-gardening",
+            "description": "Discover the pull requests this Paperclip instance opened (never community contributions), report what each is for and how confident we are that it is merge-ready, and automatically drive the non-ready ones back to green with /prepare-paperclip-pr — without ever merging.\n",
+            "compatibility": "Requires Node.js 20+, gh authenticated for GitHub read access, and Paperclip run credentials.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "abf82b5ad4526de1cdef7fd04a95e53c9f2370c9",
+                    "bytes": 13183,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/check-readiness.mjs",
+                    "blob": "3b97a9db9ddb8e3968113cb5357619bf6502a149",
+                    "bytes": 7921,
+                    "text": true,
+                    "mode": "100755"
+                },
+                {
+                    "path": "scripts/find-candidates.mjs",
+                    "blob": "60b33b0c2ee384bf8e59fe2aca750ddee0abc2e4",
+                    "bytes": 7628,
+                    "text": true,
+                    "mode": "100755"
+                },
+                {
+                    "path": "scripts/lib.mjs",
+                    "blob": "2f04480a3e4725dd76b96dd589ca2362565447a4",
+                    "bytes": 7156,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/pr-gardening.test.mjs",
+                    "blob": "31581568a2c02f1e840a14f6081851ba4d6316b7",
+                    "bytes": 13797,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/render-report.mjs",
+                    "blob": "ae547b55af1168d3f5b0205b3752b8611d62c4a4",
+                    "bytes": 3982,
+                    "text": true,
+                    "mode": "100755"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 4
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "pr-report-94b43b1c2cc4",
+            "path": ".agents/skills/pr-report/SKILL.md",
+            "name": "pr-report",
+            "description": "Produce a maintainer-grade PR or contribution report as HTML or Markdown. Use when asked to deeply review a PR, explain a design, compare systems, or prepare a merge recommendation.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "3ebe590ee767fa30f9c85e6080f10b26cfc61b64",
+                    "bytes": 5228,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/html-report-starter.html",
+                    "blob": "be6f0550c8c4a49696a0e5ef8c68fa8d1d911262",
+                    "bytes": 10588,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/style-guide.md",
+                    "blob": "35158d1adcf5b54c9865d10486a42e9bc3d260fd",
+                    "bytes": 2948,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "prcheckloop-8416051e68d4",
+            "path": ".agents/skills/prcheckloop/SKILL.md",
+            "name": "prcheckloop",
+            "description": "Iterate on a GitHub PR until latest-head checks are green or a precise blocker is named. Use when a PR still has failing or pending checks after review fixes, including after greploop.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "32dc5d5b4421017eb814b9489d3db55c9acfe0d8",
+                    "bytes": 5837,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 1
+            }
+        },
+        {
+            "id": "prepare-paperclip-pr-d1557a24b9b0",
+            "path": ".agents/skills/prepare-paperclip-pr/SKILL.md",
+            "name": "prepare-paperclip-pr",
+            "description": "Prepare a Paperclip branch for PR with commits, template body, and checks.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "2e56fe4e4c0c8c3f6f8ada8855387db0a079cad4",
+                    "bytes": 3825,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "release-changelog-discord-message-ee2ed490ab13",
+            "path": ".agents/skills/release-changelog-discord-message/SKILL.md",
+            "name": "release-changelog-discord-message",
+            "description": "Write the Discord announcement for a stable Paperclip release from the release changelog. Use when a release issue needs a copy-pasteable dotta-voice Discord post or refreshed discord_announcement document.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "cd8cc50af3fdccf69250bbcf7f965937ebc650be",
+                    "bytes": 21754,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 3
+                    },
+                    {
+                        "id": 139239,
+                        "login": "devinfoley",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "release-changelog-b5417f6cd65e",
+            "path": ".agents/skills/release-changelog/SKILL.md",
+            "name": "release-changelog",
+            "description": "Generate the stable Paperclip release changelog at releases/vYYYY.MDD.P.md by reading commits, changesets, and merged PR context since the last stable tag.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "022df4ae5b85c43428b1d8130bd55e3853de27eb",
+                    "bytes": 12071,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 4
+                    },
+                    {
+                        "id": 139239,
+                        "login": "devinfoley",
+                        "commits": 4
+                    }
+                ],
+                "unlinkedAuthors": 1
+            }
+        },
+        {
+            "id": "release-11646a5b9ed4",
+            "path": ".agents/skills/release/SKILL.md",
+            "name": "release",
+            "description": "Coordinate a full Paperclip release across engineering verification, npm, GitHub, smoke testing, and announcement follow-up. Use when leadership asks to ship a release, not merely to discuss versioning.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "55a72248e26fc2c29131bbe00205c37a136b87fd",
+                    "bytes": 9511,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 1
+            }
+        },
+        {
+            "id": "terminal-bench-loop-4d5b78eac188",
+            "path": ".agents/skills/terminal-bench-loop/SKILL.md",
+            "name": "terminal-bench-loop",
+            "description": "Run one Terminal-Bench task through a bounded Paperclip smoke/diagnosis/fix loop. Use when asked to drive Terminal-Bench until it passes, rerun a Terminal-Bench loop, or iterate with board-gated fixes and diagnosis.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "f106f77450f2d6878b10f3bf2f7f6106621ac4e5",
+                    "bytes": 25145,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "design-guide-70229b2da2b9",
+            "path": ".claude/skills/design-guide/SKILL.md",
+            "name": "design-guide",
+            "description": "Paperclip UI design system guide for building consistent, reusable frontend components. Use when creating new UI components, modifying existing ones, adding pages or features to the frontend, styling UI elements, or when you need to understand the design language and conventions. Covers: component creation, design tokens, typography, status/priority systems, composition patterns, and the /design-guide showcase page. Always use this skill alongside the frontend-design skill (for visual quality) and the web-design-guidelines skill (for web best practices).\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ff5c0a95fbe4d95ba25799410005a8963debfd65",
+                    "bytes": 12682,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/component-index.md",
+                    "blob": "88e75178b31e0c66d3c3e93bed9825703a7a877d",
+                    "bytes": 10692,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 88843729,
+                        "login": "forgottendev",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "paperclip-task-bridge-ba2fde806653",
+            "path": "packages/adapters/hermes/skills/paperclip-task-bridge/SKILL.md",
+            "name": "paperclip-task-bridge",
+            "description": "Create, comment on, update, and list Paperclip tasks from Hermes using scoped Paperclip API credentials.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b325cec51625087868ca4b49074367e817a62ea7",
+                    "bytes": 3703,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "paperclip-task.mjs",
+                    "blob": "956e95328193f45a4baf2625cb6f79b1bf93a143",
+                    "bytes": 12091,
+                    "text": true,
+                    "mode": "100755"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "index-refresh-ba251eba63de",
+            "path": "packages/plugins/plugin-llm-wiki/skills/index-refresh/SKILL.md",
+            "name": "index-refresh",
+            "description": "Use when an LLM Wiki operation issue requests an index refresh. Rebuild `wiki/index.md` from the actual wiki tree, reconcile missing/deleted entries, and log counts without editing page bodies.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "c1e7f32ee52bed99844974ad13c071afb8fd4f54",
+                    "bytes": 3990,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "paperclip-distill-98b15f00f5c2",
+            "path": "packages/plugins/plugin-llm-wiki/skills/paperclip-distill/SKILL.md",
+            "name": "paperclip-distill",
+            "description": "Use when an operation issue is a Paperclip cursor-window, distill, or backfill. Turn source-bundled Paperclip activity into wiki-insightful project standups, durable project pages, decisions, and history without asset dereferencing.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "8bbebfb188f5a1cf889fe80c2b2a957becfdfade",
+                    "bytes": 11169,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "wiki-ingest-8b56bb1d834b",
+            "path": "packages/plugins/plugin-llm-wiki/skills/wiki-ingest/SKILL.md",
+            "name": "wiki-ingest",
+            "description": "Use when an operation issue asks to ingest a captured `raw/` source into the LLM Wiki, or the user says \"ingest <slug>\". Create durable source, entity, concept, synthesis, index, and log pages; use paperclip-distill for Paperclip bundles.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "fdcadfe372d8146457a698f17f0a51e48da476d3",
+                    "bytes": 3742,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "wiki-lint-25c90d0c6eab",
+            "path": "packages/plugins/plugin-llm-wiki/skills/wiki-lint/SKILL.md",
+            "name": "wiki-lint",
+            "description": "Use when an LLM Wiki operation issue is a lint or health check. Audit for contradictions, orphans, weak provenance, broken links, missing concept pages, and index/log drift; return triage findings without auto-fixing.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "345ca995f9c22410356398505b112cdd421519f8",
+                    "bytes": 3527,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "wiki-maintainer-97717b0fcca4",
+            "path": "packages/plugins/plugin-llm-wiki/skills/wiki-maintainer/SKILL.md",
+            "name": "LLM Wiki Maintainer",
+            "description": "Use the LLM Wiki plugin tools to maintain a cited local company wiki.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "de701b764ac066678fd1e16f838514cd0dfb6afc",
+                    "bytes": 1019,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "wiki-query-286152c4a0ec",
+            "path": "packages/plugins/plugin-llm-wiki/skills/wiki-query/SKILL.md",
+            "name": "wiki-query",
+            "description": "Use when an LLM Wiki operation issue asks a question. Answer from wiki pages and raw sources with citations, name gaps plainly, and offer to file durable synthesis when the answer should compound.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "fe8d9e57bfba2852d6d73998ec32eca9b99c6c1a",
+                    "bytes": 2734,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "doc-maintenance-87597b39654a",
+            "path": "packages/skills-catalog/catalog/bundled/docs/doc-maintenance/SKILL.md",
+            "name": "doc-maintenance",
+            "description": "Keep project docs aligned with recent code and feature changes — detect drift, update affected pages, and add release-relevant notes without rewriting unchanged sections.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "6aaf883109531c15f374a37f9fa4dd904965a970",
+                    "bytes": 4478,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "issue-triage-13275554fed4",
+            "path": "packages/skills-catalog/catalog/bundled/paperclip-operations/issue-triage/SKILL.md",
+            "name": "issue-triage",
+            "description": "Triage Paperclip inbox issues that are stale, blocked, in-review, or assigned-but-not-progressing, and decide a single next action per issue (resume, reassign, unblock, escalate, or close).",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "281c4293f6c386e84ec43f3d85276fdaab8dc8cf",
+                    "bytes": 4042,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "reflection-coach-58c76d8b7f46",
+            "path": "packages/skills-catalog/catalog/bundled/paperclip-operations/reflection-coach/SKILL.md",
+            "name": "reflection-coach",
+            "description": "Reflect on another agent's recent execution record and propose the smallest durable instruction, skill, or tool-description change. Use for evidence-backed coaching proposals, never hot-swaps.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "205a12494e41b10fae746674c4ad23f577d8f82e",
+                    "bytes": 12028,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "status-card-query-a6acbbce2746",
+            "path": "packages/skills-catalog/catalog/bundled/paperclip-operations/status-card-query/SKILL.md",
+            "name": "status-card-query",
+            "description": "Create and maintain agent-authored Paperclip status cards, or compile a prose interest prompt into bounded CompanySearchQuery objects and write the first summary from the assigned Summarizer run.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ca9c6f80a439476ea431a4bd625fa2802cea3758",
+                    "bytes": 6368,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "task-planning-24c6fa1153f2",
+            "path": "packages/skills-catalog/catalog/bundled/paperclip-operations/task-planning/SKILL.md",
+            "name": "task-planning",
+            "description": "Turn a Paperclip issue or request into a structured implementation plan with child task graph, blockers, owners, and acceptance criteria, then save it as the issue `plan` document.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ce682bd16d28ee137e713f725dbb6fca07ba7509",
+                    "bytes": 4938,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "paperclip-capsules-5610d04fcf3d",
+            "path": "packages/skills-catalog/catalog/bundled/product/paperclip-capsules/SKILL.md",
+            "name": "paperclip-capsules",
+            "description": "Generate, implement, or review Paperclip capsule visuals. Use for capsule art, agent capsules, heartbeat status capsules, identicons, capsule banks, or brand-usage validation.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "f14a7e62ab486dcb62c38514d421885f4b49d450",
+                    "bytes": 5831,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/generator-workflows.md",
+                    "blob": "4a366c6f48c7f0b0e4a97a70f36d8e9f2b1044bb",
+                    "bytes": 4356,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/hero-capsule-bank.md",
+                    "blob": "9a861663d2c42c60ffe3b2daeb964752dac5c467",
+                    "bytes": 5981,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/identicon-prototyper.md",
+                    "blob": "c2dbba29d929b7ec344f21b677dc8d0ef30cc726",
+                    "bytes": 6669,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/individual-status-capsules.md",
+                    "blob": "70885e0be18e6b1da766232c3e1c0e85d0e8f12b",
+                    "bytes": 5031,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "wireframe-6442c783b977",
+            "path": "packages/skills-catalog/catalog/bundled/product/wireframe/SKILL.md",
+            "name": "wireframe",
+            "description": "Produce low-fidelity black-and-white UI wireframes as SVGs or viewer pages. Use when asked to wireframe, sketch a screen, draft a layout, make a low-fi mockup, or publish wireframes.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "8058c4d48ee4ddb1b5359cd0c64ada5b6524db4f",
+                    "bytes": 11509,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/site-template.html",
+                    "blob": "db1a733c3465e66259349a65dcdee0c40ead44e7",
+                    "bytes": 14791,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/template-mobile.svg",
+                    "blob": "f525ad895a5c0ecb02287354af0ce9a6318e0fbb",
+                    "bytes": 925,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/template.svg",
+                    "blob": "3972289854a20554a7fc4babac406d27dda83891",
+                    "bytes": 1262,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/components.md",
+                    "blob": "78a1e6e380df3252a236f72b94cf20a7bfbc6f02",
+                    "bytes": 14806,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/examples.md",
+                    "blob": "0e6cd13c9c25b3663ef7a26ae0855fae474d4a36",
+                    "bytes": 16108,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/grid-system.md",
+                    "blob": "41b5011cf625629f66e031c24a079109ff480a9d",
+                    "bytes": 4581,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "qa-acceptance-77625872c98f",
+            "path": "packages/skills-catalog/catalog/bundled/quality/qa-acceptance/SKILL.md",
+            "name": "qa-acceptance",
+            "description": "Produce QA acceptance criteria and a manual validation plan for a feature change — golden path, edge cases, error states, performance limits, and explicit pass/fail evidence.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "5adec874dcce7bc6a3a2c44d8d858de6c53de7fa",
+                    "bytes": 3861,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "github-pr-workflow-4a632759cdf1",
+            "path": "packages/skills-catalog/catalog/bundled/software-development/github-pr-workflow/SKILL.md",
+            "name": "github-pr-workflow",
+            "description": "Prepare a GitHub pull request from a feature branch — branch hygiene, commit shape, title/body, verification notes, screenshots for UI work, and replies to review comments.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "6ce844f1b0ad7bc132e5f4d1a754b467bcb3873c",
+                    "bytes": 3970,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "agent-browser-9ab19e6a65ab",
+            "path": "packages/skills-catalog/catalog/optional/browser/agent-browser/SKILL.md",
+            "name": "agent-browser",
+            "description": "Drive a real browser to inspect or interact with a web page or app — navigate, take screenshots, read console and network, fill simple forms — for verification tasks, not unattended automation.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "105b1f565df11a36ba3b36c743a2465a0790b76d",
+                    "bytes": 5133,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "release-announcement-314117ce6649",
+            "path": "packages/skills-catalog/catalog/optional/content/release-announcement/SKILL.md",
+            "name": "release-announcement",
+            "description": "Write a release announcement — changelog, blog post, in-app note, or social post — that leads with user impact, names the audience, and includes upgrade/migration steps without filler.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "88c8a965ee0bf24302826dfc5aaeda0bf76204c4",
+                    "bytes": 6945,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "simplified-english-58b2688f468e",
+            "path": "packages/skills-catalog/catalog/optional/content/simplified-english/SKILL.md",
+            "name": "simplified-english",
+            "description": "Write user-facing comments, plans, and documents in ASD-STE100 Simplified Technical English — short, unambiguous sentences with approved words and one meaning each — so readers understand them the first time.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "5cc7bbeb922ae42949f9548ea10d61e1104b83eb",
+                    "bytes": 1578,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "ramp-702b1a5a887c",
+            "path": "packages/skills-catalog/catalog/optional/finance/ramp/SKILL.md",
+            "name": "ramp",
+            "description": "Fetch and follow Ramp's published agent playbooks inside Paperclip, with mandatory approval gates for spend, incorporation, cards, account setup, and other financial actions.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d0d07a1a656aa10b69f28067a6155f977a8b1709",
+                    "bytes": 7016,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "design-critique-a8647f2a96ba",
+            "path": "packages/skills-catalog/catalog/optional/product/design-critique/SKILL.md",
+            "name": "design-critique",
+            "description": "Give a structured product design critique — user job clarity, hierarchy, affordance, error states, accessibility, and consistency — focused on what to change, in what order, and why.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "a3a1607a737d48fb04dad55c43266e63b839230a",
+                    "bytes": 4851,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "prepare-mcp-integration-c8862c313568",
+            "path": "packages/skills-catalog/catalog/optional/software-development/prepare-mcp-integration/SKILL.md",
+            "name": "prepare-mcp-integration",
+            "description": "Prepare MCP/vendor integrations through cited research, a content PR, exact-revision human approval, and one governed Paperclip connector PR per approved connection. Use for new integration research and delivery; not for ad hoc connector coding that bypasses the playbooks.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "231ef11249f333c5de5e3993c773b95da87c58d6",
+                    "bytes": 12409,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "examples/notion-mcp-research-gate.md",
+                    "blob": "8abdfb1f001079955b5e8d7b5cd7750253c13bf0",
+                    "bytes": 1900,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "content-calendar-79f4871245e2",
+            "path": "packages/teams-catalog/catalog/optional/content/content-machine/skills/content-calendar/SKILL.md",
+            "name": "content-calendar",
+            "description": "Plan a weekly editorial calendar by mapping company goals to publishable topics, owners, status, and verification notes.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "90b14e32d512e0f776b2011b7b3d4f1b83a95c92",
+                    "bytes": 340,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "v0-ccea91ee3f01",
+            "path": "skills-releases/paperclip/v0/SKILL.md",
+            "name": "paperclip",
+            "description": "Interact with the Paperclip control plane API for task coordination and governance. Use when checking assignments, updating issue status, posting comments, delegating work, managing routines, or calling Paperclip API endpoints.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "9017504015ae3eb2bc783c743e6b9d3a56f1019b",
+                    "bytes": 38588,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/api-reference.md",
+                    "blob": "1b26b59aef13c9daf0ef20d68973899baf228daf",
+                    "bytes": 65279,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/artifacts.md",
+                    "blob": "03855b17faef5206183fe8516ac455f2db1f8e80",
+                    "bytes": 3983,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/cases.md",
+                    "blob": "99ba843736799ecfbe3c61d765ec5eb4149997a3",
+                    "bytes": 7688,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/company-skills.md",
+                    "blob": "8bb103ec8a511cf001b59fadce3d99510e6e82e5",
+                    "bytes": 9896,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/issue-workspaces.md",
+                    "blob": "41f5e62c9b7a6975a315ab8d9910cdb626eafd33",
+                    "bytes": 3475,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/routines.md",
+                    "blob": "1d1987fbee774f9013f03720307ed174c400fbf0",
+                    "bytes": 5126,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/workflows.md",
+                    "blob": "2407ce7e60700f03fe20ff651b828541f2df9e47",
+                    "bytes": 4893,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/paperclip-upload-artifact.sh",
+                    "blob": "870ccfc1b37863b59fa2123143a71b27b6b5e513",
+                    "bytes": 10377,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "v7-roster-316cc571cec2",
+            "path": "skills-releases/paperclip/v7-roster/SKILL.md",
+            "name": "paperclip",
+            "description": "Interact with the Paperclip control plane API for task coordination and governance. Use when checking assignments, updating issue status, posting comments, delegating work, managing routines, or calling Paperclip API endpoints.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "67002697f250cc9c1c74b1827ccfa0f4492a0b72",
+                    "bytes": 97849,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/api-reference.md",
+                    "blob": "1b26b59aef13c9daf0ef20d68973899baf228daf",
+                    "bytes": 65279,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/artifacts.md",
+                    "blob": "03855b17faef5206183fe8516ac455f2db1f8e80",
+                    "bytes": 3983,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/cases.md",
+                    "blob": "39c89f6e6fb942668efd699b76322430411ed91b",
+                    "bytes": 7905,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/company-skills.md",
+                    "blob": "8bb103ec8a511cf001b59fadce3d99510e6e82e5",
+                    "bytes": 9896,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/issue-workspaces.md",
+                    "blob": "41f5e62c9b7a6975a315ab8d9910cdb626eafd33",
+                    "bytes": 3475,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/routines.md",
+                    "blob": "1d1987fbee774f9013f03720307ed174c400fbf0",
+                    "bytes": 5126,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/workflows.md",
+                    "blob": "a1ae4daaf8b53ded9fd426c3e8d012fa9f9c0d01",
+                    "bytes": 5404,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/paperclip-upload-artifact.sh",
+                    "blob": "870ccfc1b37863b59fa2123143a71b27b6b5e513",
+                    "bytes": 10377,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "agentmail-2c12f346d3db",
+            "path": "skills/agentmail/SKILL.md",
+            "name": "agentmail",
+            "description": "Use your assigned AgentMail inbox to read email tasks, explicitly send or reply, and check delivery. Provided automatically by your inbox assignment.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "f93aeacb45d1279935023d0a268bd7aeccbbbd4f",
+                    "bytes": 3947,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "paperclip-board-e9fbc771a152",
+            "path": "skills/paperclip-board/SKILL.md",
+            "name": "paperclip-board",
+            "description": "Manage a Paperclip company as a board member via chat. Use when the user wants onboarding, company or agent management, approvals, task monitoring, cost oversight, or work product review in the Paperclip control plane.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "c81966566a6425f431933f13bfda25bfa971ad88",
+                    "bytes": 21535,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 1
+                    },
+                    {
+                        "id": 331803,
+                        "login": "nickyleach",
+                        "commits": 1
+                    },
+                    {
+                        "id": 1504818,
+                        "login": "scotttong",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "paperclip-converting-plans-to-tasks-88a19747e05b",
+            "path": "skills/paperclip-converting-plans-to-tasks/SKILL.md",
+            "name": "paperclip-converting-plans-to-tasks",
+            "description": "Convert Paperclip plans into executable issue graphs. Use when asked to plan, scope, or break down Paperclip company work into assigned tasks with specialty fit, dependencies, blockers, and parallelization.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "70eeba0f7ef97c96d176d56e5bf8cf84761a2efc",
+                    "bytes": 7517,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 5
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "paperclip-create-agent-a885ac8ffe21",
+            "path": "skills/paperclip-create-agent/SKILL.md",
+            "name": "paperclip-create-agent",
+            "description": "Create new agents in Paperclip with governance-aware hiring. Use when you need to inspect adapter configuration options, compare existing agent configs, draft a new agent prompt/config, and submit a hire request.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ee1be7e61a78e528c90db984156a088575258779",
+                    "bytes": 7528,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/agent-instruction-templates.md",
+                    "blob": "5a29e2312f9fcc340282304b27be8e49055d4d00",
+                    "bytes": 11670,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/agents/coder.md",
+                    "blob": "6fc669492f0888a909b37384759e9df11cafc30c",
+                    "bytes": 4561,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/agents/qa.md",
+                    "blob": "77e0130143d69a8e2262cf271830179f434d983e",
+                    "bytes": 4492,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/agents/securityengineer.md",
+                    "blob": "618fa45b8999bbe9a706a7ab54583f915b751a5c",
+                    "bytes": 14014,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/agents/uxdesigner.md",
+                    "blob": "46c06d24a13b724f5c323c11292787565e39dbeb",
+                    "bytes": 9548,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/api-reference.md",
+                    "blob": "422e0be98cd3b1e51295a72a4a34b337c98b51ea",
+                    "bytes": 3187,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/baseline-role-guide.md",
+                    "blob": "b2ce1402a05cbae734318af74432cb6fb2a3348e",
+                    "bytes": 8475,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/draft-review-checklist.md",
+                    "blob": "b140851353052e1445e1e2b087db53d831bf1b83",
+                    "bytes": 6704,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 7
+                    },
+                    {
+                        "id": 88843729,
+                        "login": "forgottendev",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 1
+            }
+        },
+        {
+            "id": "paperclip-f7038ff089f0",
+            "path": "skills/paperclip/SKILL.md",
+            "name": "paperclip",
+            "description": "Interact with the Paperclip control plane API for task coordination and governance. Use when checking assignments, updating issue status, posting comments, delegating work, managing routines, or calling Paperclip API endpoints.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "68bb62455b32fade56de072e6c73f7748a995c2e",
+                    "bytes": 59253,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/api-reference.md",
+                    "blob": "45d8aa5d35eb0499a5063d307ea954e58ab8bbc4",
+                    "bytes": 87521,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/artifacts.md",
+                    "blob": "97ce228e19754fe5690755aa8875a70eb8ad5d2c",
+                    "bytes": 6450,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/cases.md",
+                    "blob": "99ba843736799ecfbe3c61d765ec5eb4149997a3",
+                    "bytes": 7688,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/company-skills.md",
+                    "blob": "696653cb9d1210a768c7a9613b5fe07aa5a64dbf",
+                    "bytes": 10214,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/issue-workspaces.md",
+                    "blob": "41f5e62c9b7a6975a315ab8d9910cdb626eafd33",
+                    "bytes": 3475,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/routines.md",
+                    "blob": "253999aa7410c9e6d7a5641908048b7bb6fe820f",
+                    "bytes": 7419,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/workflows.md",
+                    "blob": "2407ce7e60700f03fe20ff651b828541f2df9e47",
+                    "bytes": 4893,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/paperclip-upload-artifact.sh",
+                    "blob": "15f7d41c73ad94feb8794c5e4b9cd53669ee4b01",
+                    "bytes": 17527,
+                    "text": true,
+                    "mode": "100755"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 50
+                    },
+                    {
+                        "id": 88843729,
+                        "login": "forgottendev",
+                        "commits": 11
+                    },
+                    {
+                        "id": 139239,
+                        "login": "devinfoley",
+                        "commits": 5
+                    },
+                    {
+                        "id": 1126344,
+                        "login": "aronprins",
+                        "commits": 2
+                    },
+                    {
+                        "id": 331803,
+                        "login": "nickyleach",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 2
+            }
+        },
+        {
+            "id": "para-memory-files-73d89cecf918",
+            "path": "skills/para-memory-files/SKILL.md",
+            "name": "para-memory-files",
+            "description": "Use a file-based PARA memory system to store, retrieve, and organize durable knowledge across sessions. Trigger on saving facts, daily notes, entity records, weekly synthesis, recall, tacit user patterns, or plan memory.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b90a1aa8cf591b41aa57172182e834731696dc18",
+                    "bytes": 3634,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/schemas.md",
+                    "blob": "840cac9993a08e5217e96c7cf71275cf70bbd5b8",
+                    "bytes": 1407,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34892728,
+                        "login": "cryppadotta",
+                        "commits": 1
+                    },
+                    {
+                        "id": 88843729,
+                        "login": "forgottendev",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "0e31e80d7ce8702a4cf76791a217c910ad461d48",
+        "bytes": 10407,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "a63594a5150d0ae00c3ddc36b61fa8f708c3ca8c",
+        "bytes": 1069,
+        "text": true,
+        "mode": "100644"
+    }
+}

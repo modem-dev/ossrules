@@ -1,0 +1,70 @@
+{
+    "slug": "opentui",
+    "name": "OpenTUI",
+    "owner": "anomalyco",
+    "repo": "opentui",
+    "tagline": "A library for building terminal interfaces with TypeScript, Zig, React, and Solid.",
+    "language": "TypeScript",
+    "stars": 13307,
+    "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "0733b5382cff539e7d8d9a0c3f90762c38c8d1c9",
+        "date": "2026-09-04T19:09:49Z"
+    },
+    "evaluatedAt": "2026-09-15",
+    "file": {
+        "bytes": 4405,
+        "lines": 58,
+        "words": 644,
+        "headings": 5,
+        "bullets": 22,
+        "codeBlocks": 0,
+        "docLinks": 0
+    },
+    "references": [
+        {
+            "path": "terminal-control",
+            "kind": "pattern",
+            "label": "terminal-control skill (installation-dependent)"
+        }
+    ],
+    "hook": "Terminal text has four different lengths, and native pointer lifetime depends on the order of two operations.",
+    "summary": "OpenTUI centers its instructions on the boundary between JavaScript runtimes and native terminal rendering. It separates TypeScript checks from native and distribution checks, then spells out the FFI representations and ownership rules that must survive across Bun and Node.",
+    "patterns": ["hard-prohibition", "verification-matrix"],
+    "techniques": [
+        {
+            "title": "Keep text measurements distinct",
+            "body": "The guide prohibits treating byte counts, code points, graphemes, and terminal cells as interchangeable. Naming each unit makes the rule specific to terminal layout rather than a generic warning about strings.",
+            "quote": "- Do not interchange byte lengths, code points, graphemes, and terminal display-cell widths.",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Make ownership a requirement on every exit path",
+            "body": "Handles and callbacks are treated as resources that need explicit cleanup, alongside buffers and listeners. The same rule connects bounded input work with tests for lifecycle failures.",
+            "quote": "- Make native ownership explicit; clean up handles, callbacks, buffers, and listeners on every exit path. Bound\n  input-driven work and test lifecycle failures."
+        },
+        {
+            "title": "Choose checks by the boundary a change crosses",
+            "body": "The verification section separates ordinary TypeScript edits from native and cross-package output changes. Runtime, FFI, build, and export changes also trigger Node and packaged-distribution checks.",
+            "quote": "- Ordinary TypeScript source changes do not require the root build. Use the affected package's `test`, `typecheck`,\n  `build`, or validation scripts as applicable.\n- Run `bun run build` from the repository root after native or cross-package build/output changes, or when tests report\n  a missing/stale native artifact. It does not build web or examples; use their package scripts.\n- For native changes, run `bun run test:native` from `packages/core`. Filter with `bun run test:native -Dtest-filter=\"test name\"` while iterating.\n- For runtime, FFI, build, or export changes, run the relevant Node and packed-distribution scripts from that package\n  (such as `test:js:node` or `test:dist`) when present.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Use a shared FFI contract",
+            "body": "The portable-signature rule names backend-only types to avoid and the JavaScript representations to use instead. It gives contributors a concrete contract for crossing the Bun and Node boundary.",
+            "quote": "- Portable symbol signatures must stay within the `node:ffi`/`bun:ffi` intersection. Use explicit widths such as\n  `u32`/`u64`, not backend-only ABI names such as `usize`, `napi_env`, or `napi_value`; represent `i64`/`u64` as `bigint`,\n  native booleans as `0`/`1`, and shared pointers as `number | bigint`."
+        },
+        {
+            "title": "Stabilize storage before taking its address",
+            "body": "A retained native pointer requires stable backing storage and a live owner. The guide gives the required operation order and explains how reversing it can invalidate the address.",
+            "quote": "- Use `ptr(view)` only when native code stores the address beyond the call. Before resolving it, access `view.buffer` to\n  move any inline typed-array storage into a stable `ArrayBuffer`, then keep the view alive for the complete native\n  lifetime. The order is required: `const owner = view.buffer; const address = ptr(view)`. Calling `ptr(view)` first and\n  accessing `view.buffer` later can move the storage and invalidate `address`."
+        }
+    ],
+    "steal": [
+        "Name the distinct units that must never be substituted for one another.",
+        "Map verification to runtime, native, and distribution boundaries.",
+        "Document native ownership and cleanup alongside API signatures.",
+        "Explain ordering constraints with the failure caused by reversing them."
+    ],
+    "outline": ["Engineering", "Tooling And Runtimes", "Verification", "Portable FFI"]
+}
