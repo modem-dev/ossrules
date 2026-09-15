@@ -114,27 +114,25 @@ function DocumentReferences({
             </div>
         );
     };
+    const first = mentions[0];
     return (
-        <section aria-label="Reference context" className="border-gray-750 border-b bg-gray-850 px-4 py-4 sm:px-6">
-            <h2 className="eyebrow">Referenced from</h2>
-            {mentions.length > 0 ? (
-                <>
-                    {passage(mentions[0])}
-                    {mentions.length > 1 ? (
-                        <details className="mt-3" open={expanded} onToggle={(event) => onExpandedChange(event.currentTarget.open)}>
-                            <summary className="text-gray-550 text-xs">
-                                {mentions.length - 1} more {mentions.length === 2 ? 'reference' : 'references'}
-                            </summary>
-                            {mentions.slice(1).map(passage)}
-                        </details>
-                    ) : null}
-                </>
-            ) : (
-                <p className="mt-2 text-gray-550 text-xs leading-relaxed">
-                    No exact path mention found in the pinned instructions. This document may be referenced indirectly or through a pattern.
-                </p>
-            )}
-        </section>
+        <details className="source-references" open={expanded} onToggle={(event) => onExpandedChange(event.currentTarget.open)}>
+            <summary className="text-teal">
+                {first
+                    ? `From ${first.sourcePath ?? primaryFile}:${first.startLine}${mentions.length > 1 ? ` +${mentions.length - 1}` : ''}`
+                    : 'Reference context'}
+            </summary>
+            <section aria-label="Reference context" className="pb-3">
+                {mentions.length > 0 ? (
+                    mentions.map(passage)
+                ) : (
+                    <p className="mt-2 text-gray-550 text-xs leading-relaxed">
+                        No exact path mention found in the pinned instructions. This document may be referenced indirectly or through a
+                        pattern.
+                    </p>
+                )}
+            </section>
+        </details>
     );
 }
 
@@ -345,19 +343,36 @@ export function FileTrayProvider({
                     />
                     <div className="source-panel">
                         <header className="source-header">
-                            <div className="min-w-0 flex-1">
-                                <p className="break-all font-mono text-sm">{path}</p>
-                                {request.via ? (
-                                    <p className="mt-1 font-mono text-xs text-gray-600">Opened via {request.via} symlink</p>
-                                ) : null}
-                                <p className="mt-2 break-words font-mono text-[11px] text-gray-550 leading-relaxed">
-                                    {owner}/{repo} · {sha.slice(0, 7)}
-                                    {file ? ` · ${formatBytes(file.bytes)} · ${file.lines} lines` : ''}
-                                    {file?.tokens !== undefined ? ` · ${file.tokens.toLocaleString()} tokens (o200k_base)` : ''}
-                                    {license ? ` · ${license}` : ''}
-                                </p>
+                            <div className="source-file-title">
+                                {instructionFiles.some((item) => item.path === path) && instructionFiles.length > 1 ? (
+                                    <select
+                                        aria-label="Instruction file"
+                                        value={path}
+                                        className="source-file-select"
+                                        onChange={(event) => open({ path: event.target.value })}
+                                    >
+                                        {instructionFiles.map((item) => (
+                                            <option key={item.path} value={item.path}>
+                                                {item.path}
+                                            </option>
+                                        ))}
+                                    </select>
+                                ) : (
+                                    <p className="break-all font-mono text-sm">{path}</p>
+                                )}
                             </div>
-                            <div className="flex shrink-0 items-center gap-2">
+                            <div className="source-actions">
+                                {isMarkdown && !comparePath ? (
+                                    <select
+                                        aria-label="File view"
+                                        value={view}
+                                        onChange={(event) => setView(event.target.value as 'markdown' | 'raw')}
+                                        className="source-view-select"
+                                    >
+                                        <option value="markdown">Markdown</option>
+                                        <option value="raw">Raw</option>
+                                    </select>
+                                ) : null}
                                 <button
                                     type="button"
                                     onClick={copySource}
@@ -387,35 +402,49 @@ export function FileTrayProvider({
                                     </svg>
                                     {copyStatus === 'copied' ? 'Copied' : 'Copy'}
                                 </button>
-                                <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="source-control">
-                                    GitHub ↗
+                                <a
+                                    href={sourceUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="source-control source-icon"
+                                    aria-label="View on GitHub"
+                                    title="View on GitHub"
+                                >
+                                    <span className="sr-only">View on GitHub</span>
+                                    <svg
+                                        aria-hidden="true"
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="1.75"
+                                    >
+                                        <path d="M14 3h7v7M21 3 10 14M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5" />
+                                    </svg>
                                 </a>
                                 <button
                                     type="button"
                                     data-close-file
                                     onClick={close}
-                                    className="source-control"
+                                    className="source-control source-icon"
                                     aria-label="Close source file"
+                                    title="Close source file"
                                 >
-                                    Close ×
+                                    <svg
+                                        aria-hidden="true"
+                                        width="18"
+                                        height="18"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="1.75"
+                                    >
+                                        <path d="m6 6 12 12M6 18 18 6" />
+                                    </svg>
                                 </button>
                             </div>
                         </header>
-                        {isMarkdown && !comparePath ? (
-                            <fieldset aria-label="File view" className="flex gap-1 px-4 py-2 sm:px-6">
-                                {(['markdown', 'raw'] as const).map((mode) => (
-                                    <button
-                                        type="button"
-                                        key={mode}
-                                        aria-pressed={view === mode}
-                                        onClick={() => setView(mode)}
-                                        className={`source-control ${view === mode ? 'bg-dark-teal text-teal' : ''}`}
-                                    >
-                                        {mode === 'markdown' ? 'Markdown' : 'Raw'}
-                                    </button>
-                                ))}
-                            </fieldset>
-                        ) : null}
                         {returnDocument ? (
                             <div className="border-gray-750 border-b px-4 py-2 sm:px-6">
                                 <button
@@ -428,92 +457,111 @@ export function FileTrayProvider({
                                 </button>
                             </div>
                         ) : null}
-                        {instructionFiles.some((item) => item.path === path) && instructionFiles.length > 1 ? (
-                            <div className="flex flex-wrap items-center gap-3 px-4 py-3 text-xs sm:px-6">
-                                <label className="flex min-w-0 flex-1 items-center gap-2 text-gray-550">
-                                    <span>File</span>
-                                    <select
-                                        aria-label="Instruction file"
-                                        value={path}
-                                        className="min-w-0 flex-1 rounded border border-gray-750 bg-medium-gray p-2 font-mono"
-                                        onChange={(event) => {
-                                            setComparePath(undefined);
-                                            setView('markdown');
-                                            setRequest({ path: event.target.value });
-                                        }}
+                        <div className="source-scroll" aria-busy={!failed && lines === undefined}>
+                            <div className="source-context">
+                                <div className="source-metadata">
+                                    {file?.tokens !== undefined ? <span>{file.tokens.toLocaleString()} tokens</span> : null}
+                                    <details className="source-info" key={path}>
+                                        <summary aria-label="File information" title="File information">
+                                            <svg
+                                                aria-hidden="true"
+                                                width="16"
+                                                height="16"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                strokeWidth="1.75"
+                                            >
+                                                <circle cx="12" cy="12" r="9" />
+                                                <path d="M12 11v6M12 7v1" />
+                                            </svg>
+                                        </summary>
+                                        <div className="source-info-panel">
+                                            <p className="break-words font-mono text-xs leading-relaxed">
+                                                {owner}/{repo} · {sha.slice(0, 7)}
+                                                <br />
+                                                {file ? `${formatBytes(file.bytes)} · ${file.lines} lines` : ''}
+                                                <br />
+                                                {file?.tokens !== undefined ? `${file.tokens.toLocaleString()} tokens · o200k_base` : ''}
+                                                {license ? (
+                                                    <>
+                                                        <br />
+                                                        {license}
+                                                    </>
+                                                ) : null}
+                                            </p>
+                                            {file?.imports?.length || file?.sameContentAs ? (
+                                                <div className="mt-3 font-mono text-xs text-gray-600">
+                                                    {file.sameContentAs ? <p>Same content as {file.sameContentAs}</p> : null}
+                                                    {file.imports?.map((imported) => (
+                                                        <p key={imported.target} className="py-1">
+                                                            Imports{' '}
+                                                            {imported.path && !imported.unavailable && readable.has(imported.path) ? (
+                                                                <button
+                                                                    type="button"
+                                                                    className="text-teal hover:underline"
+                                                                    onClick={() => {
+                                                                        if (imported.path) open({ path: imported.path });
+                                                                    }}
+                                                                >
+                                                                    {imported.target} ↗
+                                                                </button>
+                                                            ) : (
+                                                                `${imported.target} · ${imported.unavailable ?? 'Unavailable'}`
+                                                            )}
+                                                        </p>
+                                                    ))}
+                                                </div>
+                                            ) : null}
+                                        </div>
+                                    </details>
+                                </div>
+                                {mentions[path]?.length ||
+                                (!instructionFiles.some((item) => item.path === path) && path !== primaryFile) ? (
+                                    <DocumentReferences
+                                        key={path}
+                                        path={path}
+                                        primaryFile={primaryFile}
+                                        mentions={mentions[path] ?? []}
+                                        canOpen={true}
+                                        onOpen={visitMention}
+                                        expanded={expandedReferences[path] ?? false}
+                                        onExpandedChange={(expanded) =>
+                                            setExpandedReferences((previous) =>
+                                                previous[path] === expanded ? previous : { ...previous, [path]: expanded },
+                                            )
+                                        }
+                                    />
+                                ) : null}
+                                {instructionFiles.some((item) => item.path === path) && alternatives.length > 0 ? (
+                                    <button
+                                        type="button"
+                                        className="source-compare"
+                                        onClick={() => setComparePath(comparePath ? undefined : alternatives[0]?.path)}
                                     >
-                                        {instructionFiles.map((item) => (
+                                        {comparePath ? 'Close comparison' : 'Compare files'}
+                                    </button>
+                                ) : null}
+                            </div>
+                            {request.via ? (
+                                <p className="px-4 pb-2 font-mono text-xs text-gray-600 sm:px-6">Opened via {request.via} symlink</p>
+                            ) : null}
+                            {comparePath ? (
+                                <label className="flex items-center gap-2 px-4 py-2 text-gray-550 text-xs sm:px-6">
+                                    Compare with
+                                    <select
+                                        aria-label="Compare with"
+                                        value={comparePath}
+                                        className="source-file-select"
+                                        onChange={(event) => setComparePath(event.target.value)}
+                                    >
+                                        {alternatives.map((item) => (
                                             <option key={item.path} value={item.path}>
                                                 {item.path}
                                             </option>
                                         ))}
                                     </select>
                                 </label>
-                                <button
-                                    type="button"
-                                    className="min-h-9 text-teal hover:underline"
-                                    onClick={() => setComparePath(comparePath ? undefined : alternatives[0]?.path)}
-                                >
-                                    {comparePath ? 'Close comparison' : 'Compare files'}
-                                </button>
-                                {comparePath ? (
-                                    <label className="flex w-full items-center gap-2 text-gray-550">
-                                        Compare with
-                                        <select
-                                            aria-label="Compare with"
-                                            value={comparePath}
-                                            className="min-w-0 flex-1 rounded border border-gray-750 bg-medium-gray p-2 font-mono"
-                                            onChange={(event) => setComparePath(event.target.value)}
-                                        >
-                                            {alternatives.map((item) => (
-                                                <option key={item.path} value={item.path}>
-                                                    {item.path}
-                                                </option>
-                                            ))}
-                                        </select>
-                                    </label>
-                                ) : null}
-                            </div>
-                        ) : null}
-                        {file?.imports?.length || file?.sameContentAs ? (
-                            <div className="px-4 pb-3 font-mono text-xs text-gray-600 sm:px-6">
-                                {file.sameContentAs ? <p>Same content as {file.sameContentAs}</p> : null}
-                                {file.imports?.map((imported) => (
-                                    <p key={imported.target} className="py-1">
-                                        Imports{' '}
-                                        {imported.path && !imported.unavailable && readable.has(imported.path) ? (
-                                            <button
-                                                type="button"
-                                                className="text-teal hover:underline"
-                                                onClick={() => {
-                                                    if (imported.path) open({ path: imported.path });
-                                                }}
-                                            >
-                                                {imported.target} ↗
-                                            </button>
-                                        ) : (
-                                            `${imported.target} · ${imported.unavailable ?? 'Unavailable'}`
-                                        )}
-                                    </p>
-                                ))}
-                            </div>
-                        ) : null}
-                        <div className="source-scroll" aria-busy={!failed && lines === undefined}>
-                            {mentions[path]?.length || (!instructionFiles.some((item) => item.path === path) && path !== primaryFile) ? (
-                                <DocumentReferences
-                                    key={path}
-                                    path={path}
-                                    primaryFile={primaryFile}
-                                    mentions={mentions[path] ?? []}
-                                    canOpen={true}
-                                    onOpen={visitMention}
-                                    expanded={expandedReferences[path] ?? false}
-                                    onExpandedChange={(expanded) =>
-                                        setExpandedReferences((previous) =>
-                                            previous[path] === expanded ? previous : { ...previous, [path]: expanded },
-                                        )
-                                    }
-                                />
                             ) : null}
                             {failed ? (
                                 <p role="alert" className="p-6 text-gray-550 text-sm leading-relaxed">

@@ -667,11 +667,117 @@ select {
 
 .source-header {
     display: flex;
-    align-items: start;
-    gap: 1.5rem;
-    padding: 1.25rem 1.5rem;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1.5rem;
     border-bottom: 1px solid var(--color-gray-750);
     background: var(--color-medium-gray);
+}
+
+.source-file-title {
+    flex: 1;
+    min-width: 0;
+}
+
+.source-file-select,
+.source-view-select {
+    max-width: 100%;
+    min-width: 0;
+    min-height: 2.25rem;
+    padding: 0.25rem 0.25rem 0.25rem 0;
+    background: transparent;
+    color: var(--color-light-cream);
+    font-size: 0.75rem;
+}
+
+.source-file-select {
+    width: 100%;
+    font-family: var(--font-mono);
+}
+
+.source-file-title .source-file-select {
+    width: auto;
+}
+
+.source-file-select option,
+.source-view-select option {
+    background: var(--color-medium-gray);
+}
+
+.source-actions {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 0.375rem;
+}
+
+.source-context {
+    position: relative;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.25rem 1rem;
+    padding: 0.375rem 1.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--color-gray-600);
+}
+
+.source-metadata {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.source-info summary {
+    display: flex;
+    align-items: center;
+    min-height: 2rem;
+    cursor: pointer;
+    list-style: none;
+}
+
+.source-info summary::-webkit-details-marker {
+    display: none;
+}
+
+.source-info-panel {
+    position: absolute;
+    inset: 100% 1.5rem auto;
+    z-index: 2;
+    padding: 1rem;
+    border: 1px solid var(--color-gray-750);
+    border-radius: 0.375rem;
+    background: var(--color-medium-gray);
+    box-shadow: 0 0.5rem 1.5rem rgb(0 0 0 / 15%);
+}
+
+.source-references {
+    flex: 1;
+    min-width: 0;
+}
+
+.source-references[open] {
+    flex-basis: 100%;
+    order: 1;
+}
+
+.source-references summary {
+    width: fit-content;
+    min-height: 2rem;
+    padding-block: 0.375rem;
+    cursor: pointer;
+    overflow-wrap: anywhere;
+}
+
+.source-compare {
+    min-height: 2rem;
+    margin-left: auto;
+    color: var(--color-teal);
+}
+
+.source-compare:hover {
+    text-decoration: underline;
 }
 
 .source-control {
@@ -704,6 +810,35 @@ select {
     border-color: #71d0bb;
     background: #71d0bb;
     color: var(--color-marketing-black);
+}
+
+.source-header .source-control {
+    min-height: 2.25rem;
+    padding: 0.375rem 0.625rem;
+}
+
+.source-header .source-copy {
+    min-width: 0;
+}
+
+.source-header .source-icon {
+    border-color: transparent;
+    padding-inline: 0.375rem;
+}
+
+@media (pointer: coarse) {
+    .source-header .source-control,
+    .source-file-select,
+    .source-view-select,
+    .source-info summary,
+    .source-references summary,
+    .source-compare {
+        min-height: 2.75rem;
+    }
+    .source-info summary {
+        min-width: 2.75rem;
+        justify-content: center;
+    }
 }
 
 .source-scroll {
@@ -753,9 +888,21 @@ select {
 
 @media (max-width: 640px) {
     .source-header {
-        flex-direction: column;
-        gap: 0.75rem;
-        padding: 1rem;
+        flex-wrap: wrap;
+        gap: 0.375rem;
+        padding: 0.625rem 1rem;
+    }
+    .source-file-title {
+        flex-basis: 100%;
+    }
+    .source-actions {
+        width: 100%;
+    }
+    .source-view-select {
+        margin-right: auto;
+    }
+    .source-context {
+        padding-inline: 1rem;
     }
     .source-code {
         font-size: 0.75rem;
