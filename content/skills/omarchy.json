@@ -29,7 +29,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 2741,
+                        "login": "dhh",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "omarchy-557d1bfba929",
@@ -86,7 +96,22 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 2741,
+                        "login": "dhh",
+                        "commits": 2
+                    },
+                    {
+                        "id": 1630358,
+                        "login": "ryanrhughes",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         }
     ],
     "agentsFile": {

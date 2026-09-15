@@ -29,7 +29,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 69125074,
+                        "login": "emily-shen",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         }
     ],
     "agentsFile": {

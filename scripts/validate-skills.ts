@@ -15,6 +15,16 @@ if (fs.existsSync(directory)) {
         assert.ok(fs.existsSync(path.join(process.cwd(), 'content/projects', name)));
         assert.equal(new Set(m.skills.map((s) => s.id)).size, m.skills.length);
         for (const skill of m.skills) {
+            if (skill.contributions) {
+                const { contributors, unlinkedAuthors } = skill.contributions;
+                assert.ok(Number.isInteger(unlinkedAuthors) && unlinkedAuthors >= 0);
+                assert.equal(new Set(contributors.map((person) => person.id)).size, contributors.length);
+                for (const person of contributors) {
+                    assert.ok(Number.isSafeInteger(person.id) && person.id > 0);
+                    assert.match(person.login, /^[a-zA-Z0-9][a-zA-Z0-9-]*$/);
+                    assert.ok(Number.isSafeInteger(person.commits) && person.commits > 0);
+                }
+            }
             assert.ok(safeRelativePath(skill.path));
             assert.equal(skill.id, skillId(skill.path));
             assert.equal(new Set(skill.files.map((f) => f.path)).size, skill.files.length);

@@ -25,7 +25,22 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 7587245,
+                        "login": "kitlangton",
+                        "commits": 2
+                    },
+                    {
+                        "id": 826656,
+                        "login": "thdxr",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "rtl-aware-development-0289d54a5217",
@@ -40,7 +55,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 10430890,
+                        "login": "Hona",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         }
     ],
     "agentsFile": {

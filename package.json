@@ -16,6 +16,7 @@
         "check:files": "npx tsx scripts/sync-agents-md-files.ts --check",
         "refresh": "npx tsx scripts/refresh-agents-md.ts",
         "sync:skills": "node --import tsx scripts/sync-skills.ts",
+        "sync:skill-contributors": "node --import tsx scripts/sync-skill-contributors.ts",
         "check:skills": "node --import tsx scripts/validate-skills.ts"
     },
     "dependencies": {

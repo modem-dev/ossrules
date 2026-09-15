@@ -12,6 +12,7 @@ import {
     safeRelativePath,
     skillId,
 } from '../lib/skill-schema';
+import { collectSkillContributors } from './skill-contributors';
 
 const root = process.cwd();
 const manifestDir = path.join(root, 'content/skills');
@@ -131,7 +132,13 @@ async function sync(entry: Entry) {
             if (!stored.omitted) total += stored.bytes;
             files.push(stored);
         }
-        manifest.skills.push({ id: skillId(candidate.path), path: candidate.path, ...metadata, files });
+        manifest.skills.push({
+            id: skillId(candidate.path),
+            path: candidate.path,
+            ...metadata,
+            files,
+            contributions: collectSkillContributors(repository, commit.sha, candidate.path),
+        });
     }
     if (manifest.skills.length) {
         const agents = tree.tree.find((f) => f.path === 'AGENTS.md');

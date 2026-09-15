@@ -30,7 +30,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 622227,
+                        "login": "FredKSchott",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "astro-code-review-54e5d444783a",
@@ -53,7 +63,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 602478,
+                        "login": "ematipico",
+                        "commits": 7
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "astro-developer-23de14e8e8ff",
@@ -103,7 +123,32 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 361671,
+                        "login": "matthewp",
+                        "commits": 2
+                    },
+                    {
+                        "id": 602478,
+                        "login": "ematipico",
+                        "commits": 1
+                    },
+                    {
+                        "id": 156822084,
+                        "login": "milo417",
+                        "commits": 1
+                    },
+                    {
+                        "id": 18418553,
+                        "login": "sanjibani",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "astro-pr-writer-1e4b0793c867",
@@ -125,7 +170,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 361671,
+                        "login": "matthewp",
+                        "commits": 6
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "changeset-c0e5e0189ab7",
@@ -147,7 +202,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 361671,
+                        "login": "matthewp",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "merge-dc625ddf99fb",
@@ -190,7 +255,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 361671,
+                        "login": "matthewp",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "triage-e1a987817fd5",
@@ -240,7 +315,22 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 622227,
+                        "login": "FredKSchott",
+                        "commits": 2
+                    },
+                    {
+                        "id": 361671,
+                        "login": "matthewp",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "writing-comments-5d88b4e2d7fc",
@@ -262,7 +352,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 602478,
+                        "login": "ematipico",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         }
     ],
     "agentsFile": {

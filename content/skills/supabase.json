@@ -22,7 +22,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 37541088,
+                        "login": "jordienr",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "ask-the-docs-a7e8286e017e",
@@ -128,7 +138,27 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 15148011,
+                        "login": "nrichers",
+                        "commits": 2
+                    },
+                    {
+                        "id": 10985857,
+                        "login": "alaister",
+                        "commits": 1
+                    },
+                    {
+                        "id": 5532241,
+                        "login": "w3b6x9",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "clickhouse-logs-queries-760b20aee229",
@@ -157,7 +187,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 10985857,
+                        "login": "alaister",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "copywriting-cac7226a9df5",
@@ -172,7 +212,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 10985857,
+                        "login": "alaister",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "dev-toolbar-review-6b383e41e540",
@@ -187,7 +237,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 10985857,
+                        "login": "alaister",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "edit-the-docs-342d4075b2c2",
@@ -209,7 +269,27 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 10985857,
+                        "login": "alaister",
+                        "commits": 1
+                    },
+                    {
+                        "id": 23711156,
+                        "login": "czenko",
+                        "commits": 1
+                    },
+                    {
+                        "id": 15148011,
+                        "login": "nrichers",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "pm-the-docs-46cbee291dd7",
@@ -238,7 +318,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 15148011,
+                        "login": "nrichers",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "react-hook-form-babe32ebd566",
@@ -253,7 +343,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 10985857,
+                        "login": "alaister",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "review-the-docs-ac56c3330695",
@@ -268,7 +368,22 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 15148011,
+                        "login": "nrichers",
+                        "commits": 2
+                    },
+                    {
+                        "id": 10985857,
+                        "login": "alaister",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "safe-sql-execution-82d5031c7ee9",
@@ -283,7 +398,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 10985857,
+                        "login": "alaister",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "studio-e2e-tests-db765b5fa79d",
@@ -298,7 +423,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 10985857,
+                        "login": "alaister",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "studio-error-handling-9b7379913059",
@@ -313,7 +448,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 10985857,
+                        "login": "alaister",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "studio-mock-api-tests-3c622a19bc14",
@@ -328,7 +473,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 10985857,
+                        "login": "alaister",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "studio-queries-93936a681ec9",
@@ -343,7 +498,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 10985857,
+                        "login": "alaister",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "studio-shortcuts-d3d9ec836251",
@@ -358,7 +523,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 10985857,
+                        "login": "alaister",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "studio-testing-bf7af8159b56",
@@ -373,7 +548,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 10985857,
+                        "login": "alaister",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "studio-ui-patterns-eed899dfc912",
@@ -388,7 +573,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 10985857,
+                        "login": "alaister",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "telemetry-standards-6c376c60f1ac",
@@ -403,7 +598,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 10985857,
+                        "login": "alaister",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "test-the-docs-4834ca89bf1e",
@@ -474,7 +679,17 @@
                     "text": true,
                     "mode": "100755"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 15148011,
+                        "login": "nrichers",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "vercel-composition-patterns-fda658358261",
@@ -546,7 +761,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 10985857,
+                        "login": "alaister",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "vitest-3b3cabb27704",
@@ -680,7 +905,22 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 10985857,
+                        "login": "alaister",
+                        "commits": 1
+                    },
+                    {
+                        "id": 37541088,
+                        "login": "jordienr",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "write-the-docs-438e52ed643d",
@@ -723,7 +963,22 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 15148011,
+                        "login": "nrichers",
+                        "commits": 3
+                    },
+                    {
+                        "id": 10985857,
+                        "login": "alaister",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "explorer-611f9522400e",
@@ -738,7 +993,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1072756,
+                        "login": "SaxonF",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         }
     ],
     "agentsFile": {

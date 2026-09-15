@@ -4,6 +4,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { Suspense, useState } from 'react';
+import type { SkillContributions } from '@/lib/skill-contributors';
+import { SkillContributors } from './skill-contributors';
 
 export interface SkillEntry {
     id: string;
@@ -13,6 +15,8 @@ export interface SkillEntry {
     path: string;
     files: number;
     complete: boolean;
+    contributions?: SkillContributions;
+    historyUrl?: string;
     project: { slug: string; name: string; logo: string; repository: string };
 }
 
@@ -155,11 +159,24 @@ function SkillExplorerContent({
                                         {entry.project.name}
                                     </Link>
                                 ) : null}
-                                <span>
+                                {projectOnly ? (
+                                    <span>
+                                        {entry.files === 1 ? 'SKILL.md only' : `${entry.files} bundle files`}
+                                        {!entry.complete ? ' · Partial bundle' : ''}
+                                    </span>
+                                ) : null}
+                                <SkillContributors
+                                    contributions={entry.contributions}
+                                    historyUrl={entry.historyUrl}
+                                    skillName={entry.name}
+                                />
+                            </div>
+                            {!projectOnly ? (
+                                <p className="mt-3 font-mono text-[11px] text-gray-600">
                                     {entry.files === 1 ? 'SKILL.md only' : `${entry.files} bundle files`}
                                     {!entry.complete ? ' · Partial bundle' : ''}
-                                </span>
-                            </div>
+                                </p>
+                            ) : null}
                         </li>
                     ))}
                 </ul>

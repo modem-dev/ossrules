@@ -30,7 +30,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 595491,
+                        "login": "potiuk",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "airflow-java-sdk-c517a9174761",
@@ -45,7 +55,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 605277,
+                        "login": "uranusjr",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "airflow-new-sdk-d3bafdf0f142",
@@ -60,7 +80,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 605277,
+                        "login": "uranusjr",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "airflow-translations-ff00f545cae9",
@@ -209,7 +239,22 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 70793703,
+                        "login": "ColtenOuO",
+                        "commits": 1
+                    },
+                    {
+                        "id": 595491,
+                        "login": "potiuk",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "prepare-providers-documentation-9a824df6a038",
@@ -225,7 +270,27 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 60007259,
+                        "login": "shahar1",
+                        "commits": 7
+                    },
+                    {
+                        "id": 595491,
+                        "login": "potiuk",
+                        "commits": 5
+                    },
+                    {
+                        "id": 97131062,
+                        "login": "vincbeck",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "upgrade-fab-provider-e4f6f9da56ed",
@@ -241,7 +306,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 595491,
+                        "login": "potiuk",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "aip-tracker-f89502b97a63",
@@ -257,7 +332,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 25178089,
+                        "login": "vikramkoka",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         },
         {
             "id": "sql-reporting-c26f9a64a790",
@@ -273,7 +358,17 @@
                     "text": true,
                     "mode": "100644"
                 }
-            ]
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 8811558,
+                        "login": "kaxil",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
         }
     ],
     "agentsFile": {
