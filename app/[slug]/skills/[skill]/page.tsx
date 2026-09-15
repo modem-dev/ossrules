@@ -85,7 +85,6 @@ export default async function SkillPage({
                                     skillName={skill.name}
                                     align="start"
                                 />
-                                <span className="font-mono text-[11px] text-gray-600">Contributors</span>
                             </div>
                         ) : null}
                         <p className="mt-4 max-w-3xl text-gray-500 text-sm leading-relaxed [overflow-wrap:anywhere]">{skill.description}</p>
