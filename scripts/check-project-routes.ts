@@ -30,20 +30,84 @@ async function redirected(from: string, to: string) {
     const destination = new URL(result.headers.get('location') ?? '', base);
     assert.equal(destination.pathname + destination.search, to, from);
 }
+function skillLinks(html: string) {
+    return [...html.matchAll(/<li class="skill-entry"><a\b[^>]*href="([^"]+)"/g)].map((match) => match[1]);
+}
+function isNoindex(html: string) {
+    return /<meta\b[^>]*name="robots"[^>]*content="[^"]*\bnoindex\b/.test(html);
+}
+async function checkPagination(root: string, expected: string[]) {
+    const collected: string[] = [];
+    const count = Math.max(1, Math.ceil(expected.length / 50));
+    for (let number = 1; number <= count; number++) {
+        const url = `${root}${number === 1 ? '' : `?page=${number}`}`;
+        const html = await page(url);
+        const links = skillLinks(html);
+        assert.deepEqual(links, expected.slice((number - 1) * 50, number * 50), `initial HTML: ${url}`);
+        assert.equal(isNoindex(html), expected.length === 0, `indexing: ${url}`);
+        if (number < count) assert.ok(html.includes(`href="?page=${number + 1}"`), `next page: ${url}`);
+        collected.push(...links);
+    }
+    assert.deepEqual(collected, expected, `complete listing: ${root}`);
+}
 async function main() {
     const home = await page('/');
     const rules = await page('/agent-rules');
     const skillsIndex = await page('/skills');
-    const skillPaths = new Set(
-        projects.flatMap((project) => {
+    // The global directory sorts project input by stars before its stable skill-name sort.
+    const allSkills = [...projects]
+        .sort((a, b) => b.stars - a.stars)
+        .flatMap((project) => {
             const manifest = JSON.parse(fs.readFileSync(`content/skills/${project.slug}.json`, 'utf8')) as SkillManifest;
-            return manifest.skills.map((skill) => `/${project.owner}/${project.repo}/skills/${skill.id}`);
-        }),
-    );
-    const initialSkillLinks = [...skillsIndex.matchAll(/<li class="skill-entry"><a\b[^>]*href="([^"]+)"/g)].map((match) => match[1]);
+            return manifest.skills.map((skill) => ({ ...skill, href: `/${project.owner}/${project.repo}/skills/${skill.id}` }));
+        })
+        .sort((a, b) => a.name.localeCompare(b.name));
+    const skillPaths = new Set(allSkills.map((skill) => skill.href));
+    const initialSkillLinks = skillLinks(skillsIndex);
     assert.equal(initialSkillLinks.length, Math.min(50, skillPaths.size), 'skills index renders one page');
     assert.equal(new Set(initialSkillLinks).size, initialSkillLinks.length, 'skills index has no duplicate entries');
     for (const href of initialSkillLinks) assert.ok(skillPaths.has(href), `skills index repository link: ${href}`);
+    await checkPagination(
+        '/skills',
+        allSkills.map((skill) => skill.href),
+    );
+    for (const value of ['1', '0', '-1', 'bad', '1.5', 'Infinity']) {
+        assert.deepEqual(skillLinks(await page(`/skills?page=${value}`, '/skills')), initialSkillLinks);
+    }
+    const finalPage = Math.max(1, Math.ceil(allSkills.length / 50));
+    const finalCanonical = finalPage === 1 ? '/skills' : `/skills?page=${finalPage}`;
+    assert.deepEqual(
+        skillLinks(await page('/skills?page=999999', finalCanonical)),
+        allSkills.slice((finalPage - 1) * 50).map((skill) => skill.href),
+    );
+    await page('/skills?page=1&page=2&utm_source=test', '/skills');
+    const filtered = await page('/skills?resources=1');
+    assert.ok(isNoindex(filtered), 'arbitrary filters are not indexed');
+    assert.deepEqual(
+        skillLinks(filtered),
+        allSkills
+            .filter((skill) => skill.files.length > 1)
+            .slice(0, 50)
+            .map((skill) => skill.href),
+    );
+    const empty = await page('/skills?q=ossrules-no-such-skill-829104');
+    assert.ok(isNoindex(empty), 'search results are not indexed');
+    assert.deepEqual(skillLinks(empty), []);
+
+    const robotsResponse = await response('/robots.txt');
+    assert.equal(robotsResponse.status, 200);
+    assert.match(robotsResponse.headers.get('content-type') ?? '', /text\/plain/);
+    const robots = await robotsResponse.text();
+    assert.match(robots, /User-Agent: \*/i);
+    assert.match(robots, /Allow: \/\s/);
+    assert.match(robots, /Sitemap: https:\/\/ossrules\.md\/sitemap\.xml/);
+    const sitemapResponse = await response('/sitemap.xml');
+    assert.equal(sitemapResponse.status, 200);
+    assert.match(sitemapResponse.headers.get('content-type') ?? '', /xml/);
+    const sitemap = await sitemapResponse.text();
+    const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+    const expectedSitemap = new Set(['https://ossrules.md/', 'https://ossrules.md/agent-rules', 'https://ossrules.md/skills']);
+    for (const href of skillPaths) expectedSitemap.add(`https://ossrules.md${href}`);
     // Rules show a capped sample of projects, so a larger corpus need not appear in full.
     const projectPaths = new Set(projects.map((project) => `/${project.owner}/${project.repo}`));
     const ruleProjectLinks = [...rules.matchAll(/<a\b[^>]*href="(\/[^"?#]+\/[^"?#]+)"/g)].map((match) => match[1]);
@@ -52,14 +116,19 @@ async function main() {
     for (const project of projects) {
         // Deliberately independent of URL helpers so changes to those cannot hide a regression.
         const root = `/${project.owner}/${project.repo}`;
+        expectedSitemap.add(`https://ossrules.md${root}`);
         assert.ok(home.includes(`href="${root}"`), `directory: ${root}`);
         assert.ok(!rules.includes(`href="/${project.slug}"`), `rules must not use legacy URLs: ${project.slug}`);
         const html = await page(root);
         assert.ok(html.includes(`href="${root}/skills"`), `project tabs: ${root}`);
-        await page(`${root}/skills`);
         await redirected(`/${project.slug}?ref=legacy`, `${root}?ref=legacy`);
         await redirected(`/${project.slug}/skills?q=review`, `${root}/skills?q=review`);
         const manifest = JSON.parse(fs.readFileSync(`content/skills/${project.slug}.json`, 'utf8')) as SkillManifest;
+        if (manifest.skills.length) expectedSitemap.add(`https://ossrules.md${root}/skills`);
+        await checkPagination(
+            `${root}/skills`,
+            manifest.skills.map((skill) => `${root}/skills/${skill.id}`),
+        );
         const skill = manifest.skills[0];
         if (skill) {
             const detail = `${root}/skills/${skill.id}`;
@@ -85,13 +154,18 @@ async function main() {
         }
         console.log(`Verified ${root}, legacy redirects, and available skill routes.`);
     }
+    assert.equal(new Set(sitemapUrls).size, sitemapUrls.length, 'no duplicate sitemap URLs');
+    assert.deepEqual(new Set(sitemapUrls), expectedSitemap, 'sitemap covers readers and useful indexes only, on the apex domain');
+    assert.ok(!sitemap.includes('<lastmod>'), 'do not invent page modification dates from source scan times');
     // A known repo name under the wrong owner must not resolve by basename or internal slug.
     assert.equal((await response('/not-the-owner/fresh')).status, 404);
     assert.equal((await response('/freshframework/does-not-exist')).status, 404);
     assert.equal((await response('/not-the-owner/fresh/skills')).status, 404);
     assert.equal((await response('/not-the-owner/fresh/skills/missing/file?path=SKILL.md')).status, 404);
     assert.equal((await response('/not-the-owner/fresh/skills/missing/download')).status, 404);
-    console.log(`Verified ${projects.length} repository namespaces and unknown-repository 404s.`);
+    console.log(
+        `Verified ${projects.length} repository namespaces, ${skillPaths.size} paginated skills, ${sitemapUrls.length} sitemap URLs, robots, and 404s.`,
+    );
 }
 main().catch((error) => {
     console.error(error);

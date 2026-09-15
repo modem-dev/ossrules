@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import localFont from 'next/font/local';
+import { SITE_URL } from '@/lib/schema';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-inter-variable', weight: ['400', '500', '600'] });
@@ -14,7 +15,7 @@ const jetbrains = localFont({
 });
 
 export const metadata: Metadata = {
-    metadataBase: new URL('https://ossrules.md'),
+    metadataBase: new URL(SITE_URL),
     title: {
         default: 'ossrules.md — agent instructions and skills from open source projects',
         template: '%s | ossrules.md',
