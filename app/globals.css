@@ -3,6 +3,7 @@
 .project-tabs {
     display: flex;
     gap: 1.75rem;
+    border-bottom: 1px solid var(--color-gray-750);
     margin: 1.75rem 0 2rem;
 }
 .project-tabs a {
