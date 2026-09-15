@@ -1,0 +1,154 @@
+{
+    "slug": "openclaw",
+    "name": "OpenClaw",
+    "owner": "openclaw",
+    "repo": "openclaw",
+    "tagline": "A personal AI assistant that runs across your own devices and channels.",
+    "language": "TypeScript",
+    "stars": 389708,
+    "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "a5fb8446c0e1a4b29b9b0a636e4b18aa3e6afae3",
+        "date": "2026-09-14T15:24:45Z"
+    },
+    "evaluatedAt": "2026-09-14",
+    "file": {
+        "bytes": 21803,
+        "lines": 123,
+        "words": 2893,
+        "headings": 10,
+        "bullets": 67,
+        "codeBlocks": 0,
+        "docLinks": 25
+    },
+    "references": [
+        {
+            "path": "VISION.md"
+        },
+        {
+            "path": "extensions/AGENTS.md"
+        },
+        {
+            "path": "src/plugins/AGENTS.md"
+        },
+        {
+            "path": "src/plugin-sdk/AGENTS.md"
+        },
+        {
+            "path": "src/channels/AGENTS.md"
+        },
+        {
+            "path": "docs/plugins/sdk-channel-plugins.md"
+        },
+        {
+            "path": "src/agents/AGENTS.md"
+        },
+        {
+            "path": "src/gateway/AGENTS.md"
+        },
+        {
+            "path": "ui/AGENTS.md"
+        },
+        {
+            "path": "docs/reference/database-schemas.md"
+        },
+        {
+            "path": "docs/gateway/doctor/config-migrations.md"
+        },
+        {
+            "path": "docs/gateway/audit.md"
+        },
+        {
+            "path": "docs/plugins/codex-harness.md"
+        },
+        {
+            "path": "docs/help/testing/suites.md"
+        },
+        {
+            "path": "docs/help/testing/writing-tests.md"
+        },
+        {
+            "path": "CONTRIBUTING.md"
+        },
+        {
+            "path": "docs/reference/pull-request-review-flow.md"
+        },
+        {
+            "path": "scripts/AGENTS.md"
+        },
+        {
+            "path": "docs/AGENTS.md"
+        },
+        {
+            "path": "docs/reference/RELEASING.md"
+        },
+        {
+            "path": "docs/gateway/secrets.md"
+        },
+        {
+            "path": "docs/auth-credential-semantics.md"
+        },
+        {
+            "path": "SECURITY.md"
+        },
+        {
+            "path": "docs/platforms/mac/signing.md"
+        },
+        {
+            "path": "**/AGENTS.md",
+            "kind": "pattern",
+            "label": "Nearest scoped instructions"
+        }
+    ],
+    "hook": "New capabilities must justify their ownership and the context they add to every agent turn.",
+    "summary": "OpenClaw treats its root instructions as a guide to architectural decisions and task-specific references. It prefers existing owners and optional extension surfaces before adding core capabilities. Cutovers must remove superseded policy and state, context assembly must preserve reusable history, and privileged actions must check live authority at the point of effect. Scoped guides provide the implementation detail.",
+    "patterns": ["context-budget", "single-source", "hard-prohibition", "nested-instructions"],
+    "techniques": [
+        {
+            "title": "Account for the cost of core capabilities",
+            "body": "The capability ladder starts with existing commands and skills, then plugins, then narrow shared contracts. Adding an integration does not by itself justify a new core manager or tool.",
+            "quote": "Model-facing core additions have an ongoing context cost.",
+            "pattern": "context-budget"
+        },
+        {
+            "title": "Define a complete ownership cutover",
+            "body": "The file makes removal part of the migration plan. A new owner is incomplete while duplicate state, registrations, or callers continue to encode the old policy.",
+            "quote": "Remove superseded code, duplicate policy/state, wrappers, registrations, exports, tests, and docs.",
+            "pattern": "single-source"
+        },
+        {
+            "title": "Preserve the prompt prefix",
+            "body": "The context guidance links deterministic history to prefix reuse and reserves history rewriting for compaction. This turns prompt assembly into a maintained runtime invariant.",
+            "quote": "Rebuilding past context defeats prompt-prefix reuse.",
+            "pattern": "context-budget"
+        },
+        {
+            "title": "Recheck authority after waiting",
+            "body": "Authorization depends on current owner-held state, not only a valid-looking token. The instruction places another check after awaited work and immediately before the effect.",
+            "quote": "Privileged actions require current owner-held authority. Revalidate after awaited work and immediately before side effects; tokens, signatures, expiry, and matching IDs alone do not prove live authority.",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Route callers to the owner's guide",
+            "body": "Scope follows the responsibility being changed, including callers outside its directory. The root links channel, plugin, agent, gateway, UI, testing, release, and security documentation.",
+            "quote": "Read the nearest scoped `AGENTS.md` and the\nmatching references below, including when changing callers outside an owner's directory.",
+            "pattern": "nested-instructions"
+        }
+    ],
+    "steal": [
+        "Require a reason to put an optional capability into core.",
+        "Make removal of superseded state and policy part of a migration checklist.",
+        "Document which operations may rewrite stored conversation history.",
+        "Revalidate mutable authority after asynchronous work.",
+        "Route changes in callers to the guide for the capability they depend on."
+    ],
+    "outline": [
+        "Design priorities",
+        "Working agreement",
+        "One owner, complete cutover",
+        "Runtime and code safeguards",
+        "Product and validation",
+        "Authority and safety",
+        "Read when relevant"
+    ]
+}

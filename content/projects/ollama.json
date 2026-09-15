@@ -1,0 +1,52 @@
+{
+    "slug": "ollama",
+    "name": "Ollama",
+    "owner": "ollama",
+    "repo": "ollama",
+    "tagline": "Run language models locally.",
+    "language": "Go",
+    "stars": 180962,
+    "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "96201a623a62b4434ff434a0a4a6b5b247fce481",
+        "date": "2026-06-07T17:57:59Z"
+    },
+    "evaluatedAt": "2026-09-14",
+    "file": {
+        "bytes": 358,
+        "lines": 21,
+        "words": 56,
+        "headings": 2,
+        "bullets": 0,
+        "codeBlocks": 4,
+        "docLinks": 0
+    },
+    "references": [
+        {
+            "path": "docs/development.md"
+        }
+    ],
+    "hook": "A short build guide separates native compilation from Go-only iteration.",
+    "summary": "Ollama keeps its root instructions to two build paths and a link to the development guide. The full path configures and builds the native payload with CMake. The quicker path assumes that payload already exists and runs the Go code directly. There are no testing or contribution rules here; the linked guide carries the wider setup context.",
+    "patterns": ["verification-matrix", "skill-routing"],
+    "techniques": [
+        {
+            "title": "State the prerequisite for a faster loop",
+            "body": "The Go-only commands are explicitly conditional on an existing native payload. That condition stops the shorter command from looking like a replacement for a complete first build.",
+            "quote": "For quick Go-only iteration against an existing native payload:",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Route setup details to one guide",
+            "body": "The root names what the development guide covers, so a reader knows when to leave the short command list for platform and GPU setup.",
+            "quote": "See `docs/development.md` for prerequisites, platform notes, GPU backends, and\nthe full development workflow.",
+            "pattern": "skill-routing"
+        }
+    ],
+    "steal": [
+        "Label fast commands with the state they assume already exists.",
+        "Separate first-build instructions from the everyday edit loop.",
+        "Keep platform-specific setup in a linked development guide."
+    ],
+    "outline": ["Building"]
+}

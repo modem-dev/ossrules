@@ -1,0 +1,77 @@
+{
+    "slug": "n8n",
+    "sha": "b67870cdbcc8c038051bc52396b2b2787be0d919",
+    "licensePath": "LICENSE.md",
+    "files": [
+        {
+            "path": ".agents/skills/AGENTS.md",
+            "bytes": 1952,
+            "lines": 39
+        },
+        {
+            "path": ".claude/plugins/n8n/README.md",
+            "bytes": 2296,
+            "lines": 60
+        },
+        {
+            "path": ".devcontainer/codespaces/README.md",
+            "bytes": 19281,
+            "lines": 351
+        },
+        {
+            "path": ".github/DEVELOPING_V3.md",
+            "bytes": 12758,
+            "lines": 244
+        },
+        {
+            "path": ".github/pull_request_template.md",
+            "bytes": 1448,
+            "lines": 37
+        },
+        {
+            "path": ".github/pull_request_title_conventions.md",
+            "bytes": 5117,
+            "lines": 117
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 22804,
+            "lines": 428
+        },
+        {
+            "path": "packages/@n8n/instance-ai/CLAUDE.md",
+            "bytes": 3597,
+            "lines": 71
+        },
+        {
+            "path": "packages/@n8n/module-cli/frontend-module-guide.md",
+            "bytes": 32879,
+            "lines": 688
+        },
+        {
+            "path": "packages/frontend/AGENTS.md",
+            "bytes": 1237,
+            "lines": 21
+        },
+        {
+            "path": "packages/testing/playwright/AGENTS.md",
+            "bytes": 18709,
+            "lines": 522
+        },
+        {
+            "path": "packages/testing/playwright/README.md",
+            "bytes": 21240,
+            "lines": 541
+        },
+        {
+            "path": "scripts/backend-module/backend-module-guide.md",
+            "bytes": 14633,
+            "lines": 366
+        },
+        {
+            "path": "scripts/instance-seeding/AGENTS.md",
+            "bytes": 15057,
+            "lines": 337
+        }
+    ]
+}

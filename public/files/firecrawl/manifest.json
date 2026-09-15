@@ -1,0 +1,13 @@
+{
+    "slug": "firecrawl",
+    "sha": "d9a35c055a3673a4d47e7146ea91daae3fa194cc",
+    "license": "AGPL-3.0",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 1464,
+            "lines": 18
+        }
+    ]
+}

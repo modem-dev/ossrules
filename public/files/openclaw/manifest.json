@@ -1,0 +1,134 @@
+{
+    "slug": "openclaw",
+    "sha": "a5fb8446c0e1a4b29b9b0a636e4b18aa3e6afae3",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 21803,
+            "lines": 123
+        },
+        {
+            "path": "CONTRIBUTING.md",
+            "bytes": 19338,
+            "lines": 233
+        },
+        {
+            "path": "docs/AGENTS.md",
+            "bytes": 6896,
+            "lines": 60
+        },
+        {
+            "path": "docs/auth-credential-semantics.md",
+            "bytes": 18662,
+            "lines": 248
+        },
+        {
+            "path": "docs/gateway/audit.md",
+            "bytes": 35537,
+            "lines": 588
+        },
+        {
+            "path": "docs/gateway/doctor/config-migrations.md",
+            "bytes": 26286,
+            "lines": 192
+        },
+        {
+            "path": "docs/gateway/secrets.md",
+            "bytes": 9032,
+            "lines": 101
+        },
+        {
+            "path": "docs/help/testing/suites.md",
+            "bytes": 20566,
+            "lines": 323
+        },
+        {
+            "path": "docs/help/testing/writing-tests.md",
+            "bytes": 4228,
+            "lines": 82
+        },
+        {
+            "path": "docs/platforms/mac/signing.md",
+            "bytes": 6707,
+            "lines": 52
+        },
+        {
+            "path": "docs/plugins/codex-harness.md",
+            "bytes": 19405,
+            "lines": 356
+        },
+        {
+            "path": "docs/plugins/sdk-channel-plugins.md",
+            "bytes": 32810,
+            "lines": 688
+        },
+        {
+            "path": "docs/reference/database-schemas.md",
+            "bytes": 10685,
+            "lines": 93
+        },
+        {
+            "path": "docs/reference/pull-request-review-flow.md",
+            "bytes": 7322,
+            "lines": 162
+        },
+        {
+            "path": "docs/reference/RELEASING.md",
+            "bytes": 139214,
+            "lines": 1446,
+            "truncated": true
+        },
+        {
+            "path": "extensions/AGENTS.md",
+            "bytes": 4341,
+            "lines": 83
+        },
+        {
+            "path": "scripts/AGENTS.md",
+            "bytes": 18015,
+            "lines": 56
+        },
+        {
+            "path": "SECURITY.md",
+            "bytes": 36524,
+            "lines": 385
+        },
+        {
+            "path": "src/agents/AGENTS.md",
+            "bytes": 3858,
+            "lines": 64
+        },
+        {
+            "path": "src/channels/AGENTS.md",
+            "bytes": 2758,
+            "lines": 57
+        },
+        {
+            "path": "src/gateway/AGENTS.md",
+            "bytes": 4201,
+            "lines": 67
+        },
+        {
+            "path": "src/plugin-sdk/AGENTS.md",
+            "bytes": 6178,
+            "lines": 102
+        },
+        {
+            "path": "src/plugins/AGENTS.md",
+            "bytes": 5284,
+            "lines": 97
+        },
+        {
+            "path": "ui/AGENTS.md",
+            "bytes": 9087,
+            "lines": 80
+        },
+        {
+            "path": "VISION.md",
+            "bytes": 7807,
+            "lines": 144
+        }
+    ]
+}

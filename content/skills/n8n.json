@@ -1,0 +1,1528 @@
+{
+    "version": 1,
+    "slug": "n8n",
+    "repository": "n8n-io/n8n",
+    "branch": "master",
+    "sha": "8bff5da5a29abe99fb5b3ba1b90035bf3040e49e",
+    "scannedAt": "2026-09-15T01:39:13.297Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "community-pr-readiness-check-badf7524d0ee",
+            "path": ".agents/skills/community-pr-readiness-check/SKILL.md",
+            "name": "n8n:community-pr-readiness-check",
+            "description": "Checks if a community pull request is ready for human review. Verifies CLA signature, PR title format, description completeness, test coverage, and cubic-dev-ai issues, then triages to the right Linear team or recommends a close. Use when given a PR number or branch name to review, or when the user says /community-pr-readiness-check, or asks to check if a PR is ready for review.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "8898ef9af32e704a2e65fca1a9b29b656467e439",
+                    "bytes": 20995,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/checks.md",
+                    "blob": "28ec140f20971f890ba975131f3305cf80a84968",
+                    "bytes": 10838,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/label-flow.md",
+                    "blob": "d00e669715db1f6a3df48526a07ece32a0c3cfcb",
+                    "bytes": 4927,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/re-review.md",
+                    "blob": "44b44353dc179461b391bfe1569dcaa8ef8d4a7b",
+                    "bytes": 3056,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/teams.md",
+                    "blob": "c789c95c8babd0ae2dea7aaf41e3c04b5bb6516b",
+                    "bytes": 5348,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 4688521,
+                        "login": "Joffcom",
+                        "commits": 2
+                    },
+                    {
+                        "id": 6806830,
+                        "login": "scdekov",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "content-design-9627457a4c17",
+            "path": ".agents/skills/content-design/SKILL.md",
+            "name": "n8n:content-design",
+            "description": "Product content designer for UI copy. Use when writing, reviewing, or auditing user-facing text: button labels, error messages, tooltips, empty states, modal copy, placeholder text, confirmation dialogs, onboarding flows, or i18n strings. Also use when the user says /copy, /content, or /ux-copy.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "c0fc03c01d24754e0a80dfc06cc888cf6fb2dc34",
+                    "bytes": 13959,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 13814565,
+                        "login": "CharlieKolb",
+                        "commits": 1
+                    },
+                    {
+                        "id": 6806830,
+                        "login": "scdekov",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "conventions-337c115bc7a5",
+            "path": ".agents/skills/conventions/SKILL.md",
+            "name": "n8n:conventions",
+            "description": "Quick reference for n8n patterns. Full docs /AGENTS.md",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "641af0b1c747c0c9dfc290f9fc08dc46d184453a",
+                    "bytes": 3167,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 13814565,
+                        "login": "CharlieKolb",
+                        "commits": 3
+                    },
+                    {
+                        "id": 6179477,
+                        "login": "alexgrozav",
+                        "commits": 1
+                    },
+                    {
+                        "id": 20101678,
+                        "login": "alielkhateeb",
+                        "commits": 1
+                    },
+                    {
+                        "id": 6806830,
+                        "login": "scdekov",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "create-agent-builder-eval-1b4c51cec1d7",
+            "path": ".agents/skills/create-agent-builder-eval/SKILL.md",
+            "name": "n8n:create-agent-builder-eval",
+            "description": "Authors and calibrates Instance AI evaluations that build standalone n8n Agents through Agent Builder. Use when a change under packages/cli/src/modules/agents affects build-agent routing, Agent setup, model or credential selection, tools, MCP servers, integrations, skills, tasks, testing, or user-facing build responses. Requires LangTracer access before authoring so each finished case can be published.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "243a3e4d042d2ca82ef984ec3c754d70f4b104cf",
+                    "bytes": 7597,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "local-setup.md",
+                    "blob": "90a0154467c10a1851dce3ba0bf32cb99e794129",
+                    "bytes": 3055,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 4407001,
+                        "login": "mike12345567",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "create-community-node-lint-rule-7e4a0c7c86b2",
+            "path": ".agents/skills/create-community-node-lint-rule/SKILL.md",
+            "name": "n8n:create-community-node-lint-rule",
+            "description": "Create new ESLint rules for the @n8n/eslint-plugin-community-nodes package. Use when adding a lint rule, creating a community node lint, or working on eslint-plugin-community-nodes. Guides rule implementation, tests, docs, and plugin registration.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ef70e7c6c9e8f174907d9b6e16b650d5be8ba9ff",
+                    "bytes": 6426,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference.md",
+                    "blob": "92cbab52d91936f2ecc5920374c4b6b5d150fbb0",
+                    "bytes": 3685,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6806830,
+                        "login": "scdekov",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "create-instance-ai-eval-f92e9986af85",
+            "path": ".agents/skills/create-instance-ai-eval/SKILL.md",
+            "name": "n8n:create-instance-ai-eval",
+            "description": "Authors a new Instance AI workflow or Agent eval case — written locally as JSON, calibrated against a real build, then pushed to the LangTracer suite CI runs — build cases, behaviour/process cases, credential cases, and seeded (mid-conversation) cases — with intent-driven expectations. Use when adding or changing an Instance AI eval, or debugging why one is flaky.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b76a1ef21c13eb780ca76ff9e9de78283cf5eb62",
+                    "bytes": 57747,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "case-shapes.md",
+                    "blob": "4dbfdd251e44243d86ce63b90a8584b3aa04a0e2",
+                    "bytes": 36666,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "running-evals.md",
+                    "blob": "cf3d3b51caa39c2125dadcae04b6378ae7a3d269",
+                    "bytes": 13953,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "sourcing-cases.md",
+                    "blob": "59f04db353ee11067d9b5aa25926e1388f29104f",
+                    "bytes": 22173,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 4711238,
+                        "login": "mutdmour",
+                        "commits": 11
+                    },
+                    {
+                        "id": 6298680,
+                        "login": "JoseBra",
+                        "commits": 8
+                    },
+                    {
+                        "id": 32032339,
+                        "login": "luka-zivkovic",
+                        "commits": 1
+                    },
+                    {
+                        "id": 4407001,
+                        "login": "mike12345567",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "create-issue-176d3452084b",
+            "path": ".agents/skills/create-issue/SKILL.md",
+            "name": "n8n:create-issue",
+            "description": "Create Linear tickets or GitHub issues following n8n conventions. Use when the user asks to create a ticket, file a bug, open an issue, or says /create-issue.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "be59fde661def796223e0fa50103cc2c1db146cd",
+                    "bytes": 12134,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 13814565,
+                        "login": "CharlieKolb",
+                        "commits": 1
+                    },
+                    {
+                        "id": 5410822,
+                        "login": "cstuncsik",
+                        "commits": 1
+                    },
+                    {
+                        "id": 6806830,
+                        "login": "scdekov",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "create-pr-89a888a13d52",
+            "path": ".agents/skills/create-pr/SKILL.md",
+            "name": "n8n:create-pr",
+            "description": "Creates GitHub pull requests with properly formatted titles that pass the check-pr-title CI validation. Use when creating PRs, submitting changes for review, or when the user says /pr or asks to create a pull request.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "57a056d0109df5c034463ccd25258009d8e474a6",
+                    "bytes": 7143,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 3273843,
+                        "login": "burivuhster",
+                        "commits": 1
+                    },
+                    {
+                        "id": 13814565,
+                        "login": "CharlieKolb",
+                        "commits": 1
+                    },
+                    {
+                        "id": 6806830,
+                        "login": "scdekov",
+                        "commits": 1
+                    },
+                    {
+                        "id": 10324676,
+                        "login": "tomi",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "create-skill-d9d75fa28146",
+            "path": ".agents/skills/create-skill/SKILL.md",
+            "name": "n8n:create-skill",
+            "description": "Guides users through creating effective Agent Skills. Use when you want to create, write, or author a new skill, or asks about skill structure, best practices, or SKILL.md format.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7bbb278dbfeba7b7afe3c50227d76a3e88724b33",
+                    "bytes": 6764,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6806830,
+                        "login": "scdekov",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "db-migrations-ca7a390a0bf4",
+            "path": ".agents/skills/db-migrations/SKILL.md",
+            "name": "n8n:db-migrations",
+            "description": "Authors n8n database migrations. Use when creating or modifying files under packages/@n8n/db/src/migrations/, when the user asks to add a column, table, index, foreign key, or backfill, or when the user mentions DB migrations or TypeORM migrations.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "884ad5a92a0de3481ebd7128d0b12135c960564f",
+                    "bytes": 45829,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 13814565,
+                        "login": "CharlieKolb",
+                        "commits": 1
+                    },
+                    {
+                        "id": 6806830,
+                        "login": "scdekov",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "experiments-5dbba1ebbf52",
+            "path": ".agents/skills/experiments/SKILL.md",
+            "name": "n8n:experiments",
+            "description": "Guides work on `packages/frontend/editor-ui` experiments. Use when creating, extending, wiring, testing, reviewing, or retiring editor-ui experiments, PostHog feature flags, experiment key indexes, variants, stores/composables, persisted experiment state, or experiment telemetry.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "0c50b93917ec33ff2ec4bb5b214e59a305894fbe",
+                    "bytes": 1074,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference.md",
+                    "blob": "2f8d42be38f8a0286107d41574b2beb7c856f70b",
+                    "bytes": 9540,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 15361982,
+                        "login": "heymynameisrob",
+                        "commits": 1
+                    },
+                    {
+                        "id": 6806830,
+                        "login": "scdekov",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "gh-stack-1d5c52d9ab5c",
+            "path": ".agents/skills/gh-stack/SKILL.md",
+            "name": "n8n:gh-stack",
+            "description": "Manage stacked branches and pull requests with the gh-stack GitHub CLI extension. Use when the user wants to create, push, rebase, sync, navigate, or view stacks of dependent PRs. Triggers on tasks involving stacked diffs, dependent pull requests, branch chains, or incremental code review workflows.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d2ede8fdf1b6626a5587af1fa620f9909fc5b3bf",
+                    "bytes": 43529,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 16068444,
+                        "login": "Matsuuu",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "human-like-code-review-860f1dff81db",
+            "path": ".agents/skills/human-like-code-review/SKILL.md",
+            "name": "n8n:human-like-code-review",
+            "description": "Reviews a GitHub pull request like a thoughtful human reviewer and writes the feedback to a markdown file. Prioritizes context, architecture fit, solution complexity, bugs, security edge cases, and missing tests. Use when given a PR URL to review, or when the user says /human-like-code-review.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "a65cedf7fa6689621a5eb5bc31b3f06a27548e47",
+                    "bytes": 14545,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 8173528,
+                        "login": "DawidMyslak",
+                        "commits": 1
+                    },
+                    {
+                        "id": 6806830,
+                        "login": "scdekov",
+                        "commits": 1
+                    },
+                    {
+                        "id": 228008166,
+                        "login": "yehorkardash",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "linear-issue-e816dfcae742",
+            "path": ".agents/skills/linear-issue/SKILL.md",
+            "name": "n8n:linear-issue",
+            "description": "Fetch and analyze Linear issue with all related context. Use when starting work on a Linear ticket, analyzing issues, or gathering context about a Linear issue.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "f869d099107b79fc22897b572c46de1ea7563741",
+                    "bytes": 11105,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6806830,
+                        "login": "scdekov",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "loom-transcript-f8b2e54b324c",
+            "path": ".agents/skills/loom-transcript/SKILL.md",
+            "name": "n8n:loom-transcript",
+            "description": "Fetch and display the full transcript from a Loom video URL. Use when the user wants to get or read a Loom transcript.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "8c86c4070632eb274f8b9edd1cb2390f1165dea3",
+                    "bytes": 3641,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6806830,
+                        "login": "scdekov",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "nathan-af530b2e499e",
+            "path": ".agents/skills/nathan/SKILL.md",
+            "name": "n8n:nathan",
+            "description": "Deploy a temporary n8n test instance (or generate a local docker run command) via the internal \"Nathan\" bot, from the repo instead of Slack. Use after opening a PR to offer the user a live test instance, or whenever someone asks to spin up / deploy a test instance for a branch.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "c339123fcb82cede3e7303fc697acb04df333a0d",
+                    "bytes": 5695,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 13814565,
+                        "login": "CharlieKolb",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "node-add-oauth-5ba2fe8c81aa",
+            "path": ".agents/skills/node-add-oauth/SKILL.md",
+            "name": "n8n:node-add-oauth",
+            "description": "Add OAuth2 credential support to an existing n8n node — creates the credential file, updates the node, adds tests, and keeps the CLI constant in sync. Use when the user says /node-add-oauth.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "85e0269842c208499ed4e34de8268f61c08d9365",
+                    "bytes": 11537,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6806830,
+                        "login": "scdekov",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "protect-endpoints-d10c220f7695",
+            "path": ".agents/skills/protect-endpoints/SKILL.md",
+            "name": "n8n:protect-endpoints",
+            "description": "Applies n8n's RBAC scope decorators to REST endpoints. Use when creating a new @RestController, adding any @Get/@Post/@Put/@Patch/@Delete route to an existing controller, or reviewing endpoint authorization. Every authenticated endpoint must be gated by @ProjectScope or @GlobalScope.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "0c8d354ff241ce13856968de8fefa805f232abb1",
+                    "bytes": 7482,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 8242900,
+                        "login": "looorent",
+                        "commits": 1
+                    },
+                    {
+                        "id": 6806830,
+                        "login": "scdekov",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "public-api-86afb8587f76",
+            "path": ".agents/skills/public-api/SKILL.md",
+            "name": "n8n:public-api",
+            "description": "Adds, migrates, or updates n8n Public API v1 endpoints with @PublicApiController — public DTOs, API-key and RBAC scopes, cursor pagination, OpenAPI + coverage wiring, and tests. Use when working under packages/cli/src/public-api/v1/ or when exposing an existing service through /api/v1.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "8f526dcd3fe053e83dec91333f24050b833a083c",
+                    "bytes": 11953,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference.md",
+                    "blob": "1647476d3a9e8a1a252c4ce3194539bd045a4db6",
+                    "bytes": 10276,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 20101678,
+                        "login": "alielkhateeb",
+                        "commits": 4
+                    },
+                    {
+                        "id": 11032808,
+                        "login": "SamWooler",
+                        "commits": 3
+                    },
+                    {
+                        "id": 4223350,
+                        "login": "garfik",
+                        "commits": 2
+                    },
+                    {
+                        "id": 15261102,
+                        "login": "uddish",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "reproduce-bug-c83e7e34a193",
+            "path": ".agents/skills/reproduce-bug/SKILL.md",
+            "name": "n8n:reproduce-bug",
+            "description": "Reproduce a bug from a Linear ticket with a failing test. Expects the full ticket context (title, description, comments) to be provided as input.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "3a8ca1a927c11c0e8d40e71399b72e9d6f3ef995",
+                    "bytes": 5223,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 8242900,
+                        "login": "looorent",
+                        "commits": 1
+                    },
+                    {
+                        "id": 16068444,
+                        "login": "Matsuuu",
+                        "commits": 1
+                    },
+                    {
+                        "id": 6806830,
+                        "login": "scdekov",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "spec-driven-development-ae71cab8035f",
+            "path": ".agents/skills/spec-driven-development/SKILL.md",
+            "name": "n8n:spec-driven-development",
+            "description": "Keeps implementation and specs in sync. Use when working on a feature that has a spec in .agents/specs/, when the user says /spec, or when starting implementation of a documented feature. Also use when the user asks to verify implementation against a spec or update a spec after changes.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "57470f1d4317a42ec22705051f279f4332bf02a6",
+                    "bytes": 3229,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6806830,
+                        "login": "scdekov",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "telemetry-4ca1d358c67f",
+            "path": ".agents/skills/telemetry/SKILL.md",
+            "name": "n8n:telemetry",
+            "description": "Guides adding, changing, and reviewing telemetry through the `@n8n/telemetry` event registry. Use when working on telemetry, analytics, tracking, product events, `track()` calls, or RudderStack/PostHog product events, in frontend or backend code — and whenever you need to find which registered telemetry events exist, what an event means, or what properties it carries.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "499f5ed22769217695d48dd88086c25ba28db8d8",
+                    "bytes": 5247,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 16818300,
+                        "login": "frstavares",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "ui-design-9243da14aeb4",
+            "path": ".agents/skills/ui-design/SKILL.md",
+            "name": "n8n:ui-design",
+            "description": "Guidelines on designing and building UI. Use when working in editor-ui or design-system packages. Triggers for tasks that include refactoring components, styling changes, or feature work.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ea2d602bc2b8b98984cae60244abb8631bb8cd21",
+                    "bytes": 1952,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/web-animation-guidelines.md",
+                    "blob": "0b377bd7dfe5969fc2e609245293a6812dd9d2a5",
+                    "bytes": 3175,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/web-interface-guidelines.md",
+                    "blob": "9a037948a8fce82901c8aac45f5a186672218b36",
+                    "bytes": 8093,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 15361982,
+                        "login": "heymynameisrob",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "setup-mcps-a69b4bd3eeb9",
+            "path": ".claude/plugins/n8n/skills/setup-mcps/SKILL.md",
+            "name": "n8n:setup-mcps",
+            "description": "Configure MCP servers for n8n development. Use when the user says /setup-mcps or asks to set up MCP servers for n8n.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "280e6bb5e26273586262e14fbe4c1a587d5b20b1",
+                    "bytes": 2724,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5410822,
+                        "login": "cstuncsik",
+                        "commits": 1
+                    },
+                    {
+                        "id": 15361982,
+                        "login": "heymynameisrob",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "setup-mcps-163eaf983f4c",
+            "path": ".opencode/skills/setup-mcps/SKILL.md",
+            "name": "n8n:setup-mcps",
+            "description": "Configure MCP servers for n8n development in OpenCode. Use when the user says /setup-mcps or asks to set up MCP servers for n8n.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "c7bf8e178066a23ac3538c5ce24d35367ec6841a",
+                    "bytes": 2291,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6806830,
+                        "login": "scdekov",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "n8n-cli-563ea17fe0e9",
+            "path": "packages/@n8n/cli/skills/n8n-cli/SKILL.md",
+            "name": "n8n-cli",
+            "description": "Use the n8n CLI to manage workflows, credentials, executions, and more on an n8n instance. Use when the user asks to interact with n8n, automate workflows, manage credentials, or operate their instance from the command line.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "9729e6e8ca406d4c7525219ec8dacc5465caa14b",
+                    "bytes": 10648,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 11021461,
+                        "login": "aalises",
+                        "commits": 1
+                    },
+                    {
+                        "id": 42832087,
+                        "login": "kgrhartlage",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "agent-builder-c540d951cbd1",
+            "path": "packages/@n8n/instance-ai/skills/agent-builder/SKILL.md",
+            "name": "agent-builder",
+            "description": "Load immediately after an Agent intent. Then call build-agent with the user's request after any required orchestrator-owned prerequisites are ready. Agent Builder owns Agent setup and implementation questions. Governs prerequisite creation, faithful handoff, targeting, testing, and publishing. Use directly for routine Agent follow-ups; rerun intent-recognition only when the requested artifact is no longer clear.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "19ef6f4649ef83bcdcb6a2941a3ae7328ece0f4e",
+                    "bytes": 7778,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 27731428,
+                        "login": "aaguirre-rdit",
+                        "commits": 4
+                    },
+                    {
+                        "id": 50590409,
+                        "login": "bjorger",
+                        "commits": 3
+                    },
+                    {
+                        "id": 4407001,
+                        "login": "mike12345567",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "config-evals-76a9a99f6914",
+            "path": "packages/@n8n/instance-ai/skills/config-evals/SKILL.md",
+            "name": "config-evals",
+            "description": "Builds and maintains configuration-based evaluations on a workflow with the eval-config tool. Use when the user asks to set up, add, view, change, or remove an evaluation, score, grade, or judge a workflow's output, or measure answer quality against a test dataset. This is the only eval form Instance AI handles — it does not touch on-canvas evaluation nodes.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "5ef75bcb43e8d9c1165fb4a76037305ca6cdf11d",
+                    "bytes": 5999,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/config-eval-playbook.md",
+                    "blob": "7492b96ba4039381b16736179fc94d29f70c1620",
+                    "bytes": 5095,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 51036481,
+                        "login": "DeveloperTheExplorer",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "credential-recipe-research-de3a0e79684c",
+            "path": "packages/@n8n/instance-ai/skills/credential-recipe-research/SKILL.md",
+            "name": "credential-recipe-research",
+            "description": "Lookup procedure for Simplified Custom Auth recipe fields — sources the auth template, the key-issuing docsUrl and an auth-rejecting testUrl from the provider's real documentation instead of memory. Load before composing credentialHints for a service without a dedicated credential type (the post-build-flow setup step), or when asked to fix a recipe whose template, key page or test endpoint is wrong.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "0b3256ac9aeea8b52c91d6a01b3b29acbf4e294a",
+                    "bytes": 4325,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 22072110,
+                        "login": "r00gm",
+                        "commits": 1
+                    },
+                    {
+                        "id": 2527319,
+                        "login": "Tuukkaa",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "credential-setup-with-computer-use-7e937b770948",
+            "path": "packages/@n8n/instance-ai/skills/credential-setup-with-computer-use/SKILL.md",
+            "name": "credential-setup-with-computer-use",
+            "description": "Guides n8n credential setup through Computer Use browser tools. Use when a user needs OAuth apps, API keys, client IDs, client secrets, or other credential values from an external service console.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "291350230f32ef9e351a3f1e39fc9772d40f098b",
+                    "bytes": 3638,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 11021461,
+                        "login": "aalises",
+                        "commits": 1
+                    },
+                    {
+                        "id": 5105988,
+                        "login": "riqwan",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "data-table-manager-2a0d3c59e162",
+            "path": "packages/@n8n/instance-ai/skills/data-table-manager/SKILL.md",
+            "name": "data-table-manager",
+            "description": "Load before calling data-tables or parse-file. Use for natural standalone requests like \"what data tables do I have?\", \"show/list my tables\", or \"what columns are in this table?\", and whenever the user asks to list, show, create, inspect, import, seed, query, update, clean up, rename columns in, or delete data tables and rows, especially from CSV/XLSX/JSON attachments. Also load before building or planning workflows that create or write to Data Tables (then load workflow-builder before build-workflow).",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "e966946ca6c34d45e836ac16df1d1ef51c018f52",
+                    "bytes": 9238,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/data-table-playbook.md",
+                    "blob": "9aa581c9e47cfc2233170e0a689a04e5e8483f84",
+                    "bytes": 6619,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5105988,
+                        "login": "riqwan",
+                        "commits": 3
+                    },
+                    {
+                        "id": 11021461,
+                        "login": "aalises",
+                        "commits": 2
+                    },
+                    {
+                        "id": 12657221,
+                        "login": "OlegIvaniv",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "debugging-executions-ebb2aec0115b",
+            "path": "packages/@n8n/instance-ai/skills/debugging-executions/SKILL.md",
+            "name": "debugging-executions",
+            "description": "Debug failed or wrong-output workflow executions using executions tools. Load when the user reports execution failures, unexpected node output, empty parameter values after a successful run, or a node showing a red or failed expression error.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d873f978eb6a2d1e655c79dfa7a8165ff92e7559",
+                    "bytes": 4068,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 11021461,
+                        "login": "aalises",
+                        "commits": 2
+                    },
+                    {
+                        "id": 5105988,
+                        "login": "riqwan",
+                        "commits": 2
+                    },
+                    {
+                        "id": 6438345,
+                        "login": "Cadiac",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "instance-awareness-6f992c3dc9ab",
+            "path": "packages/@n8n/instance-ai/skills/instance-awareness/SKILL.md",
+            "name": "instance-awareness",
+            "description": "Load when the request depends on what is already on this instance rather than on what the user just typed: a short or ambiguous opener (\"fix it\", \"carry on\", \"what should I look at\"), a reference to earlier work in a new conversation, or any question about what has recently run or broken.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "41efe5079db9d475182fa38b63a0d455fe56db83",
+                    "bytes": 5556,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 51036481,
+                        "login": "DeveloperTheExplorer",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "intent-recognition-b04ec4098162",
+            "path": "packages/@n8n/instance-ai/skills/intent-recognition/SKILL.md",
+            "name": "intent-recognition",
+            "description": "Classifies automation requests using two decisions: anchor (which primitive owns the top-level control flow — workflow-anchored, agent-anchored, needs-clarification, or out-of-scope) and embeds_other (whether the other primitive appears embedded inside — an agent step inside a workflow, or a workflow invoked as an agent tool). Must be used whenever the current turn requires choosing or reconsidering the intent of an automation request, including compound requests, independent automations introduced mid-build, one-off questions or reports that need external systems you cannot query directly, and requests that need clarification before an anchor can be chosen. An explicit Agent request routes to agent-builder before ask-user. Do not load for routine edits or extensions when the conversation already targets a workflow or Agent.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "c5a7435335e0af68048ce17bf85a03d217c7d784",
+                    "bytes": 28604,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 50590409,
+                        "login": "bjorger",
+                        "commits": 5
+                    },
+                    {
+                        "id": 27731428,
+                        "login": "aaguirre-rdit",
+                        "commits": 2
+                    },
+                    {
+                        "id": 4407001,
+                        "login": "mike12345567",
+                        "commits": 2
+                    },
+                    {
+                        "id": 4711238,
+                        "login": "mutdmour",
+                        "commits": 1
+                    },
+                    {
+                        "id": 12657221,
+                        "login": "OlegIvaniv",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "n8n-docs-assistant-4f4479dcbadc",
+            "path": "packages/@n8n/instance-ai/skills/n8n-docs-assistant/SKILL.md",
+            "name": "n8n-docs-assistant",
+            "description": "Answers n8n product, setup, credential, node, hosting, API, and usage questions from current n8n docs. Use when the user asks how to configure, set up, troubleshoot, or understand n8n behavior, especially credential setup questions — including which OAuth scopes or permissions a provider app needs.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "811253d28cc138b8cb1498ee374ce284cade1381",
+                    "bytes": 2201,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5105988,
+                        "login": "riqwan",
+                        "commits": 2
+                    },
+                    {
+                        "id": 6438345,
+                        "login": "Cadiac",
+                        "commits": 1
+                    },
+                    {
+                        "id": 4711238,
+                        "login": "mutdmour",
+                        "commits": 1
+                    },
+                    {
+                        "id": 12657221,
+                        "login": "OlegIvaniv",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "one-off-operations-f83d4410ec4c",
+            "path": "packages/@n8n/instance-ai/skills/one-off-operations/SKILL.md",
+            "name": "one-off-operations",
+            "description": "Handles one-off operations: the request is a concrete effect that happens once — export or copy data somewhere, a migration, a backfill, a cleanup — with no trigger, schedule, or reuse intent. The workflow is the vehicle, not the deliverable. Users rarely say \"one-off\"; infer it from the task's shape. Load before building for such a request, or when a build-workflow result contains postBuildFlow.reason \"direct-one-off-build-succeeded\". Do not load for automations the user will run again — that is the normal build + post-build-flow path.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d7bd7a8911c6aca0d3423bbef4d76d4ba76497eb",
+                    "bytes": 5928,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 4711238,
+                        "login": "mutdmour",
+                        "commits": 1
+                    },
+                    {
+                        "id": 12657221,
+                        "login": "OlegIvaniv",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "planned-task-runtime-55f632058981",
+            "path": "packages/@n8n/instance-ai/skills/planned-task-runtime/SKILL.md",
+            "name": "planned-task-runtime",
+            "description": "Handles system follow-up turns: planned-task-follow-up (synthesize, replan, build-workflow, checkpoint), background-task-completed, running-tasks context, and create-tasks silence rules. Load whenever any of these tags appear or after calling create-tasks.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "48ba8200e8b521b2a8f5e15c9eae173ead07b723",
+                    "bytes": 9197,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5105988,
+                        "login": "riqwan",
+                        "commits": 4
+                    },
+                    {
+                        "id": 6438345,
+                        "login": "Cadiac",
+                        "commits": 1
+                    },
+                    {
+                        "id": 12657221,
+                        "login": "OlegIvaniv",
+                        "commits": 1
+                    },
+                    {
+                        "id": 13081502,
+                        "login": "Ryner01",
+                        "commits": 1
+                    },
+                    {
+                        "id": 2527319,
+                        "login": "Tuukkaa",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "planning-c5b977fabb39",
+            "path": "packages/@n8n/instance-ai/skills/planning/SKILL.md",
+            "name": "planning",
+            "description": "ONLY for coordinated multi-artifact work: multiple workflows with dependencies, shared data-table schema/migration across tasks, or the user explicitly asked to review a plan first. Load create-tasks via load_tool before calling it (search \"create tasks\" if not visible). Do NOT use for new one-off workflows, single-workflow edits, verification-only requests, or standalone data-table ops — use workflow-builder or data-table-manager instead.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "5b7f7b95a159f067a9f87aa332e4d8da491850a1",
+                    "bytes": 10185,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5105988,
+                        "login": "riqwan",
+                        "commits": 6
+                    },
+                    {
+                        "id": 12657221,
+                        "login": "OlegIvaniv",
+                        "commits": 3
+                    },
+                    {
+                        "id": 11021461,
+                        "login": "aalises",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "post-build-flow-5b493d4c6ffb",
+            "path": "packages/@n8n/instance-ai/skills/post-build-flow/SKILL.md",
+            "name": "post-build-flow",
+            "description": "Handles workflow verification and setup after build-workflow succeeds, or when the message contains workflow-verification-follow-up or workflow-setup-required. Load after direct builds, when verificationReadiness requires action, or on orchestrator verify/setup follow-up turns.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "317433e10f8a360a131592b3e18666a376a2d50f",
+                    "bytes": 40625,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/trigger-input-data-shapes.md",
+                    "blob": "4c0dab1726408ce8bb05fb8b936de1dedfcf02f8",
+                    "bytes": 1465,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 12657221,
+                        "login": "OlegIvaniv",
+                        "commits": 8
+                    },
+                    {
+                        "id": 6438345,
+                        "login": "Cadiac",
+                        "commits": 4
+                    },
+                    {
+                        "id": 4711238,
+                        "login": "mutdmour",
+                        "commits": 3
+                    },
+                    {
+                        "id": 5105988,
+                        "login": "riqwan",
+                        "commits": 3
+                    },
+                    {
+                        "id": 11021461,
+                        "login": "aalises",
+                        "commits": 2
+                    },
+                    {
+                        "id": 22072110,
+                        "login": "r00gm",
+                        "commits": 2
+                    },
+                    {
+                        "id": 13081502,
+                        "login": "Ryner01",
+                        "commits": 2
+                    },
+                    {
+                        "id": 40495748,
+                        "login": "alexander-gekov",
+                        "commits": 1
+                    },
+                    {
+                        "id": 5084068,
+                        "login": "amesinp",
+                        "commits": 1
+                    },
+                    {
+                        "id": 2527319,
+                        "login": "Tuukkaa",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "progressive-building-f4a06c84b5cb",
+            "path": "packages/@n8n/instance-ai/skills/progressive-building/SKILL.md",
+            "name": "progressive-building",
+            "description": "Load before build-workflow and before scoping or planning new workflows and feature additions, including requests spanning multiple workflows. Implement one increment per user message. Finish setup and inspect a successful real execution before offering another increment. Then wait for the next user reply. Partial setup is incomplete. A first setup or test refusal pauses building. Follow the skill's full-build exceptions. Also supports workflow edits and repairs. For workflows that create or write Data Tables, load data-table-manager first. Requests only to run, inspect, or manage existing resources use their normal tools and skills.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "5676c76fcd457a6f6f4f14edd2266ce0f44051df",
+                    "bytes": 6364,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 12657221,
+                        "login": "OlegIvaniv",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "workflow-builder-856e69f2032e",
+            "path": "packages/@n8n/instance-ai/skills/workflow-builder/SKILL.md",
+            "name": "workflow-builder",
+            "description": "Load before calling build-workflow. Default path for all single-workflow work: new one-off workflows, existing-workflow edits, verification repairs, and workflow-local data tables. Write or edit a workspace source file, run workflow-sdk validate via workspace_execute_command, then call build-workflow with filePath. When the workflow creates or writes Data Tables, load data-table-manager first, then this skill. Do not load planning or create-tasks first. Load planning only when multiple coordinated workflows or shared cross-task data tables require a dependency-aware task graph.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "319407aed2b4f99dd7536c5ea92832583dc7a57c",
+                    "bytes": 55934,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/compositional-workflows.md",
+                    "blob": "dc608b5f175dd52f3c5f898c74de25e9695c63eb",
+                    "bytes": 2180,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/error-workflows.md",
+                    "blob": "5e561faa5bd5152b3911928bdae50c253ebabcac",
+                    "bytes": 1683,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 11021461,
+                        "login": "aalises",
+                        "commits": 14
+                    },
+                    {
+                        "id": 12657221,
+                        "login": "OlegIvaniv",
+                        "commits": 12
+                    },
+                    {
+                        "id": 5105988,
+                        "login": "riqwan",
+                        "commits": 12
+                    },
+                    {
+                        "id": 6438345,
+                        "login": "Cadiac",
+                        "commits": 5
+                    },
+                    {
+                        "id": 88898367,
+                        "login": "michael-radency",
+                        "commits": 4
+                    },
+                    {
+                        "id": 1411774,
+                        "login": "miguelsaddress",
+                        "commits": 3
+                    },
+                    {
+                        "id": 13081502,
+                        "login": "Ryner01",
+                        "commits": 3
+                    },
+                    {
+                        "id": 4711238,
+                        "login": "mutdmour",
+                        "commits": 2
+                    },
+                    {
+                        "id": 40495748,
+                        "login": "alexander-gekov",
+                        "commits": 1
+                    },
+                    {
+                        "id": 5084068,
+                        "login": "amesinp",
+                        "commits": 1
+                    },
+                    {
+                        "id": 12658865,
+                        "login": "dariacodes",
+                        "commits": 1
+                    },
+                    {
+                        "id": 6298680,
+                        "login": "JoseBra",
+                        "commits": 1
+                    },
+                    {
+                        "id": 22072110,
+                        "login": "r00gm",
+                        "commits": 1
+                    },
+                    {
+                        "id": 2116046,
+                        "login": "rmakowiak",
+                        "commits": 1
+                    },
+                    {
+                        "id": 2527319,
+                        "login": "Tuukkaa",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "fe8f1fe60a7965af22ab25bfc75f9bc0682b0d42",
+        "bytes": 22804,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE.md",
+        "blob": "f85f59baa906530c26cee26e0c9ddd6bd5f86dbd",
+        "bytes": 4445,
+        "text": true,
+        "mode": "100644"
+    }
+}

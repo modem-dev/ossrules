@@ -1,0 +1,61 @@
+{
+    "slug": "firecrawl",
+    "name": "Firecrawl",
+    "owner": "firecrawl",
+    "repo": "firecrawl",
+    "tagline": "Turn websites into data for AI applications.",
+    "language": "TypeScript",
+    "stars": 180446,
+    "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "d9a35c055a3673a4d47e7146ea91daae3fa194cc",
+        "date": "2026-06-13T23:46:57Z"
+    },
+    "evaluatedAt": "2026-09-14",
+    "file": {
+        "bytes": 1464,
+        "lines": 18,
+        "words": 247,
+        "headings": 0,
+        "bullets": 11,
+        "codeBlocks": 0,
+        "docLinks": 0
+    },
+    "references": [],
+    "hook": "An 18-line workflow starts with happy and failure paths, then lets a test harness own the running services.",
+    "summary": "Firecrawl uses its root file to describe how to change the API. It asks for end-to-end win conditions before implementation, names the environment predicates that control optional test capabilities, and gives one harness command for starting the API and workers. Local runs focus on relevant tests; CI is responsible for the full suite.",
+    "patterns": ["behavioral-conditioning", "verification-matrix", "hard-prohibition"],
+    "techniques": [
+        {
+            "title": "Define both success and failure",
+            "body": "The test-first sequence requires a happy path and at least one failure path. Its definition of done is observable API behavior, with end-to-end tests preferred over unit tests.",
+            "quote": "1. Write some end-to-end tests that assert your win conditions, if they don't already exist",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Make environment gates executable",
+            "body": "The file gives literal conditions for tests that require AI or fire-engine. A contributor can use the same capability checks as the existing suite instead of guessing what a self-hosted configuration supports.",
+            "quote": "If it requires AI: `!process.env.TEST_SUITE_SELF_HOSTED || process.env.OPENAI_API_KEY || process.env.OLLAMA_BASE_URL`",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Let the harness start its dependencies",
+            "body": "The command is accompanied by an explanation of what it starts and a warning against launching the API manually. Service lifecycle belongs to the harness.",
+            "quote": "`pnpm harness` is a command that gets the API server and workers up for you to run the tests. Don't try to `pnpm start` manually.",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Split local feedback from full coverage",
+            "body": "The workflow acknowledges the full suite's cost and directs local effort to relevant tests, followed by CI verification.",
+            "quote": "The full test suite takes a long time to run, so you should try to only execute the relevant tests locally, and let CI run the full test suite.",
+            "pattern": "verification-matrix"
+        }
+    ],
+    "steal": [
+        "Ask for at least one failure path alongside the happy path.",
+        "Publish exact environment predicates for optional integration tests.",
+        "Explain which services a test harness owns.",
+        "State where the full suite runs when local checks are focused."
+    ],
+    "outline": ["Repository layout", "API change workflow"]
+}

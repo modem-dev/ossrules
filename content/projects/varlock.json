@@ -1,0 +1,79 @@
+{
+    "slug": "varlock",
+    "name": "Varlock",
+    "owner": "dmno-dev",
+    "repo": "varlock",
+    "tagline": "Validate environment variables and manage application secrets.",
+    "language": "TypeScript",
+    "stars": 4397,
+    "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "04dc94bdaddf9e05809d8b9777db83818df3f121",
+        "date": "2026-08-31T07:26:50Z"
+    },
+    "evaluatedAt": "2026-09-14",
+    "file": {
+        "bytes": 7485,
+        "lines": 89,
+        "words": 1111,
+        "headings": 12,
+        "bullets": 51,
+        "codeBlocks": 0,
+        "docLinks": 0
+    },
+    "references": [
+        {
+            "path": "packages/varlock-website/src/content/docs",
+            "kind": "pattern",
+            "label": "Local documentation source"
+        }
+    ],
+    "hook": "Build ordering and paid review costs both become concrete rules for how agents work.",
+    "summary": "Varlock's instructions cover the mechanics around a Bun and Turbo monorepo: dependency-aware builds, native binaries, tests, version bumps, and documentation. Several rules explain the cost they prevent. Filtered builds can miss workspace output; repeated pushes trigger paid reviews; rewriting technical examples during a tone edit can damage working documentation.",
+    "patterns": ["hard-prohibition", "single-source", "contribution-etiquette", "house-vocabulary"],
+    "techniques": [
+        {
+            "title": "Explain the build dependency",
+            "body": "The guide requires Turbo because downstream declaration bundling needs upstream build output. The prohibition is tied to a failure mode rather than a preferred spelling of the command.",
+            "quote": "Do **not** build a package with `bun run --filter <pkg> build`: bun's filter does not build the package's workspace dependencies, and some builds require their dist output to exist (e.g. varlock's d.ts bundling inlines the emitted declarations from `packages/utils`, so it fails if that package was never built)",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Read the local source of documentation",
+            "body": "The public documentation service is for external users. Repository work is directed to the local docs, keeping edits and the material being consulted together.",
+            "quote": "docs MCP server for external varlock users; do **not** use it to look things up while working on this repo — read the docs source directly",
+            "pattern": "single-source"
+        },
+        {
+            "title": "Treat pushes as a workflow cost",
+            "body": "The contribution guidance connects each push to paid automated review. It asks for local iteration followed by a batch push, making the reason for the cadence visible.",
+            "quote": "Pushes to open PRs trigger automated reviews that cost money.",
+            "pattern": "contribution-etiquette"
+        },
+        {
+            "title": "Keep tone edits out of executable examples",
+            "body": "Documentation guidance protects code fences and structured content while changing prose. That boundary lets an agent simplify language without silently changing commands.",
+            "quote": "Never edit code fences, `ansi`/`diff` blocks, generated fixtures, frontmatter structure, or MDX component markup for tone. Prose only.",
+            "pattern": "house-vocabulary"
+        }
+    ],
+    "steal": [
+        "Explain the dependency that makes one build entry point mandatory.",
+        "Point internal work at local documentation sources.",
+        "Document costly automation triggers where agents see commit and push guidance.",
+        "Define which parts of a document a prose-only edit may touch."
+    ],
+    "outline": [
+        "Repo structure",
+        "Package manager",
+        "Building",
+        "Scripts",
+        "Binary builds",
+        "Testing",
+        "Versioning & releases",
+        "Branches & pull requests",
+        "Documentation",
+        "Linting",
+        "Writing style"
+    ]
+}

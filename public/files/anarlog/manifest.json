@@ -1,0 +1,28 @@
+{
+    "slug": "anarlog",
+    "sha": "b93a8c809a977feb3d95f6d64354d52433f0b679",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".agents/skills/anarlog-workflow/SKILL.md",
+            "bytes": 2977,
+            "lines": 38
+        },
+        {
+            "path": ".agents/skills/release-new-version/SKILL.md",
+            "bytes": 36656,
+            "lines": 640
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 21172,
+            "lines": 135
+        },
+        {
+            "path": "crates/db-app/AGENTS.md",
+            "bytes": 2072,
+            "lines": 27
+        }
+    ]
+}

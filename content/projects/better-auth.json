@@ -1,0 +1,61 @@
+{
+    "slug": "better-auth",
+    "name": "Better Auth",
+    "owner": "better-auth",
+    "repo": "better-auth",
+    "tagline": "Authentication and authorization for TypeScript applications.",
+    "language": "TypeScript",
+    "stars": 29937,
+    "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "cfedf97dbc8e35fa44c4d517026433660bc91963",
+        "date": "2026-09-08T07:24:38Z"
+    },
+    "evaluatedAt": "2026-09-14",
+    "file": {
+        "bytes": 5563,
+        "lines": 91,
+        "words": 800,
+        "headings": 9,
+        "bullets": 47,
+        "codeBlocks": 4,
+        "docLinks": 0
+    },
+    "references": [],
+    "hook": "A reproducible error is not automatically a bug: first establish which contract it violates.",
+    "summary": "Better Auth combines portable TypeScript conventions with a triage method for reported failures. Agents must distinguish invalid usage from valid empty results, check the reported version, and preserve intentional behavior. Its test guidance narrows execution to a focused Vitest command and requires the shared test harness, while runtime rules keep library code usable across Node.js, Bun, Deno, and Workers.",
+    "patterns": ["behavioral-conditioning", "worked-examples", "hard-prohibition", "verification-matrix"],
+    "techniques": [
+        {
+            "title": "Prove the contract violation",
+            "body": "Reproduction is the start of triage. The file requires evidence from documented behavior, types, or established runtime semantics before treating the result as a bug.",
+            "quote": "A reproducible error is not automatically a bug. First prove the behavior violates Better Auth's documented contract, TypeScript contract, or established runtime semantics.",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Separate invalid input from an empty result",
+            "body": "The session example distinguishes missing request headers from a real request without a session cookie. This makes a subtle API boundary concrete before an agent changes validation.",
+            "quote": "Distinguish invalid usage from valid empty state. Example: a server session check without request headers is invalid usage; a server session check with headers but no session cookie is a valid request that returns `null`.",
+            "pattern": "worked-examples"
+        },
+        {
+            "title": "Name the portable representation",
+            "body": "A specific byte type gives the cross-runtime requirement a practical consequence in everyday code. Tests have an explicit exception.",
+            "quote": "Use `Uint8Array` instead of `Buffer` (except in tests)",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Bound test execution",
+            "body": "The file prohibits the root command because it runs every package, and supplies a file-and-pattern command for focused feedback.",
+            "quote": "NEVER run `pnpm test` (runs all packages). Use `vitest path/to/test -t <pattern>`",
+            "pattern": "verification-matrix"
+        }
+    ],
+    "steal": [
+        "Require a contract violation before changing reproduced behavior.",
+        "Use a paired example to distinguish invalid input from a valid empty state.",
+        "Translate platform support into concrete API and type choices.",
+        "Give the replacement command whenever prohibiting an expensive default."
+    ],
+    "outline": ["Project Structure", "Commands", "Writing Code", "Issue Triage and Architecture", "Testing", "Important Development Notes"]
+}

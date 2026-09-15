@@ -1,0 +1,73 @@
+{
+    "slug": "langflow",
+    "name": "Langflow",
+    "owner": "langflow-ai",
+    "repo": "langflow",
+    "tagline": "Build AI applications with visual workflows and Python components.",
+    "language": "Python",
+    "stars": 154807,
+    "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "38e1fdbc08b8ef85bbf81ed1438e3fed5142c735",
+        "date": "2026-07-21T23:00:03Z"
+    },
+    "evaluatedAt": "2026-09-14",
+    "file": {
+        "bytes": 11859,
+        "lines": 243,
+        "words": 1461,
+        "headings": 26,
+        "bullets": 46,
+        "codeBlocks": 20,
+        "docLinks": 0
+    },
+    "references": [],
+    "hook": "Authorization flags and component class names carry contracts that a routine refactor can break.",
+    "summary": "Langflow describes a layered Python backend alongside its frontend and component system. The architecture notes explain dependency direction and distinguish the shipped authorization interface from a plugin that actually denies access. Development guidance protects class names stored in saved flows and maps work to the appropriate package environment and tests.",
+    "patterns": ["architecture-narrative", "hard-prohibition", "verification-matrix"],
+    "techniques": [
+        {
+            "title": "Make dependency direction explicit",
+            "body": "The package chain gives an agent a way to judge where new imports and provider integrations belong. Architecture is described as a dependency constraint, beyond a directory listing.",
+            "quote": "langflow → langflow-core → langflow-base → lfx",
+            "pattern": "architecture-narrative"
+        },
+        {
+            "title": "Distinguish a switch from enforcement",
+            "body": "The authorization notes explain that enabling the interface alone does not introduce a deny policy. An agent changing permission-sensitive behavior must account for the registered implementation.",
+            "quote": "When enabled with only the OSS stub registered, every check returns allow — the stub is a no-op so routes stay wired and audit rows still flow. Real allow/deny requires a registered authorization plugin.",
+            "pattern": "architecture-narrative"
+        },
+        {
+            "title": "Protect identifiers stored in user data",
+            "body": "Class names are part of saved-flow compatibility. A rename that looks local in Python can break existing documents, so the instruction calls it out as a persistent contract.",
+            "quote": "Changing a component's class name is a breaking change and should never be done. The class name serves as an identifier used to match components in saved flows and to flag them for updates in the UI. Renaming it will break existing flows that use that component.",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Include the subpackage development environment",
+            "body": "The test setup names the package whose development dependencies must be synchronized. A root install is not evidence that component test dependencies are present.",
+            "quote": "uv sync --group dev --package langflow-base",
+            "pattern": "verification-matrix"
+        }
+    ],
+    "steal": [
+        "Write the allowed dependency direction as an explicit chain.",
+        "Document when a feature flag enables an interface without enforcing a policy.",
+        "Identify code names that are serialized into user data.",
+        "Include package-specific dependency setup beside test commands."
+    ],
+    "outline": [
+        "Project Overview",
+        "Prerequisites",
+        "Common Commands",
+        "Architecture",
+        "Component Development",
+        "Frontend Development",
+        "Testing Notes",
+        "Version Management",
+        "Pre-commit Workflow",
+        "Pull Request Guidelines",
+        "Documentation"
+    ]
+}
