@@ -9,21 +9,24 @@ import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { SkillContributors } from '@/components/skill-contributors';
 import { SkillMarkdown } from '@/components/skill-markdown';
-import { getAgentsProject } from '@/lib/agents-md';
+import { getAgentsProjectByRepository } from '@/lib/agents-md';
 import { documentMentions } from '@/lib/document-mentions';
+import { projectHref, projectSkillsHref, skillHref } from '@/lib/project-paths';
 import { markdownBody } from '@/lib/skill-schema';
-import { getSkillManifest, readSkillFile, skillHref, skillSourceUrl } from '@/lib/skills';
+import { getSkillManifest, readSkillFile, skillSourceUrl } from '@/lib/skills';
 import { countSourceTokens } from '@/lib/token-count';
 
-type Params = { slug: string; skill: string };
+type Params = { owner: string; repo: string; skill: string };
 export async function generateMetadata({ params }: { params: Promise<Params> }) {
-    const { slug, skill: id } = await params;
-    const manifest = getSkillManifest(slug);
+    const { owner, repo, skill: id } = await params;
+    const project = getAgentsProjectByRepository(owner, repo);
+    if (!project) notFound();
+    const manifest = getSkillManifest(project.slug);
     const skill = manifest?.skills.find((skill) => skill.id === id);
     return {
-        title: `${skill?.name ?? 'Skill'} · ${getAgentsProject(slug)?.name ?? 'Project'}`,
+        title: `${skill?.name ?? 'Skill'} · ${project.name}`,
         description: skill?.description,
-        alternates: { canonical: skillHref(slug, id) },
+        alternates: { canonical: skillHref(project, id) },
     };
 }
 
@@ -34,17 +37,19 @@ export default async function SkillPage({
     params: Promise<Params>;
     searchParams: Promise<{ file?: string; view?: string }>;
 }) {
-    const { slug, skill: id } = await params;
+    const { owner, repo, skill: id } = await params;
     const query = await searchParams;
-    const project = getAgentsProject(slug);
+    const project = getAgentsProjectByRepository(owner, repo);
+    if (!project) notFound();
+    const slug = project.slug;
     const manifest = getSkillManifest(slug);
     const skill = manifest?.skills.find((skill) => skill.id === id);
-    if (!project || !manifest || !skill) notFound();
+    if (!manifest || !skill) notFound();
     const file = skill.files.find((file) => file.path === (query.file ?? 'SKILL.md'));
     if (!file) notFound();
     const bytes = readSkillFile(slug, file);
     const source = file.text && bytes ? bytes.toString('utf8') : undefined;
-    const baseHref = skillHref(slug, id);
+    const baseHref = skillHref(project, id);
     const root = path.posix.dirname(skill.path);
     const selectedPath = path.posix.join(root, file.path);
     const sourceUrl = skillSourceUrl(manifest, selectedPath);
@@ -64,12 +69,12 @@ export default async function SkillPage({
                         Projects
                     </Link>
                     <span aria-hidden>/</span>
-                    <Link href={`/${slug}`} className="inline-flex items-center gap-2 text-teal hover:underline">
+                    <Link href={projectHref(project)} className="inline-flex items-center gap-2 text-teal hover:underline">
                         <Image src={logoSrc(project)} alt="" width={22} height={22} className="size-5 rounded object-cover" />
                         {project.name}
                     </Link>
                     <span aria-hidden>/</span>
-                    <Link href={`/${slug}/skills`} className="text-teal hover:underline">
+                    <Link href={projectSkillsHref(project)} className="text-teal hover:underline">
                         Skills
                     </Link>
                 </nav>
@@ -253,8 +258,8 @@ export default async function SkillPage({
                     </article>
                 </div>
                 <div className="mt-12 flex flex-wrap justify-between gap-4 text-teal text-sm">
-                    <Link href={`/${slug}/skills`}>← All {project.name} skills</Link>
-                    <Link href={`/${slug}`}>Project instructions →</Link>
+                    <Link href={projectSkillsHref(project)}>← All {project.name} skills</Link>
+                    <Link href={projectHref(project)}>Project instructions →</Link>
                 </div>
             </main>
             <SiteFooter />

@@ -91,3 +91,16 @@ usernames support avatar groups without live API requests while browsing.
 Known bot accounts are filtered; co-author trailers and history before path
 renames are not included. Unlinked commit authors are recorded as a coverage
 notice rather than guessed GitHub identities.
+
+## Project URLs
+
+Project pages mirror GitHub: `https://ossrules.md/freshframework/fresh`.
+Skills live at `/<owner>/<repo>/skills`, with each skill reader and its downloads
+under that path. Only indexed projects resolve. Legacy short project URLs
+redirect permanently, preserving query parameters; real repository paths take
+precedence over conflicting legacy skill aliases. Internal corpus slugs and
+vendored file paths remain stable.
+
+Run `pnpm check:routes` against the dev server on port 3001, or pass another
+origin (for example `pnpm check:routes http://localhost:3002`) to verify canonical
+URLs, old links, file bytes, and bundle downloads after routing changes.

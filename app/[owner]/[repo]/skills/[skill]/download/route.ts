@@ -1,9 +1,13 @@
 import path from 'node:path';
 import { type Zippable, zipSync } from 'fflate';
+import { getAgentsProjectByRepository } from '@/lib/agents-md';
 import { getSkillManifest, readSkillFile } from '@/lib/skills';
 
-export async function GET(_request: Request, { params }: { params: Promise<{ slug: string; skill: string }> }) {
-    const { slug, skill: id } = await params;
+export async function GET(_request: Request, { params }: { params: Promise<{ owner: string; repo: string; skill: string }> }) {
+    const { owner, repo, skill: id } = await params;
+    const project = getAgentsProjectByRepository(owner, repo);
+    if (!project) return new Response('Project not found', { status: 404 });
+    const slug = project.slug;
     const manifest = getSkillManifest(slug);
     const skill = manifest?.skills.find((s) => s.id === id);
     if (!skill || !manifest) return new Response('Skill not found', { status: 404 });

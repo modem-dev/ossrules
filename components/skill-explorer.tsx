@@ -17,7 +17,7 @@ export interface SkillEntry {
     complete: boolean;
     contributions?: SkillContributions;
     historyUrl?: string;
-    project: { slug: string; name: string; logo: string; repository: string };
+    project: { href: string; slug: string; name: string; logo: string; repository: string };
 }
 
 export function SkillExplorer({ entries, projectOnly = false }: { entries: SkillEntry[]; projectOnly?: boolean }) {
@@ -145,10 +145,7 @@ function SkillExplorerContent({
                             <p className="mt-3 break-all font-mono text-[10px] text-gray-600">{entry.path}</p>
                             <div className="mt-5 flex flex-wrap items-center justify-between gap-3 font-mono text-[11px] text-gray-600">
                                 {!projectOnly ? (
-                                    <Link
-                                        href={`/${entry.project.slug}/skills`}
-                                        className="inline-flex items-center gap-2 text-teal hover:underline"
-                                    >
+                                    <Link href={entry.project.href} className="inline-flex items-center gap-2 text-teal hover:underline">
                                         <Image
                                             src={entry.project.logo}
                                             alt=""

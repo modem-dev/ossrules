@@ -29,7 +29,3 @@ export function readSkillFile(slug: string, file: SkillFile): Buffer | undefined
 export function skillSourceUrl(manifest: SkillManifest, filePath: string) {
     return `https://github.com/${manifest.repository}/blob/${manifest.sha}/${filePath.split('/').map(encodeURIComponent).join('/')}`;
 }
-
-export function skillHref(slug: string, id: string) {
-    return `/${slug}/skills/${id}`;
-}

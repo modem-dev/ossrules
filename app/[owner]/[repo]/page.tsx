@@ -19,20 +19,21 @@ import { Excerpt, FileStatGrid, PatternBadge } from '@/components/primitives';
 import { ProjectTabs } from '@/components/project-tabs';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
-import { getAgentsProject, getAgentsProjects, getAgentsSource, getVendoredFiles, sourceExcerpt } from '@/lib/agents-md';
+import { getAgentsProjectByRepository, getAgentsProjects, getAgentsSource, getVendoredFiles, sourceExcerpt } from '@/lib/agents-md';
 import { documentMentions } from '@/lib/document-mentions';
 import { ogImageUrl } from '@/lib/og';
+import { projectHref } from '@/lib/project-paths';
 import { webPageSchema } from '@/lib/schema';
 import { getSkillManifest } from '@/lib/skills';
 import { countSourceTokens } from '@/lib/token-count';
 
 export async function generateStaticParams() {
-    return getAgentsProjects().map((project) => ({ slug: project.slug }));
+    return getAgentsProjects().map((project) => ({ owner: project.owner, repo: project.repo }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
-    const { slug } = await params;
-    const project = getAgentsProject(slug);
+export async function generateMetadata({ params }: { params: Promise<{ owner: string; repo: string }> }) {
+    const { owner, repo } = await params;
+    const project = getAgentsProjectByRepository(owner, repo);
 
     if (!project) {
         return {};
@@ -44,7 +45,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return {
         title,
         description,
-        alternates: { canonical: `/${project.slug}` },
+        alternates: { canonical: projectHref(project) },
         openGraph: {
             title,
             description,
@@ -59,9 +60,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     };
 }
 
-export default async function AgentsMdProjectPage({ params }: { params: Promise<{ slug: string }> }) {
-    const { slug } = await params;
-    const project = getAgentsProject(slug);
+export default async function AgentsMdProjectPage({ params }: { params: Promise<{ owner: string; repo: string }> }) {
+    const { owner, repo } = await params;
+    const project = getAgentsProjectByRepository(owner, repo);
 
     if (!project) {
         notFound();
@@ -98,7 +99,7 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                     data={webPageSchema({
                         title: `${project.name}'s AGENTS.md, explained`,
                         description: project.hook,
-                        path: `/${project.slug}`,
+                        path: projectHref(project),
                     })}
                 />
                 <SiteHeader />
@@ -134,7 +135,7 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                             Read AGENTS.md <span aria-hidden>↗</span>
                         </FileLink>
                     </header>
-                    <ProjectTabs slug={project.slug} skills={getSkillManifest(project.slug)?.skills.length} active="instructions" />
+                    <ProjectTabs project={project} skills={getSkillManifest(project.slug)?.skills.length} active="instructions" />
                     <p className="max-w-3xl text-gray-400 text-lg leading-relaxed">{project.hook}</p>
 
                     <div className="project-layout">
@@ -313,7 +314,7 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                             neighbor ? (
                                 <Link
                                     key={direction}
-                                    href={`/${neighbor.slug}`}
+                                    href={projectHref(neighbor)}
                                     rel={direction === 'Previous' ? 'prev' : 'next'}
                                     className="group min-w-0 rounded-md border border-gray-750 bg-medium-gray p-5 transition-colors hover:border-teal"
                                 >

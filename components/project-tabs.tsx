@@ -1,12 +1,21 @@
 import Link from 'next/link';
+import { projectHref, projectSkillsHref, type RepositoryIdentity } from '@/lib/project-paths';
 
-export function ProjectTabs({ slug, skills, active }: { slug: string; skills?: number; active: 'instructions' | 'skills' }) {
+export function ProjectTabs({
+    project,
+    skills,
+    active,
+}: {
+    project: RepositoryIdentity;
+    skills?: number;
+    active: 'instructions' | 'skills';
+}) {
     return (
         <nav aria-label="Project sections" className="project-tabs">
-            <Link href={`/${slug}`} aria-current={active === 'instructions' ? 'page' : undefined}>
+            <Link href={projectHref(project)} aria-current={active === 'instructions' ? 'page' : undefined}>
                 Instructions
             </Link>
-            <Link href={`/${slug}/skills`} aria-current={active === 'skills' ? 'page' : undefined}>
+            <Link href={projectSkillsHref(project)} aria-current={active === 'skills' ? 'page' : undefined}>
                 Skills {skills !== undefined ? <span className="font-mono text-[11px]">{skills}</span> : null}
             </Link>
         </nav>

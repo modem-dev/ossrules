@@ -1,23 +1,25 @@
 import { notFound } from 'next/navigation';
 import { ProjectSkillsShell } from '@/components/project-skills-shell';
 import { SkillExplorer } from '@/components/skill-explorer';
-import { getAgentsProject, getAgentsProjects } from '@/lib/agents-md';
+import { getAgentsProjectByRepository, getAgentsProjects } from '@/lib/agents-md';
+import { projectSkillsHref } from '@/lib/project-paths';
 import { skillEntry } from '@/lib/skill-entries';
 import { getSkillManifest } from '@/lib/skills';
 
 export function generateStaticParams() {
-    return getAgentsProjects().map(({ slug }) => ({ slug }));
+    return getAgentsProjects().map(({ owner, repo }) => ({ owner, repo }));
 }
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
-    const { slug } = await params;
-    const project = getAgentsProject(slug);
-    return { title: `${project?.name ?? 'Project'} skills`, alternates: { canonical: `/${slug}/skills` } };
+export async function generateMetadata({ params }: { params: Promise<{ owner: string; repo: string }> }) {
+    const { owner, repo } = await params;
+    const project = getAgentsProjectByRepository(owner, repo);
+    if (!project) return {};
+    return { title: `${project.name} skills`, alternates: { canonical: projectSkillsHref(project) } };
 }
-export default async function ProjectSkillsPage({ params }: { params: Promise<{ slug: string }> }) {
-    const { slug } = await params;
-    const project = getAgentsProject(slug);
+export default async function ProjectSkillsPage({ params }: { params: Promise<{ owner: string; repo: string }> }) {
+    const { owner, repo } = await params;
+    const project = getAgentsProjectByRepository(owner, repo);
     if (!project) notFound();
-    const manifest = getSkillManifest(slug);
+    const manifest = getSkillManifest(project.slug);
     return (
         <ProjectSkillsShell project={project} count={manifest?.skills.length}>
             {!manifest ? (
