@@ -138,6 +138,7 @@ function DocumentReferences({
 
 interface TrayProps {
     primaryFile?: string;
+    primaryFileModifiedAt?: string;
     slug: string;
     owner: string;
     repo: string;
@@ -151,6 +152,7 @@ interface TrayProps {
 
 export function FileTrayProvider({
     primaryFile = 'AGENTS.md',
+    primaryFileModifiedAt,
     slug,
     owner,
     repo,
@@ -461,6 +463,11 @@ export function FileTrayProvider({
                             <div className="source-context">
                                 <div className="source-metadata">
                                     {file?.tokens !== undefined ? <span>{file.tokens.toLocaleString()} tokens</span> : null}
+                                    {path === primaryFile && primaryFileModifiedAt ? (
+                                        <time dateTime={primaryFileModifiedAt} title={`Last modified: ${primaryFileModifiedAt}`}>
+                                            Modified {primaryFileModifiedAt.slice(0, 10)}
+                                        </time>
+                                    ) : null}
                                     <details className="source-info" key={path}>
                                         <summary aria-label="File information" title="File information">
                                             <svg
