@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { type AgentsProject, logoSrc, repoUrl } from './agents-md-data';
+import { ModemSponsor } from './modem-sponsor';
 import { ProjectTabs } from './project-tabs';
 import { SiteFooter } from './site-footer';
 import { SiteHeader } from './site-header';
@@ -37,15 +38,9 @@ export function ProjectSkillsShell({ project, count, children }: { project: Agen
                 </header>
                 <ProjectTabs project={project} skills={count} active="skills" />
                 {children}
-                <section className="mt-16">
-                    <h2 className="section-title">Context your instructions cannot carry</h2>
-                    <p className="prose-copy mt-3 max-w-3xl">
-                        Instructions describe how a codebase works. Modem keeps customer context current and attaches it to the work.
-                    </p>
-                    <a href="https://modem.dev" target="_blank" rel="noopener noreferrer" className="action-link action-primary mt-6">
-                        Try Modem <span aria-hidden>↗</span>
-                    </a>
-                </section>
+                <ModemSponsor>
+                    Instructions describe how a codebase works. Modem keeps customer context current and attaches it to the work.
+                </ModemSponsor>
             </main>
             <SiteFooter />
         </div>
