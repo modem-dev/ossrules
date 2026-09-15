@@ -1,0 +1,138 @@
+# Project intent
+
+`kody` is an experiment in building a personal assistant that can work from any
+AI agent host that supports MCP.
+
+The core idea is to keep the public MCP surface small while making a large
+number of capabilities available behind that surface. This repo follows
+Cloudflare's Code Mode approach for execution: expose a tiny set of stable tools
+such as `search` (capability discovery) and `execute` (sandboxed capability
+calls), then implement the broader capability graph in code rather than as
+hundreds of individually described MCP tools.
+
+## What this repo is
+
+This repository is:
+
+- A working Cloudflare Workers application.
+- A place to experiment with OAuth-protected MCP endpoints.
+- A place to experiment with MCP apps, packages, and supporting infrastructure.
+- The foundation for a personal assistant rather than a general-purpose SaaS
+  product.
+
+When docs or code reflect starter-oriented conventions and conflict with the
+guidance here, treat this document as the project's intent.
+
+## Who this is for
+
+Kody is a multi-user personal assistant. Each authenticated user gets a strictly
+isolated assistant: their own packages, jobs, secrets, memories, chat threads,
+MCP servers, email inboxes, and durable storage. There is no shared state
+between users.
+
+- Optimization target: a high-quality personal assistant for each individual
+  signed-in user, with hard isolation between users
+- Onboarding: signup is open. Anyone can create an account from `/signup`. New
+  signups must verify their email address; unverified accounts can sign in but
+  cannot send outbound email. Person accounts that stay unverified for seven
+  days are deleted, which releases the username, `{username}.kody.run`
+  subdomain, `{username}@` mail local, and `stable_user_id`. There is still no
+  privileged "primary user" at runtime.
+- Tests and fixtures may seed deterministic local accounts, but seeded accounts
+  are fixtures only and are not privileged at runtime
+
+Optimize for:
+
+- Per-user isolation as a first-class invariant, enforced at the storage,
+  durable-object, vectorize, and runtime layers. Four narrow, documented
+  exceptions exist: RBAC account administration (`access = 'any'`, limited to
+  `user` and `role` entities), operator-owned system email for reserved platform
+  addresses stored under `system:email`, attributed platform feedback that a
+  user explicitly approved for role-gated admin review, and role-gated metadata
+  about activity on deliberately public community listings. The community
+  exception covers who forked or rated which listing and when, including rating
+  scores, but never package source, rating notes, or unrelated user content. See
+  [Authorization](./architecture/authorization.md).
+- Fast iteration on the personal-assistant experience
+- Interoperability across MCP-capable hosts
+
+It does not need to optimize for:
+
+- Per-organization tenancy or shared-team workspaces
+- Fine-grained permission delegation between many distinct humans inside a
+  single account
+- Enterprise SSO / directory provisioning
+
+## Product intent
+
+This project is meant to:
+
+1. Build a personal assistant that can be reached from MCP-capable AI agents.
+2. Keep the MCP contract compact enough that it does not bloat host context.
+3. Hide most capability complexity behind `search` for discovery and Code Mode
+   `execute` for capability calls.
+4. Treat ChatGPT as a likely primary integration target, while keeping the
+   server usable from other MCP hosts when possible.
+
+The emphasis is on portability of the assistant across hosts, not on shipping a
+large host-specific app surface for each client.
+
+## What not to assume
+
+When working in this repo, do not assume:
+
+- The example tools define the full MCP surface.
+- This project should evolve into a large catalog of explicitly declared MCP
+  tools.
+- This project is trying to become a generic starter kit for others.
+- This is a single-user system. Per-user isolation is an invariant, not a future
+  direction; treat any code path that reads or writes data without a `userId`
+  (or that shares a Durable Object id across users) as a bug. The intentional
+  cross-user boundaries are RBAC account administration (`:any` on `user`/`role`
+  only, behind explicit guards), operator-owned system email for reserved
+  platform addresses, explicitly approved, attributed platform feedback exposed
+  through role-gated admin review capabilities, and role-gated community
+  activity metadata for public listings — see
+  [Authorization](./architecture/authorization.md).
+- One conversation or one agent per signed-in user. Concurrent chats and
+  completely separate agents for the same user are expected. Do not key
+  conversation-scoped behavior on the user alone, or on an MCP transport session
+  or open connection. State that spans requests needs an explicit identifier the
+  client actually passed — see MCP 2026-07-28 Statelessness and
+  [0033](./decisions/0033-no-user-as-conversation.md).
+- The main goal is enterprise-grade least-privilege design for many users.
+
+Also do not document capabilities as if they already exist. Keep design notes
+and proposals clearly labeled, and keep present-tense claims limited to behavior
+that exists in the repository.
+
+## Documentation guidance
+
+When updating docs or explaining architecture:
+
+- Describe the repo as a multi-user personal-assistant platform with strict
+  per-user isolation, not a shared workspace product.
+- Mention the per-user isolation invariant when it materially affects product,
+  auth, or storage decisions.
+- Keep present behavior separate from design notes and proposals.
+- Prefer focused docs over expanding `AGENTS.md`.
+
+## Agent guidance
+
+If you are an agent working in this repo:
+
+- Read this file before making product-level decisions.
+- Per-user isolation is a hard invariant. Any new feature that touches data must
+  be scoped by `userId` at the data layer, by user-namespaced Durable Object ids
+  at the runtime layer, and by user-aware filters at the search/vector layer.
+  Cross-user access requires an explicit guard and one of the documented narrow
+  boundaries: account administration, operator-owned system email, user-approved
+  platform feedback, or public-listing community activity metadata — see
+  [Authorization](./architecture/authorization.md).
+- Isolation between users is not the same as one conversation per user. The same
+  signed-in user can run concurrent chats and completely separate agents at
+  once. Do not hide or bind conversation-scoped context (memories, nudges,
+  progressive disclosure) to the user id alone or to an MCP session.
+- Avoid proposing a large static MCP tool catalog as the default direction.
+- Keep interoperability with MCP hosts in mind, especially around compact tool
+  surfaces and clear server instructions.
