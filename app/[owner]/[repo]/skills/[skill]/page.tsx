@@ -8,6 +8,7 @@ import { Excerpt } from '@/components/primitives';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { SkillContributors } from '@/components/skill-contributors';
+import { SkillFileNavigation } from '@/components/skill-file-navigation';
 import { SkillMarkdown } from '@/components/skill-markdown';
 import { getAgentsProjectByRepository } from '@/lib/agents-md';
 import { documentMentions } from '@/lib/document-mentions';
@@ -79,11 +80,11 @@ export default async function SkillPage({
                         Skills
                     </Link>
                 </nav>
-                <header className="mt-9 flex flex-col items-start justify-between gap-5 sm:flex-row">
+                <header className="skill-page-header mt-9 flex flex-col items-start justify-between gap-5 sm:flex-row">
                     <div className="min-w-0 flex-1">
                         <h1 className="page-title [overflow-wrap:anywhere]">{skill.name}</h1>
                         {skill.contributions?.contributors.length ? (
-                            <div className="mt-3 flex items-center gap-2">
+                            <div className="skill-header-contributors mt-3 flex items-center gap-2">
                                 <SkillContributors
                                     contributions={skill.contributions}
                                     historyUrl={`https://github.com/${manifest.repository}/commits/${manifest.sha}/${skill.path.split('/').map(encodeURIComponent).join('/')}`}
@@ -93,7 +94,7 @@ export default async function SkillPage({
                             </div>
                         ) : null}
                         <p className="mt-4 max-w-3xl text-gray-500 text-sm leading-relaxed [overflow-wrap:anywhere]">{skill.description}</p>
-                        <p className="mt-4 break-all font-mono text-[11px] text-gray-600">{skill.path}</p>
+                        <p className="skill-header-path mt-4 break-all font-mono text-[11px] text-gray-600">{skill.path}</p>
                     </div>
                     {complete ? (
                         <a href={`${baseHref}/download`} className="action-link shrink-0">
@@ -103,7 +104,7 @@ export default async function SkillPage({
                         <span className="font-mono text-[11px] text-gray-600">Partial bundle · download unavailable</span>
                     )}
                 </header>
-                <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[11px] text-gray-600">
+                <div className="skill-snapshot mt-6 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[11px] text-gray-600">
                     <a href={`https://github.com/${manifest.repository}/tree/${manifest.sha}`} className="hover:text-teal">
                         {manifest.branch} · {manifest.sha.slice(0, 7)} ↗
                     </a>
@@ -114,55 +115,18 @@ export default async function SkillPage({
                 </div>
                 <div className="skill-reader">
                     <aside className="skill-files" aria-label="Bundle files">
-                        <p className="eyebrow mb-3">Files</p>
-                        <nav aria-label="Skill files">
-                            <ul>
-                                {skill.files.map((item) => (
-                                    <li key={item.path}>
-                                        <Link
-                                            href={`${baseHref}?file=${encodeURIComponent(item.path)}`}
-                                            scroll={false}
-                                            aria-current={item.path === file.path ? 'page' : undefined}
-                                        >
-                                            <span aria-hidden className="shrink-0">
-                                                {item.path.endsWith('.sh') ? '>_' : '▤'}
-                                            </span>
-                                            <span className="min-w-0 [overflow-wrap:anywhere]">
-                                                {item.path}
-                                                {item.omitted ? <span className="block text-[10px]">Not bundled</span> : null}
-                                            </span>
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
-                        </nav>
-                        <div className="mt-7 font-mono text-[11px] text-gray-600">
-                            <p className="eyebrow mb-2">License</p>
-                            {skill.license ? <p className="[overflow-wrap:anywhere]">{skill.license}</p> : null}
-                            {manifest.repositoryLicense ? (
-                                <a
-                                    href={skillSourceUrl(manifest, manifest.repositoryLicense.path)}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="mt-2 block text-teal hover:underline"
-                                >
-                                    Repository license ↗
-                                </a>
-                            ) : (
-                                <p>Not declared in the snapshot.</p>
-                            )}
-                            {skill.compatibility ? (
-                                <>
-                                    <p className="eyebrow mt-6 mb-2">Compatibility</p>
-                                    <p className="[overflow-wrap:anywhere]">{skill.compatibility}</p>
-                                </>
-                            ) : null}
-                        </div>
+                        <SkillFileNavigation
+                            files={skill.files.map(({ path, omitted }) => ({ path, omitted }))}
+                            selectedPath={file.path}
+                            baseHref={baseHref}
+                        />
                     </aside>
-                    <article className="min-w-0" aria-label={`${file.path} content`}>
+                    <article className="skill-document min-w-0" aria-label={`${file.path} content`}>
                         <header className="mb-6 flex flex-wrap items-center justify-between gap-4 pb-4">
                             <div className="min-w-0">
-                                <h2 className="break-all font-mono text-sm">{file.path}</h2>
+                                <h2 id="skill-document-title" tabIndex={-1} className="break-all font-mono text-sm">
+                                    {file.path}
+                                </h2>
                                 <p className="mt-2 font-mono text-[11px] text-gray-600">
                                     {source !== undefined
                                         ? `${countSourceTokens(source)?.toLocaleString('en-US')} tokens · o200k_base · `
@@ -257,6 +221,47 @@ export default async function SkillPage({
                             </details>
                         ) : null}
                     </article>
+                    <aside className="skill-file-metadata mt-7 font-mono text-[11px] text-gray-600" aria-label="Source and license">
+                        <details className="skill-mobile-provenance">
+                            <summary className="text-teal">Source &amp; attribution</summary>
+                            <p className="mt-4 [overflow-wrap:anywhere]">{skill.path}</p>
+                            <a
+                                href={`https://github.com/${manifest.repository}/tree/${manifest.sha}`}
+                                className="mt-3 block text-teal hover:underline"
+                            >
+                                {manifest.branch} · {manifest.sha.slice(0, 7)} ↗
+                            </a>
+                            <p className="mt-3">Scanned {manifest.scannedAt.slice(0, 10)}</p>
+                            <div className="mt-3">
+                                <SkillContributors
+                                    contributions={skill.contributions}
+                                    historyUrl={`https://github.com/${manifest.repository}/commits/${manifest.sha}/${skill.path.split('/').map(encodeURIComponent).join('/')}`}
+                                    skillName={skill.name}
+                                    align="start"
+                                />
+                            </div>
+                        </details>
+                        <p className="eyebrow mb-2">License</p>
+                        {skill.license ? <p className="[overflow-wrap:anywhere]">{skill.license}</p> : null}
+                        {manifest.repositoryLicense ? (
+                            <a
+                                href={skillSourceUrl(manifest, manifest.repositoryLicense.path)}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="mt-2 block text-teal hover:underline"
+                            >
+                                Repository license ↗
+                            </a>
+                        ) : (
+                            <p>Not declared in the snapshot.</p>
+                        )}
+                        {skill.compatibility ? (
+                            <>
+                                <p className="eyebrow mt-6 mb-2">Compatibility</p>
+                                <p className="[overflow-wrap:anywhere]">{skill.compatibility}</p>
+                            </>
+                        ) : null}
+                    </aside>
                 </div>
                 <div className="mt-12 flex flex-wrap justify-between gap-4 text-teal text-sm">
                     <Link href={projectSkillsHref(project)}>← All {project.name} skills</Link>
