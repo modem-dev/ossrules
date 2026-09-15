@@ -183,7 +183,7 @@ export function FileTrayProvider({
 
     const open = useCallback(
         (next: TrayRequest) => {
-            if (!panel.current?.open) returnFocus.current = document.activeElement as HTMLElement | null;
+            if (!panel.current?.contains(document.activeElement)) returnFocus.current = document.activeElement as HTMLElement | null;
             setCopyStatus('idle');
             setReturnDocument(undefined);
             scrollRestore.current = undefined;
@@ -196,15 +196,17 @@ export function FileTrayProvider({
     );
 
     const close = useCallback(() => {
+        const restoreFocus = panel.current?.contains(document.activeElement);
         panel.current?.close();
         setComparePath(undefined);
         setRequest(undefined);
         setReturnDocument(undefined);
-        returnFocus.current?.focus({ preventScroll: true });
+        if (restoreFocus && returnFocus.current?.isConnected) returnFocus.current.focus({ preventScroll: true });
     }, []);
 
     const context = useMemo(() => ({ open, readable, missing, primaryFile }), [open, readable, missing, primaryFile]);
     const path = request?.path;
+    const isOpen = Boolean(path);
     const instructionFiles = files.filter(
         (file) => !file.symlink && !file.missing && !file.unavailable && /(^|\/)(AGENTS|CLAUDE)\.md$/.test(file.path),
     );
@@ -277,22 +279,34 @@ export function FileTrayProvider({
         };
     }, [path, slug]);
 
-    // A native modal makes the page behind it inert and contains keyboard focus.
+    // Keep the page usable beside the pane; a full-screen phone reader is modal.
+    useEffect(() => {
+        if (!isOpen) return;
+        const dialog = panel.current;
+        if (!dialog) return;
+        const mobile = window.matchMedia('(max-width: 767px)');
+        const previousOverflow = document.body.style.overflow;
+        const syncMode = () => {
+            const focused = dialog.contains(document.activeElement) ? (document.activeElement as HTMLElement) : undefined;
+            if (dialog.open) dialog.close();
+            document.body.style.overflow = mobile.matches ? 'hidden' : previousOverflow;
+            if (mobile.matches) dialog.showModal();
+            else dialog.show();
+            (focused ?? dialog.querySelector<HTMLButtonElement>('[data-close-file]'))?.focus({ preventScroll: true });
+        };
+        syncMode();
+        mobile.addEventListener('change', syncMode);
+        return () => {
+            mobile.removeEventListener('change', syncMode);
+            dialog.close();
+            document.body.style.overflow = previousOverflow;
+        };
+    }, [isOpen]);
+
     useEffect(() => {
         if (!path) return;
-        const dialog = panel.current;
-        const previous = document.body.style.overflow;
-        document.body.style.overflow = 'hidden';
-        dialog?.showModal();
-        (
-            dialog?.querySelector<HTMLButtonElement>('[data-back-source]') ?? dialog?.querySelector<HTMLButtonElement>('[data-close-file]')
-        )?.focus();
-        const scroll = dialog?.querySelector('.source-scroll');
+        const scroll = panel.current?.querySelector('.source-scroll');
         if (scroll) scroll.scrollTop = 0;
-        return () => {
-            dialog?.close();
-            document.body.style.overflow = previous;
-        };
     }, [path]);
 
     const file = path ? byPath.get(path) : undefined;
@@ -326,24 +340,25 @@ export function FileTrayProvider({
 
     return (
         <FileTrayContext.Provider value={context}>
-            {children}
+            <div className="source-workspace" data-source-open={isOpen}>
+                {children}
+            </div>
             {path ? (
                 <dialog
                     ref={panel}
                     aria-label={path}
                     className="source-dialog"
+                    onKeyDown={(event) => {
+                        if (event.key === 'Escape' && !event.defaultPrevented) {
+                            event.preventDefault();
+                            close();
+                        }
+                    }}
                     onCancel={(event) => {
                         event.preventDefault();
                         close();
                     }}
                 >
-                    <button
-                        type="button"
-                        tabIndex={-1}
-                        aria-label="Close file"
-                        onClick={close}
-                        className="absolute inset-0 cursor-default"
-                    />
                     <div className="source-panel">
                         <header className="source-header">
                             <div className="source-file-title">
