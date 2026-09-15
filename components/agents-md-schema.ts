@@ -10,6 +10,7 @@
  * Returns a list of human-readable problems; empty means valid.
  */
 
+import { isInstructionPath } from '../lib/instruction-path';
 import { PATTERN_IDS } from './agents-md-data';
 
 const FILE_STAT_KEYS = ['bytes', 'lines', 'words', 'headings', 'bullets', 'codeBlocks', 'docLinks'] as const;
@@ -36,8 +37,8 @@ export function validateAgentsProject(value: unknown, label: string): string[] {
         if (!isNonEmptyString(value[key])) at(`"${key}" must be a non-empty string.`);
     }
 
-    if (value.instructionFile !== undefined && !['AGENTS.md', 'CLAUDE.md'].includes(value.instructionFile as string)) {
-        at('"instructionFile" must be AGENTS.md or CLAUDE.md.');
+    if (value.instructionFile !== undefined && !isInstructionPath(value.instructionFile)) {
+        at('"instructionFile" must be a safe repository-relative path ending in AGENTS.md or CLAUDE.md.');
     }
 
     if (typeof value.stars !== 'number' || !Number.isInteger(value.stars) || value.stars < 0) {

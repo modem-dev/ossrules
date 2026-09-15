@@ -29,7 +29,7 @@ const CONTENT_DIR = path.join(process.cwd(), 'content', 'projects');
 const WRITE = process.argv.includes('--write');
 
 interface Entry {
-    instructionFile?: 'AGENTS.md' | 'CLAUDE.md';
+    instructionFile?: string;
     slug: string;
     owner: string;
     repo: string;

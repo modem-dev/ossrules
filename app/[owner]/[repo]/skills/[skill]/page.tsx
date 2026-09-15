@@ -57,7 +57,7 @@ export default async function SkillPage({
     const complete = skill.files.every((file) => !file.omitted) && !manifest.repositoryLicense?.omitted;
     const instructionPath = manifest.agentsFile?.path ?? project.instructionFile ?? 'AGENTS.md';
     const agentsSource = manifest.agentsFile?.text ? readSkillFile(slug, manifest.agentsFile)?.toString('utf8') : undefined;
-    const mentions = documentMentions(agentsSource, [skill.path])[skill.path] ?? [];
+    const mentions = documentMentions(agentsSource, [skill.path], instructionPath)[skill.path] ?? [];
     const rootFile = skill.files.find((file) => file.path === 'SKILL.md');
     const rootSource = rootFile ? readSkillFile(slug, rootFile)?.toString('utf8') : undefined;
     const fileMentions = file.path !== 'SKILL.md' ? (documentMentions(rootSource, [file.path])[file.path] ?? []) : [];

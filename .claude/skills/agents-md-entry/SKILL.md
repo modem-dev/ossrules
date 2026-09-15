@@ -20,8 +20,13 @@ entries someone else wrote.
 Accept either `AGENTS.md` or `CLAUDE.md`. Inspect Git tree modes to distinguish a
 real symlink from an ordinary file containing an import or prose reference.
 Resolve symlinks within the same repository commit and analyze the actual target.
-Set `instructionFile` to `CLAUDE.md` when it is the analyzed source; omitted means
-`AGENTS.md`. Use that filename in every fetch, last-change lookup, measurement,
+Set `instructionFile` to the repository-relative path of the analyzed source
+(for example `CLAUDE.md` or `.agents/AGENTS.md`); omitted means root `AGENTS.md`.
+Check `.agents/AGENTS.md`, `.agents/CLAUDE.md`, and `.claude/CLAUDE.md` as well as
+root files, and inspect the tree for other nested instructions before concluding
+that a project has none. A folder location alone does not establish precedence.
+Store `references` as repository-relative paths, resolving links against the
+instruction file’s own directory. Use that filename in every fetch, last-change lookup, measurement,
 and quote check below.
 
 When both files contain independent instructions, retain both. Choose the source

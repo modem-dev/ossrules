@@ -23,7 +23,10 @@ their resolved source; imports and identical files are labeled separately. The
 reader includes per-file token counts and a side-by-side comparison.
 
 Entries default to analyzing `AGENTS.md`; set `instructionFile: "CLAUDE.md"` to
-analyze that source instead. All instruction discovery and link resolution use
+analyze that source instead. Nested entry points such as
+`instructionFile: ".agents/AGENTS.md"` retain their actual repository path in
+source links, previews, and measurements. Check agent folders as well as the
+repository root when adding candidates. All instruction discovery and link resolution use
 the analysis commit. Skills retain their independent discovery snapshot.
 
 ## Adding a project

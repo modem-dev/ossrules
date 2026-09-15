@@ -29,6 +29,7 @@ import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { instructionImports, localTarget, resolveSymlink } from '../lib/instruction-files';
+import { isInstructionPath } from '../lib/instruction-path';
 import { excludedSkillPath } from '../lib/skill-schema';
 
 const CONTENT_DIR = path.join(process.cwd(), 'content', 'projects');
@@ -53,7 +54,7 @@ interface Reference {
 }
 
 interface Entry {
-    instructionFile?: 'AGENTS.md' | 'CLAUDE.md';
+    instructionFile?: string;
     slug: string;
     owner: string;
     repo: string;
@@ -167,9 +168,7 @@ async function syncEntry(entry: Entry, problems: string[]): Promise<{ changed: b
         entry.instructionFile ?? 'AGENTS.md',
         ...entry.references.filter((reference) => reference.kind !== 'pattern').map((r) => r.path),
         ...(entry.techniques ?? []).flatMap((technique) => (technique.sourcePath ? [technique.sourcePath] : [])),
-        ...tree.tree
-            .filter((file) => /(^|\/)(AGENTS|CLAUDE)\.md$/.test(file.path) && !excludedSkillPath(file.path))
-            .map((file) => file.path),
+        ...tree.tree.filter((file) => isInstructionPath(file.path) && !excludedSkillPath(file.path)).map((file) => file.path),
     ]);
     const symlinks = new Map<string, string>();
     const records = new Map<string, ManifestFile>();
