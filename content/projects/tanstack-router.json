@@ -1,0 +1,78 @@
+{
+    "slug": "tanstack-router",
+    "name": "TanStack Router",
+    "owner": "TanStack",
+    "repo": "router",
+    "tagline": "Type-safe routing and the TanStack Start full-stack framework for React and Solid.",
+    "language": "TypeScript",
+    "stars": 15082,
+    "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "3dee5b2e9453d01a3172c73426959007b290b3fc",
+        "date": "2026-08-25T03:14:16Z"
+    },
+    "evaluatedAt": "2026-09-15",
+    "file": {
+        "bytes": 8478,
+        "lines": 181,
+        "words": 1093,
+        "headings": 14,
+        "bullets": 94,
+        "codeBlocks": 0,
+        "docLinks": 1
+    },
+    "references": [
+        {
+            "path": "CONTRIBUTING.md"
+        }
+    ],
+    "hook": "Nx test filtering preserves task dependencies, and stalled sandbox runs get one reset and one retry.",
+    "summary": "TanStack Router’s guide spans the shared routing core, framework bindings, and Start packages. It gives a progressively narrower testing workflow, explicit sandbox recovery limits, and example applications for checking changes in context.",
+    "patterns": ["hard-prohibition", "verification-matrix", "architecture-narrative"],
+    "techniques": [
+        {
+            "title": "Keep test filters inside the task graph",
+            "body": "Tests are narrowed by package, file, and test name through Nx. The guide explains that direct runners can skip task dependencies, including required builds.",
+            "quote": "  - Prefer Nx targets over direct test runners so task dependencies (including required builds) remain in the graph."
+        },
+        {
+            "title": "Bound recovery from a stalled task runner",
+            "body": "Sandbox instructions disable the daemon and remote cache, serialize Nx commands, and allow one reset and retry after a stall. Continued failure is surfaced instead of retried indefinitely.",
+            "quote": "  - In sandbox, run Nx with `CI=1 NX_DAEMON=false pnpm nx run <project>:<target> --outputStyle=stream --skipRemoteCache`\n  - Run only one Nx command at a time.\n  - If an Nx command shows no output for ~20 seconds, stop, run `pnpm nx reset` once, and retry once.\n  - Do not loop retries indefinitely. If it still hangs or sandbox blocks graph/daemon behavior, request escalation immediately.",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Test both runtime behavior and types",
+            "body": "Unit and type tests are required during development. The guide lists additional lint, build, end-to-end, and CI targets so different kinds of validation remain distinguishable.",
+            "quote": "- **Critical**: Always run unit and type tests during development - do not proceed if they fail\n- **Test types:** `pnpm test:unit`, `pnpm test:types`, `pnpm test:eslint`, `pnpm test:e2e`, `pnpm test:build`\n- **Full CI suite:** `pnpm test:ci`\n- **Fix formatting:** `pnpm format`",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Keep framework-neutral logic separate from bindings",
+            "body": "The package map places core routing and history beneath React and Solid bindings, with Start packages above them. It records the dependency direction to guide changes that cross package boundaries.",
+            "quote": "**Dependencies:** Uses workspace protocol (`workspace:*`) - core → framework → start packages",
+            "pattern": "architecture-narrative"
+        }
+    ],
+    "steal": [
+        "Keep filtered tests inside the build task graph.",
+        "Set a finite recovery policy for stalled development tools.",
+        "Treat public type behavior as a separate testing concern.",
+        "Record dependency direction between core logic and framework integrations."
+    ],
+    "outline": [
+        "Project overview",
+        "Setup commands",
+        "Code style",
+        "Dev environment tips",
+        "Testing instructions",
+        "PR instructions",
+        "Package structure",
+        "Common development tasks",
+        "Framework-specific notes",
+        "Environment requirements",
+        "Key architecture patterns",
+        "Development workflow",
+        "References"
+    ]
+}

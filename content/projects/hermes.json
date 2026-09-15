@@ -1,0 +1,131 @@
+{
+    "slug": "hermes",
+    "name": "Hermes Agent",
+    "owner": "NousResearch",
+    "repo": "hermes-agent",
+    "tagline": "A personal AI agent with terminal tools, messaging integrations, memory, and reusable skills.",
+    "language": "Python",
+    "stars": 245751,
+    "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "d10bb2ab6fb9e16028070bf7075284a7b0476872",
+        "date": "2026-09-13T16:18:02Z"
+    },
+    "evaluatedAt": "2026-09-15",
+    "file": {
+        "bytes": 30336,
+        "lines": 432,
+        "words": 4092,
+        "headings": 20,
+        "bullets": 46,
+        "codeBlocks": 10,
+        "docLinks": 0
+    },
+    "references": [
+        {
+            "path": "agent/AGENTS.md"
+        },
+        {
+            "path": "hermes_cli/AGENTS.md"
+        },
+        {
+            "path": "gateway/AGENTS.md"
+        },
+        {
+            "path": "tools/AGENTS.md"
+        },
+        {
+            "path": "plugins/AGENTS.md"
+        },
+        {
+            "path": "tui_gateway/AGENTS.md"
+        },
+        {
+            "path": "web/AGENTS.md"
+        },
+        {
+            "path": "apps/desktop/AGENTS.md"
+        },
+        {
+            "path": "apps/desktop/src/AGENTS.md"
+        },
+        {
+            "path": "skills/AGENTS.md"
+        },
+        {
+            "path": "cron/AGENTS.md"
+        },
+        {
+            "path": "gateway/platforms/ADDING_A_PLATFORM.md"
+        },
+        {
+            "path": "website/docs/developer-guide/",
+            "kind": "pattern",
+            "label": "Long-form subsystem documentation"
+        },
+        {
+            "path": "hermes-agent-dev",
+            "kind": "pattern",
+            "label": "Development workflow skill named by the guide"
+        }
+    ],
+    "hook": "Prompt-cache stability and a six-rung capability ladder constrain core growth; tests run through an isolation wrapper.",
+    "summary": "Hermes Agent’s root guide links product intent to implementation and review rules across its CLI, gateway, desktop app, and plugins. It treats prompt stability and tool-schema size as shared costs, then routes area-specific work to nested AGENTS.md files.",
+    "patterns": ["context-budget", "behavioral-conditioning", "single-source", "verification-matrix", "worked-examples", "skill-routing"],
+    "techniques": [
+        {
+            "title": "Treat prompt stability as a conversation invariant",
+            "body": "The guide explains that changing past context or toolsets invalidates the cached prefix and increases cost. Commands that change prompt state default to the next session, with an explicit immediate option.",
+            "quote": "- **Per-conversation prompt caching is sacred.** A long-lived conversation reuses a cached\n  prefix every turn. Anything that mutates past context, swaps toolsets, reloads memories, or\n  rebuilds the system prompt mid-conversation invalidates that cache and multiplies the user's\n  cost. We do not do it; the ONE exception is context compression. Slash commands that mutate\n  system-prompt state (skills, tools, memory) must be **cache-aware**: default to deferred\n  invalidation (takes effect next session) with an opt-in `--now` flag (`/skills install --now`\n  is the canonical pattern).",
+            "pattern": "context-budget"
+        },
+        {
+            "title": "Provide an ordered decision process for new capability",
+            "body": "The footprint ladder starts with extending existing code and works through commands, gated tools, plugins, and MCP before adding a core tool. The ordering connects architecture decisions to per-call schema cost.",
+            "quote": "Choose the highest (least-footprint) rung that correctly solves the problem:\n\n1. **Extend existing code** — a variation of something that exists. Zero new surface.\n2. **CLI command + skill** — config/state/infra expressible as shell commands; the agent runs\n   `hermes <subcommand>` guided by a skill. Default for subscriptions, scheduled tasks,\n   service setup (`hermes webhook`, `hermes cron`, `hermes tools`).\n3. **Service-gated tool (`check_fn`)** — needs structured params/returns AND only appears when\n   a prerequisite is configured (Home Assistant tools, memory-provider tools). This rung gates\n   reachability/opt-in process-wide; a capability that varies per SESSION (who is watching) is\n   a named toolset folded in by the toolset resolver, not a `check_fn` — see \"Surface capability\n   is a property of the SESSION\" below.\n4. **Plugin** — third-party/niche/user-specific; lives in `~/.hermes/plugins/` or a pip\n   package, discovered at runtime.\n5. **MCP server (in the catalog)** — genuinely a tool but not core-fundamental. Zero permanent\n   core-schema footprint, reusable by any MCP host, reached via the built-in MCP client.\n6. **New core tool** — only when fundamental, broadly useful to nearly every user, and\n   unreachable via terminal + file or an MCP server (terminal, read_file, web_search,\n   browser_navigate).",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Make the test wrapper enforce isolation",
+            "body": "The required runner clears credential variables, fixes locale and timezone, uses a temporary home, and isolates test files in subprocesses. The guide connects those choices to local-versus-CI incidents.",
+            "quote": "**ALWAYS use `scripts/run_tests.sh`**, never bare `pytest`. It enforces CI parity: credential\nvars unset, `TZ=UTC`, `LANG=C.UTF-8`, `HERMES_HOME` → temp dir, and per-file subprocess\nisolation via `scripts/run_tests_parallel.py` (no xdist; workers scale with CPU count) so\nmodule-level dicts/ContextVars cannot leak between files. Direct `pytest` on a big machine\nwith API keys set has caused repeated \"works locally, fails in CI\" incidents (and the reverse).",
+            "pattern": "single-source"
+        },
+        {
+            "title": "Test on the host that owns the behavior",
+            "body": "Platform-specific behavior must run on that operating system with the project’s named markers. The guide explains that alternate skip mechanisms can produce tests that run on no CI platform.",
+            "quote": "**Use the marker, never a bare `skipif`.** `scripts/ci/list_os_marked_tests.py` finds files for\nthe macOS/Windows lanes by grepping the marker *name*, then filters with `-m <marker>`. A\n`skipif(sys.platform != \"win32\")` test skips on Linux AND is never imported on Windows — it runs\nnowhere, silently. A file-local alias (`windows_only = pytest.mark.skipif(...)`) is listed but\n`-m windows_only` deselects everything: green over zero coverage. Don't `pytest.skip()` non-host\nrows of a platform `@parametrize` — split into one marked test per OS.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Prefer behavioral relationships over changing catalog values",
+            "body": "The test guidance contrasts assertions about fixed model names and counts with contracts between data structures. It explains how snapshot-like checks can turn expected catalog updates into maintenance failures.",
+            "quote": "A change-detector fails whenever data *expected to change* is updated — model catalogs,\n`_config_version`, enumeration counts, hardcoded model lists. It adds no coverage and taxes\nevery routine update. Don't: `assert \"gemini-2.5-pro\" in _PROVIDER_MODELS[\"gemini\"]`,\n`assert DEFAULT_CONFIG[\"_config_version\"] == 21`, `assert len(models) == 8`. Do: `assert\n\"gemini\" in _PROVIDER_MODELS and len(_PROVIDER_MODELS[\"gemini\"]) >= 1` (plumbing works);\n`assert raw[\"_config_version\"] == DEFAULT_CONFIG[\"_config_version\"]` (migration reaches\nlatest); `assert not (set(moonshot_models) & coding_plan_only_models)` (no leak); every\ncatalog model has a context-length entry (relationship). If it reads like a snapshot, delete\nit; if it reads like a contract between two pieces of data, keep it. Reviewers reject new\nchange-detectors; authors convert them before re-review.",
+            "pattern": "worked-examples"
+        },
+        {
+            "title": "Map each work area to its instruction file",
+            "body": "The routing table connects source areas to nested AGENTS.md files and describes what each covers. The root file also documents size targets and truncation behavior for injected area guidance.",
+            "quote": "This root file holds only what applies everywhere. Each area has its own `AGENTS.md` (aim for\n~8k chars; `agent/subdirectory_hints.py` delivers up to 32k and truncates head/tail with a warning\npast that); see the **routing table** at the end and read the area file before editing in that area.",
+            "pattern": "skill-routing"
+        }
+    ],
+    "steal": [
+        "Explain the recurring cost that architectural constraints protect.",
+        "Give new capabilities an ordered set of integration options.",
+        "Centralize test isolation in a required runner.",
+        "Test platform behavior on the platform that owns it.",
+        "Assert contracts between data rather than values expected to change."
+    ],
+    "outline": [
+        "What Hermes Is",
+        "Contribution Rubric — What We Want / What We Don't",
+        "Development Environment",
+        "Project Structure",
+        "Code Shape Rules (all languages)",
+        "Dependency Pinning Policy",
+        "Commits, Merges, PRs",
+        "Testing (applies everywhere)",
+        "Routing Table — working in X → read X/AGENTS.md"
+    ]
+}

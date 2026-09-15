@@ -1,0 +1,514 @@
+{
+    "version": 1,
+    "slug": "cline",
+    "repository": "cline/cline",
+    "branch": "main",
+    "sha": "6e8bea1cba4785f9d5fbfc2ac906bb50fd121ba7",
+    "scannedAt": "2026-09-15T14:31:40.497Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "cline-sdk-d614ca01784b",
+            "path": ".agents/skills/cline-sdk/SKILL.md",
+            "name": "cline-sdk",
+            "description": "Comprehensive Cline SDK skill for building AI agents. Covers the Agent runtime, ClineCore sessions, custom tools, plugins, events, LLM providers, scheduling, multi-agent teams, and production deployment. Use for any task involving @cline/sdk or its sub-packages.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7f7b0612df6947ba2fc20a94d81a39113529807e",
+                    "bytes": 8790,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/agent/REFERENCE.md",
+                    "blob": "4fa40a7833482a1faafb65180eabda04f544282c",
+                    "bytes": 3573,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/agent/api.md",
+                    "blob": "76a008cf4ef15198f3f386e24803cdb119a17a99",
+                    "bytes": 5214,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/agent/gotchas.md",
+                    "blob": "8b4b945db4686d08835b130843a730d903047507",
+                    "bytes": 4363,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/agent/patterns.md",
+                    "blob": "c0e43e208f62a1fa7b97743ce4bfa86386942f78",
+                    "bytes": 5728,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/clinecore/REFERENCE.md",
+                    "blob": "d1b9e01c0f6977f45a1488b837400f47cfbf80f6",
+                    "bytes": 4381,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/clinecore/api.md",
+                    "blob": "8abfce998d5b3bd486a5ce9d7a084f469dc05672",
+                    "bytes": 7111,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/clinecore/gotchas.md",
+                    "blob": "240aab876317146072ca784c42261b4037f726af",
+                    "bytes": 4988,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/clinecore/patterns.md",
+                    "blob": "379eff6f3d83d1ad01822e22928c6ab67caf47c7",
+                    "bytes": 6164,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/events/REFERENCE.md",
+                    "blob": "76f273a9705e0903cf1bca7b1a1408ba275f6fa0",
+                    "bytes": 7743,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/multi-agent/REFERENCE.md",
+                    "blob": "173cb1b24e53f099417d088d8be72566f3eccc18",
+                    "bytes": 4304,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/plugins/REFERENCE.md",
+                    "blob": "6bcc4bf1a77a0268b08cd36f39064db6a5f822b3",
+                    "bytes": 23366,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/production/REFERENCE.md",
+                    "blob": "5be32e6d8b43048594e016a09bdd53988b36677c",
+                    "bytes": 5495,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/providers/REFERENCE.md",
+                    "blob": "1ad2dc72c0a89507c8fb0528114c89a050531b90",
+                    "bytes": 5421,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/scheduling/REFERENCE.md",
+                    "blob": "295e88452c1ee78c5906ac06b2c226ee1bb7de2d",
+                    "bytes": 5114,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/tools/REFERENCE.md",
+                    "blob": "3e3ac56736028d894d900bc457624380f1816d79",
+                    "bytes": 7144,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 7799382,
+                        "login": "saoudrizwan",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "create-pull-request-584b9644e8b7",
+            "path": ".agents/skills/create-pull-request/SKILL.md",
+            "name": "create-pull-request",
+            "description": "Create a GitHub pull request following project conventions. Use when the user asks to create a PR, submit changes for review, or open a pull request. Handles commit analysis, branch management, PR template usage, and PR creation using the gh CLI tool.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "9aa5add826363bc68d11b573624d44b2b2e01e5a",
+                    "bytes": 6224,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 2333799,
+                        "login": "robinnewhouse",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "opentui-cc6885364eef",
+            "path": ".agents/skills/opentui/SKILL.md",
+            "name": "opentui",
+            "description": "Comprehensive OpenTUI skill for building terminal user interfaces. Covers the core imperative API, React reconciler, and Solid reconciler. Use for any TUI development task including components, layout, keyboard handling, animations, and testing.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ada49f5ed9c7a8651fe6da7f800a65849312c799",
+                    "bytes": 7789,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/animation/REFERENCE.md",
+                    "blob": "ff76b99842152ced6a9d8133113014f02c3b55e1",
+                    "bytes": 8567,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/components/REFERENCE.md",
+                    "blob": "a28ce8dfa487d2d33f11469ad2470a888dab13c1",
+                    "bytes": 4145,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/components/code-diff.md",
+                    "blob": "a5e2eaf4fe83ad9350f38aad8eb1de0ef5182918",
+                    "bytes": 13412,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/components/containers.md",
+                    "blob": "4583e6d50c665d3c4eef3a8cfd1cacbc6b904b62",
+                    "bytes": 7593,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/components/inputs.md",
+                    "blob": "a92edfa4766a6c50293b14f2f40fe070ad6471be",
+                    "bytes": 10288,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/components/text-display.md",
+                    "blob": "796752e5eccf5b2ad49ee6edd5bb7c017e697942",
+                    "bytes": 7259,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/core/REFERENCE.md",
+                    "blob": "2b864813b41fbac7fca2c3511cab2c709ee31d77",
+                    "bytes": 4334,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/core/api.md",
+                    "blob": "cfd8a5523a17431d975a788036e19ad18c108a20",
+                    "bytes": 14485,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/core/configuration.md",
+                    "blob": "cc17ad1937487e297face96c938bb7634bf80a1a",
+                    "bytes": 4636,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/core/gotchas.md",
+                    "blob": "9cdc0224894748e31d52418db23de9b6e4b39b0c",
+                    "bytes": 7789,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/core/patterns.md",
+                    "blob": "5186a9dfdd44f2f0c80eae94a3665cdfab8c45c0",
+                    "bytes": 8769,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/keyboard/REFERENCE.md",
+                    "blob": "afad64b9e57338d49f8187a96be67a14119631c1",
+                    "bytes": 14145,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/layout/REFERENCE.md",
+                    "blob": "c84255fa3daea6a3cf835776afc4abb4a40c3003",
+                    "bytes": 6173,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/layout/patterns.md",
+                    "blob": "69bdc54f4a89ef35028f97fd7ee93fb17e00e146",
+                    "bytes": 8422,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/react/REFERENCE.md",
+                    "blob": "cc6eda92084a9fa0e570941b4bab995db9d0cfc0",
+                    "bytes": 4504,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/react/api.md",
+                    "blob": "a26cd7122e04d26d3fda60617f5b1860f56981fd",
+                    "bytes": 8864,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/react/configuration.md",
+                    "blob": "f78f55d9f8f51497b4487ed6feb2e05153254092",
+                    "bytes": 5980,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/react/gotchas.md",
+                    "blob": "0cd554cbb67217ed40f727774b2cf2f4f7385239",
+                    "bytes": 8432,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/react/patterns.md",
+                    "blob": "eb71578f72ba24f8e71121a0e66d77e985c18ad1",
+                    "bytes": 9854,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/solid/REFERENCE.md",
+                    "blob": "3f4763e1db676ff51b051cf4cc99a2767e0215d0",
+                    "bytes": 5161,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/solid/api.md",
+                    "blob": "9ad55cc2b50d70334c940a4fffd8a3ebc3421050",
+                    "bytes": 10934,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/solid/configuration.md",
+                    "blob": "ec0412a855a98ebe7f20fea31f8b870e4b870828",
+                    "bytes": 5840,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/solid/gotchas.md",
+                    "blob": "7ff579a16e0b723ec7e293bee1f8ee35bb30935f",
+                    "bytes": 8010,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/solid/patterns.md",
+                    "blob": "ceb4996d68a96147f43c35c32eb0c451d8d6f0c0",
+                    "bytes": 11104,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/testing/REFERENCE.md",
+                    "blob": "c025fb5b114d4dd5c482b97db267e8c9c057f255",
+                    "bytes": 12763,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 7799382,
+                        "login": "saoudrizwan",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "publish-cli-f1d10efe0bb3",
+            "path": ".cline/skills/publish-cli/SKILL.md",
+            "name": "publish-cli",
+            "description": "Use when preparing, tagging, and publishing an apps/cli npm release. Guides changelog drafting, apps/cli/package.json version bumps, cli-vX.Y.Z tags, local npm publishing, and the publish-cli GitHub workflow.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "8d17597d09bf9afa6055c68d7f93c22363a076d2",
+                    "bytes": 13358,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 7799382,
+                        "login": "saoudrizwan",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "publish-desktop-3b7e6c7ed1f1",
+            "path": ".cline/skills/publish-desktop/SKILL.md",
+            "name": "publish-desktop",
+            "description": "Use when preparing, tagging, and publishing a Cline desktop app (apps/examples/desktop-app) release — stable (desktop-vX.Y.Z from main) or beta (desktop-vX.Y.Z-beta.N from desktop-experimental, shipped as the side-by-side \"Cline Beta\" app). Guides changelog drafting, version bumps in package.json + tauri.conf.json, tagging, and the desktop-publish GitHub workflow that builds, signs, notarizes, and updates the per-channel auto-update feed.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "1eb33176a30f4667ca37c19f016b0e13939e04b3",
+                    "bytes": 13500,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 7799382,
+                        "login": "saoudrizwan",
+                        "commits": 6
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "publish-extension-ffcfabe67f8e",
+            "path": ".cline/skills/publish-extension/SKILL.md",
+            "name": "publish-extension",
+            "description": "Use when releasing the Cline VS Code extension — stable (standalone SDK build of main via ext-vscode-publish-stable), nightly (ext-vscode-publish-nightly, manual dispatch), or an emergency legacy-branch hotfix (ext-vscode-publish-legacy). Guides version selection, changelog, workflow dispatch, environment approvals, tagging, post-publish verification, and the remaining retirement of the finished A/B rollout machinery.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "9dff260a3dfd5d09963bcbfcc3de8eaa6f92bdc9",
+                    "bytes": 15442,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 7799382,
+                        "login": "saoudrizwan",
+                        "commits": 6
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "publish-ui-96efc74a0d9d",
+            "path": ".cline/skills/publish-ui/SKILL.md",
+            "name": "publish-ui",
+            "description": "Prepare, validate, and publish standalone @cline/ui npm releases. Use when bumping the UI package version, publishing latest or next through ui-publish.yml, checking UI release readiness, or completing the one-time npm trusted-publishing bootstrap.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "adfa41f393273ebe74bdce321e35a628c0525feb",
+                    "bytes": 5463,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "e58425a030bfec8ab9ce226770f43c095dc83367",
+                    "bytes": 192,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 7799382,
+                        "login": "saoudrizwan",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "tuistory-55a65d83ae26",
+            "path": ".cline/skills/tuistory/SKILL.md",
+            "name": "tuistory",
+            "description": "Drive and test terminal apps (especially the Cline CLI TUI in apps/cli) through tuistory — named background PTY sessions that agents can read, wait on, snapshot, screenshot, and type into. Like Playwright/tmux for terminals, with reactive waiting instead of blind `sleep`.\n\nUse this skill when you need to:\n- Manually test or reproduce bugs in the interactive Cline TUI (`bun run cli -i`) from a headless environment\n- Run a dev server or any long-lived/interactive process in the background without hanging your tool call\n- Write or extend Playwright-style e2e tests for the TUI (`bun run test:e2e:tuistory` in apps/cli)\n- Capture text snapshots or styled PNG screenshots of a TUI screen as evidence\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "31eea9ca0c22cb5c67cf3ee7aaf792613e85bb9c",
+                    "bytes": 5647,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 7799382,
+                        "login": "saoudrizwan",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "91ee441ff7908c8d709e55385b8be862db86b9e4",
+        "bytes": 5279,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "05ae14a377caf4df24e26edde0c4f7b22ef3ef30",
+        "bytes": 11344,
+        "text": true,
+        "mode": "100644"
+    }
+}

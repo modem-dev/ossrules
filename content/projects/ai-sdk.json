@@ -1,0 +1,118 @@
+{
+    "slug": "ai-sdk",
+    "name": "AI SDK",
+    "owner": "vercel",
+    "repo": "ai",
+    "tagline": "A TypeScript toolkit for building AI applications across model providers and UI frameworks.",
+    "language": "TypeScript",
+    "stars": 26760,
+    "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "602348dc10036b6968fbabc6cba5a1e3826c700f",
+        "date": "2026-08-24T22:26:26Z"
+    },
+    "evaluatedAt": "2026-09-15",
+    "file": {
+        "bytes": 13420,
+        "lines": 320,
+        "words": 1592,
+        "headings": 37,
+        "bullets": 45,
+        "codeBlocks": 12,
+        "docLinks": 1
+    },
+    "references": [
+        {
+            "path": "contributing/decisions/README.md"
+        },
+        {
+            "path": "contributing/project-philosophies.md"
+        },
+        {
+            "path": "architecture/provider-abstraction.md"
+        },
+        {
+            "path": "contributing/add-new-provider.md"
+        },
+        {
+            "path": "contributing/add-new-model.md"
+        },
+        {
+            "path": "contributing/testing.md"
+        },
+        {
+            "path": "contributing/provider-architecture.md"
+        },
+        {
+            "path": "contributing/building-new-features.md"
+        },
+        {
+            "path": "contributing/codemods.md"
+        },
+        {
+            "path": "contributing/decisions/",
+            "kind": "pattern",
+            "label": "Accepted decisions relevant to the change"
+        },
+        {
+            "path": "contributing/secure-url-handling.md"
+        }
+    ],
+    "hook": "Provider options and responses have different schema rules; fetched response URLs require an explicit validation decision.",
+    "summary": "The AI SDK guide combines provider architecture with security-sensitive implementation rules and task-specific completion checklists. It routes architectural decisions and contributor workflows into separate documents while keeping common checks and examples in the root guide.",
+    "patterns": ["hard-prohibition", "skill-routing", "verification-matrix"],
+    "techniques": [
+        {
+            "title": "Give requests and responses different schema policies",
+            "body": "User-facing options should be restrictive and optional unless null has meaning. Provider responses instead use nullish fields and minimal schemas so upstream API changes can be tolerated.",
+            "quote": "**Provider Options Schemas** (user-facing):\n\n- Use `.optional()` unless `null` is meaningful\n- Be as restrictive as possible for future flexibility\n\n**Response Schemas** (API responses):\n\n- Use `.nullish()` instead of `.optional()`\n- Keep minimal - only include properties you need\n- Allow flexibility for provider API changes"
+        },
+        {
+            "title": "Make URL validation explicit at each fetch",
+            "body": "Every getFromApi call must specify validateUrl, with different values for provider-returned URLs and configured base URLs. The rule also names credentialedOrigin to prevent credentials following an off-origin response.",
+            "quote": "- Every `getFromApi` call in this repository must set `validateUrl` explicitly\n  (the option is optional for backwards compatibility with external callers, but\n  omitting it skips validation — never rely on that; the\n  `ai-sdk/require-validate-url` oxlint rule fails `pnpm check` otherwise). Use\n  `true` when the URL comes from a provider response body (image/audio/video\n  download or a polling URL); use `false` only for URLs built from a configured\n  `baseURL`.\n- Pass `credentialedOrigin` when a response URL may legitimately carry the API\n  key on its first hop, so credentials are withheld off-origin.\n- See [contributing/secure-url-handling.md](contributing/secure-url-handling.md).",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Consult accepted decisions before changing architecture",
+            "body": "The guide routes new dependencies, API design, patterns, and infrastructure through the ADR index. Contradicting an accepted decision triggers discussion before implementation.",
+            "quote": "This repo uses ADRs in `contributing/decisions/` to capture important architecture decisions. Before making changes that touch architecture (new dependencies, new patterns, API design, infrastructure), check existing ADRs:\n\n1. Read `contributing/decisions/README.md` for the index of decisions.\n2. Read any accepted ADRs relevant to your area of work. Follow the decisions and implementation patterns they specify.\n3. If you encounter a pattern in the code and wonder \"why is it done this way?\", check whether an ADR explains it.\n4. If your work would contradict an existing accepted ADR, stop and discuss with the human before proceeding.",
+            "pattern": "skill-routing"
+        },
+        {
+            "title": "Use approved JSON parsing utilities",
+            "body": "Production code must use parseJSON or safeParseJSON from provider-utils instead of JSON.parse directly. The prohibition identifies the shared replacement and gives security as its rationale.",
+            "quote": "Never use `JSON.parse` directly in production code to prevent security risks.\nInstead use `parseJSON` or `safeParseJSON` from `@ai-sdk/provider-utils`.",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Define completion artifacts by task type",
+            "body": "Bug fixes call for a reproduction, regression tests, implementation, manual verification, and a changeset. New features and internal refactors have separate lists, with explicit room to adjust for scope and visibility.",
+            "quote": "A complete bug fix typically includes:\n\n1. **Reproduction example**: Create/update an example in `examples/` that demonstrates the bug before fixing\n2. **Unit tests**: Add tests that would fail without the fix (regression tests)\n3. **Implementation**: Fix the bug\n4. **Manual verification**: Run the reproduction example to confirm the fix\n5. **Changeset**: Describe what was broken and how it's fixed",
+            "pattern": "verification-matrix"
+        }
+    ],
+    "steal": [
+        "Separate user-input schema policy from upstream-response tolerance.",
+        "Make URL validation and credential forwarding explicit at each network boundary.",
+        "Check recorded architecture decisions before introducing new patterns.",
+        "Define completion artifacts by task type and visibility."
+    ],
+    "outline": [
+        "Project Overview",
+        "Repository Structure",
+        "Development Setup",
+        "Development Commands",
+        "Core APIs",
+        "Import Patterns",
+        "Coding Standards",
+        "Error Pattern",
+        "Architecture Decision Records (ADRs)",
+        "Project Philosophies",
+        "Architecture",
+        "Contributing Guides",
+        "Changesets",
+        "Task Completion Guidelines",
+        "Do Not"
+    ]
+}

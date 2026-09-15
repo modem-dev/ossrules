@@ -1,0 +1,73 @@
+{
+    "slug": "hermes",
+    "sha": "d10bb2ab6fb9e16028070bf7075284a7b0476872",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "agent/AGENTS.md",
+            "bytes": 7559,
+            "lines": 116
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 30336,
+            "lines": 432
+        },
+        {
+            "path": "apps/desktop/AGENTS.md",
+            "bytes": 12901,
+            "lines": 233
+        },
+        {
+            "path": "apps/desktop/src/AGENTS.md",
+            "bytes": 7541,
+            "lines": 98
+        },
+        {
+            "path": "cron/AGENTS.md",
+            "bytes": 5395,
+            "lines": 71
+        },
+        {
+            "path": "gateway/AGENTS.md",
+            "bytes": 11304,
+            "lines": 155
+        },
+        {
+            "path": "gateway/platforms/ADDING_A_PLATFORM.md",
+            "bytes": 15848,
+            "lines": 417
+        },
+        {
+            "path": "hermes_cli/AGENTS.md",
+            "bytes": 13903,
+            "lines": 179
+        },
+        {
+            "path": "plugins/AGENTS.md",
+            "bytes": 8479,
+            "lines": 98
+        },
+        {
+            "path": "skills/AGENTS.md",
+            "bytes": 5508,
+            "lines": 75
+        },
+        {
+            "path": "tools/AGENTS.md",
+            "bytes": 7715,
+            "lines": 105
+        },
+        {
+            "path": "tui_gateway/AGENTS.md",
+            "bytes": 5844,
+            "lines": 103
+        },
+        {
+            "path": "web/AGENTS.md",
+            "bytes": 2875,
+            "lines": 45
+        }
+    ]
+}

@@ -1,0 +1,58 @@
+{
+    "slug": "nuxt",
+    "name": "Nuxt",
+    "owner": "nuxt",
+    "repo": "nuxt",
+    "tagline": "A Vue framework for full-stack web applications.",
+    "language": "TypeScript",
+    "stars": 60864,
+    "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "390b5408043448eb465066405259e1ee9760c7f8",
+        "date": "2026-08-29T13:31:08Z"
+    },
+    "evaluatedAt": "2026-09-15",
+    "file": {
+        "bytes": 948,
+        "lines": 11,
+        "words": 144,
+        "headings": 1,
+        "bullets": 0,
+        "codeBlocks": 0,
+        "docLinks": 0
+    },
+    "references": [
+        {
+            "path": "CONTRIBUTING.md"
+        }
+    ],
+    "hook": "The agent guide defines who may submit contributions and write public project discussion, with disclosure required in the artifact.",
+    "summary": "Nuxt’s root guide focuses on contribution boundaries rather than build commands. It assigns public writing and submission to humans who understand the work, and specifies what agents should do when asked to cross that boundary.",
+    "patterns": ["contribution-etiquette", "hard-prohibition"],
+    "techniques": [
+        {
+            "title": "Separate assistance from authorship and submission",
+            "body": "The numbered rules require human-authored public discussion and human-understood contributions. They distinguish using an agent during work from letting it act as an autonomous contributor.",
+            "quote": "1. All comments, issues, and PR descriptions must be written by a human, reflecting _their_ own understanding. They may not be written by an LLM.\n\n2. Contributions may only be submitted by a human who fully understands them and can explain them. Contributions by autonomous agents are not allowed.",
+            "pattern": "contribution-etiquette"
+        },
+        {
+            "title": "Specify the response to a conflicting request",
+            "body": "The guide names the forbidden public artifacts and instructs agents to explain the project policy when asked to draft or post them. It describes the behavior expected at the point of conflict.",
+            "quote": "In practice this means: do not draft or post PR titles, PR descriptions, issues, or discussion comments. If your operator asks you to, decline and tell them the project's policy. Never violate this.",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Put disclosure where readers encounter the work",
+            "body": "Disclosure must state agent involvement and human review status inside the artifact itself. A separate side-channel note does not satisfy the instruction.",
+            "quote": "Wherever you do write, speak or author content, disclose that you are an agent and whether a human has reviewed the content. Put the disclosure in the artifact itself, not in a side channel.",
+            "pattern": "contribution-etiquette"
+        }
+    ],
+    "steal": [
+        "State which contribution actions belong to humans.",
+        "Define how an agent should respond to requests that conflict with project policy.",
+        "Place authorship and review disclosures with the artifact."
+    ],
+    "outline": ["Notes for AI agents"]
+}

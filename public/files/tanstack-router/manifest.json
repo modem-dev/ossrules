@@ -1,0 +1,18 @@
+{
+    "slug": "tanstack-router",
+    "sha": "3dee5b2e9453d01a3172c73426959007b290b3fc",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 8478,
+            "lines": 181
+        },
+        {
+            "path": "CONTRIBUTING.md",
+            "bytes": 6924,
+            "lines": 152
+        }
+    ]
+}

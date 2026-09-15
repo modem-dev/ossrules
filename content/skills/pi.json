@@ -1,0 +1,90 @@
+{
+    "version": 1,
+    "slug": "pi",
+    "repository": "earendil-works/pi",
+    "branch": "main",
+    "sha": "8a7b0c03dfb702663acafb6dc29f8acaa4ffe391",
+    "scannedAt": "2026-09-15T14:33:20.996Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [
+        "packages/coding-agent/test/fixtures/skills-collision/first/calendar/SKILL.md",
+        "packages/coding-agent/test/fixtures/skills-collision/second/calendar/SKILL.md",
+        "packages/coding-agent/test/fixtures/skills/consecutive-hyphens/SKILL.md",
+        "packages/coding-agent/test/fixtures/skills/disable-model-invocation/SKILL.md",
+        "packages/coding-agent/test/fixtures/skills/invalid-name-chars/SKILL.md",
+        "packages/coding-agent/test/fixtures/skills/invalid-yaml/SKILL.md",
+        "packages/coding-agent/test/fixtures/skills/long-name/SKILL.md",
+        "packages/coding-agent/test/fixtures/skills/missing-description/SKILL.md",
+        "packages/coding-agent/test/fixtures/skills/multiline-description/SKILL.md",
+        "packages/coding-agent/test/fixtures/skills/name-mismatch/SKILL.md",
+        "packages/coding-agent/test/fixtures/skills/nested/child-skill/SKILL.md",
+        "packages/coding-agent/test/fixtures/skills/no-frontmatter/SKILL.md",
+        "packages/coding-agent/test/fixtures/skills/root-skill-preferred/SKILL.md",
+        "packages/coding-agent/test/fixtures/skills/root-skill-preferred/nested-child/SKILL.md",
+        "packages/coding-agent/test/fixtures/skills/unknown-field/SKILL.md",
+        "packages/coding-agent/test/fixtures/skills/valid-skill/SKILL.md"
+    ],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "dynamic-resources-86472198dd46",
+            "path": "packages/coding-agent/examples/extensions/dynamic-resources/SKILL.md",
+            "name": "dynamic-resources",
+            "description": "Example skill loaded from resources_discover",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "66162e151b3cbee02254556851abeeac739dba59",
+                    "bytes": 177,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "dynamic.json",
+                    "blob": "c2ba5539616095205681dbf9e83c6b38fa135802",
+                    "bytes": 2091,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "dynamic.md",
+                    "blob": "da85f71c92ac404a1a6c72809c57d31eb7f40e2d",
+                    "bytes": 160,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "index.ts",
+                    "blob": "2f89f93e30676c01448533c4404e05780146e060",
+                    "bytes": 457,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 514052,
+                        "login": "badlogic",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "768db3686b5dda3231e09821d5fd2cc072e41454",
+        "bytes": 8277,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "b0a8e9b81083294360c69b4ec45d3d39a2b28197",
+        "bytes": 1069,
+        "text": true,
+        "mode": "100644"
+    }
+}

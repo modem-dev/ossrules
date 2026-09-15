@@ -1,0 +1,12 @@
+{
+    "version": 1,
+    "slug": "humanlayer",
+    "repository": "humanlayer/humanlayer",
+    "branch": "main",
+    "sha": "99abe673498cf8bdcd5f989aebe9406a27185b3b",
+    "scannedAt": "2026-09-15T14:31:40.653Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": []
+}

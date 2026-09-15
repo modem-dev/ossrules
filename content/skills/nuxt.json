@@ -1,0 +1,12 @@
+{
+    "version": 1,
+    "slug": "nuxt",
+    "repository": "nuxt/nuxt",
+    "branch": "main",
+    "sha": "e0259454fab7999601c15d8ccc321017d5298a38",
+    "scannedAt": "2026-09-15T14:31:43.357Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": []
+}

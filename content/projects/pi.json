@@ -1,0 +1,91 @@
+{
+    "slug": "pi",
+    "name": "Pi",
+    "owner": "earendil-works",
+    "repo": "pi",
+    "tagline": "An extensible coding agent and toolkit for terminal interfaces and language-model integrations.",
+    "language": "TypeScript",
+    "stars": 105498,
+    "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "be26e32704f7cab048e2b356206350ef7ad65999",
+        "date": "2026-09-09T08:44:24Z"
+    },
+    "evaluatedAt": "2026-09-15",
+    "file": {
+        "bytes": 8277,
+        "lines": 124,
+        "words": 1171,
+        "headings": 11,
+        "bullets": 58,
+        "codeBlocks": 0,
+        "docLinks": 2
+    },
+    "references": [
+        {
+            "path": "CONTRIBUTING.md"
+        },
+        {
+            "path": "packages/*/CHANGELOG.md",
+            "kind": "pattern",
+            "label": "Per-package changelogs"
+        },
+        {
+            "path": ".pi/skills/interactive-testing.md"
+        },
+        {
+            "path": ".pi/skills/release.md"
+        }
+    ],
+    "hook": "Shared-checkout Git rules protect other sessions, while model-catalog generation and test isolation get explicit exceptions.",
+    "summary": "Pi’s development rules combine concise technical communication with safeguards for multiple agent sessions working in one checkout. The file names authoritative generated-code inputs, separates safe tests from live-provider calls, and routes interactive testing and release work to focused guides.",
+    "patterns": ["hard-prohibition", "generated-file-guard", "skill-routing"],
+    "techniques": [
+        {
+            "title": "Protect other sessions through explicit Git boundaries",
+            "body": "The Git section explains why broad staging, resets, cleaning, and stashing can interfere with other sessions. It requires explicit file paths and checking staged ownership before committing.",
+            "quote": "Committing:\n\n- Only commit files YOU changed in THIS session.\n- Stage explicit paths (`git add <path1> <path2>`); never `git add -A` / `git add .`.\n- Before committing, run `git status` and verify you are only staging your files.\n- `packages/ai/src/models.generated.ts` may always be included alongside your files.\n- Message format: `{feat,fix,docs}[(ai,tui,agent,coding-agent)]: <commit message> (optionally multiple lines)`. Message is informative and concise.\n\nNever run (destroys other agents' work or bypasses checks):\n\n- `git reset --hard`, `git checkout .`, `git clean -fd`, `git stash`, `git add -A`, `git add .`, `git commit --no-verify`.",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Name the generator and permit its legitimate output",
+            "body": "The model catalog may not be edited directly. Its generator is the authority, and the rule explicitly permits generated metadata updates that accompany regeneration.",
+            "quote": "- Never modify `packages/ai/src/models.generated.ts` directly; update `packages/ai/scripts/generate-models.ts` instead, then regenerate. Including the resulting `models.generated.ts` diff is always OK, even if regeneration includes unrelated upstream model metadata changes.",
+            "pattern": "generated-file-guard"
+        },
+        {
+            "title": "Keep regression tests away from real providers",
+            "body": "The coding-agent suite uses its harness and a faux provider. The rule explicitly excludes real API credentials and paid tokens from that test path.",
+            "quote": "- For `packages/coding-agent/test/suite/`, use `test/suite/harness.ts` + the faux provider. No real provider APIs, keys, or paid tokens."
+        },
+        {
+            "title": "Separate dependency installation from lifecycle execution",
+            "body": "Dependency changes are reviewed as code, and install commands disable lifecycle scripts. New dependencies with lifecycle scripts need review and an explicit allowlist entry in the shrinkwrap generator.",
+            "quote": "- Hydrate/update locally with `npm install --ignore-scripts`; clean/CI-style with `npm ci --ignore-scripts`. Don't run lifecycle scripts unless the user asks.\n- If dep metadata changes, refresh `package-lock.json` with `npm install --package-lock-only --ignore-scripts`.\n- If `packages/coding-agent/npm-shrinkwrap.json` needs regen, run `node scripts/generate-coding-agent-shrinkwrap.mjs` (verify with `--check` or `npm run check`). New deps with lifecycle scripts require review and an explicit allowlist entry in that script; never add one silently."
+        },
+        {
+            "title": "Use task guides for interactive testing and releases",
+            "body": "The root rules link to separate guides for exercising the interactive agent and preparing or recovering releases. Those procedures are loaded when that work is requested.",
+            "quote": "For testing pi's interactive mode, load and follow [.pi/skills/interactive-testing.md](.pi/skills/interactive-testing.md).",
+            "pattern": "skill-routing"
+        }
+    ],
+    "steal": [
+        "Limit shared-checkout Git operations to explicitly owned paths.",
+        "Pair generated-file prohibitions with the generator and allowed output changes.",
+        "Use a fake provider for tests that should never consume live API tokens.",
+        "Review dependency lifecycle scripts separately from dependency installation."
+    ],
+    "outline": [
+        "Conversational Style",
+        "Code Quality",
+        "Commands",
+        "Dependency and Install Security",
+        "Git",
+        "Issues and PRs",
+        "Testing pi Interactive Mode with tmux",
+        "Changelog",
+        "Releasing",
+        "User Override"
+    ]
+}

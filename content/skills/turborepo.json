@@ -1,0 +1,232 @@
+{
+    "version": 1,
+    "slug": "turborepo",
+    "repository": "vercel/turborepo",
+    "branch": "main",
+    "sha": "064d74ad81dc335b03cd74df8bedcda744e27942",
+    "scannedAt": "2026-09-15T14:31:46.567Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "turborepo-f68acd0d508c",
+            "path": "skills/turborepo/SKILL.md",
+            "name": "turborepo",
+            "description": "Turborepo monorepo build system guidance. Triggers on: turbo.json, task pipelines,\ndependsOn, caching, remote cache, the \"turbo\" CLI, --filter, --affected, CI optimization, environment\nvariables, internal packages, monorepo structure/best practices, and boundaries.\n\nUse when user: configures tasks/workflows/pipelines, creates packages, sets up\nmonorepo, shares code between apps, runs changed/affected packages, debugs cache,\nor has apps/packages directories.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "fdaaf6663b7d15e1a175ee8e44eb2adcce135ba0",
+                    "bytes": 28631,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "command/turborepo.md",
+                    "blob": "f167307651a8e119bf4dd309397459fcefac8486",
+                    "bytes": 2785,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/best-practices/RULE.md",
+                    "blob": "4870784d227957227916031991c803ac8abd08fc",
+                    "bytes": 4907,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/best-practices/dependencies.md",
+                    "blob": "90902e2970cb20a8a2149fb6f0865ad7af827aea",
+                    "bytes": 4255,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/best-practices/packages.md",
+                    "blob": "85cdf040e4460f4f9dae4e17195f37eb942923df",
+                    "bytes": 6289,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/best-practices/structure.md",
+                    "blob": "cf855af3b4454b41a734939f90a02ac17c381f78",
+                    "bytes": 6286,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/boundaries/RULE.md",
+                    "blob": "3867ebaddef5f53dc0cbaead8583bf0e0f1ed0e4",
+                    "bytes": 2589,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/caching/RULE.md",
+                    "blob": "5a85c17ea14827ce3d64beb15472ba873e31bb4c",
+                    "bytes": 4335,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/caching/gotchas.md",
+                    "blob": "5a0c17dec750fa6c2640e25873520b03a7522422",
+                    "bytes": 3942,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/caching/remote-cache.md",
+                    "blob": "be143c71d42c0edb77758608ef183d6c5f17d1d7",
+                    "bytes": 2672,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/ci/RULE.md",
+                    "blob": "8ea815f86752997c50b2b3e8241c4e495ba09f0e",
+                    "bytes": 2405,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/ci/github-actions.md",
+                    "blob": "848dd54926149db49f542628132d9a9fa64cdd18",
+                    "bytes": 4284,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/ci/patterns.md",
+                    "blob": "447509a14745be90a69c73df539f174ea9d85c82",
+                    "bytes": 2583,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/ci/vercel.md",
+                    "blob": "51cf44da0e66f08d407b0b5f1ce9fda08f6c9869",
+                    "bytes": 2409,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/cli/RULE.md",
+                    "blob": "63f6f34d7d06e22c96b945d51a7f63a8e37a14ec",
+                    "bytes": 2113,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/cli/commands.md",
+                    "blob": "25d70b1c23117539855b8c193be0cd201bc3bbc4",
+                    "bytes": 9142,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/configuration/RULE.md",
+                    "blob": "e03772449f7507c436922cb2fb99d39950ebd965",
+                    "bytes": 5178,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/configuration/global-options.md",
+                    "blob": "2c8181aaa28cbd2411036be9495f0e3c92796c0c",
+                    "bytes": 9158,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/configuration/gotchas.md",
+                    "blob": "3bd88ead4800526d39558a4b998ea8b4dd986f19",
+                    "bytes": 9318,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/configuration/tasks.md",
+                    "blob": "50c678c16abeeee3323cd3dc374ff69f50cf705e",
+                    "bytes": 8012,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/environment/RULE.md",
+                    "blob": "4ed0062fe696282f6f6a9ce7a4f1a1d6af89124d",
+                    "bytes": 2594,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/environment/gotchas.md",
+                    "blob": "2b62056c7e0ba62c3add9cfac3cae3ea523f70a9",
+                    "bytes": 4155,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/environment/modes.md",
+                    "blob": "dc351ef9dfb7282bcbdf7dc9395b80c22c46773f",
+                    "bytes": 2969,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/filtering/RULE.md",
+                    "blob": "31f30ff16c09cfdc2a7f28e7b5fe7c360789b604",
+                    "bytes": 4527,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/filtering/patterns.md",
+                    "blob": "f7308471c713a349178944b760e6b25dc5d18255",
+                    "bytes": 2546,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/watch/RULE.md",
+                    "blob": "873243954a0c09b8789a05266325448cda42d48b",
+                    "bytes": 2259,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 35677084,
+                        "login": "anthonyshew",
+                        "commits": 24
+                    },
+                    {
+                        "id": 7189823,
+                        "login": "charpeni",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "a7342472712cffa608668073aae9710084e8e2c5",
+        "bytes": 1025,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "71b5d4e341ba0b08e7dac6b4a4d1080698628627",
+        "bytes": 1055,
+        "text": true,
+        "mode": "100644"
+    }
+}

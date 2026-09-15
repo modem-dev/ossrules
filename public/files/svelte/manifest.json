@@ -1,0 +1,23 @@
+{
+    "slug": "svelte",
+    "sha": "656dae67808651fa6a7ca5f8446e28e3a4e76a62",
+    "license": "MIT",
+    "licensePath": "LICENSE.md",
+    "files": [
+        {
+            "path": ".github/PULL_REQUEST_TEMPLATE.md",
+            "bytes": 702,
+            "lines": 11
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 590,
+            "lines": 11
+        },
+        {
+            "path": "CONTRIBUTING.md",
+            "bytes": 10278,
+            "lines": 171
+        }
+    ]
+}

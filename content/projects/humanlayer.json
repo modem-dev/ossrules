@@ -1,0 +1,72 @@
+{
+    "slug": "humanlayer",
+    "name": "HumanLayer",
+    "owner": "humanlayer",
+    "repo": "humanlayer",
+    "tagline": "SDKs and local tools for human approval and oversight of AI agents.",
+    "language": "TypeScript",
+    "stars": 11539,
+    "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "6014ccf95edf71b2d0ba31bcd65a9297a3decb65",
+        "date": "2025-09-30T02:01:03Z"
+    },
+    "evaluatedAt": "2026-09-15",
+    "file": {
+        "bytes": 3176,
+        "lines": 88,
+        "words": 449,
+        "headings": 19,
+        "bullets": 35,
+        "codeBlocks": 2,
+        "docLinks": 0
+    },
+    "references": [
+        {
+            "path": "CONTRIBUTING.md"
+        },
+        {
+            "path": "docs/",
+            "kind": "pattern",
+            "label": "User-facing documentation"
+        }
+    ],
+    "hook": "A two-part monorepo map traces the approval flow and sends package-specific tool choices back to local manifests.",
+    "summary": "HumanLayer’s CLAUDE.md separates its SDK platform from the local tools that coordinate approvals and coding sessions. It combines a protocol-flow diagram with per-language guidance and a priority vocabulary for unfinished work.",
+    "patterns": ["architecture-narrative", "single-source", "house-vocabulary"],
+    "techniques": [
+        {
+            "title": "Show the approval path across processes",
+            "body": "An architecture diagram follows Claude Code through MCP, the CLI, the daemon, and the cloud API. It also shows where terminal and graphical approval interfaces join the flow.",
+            "quote": "### Architecture Flow\n```\nClaude Code → MCP Protocol → hlyr → JSON-RPC → hld → HumanLayer Cloud API\n                                         ↑         ↑\n                                    TUI ─┘         └─ WUI\n```",
+            "pattern": "architecture-narrative"
+        },
+        {
+            "title": "Read package-local tool choices",
+            "body": "The TypeScript guidance avoids assuming one package manager or test framework throughout the monorepo. It directs those choices to package.json scripts and dependencies.",
+            "quote": "### TypeScript Development\n- Package managers vary - check `package.json` for npm or bun\n- Build/test commands differ - check `package.json` scripts section\n- Some use Jest, others Vitest, check `package.json` devDependencies",
+            "pattern": "single-source"
+        },
+        {
+            "title": "Name what each TODO priority means",
+            "body": "The annotation vocabulary distinguishes critical blockers, architectural issues, feature gaps, polish, and open questions. The critical level explicitly means work must not merge.",
+            "quote": "We use a priority-based TODO annotation system throughout the codebase:\n\n- `TODO(0)`: Critical - never merge\n- `TODO(1)`: High - architectural flaws, major bugs\n- `TODO(2)`: Medium - minor bugs, missing features\n- `TODO(3)`: Low - polish, tests, documentation\n- `TODO(4)`: Questions/investigations needed\n- `PERF`: Performance optimization opportunities",
+            "pattern": "house-vocabulary"
+        }
+    ],
+    "steal": [
+        "Show how requests cross process and protocol boundaries.",
+        "Use package manifests as the authority when tools vary within a monorepo.",
+        "Define a shared priority vocabulary for TODOs."
+    ],
+    "outline": [
+        "Repository Overview",
+        "Project 1: HumanLayer SDK & Platform",
+        "Project 2: Local Tools Suite",
+        "Development Commands",
+        "Technical Guidelines",
+        "Development Conventions",
+        "Additional Resources"
+    ],
+    "instructionFile": "CLAUDE.md"
+}

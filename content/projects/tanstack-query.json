@@ -1,0 +1,52 @@
+{
+    "slug": "tanstack-query",
+    "name": "TanStack Query",
+    "owner": "TanStack",
+    "repo": "query",
+    "tagline": "Asynchronous state management and data fetching for web applications.",
+    "language": "TypeScript",
+    "stars": 50297,
+    "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "9f350003562437899c00443246df27a14d6ffa5e",
+        "date": "2026-08-25T05:18:51Z"
+    },
+    "evaluatedAt": "2026-09-15",
+    "file": {
+        "bytes": 456,
+        "lines": 10,
+        "words": 60,
+        "headings": 1,
+        "bullets": 0,
+        "codeBlocks": 0,
+        "docLinks": 1
+    },
+    "references": [
+        {
+            "path": "CONTRIBUTING.md"
+        }
+    ],
+    "hook": "Ten lines make contributor rules apply to AI-assisted work and require one topic per change.",
+    "summary": "TanStack Query’s AGENTS.md is a short contribution gate. It points to the existing contributor guide and asks for focused changes whose generated code has been understood and verified.",
+    "patterns": ["single-source", "behavioral-conditioning"],
+    "techniques": [
+        {
+            "title": "Apply one contributor contract to human and assisted work",
+            "body": "The file requires reading CONTRIBUTING.md before analysis or changes. It explicitly applies the same development, testing, pull-request, and changeset requirements to AI-assisted work.",
+            "quote": "Before analyzing or changing this repository, read and follow\n[`CONTRIBUTING.md`](./CONTRIBUTING.md). Its contribution, development, testing,\npull request, and changeset requirements apply to AI-assisted work as well as\nhuman-authored work.",
+            "pattern": "single-source"
+        },
+        {
+            "title": "Pair narrow scope with responsibility for generated code",
+            "body": "The final paragraph combines a one-topic change boundary with understanding and verifying generated code. It also directs the pull request description to the existing template.",
+            "quote": "Keep every change focused on one topic. Understand and verify all generated\ncode, run the required checks, and provide a concise pull request description\nthat follows the repository template.",
+            "pattern": "behavioral-conditioning"
+        }
+    ],
+    "steal": [
+        "Apply shared contribution requirements to AI-assisted changes explicitly.",
+        "Keep each change focused on one topic.",
+        "Require understanding and verification of generated code."
+    ],
+    "outline": ["Agent Instructions"]
+}

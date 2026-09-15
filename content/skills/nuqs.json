@@ -1,0 +1,57 @@
+{
+    "version": 1,
+    "slug": "nuqs",
+    "repository": "47ng/nuqs",
+    "branch": "next",
+    "sha": "63011ab82e643a66c1a7d77a69e585c2b8dd71d8",
+    "scannedAt": "2026-09-15T14:33:21.467Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [
+        {
+            "path": ".claude/skills/bundle-size-bake-off/SKILL.md",
+            "reason": "Symlink; inspect the upstream target."
+        }
+    ],
+    "skills": [
+        {
+            "id": "bundle-size-bake-off-a23cb96eb1ad",
+            "path": ".agents/skills/bundle-size-bake-off/SKILL.md",
+            "name": "bundle-size-bake-off",
+            "description": "Run a \"bake-off\" to reduce the bundle size impact of changes using subagents",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d9aec61f71867f6a63433353a645e8a08a7f886e",
+                    "bytes": 3763,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1174092,
+                        "login": "franky47",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "d04dad26b950f115eb35a979f88f58d6665a5a39",
+        "bytes": 4604,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "5d6c7316b68c64380913b0af0c5e54e65e00d9f5",
+        "bytes": 1098,
+        "text": true,
+        "mode": "100644"
+    }
+}

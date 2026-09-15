@@ -1,0 +1,63 @@
+{
+    "slug": "kernel",
+    "name": "Kernel",
+    "owner": "kernel",
+    "repo": "kernel-images",
+    "tagline": "Sandboxed browser infrastructure with APIs for browser control, recording, and process execution.",
+    "language": "Go",
+    "stars": 1059,
+    "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "18a37cae01fa85ca6f8076ea74c44c955a252386",
+        "date": "2026-06-16T17:24:30Z"
+    },
+    "evaluatedAt": "2026-09-15",
+    "file": {
+        "bytes": 4801,
+        "lines": 52,
+        "words": 652,
+        "headings": 6,
+        "bullets": 10,
+        "codeBlocks": 0,
+        "docLinks": 0
+    },
+    "references": [
+        {
+            "path": "server/README.md"
+        }
+    ],
+    "hook": "Cloud-browser gotchas explain why telemetry timestamps must use wall-clock time and events must pass through one publisher.",
+    "summary": "Kernel Images keeps its instructions focused on the cloud VM and container environment used to develop the browser server. Alongside setup and test commands, it records concrete failures in CDP routing, recorder lifecycle, image quotas, and telemetry delivery.",
+    "patterns": ["hard-prohibition", "verification-matrix"],
+    "techniques": [
+        {
+            "title": "Explain the clock behind event timestamps",
+            "body": "The guide connects clock choice to VM suspension: a monotonic clock can pause while a machine sleeps. It names the affected event field and the wall-clock source producers should use.",
+            "quote": "13. **`events.Event.Ts` must be wall-clock (`time.Now()`) captured at emit/observe — never a monotonic or source-derived clock.** On scale-to-zero VMs, `CLOCK_MONOTONIC` freezes during suspend, so any timestamp derived from it (notably the kmsg envelope timestamp behind OOM events) skews backward by the suspended duration. `publishLocked` already defaults a zero `Ts` to wall-clock at ingest, so the real hazard is a producer setting `Ts` to a *non-zero, non-wall-clock* value (exactly the envelope bug). HTTP-published events leave `Ts` unset and get stamped by the API handler at ingest; in-process producers that set `Ts` themselves (sysmon kmsg reader, cdpmonitor, etc.) must use `time.Now()`."
+        },
+        {
+            "title": "Route producers through the configuration boundary",
+            "body": "Telemetry producers must use TelemetrySession so customer category settings apply. The rule identifies both the bypass and the limited callers allowed to reach the underlying event stream.",
+            "quote": "12. **All telemetry producers must publish through `TelemetrySession`, never directly to the raw `EventStream`.** Producers take a `func(events.Event) (events.Envelope, bool)` callback wired to `telemetrySession.Publish` in `cmd/api/main.go`; this is what enforces category gating from `PUT /telemetry`. Publishing straight to `EventStream` bypasses the customer's telemetry config. The only legitimate `EventStream.Publish` callers are `TelemetrySession` itself and tests.",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Document the actual CDP routing behavior",
+            "body": "The proxy ignores the requested WebSocket path and forwards to the browser endpoint. The guide gives the target-attachment sequence required for page-level interaction.",
+            "quote": "3. **CDP proxy on port 9222 routes ALL WebSocket connections to the browser-level endpoint** (ignores request path). Use `Target.createTarget` + `Target.attachToTarget` with `flatten: true` for page-level interaction. Playwright/Puppeteer handle this automatically."
+        },
+        {
+            "title": "Tie tests to infrastructure prerequisites",
+            "body": "Unit tests exclude e2e, while end-to-end tests require Docker and prebuilt images. Naming the image variables makes the dependency explicit before a contributor diagnoses a test failure.",
+            "quote": "8. **E2e tests** use `testcontainers-go` and require Docker + pre-built images. Set `E2E_CHROMIUM_HEADFUL_IMAGE` and `E2E_CHROMIUM_HEADLESS_IMAGE` env vars to point to the correct image tags.",
+            "pattern": "verification-matrix"
+        }
+    ],
+    "steal": [
+        "Document runtime failures together with the condition that triggers them.",
+        "Name the shared boundary that enforces user configuration.",
+        "Separate fast local checks from tests that require infrastructure.",
+        "Specify clock semantics for timestamps produced by suspended systems."
+    ],
+    "outline": ["Cursor Cloud specific instructions"]
+}

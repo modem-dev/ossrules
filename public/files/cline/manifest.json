@@ -1,0 +1,33 @@
+{
+    "slug": "cline",
+    "sha": "359e771ab30b255a4df621a90ecf97638299f918",
+    "license": "Apache-2.0",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 5279,
+            "lines": 32
+        },
+        {
+            "path": "apps/cli/README.md",
+            "bytes": 16285,
+            "lines": 373
+        },
+        {
+            "path": "CONTRIBUTING.md",
+            "bytes": 8764,
+            "lines": 209
+        },
+        {
+            "path": "sdk/AGENTS.md",
+            "bytes": 5258,
+            "lines": 109
+        },
+        {
+            "path": "sdk/packages/llms/AGENTS.md",
+            "bytes": 1725,
+            "lines": 39
+        }
+    ]
+}

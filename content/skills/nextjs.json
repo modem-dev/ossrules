@@ -1,0 +1,1054 @@
+{
+    "version": 1,
+    "slug": "nextjs",
+    "repository": "vercel/next.js",
+    "branch": "canary",
+    "sha": "bfcf687f5ab6f1e0577573eb209476cef802f5d7",
+    "scannedAt": "2026-09-15T14:33:27.862Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "authoring-skills-11de8f14ad91",
+            "path": ".agents/skills/authoring-skills/SKILL.md",
+            "name": "authoring-skills",
+            "description": "How to create and maintain agent skills in .agents/skills/. Use when creating a new SKILL.md, writing skill descriptions, choosing frontmatter fields, or deciding what content belongs in a skill vs AGENTS.md. Covers the supported spec fields, description writing, naming conventions, and the relationship between always-loaded AGENTS.md and on-demand skills.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "761ebce27eaeb3a269adff758c1ae61210b2f634",
+                    "bytes": 4155,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 11064311,
+                        "login": "feedthejim",
+                        "commits": 1
+                    },
+                    {
+                        "id": 32973745,
+                        "login": "gaojude",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "backport-pr-74e594bc1068",
+            "path": ".agents/skills/backport-pr/SKILL.md",
+            "name": "backport-pr",
+            "description": "Backport a merged Next.js pull request from canary to a previous release branch such as next-16-2. Use when the user asks to backport, cherry-pick, or open a backport PR from a PR number to an older Next.js version. Covers finding the merged PR commit, creating a backport branch from the target release branch, cherry-picking from canary, validating, and opening the PR with the release branch as the base.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "316e58f075d7023f5e59310281e6f75382520e71",
+                    "bytes": 3329,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 180404,
+                        "login": "bgw",
+                        "commits": 1
+                    },
+                    {
+                        "id": 32973745,
+                        "login": "gaojude",
+                        "commits": 1
+                    },
+                    {
+                        "id": 6324199,
+                        "login": "timneutkens",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "create-pr-89a888a13d52",
+            "path": ".agents/skills/create-pr/SKILL.md",
+            "name": "create-pr",
+            "description": "Create Git branches, commits, pushes, and GitHub pull requests for Next.js. Use when the user asks to create a branch, commit current changes, open a PR or draft PR, publish a pull request, or recover from gh pr create / PR template issues. Covers .github/pull_request_template.md, --body formatting, codex/ branch names, and Codex app git directives.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "f1bb4a7c54f2e0f3e7e0931c2fff923d1ac2fab8",
+                    "bytes": 3774,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 180404,
+                        "login": "bgw",
+                        "commits": 1
+                    },
+                    {
+                        "id": 12292047,
+                        "login": "eps1lon",
+                        "commits": 1
+                    },
+                    {
+                        "id": 32973745,
+                        "login": "gaojude",
+                        "commits": 1
+                    },
+                    {
+                        "id": 6324199,
+                        "login": "timneutkens",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "dce-edge-d9eec02e9534",
+            "path": ".agents/skills/dce-edge/SKILL.md",
+            "name": "dce-edge",
+            "description": "DCE-safe require() patterns and edge runtime constraints. Use when writing conditional require() calls, guarding Node-only imports (node:stream etc.), or editing define-env-plugin.ts / app-render / stream-utils for edge builds. Covers if/else branching for webpack DCE, TypeScript definite assignment, the NEXT_RUNTIME vs real feature flag distinction, and forcing flags false for edge in define-env.ts.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "f28f3c37ceba4e04b1a2e240f6b94d08644d85cb",
+                    "bytes": 4104,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 11064311,
+                        "login": "feedthejim",
+                        "commits": 1
+                    },
+                    {
+                        "id": 32973745,
+                        "login": "gaojude",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "deploy-release-test-7036d453e9a8",
+            "path": ".agents/skills/deploy-release-test/SKILL.md",
+            "name": "deploy-release-test",
+            "description": "Validate a commit-specific Next.js preview package and manually trigger the entire Next.js deployment test suite through the test_e2e_deploy_release.yml GitHub Actions workflow. Use only when asked to run the full deploy test suite or this workflow specifically from an internal vercel/next.js PR branch. Do not use for focused deployment-test sanity checks; run the relevant tests locally with pnpm test-deploy instead. Covers resolving the latest branch SHA, waiting for vercel-packages, preserving default workflow inputs, dispatching the workflow, and verifying the run.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "8f8c4dac9f706b02d0d3c32426d72e4cc537c6f5",
+                    "bytes": 4962,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "fab4c390847d480e30919616ebc11d0a6daf66f3",
+                    "bytes": 253,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 121539073,
+                        "login": "mlekhi",
+                        "commits": 1
+                    },
+                    {
+                        "id": 6324199,
+                        "login": "timneutkens",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "flags-fa10c5a72d4c",
+            "path": ".agents/skills/flags/SKILL.md",
+            "name": "flags",
+            "description": "How to add or modify Next.js experimental feature flags end-to-end. Use when editing config-shared.ts, config-schema.ts, define-env-plugin.ts, next-server.ts, export/worker.ts, or module.compiled.js. Covers type declaration, zod schema, build-time injection, runtime env plumbing, and the decision between runtime env-var branching vs separate bundle variants.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "bf2e09d84a74353c66ceb2633e40de9a779218a9",
+                    "bytes": 2988,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 12292047,
+                        "login": "eps1lon",
+                        "commits": 2
+                    },
+                    {
+                        "id": 11064311,
+                        "login": "feedthejim",
+                        "commits": 1
+                    },
+                    {
+                        "id": 32973745,
+                        "login": "gaojude",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "gate-tests-99b4c048e787",
+            "path": ".agents/skills/gate-tests/SKILL.md",
+            "name": "gate-tests",
+            "description": "How to use the `@gate` / `@force-gate` test directives instead of `it.skip` or fake-green skip patterns. Use when a test is known-failing under some test-matrix dimension (dev mode, a bundler, an experimental flag like cacheComponents), when converting `if (isNextDev) return` guards or env-var `describe.skip` branches, when adding a condition to test/lib/gate/conditions.ts, or when keying a fixture's experimental flag on a __NEXT_TEST_AXIS letter. Covers directive choice, condition tiers, the test-axis fixture pattern, pitfalls, and verification commands.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7dca7fd88430c618a5636e37a75f58a6237d68a0",
+                    "bytes": 10807,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 3624098,
+                        "login": "acdlite",
+                        "commits": 1
+                    },
+                    {
+                        "id": 12292047,
+                        "login": "eps1lon",
+                        "commits": 1
+                    },
+                    {
+                        "id": 2716369,
+                        "login": "gnoff",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "gh-stack-1d5c52d9ab5c",
+            "path": ".agents/skills/gh-stack/SKILL.md",
+            "name": "gh-stack",
+            "description": "Manages stacked PRs and splits multi-part work into reviewable branches with gh-stack. Use for stack creation, viewing, edits, push, submit, sync, rebase, merge, or checkout; when asked to split or isolate work for review; whenever a user mentions a stack, branch layers, dependent PRs, or gh stack; or when a stack is checked out.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d3c8d9bb7210c5a9edf8e9cb0f48c1a19db69d3e",
+                    "bytes": 9315,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/commands.md",
+                    "blob": "48bfab12aafdfe5174215bcc8c7080225b41457e",
+                    "bytes": 9268,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/stack-design.md",
+                    "blob": "1479b34fd36bd340a230d315f82683017fa7e685",
+                    "bytes": 4210,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/troubleshooting.md",
+                    "blob": "fc97b41a905add958ac020a756892aeb4d9a232c",
+                    "bytes": 6712,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6324199,
+                        "login": "timneutkens",
+                        "commits": 2
+                    },
+                    {
+                        "id": 32973745,
+                        "login": "gaojude",
+                        "commits": 1
+                    },
+                    {
+                        "id": 39828164,
+                        "login": "sampoder",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "insight-error-page-3ea6a96450da",
+            "path": ".agents/skills/insight-error-page/SKILL.md",
+            "name": "insight-error-page",
+            "description": "Write or audit an insight-kind error page for the Next.js dev overlay. Use when creating a new `errors/<slug>.mdx` page, auditing an existing one, or checking that a page matches the framework fix cards. Covers page structure, title alignment, FixCard cards with Copy prompt button, code snippets, terminology verification against canonical docs, and Vercel technical writing style.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "fac3b8415be521f706e5795c4e260b27b5afee70",
+                    "bytes": 22132,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 66901228,
+                        "login": "aurorascharff",
+                        "commits": 5
+                    },
+                    {
+                        "id": 32973745,
+                        "login": "gaojude",
+                        "commits": 1
+                    },
+                    {
+                        "id": 2716369,
+                        "login": "gnoff",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "next-rspack-5478d01bf7f8",
+            "path": ".agents/skills/next-rspack/SKILL.md",
+            "name": "next-rspack",
+            "description": "Maintain @next/rspack-core and @next/rspack-binding packages. Use when editing rspack/package.json, rspack/crates/binding/Cargo.toml, rspack/rust-toolchain.toml, or packages/next-rspack/package.json. Covers upgrading @rspack/core npm version, rspack_* crate versions, Rust toolchain version, building and linking for local testing, and NEXT_RSPACK environment variable usage. Does NOT apply to root rust-toolchain.toml (that's for Turbopack).\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d971d7fdc1f39fc4759c1d5b1f0b6c8a3da4f4df",
+                    "bytes": 8061,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 32973745,
+                        "login": "gaojude",
+                        "commits": 1
+                    },
+                    {
+                        "id": 19852293,
+                        "login": "SyMind",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "pr-status-triage-87d7df99b9f6",
+            "path": ".agents/skills/pr-status-triage/SKILL.md",
+            "name": "pr-status-triage",
+            "description": "Triage CI failures and PR review comments using scripts/pr-status.js. Use when investigating failing CI jobs, flaky tests, or PR review feedback. Covers blocker-first prioritization (build > lint > types > tests), CI env var matching for local reproduction, and the Known Flaky Tests distinction.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "db53bd4445660a72b8a43bd19a3270c101ddc9bf",
+                    "bytes": 2382,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "local-repro.md",
+                    "blob": "7594225d67180b73d77d5c3cb2daa0d121c62b49",
+                    "bytes": 1257,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "workflow.md",
+                    "blob": "6228352be2d72562adcf1e20620f3b79ebe25dab",
+                    "bytes": 1557,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1365881,
+                        "login": "sokra",
+                        "commits": 3
+                    },
+                    {
+                        "id": 11064311,
+                        "login": "feedthejim",
+                        "commits": 1
+                    },
+                    {
+                        "id": 32973745,
+                        "login": "gaojude",
+                        "commits": 1
+                    },
+                    {
+                        "id": 6324199,
+                        "login": "timneutkens",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "react-sync-e86fe020b42b",
+            "path": ".agents/skills/react-sync/SKILL.md",
+            "name": "react-sync",
+            "description": "Build local React changes in the bundle variants consumed by Next.js, sync them into a local Next.js checkout, and test the resulting integration. Use when working on React changes that need validation in Next.js, or when asked to run buildForNext, pnpm sync-react, or synchronize a React checkout with Next.js.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "164fda289a9fd38893cb83945434fd2c4d014817",
+                    "bytes": 1941,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/build-for-next.sh",
+                    "blob": "823c947f0f57d20e74aa9c35e1ad4cec5e0ec8c8",
+                    "bytes": 964,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6324199,
+                        "login": "timneutkens",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "react-vendoring-9b066003c00a",
+            "path": ".agents/skills/react-vendoring/SKILL.md",
+            "name": "react-vendoring",
+            "description": "React vendoring and react-server layer boundaries. Use when editing entry-base.ts, $$compiled.internal.d.ts, compiled/react* packages, or taskfile.js copy_vendor_react. Covers the entry-base.ts boundary (all react-server-dom-webpack/* imports must go through it), vendored React channels, type declarations, Turbopack remap to react-server-dom-turbopack, ComponentMod access patterns, and ESLint suppression for guarded requires.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b5d530cd975e31276cc9f4bba1c7924db7ff8984",
+                    "bytes": 3948,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 11064311,
+                        "login": "feedthejim",
+                        "commits": 1
+                    },
+                    {
+                        "id": 32973745,
+                        "login": "gaojude",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "router-act-dff3a7a75226",
+            "path": ".agents/skills/router-act/SKILL.md",
+            "name": "router-act",
+            "description": "How to write end-to-end tests using createRouterAct and LinkAccordion. Use when writing or modifying tests that need to control the timing of internal Next.js requests (like prefetches) or assert on their responses. Covers the act API, fixture patterns, prefetch control via LinkAccordion, fake clocks, and avoiding flaky testing patterns.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d09bea29a5a61124724d56b16dafead2d91b20cb",
+                    "bytes": 12561,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 3624098,
+                        "login": "acdlite",
+                        "commits": 2
+                    },
+                    {
+                        "id": 32973745,
+                        "login": "gaojude",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "runtime-debug-2a2a78147af1",
+            "path": ".agents/skills/runtime-debug/SKILL.md",
+            "name": "runtime-debug",
+            "description": "Debug and verification workflow for runtime-bundle and module-resolution regressions. Use when diagnosing unexpected module inclusions, bundle size regressions, or CI failures related to NEXT_SKIP_ISOLATE, nft.json traces, or runtime bundle selection (module.compiled.js). Covers CI env mirroring, full stack traces via __NEXT_SHOW_IGNORE_LISTED, route trace inspection, and webpack stats diffing.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "52361836c0314a09fe0b87fe7002e1412e2aba67",
+                    "bytes": 2469,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 11064311,
+                        "login": "feedthejim",
+                        "commits": 1
+                    },
+                    {
+                        "id": 32973745,
+                        "login": "gaojude",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "sandbox-bench-e628b229fe41",
+            "path": ".agents/skills/sandbox-bench/SKILL.md",
+            "name": "sandbox-bench",
+            "description": "Benchmark React or Next.js changes on Vercel Sandbox VMs with paired A/B statistics: react PR/commit vs base, or Next.js PR/commit vs base, measured end-to-end through the bench/render-pipeline app (rps, latency, p95; TTFB, RSS and document/Flight bytes when the Next side captures them) and, for React changes, through the react repo's flight-ssr-bench fixture (Node AND Edge web-streams paths, Fizz and Flight+Fizz). Use whenever the user asks to bench, perf test, or A/B a React PR, a react-server-dom / Flight / vendored React change, or a Next.js PR (\"is this PR faster\", \"does this regress RSC?\", \"measure the perf impact of <commit>\"), even if they don't say \"benchmark\" — any request to quantify a server-side performance difference between two revisions belongs here. Runs remotely (laptop-free), applies correctness gates before measuring, and reports boot-level confidence intervals.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "3aa7c4ac92305ce114c57e0dd80b3f70c96b12e3",
+                    "bytes": 16597,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/methodology.md",
+                    "blob": "a3c7052ab4f06560e439eeeeeb150e154f889576",
+                    "bytes": 5255,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/bench-analyze.mjs",
+                    "blob": "4140d0a51bacda3afcc49c292e6c056564ffea3b",
+                    "bytes": 2849,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/bench-collect.mjs",
+                    "blob": "086cfceeba5796cc757161ef568becd29728e8ed",
+                    "bytes": 4490,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/bench-common.mjs",
+                    "blob": "3fc2577896fd56b791486e4fd6e0fc88d09bad0b",
+                    "bytes": 25620,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/bench-db.mjs",
+                    "blob": "529d95f57a70ce6842481dec80ba5f2e7b88030e",
+                    "bytes": 17787,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/bench-stats.mjs",
+                    "blob": "300360c6afd73fcc6a2bc11a09d296e1f552dd01",
+                    "bytes": 8940,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/bench-status.mjs",
+                    "blob": "490c3d2d1a9b2ffe510c012644235095432884c3",
+                    "bytes": 3066,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/config.mjs",
+                    "blob": "3c9a7af2d7e5387c783ecf2d5bb2b797f485eb88",
+                    "bytes": 5521,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/sandbox-e2e.mjs",
+                    "blob": "e539b9961a528d5fd31395cd5d9225adaf411a8a",
+                    "bytes": 36724,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/sandbox-gate.mjs",
+                    "blob": "0c5183002deb3a52153a1c712f730a06d67c7621",
+                    "bytes": 12704,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/sandbox-ssr.mjs",
+                    "blob": "6e2cb03450c63a9859391aa32888c059c9145e40",
+                    "bytes": 21383,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/sandbox-sweep.mjs",
+                    "blob": "f32d531329aeecf15410bdf5f68e7dd4e8fa6f1a",
+                    "bytes": 3009,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 810438,
+                        "login": "gaearon",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "update-docs-65ee8c8e3322",
+            "path": ".agents/skills/update-docs/SKILL.md",
+            "name": "update-docs",
+            "description": "This skill should be used when the user asks to \"update documentation for my changes\", \"check docs for this PR\", \"what docs need updating\", \"sync docs with code\", \"scaffold docs for this feature\", \"document this feature\", \"review docs completeness\", \"add docs for this change\", \"what documentation is affected\", \"docs impact\", or mentions \"docs/\", \"docs/01-app\", \"docs/02-pages\", \"MDX\", \"documentation update\", \"API reference\", \".mdx files\". Provides guided workflow for updating Next.js documentation based on code changes.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "c4c5afea6e0a51168d9a6a9e8b340d2e41ab3b4b",
+                    "bytes": 7580,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/CODE-TO-DOCS-MAPPING.md",
+                    "blob": "46405a1d77b749a768d10702c1c4d1cf3e3d25eb",
+                    "bytes": 7694,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/DOC-CONVENTIONS.md",
+                    "blob": "8c0f4af81dbec4fdc5e80aaa2cec0c9123df68b2",
+                    "bytes": 5807,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 32464864,
+                        "login": "delbaoliveira",
+                        "commits": 1
+                    },
+                    {
+                        "id": 32973745,
+                        "login": "gaojude",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "v8-jit-293fb1eb3a64",
+            "path": ".agents/skills/v8-jit/SKILL.md",
+            "name": "v8-jit",
+            "description": "V8 JIT optimization patterns for writing high-performance JavaScript in Next.js server internals. Use when writing or reviewing hot-path code in app-render, stream-utils, routing, caching, or any per-request code path. Covers hidden classes / shapes, monomorphic call sites, inline caches, megamorphic deopt, closure allocation, array packing, and profiling with --trace-opt / --trace-deopt.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7d87c95d8211391417586f95144565a10c417c8f",
+                    "bytes": 14562,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 32973745,
+                        "login": "gaojude",
+                        "commits": 1
+                    },
+                    {
+                        "id": 6324199,
+                        "login": "timneutkens",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "write-api-reference-dc978aee3625",
+            "path": ".agents/skills/write-api-reference/SKILL.md",
+            "name": "write-api-reference",
+            "description": "Produces API reference documentation for Next.js APIs: functions, components, file conventions, directives, and config options.\n\n**Auto-activation:** User asks to write, create, or draft an API reference page. Also triggers on paths like `docs/01-app/03-api-reference/`, or keywords like \"API reference\", \"props\", \"parameters\", \"returns\", \"signature\".\n\n**Input sources:** Next.js source code, existing API reference pages, or user-provided specifications.\n\n**Output type:** A markdown (.mdx) API reference page with YAML frontmatter, usage example, reference section, behavior notes, and examples.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ee43c9eb4c910a505ee7b7401155e91849d361e4",
+                    "bytes": 8704,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 32464864,
+                        "login": "delbaoliveira",
+                        "commits": 1
+                    },
+                    {
+                        "id": 32973745,
+                        "login": "gaojude",
+                        "commits": 1
+                    },
+                    {
+                        "id": 21013447,
+                        "login": "icyJoseph",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "write-guide-7612580e6121",
+            "path": ".agents/skills/write-guide/SKILL.md",
+            "name": "write-guide",
+            "description": "Generates technical guides that teach real-world use cases through progressive examples.\n\n**Auto-activation:** User asks to write, create, or draft a guide or tutorial. Also use when converting feature documentation, API references, or skill knowledge into step-by-step learning content.\n\n**Input sources:** Feature skills, API documentation, existing code examples, or user-provided specifications.\n\n**Output type:** A markdown guide with YAML frontmatter, introduction, 2-4 progressive steps, and next steps section.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "789cc023b8b1fa4ced12beb6958b3a7428cd83ed",
+                    "bytes": 6357,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 32464864,
+                        "login": "delbaoliveira",
+                        "commits": 1
+                    },
+                    {
+                        "id": 32973745,
+                        "login": "gaojude",
+                        "commits": 1
+                    },
+                    {
+                        "id": 21013447,
+                        "login": "icyJoseph",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "next-cache-components-adoption-9e106802ef8a",
+            "path": "skills/next-cache-components-adoption/SKILL.md",
+            "name": "next-cache-components-adoption",
+            "description": "Turn on Cache Components in a Next.js app and resolve the blocking routes it surfaces. Use when the user wants to enable, adopt, or migrate to Cache Components, flip the `cacheComponents` flag, work through a flood of blocking-prerender / instant validation errors, run the `cache-components-instant-false` codemod, or decide between opting routes out with `export const instant = false` and fixing them in place.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "07ac8aa02305cdcaa9f3a802e7f4c470fde71c47",
+                    "bytes": 33554,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/dev-only-validations.md",
+                    "blob": "7c83fab2306005d4d890cb1be3270a75927c6687",
+                    "bytes": 3356,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/per-page-decisions.md",
+                    "blob": "4e57a733406c80965515afadc9beced0ed06cbc8",
+                    "bytes": 3911,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 66901228,
+                        "login": "aurorascharff",
+                        "commits": 15
+                    },
+                    {
+                        "id": 120007119,
+                        "login": "devjiwonchoi",
+                        "commits": 1
+                    },
+                    {
+                        "id": 32973745,
+                        "login": "gaojude",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "next-cache-components-optimizer-6b8f1059f8c9",
+            "path": "skills/next-cache-components-optimizer/SKILL.md",
+            "name": "next-cache-components-optimizer",
+            "description": "Drive a Next.js route to instant navigation by setting up an agentic loop, under Cache Components / PPR, on initial load (hard navigation) and client-side navigation (soft navigation). Encode the goal as a failing @next/playwright instant() e2e and work it to green, one verified route at a time; the shipped test then guards against regression. Use when asked to make a route's navigation instant (its static shell commits immediately), fix a route whose static shell isn't prerendered/served/prefetched, grow a route's static shell or fix its slow first paint, diagnose which Suspense boundary keeps a route out of its static shell, or write the instant() e2e guard for one. Requires Next.js 16.3+ with cacheComponents; directs an upgrade if older.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "a487db5cdefe5538ed1aa8a26b88aec2f2a32084",
+                    "bytes": 25280,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/patterns.md",
+                    "blob": "9ec0cc04555a10b60e318c29c6d012caa19e04fd",
+                    "bytes": 14756,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/real-app-patterns.md",
+                    "blob": "31fa2e04189de41260521fcd8cf8be2965fb5b01",
+                    "bytes": 6935,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/red-test-robustness.md",
+                    "blob": "bf106faaed9bf1780b77917fd460724ca95bebc3",
+                    "bytes": 10609,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rig-template.md",
+                    "blob": "e2a6ff42b33db9b6073b98e6ac3af20d8139f5c7",
+                    "bytes": 7520,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "test-template.md",
+                    "blob": "efd44447dd32645fa635403cc249704154b6b13f",
+                    "bytes": 8134,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 66901228,
+                        "login": "aurorascharff",
+                        "commits": 6
+                    },
+                    {
+                        "id": 32973745,
+                        "login": "gaojude",
+                        "commits": 2
+                    },
+                    {
+                        "id": 21013447,
+                        "login": "icyJoseph",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "next-dev-loop-1bb566619fb3",
+            "path": "skills/next-dev-loop/SKILL.md",
+            "name": "next-dev-loop",
+            "description": "Verify Next.js runtime behavior after editing app code. Use this skill to confirm a change actually works in a running app — not just that it compiles or type-checks. Combines /_next/mcp (Next.js's view) with agent-browser (the browser's view). Requires a running `next dev`.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d6973dff972214b73336cd7075dd0cb7a50647b5",
+                    "bytes": 8347,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 32973745,
+                        "login": "gaojude",
+                        "commits": 4
+                    },
+                    {
+                        "id": 66901228,
+                        "login": "aurorascharff",
+                        "commits": 3
+                    },
+                    {
+                        "id": 810438,
+                        "login": "gaearon",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "next-partial-prefetching-adoption-2682def05103",
+            "path": "skills/next-partial-prefetching-adoption/SKILL.md",
+            "name": "next-partial-prefetching-adoption",
+            "description": "Turn on Partial Prefetching in a Next.js app and work through the insights it surfaces. Use when the user wants to enable or adopt Partial Prefetching, flip the `partialPrefetching` flag, opt routes in with `export const prefetch = 'partial'`, audit `Link prefetch={true}` behavior, preserve existing prefetched UI with `instant()` tests, or resolve the instant-link-prefetch-partial and instant-shell-url-data insights.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "dcc2b5fb08973413a13d8676322473412ad9a6bd",
+                    "bytes": 27127,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rig-template.md",
+                    "blob": "647d19d3791654ebadd37f597a9c2a6d375b285c",
+                    "bytes": 7549,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 66901228,
+                        "login": "aurorascharff",
+                        "commits": 7
+                    },
+                    {
+                        "id": 32973745,
+                        "login": "gaojude",
+                        "commits": 1
+                    },
+                    {
+                        "id": 21013447,
+                        "login": "icyJoseph",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "next-partial-prefetching-optimizer-c42d919ba6ab",
+            "path": "skills/next-partial-prefetching-optimizer/SKILL.md",
+            "name": "next-partial-prefetching-optimizer",
+            "description": "Optimize what selected Next.js client navigations include before the click under Partial Prefetching. Use after Cache Components and Partial Prefetching are adopted when the user wants selected URL-specific UI to be instant, wants reusable content to wait for navigation, or needs to choose between default, viewport, and intent prefetching. Requires Next.js 16.3+.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "f33dbc67aa5b9af598a18ec7e2898472d4e83c8b",
+                    "bytes": 11432,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/red-test-robustness.md",
+                    "blob": "dc707d9b85c57151c526cf9add36ab3ec604cdeb",
+                    "bytes": 5996,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rig-template.md",
+                    "blob": "2f6ad9e6dbf3abbe8628f43a06a6858bd5e373db",
+                    "bytes": 7606,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 66901228,
+                        "login": "aurorascharff",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "1b82298679e633c9d5d1f6a35bd0cd3a32ecdd28",
+        "bytes": 30720,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "license.md",
+        "blob": "5948ee9bd0de5064423688a2967ab3111c2658ed",
+        "bytes": 1079,
+        "text": true,
+        "mode": "100644"
+    }
+}

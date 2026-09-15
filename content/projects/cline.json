@@ -1,0 +1,66 @@
+{
+    "slug": "cline",
+    "name": "Cline",
+    "owner": "cline",
+    "repo": "cline",
+    "tagline": "A coding agent available through a CLI, SDK, editor extension, and desktop app.",
+    "language": "TypeScript",
+    "stars": 68096,
+    "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "359e771ab30b255a4df621a90ecf97638299f918",
+        "date": "2026-07-24T02:26:10Z"
+    },
+    "evaluatedAt": "2026-09-15",
+    "file": {
+        "bytes": 5279,
+        "lines": 32,
+        "words": 723,
+        "headings": 6,
+        "bullets": 17,
+        "codeBlocks": 0,
+        "docLinks": 0
+    },
+    "references": [
+        {
+            "path": "apps/cli/README.md"
+        },
+        {
+            "path": "CONTRIBUTING.md"
+        }
+    ],
+    "hook": "CLI changes depend on rebuilt SDK output; the guide separates credential failures, test drift, and cloud-environment artifacts.",
+    "summary": "Cline’s cloud-agent guide covers the CLI alongside its editor extension and desktop application. It explains which processes launch automatically, which compiled packages need rebuilding, and which checks require a real GUI host.",
+    "patterns": ["single-source", "verification-matrix"],
+    "techniques": [
+        {
+            "title": "Explain the compiled boundary before running the CLI",
+            "body": "SDK exports resolve to dist rather than source. The guide warns that editing SDK code requires both rebuilding and restarting, so a stale process is not mistaken for a failed implementation.",
+            "quote": "- SDK packages (`@cline/shared|llms|agents|core|sdk`) resolve each other through compiled `dist/` (their `exports` point only at `dist/`, with no `development` source condition). You **must** run `bun run build:sdk` after changing SDK dependencies/source before running the CLI or SDK tests, otherwise imports fail with missing `@cline/*` / missing `dist/` errors. Running processes do **not** hot-reload SDK source changes — rebuild and restart.\\\n- Known cloud-env test artifact: `@cline/core` test `src/services/workspace/workspace-manifest.test.ts > readGitWorkspaceState > prefers origin and returns the current branch` fails because cloud VMs configure git `insteadOf` rules that rewrite GitHub remotes to `https://x-access-token:...@github.com/...`. This is an environment artifact, not a code bug.\n- Some `@cline/cli` e2e assertions (`bun -F @cline/cli test:e2e`) may fail on exact tool-listing string formats; treat as pre-existing test drift, not an environment problem."
+        },
+        {
+            "title": "Separate authentication from startup health",
+            "body": "The CLI launches its hub automatically, but a real agent turn still needs provider credentials. The guide describes the unauthenticated behavior and points to the CLI README for configuration.",
+            "quote": "- An actual agent turn requires an **LLM provider credential**. With no credentials the default `cline` provider fails fast with an `Unauthorized` error and the interactive TUI shows a provider sign-in screen. Configure via `cline auth` or provider env vars (e.g. `ANTHROPIC_API_KEY`, `CLINE_API_KEY`, `OPENROUTER_API_KEY`); see `apps/cli/README.md`.",
+            "pattern": "single-source"
+        },
+        {
+            "title": "Distinguish classes of test failures",
+            "body": "The file separately labels remote rewriting in cloud VMs and CLI output-format drift. These are specific explanations of recorded failures, rather than a general instruction to ignore failing tests.",
+            "quote": "- Known cloud-env test artifact: `@cline/core` test `src/services/workspace/workspace-manifest.test.ts > readGitWorkspaceState > prefers origin and returns the current branch` fails because cloud VMs configure git `insteadOf` rules that rewrite GitHub remotes to `https://x-access-token:...@github.com/...`. This is an environment artifact, not a code bug.\n- Some `@cline/cli` e2e assertions (`bun -F @cline/cli test:e2e`) may fail on exact tool-listing string formats; treat as pre-existing test drift, not an environment problem."
+        },
+        {
+            "title": "Identify which tests need an extension host",
+            "body": "The extension guide distinguishes unit tests from integration and end-to-end tests that launch a real VS Code host. It lists the build and generated-code prerequisites alongside those commands.",
+            "quote": "- **Test:** `bun run test:unit` (bun-based, ~984 tests, no VS Code host needed). `bun run test:integration` (`@vscode/test-electron`, downloads a VS Code build, runs under the GUI libs) and `bun run test:e2e` (Playwright) exercise a real extension host — heavier, and the GUI libs for them are already installed.\n- One-time deps (already installed, listed here in case they must be recreated): ripgrep via `bun run download-ripgrep`; VS Code test GUI libs per `CONTRIBUTING.md` (`libnss3`, `libatk*`, `libgbm1`, `xvfb`, etc.).",
+            "pattern": "verification-matrix"
+        }
+    ],
+    "steal": [
+        "Explain whether callers load source or compiled output.",
+        "Document missing-credential behavior separately from process startup.",
+        "Tie known test failures to specific causes and test names.",
+        "Distinguish unit checks from tests that require a GUI application."
+    ],
+    "outline": ["Cloud Agent Instructions"]
+}

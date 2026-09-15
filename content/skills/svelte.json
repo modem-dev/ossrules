@@ -1,0 +1,52 @@
+{
+    "version": 1,
+    "slug": "svelte",
+    "repository": "sveltejs/svelte",
+    "branch": "main",
+    "sha": "6eb720a1b7cafca3ebe0ab5c76674272cd3044f9",
+    "scannedAt": "2026-09-15T14:31:43.107Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "performance-investigation-286f2844dddb",
+            "path": ".agents/skills/performance-investigation/SKILL.md",
+            "name": "performance-investigation",
+            "description": "Investigate performance regressions and find opportunities for optimization",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "cbc5d81882a074bdb8b2e2116b02e644e6f770d5",
+                    "bytes": 2312,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1162160,
+                        "login": "Rich-Harris",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "7f143248aaff1ef2b811f206b0e6277a8e72a9b2",
+        "bytes": 590,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE.md",
+        "blob": "f872adf738de278e2345516eb1cea30d5451914e",
+        "bytes": 1126,
+        "text": true,
+        "mode": "100644"
+    }
+}

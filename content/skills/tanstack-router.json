@@ -1,0 +1,1225 @@
+{
+    "version": 1,
+    "slug": "tanstack-router",
+    "repository": "TanStack/router",
+    "branch": "main",
+    "sha": "8e164d28f9e9eb1a7301109230d7ece9817492a8",
+    "scannedAt": "2026-09-15T14:33:21.117Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "router-query-24c21d6a8080",
+            "path": "packages/react-router/skills/compositions/router-query/SKILL.md",
+            "name": "router-query",
+            "description": "Integrating TanStack Router with TanStack Query: queryClient in router context, ensureQueryData/prefetchQuery in loaders, useSuspenseQuery in components, defaultPreloadStaleTime: 0, setupRouterSsrQueryIntegration for SSR dehydration/hydration and streaming, per-request QueryClient isolation.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "9bda851b1c2cbbdcd24ef65bed0cd9cfb19ee4ab",
+                    "bytes": 12482,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5580297,
+                        "login": "tannerlinsley",
+                        "commits": 2
+                    },
+                    {
+                        "id": 1325721,
+                        "login": "Sheraff",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "migrate-from-react-router-751c3f78dfeb",
+            "path": "packages/react-router/skills/lifecycle/migrate-from-react-router/SKILL.md",
+            "name": "migrate-from-react-router",
+            "description": "Step-by-step migration from React Router v7 to TanStack Router: route definition conversion, Link/useNavigate API differences, useSearchParams to validateSearch + useSearch, useParams with from, Outlet replacement, loader conversion, code splitting differences.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "fdc4f4c4e5eb61ae6b76252801928f7416b40546",
+                    "bytes": 13314,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5580297,
+                        "login": "tannerlinsley",
+                        "commits": 2
+                    },
+                    {
+                        "id": 46527,
+                        "login": "robballou",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "react-router-95359a934051",
+            "path": "packages/react-router/skills/react-router/SKILL.md",
+            "name": "react-router",
+            "description": "React bindings for TanStack Router: RouterProvider, useRouter, useRouterState, useMatch, useMatches, useLocation, useSearch, useParams, useNavigate, useLoaderData, useLoaderDeps, useRouteContext, useBlocker, useCanGoBack, Link, Navigate, Outlet, CatchBoundary, ErrorComponent. React-specific patterns for hooks, providers, SSR hydration, and createLink with forwardRef.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ba628f70031821c7f0540cf37683f09efa623eed",
+                    "bytes": 12066,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1325721,
+                        "login": "Sheraff",
+                        "commits": 2
+                    },
+                    {
+                        "id": 5580297,
+                        "login": "tannerlinsley",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "migrate-from-nextjs-e7163225a77d",
+            "path": "packages/react-start/skills/lifecycle/migrate-from-nextjs/SKILL.md",
+            "name": "migrate-from-nextjs",
+            "description": "Step-by-step migration from Next.js App Router to TanStack Start: route definition conversion, API mapping, server function conversion from Server Actions, middleware conversion, data fetching pattern changes.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d59292bc4b1ea700fc7db2eb21e15a7bc1cacdac",
+                    "bytes": 11171,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5580297,
+                        "login": "tannerlinsley",
+                        "commits": 2
+                    },
+                    {
+                        "id": 6340397,
+                        "login": "schiller-manuel",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "react-start-78930e9b30ef",
+            "path": "packages/react-start/skills/react-start/SKILL.md",
+            "name": "react-start",
+            "description": "React bindings for TanStack Start: createStart, StartClient, StartServer, React-specific imports, re-exports from @tanstack/react-router, full project setup with React, useServerFn hook.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b0f69009e10bc0455fe2140bf0b8387e25f8ec10",
+                    "bytes": 8608,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "server-components/SKILL.md",
+                    "blob": "1d0b0b099faa3cf100610748c6fb6e8c370f66fe",
+                    "mode": "100644",
+                    "bytes": 6761,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "server-components/docs/architecture.md",
+                    "blob": "f416b832ad0f069bd1483dd5018b6852a321c759",
+                    "mode": "100644",
+                    "bytes": 3965,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "server-components/docs/caching-refresh-ssr.md",
+                    "blob": "6619f78942377f5a225457ce83b053d80df2b8be",
+                    "mode": "100644",
+                    "bytes": 4316,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "server-components/docs/composite-components.md",
+                    "blob": "738e07c632b52ef74d915ec18c83c8f7efbb62ba",
+                    "mode": "100644",
+                    "bytes": 3695,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "server-components/docs/current-api-notes.md",
+                    "blob": "ded96096daa42cb29d0b0162fa9581d3d627d738",
+                    "mode": "100644",
+                    "bytes": 2284,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "server-components/docs/debugging-review.md",
+                    "blob": "f6435747c15f799c7496250841393367bfff4ed8",
+                    "mode": "100644",
+                    "bytes": 4426,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "server-components/docs/sources.md",
+                    "blob": "3755c01f78b9688f3a185d19c6a346f114aba04b",
+                    "mode": "100644",
+                    "bytes": 1266,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "server-components/examples/01-renderable-route-loader.tsx",
+                    "blob": "eb4a308abb3c6eed790f111c0f02abb31efb24c4",
+                    "mode": "100644",
+                    "bytes": 807,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "server-components/examples/02-composite-slots.tsx",
+                    "blob": "0656abd40be6f5bc3da677bc4d2303113f4b9137",
+                    "mode": "100644",
+                    "bytes": 3208,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "server-components/examples/03-query-owned-rsc.tsx",
+                    "blob": "f22b481035f7491d2854c263386cf293836dde95",
+                    "mode": "100644",
+                    "bytes": 2532,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "server-components/examples/04-selective-ssr-data-only.tsx",
+                    "blob": "a068c3c00163dc9f7122133417ef96707a8f1772",
+                    "mode": "100644",
+                    "bytes": 1798,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "server-components/examples/05-ssr-false-browser-loader.tsx",
+                    "blob": "cfa50490b44b2f392c279607ca3c3719070b0fcb",
+                    "mode": "100644",
+                    "bytes": 1112,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "server-components/examples/06-low-level-flight-api-route.tsx",
+                    "blob": "17415d00a88f29771937ddef09f72496ffb8b7b2",
+                    "mode": "100644",
+                    "bytes": 1096,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5580297,
+                        "login": "tannerlinsley",
+                        "commits": 2
+                    },
+                    {
+                        "id": 108333654,
+                        "login": "CodingCossack",
+                        "commits": 1
+                    },
+                    {
+                        "id": 6340397,
+                        "login": "schiller-manuel",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "server-components-d7d71d38f99a",
+            "path": "packages/react-start/skills/react-start/server-components/SKILL.md",
+            "name": "server-components",
+            "description": "Implement, review, debug, and refactor TanStack Start React Server Components in React 19 apps. Use when tasks mention @tanstack/react-start/rsc, renderServerComponent, createCompositeComponent, CompositeComponent, renderToReadableStream, createFromReadableStream, createFromFetch, Composite Components, React Flight streams, loader or query owned RSC caching, router.invalidate, structuralSharing: false, selective SSR, stale names like renderRsc or .validator, or migration from Next App Router RSC patterns. Do not use for generic SSR or non-TanStack RSC frameworks except brief comparison.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "1d0b0b099faa3cf100610748c6fb6e8c370f66fe",
+                    "bytes": 6761,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/architecture.md",
+                    "blob": "f416b832ad0f069bd1483dd5018b6852a321c759",
+                    "bytes": 3965,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/caching-refresh-ssr.md",
+                    "blob": "6619f78942377f5a225457ce83b053d80df2b8be",
+                    "bytes": 4316,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/composite-components.md",
+                    "blob": "738e07c632b52ef74d915ec18c83c8f7efbb62ba",
+                    "bytes": 3695,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/current-api-notes.md",
+                    "blob": "ded96096daa42cb29d0b0162fa9581d3d627d738",
+                    "bytes": 2284,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/debugging-review.md",
+                    "blob": "f6435747c15f799c7496250841393367bfff4ed8",
+                    "bytes": 4426,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "docs/sources.md",
+                    "blob": "3755c01f78b9688f3a185d19c6a346f114aba04b",
+                    "bytes": 1266,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "examples/01-renderable-route-loader.tsx",
+                    "blob": "eb4a308abb3c6eed790f111c0f02abb31efb24c4",
+                    "bytes": 807,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "examples/02-composite-slots.tsx",
+                    "blob": "0656abd40be6f5bc3da677bc4d2303113f4b9137",
+                    "bytes": 3208,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "examples/03-query-owned-rsc.tsx",
+                    "blob": "f22b481035f7491d2854c263386cf293836dde95",
+                    "bytes": 2532,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "examples/04-selective-ssr-data-only.tsx",
+                    "blob": "a068c3c00163dc9f7122133417ef96707a8f1772",
+                    "bytes": 1798,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "examples/05-ssr-false-browser-loader.tsx",
+                    "blob": "cfa50490b44b2f392c279607ca3c3719070b0fcb",
+                    "bytes": 1112,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "examples/06-low-level-flight-api-route.tsx",
+                    "blob": "17415d00a88f29771937ddef09f72496ffb8b7b2",
+                    "bytes": 1096,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 108333654,
+                        "login": "CodingCossack",
+                        "commits": 1
+                    },
+                    {
+                        "id": 6340397,
+                        "login": "schiller-manuel",
+                        "commits": 1
+                    },
+                    {
+                        "id": 5580297,
+                        "login": "tannerlinsley",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "router-core-4ac15974c162",
+            "path": "packages/router-core/skills/router-core/SKILL.md",
+            "name": "router-core",
+            "description": "Framework-agnostic core concepts for TanStack Router: route trees, createRouter, createRoute, createRootRoute, createRootRouteWithContext, addChildren, Register type declaration, route matching, route sorting, file naming conventions. Entry point for all router skills.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "cadb8320371e9acb89ccf5e55d4e690f606528e9",
+                    "bytes": 6038,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "auth-and-guards/SKILL.md",
+                    "blob": "71a87a2a3e88140d9546f6059f9b543877b02661",
+                    "mode": "100644",
+                    "bytes": 15274,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "code-splitting/SKILL.md",
+                    "blob": "aac90981212048de0bd59dccaebb5db5aa2cb0fd",
+                    "mode": "100644",
+                    "bytes": 8943,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "data-loading/SKILL.md",
+                    "blob": "6a4364ff1f0aada5e1134b06c6d0ad4655463a00",
+                    "mode": "100644",
+                    "bytes": 14756,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "navigation/SKILL.md",
+                    "blob": "ba1f0fd2e6fb580db11a3ce63d77fbf1ba4221a1",
+                    "mode": "100644",
+                    "bytes": 10757,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "not-found-and-errors/SKILL.md",
+                    "blob": "45b231f41e259d97c9d3d4beba7f4ddcfe3b9f72",
+                    "mode": "100644",
+                    "bytes": 11537,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "path-params/SKILL.md",
+                    "blob": "b4819f04b520b0b23283ede16ac70c97b31a5f3b",
+                    "mode": "100644",
+                    "bytes": 9273,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "search-params/SKILL.md",
+                    "blob": "0960297d006db846aa85b4650d3fce3653bff277",
+                    "mode": "100644",
+                    "bytes": 9210,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "search-params/references/validation-patterns.md",
+                    "blob": "a0c72c7bd2125a56cc232799a771f41a94e1f0c2",
+                    "mode": "100644",
+                    "bytes": 9319,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "ssr/SKILL.md",
+                    "blob": "d1e0524f1395656194d8b179348530ac4eff0b43",
+                    "mode": "100644",
+                    "bytes": 13483,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "type-safety/SKILL.md",
+                    "blob": "ce9204677e9fd30d437275a7343d9e7a2becbf7a",
+                    "mode": "100644",
+                    "bytes": 15313,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5580297,
+                        "login": "tannerlinsley",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "auth-and-guards-34c101b8b899",
+            "path": "packages/router-core/skills/router-core/auth-and-guards/SKILL.md",
+            "name": "auth-and-guards",
+            "description": "Route protection with beforeLoad, redirect()/throw redirect(), isRedirect helper, authenticated layout routes (_authenticated), non-redirect auth (inline login), RBAC with roles and permissions, auth provider integration (Auth0, Clerk, Supabase), router context for auth state.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "71a87a2a3e88140d9546f6059f9b543877b02661",
+                    "bytes": 15274,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5580297,
+                        "login": "tannerlinsley",
+                        "commits": 4
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "code-splitting-9907e982ad5c",
+            "path": "packages/router-core/skills/router-core/code-splitting/SKILL.md",
+            "name": "code-splitting",
+            "description": "Automatic code splitting (autoCodeSplitting), .lazy.tsx convention, createLazyFileRoute, createLazyRoute, lazyRouteComponent, getRouteApi for typed hooks in split files, codeSplitGroupings per-route override, splitBehavior programmatic config, critical vs non-critical properties.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "aac90981212048de0bd59dccaebb5db5aa2cb0fd",
+                    "bytes": 8943,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5580297,
+                        "login": "tannerlinsley",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "data-loading-82fecb8ac177",
+            "path": "packages/router-core/skills/router-core/data-loading/SKILL.md",
+            "name": "data-loading",
+            "description": "Route loader option, loaderDeps for cache keys, staleTime/gcTime/ defaultPreloadStaleTime SWR caching, pendingComponent/pendingMs/ pendingMinMs, errorComponent/onError/onCatch, beforeLoad, router context and createRootRouteWithContext DI pattern, router.invalidate, Await component, deferred data loading with unawaited promises.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "6a4364ff1f0aada5e1134b06c6d0ad4655463a00",
+                    "bytes": 14756,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5580297,
+                        "login": "tannerlinsley",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "navigation-74ed75f91e39",
+            "path": "packages/router-core/skills/router-core/navigation/SKILL.md",
+            "name": "navigation",
+            "description": "Link component, useNavigate, Navigate component, router.navigate, ToOptions/NavigateOptions/LinkOptions, from/to relative navigation, activeOptions/activeProps, preloading (intent/viewport/render), preloadDelay, navigation blocking (useBlocker, Block), createLink, linkOptions helper, scroll restoration, MatchRoute.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ba1f0fd2e6fb580db11a3ce63d77fbf1ba4221a1",
+                    "bytes": 10757,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5580297,
+                        "login": "tannerlinsley",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "not-found-and-errors-fb7934ec4da0",
+            "path": "packages/router-core/skills/router-core/not-found-and-errors/SKILL.md",
+            "name": "not-found-and-errors",
+            "description": "notFound() function, notFoundComponent, defaultNotFoundComponent, notFoundMode (fuzzy/root), errorComponent, CatchBoundary, CatchNotFound, isNotFound, NotFoundRoute (deprecated), route masking (mask option, createRouteMask, unmaskOnReload).",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "45b231f41e259d97c9d3d4beba7f4ddcfe3b9f72",
+                    "bytes": 11537,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5580297,
+                        "login": "tannerlinsley",
+                        "commits": 2
+                    },
+                    {
+                        "id": 1325721,
+                        "login": "Sheraff",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "path-params-0ed46c9ecae0",
+            "path": "packages/router-core/skills/router-core/path-params/SKILL.md",
+            "name": "path-params",
+            "description": "Dynamic path segments ($paramName), splat routes ($ / _splat), optional params ({-$paramName}), prefix/suffix patterns ({$param}.ext), useParams, params.parse/stringify, pathParamsAllowedCharacters, i18n locale patterns.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b4819f04b520b0b23283ede16ac70c97b31a5f3b",
+                    "bytes": 9273,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5580297,
+                        "login": "tannerlinsley",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "search-params-7dc0acc02f3d",
+            "path": "packages/router-core/skills/router-core/search-params/SKILL.md",
+            "name": "search-params",
+            "description": "validateSearch, search param validation with Zod/Valibot/ArkType adapters, fallback(), search middlewares (retainSearchParams, stripSearchParams), custom serialization (parseSearch, stringifySearch), search param inheritance, loaderDeps for cache keys, reading and writing search params.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "0960297d006db846aa85b4650d3fce3653bff277",
+                    "bytes": 9210,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/validation-patterns.md",
+                    "blob": "a0c72c7bd2125a56cc232799a771f41a94e1f0c2",
+                    "bytes": 9319,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5580297,
+                        "login": "tannerlinsley",
+                        "commits": 2
+                    },
+                    {
+                        "id": 46527,
+                        "login": "robballou",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "ssr-ba05a60a740e",
+            "path": "packages/router-core/skills/router-core/ssr/SKILL.md",
+            "name": "ssr",
+            "description": "Non-streaming and streaming SSR, RouterClient/RouterServer, renderRouterToString/renderRouterToStream, createRequestHandler, defaultRenderHandler/defaultStreamHandler, HeadContent/Scripts components, head route option (meta/links/styles/scripts), ScriptOnce, automatic loader dehydration/hydration, memory history on server, data serialization, document head management.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d1e0524f1395656194d8b179348530ac4eff0b43",
+                    "bytes": 13483,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5580297,
+                        "login": "tannerlinsley",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "type-safety-a1a7d8275f0e",
+            "path": "packages/router-core/skills/router-core/type-safety/SKILL.md",
+            "name": "type-safety",
+            "description": "Full type inference philosophy (never cast, never annotate inferred values), Register module declaration, from narrowing on hooks and Link, strict:false for shared components, getRouteApi for code-split typed access, addChildren with object syntax for TS perf, LinkProps and ValidateLinkOptions type utilities, as const satisfies pattern.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ce9204677e9fd30d437275a7343d9e7a2becbf7a",
+                    "bytes": 15313,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5580297,
+                        "login": "tannerlinsley",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "router-plugin-e23ea5cffab3",
+            "path": "packages/router-plugin/skills/router-plugin/SKILL.md",
+            "name": "router-plugin",
+            "description": "TanStack Router bundler plugin for route generation and automatic code splitting. Supports Vite, Webpack, Rspack, and esbuild. Configures autoCodeSplitting, routesDirectory, target framework, and code split groupings.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "972584dc96346b1b7874951c53eaf2a7755ef12b",
+                    "bytes": 9025,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5580297,
+                        "login": "tannerlinsley",
+                        "commits": 2
+                    },
+                    {
+                        "id": 6340397,
+                        "login": "schiller-manuel",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "solid-router-3775101f3cf8",
+            "path": "packages/solid-router/skills/solid-router/SKILL.md",
+            "name": "solid-router",
+            "description": "Solid bindings for TanStack Router: RouterProvider, useRouter, useRouterState, useMatch, useMatches, useLocation, useSearch, useParams, useNavigate, useLoaderData, useLoaderDeps, useRouteContext, useBlocker, useCanGoBack, Link, Navigate, Outlet, CatchBoundary, ErrorComponent. Solid-specific patterns with Accessor<T> returns, createSignal/createMemo/createEffect, Show/Switch/Match/Dynamic, and @solidjs/meta for head management.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "0cfd22ad7302bc317936c5cc400ce2970c2ebf74",
+                    "bytes": 12120,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5580297,
+                        "login": "tannerlinsley",
+                        "commits": 2
+                    },
+                    {
+                        "id": 1325721,
+                        "login": "Sheraff",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "solid-start-767247450687",
+            "path": "packages/solid-start/skills/solid-start/SKILL.md",
+            "name": "solid-start",
+            "description": "Solid bindings for TanStack Start: useServerFn hook, tanstackStart Vite plugin, StartClient, StartServer, Solid-specific setup, re-exports from @tanstack/start-client-core. Full project setup with Solid.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "236bac2b0c8975f30b1a2613fe0483e7c9577264",
+                    "bytes": 8025,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5580297,
+                        "login": "tannerlinsley",
+                        "commits": 2
+                    },
+                    {
+                        "id": 6340397,
+                        "login": "schiller-manuel",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "start-core-57ee02f3f2a3",
+            "path": "packages/start-client-core/skills/start-core/SKILL.md",
+            "name": "start-core",
+            "description": "Core overview for TanStack Start: tanstackStart() Vite plugin, getRouter() factory, root route document shell (HeadContent, Scripts, Outlet), client/server entry points, routeTree.gen.ts, tsconfig configuration. Entry point for all Start skills.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "60d9f3fcd1d09d6c5c9e35cb4d69d85030d8b92c",
+                    "bytes": 7566,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "auth-server-primitives/SKILL.md",
+                    "blob": "8f20dcaa277961bac4559e502f7130641eb829ae",
+                    "mode": "100644",
+                    "bytes": 17011,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "deployment/SKILL.md",
+                    "blob": "39939ea5e7a70393cc480dd44f025248c340b1ce",
+                    "mode": "100644",
+                    "bytes": 7910,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "execution-model/SKILL.md",
+                    "blob": "271efe6bf18bf6eeb58807a345b12473c4511d7d",
+                    "mode": "100644",
+                    "bytes": 11914,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "middleware/SKILL.md",
+                    "blob": "972ed474af5d9378c0c45298dfaf754074c31994",
+                    "mode": "100644",
+                    "bytes": 12962,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "server-functions/SKILL.md",
+                    "blob": "603cbfa2be81a7ca0c2cb2060c936b6dc09c34d1",
+                    "mode": "100644",
+                    "bytes": 16689,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "server-routes/SKILL.md",
+                    "blob": "9655f243ed9800d217b0f935ea4759c99e63cf06",
+                    "mode": "100644",
+                    "bytes": 8289,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5580297,
+                        "login": "tannerlinsley",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "auth-server-primitives-32929fc590b4",
+            "path": "packages/start-client-core/skills/start-core/auth-server-primitives/SKILL.md",
+            "name": "auth-server-primitives",
+            "description": "Server-side authentication primitives for TanStack Start: session cookies (HttpOnly, Secure, SameSite, __Host- prefix), session read/issue/destroy via createServerFn and middleware, OAuth authorization-code flow with state and PKCE, password-reset enumeration defense, CSRF for non-GET RPCs, rate limiting auth endpoints, session rotation on privilege change. Pairs with router-core/auth-and-guards for the routing side.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "8f20dcaa277961bac4559e502f7130641eb829ae",
+                    "bytes": 17011,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5580297,
+                        "login": "tannerlinsley",
+                        "commits": 3
+                    },
+                    {
+                        "id": 6340397,
+                        "login": "schiller-manuel",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "deployment-aa50bf831fa4",
+            "path": "packages/start-client-core/skills/start-core/deployment/SKILL.md",
+            "name": "deployment",
+            "description": "Deploy to Cloudflare Workers, Netlify, Vercel, Node.js/Docker, Bun, Railway. Selective SSR (ssr option per route), SPA mode, static prerendering, ISR with Cache-Control headers, SEO and head management.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "39939ea5e7a70393cc480dd44f025248c340b1ce",
+                    "bytes": 7910,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5580297,
+                        "login": "tannerlinsley",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "execution-model-017b8dde6f80",
+            "path": "packages/start-client-core/skills/start-core/execution-model/SKILL.md",
+            "name": "execution-model",
+            "description": "Isomorphic-by-default principle, environment boundary functions (createServerFn, createServerOnlyFn, createClientOnlyFn, createIsomorphicFn), ClientOnly component, useHydrated hook, import protection, dead code elimination, environment variable safety (VITE_ prefix, process.env).",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "271efe6bf18bf6eeb58807a345b12473c4511d7d",
+                    "bytes": 11914,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5580297,
+                        "login": "tannerlinsley",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "middleware-86dc25c7f007",
+            "path": "packages/start-client-core/skills/start-core/middleware/SKILL.md",
+            "name": "middleware",
+            "description": "createMiddleware, request middleware (.server only), server function middleware (.client + .server), context passing via next({ context }), sendContext for client-server transfer, global middleware via createStart in src/start.ts, middleware factories, method order enforcement, fetch override precedence.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "972ed474af5d9378c0c45298dfaf754074c31994",
+                    "bytes": 12962,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5580297,
+                        "login": "tannerlinsley",
+                        "commits": 4
+                    },
+                    {
+                        "id": 6340397,
+                        "login": "schiller-manuel",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "server-functions-69e570e676e3",
+            "path": "packages/start-client-core/skills/start-core/server-functions/SKILL.md",
+            "name": "server-functions",
+            "description": "createServerFn (GET/POST), validator (Zod or function), useServerFn hook, server context utilities (getRequest, getRequestHeader, setResponseHeader, setResponseStatus), error handling (throw errors, redirect, notFound), streaming, FormData handling, file organization (.functions.ts, .server.ts).",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "603cbfa2be81a7ca0c2cb2060c936b6dc09c34d1",
+                    "bytes": 16689,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5580297,
+                        "login": "tannerlinsley",
+                        "commits": 4
+                    },
+                    {
+                        "id": 6340397,
+                        "login": "schiller-manuel",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "server-routes-782ca7de181e",
+            "path": "packages/start-client-core/skills/start-core/server-routes/SKILL.md",
+            "name": "server-routes",
+            "description": "Server-side API endpoints using the server property on createFileRoute, HTTP method handlers (GET, POST, PUT, DELETE), createHandlers for per-handler middleware, handler context (request, params, context), request body parsing, response helpers, file naming for API routes.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "9655f243ed9800d217b0f935ea4759c99e63cf06",
+                    "bytes": 8289,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5580297,
+                        "login": "tannerlinsley",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "start-server-core-aafa314e6ba0",
+            "path": "packages/start-server-core/skills/start-server-core/SKILL.md",
+            "name": "start-server-core",
+            "description": "Server-side runtime for TanStack Start: createStartHandler, request/response utilities (getRequest, setResponseHeader, setCookie, getCookie, useSession), three-phase request handling, AsyncLocalStorage context.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "95fb028cea78a1957c250755d0510c57a550138b",
+                    "bytes": 11501,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6340397,
+                        "login": "schiller-manuel",
+                        "commits": 2
+                    },
+                    {
+                        "id": 5580297,
+                        "login": "tannerlinsley",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "virtual-file-routes-44661f8a0fbd",
+            "path": "packages/virtual-file-routes/skills/virtual-file-routes/SKILL.md",
+            "name": "virtual-file-routes",
+            "description": "Programmatic route tree building as an alternative to filesystem conventions: rootRoute, index, route, layout, physical, defineVirtualSubtreeConfig. Use with TanStack Router plugin's virtualRouteConfig option.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "8e2c497fa23ee32e06bc22b25ec91efc9e1c9e9e",
+                    "bytes": 6367,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5580297,
+                        "login": "tannerlinsley",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "vue-router-fdb49c9ac007",
+            "path": "packages/vue-router/skills/vue-router/SKILL.md",
+            "name": "vue-router",
+            "description": "Vue bindings for TanStack Router: RouterProvider, useRouter, useRouterState, useMatch, useMatches, useLocation, useSearch, useParams, useNavigate, useLoaderData, useLoaderDeps, useRouteContext, useBlocker, useCanGoBack, Link, Navigate, Outlet, CatchBoundary, ErrorComponent, Html, Body. Vue-specific patterns with Ref<T> returns, defineComponent, h() render functions, provide/inject, and computed refs.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "5fea4fef7a06bc1919477691722d76f15bdfe52c",
+                    "bytes": 10121,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5580297,
+                        "login": "tannerlinsley",
+                        "commits": 2
+                    },
+                    {
+                        "id": 1325721,
+                        "login": "Sheraff",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "vue-start-93b091861625",
+            "path": "packages/vue-start/skills/vue-start/SKILL.md",
+            "name": "vue-start",
+            "description": "Vue bindings for TanStack Start: useServerFn hook, tanstackStart Vite plugin, StartClient, StartServer, Vue-specific setup, re-exports from @tanstack/start-client-core. Full project setup with Vue.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "63ccc0ab21a134c073593788fe50402a455feceb",
+                    "bytes": 8206,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5580297,
+                        "login": "tannerlinsley",
+                        "commits": 2
+                    },
+                    {
+                        "id": 9100169,
+                        "login": "crutchcorn",
+                        "commits": 1
+                    },
+                    {
+                        "id": 6340397,
+                        "login": "schiller-manuel",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "bundle-size-optimization-f134cffd511a",
+            "path": "skills/bundle-size-optimization/SKILL.md",
+            "name": "bundle-size-optimization",
+            "description": "Use when working in this repository on JS bundle size, gzip regressions, benchmark scenarios, source attribution, treeshaking, dead code elimination, or Rolldown annotations.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d0f1ec574e599068aebeae80ad87b885bfc74d50",
+                    "bytes": 15890,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6340397,
+                        "login": "schiller-manuel",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "3368f3f100f0ba830dc7bb986f19d4a51d7aa974",
+        "bytes": 8478,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "1869e21fc3c80b3010c3e60c5ab6dda077ce1f22",
+        "bytes": 1079,
+        "text": true,
+        "mode": "100644"
+    }
+}

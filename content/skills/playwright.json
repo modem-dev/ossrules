@@ -1,0 +1,457 @@
+{
+    "version": 1,
+    "slug": "playwright",
+    "repository": "microsoft/playwright",
+    "branch": "main",
+    "sha": "500c9c822ce7664539a4c8a88810048dfe090c3b",
+    "scannedAt": "2026-09-15T14:33:21.004Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [
+        {
+            "path": ".claude/skills/playwright-cherry-pick/SKILL.md",
+            "reason": "Invalid YAML frontmatter."
+        }
+    ],
+    "skills": [
+        {
+            "id": "playwright-dev-49bbf78ea0e2",
+            "path": ".claude/skills/playwright-dev/SKILL.md",
+            "name": "playwright-dev",
+            "description": "Explains how to develop Playwright - add APIs, MCP tools, CLI commands, and vendor dependencies.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "56f7165fbd3cab54778939cb00ee7bde0ec8dd53",
+                    "bytes": 1323,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "api.md",
+                    "blob": "2ef9ecb7d43ab1d67d85467b32bf94d3b3df6be1",
+                    "bytes": 10537,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "bisect-published-versions.md",
+                    "blob": "f41106d92c4b8cb3da124991494a5bb5b7dc3c0e",
+                    "bytes": 4069,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "dashboard.md",
+                    "blob": "326f338f73ce1b858077d62be28d8cf174265f35",
+                    "bytes": 1205,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "library.md",
+                    "blob": "52456a47cbbccf83ed6d9c0caf2cba60ec74e2a4",
+                    "bytes": 18071,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "tools.md",
+                    "blob": "2789feedbc14a75bd5df3931fca2a322b4cf2498",
+                    "bytes": 17576,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "trace_system_guide.md",
+                    "blob": "c8312b7523924dfdd01ef36dc9a00e50d8de9ae1",
+                    "bytes": 25393,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "vendor.md",
+                    "blob": "3eb985aae843feeb6427912b66b3036ed6a7481d",
+                    "bytes": 11362,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "webkit-safari-version.md",
+                    "blob": "e14b1a69688cc74db195228ada4d602608cbedd7",
+                    "bytes": 908,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "webview.md",
+                    "blob": "680cf0100f031087e5838140b7b0ea72e633eaf9",
+                    "bytes": 6755,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 883973,
+                        "login": "pavelfeldman",
+                        "commits": 7
+                    },
+                    {
+                        "id": 9798949,
+                        "login": "yury-s",
+                        "commits": 2
+                    },
+                    {
+                        "id": 14912729,
+                        "login": "Skn0tt",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "playwright-devops-676f86c5934d",
+            "path": ".claude/skills/playwright-devops/SKILL.md",
+            "name": "playwright-devops",
+            "description": "DevOps workflows for Playwright - CI failure analysis, workflow debugging, and release operations.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b4a9deccc61e1f0f0c1d561e1bbf51bc8a7115ee",
+                    "bytes": 424,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "commit-failures.md",
+                    "blob": "6fc3e2ffd64fc9c2530f5bdf97227cc1fdd85492",
+                    "bytes": 2560,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "fetch-commit-logs.sh",
+                    "blob": "fb5bca862ffc4b206706f863b38f4850a1881d3a",
+                    "bytes": 3519,
+                    "text": true,
+                    "mode": "100755"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 883973,
+                        "login": "pavelfeldman",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "playwright-test-results-59ea0cb5a891",
+            "path": ".claude/skills/playwright-test-results/SKILL.md",
+            "name": "playwright-test-results",
+            "description": "Query Playwright CI test results from the aggregated DuckDB database. Answers questions about flaky tests, failure rates, slow tests, and per-run/SHA/PR results without hunting through GitHub artifacts.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "0e08d94779726b4da55575572d8a6a1aec30c0da",
+                    "bytes": 8705,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 14912729,
+                        "login": "Skn0tt",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "playwright-triage-41762fa1bc0b",
+            "path": ".claude/skills/playwright-triage/SKILL.md",
+            "name": "playwright-triage",
+            "description": "Triage a Playwright bug report by reproducing it from the information in the issue. Use when asked to triage, reproduce, or verify a GitHub issue (a new bug report, or an existing report with a new comment).",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "bed461bf3ccf8b1ba0b78c0ed047ad526ef87f19",
+                    "bytes": 7024,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 14912729,
+                        "login": "Skn0tt",
+                        "commits": 2
+                    },
+                    {
+                        "id": 101168424,
+                        "login": "SVOG23",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "playwright-cli-82c9bb78dcc7",
+            "path": "packages/playwright-core/src/tools/skills/playwright-cli/SKILL.md",
+            "name": "playwright-cli",
+            "description": "Automate browser interactions, test web pages and work with Playwright tests.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "c312fa8fde9e2193186bc784807cfed4d4c3dc55",
+                    "bytes": 15274,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/element-attributes.md",
+                    "blob": "4e9fa6b99103bbe4e1262c37a9c4a664dfe1dbd5",
+                    "bytes": 665,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/playwright-tests.md",
+                    "blob": "bec2ec90e4adbc6ed56f06ab19c34916ce7f736b",
+                    "bytes": 1690,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/pr-attachments.md",
+                    "blob": "91663b58bccf34b1cd2790ef8ae335d45b3d99df",
+                    "bytes": 2830,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/request-mocking.md",
+                    "blob": "9005fda67dfc4af13848fd9ebedee08420aeec97",
+                    "bytes": 2182,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/running-code.md",
+                    "blob": "98b541fb54cd68942795bc81519684eb2f58ecc9",
+                    "bytes": 5642,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/session-management.md",
+                    "blob": "eb1bde35d9ce619d5cd939384d656e5c91310ebd",
+                    "bytes": 5929,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/storage-state.md",
+                    "blob": "bb5021a09097127c051eaad83a262ff755e62971",
+                    "bytes": 5198,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/test-generation.md",
+                    "blob": "35a8d57d0433797c2cba6615f6e9dc1fc9b8f06a",
+                    "bytes": 16114,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/tracing.md",
+                    "blob": "51b8d30489a66c5f4d1b559cd68a41267e92831e",
+                    "bytes": 3456,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/video-recording.md",
+                    "blob": "aae2f9b43bba67f8352d83af1f56e22e433458e3",
+                    "bytes": 6316,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 9798949,
+                        "login": "yury-s",
+                        "commits": 3
+                    },
+                    {
+                        "id": 883973,
+                        "login": "pavelfeldman",
+                        "commits": 2
+                    },
+                    {
+                        "id": 9881434,
+                        "login": "dgozman",
+                        "commits": 1
+                    },
+                    {
+                        "id": 14912729,
+                        "login": "Skn0tt",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "playwright-component-testing-afb1629fcf7a",
+            "path": "packages/playwright-core/src/tools/skills/playwright-component-testing/SKILL.md",
+            "name": "playwright-component-testing",
+            "description": "Set up component testing with Playwright using a story gallery — scaffold stories and a gallery dev page driven by the built-in mount fixture, no dedicated component-testing runtime. Use when asked to test React or Vue components in isolation with Playwright, or to migrate off @playwright/experimental-ct-react / -vue.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "60b97bf8604e3484ccf3a56d4dfc73b4b4277b80",
+                    "bytes": 10404,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/gallery-spec.md",
+                    "blob": "1aa7c996bfe2be081e49b3a2502047419ed3abe9",
+                    "bytes": 6199,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/migration.md",
+                    "blob": "8e4c4fa8aae683fd07ddbd86b481ebd14b46586b",
+                    "bytes": 5031,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/react.md",
+                    "blob": "d5351ab8dcd73c43495a9e32ef498cc237133876",
+                    "bytes": 3115,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/typing.md",
+                    "blob": "e3119ee08e68768a35fb2acec14fb5700d6a1bc4",
+                    "bytes": 6883,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/vue.md",
+                    "blob": "959b993e14e2b1b2686e0a23992487cce87523f9",
+                    "bytes": 3374,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "templates/react/Button.story.tsx",
+                    "blob": "9d416a6e7c49cb3a455e6e6c7935741e42278ddc",
+                    "bytes": 892,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "templates/react/button.spec.ts",
+                    "blob": "5fe64a5268566b7237d7e04639d7aa1e91a03a62",
+                    "bytes": 830,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "templates/vue/Button.story.ts",
+                    "blob": "e2d4d371ed96223dee4ffbe0f0ff631cb115490c",
+                    "bytes": 1144,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "templates/vue/button.spec.ts",
+                    "blob": "5fe64a5268566b7237d7e04639d7aa1e91a03a62",
+                    "bytes": 830,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 883973,
+                        "login": "pavelfeldman",
+                        "commits": 4
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "playwright-trace-d0748dd91a2f",
+            "path": "packages/playwright-core/src/tools/skills/playwright-trace/SKILL.md",
+            "name": "playwright-trace",
+            "description": "Inspect Playwright trace files from the command line — list actions, view requests, console, errors, snapshots and screenshots.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "126b17a08df46b24e1b6371d78076136ccbf8324",
+                    "bytes": 4845,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 12446869,
+                        "login": "unlikelyzero",
+                        "commits": 2
+                    },
+                    {
+                        "id": 9881434,
+                        "login": "dgozman",
+                        "commits": 1
+                    },
+                    {
+                        "id": 883973,
+                        "login": "pavelfeldman",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "CLAUDE.md",
+        "blob": "e5f8fca8525927be5dbb8400d69b412607837ee7",
+        "bytes": 7890,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "df112373eb2e23e459bf93ec412be1764dc5a38b",
+        "bytes": 11601,
+        "text": true,
+        "mode": "100644"
+    }
+}
