@@ -28,7 +28,7 @@ interface TreeFile {
     size?: number;
 }
 interface Entry {
-    instructionFile?: 'AGENTS.md' | 'CLAUDE.md';
+    instructionFile?: string;
     slug: string;
     owner: string;
     repo: string;

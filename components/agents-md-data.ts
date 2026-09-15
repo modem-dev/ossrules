@@ -222,7 +222,7 @@ export interface Technique {
 
 export interface AgentsProject {
     /** The real source analyzed by this entry. Defaults to AGENTS.md for existing entries. */
-    instructionFile?: 'AGENTS.md' | 'CLAUDE.md';
+    instructionFile?: string;
     slug: string;
     /** Display name of the project. */
     name: string;
