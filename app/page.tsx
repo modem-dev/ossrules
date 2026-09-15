@@ -1,7 +1,6 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { Suspense } from 'react';
-import { logoSrc, PATTERNS } from '@/components/agents-md-data';
+import { PATTERNS } from '@/components/agents-md-data';
 import { JsonLd } from '@/components/json-ld';
 import { ProjectExplorer, ProjectExplorerContent } from '@/components/project-explorer';
 import { SiteFooter } from '@/components/site-footer';
@@ -10,6 +9,7 @@ import { getAgentsProjects } from '@/lib/agents-md';
 import { ogImageUrl } from '@/lib/og';
 import { projectHref } from '@/lib/project-paths';
 import { collectionPageSchema } from '@/lib/schema';
+import { getAllSkills } from '@/lib/skills';
 
 const title = 'Agent instructions and skills';
 const description =
@@ -34,7 +34,9 @@ export const metadata = {
 
 export default function AgentsMdPage() {
     const projects = getAgentsProjects();
-    const featured = projects.find((project) => project.slug === 'ghostty');
+    const skillCount = getAllSkills().length;
+    const totalStars = projects.reduce((total, project) => total + project.stars, 0);
+    const compactStars = new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 }).format(totalStars);
 
     return (
         <div className="min-h-screen bg-dark-gray flex flex-col">
@@ -51,38 +53,25 @@ export default function AgentsMdPage() {
             <main id="main" className="page-shell flex-1">
                 <header className="directory-hero brand-masthead modem-surface">
                     <div>
-                        <p className="eyebrow">
-                            {projects.length} projects / {PATTERNS.length} techniques / Open source
-                        </p>
-                        <h1 className="page-title mt-5">
-                            Better instructions.
-                            <br />
-                            Better agents.
-                        </h1>
-                        <p className="mt-5 max-w-xl text-gray-550 text-base leading-relaxed">
-                            Explore the agent instructions and skills behind open source projects. Read the source and borrow useful
-                            patterns.
-                        </p>
+                        <h1 className="page-title max-w-xl">Agent rules and skills from open source projects.</h1>
+                        <p className="mt-5 text-gray-550 text-base leading-relaxed">Read the source. Borrow useful patterns.</p>
                     </div>
-                    {featured ? (
-                        <Link href={projectHref(featured)} className="directory-feature group">
-                            <p className="eyebrow">A study in brevity</p>
-                            <p className="mt-4 font-mono text-xl leading-relaxed tracking-tight">
-                                {featured.file.lines} lines.
-                                <br />
-                                Two absolute rules.
-                                <br />
-                                One very clear brief.
-                            </p>
-                            <div className="mt-6 flex items-center gap-3 text-gray-550 text-xs">
-                                <Image src={logoSrc(featured)} alt="" width={28} height={28} className="size-7 rounded-md" />
-                                <span>Inside Ghostty’s AGENTS.md</span>
-                                <span aria-hidden className="ml-auto text-teal">
-                                    ↗
-                                </span>
-                            </div>
-                        </Link>
-                    ) : null}
+                    <dl className="directory-stats" aria-label="Library statistics">
+                        <div>
+                            <dt>Projects</dt>
+                            <dd>{projects.length.toLocaleString('en')}</dd>
+                        </div>
+                        <div>
+                            <dt>Skills</dt>
+                            <dd>{skillCount.toLocaleString('en')}</dd>
+                        </div>
+                        <div
+                            title={`${totalStars.toLocaleString('en')} GitHub stars across the listed repositories, from stored snapshots.`}
+                        >
+                            <dt>GitHub stars</dt>
+                            <dd>{compactStars}</dd>
+                        </div>
+                    </dl>
                 </header>
                 <section id="projects" aria-label="Projects">
                     <Suspense fallback={<ProjectExplorerContent projects={projects} />}>
