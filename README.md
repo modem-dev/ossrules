@@ -1,4 +1,4 @@
-# OSS Rules
+# ossrules.md
 
 A reference library of agent instructions and skills from open source projects,
 with editorial analysis of `AGENTS.md` and `CLAUDE.md`, original source, and bundled skill resources.
