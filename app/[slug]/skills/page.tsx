@@ -41,7 +41,7 @@ export default async function ProjectSkillsPage({ params }: { params: Promise<{ 
                     ) : (
                         <p className="prose-copy">No skills found in this snapshot’s scan scope.</p>
                     )}
-                    <details className="mt-8 border-gray-750 border-t pt-5 text-gray-550 text-xs">
+                    <details className="mt-8 text-gray-550 text-xs">
                         <summary>
                             Discovery details{manifest.invalid.length ? ` · ${manifest.invalid.length} files with invalid metadata` : ''}
                         </summary>

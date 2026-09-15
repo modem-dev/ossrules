@@ -3,7 +3,6 @@
 .project-tabs {
     display: flex;
     gap: 1.75rem;
-    border-bottom: 1px solid var(--color-gray-750);
     margin: 1.75rem 0 2rem;
 }
 .project-tabs a {
@@ -22,7 +21,6 @@
 .skill-entry {
     min-width: 0;
     padding: 1.5rem 0;
-    border-bottom: 1px solid var(--color-gray-750);
 }
 .skill-reader {
     display: grid;
@@ -33,7 +31,6 @@
 }
 .skill-files {
     min-width: 0;
-    border-right: 1px solid var(--color-gray-750);
     padding-right: 1.25rem;
 }
 .skill-files :where(nav a) {
@@ -149,8 +146,6 @@
         gap: 1.5rem;
     }
     .skill-files {
-        border-right: 0;
-        border-bottom: 1px solid var(--color-gray-750);
         padding: 0 0 1.5rem;
     }
     .skill-source {
@@ -354,7 +349,6 @@ select {
     grid-template-columns: minmax(180px, 1fr) minmax(130px, 0.55fr) minmax(170px, 0.7fr) minmax(145px, 0.55fr);
     gap: 0.75rem;
     padding-block: 1rem;
-    border-block: 1px solid var(--color-gray-750);
 }
 
 .directory-search {
@@ -468,7 +462,6 @@ select {
 
 .technique-jump {
     padding-block: 1rem;
-    border-block: 1px solid var(--color-gray-750);
 }
 
 .technique-card {
@@ -513,14 +506,11 @@ select {
     grid-template-columns: minmax(0, 1fr) 248px;
     gap: 4rem;
     margin-top: 2.5rem;
-    padding-top: 2.5rem;
-    border-top: 1px solid var(--color-gray-750);
 }
 
 .project-facts {
     align-self: start;
     padding-left: 1.5rem;
-    border-left: 1px solid var(--color-gray-750);
 }
 
 .file-stats > div {
@@ -529,7 +519,6 @@ select {
     justify-content: space-between;
     gap: 0.75rem;
     padding-block: 0.75rem;
-    border-bottom: 1px solid var(--color-gray-750);
     font-size: 0.75rem;
 }
 
@@ -631,8 +620,6 @@ select {
     }
     .project-facts {
         padding: 1.5rem 0 0;
-        border-left: 0;
-        border-top: 1px solid var(--color-gray-750);
     }
     .provenance {
         grid-template-columns: repeat(2, minmax(0, 1fr));

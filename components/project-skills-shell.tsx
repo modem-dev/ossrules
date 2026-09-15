@@ -37,7 +37,7 @@ export function ProjectSkillsShell({ project, count, children }: { project: Agen
                 </header>
                 <ProjectTabs slug={project.slug} skills={count} active="skills" />
                 {children}
-                <section className="mt-16 border-gray-750 border-t pt-10">
+                <section className="mt-16">
                     <h2 className="section-title">Context your instructions cannot carry</h2>
                     <p className="prose-copy mt-3 max-w-3xl">
                         Instructions describe how a codebase works. Modem keeps customer context current and attaches it to the work.

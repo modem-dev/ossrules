@@ -120,7 +120,7 @@ export default async function SkillPage({
                                 ))}
                             </ul>
                         </nav>
-                        <div className="mt-7 border-gray-750 border-t pt-5 font-mono text-[11px] text-gray-600">
+                        <div className="mt-7 font-mono text-[11px] text-gray-600">
                             <p className="eyebrow mb-2">License</p>
                             {skill.license ? <p className="[overflow-wrap:anywhere]">{skill.license}</p> : null}
                             {manifest.repositoryLicense ? (
@@ -144,7 +144,7 @@ export default async function SkillPage({
                         </div>
                     </aside>
                     <article className="min-w-0" aria-label={`${file.path} content`}>
-                        <header className="mb-6 flex flex-wrap items-center justify-between gap-4 border-gray-750 border-b pb-4">
+                        <header className="mb-6 flex flex-wrap items-center justify-between gap-4 pb-4">
                             <div className="min-w-0">
                                 <h2 className="break-all font-mono text-sm">{file.path}</h2>
                                 <p className="mt-2 font-mono text-[11px] text-gray-600">
@@ -198,7 +198,7 @@ export default async function SkillPage({
                             </div>
                         )}
                         {fileMentions.length ? (
-                            <details className="mt-10 border-gray-750 border-t pt-5">
+                            <details className="mt-10">
                                 <summary className="text-teal text-xs">Referenced from SKILL.md</summary>
                                 <div className="mt-4 space-y-4">
                                     {fileMentions.map((mention) => (
@@ -214,7 +214,7 @@ export default async function SkillPage({
                             </details>
                         ) : null}
                         {file.path === 'SKILL.md' ? (
-                            <details className="mt-10 border-gray-750 border-t pt-5">
+                            <details className="mt-10">
                                 <summary className="text-teal text-xs">
                                     {mentions.length ? 'Referenced from AGENTS.md' : 'Discovery context'}
                                 </summary>
@@ -242,7 +242,7 @@ export default async function SkillPage({
                         ) : null}
                     </article>
                 </div>
-                <div className="mt-12 flex flex-wrap justify-between gap-4 border-gray-750 border-t pt-6 text-teal text-sm">
+                <div className="mt-12 flex flex-wrap justify-between gap-4 text-teal text-sm">
                     <Link href={`/${slug}/skills`}>← All {project.name} skills</Link>
                     <Link href={`/${slug}`}>Project instructions →</Link>
                 </div>
