@@ -1,7 +1,7 @@
 # OSS Rules
 
-A browsable directory of `AGENTS.md` files from open source projects, measured and
-read, so you can tell what is in one without opening it.
+A reference library of agent instructions and skills from open source projects,
+with editorial analysis of `AGENTS.md`, original source, and bundled skill resources.
 
 Live at **[ossrules.md](https://ossrules.md)**. Built by [Modem](https://modem.dev).
 
@@ -62,7 +62,7 @@ files are displayed. That directory is excluded from Biome — reformatting it
 would break the verbatim quotes.
 
 To remove a project's files, open an issue and we will take the entry down.
-# Skills
+## Skills
 
 Skills are discovered independently from the editorial AGENTS.md corpus. Run
 `pnpm sync:skills` (or `pnpm sync:skills --slug storybook`) with an authenticated

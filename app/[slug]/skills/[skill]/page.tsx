@@ -72,7 +72,7 @@ export default async function SkillPage({
                         Skills
                     </Link>
                 </nav>
-                <header className="mt-9 flex flex-wrap items-start justify-between gap-5">
+                <header className="mt-9 flex flex-col items-start justify-between gap-5 sm:flex-row">
                     <div className="min-w-0 flex-1">
                         <p className="eyebrow">{project.name} / Skill</p>
                         <h1 className="page-title mt-3 [overflow-wrap:anywhere]">{skill.name}</h1>

@@ -2,7 +2,8 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { Suspense, useState } from 'react';
 
 export interface SkillEntry {
     id: string;
@@ -16,9 +17,48 @@ export interface SkillEntry {
 }
 
 export function SkillExplorer({ entries, projectOnly = false }: { entries: SkillEntry[]; projectOnly?: boolean }) {
-    const [query, setQuery] = useState('');
-    const [project, setProject] = useState('all');
-    const [resources, setResources] = useState(false);
+    return (
+        <Suspense fallback={<SkillExplorerContent entries={entries} projectOnly={projectOnly} />}>
+            <SkillExplorerWithFilters entries={entries} projectOnly={projectOnly} />
+        </Suspense>
+    );
+}
+
+function SkillExplorerWithFilters({ entries, projectOnly }: { entries: SkillEntry[]; projectOnly: boolean }) {
+    const params = useSearchParams();
+    return (
+        <SkillExplorerContent
+            entries={entries}
+            projectOnly={projectOnly}
+            initialQuery={params.get('q') ?? ''}
+            initialProject={projectOnly ? 'all' : (params.get('project') ?? 'all')}
+            initialResources={params.get('resources') === '1'}
+        />
+    );
+}
+
+function SkillExplorerContent({
+    entries,
+    projectOnly = false,
+    initialQuery = '',
+    initialProject = 'all',
+    initialResources = false,
+}: {
+    entries: SkillEntry[];
+    projectOnly?: boolean;
+    initialQuery?: string;
+    initialProject?: string;
+    initialResources?: boolean;
+}) {
+    const [query, setQuery] = useState(initialQuery);
+    const [project, setProject] = useState(initialProject);
+    const [resources, setResources] = useState(initialResources);
+    function remember(key: string, value: string) {
+        const url = new URL(window.location.href);
+        if (value) url.searchParams.set(key, value);
+        else url.searchParams.delete(key);
+        window.history.replaceState(null, '', url);
+    }
     const projects = [...new Map(entries.map((entry) => [entry.project.slug, entry.project])).values()].sort((a, b) =>
         a.name.localeCompare(b.name),
     );
@@ -37,7 +77,10 @@ export function SkillExplorer({ entries, projectOnly = false }: { entries: Skill
                     <input
                         type="search"
                         value={query}
-                        onChange={(event) => setQuery(event.target.value)}
+                        onChange={(event) => {
+                            setQuery(event.target.value);
+                            remember('q', event.target.value);
+                        }}
                         aria-label="Search skills"
                         placeholder={projectOnly ? 'Search this project’s skills…' : 'Search skills, tasks, or projects…'}
                     />
@@ -45,7 +88,13 @@ export function SkillExplorer({ entries, projectOnly = false }: { entries: Skill
                 {!projectOnly ? (
                     <label className="directory-filter">
                         <span className="sr-only">Filter by project</span>
-                        <select value={project} onChange={(event) => setProject(event.target.value)}>
+                        <select
+                            value={project}
+                            onChange={(event) => {
+                                setProject(event.target.value);
+                                remember('project', event.target.value === 'all' ? '' : event.target.value);
+                            }}
+                        >
                             <option value="all">All projects</option>
                             {projects.map((item) => (
                                 <option key={item.slug} value={item.slug}>
@@ -59,7 +108,10 @@ export function SkillExplorer({ entries, projectOnly = false }: { entries: Skill
                     <input
                         type="checkbox"
                         checked={resources}
-                        onChange={(event) => setResources(event.target.checked)}
+                        onChange={(event) => {
+                            setResources(event.target.checked);
+                            remember('resources', event.target.checked ? '1' : '');
+                        }}
                         className="accent-teal"
                     />
                     With supporting files
@@ -82,7 +134,9 @@ export function SkillExplorer({ entries, projectOnly = false }: { entries: Skill
                                         →
                                     </span>
                                 </div>
-                                <p className="mt-3 text-gray-500 text-sm leading-relaxed [overflow-wrap:anywhere]">{entry.description}</p>
+                                <p className="mt-3 line-clamp-3 text-gray-500 text-sm leading-relaxed [overflow-wrap:anywhere]">
+                                    {entry.description}
+                                </p>
                             </Link>
                             <p className="mt-3 break-all font-mono text-[10px] text-gray-600">{entry.path}</p>
                             <div className="mt-5 flex flex-wrap items-center justify-between gap-3 font-mono text-[11px] text-gray-600">
@@ -120,6 +174,9 @@ export function SkillExplorer({ entries, projectOnly = false }: { entries: Skill
                             setQuery('');
                             setProject('all');
                             setResources(false);
+                            remember('q', '');
+                            remember('project', '');
+                            remember('resources', '');
                         }}
                     >
                         Clear filters

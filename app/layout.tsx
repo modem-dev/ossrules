@@ -16,11 +16,11 @@ const jetbrains = localFont({
 export const metadata: Metadata = {
     metadataBase: new URL('https://ossrules.md'),
     title: {
-        default: 'OSS Rules — what open source projects put in their AGENTS.md',
+        default: 'OSS Rules — agent instructions and skills from open source projects',
         template: '%s | OSS Rules',
     },
     description:
-        'A browsable directory of AGENTS.md files from open source projects, measured and read, so you can tell what is in one without opening it.',
+        'A reference library of agent instructions and skills from open source projects, with original source, analysis, and bundled resources.',
     openGraph: { siteName: 'OSS Rules', type: 'website' },
     twitter: { card: 'summary_large_image' },
 };
