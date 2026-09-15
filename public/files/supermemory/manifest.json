@@ -1,0 +1,13 @@
+{
+    "slug": "supermemory",
+    "sha": "c6792e5100a6d7f4057d5151657ff1bdca6c2b3b",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "CLAUDE.md",
+            "bytes": 3963,
+            "lines": 120
+        }
+    ]
+}

@@ -1,0 +1,85 @@
+{
+    "slug": "deno",
+    "instructionFile": "CLAUDE.md",
+    "name": "Deno",
+    "owner": "denoland",
+    "repo": "deno",
+    "tagline": "A JavaScript and TypeScript runtime with integrated development tools.",
+    "language": "Rust",
+    "stars": 108438,
+    "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "c439c90d890ad07c2bf4eaa8582cf7389142f97e",
+        "date": "2026-07-30T09:32:08Z"
+    },
+    "evaluatedAt": "2026-09-14",
+    "file": {
+        "bytes": 11866,
+        "lines": 433,
+        "words": 1703,
+        "headings": 63,
+        "bullets": 71,
+        "codeBlocks": 32,
+        "docLinks": 11
+    },
+    "references": [
+        {
+            "path": ".github/CONTRIBUTING.md"
+        }
+    ],
+    "hook": "JavaScript unit tests still run through Cargo because the harness supplies their setup.",
+    "summary": "Deno's CLAUDE.md combines a runtime overview with development commands and test recipes. It explains the split between the CLI, runtime assembly, and native extensions, then shows how spec tests encode commands and expected output. Contribution guidance keeps review history incremental and chooses lint scope based on whether Rust changed.",
+    "patterns": ["hard-prohibition", "worked-examples", "house-vocabulary", "verification-matrix", "contribution-etiquette"],
+    "techniques": [
+        {
+            "title": "Choose the harness by setup requirements",
+            "body": "The guide explicitly warns against running JavaScript and TypeScript unit tests directly with the Deno binary. Cargo owns the setup those tests need.",
+            "quote": "Do NOT run these directly with `./target/debug/deno test` — they depend on the\ncargo test harness for correct setup.",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Show the spec-test format",
+            "body": "A directory contains the command description, input files, and expected output. The example covers both a single command and a sequence of steps, making the custom test format concrete.",
+            "quote": "1. Create a directory in `tests/specs/` with a descriptive name\n2. Add a `__test__.jsonc` file describing your test steps\n3. Add any input files needed for the test\n4. Add `.out` files for expected output (or inline in `__test__.jsonc`)",
+            "pattern": "worked-examples"
+        },
+        {
+            "title": "Explain the output-matching vocabulary",
+            "body": "The guide distinguishes wildcards that span lines from those confined to one line, plus unordered blocks and literal character counts. These definitions help keep expectations specific around nondeterministic output.",
+            "quote": "- `[WILDCARD]` : matches 0 or more of any character, like `.*` in regex. this\n  can cross newlines\n- `[WILDLINE]` : matches 0 or more of any character, ending at the end of a line\n- `[WILDCHAR]` - match the next character\n- `[WILDCHARS(5)]` - match any of the next 5 characters\n- `[UNORDERED_START]` followed by many lines then `[UNORDERED_END]` will match\n  the lines in any order (useful for non-deterministic output)\n- `[# example]` - line comments start with `[#` and end with `]`",
+            "pattern": "house-vocabulary"
+        },
+        {
+            "title": "Select lint scope from the changed language",
+            "body": "Non-Rust changes use the JavaScript lint path. Rust changes require the full lint command, so verification follows the affected surface.",
+            "quote": "- Before committing, if only non-Rust was changed, make sure to run\n  `tools/lint.js --js` and fix any lint errors before committing",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Preserve incremental review history",
+            "body": "The no-force-push rule explains that changes will be squashed at merge and reviewers need to see follow-up commits. It gives a concrete reason to keep the branch history intact.",
+            "quote": "- When pushing updates to the PR, make sure to never force push. Create as many\n  commits as you need, all of them get squashed when the PR is merged, so there\n  is no need to rewrite history. This also allows reviewers to see the\n  incremental changes you made in response to feedback.",
+            "pattern": "contribution-etiquette"
+        }
+    ],
+    "steal": [
+        "Name the harness responsible for test setup, even when tests use another language.",
+        "Include a minimal example of a custom test format.",
+        "Explain wildcard semantics before encouraging their use in expected output.",
+        "Map changed languages to the appropriate verification commands.",
+        "Explain how branch-history rules support the review process."
+    ],
+    "outline": [
+        "Table of Contents",
+        "Git workflow",
+        "High Level Overview",
+        "Quick Start",
+        "Commands",
+        "Testing",
+        "\"spec\" tests",
+        "Development Workflows",
+        "Debugging",
+        "Codebase Navigation",
+        "Troubleshooting"
+    ]
+}

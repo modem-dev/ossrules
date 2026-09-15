@@ -1,0 +1,106 @@
+{
+    "version": 1,
+    "slug": "supermemory",
+    "repository": "supermemoryai/supermemory",
+    "branch": "main",
+    "sha": "2415a5c796d62c7ea9d709bc9337a6e1b6f6d837",
+    "scannedAt": "2026-09-15T02:10:31.045Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "supermemory-feed2e5c0850",
+            "path": "skills/supermemory/SKILL.md",
+            "name": "supermemory",
+            "description": "Supermemory is a state-of-the-art memory and context infrastructure for AI agents. Use this skill when building applications that need persistent memory, user personalization, long-term context retention, or semantic search across knowledge bases. It provides Memory API for learned user context, User Profiles for static/dynamic facts, and RAG for semantic search. Perfect for chatbots, assistants, and knowledge-intensive applications.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b92b365ccf0e44bb12bbeff1768f1c88e23e50ff",
+                    "bytes": 12362,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "LICENSE",
+                    "blob": "2b0be9a747f92a09385cfada4fd9e45328f47f96",
+                    "bytes": 11339,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "README.md",
+                    "blob": "03cac7b4f7e5c4a3e5e36a49d6f9252bebacc7e3",
+                    "bytes": 7322,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/api-reference.md",
+                    "blob": "791c303d7f29fcc82ea39688bb8e951238505c95",
+                    "bytes": 13284,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/architecture.md",
+                    "blob": "61c35e6c702b244e17226fcb68d915cce9a70bf7",
+                    "bytes": 15335,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/quickstart.md",
+                    "blob": "4be0a762eb26b0e75f27970d72f016f2cbb3fd90",
+                    "bytes": 7603,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/sdk-guide.md",
+                    "blob": "0f511fc3eb81fb2f868ef33e3fb2386bd65544b5",
+                    "bytes": 19657,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/use-cases.md",
+                    "blob": "db80e0d6a0412098b1a329770d163d14bbd07236",
+                    "bytes": 25790,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 63950637,
+                        "login": "Dhravya",
+                        "commits": 1
+                    },
+                    {
+                        "id": 85427822,
+                        "login": "sohamd22",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "CLAUDE.md",
+        "blob": "da9208e5649b034a3a17d54ba51ec8d0f8d7e998",
+        "bytes": 3963,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "7b20e33c1b3d277e200ff1872a109c6d9304bacc",
+        "bytes": 1068,
+        "text": true,
+        "mode": "100644"
+    }
+}

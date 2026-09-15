@@ -1,0 +1,18 @@
+{
+    "slug": "deno",
+    "sha": "c439c90d890ad07c2bf4eaa8582cf7389142f97e",
+    "license": "MIT",
+    "licensePath": "LICENSE.md",
+    "files": [
+        {
+            "path": ".github/CONTRIBUTING.md",
+            "bytes": 9876,
+            "lines": 333
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 11866,
+            "lines": 433
+        }
+    ]
+}

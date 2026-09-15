@@ -1,0 +1,237 @@
+{
+    "version": 1,
+    "slug": "bun",
+    "repository": "oven-sh/bun",
+    "branch": "main",
+    "sha": "e8750e3dc0d88c2fe1ac37b5f016387ad28114cf",
+    "scannedAt": "2026-09-15T02:10:34.202Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "implementing-jsc-classes-cpp-a6050b0c1e07",
+            "path": ".claude/skills/implementing-jsc-classes-cpp/SKILL.md",
+            "name": "implementing-jsc-classes-cpp",
+            "description": "Implements JavaScript classes in C++ using JavaScriptCore. Use when creating new JS classes with C++ bindings, prototypes, or constructors.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "04443e56d8b028f00bff42fe986400f32d0f09ea",
+                    "bytes": 6639,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 117481402,
+                        "login": "robobun",
+                        "commits": 2
+                    },
+                    {
+                        "id": 709451,
+                        "login": "Jarred-Sumner",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "implementing-jsc-classes-rust-9ecd23047fdc",
+            "path": ".claude/skills/implementing-jsc-classes-rust/SKILL.md",
+            "name": "implementing-jsc-classes-rust",
+            "description": "Creates JavaScript classes using Bun's Rust bindings generator (.classes.ts). Use when implementing new JS APIs in Rust with JSC integration, prototypes, or constructors.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "6dd76be694421d52ba33df94b0f992b759d7a571",
+                    "bytes": 5572,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6379399,
+                        "login": "cirospaciari",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "javascriptcore-garbage-collector-744b71ec8ddc",
+            "path": ".claude/skills/javascriptcore-garbage-collector/SKILL.md",
+            "name": "javascriptcore-garbage-collector",
+            "description": "JSC GC reference for Bun. Use for use-after-free, JS object leaks, \"collected too early\", or when touching WriteBarrier, visitChildren, visitAdditionalChildren, JSRef, JSC::Strong/Weak, hasPendingActivity, ensureStillAlive, addOpaqueRoot, reportExtraMemoryAllocated, IsoSubspace, HeapAnalyzer, finalize.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "79b075187e1049b0eb92a11201452c5570ab6c06",
+                    "bytes": 25704,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 709451,
+                        "login": "Jarred-Sumner",
+                        "commits": 2
+                    },
+                    {
+                        "id": 6379399,
+                        "login": "cirospaciari",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "rust-system-calls-02c13e854b8d",
+            "path": ".claude/skills/rust-system-calls/SKILL.md",
+            "name": "rust-system-calls",
+            "description": "Guides using bun_sys for system calls and file I/O in Rust. Use when implementing file operations, opening fds, or any syscall path instead of std::fs or libc.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "461c93429d7ab7b18db0738463810f8587b6a444",
+                    "bytes": 3768,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6379399,
+                        "login": "cirospaciari",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "slowest-tests-8d0e69c0b8c0",
+            "path": ".claude/skills/slowest-tests/SKILL.md",
+            "name": "slowest-tests",
+            "description": "Find the top-N slowest test files in CI from a recent BuildKite run, optionally posting the results to a Slack channel as a formatted table. Use when asked to find slow CI tests, \"what's making CI slow\", or to post a slow-test report to Slack.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "5ba26c6837ed71d6cdf64ba2acaa396ce0a96496",
+                    "bytes": 3553,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 709451,
+                        "login": "Jarred-Sumner",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "verify-7f0e67af2c00",
+            "path": ".claude/skills/verify/SKILL.md",
+            "name": "verify",
+            "description": "Verify a Bun runtime change by driving the debug binary end-to-end.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "434da30c9641fbddab77a712c35ef6fcff34b717",
+                    "bytes": 2486,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6379399,
+                        "login": "cirospaciari",
+                        "commits": 4
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "writing-bundler-tests-dbc89f95fd80",
+            "path": ".claude/skills/writing-bundler-tests/SKILL.md",
+            "name": "writing-bundler-tests",
+            "description": "Guides writing bundler tests using itBundled/expectBundled in test/bundler/. Use when creating or modifying bundler, transpiler, or code transformation tests.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b8fbe56b78f705caf4c17922631ef79ae572d1a4",
+                    "bytes": 4455,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 117481402,
+                        "login": "robobun",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "writing-dev-server-tests-841e252a4647",
+            "path": ".claude/skills/writing-dev-server-tests/SKILL.md",
+            "name": "writing-dev-server-tests",
+            "description": "Guides writing HMR/Dev Server tests in test/bake/. Use when creating or modifying dev server, hot reloading, or bundling tests.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "eabbcfeb0a8fdf12effa73d7e5256d892591cdaf",
+                    "bytes": 3002,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 117481402,
+                        "login": "robobun",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "CLAUDE.md",
+        "blob": "b93d857ed53d755650777c465582139e05e5c65b",
+        "bytes": 17609,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE.md",
+        "blob": "3ae7d08305e14ab003a235359065132941fce3e7",
+        "bytes": 5613,
+        "text": true,
+        "mode": "100644"
+    }
+}
