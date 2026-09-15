@@ -304,6 +304,28 @@ export function FileTrayProvider({
     }, [isOpen]);
 
     useEffect(() => {
+        if (!isOpen) return;
+        const onClick = (event: MouseEvent) => {
+            const target = event.target;
+            if (!(target instanceof Element) || panel.current?.contains(target)) return;
+            // Another source link replaces the pane's content instead of dismissing it.
+            if (target.closest('[data-source-trigger]')) return;
+            close();
+        };
+        const onKeyDown = (event: KeyboardEvent) => {
+            if (event.key !== 'Escape' || event.defaultPrevented) return;
+            event.preventDefault();
+            close();
+        };
+        document.addEventListener('click', onClick);
+        document.addEventListener('keydown', onKeyDown);
+        return () => {
+            document.removeEventListener('click', onClick);
+            document.removeEventListener('keydown', onKeyDown);
+        };
+    }, [isOpen, close]);
+
+    useEffect(() => {
         if (!path) return;
         const scroll = panel.current?.querySelector('.source-scroll');
         if (scroll) scroll.scrollTop = 0;
@@ -348,12 +370,6 @@ export function FileTrayProvider({
                     ref={panel}
                     aria-label={path}
                     className="source-dialog"
-                    onKeyDown={(event) => {
-                        if (event.key === 'Escape' && !event.defaultPrevented) {
-                            event.preventDefault();
-                            close();
-                        }
-                    }}
                     onCancel={(event) => {
                         event.preventDefault();
                         close();
@@ -709,7 +725,7 @@ export function FileLink({
     }
 
     return (
-        <button type="button" onClick={() => tray.open({ path })} className={className} title={label}>
+        <button type="button" data-source-trigger onClick={() => tray.open({ path })} className={className} title={label}>
             {children}
         </button>
     );
@@ -729,7 +745,7 @@ export function QuoteLink({ quote, sourcePath, children }: { quote: string; sour
     return (
         <div className="quote-block">
             {children}
-            <button type="button" onClick={() => tray.open({ path, match: quote })} className="quote-open">
+            <button type="button" data-source-trigger onClick={() => tray.open({ path, match: quote })} className="quote-open">
                 {path} · View in source <span aria-hidden>↗</span>
             </button>
         </div>
