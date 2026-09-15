@@ -4,22 +4,30 @@ import { SkillExplorer } from '@/components/skill-explorer';
 import { getAgentsProjectByRepository, getAgentsProjects } from '@/lib/agents-md';
 import { projectSkillsHref } from '@/lib/project-paths';
 import { skillEntry } from '@/lib/skill-entries';
+import { type SkillSearchParams, skillListingMetadata, skillSearchString } from '@/lib/skill-list';
 import { getSkillManifest } from '@/lib/skills';
 
 export function generateStaticParams() {
     return getAgentsProjects().map(({ owner, repo }) => ({ owner, repo }));
 }
-export async function generateMetadata({ params }: { params: Promise<{ owner: string; repo: string }> }) {
+type Props = { params: Promise<{ owner: string; repo: string }>; searchParams: Promise<SkillSearchParams> };
+
+export async function generateMetadata({ params, searchParams }: Props) {
     const { owner, repo } = await params;
     const project = getAgentsProjectByRepository(owner, repo);
     if (!project) return {};
-    return { title: `${project.name} skills`, alternates: { canonical: projectSkillsHref(project) } };
+    const entries = (getSkillManifest(project.slug)?.skills ?? []).map((skill) => skillEntry(skill, project));
+    return {
+        title: `${project.name} skills`,
+        ...skillListingMetadata(projectSkillsHref(project), entries, skillSearchString(await searchParams), true),
+    };
 }
-export default async function ProjectSkillsPage({ params }: { params: Promise<{ owner: string; repo: string }> }) {
+export default async function ProjectSkillsPage({ params, searchParams }: Props) {
     const { owner, repo } = await params;
     const project = getAgentsProjectByRepository(owner, repo);
     if (!project) notFound();
     const manifest = getSkillManifest(project.slug);
+    const initialSearch = skillSearchString(await searchParams);
     return (
         <ProjectSkillsShell project={project} count={manifest?.skills.length}>
             {!manifest ? (
@@ -39,7 +47,11 @@ export default async function ProjectSkillsPage({ params }: { params: Promise<{ 
                         <p>Scanned {manifest.scannedAt.slice(0, 10)}</p>
                     </div>
                     {manifest.skills.length ? (
-                        <SkillExplorer projectOnly entries={manifest.skills.map((skill) => skillEntry(skill, project))} />
+                        <SkillExplorer
+                            projectOnly
+                            entries={manifest.skills.map((skill) => skillEntry(skill, project))}
+                            initialSearch={initialSearch}
+                        />
                     ) : (
                         <p className="prose-copy">No skills found in this snapshot’s scan scope.</p>
                     )}
