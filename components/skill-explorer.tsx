@@ -3,8 +3,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { Suspense, useRef } from 'react';
+import { useRef } from 'react';
 import type { SkillContributions } from '@/lib/skill-contributors';
+import { skillListing } from '@/lib/skill-list';
 import { SkillContributors } from './skill-contributors';
 
 export interface SkillEntry {
@@ -20,20 +21,20 @@ export interface SkillEntry {
     project: { href: string; slug: string; name: string; logo: string; repository: string };
 }
 
-export function SkillExplorer({ entries, projectOnly = false }: { entries: SkillEntry[]; projectOnly?: boolean }) {
-    return (
-        <Suspense fallback={<SkillExplorerContent entries={entries} projectOnly={projectOnly} />}>
-            <SkillExplorerWithFilters entries={entries} projectOnly={projectOnly} />
-        </Suspense>
-    );
-}
-
-function SkillExplorerWithFilters({ entries, projectOnly }: { entries: SkillEntry[]; projectOnly: boolean }) {
+export function SkillExplorer({
+    entries,
+    projectOnly = false,
+    initialSearch,
+}: {
+    entries: SkillEntry[];
+    projectOnly?: boolean;
+    initialSearch: string;
+}) {
+    // Both routes await searchParams, so the requested list is rendered on the server.
+    // A full-list Suspense fallback would duplicate entries in the streamed HTML.
     const params = useSearchParams();
-    return <SkillExplorerContent entries={entries} projectOnly={projectOnly} search={params.toString()} />;
+    return <SkillExplorerContent entries={entries} projectOnly={projectOnly} search={params?.toString() ?? initialSearch} />;
 }
-
-const PAGE_SIZE = 50;
 
 function SkillExplorerContent({
     entries,
@@ -44,10 +45,7 @@ function SkillExplorerContent({
     projectOnly?: boolean;
     search?: string;
 }) {
-    const params = new URLSearchParams(search);
-    const query = params.get('q') ?? '';
-    const project = projectOnly ? 'all' : (params.get('project') ?? 'all');
-    const resources = params.get('resources') === '1';
+    const { query, project, resources, visible, pageCount, page, start, pageEntries } = skillListing(entries, search, projectOnly);
     const resultsRef = useRef<HTMLDivElement>(null);
     function remember(values: Record<string, string>) {
         const url = new URL(window.location.href);
@@ -61,19 +59,6 @@ function SkillExplorerContent({
     const projects = [...new Map(entries.map((entry) => [entry.project.slug, entry.project])).values()].sort((a, b) =>
         a.name.localeCompare(b.name),
     );
-    const visible = entries.filter(
-        (entry) =>
-            (project === 'all' || entry.project.slug === project) &&
-            (!resources || entry.files > 1) &&
-            `${entry.name} ${entry.description} ${entry.path} ${entry.project.name} ${entry.project.repository}`
-                .toLowerCase()
-                .includes(query.trim().toLowerCase()),
-    );
-    const pageCount = Math.max(1, Math.ceil(visible.length / PAGE_SIZE));
-    const requestedPage = Number(params.get('page') ?? 1);
-    const page = Math.min(pageCount, Number.isSafeInteger(requestedPage) && requestedPage > 0 ? requestedPage : 1);
-    const start = (page - 1) * PAGE_SIZE;
-    const pageEntries = visible.slice(start, start + PAGE_SIZE);
 
     function pagination() {
         if (pageCount <= 1) return null;
