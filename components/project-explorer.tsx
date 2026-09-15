@@ -18,7 +18,6 @@ import {
     SORTS,
     STATS_AS_OF,
 } from './agents-md-data';
-import { RelativeTime } from './last-updated';
 
 const ALL = 'all';
 
@@ -63,9 +62,6 @@ function ProjectEntry({ project }: { project: AgentsProject }) {
                             </span>
                         ) : null}
                     </div>
-                    <p className="mt-3 text-[11px] text-gray-600">
-                        File changed <RelativeTime iso={project.lastCommit.date} />
-                    </p>
                 </div>
             </Link>
         </li>
