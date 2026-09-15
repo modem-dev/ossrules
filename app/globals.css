@@ -846,8 +846,10 @@ select {
     padding-left: 5px;
 }
 .contributor-stack img {
+    flex-shrink: 0;
     width: 28px;
     height: 28px;
+    max-width: none;
     margin-left: -5px;
     border: 2px solid var(--color-dark-gray);
     border-radius: 50%;
@@ -889,7 +891,11 @@ select {
 }
 .contributor-list img {
     flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    max-width: none;
     border-radius: 50%;
+    object-fit: cover;
 }
 @media (pointer: coarse) {
     .skill-contributors > summary {
