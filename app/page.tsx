@@ -10,9 +10,9 @@ import { getAgentsProjects } from '@/lib/agents-md';
 import { ogImageUrl } from '@/lib/og';
 import { collectionPageSchema } from '@/lib/schema';
 
-const title = 'AGENTS.md Directory';
+const title = 'Agent instructions and skills';
 const description =
-    'Browse AGENTS.md files from open source projects. Sort by stars or file length, filter by language and technique, and read what each one does that the others do not.';
+    'Browse agent instructions and skills from open source projects. Explore their source files, bundled resources, and patterns worth borrowing.';
 
 export const metadata = {
     title,
@@ -21,13 +21,13 @@ export const metadata = {
     openGraph: {
         title,
         description,
-        images: [{ url: ogImageUrl('AGENTS.md Directory'), width: 1200, height: 630 }],
+        images: [{ url: ogImageUrl(title), width: 1200, height: 630 }],
     },
     twitter: {
         card: 'summary_large_image',
         title,
         description,
-        images: [ogImageUrl('AGENTS.md Directory')],
+        images: [ogImageUrl(title)],
     },
 };
 
@@ -59,8 +59,8 @@ export default function AgentsMdPage() {
                             Better agents.
                         </h1>
                         <p className="mt-5 max-w-xl text-gray-550 text-base leading-relaxed">
-                            Explore the AGENTS.md files behind open source projects. See what works, read the source, and take the useful
-                            parts.
+                            Explore the agent instructions and skills behind open source projects. Read the source and borrow useful
+                            patterns.
                         </p>
                     </div>
                     {featured ? (

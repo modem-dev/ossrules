@@ -1,3 +1,4 @@
+import path from 'node:path';
 import { type Zippable, zipSync } from 'fflate';
 import { getSkillManifest, readSkillFile } from '@/lib/skills';
 
