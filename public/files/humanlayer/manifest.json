@@ -1,0 +1,32 @@
+{
+    "slug": "humanlayer",
+    "sha": "6014ccf95edf71b2d0ba31bcd65a9297a3decb65",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".github/workflows/CLAUDE.md",
+            "bytes": 639,
+            "lines": 22
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 3176,
+            "lines": 88
+        },
+        {
+            "path": "CONTRIBUTING.md",
+            "bytes": 982,
+            "lines": 45
+        },
+        {
+            "path": "hld/CLAUDE.md",
+            "bytes": 1942,
+            "lines": 55
+        },
+        {
+            "path": "humanlayer-wui/CLAUDE.md",
+            "bytes": 3589,
+            "lines": 61
+        }
+    ]
+}

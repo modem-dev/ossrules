@@ -1,0 +1,51 @@
+{
+    "slug": "turborepo",
+    "sha": "4f8e6932cf243a4abff1442a8a91786b1e90b962",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 1025,
+            "lines": 27
+        },
+        {
+            "path": "apps/docs/AGENTS.md",
+            "bytes": 2318,
+            "lines": 31
+        },
+        {
+            "path": "apps/factory/AGENTS.md",
+            "bytes": 135,
+            "lines": 3
+        },
+        {
+            "path": "apps/factory/CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "apps/factory/AGENTS.md"
+                }
+            ]
+        },
+        {
+            "path": "examples/with-nextjs-elysia/apps/web/AGENTS.md",
+            "bytes": 327,
+            "lines": 5
+        },
+        {
+            "path": "examples/with-nextjs-elysia/apps/web/CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "examples/with-nextjs-elysia/apps/web/AGENTS.md"
+                }
+            ],
+            "sameContentAs": "apps/factory/CLAUDE.md"
+        }
+    ]
+}

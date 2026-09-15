@@ -1,0 +1,66 @@
+{
+    "slug": "svelte",
+    "name": "Svelte",
+    "owner": "sveltejs",
+    "repo": "svelte",
+    "tagline": "A compiler for building reactive web interfaces.",
+    "language": "JavaScript",
+    "stars": 88126,
+    "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "656dae67808651fa6a7ca5f8446e28e3a4e76a62",
+        "date": "2026-05-29T11:55:42Z"
+    },
+    "evaluatedAt": "2026-09-15",
+    "file": {
+        "bytes": 590,
+        "lines": 11,
+        "words": 77,
+        "headings": 2,
+        "bullets": 0,
+        "codeBlocks": 0,
+        "docLinks": 2
+    },
+    "references": [
+        {
+            "path": "performance-investigation",
+            "kind": "pattern",
+            "label": "Performance-investigation skill"
+        },
+        {
+            "path": "CONTRIBUTING.md"
+        },
+        {
+            "path": ".github/PULL_REQUEST_TEMPLATE.md"
+        }
+    ],
+    "hook": "An 11-line guide points to contributor requirements, gates PRs on the full suite, and routes performance investigations to a skill.",
+    "summary": "Svelte keeps AGENTS.md as a short entry point rather than repeating contributor documentation. It adds an explicit pull-request test gate and a task-specific skill for performance work.",
+    "patterns": ["single-source", "contribution-etiquette", "skill-routing"],
+    "techniques": [
+        {
+            "title": "Delegate repository detail to the contributor guide",
+            "body": "The root file identifies CONTRIBUTING.md as the place for testing, structure, and contribution rules. That lets the short agent entry point share an authority with human contributors.",
+            "quote": "**Important:** Read and follow [`CONTRIBUTING.md`](./CONTRIBUTING.md) as well - it contains essential information about testing, code structure, and contribution guidelines that applies here.",
+            "pattern": "single-source"
+        },
+        {
+            "title": "Make the PR template and full suite explicit gates",
+            "body": "Before submitting a pull request, the agent must read the template and run the full test suite. Both actions are named in the same instruction.",
+            "quote": "When submitting a PR, you **MUST** read [`PULL_REQUEST_TEMPLATE.md`](./.github/PULL_REQUEST_TEMPLATE.md) and fill it out correctly. **DO NOT** submit a PR without running the full test suite.",
+            "pattern": "contribution-etiquette"
+        },
+        {
+            "title": "Route performance investigations to a skill",
+            "body": "The final sentence names a specific skill when the task is a performance investigation. The general entry file stays short while task-specific procedure lives elsewhere.",
+            "quote": "If asked to do a performance investigation, use the `performance-investigation` skill.",
+            "pattern": "skill-routing"
+        }
+    ],
+    "steal": [
+        "Keep shared contributor rules in one authoritative document.",
+        "Name the checks and template required before a pull request.",
+        "Route specialized investigations to task-specific guides."
+    ],
+    "outline": ["Quick Reference"]
+}

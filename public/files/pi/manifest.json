@@ -1,0 +1,28 @@
+{
+    "slug": "pi",
+    "sha": "be26e32704f7cab048e2b356206350ef7ad65999",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".pi/skills/interactive-testing.md",
+            "bytes": 930,
+            "lines": 19
+        },
+        {
+            "path": ".pi/skills/release.md",
+            "bytes": 3940,
+            "lines": 48
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 8277,
+            "lines": 124
+        },
+        {
+            "path": "CONTRIBUTING.md",
+            "bytes": 5033,
+            "lines": 102
+        }
+    ]
+}

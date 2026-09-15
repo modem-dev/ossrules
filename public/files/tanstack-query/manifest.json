@@ -1,0 +1,18 @@
+{
+    "slug": "tanstack-query",
+    "sha": "9f350003562437899c00443246df27a14d6ffa5e",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 456,
+            "lines": 10
+        },
+        {
+            "path": "CONTRIBUTING.md",
+            "bytes": 8693,
+            "lines": 203
+        }
+    ]
+}

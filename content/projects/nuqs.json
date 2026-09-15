@@ -1,0 +1,89 @@
+{
+    "slug": "nuqs",
+    "name": "nuqs",
+    "owner": "47ng",
+    "repo": "nuqs",
+    "tagline": "Type-safe URL query state for React applications.",
+    "language": "TypeScript",
+    "stars": 10836,
+    "defaultBranch": "next",
+    "lastCommit": {
+        "sha": "fb0835c7ba0033d85a08f0c88822cda346ab546d",
+        "date": "2026-08-10T12:23:35Z"
+    },
+    "evaluatedAt": "2026-09-15",
+    "file": {
+        "bytes": 4604,
+        "lines": 107,
+        "words": 560,
+        "headings": 9,
+        "bullets": 30,
+        "codeBlocks": 6,
+        "docLinks": 14
+    },
+    "references": [
+        {
+            "path": "README.md"
+        },
+        {
+            "path": "CONTRIBUTING.md"
+        },
+        {
+            "path": ".agents/docs/adapter-development.md"
+        },
+        {
+            "path": ".agents/docs/parser-implementation.md"
+        },
+        {
+            "path": ".agents/docs/api-design.md"
+        },
+        {
+            "path": ".agents/docs/testing.md"
+        },
+        {
+            "path": ".agents/docs/git-workflow.md"
+        },
+        {
+            "path": ".agents/docs/quality-standards.md"
+        }
+    ],
+    "hook": "A task-to-guide table routes parser, adapter, testing, and release work; focused tests still run through the root task graph.",
+    "summary": "nuqs combines a small set of URL-state invariants with an index of detailed contributor guides. It specifies task-runner entry points, opt-in debugging in browser and server runtimes, and observable conditions for finishing a change.",
+    "patterns": ["skill-routing"],
+    "techniques": [
+        {
+            "title": "Route common tasks to the relevant guide",
+            "body": "A table maps bugs, parsers, adapters, performance, documentation, and pull requests to focused documents. It gives an entry path into the material without loading every guide for every change.",
+            "quote": "| Task                    | Guide                                                                             |\n| ----------------------- | --------------------------------------------------------------------------------- |\n| Fix a bug               | See [Testing Patterns](.agents/docs/testing.md) → Regression                      |\n| Add a new parser        | See [Parser Implementation](.agents/docs/parser-implementation.md)                |\n| Add a framework adapter | See [Adapter Development](.agents/docs/adapter-development.md)                    |\n| Improve performance     | See [API Design](.agents/docs/api-design.md) → Performance & Reliability          |\n| Update documentation    | See [Release & Git Workflow](.agents/docs/git-workflow.md) → Documentation        |\n| Prepare a pull request  | See [Release & Git Workflow](.agents/docs/git-workflow.md) → PR Quality Checklist |",
+            "pattern": "skill-routing"
+        },
+        {
+            "title": "Preserve the task graph when filtering tests",
+            "body": "Focused tests must use root Turbo commands instead of invoking package scripts directly. The file also documents the full suite’s duration and included build, unit, typing, and end-to-end stages.",
+            "quote": "- **Test suite:** `pnpm test` (5-10 minutes; includes build + unit + typing + e2e)\n- **Focused tests:** Use the root Turbo command, for example `pnpm run test --filter nuqs` or `pnpm run test --filter e2e-next`. Do not invoke package test scripts directly."
+        },
+        {
+            "title": "Record URL-state invariants together",
+            "body": "The core concepts define lossless pure serialization, internal defaults, and null on invalid parsing. These rules establish observable behavior for parser and state changes.",
+            "quote": "- **Key Principles:**\n  1. URL = single source of truth\n  2. Serialization must be lossless & pure\n  3. Defaults are internal (not written to URL)\n  4. Invalid parse → return `null`"
+        },
+        {
+            "title": "Make debug collection part of reproduction",
+            "body": "The guide gives browser and server activation steps for the opt-in debug bundle. It then asks for debug logs in issue reports and reproduction scripts.",
+            "quote": "Import the opt-in debug bundle once in each runtime where logs are needed:\n\n```ts\nimport 'nuqs/debug'\n```\n\nThen enable debug logs in the browser console and reload the page:\n\n```js\nlocalStorage.setItem('debug', 'nuqs')\n```\n\nIn server or Node environments (e.g. when using `nuqs/server`), set the `DEBUG` environment variable so it contains `nuqs`:\n\n```bash\nDEBUG=nuqs pnpm dev\n```\n\nHook-level logs are prefixed with `[nuq+ …]`; internal subsystems use `[nuqs <subsystem>]` (see `packages/nuqs/src/lib/debug-messages.ts` for the catalog).\n\nEncourage debug logs in issue reports and include them in reproduction scripts."
+        }
+    ],
+    "steal": [
+        "Map frequent tasks directly to their deeper guides.",
+        "Document the task-runner entry point required for focused tests.",
+        "Write state and serialization invariants as observable behavior.",
+        "Include opt-in diagnostics in reproduction instructions."
+    ],
+    "outline": [
+        "Essential Context",
+        "Development Guidelines",
+        "Quick Reference: Common Tasks",
+        "Debugging",
+        "Exit Conditions for Agent Tasks"
+    ]
+}

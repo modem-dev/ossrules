@@ -1,0 +1,35 @@
+{
+    "slug": "nuxt",
+    "sha": "390b5408043448eb465066405259e1ee9760c7f8",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 948,
+            "lines": 11,
+            "imports": [
+                {
+                    "target": "CONTRIBUTING.md",
+                    "path": "CONTRIBUTING.md"
+                }
+            ]
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "AGENTS.md"
+                }
+            ]
+        },
+        {
+            "path": "CONTRIBUTING.md",
+            "bytes": 3209,
+            "lines": 57
+        }
+    ]
+}

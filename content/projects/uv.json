@@ -1,0 +1,64 @@
+{
+    "slug": "uv",
+    "name": "uv",
+    "owner": "astral-sh",
+    "repo": "uv",
+    "tagline": "A Python package and project manager written in Rust.",
+    "language": "Rust",
+    "stars": 89847,
+    "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "392f661d2e925b8ff7d1fea55490a959031ac343",
+        "date": "2026-09-09T18:49:16Z"
+    },
+    "evaluatedAt": "2026-09-15",
+    "file": {
+        "bytes": 2347,
+        "lines": 32,
+        "words": 350,
+        "headings": 0,
+        "bullets": 23,
+        "codeBlocks": 0,
+        "docLinks": 0
+    },
+    "references": [
+        {
+            "path": "CONTRIBUTING.md"
+        }
+    ],
+    "hook": "Lockfile updates must be precise; privileged webhook workflows go through one dispatcher instead of new dangerous triggers.",
+    "summary": "uv’s root instructions are a compact list of contributor constraints. They focus on targeted testing, explicit fallibility, dependency changes, workflow security, and prose written for maintainers rather than for the agent conversation.",
+    "patterns": ["hard-prohibition", "single-source", "contribution-etiquette"],
+    "techniques": [
+        {
+            "title": "Keep dependency updates precise",
+            "body": "The lockfile rule bans updating every dependency and names cargo update --precise as the required mechanism. It gives a concrete boundary for dependency-related diffs.",
+            "quote": "- NEVER update all dependencies in the lockfile and ALWAYS use `cargo update --precise` to make\n  lockfile changes",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Use one privileged workflow dispatcher",
+            "body": "Webhook-triggered privileged work must go through the existing automation dispatcher. The adjacent rule prohibits suppressing the security lint and asks for a separate dispatcher change when an event is unsupported.",
+            "quote": "- ALWAYS use `.github/automations-dispatch.json` to trigger privileged workflows from GitHub webhook\n  events instead of adding `pull_request_target` workflows\n- NEVER suppress the `dangerous-triggers` security lint; extend the automation dispatcher in a\n  separate pull request if it does not support the required event",
+            "pattern": "single-source"
+        },
+        {
+            "title": "Make new enum variants require handling",
+            "body": "The guide prefers exhaustive match expressions without wildcard arms. Its stated reason is that adding an enum variant should force an explicit decision at each affected match.",
+            "quote": "- PREFER exhaustive `match` expressions without wildcard (`_`) arms over `matches!`, so new enum\n  variants require explicit handling"
+        },
+        {
+            "title": "Keep conversation history out of project prose",
+            "body": "Comments and pull request descriptions are addressed to maintainers who did not see the conversation. The guide also favors descriptions of present behavior and rationale over references to prior iterations.",
+            "quote": "- DO NOT leak our conversation, prompt, or iteration history into code comments, pull request\n  descriptions, or other maintainer-facing prose. Write for readers who have not seen our\n  conversation.\n- PREFER comments that explain the current behavior and rationale. Avoid past-facing wording like\n  \"preserve the existing behavior\"; explain the actual backwards-compatibility constraint instead.",
+            "pattern": "contribution-etiquette"
+        }
+    ],
+    "steal": [
+        "Specify the narrow dependency-update operation contributors should use.",
+        "Route privileged automation through an existing reviewed entry point.",
+        "Prefer exhaustive handling where new variants need deliberate decisions.",
+        "Write project prose for readers without the agent conversation."
+    ],
+    "outline": ["Contributor rules (unsectioned)"]
+}

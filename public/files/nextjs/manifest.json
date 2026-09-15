@@ -1,0 +1,52 @@
+{
+    "slug": "nextjs",
+    "sha": "94327e8ade8dedd70a0d007d6a49ace64b75ed70",
+    "files": [
+        {
+            "path": ".github/AGENTS.md",
+            "bytes": 2925,
+            "lines": 78
+        },
+        {
+            "path": ".github/CLAUDE.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "AGENTS.md",
+            "resolvedPath": ".github/AGENTS.md"
+        },
+        {
+            "path": ".github/pull_request_template.md",
+            "bytes": 2378,
+            "lines": 51
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 30720,
+            "lines": 560
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "AGENTS.md"
+        },
+        {
+            "path": "packages/next/AGENTS.md",
+            "bytes": 311,
+            "lines": 7
+        },
+        {
+            "path": "turbopack/AGENTS.md",
+            "bytes": 653,
+            "lines": 5
+        },
+        {
+            "path": "turbopack/CLAUDE.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "turbopack/AGENTS.md"
+        }
+    ]
+}

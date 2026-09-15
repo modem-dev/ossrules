@@ -1,0 +1,12 @@
+{
+    "version": 1,
+    "slug": "kernel",
+    "repository": "kernel/kernel-images",
+    "branch": "main",
+    "sha": "dfd0505089e1dd72e7c09f543747f6cf24139cde",
+    "scannedAt": "2026-09-15T14:31:40.090Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": []
+}

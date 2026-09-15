@@ -1,0 +1,74 @@
+{
+    "slug": "ai-sdk",
+    "sha": "602348dc10036b6968fbabc6cba5a1e3826c700f",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 13420,
+            "lines": 320
+        },
+        {
+            "path": "architecture/provider-abstraction.md",
+            "bytes": 9937,
+            "lines": 208
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 9,
+            "lines": 0,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "AGENTS.md"
+        },
+        {
+            "path": "contributing/add-new-model.md",
+            "bytes": 456,
+            "lines": 11
+        },
+        {
+            "path": "contributing/add-new-provider.md",
+            "bytes": 2429,
+            "lines": 32
+        },
+        {
+            "path": "contributing/building-new-features.md",
+            "bytes": 263,
+            "lines": 9
+        },
+        {
+            "path": "contributing/codemods.md",
+            "bytes": 2173,
+            "lines": 70
+        },
+        {
+            "path": "contributing/decisions/README.md",
+            "bytes": 787,
+            "lines": 22
+        },
+        {
+            "path": "contributing/project-philosophies.md",
+            "bytes": 4992,
+            "lines": 54
+        },
+        {
+            "path": "contributing/provider-architecture.md",
+            "bytes": 1120,
+            "lines": 29
+        },
+        {
+            "path": "contributing/secure-url-handling.md",
+            "bytes": 3708,
+            "lines": 87
+        },
+        {
+            "path": "contributing/testing.md",
+            "bytes": 4418,
+            "lines": 126
+        },
+        {
+            "path": "packages/ai/AGENTS.md",
+            "bytes": 1083,
+            "lines": 57
+        }
+    ]
+}

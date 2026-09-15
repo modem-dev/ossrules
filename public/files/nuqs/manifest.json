@@ -1,0 +1,58 @@
+{
+    "slug": "nuqs",
+    "sha": "fb0835c7ba0033d85a08f0c88822cda346ab546d",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".agents/docs/adapter-development.md",
+            "bytes": 3401,
+            "lines": 86
+        },
+        {
+            "path": ".agents/docs/api-design.md",
+            "bytes": 3451,
+            "lines": 116
+        },
+        {
+            "path": ".agents/docs/git-workflow.md",
+            "bytes": 4400,
+            "lines": 162
+        },
+        {
+            "path": ".agents/docs/parser-implementation.md",
+            "bytes": 3892,
+            "lines": 128
+        },
+        {
+            "path": ".agents/docs/quality-standards.md",
+            "bytes": 5722,
+            "lines": 194
+        },
+        {
+            "path": ".agents/docs/testing.md",
+            "bytes": 5270,
+            "lines": 221
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 4604,
+            "lines": 107
+        },
+        {
+            "path": "CONTRIBUTING.md",
+            "bytes": 4849,
+            "lines": 111
+        },
+        {
+            "path": "packages/docs/CLAUDE.md",
+            "bytes": 1304,
+            "lines": 39
+        },
+        {
+            "path": "README.md",
+            "bytes": 31845,
+            "lines": 1074
+        }
+    ]
+}

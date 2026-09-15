@@ -1,0 +1,90 @@
+{
+    "slug": "playwright",
+    "name": "Playwright",
+    "owner": "microsoft",
+    "repo": "playwright",
+    "tagline": "Browser automation and end-to-end testing for Chromium, Firefox, and WebKit.",
+    "language": "TypeScript",
+    "stars": 96163,
+    "defaultBranch": "main",
+    "lastCommit": {
+        "sha": "5a617bb6b5b9910f341bbb26311f8c60b62471a3",
+        "date": "2026-08-07T21:40:07Z"
+    },
+    "evaluatedAt": "2026-09-15",
+    "file": {
+        "bytes": 7890,
+        "lines": 164,
+        "words": 1081,
+        "headings": 17,
+        "bullets": 10,
+        "codeBlocks": 8,
+        "docLinks": 5
+    },
+    "references": [
+        {
+            "path": ".claude/skills/playwright-dev/library.md"
+        },
+        {
+            "path": ".claude/skills/playwright-dev/api.md"
+        },
+        {
+            "path": ".claude/skills/playwright-dev/tools.md"
+        },
+        {
+            "path": ".claude/skills/playwright-dev/vendor.md"
+        }
+    ],
+    "hook": "A fixture decision rule chooses the test suite, while DEPS.list files enforce a client/server protocol boundary.",
+    "summary": "Playwright’s CLAUDE.md maps the monorepo and its test fixtures before describing the boundaries contributors must preserve. It routes deeper implementation work to local guides and couples code generation, linting, and types through the shared flint command.",
+    "patterns": ["verification-matrix", "hard-prohibition", "single-source", "contribution-etiquette", "skill-routing"],
+    "techniques": [
+        {
+            "title": "Choose the suite by the fixtures a test needs",
+            "body": "The guide distinguishes page-and-server tests from browser, browser-type, and context lifecycle tests. Its decision rule maps those needs to separate directories and fixture imports.",
+            "quote": "**Decision rule**: Does the test need `browser`/`browserType`/`context` → `tests/library/`. Just needs `page` + `server` → `tests/page/`.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Enforce the client/server boundary through declarations",
+            "body": "Client and server code communicate only through the protocol. Creating or moving files requires updating the relevant DEPS.list, and strict lists allow only declared imports.",
+            "quote": "**Key rule**: Client code NEVER imports server code. Server code NEVER imports client code. Communication is only through the protocol.\nWhen creating or moving files, update the relevant `DEPS.list` to declare allowed imports. Files marked `\"strict\"` can only import what is explicitly listed.",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Point verification at the integrated check",
+            "body": "The flint command includes types, documentation checks, dependency checks, and generators. The guide explicitly requires it before committing instead of isolated lint or type-check commands.",
+            "quote": "**Always run `flint` before committing.** Do not use `tsc --noEmit` or individual lint commands separately.",
+            "pattern": "single-source"
+        },
+        {
+            "title": "Explain incremental review history",
+            "body": "The guide defaults to new commits for follow-up changes because amending rewrites the review trail and forces a force-push. It separately requires explicit user direction before pushing.",
+            "quote": "**Never amend commits.** Always create a new commit for follow-up changes, even when iterating on an open PR. Amending rewrites history and forces a force-push, losing the incremental review trail. Only amend if the user explicitly says so.",
+            "pattern": "contribution-etiquette"
+        },
+        {
+            "title": "Route implementation tasks into local development guides",
+            "body": "The final index maps architecture, API changes, tools and CLI commands, and vendoring to individual documents. Each link describes the workflow and concepts covered.",
+            "quote": "Detailed guides for common development tasks:",
+            "pattern": "skill-routing"
+        }
+    ],
+    "steal": [
+        "Choose test locations from their required fixtures and behavior.",
+        "Enforce architectural import boundaries with machine-readable declarations.",
+        "Use the project’s integrated verification command when it includes generation.",
+        "Keep follow-up commits reviewable and make publishing authorization explicit."
+    ],
+    "outline": [
+        "Build",
+        "Lint and type check",
+        "Test Commands",
+        "DEPS System",
+        "Coding Convention",
+        "Commit Convention",
+        "Summary",
+        "Development Guides"
+    ],
+    "instructionFile": "CLAUDE.md"
+}

@@ -1,0 +1,18 @@
+{
+    "slug": "kernel",
+    "sha": "18a37cae01fa85ca6f8076ea74c44c955a252386",
+    "license": "Apache-2.0",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 4801,
+            "lines": 52
+        },
+        {
+            "path": "server/README.md",
+            "bytes": 2138,
+            "lines": 91
+        }
+    ]
+}

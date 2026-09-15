@@ -1,0 +1,33 @@
+{
+    "slug": "playwright",
+    "sha": "5a617bb6b5b9910f341bbb26311f8c60b62471a3",
+    "license": "Apache-2.0",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".claude/skills/playwright-dev/api.md",
+            "bytes": 10537,
+            "lines": 295
+        },
+        {
+            "path": ".claude/skills/playwright-dev/library.md",
+            "bytes": 18071,
+            "lines": 418
+        },
+        {
+            "path": ".claude/skills/playwright-dev/tools.md",
+            "bytes": 17576,
+            "lines": 512
+        },
+        {
+            "path": ".claude/skills/playwright-dev/vendor.md",
+            "bytes": 11362,
+            "lines": 240
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 7890,
+            "lines": 164
+        }
+    ]
+}

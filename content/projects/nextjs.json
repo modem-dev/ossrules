@@ -1,0 +1,109 @@
+{
+    "slug": "nextjs",
+    "name": "Next.js",
+    "owner": "vercel",
+    "repo": "next.js",
+    "tagline": "A React framework for full-stack web applications.",
+    "language": "JavaScript",
+    "stars": 142318,
+    "defaultBranch": "canary",
+    "lastCommit": {
+        "sha": "94327e8ade8dedd70a0d007d6a49ace64b75ed70",
+        "date": "2026-08-26T14:22:11Z"
+    },
+    "evaluatedAt": "2026-09-15",
+    "file": {
+        "bytes": 30720,
+        "lines": 560,
+        "words": 4334,
+        "headings": 60,
+        "bullets": 134,
+        "codeBlocks": 40,
+        "docLinks": 1
+    },
+    "references": [
+        {
+            "path": ".github/pull_request_template.md"
+        },
+        {
+            "path": "README.md",
+            "kind": "pattern",
+            "label": "README files along the path to the edited directory"
+        },
+        {
+            "path": ".agents/skills/",
+            "kind": "pattern",
+            "label": "Specialized development and release skills"
+        }
+    ],
+    "hook": "Fork and branch contributions have different rules, and verification must match both the runtime mode and the bundler.",
+    "summary": "Next.js maintains a detailed development guide on its canary branch, with CLAUDE.md symlinked to AGENTS.md. It combines iteration and testing instructions with contributor-role boundaries, source-context rules, and task-specific skills for runtime and release work.",
+    "patterns": ["scope-layering", "verification-matrix", "single-source", "context-budget", "skill-routing", "contribution-etiquette"],
+    "techniques": [
+        {
+            "title": "Distinguish contributor roles before public actions",
+            "body": "The pull-request section distinguishes branches owned by Vercel from external forks. It assigns different authorship permissions to those cases and points to the repository’s pull-request template.",
+            "quote": "Check and see if you are creating a fork PR or a branch PR.\nBranch PRs are PRs where the branch is part of the `vercel/next.js` repository. These PRs are created by Vercel employees.\nFork PRs are external contributions created by pushing commits to any fork repository that is not owned by `vercel` on GitHub.\n\n- You cannot write full descriptions for fork PRs where the merge target is `vercel/next.js`.\n- You can write descriptions for branch PRs and local commits.\n- You can write titles and messages for local commits.\n- You can assist the user in translating their descriptions to English.\n\nYou must inform the user that you are not allowed to write pull request descriptions for external contributions. Refer to the guidelines in `.github/pull_request_template.md`.\nWhile you cannot write the full description for the user, you may offer to help review the description, or provide helpful technical details. You can provide them a link to the GitHub URL to create the PR.",
+            "pattern": "scope-layering"
+        },
+        {
+            "title": "Match verification to mode and bundler",
+            "body": "Four test commands distinguish development from production and Turbopack from Webpack. This makes a test result meaningful for the runtime combination being changed.",
+            "quote": "**Test commands by mode:**\n\n- `pnpm test-dev-turbo` - Development mode with Turbopack (default)\n- `pnpm test-dev-webpack` - Development mode with Webpack\n- `pnpm test-start-turbo` - Production build+start with Turbopack\n- `pnpm test-start-webpack` - Production build+start with Webpack",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Explain false negatives from ad hoc type checks",
+            "body": "The type-checking guidance explains why a custom config can miss repository augmentations and pass while CI fails. It illustrates the gap using the required NODE_ENV type on process environment values.",
+            "quote": "Type-check with the repo's own commands. `pnpm typescript` runs `tsc --noEmit` against the root `tsconfig.json`, which includes `scripts/**/*.js` and loads this repo's type augmentations. A hand-rolled `tsconfig` pointed at a single file misses those augmentations and will report clean while CI fails. For example `NodeJS.ProcessEnv` is declared in `packages/next/types/global.d.ts` with `NODE_ENV` required, so a plain `Record<string, string>` is not a valid `env` for an `execa` call.",
+            "pattern": "single-source"
+        },
+        {
+            "title": "Bound repeated reading and expensive reruns",
+            "body": "The context section directs large-file reads toward targeted ranges and treats generated files as search-only. Build and test logs are captured once and analyzed without rerunning unchanged commands.",
+            "quote": "**Reading large files** (>500 lines, e.g. `app-render.tsx`):\n\n- Grep first to find relevant line numbers, then read targeted ranges with `offset`/`limit`\n- Never re-read the same section of a file without code changes in between\n- For generated files (`dist/`, `node_modules/`, `.next/`): search only, don't read\n\n**Build & test output:**\n\n- Capture to file once, then analyze: e.g. `pnpm build 2>&1 | tee /tmp/build.log`\n- Don't re-run the same test command without code changes; re-analyze saved output instead",
+            "pattern": "context-budget"
+        },
+        {
+            "title": "Load specialized workflows conditionally",
+            "body": "The specialized-skills section assigns deeper workflows to named skills while retaining baseline build, test, and iteration policy in the root guide. This separates everyday rules from occasional procedures.",
+            "quote": "Use skills for conditional, deep workflows. Keep baseline iteration/build/test policy in this file.",
+            "pattern": "skill-routing"
+        },
+        {
+            "title": "Explain the trust boundary when adopting fork work",
+            "body": "The adoption workflow ties review to an exact head SHA and treats internal-branch CI as a grant of secret access. The guide requires reading the full diff and an interactive confirmation before adoption.",
+            "quote": "**Adoption grants the contributor's code access to repository secrets**, because CI trusts branches inside `vercel/next.js`. Anything in the diff that runs during install, build, or test can exfiltrate them. The script requires an interactive confirmation that names the author, shows the exact head SHA, and lists every touched file; never bypass it, and never adopt a PR whose full diff has not been read. The file list is deliberately unranked, since a payload can sit in any fixture or source file and calling some paths risky would imply the rest are safe.",
+            "pattern": "contribution-etiquette"
+        }
+    ],
+    "steal": [
+        "Match test commands to the runtime mode and bundler under investigation.",
+        "Explain why repository-specific checks cannot be replaced by ad hoc commands.",
+        "Separate role-dependent contribution rules from universal development rules.",
+        "Keep specialized workflows in guides loaded only when needed.",
+        "Review and pin untrusted code before moving it into privileged CI."
+    ],
+    "outline": [
+        "Codebase structure",
+        "Build Commands",
+        "Fast Local Development",
+        "Bundler Selection",
+        "Testing",
+        "Writing Tests",
+        "Linting and Types",
+        "Prefer a Throwaway Worktree",
+        "PR Status (CI Failures and Reviews)",
+        "GitHub Pull Requests",
+        "GitHub Issues, Comments, and Discussions",
+        "Key Directories (Quick Reference)",
+        "Development Tips",
+        "Secrets and Env Safety",
+        "Specialized Skills",
+        "Context-Efficient Workflows",
+        "Commit and PR Style",
+        "Task Decomposition and Verification",
+        "Rebuilding Before Running Tests",
+        "Development Anti-Patterns"
+    ]
+}

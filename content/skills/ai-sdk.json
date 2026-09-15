@@ -1,0 +1,519 @@
+{
+    "version": 1,
+    "slug": "ai-sdk",
+    "repository": "vercel/ai",
+    "branch": "main",
+    "sha": "8b92ba9b649233842a763930a033bc188d149054",
+    "scannedAt": "2026-09-15T14:33:26.335Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "island-rescue-a5e87358ccaf",
+            "path": "examples/ai-e2e-next/data/island-rescue/SKILL.md",
+            "name": "island-rescue",
+            "description": "How to be rescued from a lonely island",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "a68e7552638aa877ab813f621432a2059ae2d6d2",
+                    "bytes": 219,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 3531426,
+                        "login": "felixarntz",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "island-rescue-4f3a73068c13",
+            "path": "examples/ai-functions/data/island-rescue/SKILL.md",
+            "name": "island-rescue",
+            "description": "How to be rescued from a lonely island",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "a68e7552638aa877ab813f621432a2059ae2d6d2",
+                    "bytes": 219,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 3531426,
+                        "login": "felixarntz",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "add-function-examples-6d1309df1130",
+            "path": "skills/add-function-examples/SKILL.md",
+            "name": "add-function-examples",
+            "description": "Guide for adding new AI function examples, for testing specific features against the actual provider APIs.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "a2405f0c04e9d94398a5878d5a13edc582ff5d54",
+                    "bytes": 935,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 3531426,
+                        "login": "felixarntz",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "add-harness-package-9b760e85e634",
+            "path": "skills/add-harness-package/SKILL.md",
+            "name": "add-harness-package",
+            "description": "Guide for adding new AI SDK harness packages. Use when creating a new @ai-sdk/harness-<name> package that adapts a coding-agent runtime to HarnessV1.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "f10d52c0a9ddfd0e456fc3c6c91051c6f1b4dadd",
+                    "bytes": 12250,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 3531426,
+                        "login": "felixarntz",
+                        "commits": 4
+                    },
+                    {
+                        "id": 121539073,
+                        "login": "mlekhi",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "add-provider-package-896ecd6c42b9",
+            "path": "skills/add-provider-package/SKILL.md",
+            "name": "add-provider-package",
+            "description": "Guide for adding first-party AI provider packages to the AI SDK. Use when creating a provider package under packages/ to integrate an external AI service.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "acb22fe78b71524d93544369c5a54ed31df05558",
+                    "bytes": 12298,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 39992,
+                        "login": "gr2m",
+                        "commits": 4
+                    },
+                    {
+                        "id": 205036,
+                        "login": "lgrammel",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "adr-skill-dc67c824ebc4",
+            "path": "skills/adr-skill/SKILL.md",
+            "name": "adr-skill",
+            "description": "Create and maintain Architecture Decision Records (ADRs) optimized for agentic coding workflows. Use when you need to propose, write, update, accept/reject, deprecate, or supersede an ADR; bootstrap an adr folder and index; consult existing ADRs before implementing changes; or enforce ADR conventions. This skill uses Socratic questioning to capture intent before drafting, and validates output against an agent-readiness checklist.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "6889ca133ee10ada52429ad552ac7132300c68b6",
+                    "bytes": 16491,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/templates/adr-madr.md",
+                    "blob": "ad64e50160e16494baa530a68fc3737d3eb4b819",
+                    "bytes": 3329,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/templates/adr-readme.md",
+                    "blob": "662514eea382c1a2604f046a3ce61bb55c2c063f",
+                    "bytes": 659,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/templates/adr-simple.md",
+                    "blob": "ea54a06eb2e4145d1921715f5cbf226c575b3582",
+                    "bytes": 1379,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/adr-conventions.md",
+                    "blob": "6e43ec98d40b4974b29fc1f8b5d9d3b82bd5cf52",
+                    "bytes": 3729,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/examples.md",
+                    "blob": "afa3fe586409aabae67a18455bd4fd3b2e80ec42",
+                    "bytes": 9794,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/review-checklist.md",
+                    "blob": "d933e799d8bfd0d2f1e8a40347bed99c469a129f",
+                    "bytes": 4426,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/template-variants.md",
+                    "blob": "f3ac111317ff43c6d7acbe6d0656ab71b122f1b9",
+                    "bytes": 2539,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/bootstrap_adr.js",
+                    "blob": "0d8212fbf1dd71e34316f250a410d70e5ff4a0ef",
+                    "bytes": 9379,
+                    "text": true,
+                    "mode": "100755"
+                },
+                {
+                    "path": "scripts/new_adr.js",
+                    "blob": "9d52809e2c6b6f4e2ae05a3727be35b5eea26d1e",
+                    "bytes": 12203,
+                    "text": true,
+                    "mode": "100755"
+                },
+                {
+                    "path": "scripts/set_adr_status.js",
+                    "blob": "adc2414e0dc3c2bb3585756362d0a9332e06e6ce",
+                    "bytes": 4266,
+                    "text": true,
+                    "mode": "100755"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 39992,
+                        "login": "gr2m",
+                        "commits": 2
+                    },
+                    {
+                        "id": 49612682,
+                        "login": "nicoalbanese",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "capture-api-response-test-fixture-775b7e79a6e1",
+            "path": "skills/capture-api-response-test-fixture/SKILL.md",
+            "name": "capture-api-response-test-fixture",
+            "description": "Capture API response test fixture.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "e125a995aad9915055fa8d3c3523ddfea92f79ea",
+                    "bytes": 2164,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 39992,
+                        "login": "gr2m",
+                        "commits": 1
+                    },
+                    {
+                        "id": 205036,
+                        "login": "lgrammel",
+                        "commits": 1
+                    },
+                    {
+                        "id": 32676955,
+                        "login": "quuu",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "develop-ai-functions-example-3df46c78e038",
+            "path": "skills/develop-ai-functions-example/SKILL.md",
+            "name": "develop-ai-functions-example",
+            "description": "Develop examples for AI SDK functions. Use when creating, running, or modifying examples under examples/ai-functions/src to validate provider support, demonstrate features, or create test fixtures.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ece433fa3977a0f62869e0b87b1f26567c6c00a3",
+                    "bytes": 8155,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 39992,
+                        "login": "gr2m",
+                        "commits": 1
+                    },
+                    {
+                        "id": 205036,
+                        "login": "lgrammel",
+                        "commits": 1
+                    },
+                    {
+                        "id": 32676955,
+                        "login": "quuu",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "list-npm-package-content-88165bfbdf6e",
+            "path": "skills/list-npm-package-content/SKILL.md",
+            "name": "list-npm-package-content",
+            "description": "List the contents of an npm package tarball before publishing. Use when the user wants to see what files are included in an npm bundle, verify package contents, or debug npm publish issues.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "18ba9e94b1cdafd143dc0839f42347a461d77f97",
+                    "bytes": 1054,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/list-package-files.sh",
+                    "blob": "87df41509fb47409a6ff85a597dd4c243d96c2fa",
+                    "bytes": 142,
+                    "text": true,
+                    "mode": "100755"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 205036,
+                        "login": "lgrammel",
+                        "commits": 2
+                    },
+                    {
+                        "id": 32676955,
+                        "login": "quuu",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "major-version-mode-242d8a231502",
+            "path": "skills/major-version-mode/SKILL.md",
+            "name": "major-version-mode",
+            "description": "Context for working on the next AI SDK major release. Only use when explicitly invoked by the user (e.g. via '/major-version-mode'). Do NOT trigger autonomously based on task content.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "a750b4669f09b5f77062709d5a5d4aa8cbc72d2f",
+                    "bytes": 3209,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 3531426,
+                        "login": "felixarntz",
+                        "commits": 1
+                    },
+                    {
+                        "id": 49612682,
+                        "login": "nicoalbanese",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "migrate-ai-sdk-v6-to-v7-39eb72869187",
+            "path": "skills/migrate-ai-sdk-v6-to-v7/SKILL.md",
+            "name": "migrate-ai-sdk-v6-to-v7",
+            "description": "Migrate applications from AI SDK 6.x to AI SDK 7.0. Use when upgrading Vercel AI SDK packages, fixing v7 migration errors, or when the user mentions AI SDK v6, v7, upgrade, migration, breaking changes, system to instructions, fullStream, telemetry, tool context, or finalStep.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "0c10efe9686324fb38a8b12ce3f95ccde2b594f1",
+                    "bytes": 8357,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 83492835,
+                        "login": "aayush-kapoor",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "update-harness-dependencies-5add900fa2de",
+            "path": "skills/update-harness-dependencies/SKILL.md",
+            "name": "update-harness-dependencies",
+            "description": "Update the primary SDK dependencies of harness packages. Use when asked to update the harness SDKs or harness adapter dependencies.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "55eea4598949a488f7160eee1e9fabebcbb811ae",
+                    "bytes": 4787,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 3531426,
+                        "login": "felixarntz",
+                        "commits": 8
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "update-provider-models-220803791a82",
+            "path": "skills/update-provider-models/SKILL.md",
+            "name": "update-provider-models",
+            "description": "Add new or remove obsolete model IDs for existing AI SDK providers. Use when adding a model to a provider, removing an obsolete model, or processing a list of model changes from an issue. Triggers on \"add model\", \"remove model\", \"new model ID\", \"obsolete model\", \"update model IDs\".",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7e21534aae71d1c1cd8da1b4e6f8d471c8d72885",
+                    "bytes": 9586,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 83492835,
+                        "login": "aayush-kapoor",
+                        "commits": 1
+                    },
+                    {
+                        "id": 3531426,
+                        "login": "felixarntz",
+                        "commits": 1
+                    },
+                    {
+                        "id": 58091943,
+                        "login": "n1ckoates",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "use-ai-sdk-ec19c662abf5",
+            "path": "skills/use-ai-sdk/SKILL.md",
+            "name": "ai-sdk",
+            "description": "Answer questions about the AI SDK and help build AI-powered features. Use when developers: (1) Ask about AI SDK functions like generateText, streamText, ToolLoopAgent, embed, or tools, (2) Want to build AI agents, chatbots, RAG systems, or text generation features, (3) Have questions about AI providers (OpenAI, Anthropic, Google, etc.), streaming, tool calling, structured output, or embeddings, (4) Use React hooks like useChat or useCompletion. Triggers on: \"AI SDK\", \"Vercel AI SDK\", \"generateText\", \"streamText\", \"add AI to my app\", \"build an agent\", \"tool calling\", \"structured output\", \"useChat\".",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "038ecd174553c191c7c1b11530fd013e2d1fb060",
+                    "bytes": 5547,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 49612682,
+                        "login": "nicoalbanese",
+                        "commits": 5
+                    },
+                    {
+                        "id": 58091943,
+                        "login": "n1ckoates",
+                        "commits": 2
+                    },
+                    {
+                        "id": 205036,
+                        "login": "lgrammel",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "da8a62fcc855801b1ea87388d9b78d46c0338095",
+        "bytes": 13420,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "6c16c29f41168411dbf6e3ba3a063ce789c27334",
+        "bytes": 552,
+        "text": true,
+        "mode": "100644"
+    }
+}

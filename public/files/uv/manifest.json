@@ -1,0 +1,29 @@
+{
+    "slug": "uv",
+    "sha": "392f661d2e925b8ff7d1fea55490a959031ac343",
+    "license": "Apache-2.0",
+    "licensePath": "LICENSE-APACHE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 2347,
+            "lines": 32
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "AGENTS.md"
+                }
+            ]
+        },
+        {
+            "path": "CONTRIBUTING.md",
+            "bytes": 11712,
+            "lines": 364
+        }
+    ]
+}

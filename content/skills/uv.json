@@ -1,0 +1,52 @@
+{
+    "version": 1,
+    "slug": "uv",
+    "repository": "astral-sh/uv",
+    "branch": "main",
+    "sha": "ac9201b104336851914dc966c50041fc3339d851",
+    "scannedAt": "2026-09-15T14:31:40.616Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "load-github-action-thread-b5ac7c23e780",
+            "path": ".codex/skills/load-github-action-thread/SKILL.md",
+            "name": "load-github-action-thread",
+            "description": "Download retained Codex GitHub Action thread artifacts and load their rollout history into the local Codex app. Use when asked to open, load, import, resume, or inspect a Codex automation thread from a GitHub Actions run or a related GitHub issue or pull request.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "228a5695281c1acf4f6c7dbd1cd01ddfc15de78f",
+                    "bytes": 3912,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "00f88f031f7d53ba9e5d7206d26b3c562f5c7b8e",
+                    "bytes": 294,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 3059210,
+                        "login": "woodruffw",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "be4b61343a2c78d0a8cb79e890337b3b626a1e6c",
+        "bytes": 2347,
+        "text": true,
+        "mode": "100644"
+    }
+}
