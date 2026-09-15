@@ -7,6 +7,7 @@ import { CopySource } from '@/components/copy-source';
 import { Excerpt } from '@/components/primitives';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
+import { SkillContributors } from '@/components/skill-contributors';
 import { SkillMarkdown } from '@/components/skill-markdown';
 import { getAgentsProject } from '@/lib/agents-md';
 import { documentMentions } from '@/lib/document-mentions';
@@ -76,6 +77,17 @@ export default async function SkillPage({
                     <div className="min-w-0 flex-1">
                         <p className="eyebrow">{project.name} / Skill</p>
                         <h1 className="page-title mt-3 [overflow-wrap:anywhere]">{skill.name}</h1>
+                        {skill.contributions?.contributors.length ? (
+                            <div className="mt-3 flex items-center gap-2">
+                                <SkillContributors
+                                    contributions={skill.contributions}
+                                    historyUrl={`https://github.com/${manifest.repository}/commits/${manifest.sha}/${skill.path.split('/').map(encodeURIComponent).join('/')}`}
+                                    skillName={skill.name}
+                                    align="start"
+                                />
+                                <span className="font-mono text-[11px] text-gray-600">Contributors</span>
+                            </div>
+                        ) : null}
                         <p className="mt-4 max-w-3xl text-gray-500 text-sm leading-relaxed [overflow-wrap:anywhere]">{skill.description}</p>
                         <p className="mt-4 break-all font-mono text-[11px] text-gray-600">{skill.path}</p>
                     </div>

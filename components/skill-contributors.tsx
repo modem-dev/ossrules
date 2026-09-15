@@ -8,10 +8,12 @@ export function SkillContributors({
     contributions,
     historyUrl,
     skillName,
+    align = 'end',
 }: {
     contributions?: SkillContributions;
     historyUrl?: string;
     skillName: string;
+    align?: 'start' | 'end';
 }) {
     const details = useRef<HTMLDetailsElement>(null);
     const [open, setOpen] = useState(false);
@@ -35,7 +37,7 @@ export function SkillContributors({
     if (!contributions?.contributors.length) return null;
     const { contributors, unlinkedAuthors } = contributions;
     return (
-        <details ref={details} className="skill-contributors" onToggle={(event) => setOpen(event.currentTarget.open)}>
+        <details ref={details} className="skill-contributors" data-align={align} onToggle={(event) => setOpen(event.currentTarget.open)}>
             <summary aria-label={`${contributors.length} ${contributors.length === 1 ? 'contributor' : 'contributors'} to ${skillName}`}>
                 <span className="contributor-stack" aria-hidden="true">
                     {contributors.slice(0, 3).map((person) => (

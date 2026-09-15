@@ -837,6 +837,9 @@ select {
     font: 0.6875rem var(--font-mono);
     border-radius: 1rem;
 }
+.skill-contributors[data-align="start"] {
+    margin-left: 0;
+}
 .skill-contributors > summary::-webkit-details-marker {
     display: none;
 }
@@ -868,6 +871,10 @@ select {
     background: var(--color-medium-gray);
     box-shadow: 0 8px 24px #0002;
     font-family: var(--font-inter);
+}
+.skill-contributors[data-align="start"] .contributor-popover {
+    right: auto;
+    left: 0;
 }
 .contributor-list {
     display: grid;
