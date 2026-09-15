@@ -34,11 +34,16 @@ async function main() {
     const home = await page('/');
     const rules = await page('/agent-rules');
     const skillsIndex = await page('/skills');
+    // Rules show a capped sample of projects, so a larger corpus need not appear in full.
+    const projectPaths = new Set(projects.map((project) => `/${project.owner}/${project.repo}`));
+    const ruleProjectLinks = [...rules.matchAll(/<a\b[^>]*href="(\/[^"?#]+\/[^"?#]+)"/g)].map((match) => match[1]);
+    assert.ok(ruleProjectLinks.length > 0, 'rules include project examples');
+    for (const href of ruleProjectLinks) assert.ok(projectPaths.has(href), `rules repository link: ${href}`);
     for (const project of projects) {
         // Deliberately independent of URL helpers so changes to those cannot hide a regression.
         const root = `/${project.owner}/${project.repo}`;
         assert.ok(home.includes(`href="${root}"`), `directory: ${root}`);
-        assert.ok(rules.includes(`href="${root}"`), `rules: ${root}`);
+        assert.ok(!rules.includes(`href="/${project.slug}"`), `rules must not use legacy URLs: ${project.slug}`);
         const html = await page(root);
         assert.ok(html.includes(`href="${root}/skills"`), `project tabs: ${root}`);
         await page(`${root}/skills`);
