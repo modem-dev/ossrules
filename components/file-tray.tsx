@@ -1,5 +1,6 @@
 'use client';
 
+import * as Tabs from '@radix-ui/react-tabs';
 import dynamic from 'next/dynamic';
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import type { DocumentMention } from '@/lib/document-mentions';
@@ -360,6 +361,42 @@ export function FileTrayProvider({
     const markedCount = request?.lineCount ?? request?.match?.trimEnd().split('\n').length ?? 0;
     const sourceUrl = `https://github.com/${owner}/${repo}/blob/${sha}/${path?.split('/').map(encodeURIComponent).join('/') ?? ''}`;
 
+    const showReferences = Boolean(
+        mentions[path ?? '']?.length || (path && !instructionFiles.some((item) => item.path === path) && path !== primaryFile),
+    );
+    const canCompare = instructionFiles.some((item) => item.path === path) && alternatives.length > 0;
+    const sourceContent = failed ? (
+        <p role="alert" className="p-6 text-gray-550 text-sm leading-relaxed">
+            That file could not be loaded. It is still available{' '}
+            <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="text-teal underline">
+                on GitHub
+            </a>
+            .
+        </p>
+    ) : lines === undefined ? (
+        <p role="status" className="p-6 font-mono text-gray-600 text-xs">
+            Loading source…
+        </p>
+    ) : comparePath && source !== undefined ? (
+        <SourceComparison
+            slug={slug}
+            leftPath={path ?? ''}
+            left={source}
+            rightPath={comparePath}
+            rightTruncated={byPath.get(comparePath)?.truncated}
+        />
+    ) : isMarkdown && view === 'markdown' && source !== undefined ? (
+        <InstructionMarkdown source={source} sourceUrl={sourceUrl} readable={readable} onOpen={(path) => open({ path })} />
+    ) : (
+        <HighlightedSource
+            source={source ?? ''}
+            language={isMarkdown ? 'markdown' : (path?.split('.').pop() ?? 'text')}
+            numbered
+            markedLine={markedLine}
+            markedCount={markedCount}
+        />
+    );
+
     return (
         <FileTrayContext.Provider value={context}>
             <div className="source-workspace" data-source-open={isOpen}>
@@ -375,7 +412,7 @@ export function FileTrayProvider({
                         close();
                     }}
                 >
-                    <div className="source-panel">
+                    <Tabs.Root className="source-panel" value={view} onValueChange={(value) => setView(value as 'markdown' | 'raw')}>
                         <header className="source-header">
                             <div className="source-file-title">
                                 {instructionFiles.some((item) => item.path === path) && instructionFiles.length > 1 ? (
@@ -396,17 +433,6 @@ export function FileTrayProvider({
                                 )}
                             </div>
                             <div className="source-actions">
-                                {isMarkdown && !comparePath ? (
-                                    <select
-                                        aria-label="File view"
-                                        value={view}
-                                        onChange={(event) => setView(event.target.value as 'markdown' | 'raw')}
-                                        className="source-view-select"
-                                    >
-                                        <option value="markdown">Markdown</option>
-                                        <option value="raw">Raw</option>
-                                    </select>
-                                ) : null}
                                 <button
                                     type="button"
                                     onClick={copySource}
@@ -491,8 +517,18 @@ export function FileTrayProvider({
                                 </button>
                             </div>
                         ) : null}
-                        <div className="source-scroll" aria-busy={!failed && lines === undefined}>
-                            <div className="source-context">
+                        <div className="source-view-bar">
+                            {isMarkdown && !comparePath ? (
+                                <Tabs.List className="source-view-tabs" aria-label="File view">
+                                    <Tabs.Trigger className="source-view-tab" value="markdown">
+                                        Markdown
+                                    </Tabs.Trigger>
+                                    <Tabs.Trigger className="source-view-tab" value="raw">
+                                        Raw
+                                    </Tabs.Trigger>
+                                </Tabs.List>
+                            ) : null}
+                            <div className="source-facts">
                                 <div className="source-metadata">
                                     {file?.tokens !== undefined ? <span>{file.tokens.toLocaleString()} tokens</span> : null}
                                     <details className="source-info" key={path}>
@@ -550,38 +586,43 @@ export function FileTrayProvider({
                                         </div>
                                     </details>
                                 </div>
-                                {mentions[path]?.length ||
-                                (!instructionFiles.some((item) => item.path === path) && path !== primaryFile) ? (
-                                    <DocumentReferences
-                                        key={path}
-                                        path={path}
-                                        primaryFile={primaryFile}
-                                        mentions={mentions[path] ?? []}
-                                        canOpen={true}
-                                        onOpen={visitMention}
-                                        expanded={expandedReferences[path] ?? false}
-                                        onExpandedChange={(expanded) =>
-                                            setExpandedReferences((previous) =>
-                                                previous[path] === expanded ? previous : { ...previous, [path]: expanded },
-                                            )
-                                        }
-                                    />
-                                ) : null}
-                                {instructionFiles.some((item) => item.path === path) && alternatives.length > 0 ? (
-                                    <button
-                                        type="button"
-                                        className="source-compare"
-                                        onClick={() => setComparePath(comparePath ? undefined : alternatives[0]?.path)}
-                                    >
-                                        {comparePath ? 'Close comparison' : 'Compare files'}
-                                    </button>
-                                ) : null}
                                 {path === primaryFile && primaryFileModifiedAt ? (
-                                    <span className="ml-auto whitespace-nowrap text-right">
+                                    <span className="source-modified">
                                         Last modified <RelativeTime iso={primaryFileModifiedAt} />
                                     </span>
                                 ) : null}
                             </div>
+                        </div>
+                        <div className="source-scroll" aria-busy={!failed && lines === undefined}>
+                            {showReferences || canCompare ? (
+                                <div className="source-context">
+                                    {showReferences ? (
+                                        <DocumentReferences
+                                            key={path}
+                                            path={path}
+                                            primaryFile={primaryFile}
+                                            mentions={mentions[path] ?? []}
+                                            canOpen={true}
+                                            onOpen={visitMention}
+                                            expanded={expandedReferences[path] ?? false}
+                                            onExpandedChange={(expanded) =>
+                                                setExpandedReferences((previous) =>
+                                                    previous[path] === expanded ? previous : { ...previous, [path]: expanded },
+                                                )
+                                            }
+                                        />
+                                    ) : null}
+                                    {canCompare ? (
+                                        <button
+                                            type="button"
+                                            className="source-compare"
+                                            onClick={() => setComparePath(comparePath ? undefined : alternatives[0]?.path)}
+                                        >
+                                            {comparePath ? 'Close comparison' : 'Compare files'}
+                                        </button>
+                                    ) : null}
+                                </div>
+                            ) : null}
                             {request.via ? (
                                 <p className="px-4 pb-2 font-mono text-xs text-gray-600 sm:px-6">Opened via {request.via} symlink</p>
                             ) : null}
@@ -602,42 +643,13 @@ export function FileTrayProvider({
                                     </select>
                                 </label>
                             ) : null}
-                            {failed ? (
-                                <p role="alert" className="p-6 text-gray-550 text-sm leading-relaxed">
-                                    That file could not be loaded. It is still available{' '}
-                                    <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="text-teal underline">
-                                        on GitHub
-                                    </a>
-                                    .
-                                </p>
-                            ) : lines === undefined ? (
-                                <p role="status" className="p-6 font-mono text-gray-600 text-xs">
-                                    Loading source…
-                                </p>
-                            ) : comparePath && source !== undefined ? (
-                                <SourceComparison
-                                    slug={slug}
-                                    leftPath={path}
-                                    left={source}
-                                    rightPath={comparePath}
-                                    rightTruncated={byPath.get(comparePath)?.truncated}
-                                />
-                            ) : isMarkdown && view === 'markdown' && source !== undefined ? (
-                                <InstructionMarkdown
-                                    source={source}
-                                    sourceUrl={sourceUrl}
-                                    readable={readable}
-                                    onOpen={(path) => open({ path })}
-                                />
-                            ) : (
-                                <HighlightedSource
-                                    source={source ?? ''}
-                                    language={isMarkdown ? 'markdown' : (path.split('.').pop() ?? 'text')}
-                                    numbered
-                                    markedLine={markedLine}
-                                    markedCount={markedCount}
-                                />
-                            )}
+                            {isMarkdown && !comparePath
+                                ? (['markdown', 'raw'] as const).map((mode) => (
+                                      <Tabs.Content key={mode} value={mode} className="source-view-panel">
+                                          {view === mode ? sourceContent : null}
+                                      </Tabs.Content>
+                                  ))
+                                : sourceContent}
                         </div>
                         <footer className="source-footer">
                             <p role="status" className={copyStatus === 'failed' ? 'mb-2' : 'sr-only'}>
@@ -677,7 +689,7 @@ export function FileTrayProvider({
                                 </p>
                             )}
                         </footer>
-                    </div>
+                    </Tabs.Root>
                 </dialog>
             ) : null}
         </FileTrayContext.Provider>

@@ -17,7 +17,7 @@ export function SiteHeader() {
                 <Link href="/" className="font-mono font-medium text-[17px] tracking-tight transition-colors hover:text-teal sm:text-lg">
                     ossrules<span className="text-teal">.md</span>
                 </Link>
-                <nav aria-label="Main navigation" className="flex items-center gap-6 text-[13px]">
+                <nav aria-label="Main navigation" className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[13px] sm:gap-x-6">
                     <Link
                         href="/"
                         aria-current={pathname === '/' ? 'page' : undefined}
@@ -39,6 +39,15 @@ export function SiteHeader() {
                     >
                         Skills
                     </Link>
+                    <a
+                        href="https://github.com/modem-dev/ossrules"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="GitHub repository (opens in a new tab)"
+                        className="inline-flex items-center gap-1 border-transparent border-b-2 py-2 text-gray-550 transition-colors hover:text-light-cream"
+                    >
+                        GitHub <span aria-hidden="true">↗</span>
+                    </a>
                 </nav>
             </div>
         </header>
