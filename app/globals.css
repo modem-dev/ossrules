@@ -27,7 +27,8 @@
 .skill-reader {
     display: grid;
     grid-template-columns: 220px minmax(0, 1fr);
-    gap: 2.5rem;
+    grid-template-rows: auto 1fr;
+    column-gap: 2.5rem;
     margin-top: 1.5rem;
     border-top: 1px solid var(--color-gray-750);
     padding-top: 1.5rem;
@@ -36,6 +37,22 @@
 .skill-files {
     min-width: 0;
     padding-right: 1.25rem;
+}
+.skill-document {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+}
+.skill-file-metadata {
+    grid-column: 1;
+    grid-row: 2;
+    padding-right: 1.25rem;
+}
+.skill-mobile-files,
+.skill-mobile-provenance {
+    display: none;
+}
+#skill-document-title {
+    scroll-margin-top: 8rem;
 }
 .skill-files :where(nav a) {
     display: flex;
@@ -145,12 +162,77 @@
     border-radius: 0.25rem;
 }
 @media (max-width: 760px) {
+    .skill-page-header {
+        margin-top: 1.5rem;
+        gap: 1rem;
+    }
+    .skill-header-contributors,
+    .skill-header-path,
+    .skill-snapshot,
+    .skill-desktop-files {
+        display: none;
+    }
     .skill-reader {
         grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: auto;
         gap: 1.5rem;
     }
     .skill-files {
-        padding: 0 0 1.5rem;
+        display: contents;
+    }
+    .skill-file-navigation {
+        order: 0;
+    }
+    .skill-document {
+        grid-column: auto;
+        grid-row: auto;
+        order: 1;
+    }
+    .skill-file-metadata {
+        grid-column: auto;
+        grid-row: auto;
+        order: 2;
+        margin-top: 0;
+        padding-top: 1.5rem;
+        padding-right: 0;
+        border-top: 1px solid var(--color-gray-750);
+    }
+    .skill-mobile-provenance {
+        display: block;
+        margin-bottom: 1.5rem;
+    }
+    .skill-mobile-provenance summary {
+        cursor: pointer;
+        padding: 0.75rem 0;
+    }
+    .skill-mobile-files {
+        display: block;
+        border: 1px solid var(--color-gray-750);
+        border-radius: 0.25rem;
+        background: var(--color-medium-gray);
+    }
+    .skill-mobile-files summary {
+        cursor: pointer;
+        padding: 0.875rem;
+        color: var(--color-teal);
+        font-size: 0.8125rem;
+    }
+    .skill-file-count {
+        display: block;
+        margin-top: 0.25rem;
+        color: var(--color-gray-550);
+        font-size: 0.75rem;
+    }
+    .skill-mobile-files nav {
+        max-height: min(24rem, 60svh);
+        overflow-y: auto;
+        padding: 0.5rem;
+        border-top: 1px solid var(--color-gray-750);
+    }
+    .skill-mobile-files nav a {
+        min-height: 2.75rem;
+        align-items: center;
+        font-size: 0.75rem;
     }
     .skill-source {
         padding: 0.75rem;
@@ -529,6 +611,35 @@ select {
     gap: 2rem;
     margin-block: 2rem;
 }
+.project-title-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+.project-title-logo {
+    width: 3.5rem;
+    height: 3.5rem;
+}
+.project-page-title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.2em 0.4em;
+    min-width: 0;
+    padding-top: 0.075em;
+    text-wrap: auto;
+}
+.project-title-name {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+.project-title-section {
+    color: var(--color-gray-550);
+    font-size: 0.7em;
+    font-weight: 400;
+    letter-spacing: -0.035em;
+    white-space: nowrap;
+}
 
 .project-layout {
     display: grid;
@@ -540,6 +651,9 @@ select {
 .project-facts {
     align-self: start;
     padding-left: 1.5rem;
+}
+.project-mobile-navigation {
+    display: none;
 }
 
 .file-stats > div {
@@ -639,6 +753,34 @@ select {
 }
 
 @media (max-width: 767px) {
+    .project-title-logo {
+        width: 2.75rem;
+        height: 2.75rem;
+    }
+    .project-title-row {
+        gap: 0.75rem;
+    }
+    .project-mobile-navigation {
+        display: block;
+        margin-top: 1.5rem;
+    }
+    .project-mobile-navigation ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.25rem 1.25rem;
+        margin-top: 0.5rem;
+    }
+    .project-mobile-navigation li {
+        margin: 0;
+    }
+    .project-mobile-navigation a {
+        min-height: 2.75rem;
+        display: flex;
+        align-items: center;
+    }
+    .project-facts nav {
+        display: none;
+    }
     .project-heading {
         align-items: start;
         flex-direction: column;
