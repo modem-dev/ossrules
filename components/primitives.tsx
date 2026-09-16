@@ -41,18 +41,26 @@ export function FileStatGrid({ project, tokens }: { project: AgentsProject; toke
         { value: formatStars(project.stars), label: 'Repo stars' },
     ];
 
+    function statRows(items: typeof stats) {
+        return items.map((stat) => (
+            <div key={stat.label}>
+                <dt>{stat.label}</dt>
+                <dd>
+                    {stat.value}
+                    {stat.hint ? <span>{stat.hint}</span> : null}
+                </dd>
+            </div>
+        ));
+    }
+
     return (
-        <dl className="file-stats">
-            {stats.map((stat) => (
-                <div key={stat.label}>
-                    <dt>{stat.label}</dt>
-                    <dd>
-                        {stat.value}
-                        {stat.hint ? <span>{stat.hint}</span> : null}
-                    </dd>
-                </div>
-            ))}
-        </dl>
+        <>
+            <dl className="file-stats">{statRows(stats.slice(0, 2))}</dl>
+            <details className="mt-2">
+                <summary className="inline-summary cursor-pointer text-teal text-xs">File details</summary>
+                <dl className="file-stats">{statRows(stats.slice(2))}</dl>
+            </details>
+        </>
     );
 }
 

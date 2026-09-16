@@ -11,12 +11,12 @@ import { projectHref } from '@/lib/project-paths';
 import { collectionPageSchema } from '@/lib/schema';
 import { getAllSkills } from '@/lib/skills';
 
-const title = 'Agent instructions and skills';
+const title = 'AGENTS.md Examples & Agent Skills';
 const description =
-    'Browse agent instructions and skills from open source projects. Explore their source files, bundled resources, and patterns worth borrowing.';
+    'Explore real AGENTS.md and CLAUDE.md examples, agent skills, and original analysis from open source projects. Read the source and borrow useful patterns.';
 
 export const metadata = {
-    title,
+    title: { absolute: `${title} | ossrules.md` },
     description,
     alternates: { canonical: '/' },
     openGraph: {
@@ -54,7 +54,9 @@ export default function AgentsMdPage() {
                 <header className="directory-hero brand-masthead modem-surface">
                     <div>
                         <h1 className="page-title max-w-xl">Agent rules and skills from open source projects.</h1>
-                        <p className="mt-5 text-gray-550 text-base leading-relaxed">Read the source. Borrow useful patterns.</p>
+                        <p className="mt-5 text-gray-550 text-base leading-relaxed">
+                            Read real AGENTS.md and CLAUDE.md files. Borrow useful patterns.
+                        </p>
                     </div>
                     <dl className="directory-stats" aria-label="Library statistics">
                         <div>
