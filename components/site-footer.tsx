@@ -7,7 +7,7 @@ export function SiteFooter() {
             <div className="mx-auto flex max-w-container flex-col gap-6 px-5 py-8 sm:px-12 md:flex-row md:items-center md:justify-between">
                 <div>
                     <p className="font-mono text-[13px] tracking-tight">Good instructions are worth sharing.</p>
-                    <nav aria-label="Footer navigation" className="mt-3 flex gap-5 text-gray-550 text-xs">
+                    <nav aria-label="Footer navigation" className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-gray-550 text-xs">
                         <Link href="/" className="hover:text-teal">
                             Projects
                         </Link>
@@ -17,6 +17,15 @@ export function SiteFooter() {
                         <Link href="/skills" className="hover:text-teal">
                             Skills
                         </Link>
+                        <a
+                            href="https://github.com/modem-dev/ossrules"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="GitHub repository (opens in a new tab)"
+                            className="inline-flex items-center gap-1 hover:text-teal"
+                        >
+                            GitHub <span aria-hidden="true">↗</span>
+                        </a>
                     </nav>
                 </div>
                 <p className="flex items-center gap-2.5 self-end font-mono text-gray-550 text-xs md:self-auto">

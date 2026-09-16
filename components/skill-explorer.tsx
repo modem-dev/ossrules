@@ -6,6 +6,7 @@ import { useSearchParams } from 'next/navigation';
 import { useRef } from 'react';
 import type { SkillContributions } from '@/lib/skill-contributors';
 import { skillListing } from '@/lib/skill-list';
+import { DirectorySelect } from './directory-select';
 import { SkillContributors } from './skill-contributors';
 
 export interface SkillEntry {
@@ -120,22 +121,16 @@ function SkillExplorerContent({
                     />
                 </label>
                 {!projectOnly ? (
-                    <label className="directory-filter">
-                        <span className="sr-only">Filter by project</span>
-                        <select
-                            value={project}
-                            onChange={(event) => {
-                                remember({ project: event.target.value === 'all' ? '' : event.target.value });
-                            }}
-                        >
-                            <option value="all">All projects</option>
-                            {projects.map((item) => (
-                                <option key={item.slug} value={item.slug}>
-                                    {item.name}
-                                </option>
-                            ))}
-                        </select>
-                    </label>
+                    <DirectorySelect
+                        label="Filter by project"
+                        value={project}
+                        active={project !== 'all'}
+                        onValueChange={(value) => remember({ project: value === 'all' ? '' : value })}
+                        options={[
+                            { value: 'all', label: 'All projects' },
+                            ...projects.map((item) => ({ value: item.slug, label: item.name })),
+                        ]}
+                    />
                 ) : null}
                 <label className="flex min-h-11 items-center gap-2 text-gray-550 text-xs">
                     <input

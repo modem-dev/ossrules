@@ -18,6 +18,7 @@ import {
     SORTS,
     STATS_AS_OF,
 } from './agents-md-data';
+import { DirectorySelect } from './directory-select';
 
 const ALL = 'all';
 
@@ -124,46 +125,43 @@ export function ProjectExplorerContent({
                         aria-label="Search projects"
                     />
                 </label>
-                <label className="directory-filter">
-                    <span className="sr-only">Language</span>
-                    <select value={language} onChange={(event) => setLanguage(event.target.value)}>
-                        <option value={ALL}>All languages</option>
-                        {languages.map((item) => (
-                            <option key={item.value} value={item.value}>
-                                {item.value} ({item.count})
-                            </option>
-                        ))}
-                    </select>
-                </label>
-                <label className="directory-filter">
-                    <span className="sr-only">Technique</span>
-                    <select value={pattern} onChange={(event) => setPattern(event.target.value as PatternId | typeof ALL)}>
-                        <option value={ALL}>All techniques</option>
-                        {patterns.map((item) => (
-                            <option key={item.id} value={item.id}>
-                                {item.name} ({item.count})
-                            </option>
-                        ))}
-                    </select>
-                </label>
+                <DirectorySelect
+                    label="Language"
+                    value={language}
+                    onValueChange={setLanguage}
+                    active={language !== ALL}
+                    options={[
+                        { value: ALL, label: 'All languages' },
+                        ...languages.map((item) => ({
+                            value: item.value,
+                            label: item.value,
+                            count: item.count,
+                            color: languageColor(item.value),
+                        })),
+                    ]}
+                />
+                <DirectorySelect
+                    label="Technique"
+                    value={pattern}
+                    onValueChange={(value) => setPattern(value as PatternId | typeof ALL)}
+                    active={pattern !== ALL}
+                    options={[
+                        { value: ALL, label: 'All techniques' },
+                        ...patterns.map((item) => ({ value: item.id, label: item.name, count: item.count })),
+                    ]}
+                />
                 <div className="directory-sort">
-                    <label className="directory-filter">
-                        <span className="sr-only">Sort projects</span>
-                        <select
-                            value={sort}
-                            onChange={(event) => {
-                                const next = event.target.value as SortId;
-                                setSort(next);
-                                setDescending(next !== 'name' && next !== 'lines');
-                            }}
-                        >
-                            {SORTS.map((option) => (
-                                <option key={option.id} value={option.id}>
-                                    Sort: {option.label}
-                                </option>
-                            ))}
-                        </select>
-                    </label>
+                    <DirectorySelect
+                        label="Sort projects"
+                        value={sort}
+                        prefix="Sort: "
+                        onValueChange={(value) => {
+                            const next = value as SortId;
+                            setSort(next);
+                            setDescending(next !== 'name' && next !== 'lines');
+                        }}
+                        options={SORTS.map((option) => ({ value: option.id, label: option.label }))}
+                    />
                     <button
                         type="button"
                         className="sort-direction"
