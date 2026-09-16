@@ -18,6 +18,7 @@ import { RelativeTime } from '@/components/last-updated';
 import { ModemSponsor } from '@/components/modem-sponsor';
 import { Excerpt, FileStatGrid, PatternBadge } from '@/components/primitives';
 import { ProjectTabs } from '@/components/project-tabs';
+import { ProjectTitle } from '@/components/project-title';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import {
@@ -35,6 +36,28 @@ import { webPageSchema } from '@/lib/schema';
 import { getSkillManifest } from '@/lib/skills';
 import { countSourceTokens } from '@/lib/token-count';
 
+function ProjectPageNavigation() {
+    return (
+        <nav aria-label="On this page">
+            <p className="eyebrow">On this page</p>
+            <ul className="mt-3 space-y-1 text-gray-550 text-xs">
+                {[
+                    ['overview', 'Overview'],
+                    ['documents', 'Documents'],
+                    ['techniques', 'Techniques'],
+                    ['takeaways', 'Ideas to borrow'],
+                ].map(([id, label]) => (
+                    <li key={id}>
+                        <a href={`#${id}`} className="block py-2 hover:text-teal">
+                            {label}
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        </nav>
+    );
+}
+
 export async function generateStaticParams() {
     return getAgentsProjects().map((project) => ({ owner: project.owner, repo: project.repo }));
 }
@@ -47,7 +70,7 @@ export async function generateMetadata({ params }: { params: Promise<{ owner: st
         return {};
     }
 
-    const title = `${project.name}'s ${project.instructionFile ?? 'AGENTS.md'}, explained`;
+    const title = `${project.name} Agent Rules: ${project.instructionFile ?? 'AGENTS.md'} Explained`;
     const description = `${project.hook} A breakdown of ${project.instructionFile ?? 'AGENTS.md'} in ${project.owner}/${project.repo}, with the techniques worth copying.`;
 
     return {
@@ -57,13 +80,13 @@ export async function generateMetadata({ params }: { params: Promise<{ owner: st
         openGraph: {
             title,
             description,
-            images: [{ url: ogImageUrl(`${project.name}'s ${project.instructionFile ?? 'AGENTS.md'}`), width: 1200, height: 630 }],
+            images: [{ url: ogImageUrl(`${project.name} Agent Rules`), width: 1200, height: 630 }],
         },
         twitter: {
             card: 'summary_large_image',
             title,
             description,
-            images: [ogImageUrl(`${project.name}'s ${project.instructionFile ?? 'AGENTS.md'}`)],
+            images: [ogImageUrl(`${project.name} Agent Rules`)],
         },
     };
 }
@@ -106,7 +129,7 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
             <div className="min-h-screen bg-dark-gray flex flex-col">
                 <JsonLd
                     data={webPageSchema({
-                        title: `${project.name}'s ${project.instructionFile ?? 'AGENTS.md'}, explained`,
+                        title: `${project.name} Agent Rules: ${project.instructionFile ?? 'AGENTS.md'} Explained`,
                         description: project.hook,
                         path: projectHref(project),
                     })}
@@ -127,29 +150,29 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                         </a>
                     </nav>
                     <header className="project-heading">
-                        <div className="min-w-0">
-                            <div className="flex items-center gap-4">
-                                <Image
-                                    src={logoSrc(project)}
-                                    alt=""
-                                    width={56}
-                                    height={56}
-                                    className="size-14 shrink-0 rounded-xl bg-gray-800 object-cover"
-                                />
-                                <h1 className="page-title">{project.name}</h1>
-                            </div>
-                            <p className="mt-4 max-w-2xl text-gray-550 text-sm leading-relaxed">{project.tagline}</p>
-                        </div>
+                        <ProjectTitle project={project} section="Agent Rules" />
                         <FileLink path={primaryFile} href={agentsFileCommitUrl(project)} className="action-link action-primary shrink-0">
-                            Read {primaryFile} <span aria-hidden>↗</span>
+                            Read {primaryFile}
                         </FileLink>
                     </header>
                     <ProjectTabs project={project} skills={getSkillManifest(project.slug)?.skills.length} active="instructions" />
-                    <p className="max-w-3xl text-gray-400 text-lg leading-relaxed">{project.hook}</p>
 
+                    <div className="project-mobile-navigation">
+                        <ProjectPageNavigation />
+                    </div>
                     <div className="project-layout">
                         <div className="min-w-0">
-                            <section id="documents" className="reading-section mb-8">
+                            <section id="overview" className="reading-section">
+                                <h2 className="section-title">Overview</h2>
+                                <p className="prose-copy mt-4">{project.summary}</p>
+                                <div className="mt-5 flex flex-wrap gap-2">
+                                    {project.patterns.map((pattern) => (
+                                        <PatternBadge key={pattern} pattern={pattern} href={`/agent-rules#${pattern}`} />
+                                    ))}
+                                </div>
+                            </section>
+
+                            <section id="documents" className="reading-section mt-8">
                                 <h2 className="eyebrow mb-3">Documents</h2>
                                 <DocTree
                                     references={project.references}
@@ -159,22 +182,8 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                                 />
                             </section>
 
-                            <section id="overview" className="reading-section">
-                                <p className="eyebrow">The file, explained</p>
-                                <h2 className="section-title mt-3">What makes it useful</h2>
-                                <p className="prose-copy mt-4">{project.summary}</p>
-                                <div className="mt-5 flex flex-wrap gap-2">
-                                    {project.patterns.map((pattern) => (
-                                        <PatternBadge key={pattern} pattern={pattern} href={`/agent-rules#${pattern}`} />
-                                    ))}
-                                </div>
-                            </section>
-
                             <section id="techniques" className="reading-section mt-12">
                                 <h2 className="section-title">Techniques in this file</h2>
-                                <p className="mt-3 text-gray-600 text-xs leading-relaxed">
-                                    Quoted passages are verbatim. Open one to see it in the source.
-                                </p>
                                 <div className="mt-8 space-y-9">
                                     {project.techniques.map((technique, position) => {
                                         const excerpt = technique.quote
@@ -212,8 +221,7 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                                 id="takeaways"
                                 className="reading-section mt-12 rounded-lg border border-gray-750 bg-dark-teal/40 p-6 sm:p-7"
                             >
-                                <p className="eyebrow">Put it to work</p>
-                                <h2 className="section-title mt-3">Borrow this for your repo</h2>
+                                <h2 className="section-title">Ideas to borrow</h2>
                                 <ol className="mt-5 space-y-4">
                                     {project.steal.map((item, position) => (
                                         <li key={item} className="flex gap-4">
@@ -228,7 +236,8 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                         </div>
 
                         <aside className="project-facts" aria-label="File facts and page navigation">
-                            <h2 className="eyebrow">{primaryFile} at a glance</h2>
+                            <ProjectPageNavigation />
+                            <h2 className="eyebrow mt-7">{primaryFile} at a glance</h2>
                             <div className="mt-3">
                                 <FileStatGrid project={project} tokens={countSourceTokens(agentsSource)} />
                             </div>
@@ -262,31 +271,7 @@ export default async function AgentsMdProjectPage({ params }: { params: Promise<
                                     <dd>{STATS_AS_OF}</dd>
                                 </div>
                             </dl>
-                            <nav aria-label="On this page" className="mt-7">
-                                <p className="eyebrow">On this page</p>
-                                <ul className="mt-3 space-y-1 text-gray-550 text-xs">
-                                    <li>
-                                        <a href="#documents" className="block py-2 hover:text-teal">
-                                            Documents
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#overview" className="block py-2 hover:text-teal">
-                                            Overview
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#techniques" className="block py-2 hover:text-teal">
-                                            Techniques
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#takeaways" className="block py-2 hover:text-teal">
-                                            Takeaways
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
+
                             <a
                                 href={rawAgentsFileUrl(project)}
                                 className="mt-5 inline-block text-gray-600 text-xs hover:text-teal"

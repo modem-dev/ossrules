@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { ProjectSkillsShell } from '@/components/project-skills-shell';
 import { SkillExplorer } from '@/components/skill-explorer';
 import { getAgentsProjectByRepository, getAgentsProjects } from '@/lib/agents-md';
+import { ogImageUrl } from '@/lib/og';
 import { projectSkillsHref } from '@/lib/project-paths';
 import { skillEntry } from '@/lib/skill-entries';
 import { type SkillSearchParams, skillListingMetadata, skillSearchString } from '@/lib/skill-list';
@@ -17,8 +18,17 @@ export async function generateMetadata({ params, searchParams }: Props) {
     const project = getAgentsProjectByRepository(owner, repo);
     if (!project) return {};
     const entries = (getSkillManifest(project.slug)?.skills ?? []).map((skill) => skillEntry(skill, project));
+    const title = `${project.name} Agent Skills`;
+    const description = `Browse agent skills from ${project.owner}/${project.repo}, with original instructions, supporting files, and pinned source links.`;
     return {
-        title: `${project.name} skills`,
+        title,
+        description,
+        openGraph: {
+            title,
+            description,
+            images: [{ url: ogImageUrl(title), width: 1200, height: 630 }],
+        },
+        twitter: { card: 'summary_large_image', title, description, images: [ogImageUrl(title)] },
         ...skillListingMetadata(projectSkillsHref(project), entries, skillSearchString(await searchParams), true),
     };
 }
