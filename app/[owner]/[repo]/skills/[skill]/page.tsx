@@ -12,6 +12,7 @@ import { SkillFileNavigation } from '@/components/skill-file-navigation';
 import { SkillMarkdown } from '@/components/skill-markdown';
 import { getAgentsProjectByRepository } from '@/lib/agents-md';
 import { documentMentions } from '@/lib/document-mentions';
+import { ogImageUrl } from '@/lib/og';
 import { projectHref, projectSkillsHref, skillHref } from '@/lib/project-paths';
 import { markdownBody } from '@/lib/skill-schema';
 import { getSkillManifest, readSkillFile, skillSourceUrl } from '@/lib/skills';
@@ -24,9 +25,17 @@ export async function generateMetadata({ params }: { params: Promise<Params> }) 
     if (!project) notFound();
     const manifest = getSkillManifest(project.slug);
     const skill = manifest?.skills.find((skill) => skill.id === id);
+    if (!skill) notFound();
+    const title = `${skill.name}: ${project.name} Agent Skill`;
     return {
-        title: `${skill?.name ?? 'Skill'} · ${project.name}`,
-        description: skill?.description,
+        title,
+        description: skill.description,
+        openGraph: {
+            title,
+            description: skill.description,
+            images: [{ url: ogImageUrl(title), width: 1200, height: 630 }],
+        },
+        twitter: { card: 'summary_large_image', title, description: skill.description, images: [ogImageUrl(title)] },
         alternates: { canonical: skillHref(project, id) },
     };
 }

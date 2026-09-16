@@ -1,9 +1,9 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
-import { type AgentsProject, logoSrc, repoUrl } from './agents-md-data';
+import { type AgentsProject, repoUrl } from './agents-md-data';
 import { ModemSponsor } from './modem-sponsor';
 import { ProjectTabs } from './project-tabs';
+import { ProjectTitle } from './project-title';
 import { SiteFooter } from './site-footer';
 import { SiteHeader } from './site-header';
 
@@ -22,19 +22,7 @@ export function ProjectSkillsShell({ project, count, children }: { project: Agen
                     </a>
                 </nav>
                 <header className="project-heading">
-                    <div className="min-w-0">
-                        <div className="flex items-center gap-4">
-                            <Image
-                                src={logoSrc(project)}
-                                alt=""
-                                width={56}
-                                height={56}
-                                className="size-14 shrink-0 rounded-xl bg-gray-800 object-cover"
-                            />
-                            <h1 className="page-title">{project.name}</h1>
-                        </div>
-                        <p className="mt-4 max-w-2xl text-gray-550 text-sm leading-relaxed">{project.tagline}</p>
-                    </div>
+                    <ProjectTitle project={project} section="Agent Skills" />
                 </header>
                 <ProjectTabs project={project} skills={count} active="skills" />
                 {children}
