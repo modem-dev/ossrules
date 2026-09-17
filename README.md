@@ -61,3 +61,5 @@ Original project code and authored documentation are available under the
 
 Bundled upstream files, excerpts, fonts, and third-party assets retain their own
 terms; see [third-party licensing](THIRD_PARTY.md). The repository remains private.
+
+Instruction-file contributor snapshots can be refreshed with `pnpm sync:instruction-contributors` (requires authenticated `gh`). This reads file history at each entry’s pinned commit and preserves the previous snapshot if any request fails. Refresh after changing instruction paths or pinned commits; stale attribution is hidden until refreshed.
