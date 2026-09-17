@@ -31,6 +31,20 @@ browse; no database or environment file is required.
 See the [development guide](docs/development.md) for alternate ports, production
 previews, checks, and troubleshooting.
 
+## Edit pattern content
+
+All pattern pages use one template. Edit [the catalog](content/patterns/catalog.json)
+for names, summaries, and explanations, and [the guides](content/patterns/guides.json)
+for the three visual cues, application guidance, and selected example project slugs.
+Both files are keyed by the same pattern IDs.
+
+Examples reuse the matching techniques in `content/projects/*.json` and their
+pinned source files. Quotes, line numbers, project counts, and links are resolved
+automatically. The build checks selected examples against their pinned source;
+there is no runtime content generation. Guide content stays on the server.
+
+Run `pnpm lint`, `pnpm typecheck`, and `pnpm build` after content edits.
+
 ## Documentation
 
 - [Development](docs/development.md): setup, running the server, and project layout.
