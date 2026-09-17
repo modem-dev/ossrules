@@ -12,8 +12,7 @@ import { collectionPageSchema } from '@/lib/schema';
 import { getAllSkills, getSkillManifest } from '@/lib/skills';
 
 const title = 'AGENTS.md Examples & Agent Skills';
-const description =
-    'Explore real AGENTS.md and CLAUDE.md examples, agent skills, and original analysis from open source projects. Read the source and borrow useful patterns.';
+const description = 'Browse AGENTS.md and CLAUDE.md files, agent skills, and source-backed notes from open-source projects.';
 
 const baseMetadata = {
     title: { absolute: `${title} | ossrules.md` },
@@ -64,9 +63,9 @@ export default async function AgentsMdPage({ searchParams }: Props) {
             <main id="main" className="page-shell flex-1">
                 <header className="directory-hero brand-masthead modem-surface">
                     <div>
-                        <h1 className="page-title max-w-xl">Agent rules and skills from open source projects.</h1>
+                        <h1 className="page-title max-w-xl">Agent rules and skills from open source.</h1>
                         <p className="mt-5 text-gray-550 text-base leading-relaxed">
-                            Read real AGENTS.md and CLAUDE.md files. Borrow useful patterns.
+                            Read real AGENTS.md and CLAUDE.md files. See what they do.
                         </p>
                     </div>
                     <dl className="directory-stats" aria-label="Library statistics">
@@ -90,9 +89,9 @@ export default async function AgentsMdPage({ searchParams }: Props) {
                     <ProjectExplorer projects={projects} initialSearch={initialSearch} />
                 </section>
                 <div className="mt-10 flex flex-wrap items-center justify-between gap-4">
-                    <p className="text-gray-550 text-sm">Different projects. Recurring ideas.</p>
+                    <p className="text-gray-550 text-sm">See the techniques these projects share.</p>
                     <Link href="/agent-rules" className="action-link">
-                        Explore all {PATTERNS.length} techniques <span aria-hidden>→</span>
+                        View all {PATTERNS.length} techniques <span aria-hidden>→</span>
                     </Link>
                 </div>
             </main>

@@ -1,72 +1,72 @@
 {
     "hard-prohibition": {
         "name": "Hard prohibitions",
-        "summary": "A short list of actions the file states the agent must never take, without hedging.",
-        "detail": "Stated as flat \"never\" rather than \"prefer not to\", and usually naming the exact action rather than a category. Several files pair the rule with what to do when a user asks anyway."
+        "summary": "Actions the agent must never take, stated without hedging.",
+        "detail": "These rules say \"never\", name the exact action, and often explain what to do when a user asks for it anyway."
     },
     "worked-examples": {
         "name": "Good and bad pairs",
-        "summary": "A style rule is shown with the wrong version beside the right one.",
-        "detail": "Some files pair whole code blocks, others contrast inline within a sentence. The rule is stated once and then demonstrated twice, which removes the judgement call at the margins."
+        "summary": "The wrong version sits beside the right one.",
+        "detail": "Some files show full before-and-after blocks; others use inline pairs. The examples settle cases the rule alone leaves unclear."
     },
     "generated-file-guard": {
         "name": "Generated file guards",
-        "summary": "Generated files are named, along with the generator to run instead.",
-        "detail": "The lists are explicit paths rather than a description of what generated files look like. Several entries also name the command and, in a few cases, the extra steps that have to happen in the same change, such as deleting a superseded fixture."
+        "summary": "Names generated files and the command that rebuilds them.",
+        "detail": "These rules name generated paths and the command that rebuilds them. Some also list related steps, such as deleting a superseded fixture."
     },
     "verification-matrix": {
         "name": "Verification by change type",
-        "summary": "The kind of change is mapped to the specific checks that cover it.",
-        "detail": "A rendering change maps to one command, a protocol change to another. Several files also state what the default test command leaves out, which is otherwise discoverable only by finding the gap."
+        "summary": "Matches each kind of change to the checks that cover it.",
+        "detail": "A rendering change maps to one command, a protocol change to another. Several files also say what the default test command leaves out."
     },
     "nested-instructions": {
         "name": "Nested instruction files",
-        "summary": "Per-package AGENTS.md files, with a stated order of precedence.",
-        "detail": "The root file covers repository-wide navigation and defers subsystem detail to a file next to the code. Where the files could conflict, the precedence order is written down rather than left to the agent."
+        "summary": "Per-package AGENTS.md files with a clear order of precedence.",
+        "detail": "The root file covers the whole repository; files beside the code add local rules. Projects with overlapping files state which one wins."
     },
     "single-source": {
         "name": "Pointing at the source of truth",
-        "summary": "The file refuses to copy values that live somewhere authoritative.",
-        "detail": "Version numbers, rule lists and counts are replaced with a pointer to the config, script or array that defines them. Some files state the reason directly: a copied value drifts from the thing it copied."
+        "summary": "Changing values stay in one authoritative place.",
+        "detail": "Instead of copying version numbers, rule lists, or counts, the file points to the config, script, or array that owns them. Copied values drift."
     },
     "skill-routing": {
         "name": "Router files",
-        "summary": "The entry file dispatches to deeper task guides rather than containing them.",
-        "detail": "A short index maps a kind of work to the guide to read before starting it. The deeper document is loaded when the task touches that subsystem, instead of on every request."
+        "summary": "The entry file points each kind of work to a focused guide.",
+        "detail": "A short index says which guide to read for each task. The detailed document is loaded only when the work needs it."
     },
     "behavioral-conditioning": {
         "name": "Behavioral framing",
-        "summary": "Rules about how to approach the work rather than facts about the repository.",
-        "detail": "Surface tradeoffs, do not over-build, touch only what was asked. Two files state outright that these sections were written from recurring mistakes in agent-authored changes to that repo."
+        "summary": "Rules for approaching the work, not facts about the repository.",
+        "detail": "State tradeoffs, do not over-build, and touch only what the request needs. Two projects say these rules came from mistakes agents kept making."
     },
     "house-vocabulary": {
         "name": "House vocabulary",
-        "summary": "Specific words the project does and does not use, defined once.",
-        "detail": "Ranges from fixing the spelling of a domain term across all prose, to defining the difference between two near-synonyms, to listing individual words that may not appear. Naming drift is hard to catch in review, which is what these rules are aimed at."
+        "summary": "Defines the words a project does and does not use.",
+        "detail": "These rules fix the spelling of domain terms, distinguish near-synonyms, or ban misleading words. They target naming drift that is easy to miss in review."
     },
     "architecture-narrative": {
         "name": "Architecture as narrative",
-        "summary": "How the system works, written out, rather than a list of rules about it.",
-        "detail": "Request lifecycles, data flows and component boundaries. It lets the agent derive an answer for a case the file does not cover, at the cost of length."
+        "summary": "A written walkthrough of how the system works.",
+        "detail": "Request lifecycles, data flows, and component boundaries help with cases the rules do not cover. The tradeoff is a longer file."
     },
     "ratchet": {
         "name": "Ratchets",
         "summary": "Baselines that may only shrink and lists that may only grow.",
-        "detail": "A known-violations file, a lint warning count, or a tombstone list, each with a direction of travel stated in the file and usually enforced in CI."
+        "detail": "A known-violations file may only shrink; a tombstone list may only grow. CI usually enforces the direction."
     },
     "contribution-etiquette": {
         "name": "Contribution etiquette",
-        "summary": "Rules for what the agent may open, push or post on the project's behalf.",
-        "detail": "Covers pull requests, issues, @-mentions and commit trailers. Two of these files give the reason as agent traffic specifically: unsolicited pull requests, and issues that attract duplicate work from other agents."
+        "summary": "Limits what the agent may open, push, or post for the project.",
+        "detail": "These rules cover pull requests, issues, @-mentions, and commit trailers. Some respond directly to agent traffic, such as unsolicited pull requests and duplicate issues."
     },
     "scope-layering": {
         "name": "Scope layering",
-        "summary": "Different rules for different actors, with a test for which set applies.",
-        "detail": "One file covers maintainers, external contributors and forks, and states how the agent determines which it is before the rules take effect."
+        "summary": "Different roles get different rules, with a test for which set applies.",
+        "detail": "One file defines separate rules for maintainers, external contributors, and forks, then explains how the agent identifies its role."
     },
     "context-budget": {
         "name": "Context budgeting",
-        "summary": "Rules governing what may enter the model context, with size caps.",
-        "detail": "Appears in repos that build agents. The context window is treated as a resource with an owner, a cap per item, and a review threshold."
+        "summary": "Limits on what enters the model context and how large it may be.",
+        "detail": "Repositories that build agents assign context an owner, cap each item, and require extra review above a set size."
     }
 }

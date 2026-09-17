@@ -240,7 +240,7 @@ function SkillExplorerContent({
                                 {projectOnly ? (
                                     <span>
                                         {entry.files === 1 ? 'SKILL.md only' : `${entry.files} bundle files`}
-                                        {!entry.complete ? ' · Partial bundle' : ''}
+                                        {!entry.complete ? ' · Incomplete bundle' : ''}
                                     </span>
                                 ) : null}
                                 <SkillContributors
@@ -252,7 +252,7 @@ function SkillExplorerContent({
                             {!projectOnly ? (
                                 <p className="mt-3 font-mono text-[11px] text-gray-600">
                                     {entry.files === 1 ? 'SKILL.md only' : `${entry.files} bundle files`}
-                                    {!entry.complete ? ' · Partial bundle' : ''}
+                                    {!entry.complete ? ' · Incomplete bundle' : ''}
                                 </p>
                             ) : null}
                         </li>

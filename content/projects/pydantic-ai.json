@@ -23,7 +23,7 @@
     },
     "tagline": "A typed, provider-independent Python framework for building agents and working with language models.",
     "hook": "Requires reproducing a sibling defect before expanding a bug fix, and treats a compatibility-preserving default as part of the API contract.",
-    "summary": "Pydantic AI's root guide defines contributor responsibility to the project and its users, then constrains scope, compatibility, and verification. It routes detailed coding work into topic and directory guides while distinguishing design philosophy from permission to broaden an individual fix.",
+    "summary": "Pydantic AI tells contributors to protect both the project and its users, then limits scope, compatibility changes, and verification claims. Topic and directory guides hold coding details; broad design principles do not justify broadening a fix.",
     "references": [
         {
             "path": "docs/agent.md"

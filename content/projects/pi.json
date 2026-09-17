@@ -38,7 +38,7 @@
         }
     ],
     "hook": "Shared-checkout Git rules protect other sessions, while model-catalog generation and test isolation get explicit exceptions.",
-    "summary": "Pi’s development rules combine concise technical communication with safeguards for multiple agent sessions working in one checkout. The file names authoritative generated-code inputs, separates safe tests from live-provider calls, and routes interactive testing and release work to focused guides.",
+    "summary": "Pi protects multiple agent sessions working in one checkout and asks them to communicate briefly. It names the source files behind generated code, separates safe tests from live-provider calls, and sends interactive testing and releases to focused guides.",
     "patterns": ["hard-prohibition", "generated-file-guard", "skill-routing"],
     "techniques": [
         {

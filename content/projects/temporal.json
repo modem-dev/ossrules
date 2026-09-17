@@ -23,7 +23,7 @@
     },
     "references": [],
     "hook": "Opens by assigning the agent a persona and an output length limit.",
-    "summary": "Begins with a role description and a set of core mandates, then covers tone, project structure, commands, testing and a planning procedure. Contains no code blocks.",
+    "summary": "Temporal begins by assigning the agent a role and a strict response-length target. It then covers tone, repository structure, commands, tests, and planning without using code blocks.",
     "patterns": ["behavioral-conditioning", "hard-prohibition", "house-vocabulary", "verification-matrix"],
     "techniques": [
         {
@@ -34,7 +34,7 @@
         },
         {
             "title": "Rules on how much to say",
-            "body": "A Tone and Style section sets a target of fewer than three lines of text per response excluding tool use and code, and rules out preambles, postambles and conversational filler by example. Clarity is named as the exception where an explanation is genuinely needed.",
+            "body": "Tone and Style targets fewer than three lines per response, excluding tools and code. Examples rule out preambles, postambles, and conversational filler, with longer explanations allowed when clarity needs them.",
             "quote": "Avoid conversational filler, preambles (\"Okay, I will now...\"), or postambles (\"I have finished the changes...\"). Get straight to the action or answer."
         },
         {

@@ -23,7 +23,7 @@
     },
     "tagline": "A framework for building desktop applications with Chromium, Node.js, and web technologies.",
     "hook": "Uses a resolved patch artifact from CI before paying for a full local Chromium sync.",
-    "summary": "Electron's CLAUDE.md explains its multi-repository build and patch workflow, then adds constraints for garbage-collected C++ objects and release maintenance. Several rules replace familiar commands with repository-specific alternatives and explain the cost or failure they avoid.",
+    "summary": "Electron's CLAUDE.md explains its multi-repository build and patch process, garbage-collected C++ objects, and release maintenance. Several familiar commands are forbidden because the repository has safer or cheaper alternatives.",
     "references": [
         {
             "path": ".claude/skills/electron-chromium-upgrade/SKILL.md"

@@ -63,13 +63,13 @@
         }
     ],
     "hook": "Bans a specific list of metaphorical words and asks for plain language.",
-    "summary": "A command reference, a map of where to find each subsystem, and a set of core principles. Three of its sections are about how code and comments are written rather than what they do.",
+    "summary": "Turso's guide contains commands, a subsystem map, and core principles. Three sections focus on how code and comments are written, including a list of metaphors to avoid.",
     "patterns": ["house-vocabulary", "behavioral-conditioning", "hard-prohibition", "skill-routing", "verification-matrix"],
     "techniques": [
         {
             "pattern": "house-vocabulary",
             "title": "Named words that may not be used",
-            "body": "A section headed in block capitals asks for plain language over jargon, shows two renamed examples, and then lists thirteen individual metaphorical words that may not appear: load-bearing, pin, bite, sharp, arm, guard, bless, wedge, retire, retarget, answer, settle, carry, land. Inventing terms where a common domain equivalent exists is ruled out in the same paragraph.",
+            "body": "A block-capital heading asks for plain language and shows two rewritten examples. It then bans thirteen metaphors, including load-bearing, bless, wedge, and land, when a common domain term exists.",
             "quote": "Do not use metaphorical language, such as the following terms: load-bearing, pin, bite, sharp, arm, guard, bless, wedge,\nretire, retarget, answer, settle, carry, land."
         },
         {
@@ -90,7 +90,7 @@
         },
         {
             "title": "A test harness chosen by narrowness",
-            "body": "Nine test directories are listed with what each is for, under a default: add coverage to the narrowest existing harness that can express the bug, and extend an existing file rather than create one. Imported upstream golden tests are marked as not to be modified for local behavior changes."
+            "body": "Nine test directories are listed by purpose. Add coverage to the narrowest harness that can express the bug and extend an existing file when possible. Imported upstream golden tests stay unchanged for local behavior fixes."
         },
         {
             "title": "A note about running inside CI",

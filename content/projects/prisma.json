@@ -23,7 +23,7 @@
     },
     "tagline": "A contract-first data access layer with typed query builders and structured schema artifacts.",
     "hook": "Keeps tracked skills in skills-contrib and enforces a CI limit against increasing bare type casts.",
-    "summary": "Prisma ORM's guide describes a contract-first architecture and a modular onboarding route. It separates canonical skill and rule files from tool-specific symlink mirrors, names type-safety restrictions, and points specialized work to playbooks and architecture documents.",
+    "summary": "Prisma ORM starts from contracts and gives newcomers a modular path through the codebase. Canonical skills and rules stay separate from tool-specific links, type-safety rules are explicit, and specialized work points to playbooks and architecture docs.",
     "references": [
         {
             "path": "docs/README.md"

@@ -30,7 +30,7 @@
         }
     ],
     "hook": "CLI changes depend on rebuilt SDK output; the guide separates credential failures, test drift, and cloud-environment artifacts.",
-    "summary": "Cline’s cloud-agent guide covers the CLI alongside its editor extension and desktop application. It explains which processes launch automatically, which compiled packages need rebuilding, and which checks require a real GUI host.",
+    "summary": "Cline's cloud-agent guide covers the CLI, editor extension, and desktop app. It says which processes start automatically, when compiled packages must be rebuilt, and which checks need a real GUI host.",
     "patterns": ["single-source", "verification-matrix"],
     "techniques": [
         {

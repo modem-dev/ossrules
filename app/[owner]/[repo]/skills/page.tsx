@@ -19,7 +19,7 @@ export async function generateMetadata({ params, searchParams }: Props) {
     if (!project) return {};
     const entries = (getSkillManifest(project.slug)?.skills ?? []).map((skill) => skillEntry(skill, project));
     const title = `${project.name} Agent Skills`;
-    const description = `Browse agent skills from ${project.owner}/${project.repo}, with original instructions, supporting files, and pinned source links.`;
+    const description = `Browse agent skills from ${project.owner}/${project.repo}, including their instructions, supporting files, and pinned sources.`;
     return {
         title,
         description,
@@ -41,7 +41,7 @@ export default async function ProjectSkillsPage({ params, searchParams }: Props)
     return (
         <ProjectSkillsShell project={project} count={manifest?.skills.length}>
             {!manifest ? (
-                <p className="prose-copy">Skills have not been scanned for this project yet.</p>
+                <p className="prose-copy">This project has not been scanned for skills yet.</p>
             ) : (
                 <>
                     <div className="mb-6 flex flex-wrap justify-between gap-3 font-mono text-[11px] text-gray-600">
@@ -63,7 +63,7 @@ export default async function ProjectSkillsPage({ params, searchParams }: Props)
                             initialSearch={initialSearch}
                         />
                     ) : (
-                        <p className="prose-copy">No skills found in this snapshot’s scan scope.</p>
+                        <p className="prose-copy">The scan found no skills in its configured paths.</p>
                     )}
                     <details className="mt-8 text-gray-550 text-xs">
                         <summary>

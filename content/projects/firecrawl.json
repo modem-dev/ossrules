@@ -23,7 +23,7 @@
     },
     "references": [],
     "hook": "A 19-line workflow starts with happy and failure paths, then lets a test harness own the running services.",
-    "summary": "Firecrawl uses its root file to describe how to change the API. It asks for end-to-end win conditions before implementation, names the environment predicates that control optional test capabilities, and gives one harness command for starting the API and workers. Local runs focus on relevant tests; CI is responsible for the full suite.",
+    "summary": "Firecrawl asks contributors to define the API's success and failure paths before coding. The guide names the environment checks behind optional tests and provides one harness command for the API and workers. Local runs stay focused; CI runs the full suite.",
     "patterns": ["behavioral-conditioning", "verification-matrix", "hard-prohibition"],
     "techniques": [
         {

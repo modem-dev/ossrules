@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props) {
     const pattern = PATTERNS.find((item) => item.id === id);
     if (!pattern) notFound();
     const title = `${pattern.name}: Agent Rule Pattern`;
-    const description = `${pattern.summary} Real examples from open-source projects, with source passages and ideas to borrow.`;
+    const description = `${pattern.summary} See source passages from open-source projects and notes on applying the pattern.`;
     return {
         title,
         description,
@@ -100,7 +100,7 @@ export default async function PatternPage({ params }: Props) {
                         ))}
                     </ol>
                     <details className="pattern-explanation">
-                        <summary>How it works & what to borrow</summary>
+                        <summary>How to use it</summary>
                         <div className="mt-3 grid gap-4 md:grid-cols-2">
                             <p>{pattern.detail}</p>
                             <p>{application}</p>
