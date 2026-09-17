@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 
 export function SiteHeader() {
     const pathname = usePathname();
-    const techniques = pathname === '/agent-rules';
+    const techniques = pathname === '/agent-rules' || pathname.startsWith('/agent-rules/');
     const skills = pathname === '/skills';
 
     return (
@@ -27,7 +27,7 @@ export function SiteHeader() {
                     </Link>
                     <Link
                         href="/agent-rules"
-                        aria-current={techniques ? 'page' : undefined}
+                        aria-current={pathname === '/agent-rules' ? 'page' : techniques ? 'location' : undefined}
                         className={`border-b-2 py-2 transition-colors hover:text-light-cream ${techniques ? 'border-teal text-light-cream' : 'border-transparent text-gray-550'}`}
                     >
                         Agent Rules

@@ -23,6 +23,8 @@
  *   visible in the file, it does not belong in the entry.
  */
 
+import catalog from '@/content/patterns/catalog.json';
+
 /** The month the repo stats below were captured. Rendered next to star counts. */
 export const STATS_AS_OF = 'September 2026';
 
@@ -54,97 +56,13 @@ export interface Pattern {
 
 /**
  * The cross-cutting techniques. This is the reason the collection exists: one
- * file teaches you about one repo, but the same nine moves recur across all of
+ * file teaches you about one repo, but the same techniques recur across all of
  * them, and that is what transfers to your own project.
  *
  * Order is roughly "easiest to adopt" first.
  */
-export const PATTERNS: Pattern[] = [
-    {
-        id: 'hard-prohibition',
-        name: 'Hard prohibitions',
-        summary: 'A short list of actions the file states the agent must never take, without hedging.',
-        detail: 'Stated as flat "never" rather than "prefer not to", and usually naming the exact action rather than a category. Several files pair the rule with what to do when a user asks anyway.',
-    },
-    {
-        id: 'worked-examples',
-        name: 'Good and bad pairs',
-        summary: 'A style rule is shown with the wrong version beside the right one.',
-        detail: 'Some files pair whole code blocks, others contrast inline within a sentence. The rule is stated once and then demonstrated twice, which removes the judgement call at the margins.',
-    },
-    {
-        id: 'generated-file-guard',
-        name: 'Generated file guards',
-        summary: 'Generated files are named, along with the generator to run instead.',
-        detail: 'The lists are explicit paths rather than a description of what generated files look like. Several entries also name the command and, in a few cases, the extra steps that have to happen in the same change, such as deleting a superseded fixture.',
-    },
-    {
-        id: 'verification-matrix',
-        name: 'Verification by change type',
-        summary: 'The kind of change is mapped to the specific checks that cover it.',
-        detail: 'A rendering change maps to one command, a protocol change to another. Several files also state what the default test command leaves out, which is otherwise discoverable only by finding the gap.',
-    },
-    {
-        id: 'nested-instructions',
-        name: 'Nested instruction files',
-        summary: 'Per-package AGENTS.md files, with a stated order of precedence.',
-        detail: 'The root file covers repository-wide navigation and defers subsystem detail to a file next to the code. Where the files could conflict, the precedence order is written down rather than left to the agent.',
-    },
-    {
-        id: 'single-source',
-        name: 'Pointing at the source of truth',
-        summary: 'The file refuses to copy values that live somewhere authoritative.',
-        detail: 'Version numbers, rule lists and counts are replaced with a pointer to the config, script or array that defines them. Some files state the reason directly: a copied value drifts from the thing it copied.',
-    },
-    {
-        id: 'skill-routing',
-        name: 'Router files',
-        summary: 'The entry file dispatches to deeper task guides rather than containing them.',
-        detail: 'A short index maps a kind of work to the guide to read before starting it. The deeper document is loaded when the task touches that subsystem, instead of on every request.',
-    },
-    {
-        id: 'behavioral-conditioning',
-        name: 'Behavioral framing',
-        summary: 'Rules about how to approach the work rather than facts about the repository.',
-        detail: 'Surface tradeoffs, do not over-build, touch only what was asked. Two files state outright that these sections were written from recurring mistakes in agent-authored changes to that repo.',
-    },
-    {
-        id: 'house-vocabulary',
-        name: 'House vocabulary',
-        summary: 'Specific words the project does and does not use, defined once.',
-        detail: 'Ranges from fixing the spelling of a domain term across all prose, to defining the difference between two near-synonyms, to listing individual words that may not appear. Naming drift is hard to catch in review, which is what these rules are aimed at.',
-    },
-    {
-        id: 'architecture-narrative',
-        name: 'Architecture as narrative',
-        summary: 'How the system works, written out, rather than a list of rules about it.',
-        detail: 'Request lifecycles, data flows and component boundaries. It lets the agent derive an answer for a case the file does not cover, at the cost of length.',
-    },
-    {
-        id: 'ratchet',
-        name: 'Ratchets',
-        summary: 'Baselines that may only shrink and lists that may only grow.',
-        detail: 'A known-violations file, a lint warning count, or a tombstone list, each with a direction of travel stated in the file and usually enforced in CI.',
-    },
-    {
-        id: 'contribution-etiquette',
-        name: 'Contribution etiquette',
-        summary: "Rules for what the agent may open, push or post on the project's behalf.",
-        detail: 'Covers pull requests, issues, @-mentions and commit trailers. Two of these files give the reason as agent traffic specifically: unsolicited pull requests, and issues that attract duplicate work from other agents.',
-    },
-    {
-        id: 'scope-layering',
-        name: 'Scope layering',
-        summary: 'Different rules for different actors, with a test for which set applies.',
-        detail: 'One file covers maintainers, external contributors and forks, and states how the agent determines which it is before the rules take effect.',
-    },
-    {
-        id: 'context-budget',
-        name: 'Context budgeting',
-        summary: 'Rules governing what may enter the model context, with size caps.',
-        detail: 'Appears in repos that build agents. The context window is treated as a resource with an owner, a cap per item, and a review threshold.',
-    },
-];
+const patternCatalog: Record<PatternId, Omit<Pattern, 'id'>> = catalog;
+export const PATTERNS: Pattern[] = Object.entries(patternCatalog).map(([id, pattern]) => ({ ...pattern, id: id as PatternId }));
 
 /** Every valid technique id, for validating authored entries. */
 export const PATTERN_IDS: string[] = PATTERNS.map((pattern) => pattern.id);

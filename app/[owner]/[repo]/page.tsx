@@ -177,7 +177,7 @@ export default async function AgentsMdProjectPage({
                                 <p className="prose-copy mt-4">{project.summary}</p>
                                 <div className="mt-5 flex flex-wrap gap-2">
                                     {project.patterns.map((pattern) => (
-                                        <PatternBadge key={pattern} pattern={pattern} href={`/agent-rules#${pattern}`} />
+                                        <PatternBadge key={pattern} pattern={pattern} href={`/agent-rules/${pattern}`} />
                                     ))}
                                 </div>
                             </section>

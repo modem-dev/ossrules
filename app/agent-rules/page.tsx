@@ -41,7 +41,7 @@ export default function TechniquesPage() {
                     title,
                     description,
                     path: '/agent-rules',
-                    items: PATTERNS.map((pattern) => ({ name: pattern.name, path: `/agent-rules#${pattern.id}` })),
+                    items: PATTERNS.map((pattern) => ({ name: pattern.name, path: `/agent-rules/${pattern.id}` })),
                 })}
             />
             <SiteHeader />
@@ -80,12 +80,22 @@ export default function TechniquesPage() {
                                         {used.length} of {projects.length} projects
                                     </span>
                                 </div>
-                                <h2 className="section-title mt-5">{pattern.name}</h2>
+                                <h2 className="section-title mt-5">
+                                    <Link href={`/agent-rules/${pattern.id}`} className="hover:text-teal">
+                                        {pattern.name}
+                                    </Link>
+                                </h2>
                                 <p className="mt-3 text-gray-500 text-sm leading-relaxed">{pattern.summary}</p>
                                 <details className="mt-4">
                                     <summary className="inline-summary text-gray-550 text-xs">Why it works</summary>
                                     <p className="mt-3 text-gray-550 text-sm leading-relaxed">{pattern.detail}</p>
                                 </details>
+                                <Link
+                                    href={`/agent-rules/${pattern.id}`}
+                                    className="mt-4 inline-flex min-h-9 items-center gap-2 text-sm text-teal hover:underline"
+                                >
+                                    Read pattern & examples <span aria-hidden>→</span>
+                                </Link>
                                 <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
                                     <ul className="flex gap-1.5" aria-label="Example projects">
                                         {used.slice(0, 5).map((project) => (

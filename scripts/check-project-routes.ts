@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { unzipSync } from 'fflate';
-import type { AgentsProject } from '../components/agents-md-data';
+import { type AgentsProject, PATTERNS } from '../components/agents-md-data';
 import type { SkillManifest } from '../lib/skill-schema';
 
 const base = process.argv[2] ?? 'http://localhost:3001';
@@ -86,6 +86,49 @@ async function main() {
         firstPath,
     );
     const rules = await page('/agent-rules');
+    for (const pattern of PATTERNS) {
+        const root = `/agent-rules/${pattern.id}`;
+        assert.ok(rules.includes(`href="${root}"`), `pattern linked from index: ${root}`);
+        const html = await page(root);
+        assert.ok(html.includes(pattern.name), `pattern heading: ${root}`);
+        assert.ok(html.includes('How it works') && html.includes('Examples from real projects'), `pattern content: ${root}`);
+        const sourceLinks = [...html.matchAll(/href="([^"]+\?technique=[^"]+&amp;source=[^"]+)"/g)].map((match) =>
+            match[1].replaceAll('&amp;', '&'),
+        );
+        assert.ok(sourceLinks.length >= 2, `multiple source examples: ${root}`);
+        for (const href of sourceLinks) {
+            const url = new URL(href, base);
+            const project = projects.find((item) => `/${item.owner}/${item.repo}` === url.pathname);
+            assert.ok(project, `source project exists: ${href}`);
+            assert.ok(project.patterns.includes(pattern.id), `source project uses pattern: ${href}`);
+            assert.equal(url.searchParams.get('rev'), project.lastCommit.sha, `source revision: ${href}`);
+            const manifest = JSON.parse(fs.readFileSync(`public/files/${project.slug}/manifest.json`, 'utf8'));
+            const file = manifest.files.find((item: { path: string }) => item.path === url.searchParams.get('source'));
+            assert.ok(file && !file.missing && !file.unavailable, `readable source: ${href}`);
+            const source = fs.readFileSync(`public/files/${project.slug}/${file.resolvedPath ?? file.path}`, 'utf8').split('\n');
+            const start = Number(url.searchParams.get('line'));
+            const end = Number(url.searchParams.get('end') ?? start);
+            assert.ok(start > 0 && end >= start && end <= source.length, `valid source range: ${href}`);
+            const quote = source
+                .slice(start - 1, end)
+                .join('\n')
+                .replace(/\s+/g, ' ');
+            assert.ok(
+                project.techniques.some(
+                    (item) => item.pattern === pattern.id && item.quote && quote.includes(item.quote.replace(/\s+/g, ' ')),
+                ),
+                `range contains tagged quote: ${href}`,
+            );
+        }
+        for (const project of projects.filter((item) => item.patterns.includes(pattern.id))) {
+            assert.ok(
+                html.includes(`href="/${project.owner}/${project.repo}?technique=${pattern.id}"`),
+                `pattern project listing: ${project.slug}`,
+            );
+        }
+    }
+    assert.equal((await response('/agent-rules/not-a-pattern')).status, 404);
+    assert.equal((await response('/agent-rules/toString')).status, 404);
     const skillsIndex = await page('/skills');
     // The global directory sorts project input by stars before its stable skill-name sort.
     const allSkills = [...projects]
@@ -140,12 +183,18 @@ async function main() {
     const sitemap = await sitemapResponse.text();
     const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
     const expectedSitemap = new Set(['https://ossrules.md/', 'https://ossrules.md/agent-rules', 'https://ossrules.md/skills']);
+    for (const pattern of PATTERNS) expectedSitemap.add(`https://ossrules.md/agent-rules/${pattern.id}`);
     for (const href of skillPaths) expectedSitemap.add(`https://ossrules.md${href}`);
     // Rules show a capped sample of projects, so a larger corpus need not appear in full.
     const projectPaths = new Set(projects.map((project) => `/${project.owner}/${project.repo}`));
     const ruleProjectLinks = [...rules.matchAll(/<a\b[^>]*href="(\/[^"?#]+\/[^"?#]+)"/g)].map((match) => match[1]);
     assert.ok(ruleProjectLinks.length > 0, 'rules include project examples');
-    for (const href of ruleProjectLinks) assert.ok(projectPaths.has(href), `rules repository link: ${href}`);
+    for (const href of ruleProjectLinks) {
+        assert.ok(
+            projectPaths.has(href) || PATTERNS.some((pattern) => href === `/agent-rules/${pattern.id}`),
+            `rules destination: ${href}`,
+        );
+    }
     for (const project of projects) {
         // Deliberately independent of URL helpers so changes to those cannot hide a regression.
         const root = `/${project.owner}/${project.repo}`;
