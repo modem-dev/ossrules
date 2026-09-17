@@ -171,6 +171,39 @@ export default async function SkillPage({
                                     : undefined
                             }
                         />
+                        <section className="skill-file-metadata font-mono text-[11px] text-gray-600" aria-label="Source and license">
+                            <details>
+                                <summary className="text-teal">Source &amp; attribution</summary>
+                                <p className="mt-4 [overflow-wrap:anywhere]">{skill.path}</p>
+                                <a
+                                    href={`https://github.com/${manifest.repository}/tree/${manifest.sha}`}
+                                    className="mt-3 block text-teal hover:underline"
+                                >
+                                    {manifest.branch} · {manifest.sha.slice(0, 7)} ↗
+                                </a>
+                                <p className="mt-3">Scanned {manifest.scannedAt.slice(0, 10)}</p>
+                                <p className="eyebrow mt-6 mb-2">License</p>
+                                {skill.license ? <p className="[overflow-wrap:anywhere]">{skill.license}</p> : null}
+                                {manifest.repositoryLicense ? (
+                                    <a
+                                        href={skillSourceUrl(manifest, manifest.repositoryLicense.path)}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="mt-2 block text-teal hover:underline"
+                                    >
+                                        Repository license ↗
+                                    </a>
+                                ) : (
+                                    <p>Not declared in the snapshot.</p>
+                                )}
+                                {skill.compatibility ? (
+                                    <>
+                                        <p className="eyebrow mt-6 mb-2">Compatibility</p>
+                                        <p className="[overflow-wrap:anywhere]">{skill.compatibility}</p>
+                                    </>
+                                ) : null}
+                            </details>
+                        </section>
                     </aside>
                     <article className="skill-document min-w-0" aria-label={`${file.path} content`}>
                         <header className="skill-document-header">
@@ -283,39 +316,6 @@ export default async function SkillPage({
                             </details>
                         ) : null}
                     </article>
-                    <aside className="skill-file-metadata font-mono text-[11px] text-gray-600" aria-label="Source and license">
-                        <details>
-                            <summary className="text-teal">Source &amp; attribution</summary>
-                            <p className="mt-4 [overflow-wrap:anywhere]">{skill.path}</p>
-                            <a
-                                href={`https://github.com/${manifest.repository}/tree/${manifest.sha}`}
-                                className="mt-3 block text-teal hover:underline"
-                            >
-                                {manifest.branch} · {manifest.sha.slice(0, 7)} ↗
-                            </a>
-                            <p className="mt-3">Scanned {manifest.scannedAt.slice(0, 10)}</p>
-                            <p className="eyebrow mt-6 mb-2">License</p>
-                            {skill.license ? <p className="[overflow-wrap:anywhere]">{skill.license}</p> : null}
-                            {manifest.repositoryLicense ? (
-                                <a
-                                    href={skillSourceUrl(manifest, manifest.repositoryLicense.path)}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="mt-2 block text-teal hover:underline"
-                                >
-                                    Repository license ↗
-                                </a>
-                            ) : (
-                                <p>Not declared in the snapshot.</p>
-                            )}
-                            {skill.compatibility ? (
-                                <>
-                                    <p className="eyebrow mt-6 mb-2">Compatibility</p>
-                                    <p className="[overflow-wrap:anywhere]">{skill.compatibility}</p>
-                                </>
-                            ) : null}
-                        </details>
-                    </aside>
                 </div>
                 <div className="mt-12 flex flex-wrap justify-between gap-4 text-teal text-sm">
                     <Link href={projectSkillsHref(project)}>← All {project.name} skills</Link>
