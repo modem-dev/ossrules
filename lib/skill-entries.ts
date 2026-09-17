@@ -4,6 +4,7 @@ import { logoSrc } from '@/components/agents-md-data';
 import type { SkillEntry } from '@/components/skill-explorer';
 import { projectSkillsHref, skillHref } from './project-paths';
 import type { SkillRecord } from './skill-schema';
+import { classifySkillTasks } from './skill-task-classification';
 import { getSkillManifest } from './skills';
 
 export function skillEntry(skill: SkillRecord, project: AgentsProject): SkillEntry {
@@ -12,6 +13,7 @@ export function skillEntry(skill: SkillRecord, project: AgentsProject): SkillEnt
         id: skill.id,
         href: skillHref(project, skill.id),
         name: skill.name,
+        tasks: classifySkillTasks(skill),
         description: skill.description,
         path: skill.path,
         files: skill.files.length,
