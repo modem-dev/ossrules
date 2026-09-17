@@ -3,12 +3,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { formatStars, logoSrc, STATS_AS_OF } from '@/components/agents-md-data';
-import { CopySource } from '@/components/copy-source';
+import { HighlightedSource } from '@/components/highlighted-source';
 import { Excerpt } from '@/components/primitives';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { SkillContributors } from '@/components/skill-contributors';
-import { SkillFileNavigation } from '@/components/skill-file-navigation';
+import { SkillDocumentViewer } from '@/components/skill-document-viewer';
 import { SkillInstall } from '@/components/skill-install';
 import { SkillMarkdown } from '@/components/skill-markdown';
 import { SkillOutline } from '@/components/skill-outline';
@@ -213,73 +213,56 @@ export default async function SkillPage({
                         </section>
                     </aside>
                     <article className="skill-document min-w-0" aria-label={`${file.path} content`}>
-                        <header className="skill-document-header">
-                            <div className="min-w-0 flex-1">
-                                <h2 id="skill-document-title" tabIndex={-1} className="sr-only">
-                                    {file.path}
-                                </h2>
-                                <SkillFileNavigation
-                                    files={skill.files.map(({ path, omitted }) => ({ path, omitted }))}
-                                    selectedPath={file.path}
-                                    baseHref={baseHref}
-                                />
-                                <p className="mt-2 font-mono text-[11px] text-gray-600">
-                                    {source !== undefined
-                                        ? `${countSourceTokens(source)?.toLocaleString('en-US')} tokens · o200k_base · `
-                                        : ''}
-                                    {file.bytes.toLocaleString('en-US')} bytes
+                        <SkillDocumentViewer
+                            files={skill.files.map(({ path, omitted }) => ({ path, omitted }))}
+                            path={file.path}
+                            baseHref={baseHref}
+                            source={source}
+                            sourceUrl={sourceUrl}
+                            rendered={rendered}
+                            tokens={source !== undefined ? countSourceTokens(source) : undefined}
+                            bytes={file.bytes}
+                            sha={manifest.sha}
+                        >
+                            {file.path !== 'SKILL.md' ? (
+                                <Link href={baseHref} className="mx-5 mt-5 inline-block text-teal text-xs hover:underline">
+                                    ← Back to SKILL.md
+                                </Link>
+                            ) : null}
+                            {file.omitted ? (
+                                <p className="prose-copy">
+                                    {file.omitted}{' '}
+                                    <a href={sourceUrl} className="text-teal hover:underline">
+                                        View upstream ↗
+                                    </a>
                                 </p>
-                            </div>
-                            <div className="flex flex-wrap items-center gap-3">
-                                {source !== undefined && /\.mdx?$/i.test(file.path) ? (
-                                    <Link
-                                        className="text-teal text-xs hover:underline"
-                                        scroll={false}
-                                        href={`${baseHref}?file=${encodeURIComponent(file.path)}${rendered ? '&view=source' : ''}`}
+                            ) : source === undefined ? (
+                                <p className="prose-copy">
+                                    Binary file.{' '}
+                                    <a
+                                        href={`${baseHref}/file?path=${encodeURIComponent(file.path)}`}
+                                        className="text-teal hover:underline"
                                     >
-                                        {rendered ? 'Source' : 'Read'}
-                                    </Link>
-                                ) : null}
-                                <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="text-teal text-xs hover:underline">
-                                    GitHub ↗
-                                </a>
-                                {source !== undefined ? <CopySource key={file.blob} source={source} /> : null}
-                            </div>
-                        </header>
-                        {file.path !== 'SKILL.md' ? (
-                            <Link href={baseHref} className="mb-6 inline-block text-teal text-xs hover:underline">
-                                ← Back to SKILL.md
-                            </Link>
-                        ) : null}
-                        {file.omitted ? (
-                            <p className="prose-copy">
-                                {file.omitted}{' '}
-                                <a href={sourceUrl} className="text-teal hover:underline">
-                                    View upstream ↗
-                                </a>
-                            </p>
-                        ) : source === undefined ? (
-                            <p className="prose-copy">
-                                Binary file.{' '}
-                                <a href={`${baseHref}/file?path=${encodeURIComponent(file.path)}`} className="text-teal hover:underline">
-                                    Download original file ↓
-                                </a>
-                            </p>
-                        ) : rendered ? (
-                            <SkillMarkdown
-                                source={body}
-                                currentFile={file.path}
-                                files={skill.files.map((f) => f.path)}
-                                baseHref={baseHref}
-                                upstreamRoot={skillSourceUrl(manifest, `${root}/`)}
-                                headings={headings}
-                            />
-                        ) : (
-                            <div className="source-excerpt">
-                                <div className="source-excerpt-header">{file.path}</div>
-                                <Excerpt text={source} startLine={1} />
-                            </div>
-                        )}
+                                        Download original file ↓
+                                    </a>
+                                </p>
+                            ) : rendered ? (
+                                <SkillMarkdown
+                                    source={body}
+                                    currentFile={file.path}
+                                    files={skill.files.map((f) => f.path)}
+                                    baseHref={baseHref}
+                                    upstreamRoot={skillSourceUrl(manifest, `${root}/`)}
+                                    headings={headings}
+                                />
+                            ) : (
+                                <HighlightedSource
+                                    source={source}
+                                    language={/\.mdx?$/i.test(file.path) ? 'markdown' : (file.path.split('.').pop() ?? 'text')}
+                                    numbered
+                                />
+                            )}
+                        </SkillDocumentViewer>
                         {fileMentions.length ? (
                             <details className="mt-10">
                                 <summary className="text-teal text-xs">Referenced from SKILL.md</summary>

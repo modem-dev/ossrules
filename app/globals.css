@@ -101,16 +101,6 @@
     grid-column: 2;
     grid-row: 1;
 }
-.skill-document-header {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: start;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.25rem;
-    border-bottom: 1px solid var(--color-gray-750);
-}
 #skill-document-title,
 .skill-markdown :where(h1, h2, h3, h4, h5, h6) {
     scroll-margin-top: 1rem;
@@ -168,7 +158,7 @@
 .skill-picker-panel :where(.eyebrow) {
     padding: 0.5rem 0.6rem 0.25rem;
 }
-.skill-picker-panel :where(nav a) {
+.skill-picker-panel :where(nav a, nav button) {
     display: flex;
     gap: 0.5rem;
     padding: 0.55rem 0.6rem;
@@ -176,8 +166,8 @@
     color: var(--color-gray-550);
     font: 0.75rem / 1.75 var(--font-mono);
 }
-.skill-picker-panel :where(nav a):hover,
-.skill-picker-panel :where(nav a)[aria-current="page"] {
+.skill-picker-panel :where(nav a, nav button):hover,
+.skill-picker-panel :where(nav a, nav button)[aria-current="page"] {
     color: var(--color-teal);
     background: var(--color-dark-teal);
 }
@@ -298,7 +288,7 @@
 @media (pointer: coarse) {
     .skill-outline :where(nav a),
     .skill-file-picker :where(summary),
-    .skill-picker-panel :where(nav a) {
+    .skill-picker-panel :where(nav a, nav button) {
         min-height: 2.75rem;
     }
 }
@@ -342,9 +332,6 @@
     .skill-document {
         grid-column: auto;
         grid-row: auto;
-    }
-    .skill-document-header > :first-child {
-        flex-basis: 100%;
     }
     .skill-file-count {
         display: block;
@@ -1693,5 +1680,33 @@ select {
         min-height: 44px;
         min-width: 44px;
         justify-content: center;
+    }
+}
+
+/* Both the dialog and embedded reader use the same source chrome. */
+.source-header {
+    position: relative;
+    z-index: 4;
+    flex-wrap: wrap;
+}
+.source-file-title {
+    flex-basis: 12rem;
+}
+.skill-picker-panel :where(nav button) {
+    width: 100%;
+    text-align: left;
+}
+.document-body {
+    min-width: 0;
+}
+.document-viewer-embedded {
+    border: 1px solid var(--color-gray-750);
+}
+.document-body .source-view-panel > .skill-markdown {
+    padding: 1.25rem;
+}
+@media (min-width: 640px) {
+    .document-body .source-view-panel > .skill-markdown {
+        padding: 2rem;
     }
 }

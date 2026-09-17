@@ -9,20 +9,23 @@ function showDocument() {
     heading?.scrollIntoView({ block: 'start' });
 }
 
-export function SkillFileNavigation({
+export function DocumentFilePicker({
     files,
     selectedPath,
     baseHref,
+    onSelect,
 }: {
     files: { path: string; omitted?: string }[];
     selectedPath: string;
-    baseHref: string;
+    baseHref?: string;
+    onSelect?: (path: string) => void;
 }) {
     const picker = useRef<HTMLDetailsElement>(null);
     const pendingPath = useRef<string | null>(null);
     const [query, setQuery] = useState('');
 
     useEffect(() => {
+        if (!baseHref) return;
         if (pendingPath.current === selectedPath) {
             pendingPath.current = null;
             showDocument();
@@ -38,7 +41,7 @@ export function SkillFileNavigation({
             }
         });
         return () => window.cancelAnimationFrame(frame);
-    }, [selectedPath]);
+    }, [selectedPath, baseHref]);
 
     useEffect(() => {
         function outside(event: PointerEvent) {
@@ -53,7 +56,7 @@ export function SkillFileNavigation({
     const visible = files.filter((file) => file.path.toLowerCase().includes(query.trim().toLowerCase()));
     const groups = new Map<string, typeof files>();
     for (const file of visible) {
-        const group = file.path.includes('/') ? `${file.path.split('/')[0]}/` : 'Skill files';
+        const group = file.path.includes('/') ? `${file.path.split('/')[0]}/` : 'Files';
         const items = groups.get(group) ?? [];
         items.push(file);
         groups.set(group, items);
@@ -73,6 +76,7 @@ export function SkillFileNavigation({
             }}
             onKeyDown={(event) => {
                 if (event.key === 'Escape' && picker.current?.open) {
+                    event.preventDefault();
                     picker.current.open = false;
                     picker.current.querySelector('summary')?.focus();
                     event.stopPropagation();
@@ -89,37 +93,58 @@ export function SkillFileNavigation({
                 {files.length > 12 ? (
                     <input
                         type="search"
-                        aria-label="Find a bundle file"
+                        aria-label="Find a file"
                         placeholder="Find a file…"
                         value={query}
                         onChange={(event) => setQuery(event.target.value)}
                     />
                 ) : null}
-                <nav aria-label="Choose skill file">
+                <nav aria-label="Choose file">
                     {[...groups].map(([group, items]) => (
                         <div key={group}>
                             <p className="eyebrow">{group}</p>
                             <ul>
                                 {items.map((item) => (
                                     <li key={item.path}>
-                                        <Link
-                                            href={`${baseHref}?file=${encodeURIComponent(item.path)}`}
-                                            scroll={false}
-                                            aria-current={item.path === selectedPath ? 'page' : undefined}
-                                            onNavigate={() => {
-                                                if (picker.current) picker.current.open = false;
-                                                if (item.path === selectedPath) showDocument();
-                                                else pendingPath.current = item.path;
-                                            }}
-                                        >
-                                            <span aria-hidden className="shrink-0">
-                                                {item.path.endsWith('.sh') ? '>_' : '▤'}
-                                            </span>
-                                            <span className="min-w-0 [overflow-wrap:anywhere]">
-                                                {item.path}
-                                                {item.omitted ? <span className="block text-[11px]">Not bundled</span> : null}
-                                            </span>
-                                        </Link>
+                                        {baseHref ? (
+                                            <Link
+                                                href={`${baseHref}?file=${encodeURIComponent(item.path)}`}
+                                                scroll={false}
+                                                aria-current={item.path === selectedPath ? 'page' : undefined}
+                                                onNavigate={() => {
+                                                    if (picker.current) picker.current.open = false;
+                                                    if (item.path === selectedPath) showDocument();
+                                                    else pendingPath.current = item.path;
+                                                }}
+                                            >
+                                                <span aria-hidden className="shrink-0">
+                                                    {item.path.endsWith('.sh') ? '>_' : '▤'}
+                                                </span>
+                                                <span className="min-w-0 [overflow-wrap:anywhere]">
+                                                    {item.path}
+                                                    {item.omitted ? <span className="block text-[11px]">Not bundled</span> : null}
+                                                </span>
+                                            </Link>
+                                        ) : (
+                                            <button
+                                                type="button"
+                                                aria-current={item.path === selectedPath ? 'page' : undefined}
+                                                onClick={() => {
+                                                    if (picker.current) picker.current.open = false;
+                                                    picker.current?.querySelector('summary')?.focus();
+                                                    onSelect?.(item.path);
+                                                }}
+                                            >
+                                                {' '}
+                                                <span aria-hidden className="shrink-0">
+                                                    {item.path.endsWith('.sh') ? '>_' : '▤'}
+                                                </span>
+                                                <span className="min-w-0 [overflow-wrap:anywhere]">
+                                                    {item.path}
+                                                    {item.omitted ? <span className="block text-[11px]">Not bundled</span> : null}
+                                                </span>
+                                            </button>
+                                        )}
                                     </li>
                                 ))}
                             </ul>
