@@ -12,6 +12,17 @@ redirect permanently, preserving query parameters; real repository paths take
 precedence over conflicting legacy skill aliases. Internal corpus slugs and
 vendored file paths remain stable.
 
+Project directory links preserve `q`, `language`, `technique`, `sort`, and
+`direction`. Project breadcrumbs and Previous/Next retain that collection;
+direct visits use the default directory order. Filtered homepages render their
+requested results on the server and use `noindex, follow` with `/` as canonical.
+
+Instruction source links use `source`, `rev`, `view`, and optional one-based
+`line`/`end` parameters. The reader restores these on reload and browser history
+navigation. A link to a different stored revision shows a notice instead of
+applying old line numbers to new text. Reader parameters do not change the
+project page's canonical URL.
+
 Run `pnpm check:routes` against the dev server on port 3001, or pass another
 origin (for example `pnpm check:routes http://localhost:3002`) to verify canonical
 URLs, old links, file bytes, and bundle downloads after routing changes.

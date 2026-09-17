@@ -52,6 +52,39 @@ async function checkPagination(root: string, expected: string[]) {
 }
 async function main() {
     const home = await page('/');
+    const projectLinks = (html: string) =>
+        [...html.matchAll(/<a\b(?=[^>]*class="project-entry group")[^>]*href="([^"]+)"/g)].map((match) =>
+            match[1].replaceAll('&amp;', '&'),
+        );
+    const collection = 'language=TypeScript&sort=name';
+    const sortedProjects = projects
+        .filter((project) => project.language === 'TypeScript')
+        .sort((a, b) => a.name.localeCompare(b.name, 'en', { sensitivity: 'base' }));
+    const selected = await page(`/?${collection}`, '/');
+    assert.deepEqual(
+        projectLinks(selected),
+        sortedProjects.map((project) => `/${project.owner}/${project.repo}?${collection}`),
+        'directory renders the requested collection in initial HTML',
+    );
+    assert.ok(isNoindex(selected), 'filtered project collections are not indexed');
+    assert.deepEqual(
+        projectLinks(await page('/?language=unknown&sort=bad&technique=bad', '/')),
+        projectLinks(home),
+        'invalid project filters normalize to defaults',
+    );
+    const firstProject = sortedProjects[0];
+    const firstPath = `/${firstProject.owner}/${firstProject.repo}`;
+    const selectedProject = await page(`${firstPath}?${collection}`, firstPath);
+    const nextProject = sortedProjects[1];
+    assert.ok(
+        selectedProject.includes(`href="/${nextProject.owner}/${nextProject.repo}?language=TypeScript&amp;sort=name"`),
+        'next project retains the collection',
+    );
+    assert.ok(selectedProject.includes('href="/?language=TypeScript&amp;sort=name"'), 'breadcrumb returns to the collection');
+    await page(
+        `${firstPath}?source=${encodeURIComponent(firstProject.instructionFile ?? 'AGENTS.md')}&rev=${firstProject.lastCommit.sha}&line=2&view=raw`,
+        firstPath,
+    );
     const rules = await page('/agent-rules');
     const skillsIndex = await page('/skills');
     // The global directory sorts project input by stars before its stable skill-name sort.
