@@ -55,12 +55,12 @@
         }
     ],
     "hook": "Carries a Learned User Preferences section recording corrections from maintainers.",
-    "summary": "Covers repository structure, architecture, commands, PR requirements and testing. Two of its sections are about the file itself: one instructs the agent to keep it updated, and one records preferences accumulated from previous work.",
+    "summary": "Storybook covers repository structure, architecture, commands, pull requests, and tests. Two sections govern the guide itself: one requires updates when the project changes, and another records maintainer preferences learned during earlier work.",
     "patterns": ["behavioral-conditioning", "single-source", "hard-prohibition", "verification-matrix", "nested-instructions"],
     "techniques": [
         {
             "title": "A section of accumulated corrections",
-            "body": "Learned User Preferences records five specific preferences from earlier sessions: use worktrees for parallel work, avoid premature helpers, keep long interaction tests as a readable flow rather than forcing DRY, put story descriptions in JSDoc above the meta const, and keep telemetry string names stable across versions when renaming.",
+            "body": "Learned User Preferences records five maintainer corrections: use worktrees for parallel work, avoid premature helpers, keep long interaction tests readable instead of forcing DRY, put story descriptions above the meta const, and preserve telemetry strings across renames.",
             "quote": "Keep e2e and long interaction tests as a readable continuous flow; do not force DRY with loops or heavy helpers when repetition is clearer."
         },
         {
@@ -72,7 +72,7 @@
         {
             "pattern": "behavioral-conditioning",
             "title": "Principles labelled as observed failure modes",
-            "body": "The Code Authoring Principles section is introduced as recurring failure modes in agent-authored changes to this repo, and lists verifying environment assumptions with a throwaway probe before encoding them, preferring static checks over tests, and avoiding coverage already guaranteed by types or linting.",
+            "body": "Code Authoring Principles comes from failures seen in agent changes. It asks for a throwaway probe before encoding environment assumptions, prefers static checks where possible, and avoids tests for guarantees already enforced by types or linting.",
             "quote": "These are recurring failure modes in agent-authored changes to this repo. Apply them when writing or reviewing code, not just when asked."
         },
         {

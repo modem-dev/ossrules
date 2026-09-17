@@ -36,7 +36,7 @@
         }
     ],
     "hook": "A fixture decision rule chooses the test suite, while DEPS.list files enforce a client/server protocol boundary.",
-    "summary": "Playwright’s CLAUDE.md maps the monorepo and its test fixtures before describing the boundaries contributors must preserve. It routes deeper implementation work to local guides and couples code generation, linting, and types through the shared flint command.",
+    "summary": "Playwright's CLAUDE.md maps the monorepo and its test fixtures, then states the boundaries contributors must preserve. Local guides cover deeper implementation work, while one flint command runs code generation, linting, and type checks together.",
     "patterns": ["verification-matrix", "hard-prohibition", "single-source", "contribution-etiquette", "skill-routing"],
     "techniques": [
         {

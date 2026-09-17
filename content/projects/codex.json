@@ -27,7 +27,7 @@
         }
     ],
     "hook": "Includes rules governing what may enter the agent's own model context.",
-    "summary": "Mostly rules rather than explanation: 122 bullets covering Rust idioms, module size limits, review criteria, snapshot testing and app-server API conventions. Several sections set limits on the change itself rather than on the code it touches.",
+    "summary": "Codex packs 122 rules into its root file, covering Rust style, module size, reviews, snapshot tests, and app-server APIs. Several rules limit the size or scope of a change, not just the code it touches.",
     "patterns": [
         "context-budget",
         "hard-prohibition",
@@ -40,17 +40,17 @@
         {
             "pattern": "context-budget",
             "title": "Limits on the model context",
-            "body": "A review section governs the history Codex sends to the model: build it incrementally, do not rewrite it, avoid changes that cause cache misses, cap every injected item, and mark anything over 1,000 tokens for additional manual review. Injected fragments must be declared as structs implementing a named trait.",
+            "body": "Codex builds model history incrementally and avoids rewrites that break prompt caching. Every injected item has a size cap; anything over 1,000 tokens needs extra review. Injected fragments use structs that implement a named trait.",
             "quote": "No unbounded items - everything injected in the model context must have a bounded size and a hard cap."
         },
         {
             "title": "A section arguing against the largest crate",
-            "body": "The file states that codex-core grew because adding to it is easier than refactoring out of it, then instructs the agent to resist that and to push back in review on changes that add to it. Alternatives are listed: an existing crate, or a new workspace member with the refactor that requires.",
+            "body": "The file says codex-core grew because adding code was easier than moving it out. New work should use an existing crate or a new workspace member, and reviewers are told to push back on further growth.",
             "quote": "To that end: **resist adding code to codex-core**!"
         },
         {
             "title": "A line budget on the diff",
-            "body": "Non-mechanical changes are capped at 800 lines, and complex logic changes at 500. A change over the cap is expected to come back as a staging proposal based on the actual diff, dependencies and call sites, identifying the smallest coherent stage to land first.",
+            "body": "Non-mechanical changes stop at 800 lines and complex logic at 500. Work over either limit returns as a staged proposal based on the diff, dependencies, and call sites, starting with the smallest coherent change.",
             "quote": "Unless the change is mechanical the total number of changed lines should not exceed 800 lines."
         },
         {

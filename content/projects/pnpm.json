@@ -23,7 +23,7 @@
     },
     "tagline": "A package manager for JavaScript projects, with TypeScript and Rust implementations and a registry server.",
     "hook": "Distinguishes intentional v12-only features from shared bugs that must be fixed in both the Rust and TypeScript CLIs.",
-    "summary": "pnpm's root guide covers three products and delegates their local rules to nested instructions. It defines version-specific development policy, warns about stale bundled tests, and explains release identifiers and platform-dependent skill discovery.",
+    "summary": "pnpm's root guide covers three products and points each one to local instructions. It defines version-specific policy, warns when bundled tests can go stale, and explains release identifiers and platform-dependent skill discovery.",
     "references": [
         {
             "path": "pnpm/AGENTS.md"

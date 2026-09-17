@@ -6,7 +6,7 @@ export function SiteFooter() {
         <footer className="site-footer modem-surface">
             <div className="mx-auto flex max-w-container flex-col gap-6 px-5 py-8 sm:px-12 md:flex-row md:items-center md:justify-between">
                 <div>
-                    <p className="font-mono text-[13px] tracking-tight">Good instructions are worth sharing.</p>
+                    <p className="font-mono text-[13px] tracking-tight">Open-source agent instructions, explained.</p>
                     <nav aria-label="Footer navigation" className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-gray-550 text-xs">
                         <Link href="/" className="hover:text-teal">
                             Projects

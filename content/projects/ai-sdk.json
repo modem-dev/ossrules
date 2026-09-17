@@ -59,7 +59,7 @@
         }
     ],
     "hook": "Provider options and responses have different schema rules; fetched response URLs require an explicit validation decision.",
-    "summary": "The AI SDK guide combines provider architecture with security-sensitive implementation rules and task-specific completion checklists. It routes architectural decisions and contributor workflows into separate documents while keeping common checks and examples in the root guide.",
+    "summary": "The root guide covers provider architecture, security rules, and the checks to run before finishing. Larger design decisions and contributor workflows live in separate documents.",
     "patterns": ["hard-prohibition", "skill-routing", "verification-matrix"],
     "techniques": [
         {

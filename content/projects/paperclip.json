@@ -66,7 +66,7 @@
         }
     ],
     "hook": "Telemetry, observability, and the run log get different review rules, determined by file path rather than terminology.",
-    "summary": "Paperclip starts with an ordered product and engineering reading list, then records the invariants of its agent control plane. Its instructions distinguish company boundaries, shared contracts, data destinations, and review expectations, with separate workflows for database changes and browser verification.",
+    "summary": "Paperclip starts with an ordered reading list, then states the rules its agent control plane must preserve. It defines company boundaries, shared contracts, data destinations, and review expectations, with separate steps for database changes and browser checks.",
     "patterns": ["skill-routing", "house-vocabulary", "verification-matrix", "single-source"],
     "techniques": [
         {
