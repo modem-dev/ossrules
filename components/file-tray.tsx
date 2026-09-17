@@ -6,7 +6,8 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useRef, use
 import type { DocumentMention } from '@/lib/document-mentions';
 import { readSourceLocation, writeSourceLocation } from '@/lib/source-location';
 import type { VendoredFile } from './agents-md-data';
-import { DirectorySelect } from './directory-select';
+import { DocumentFilePicker } from './document-file-picker';
+import { DocumentActions, DocumentViewer } from './document-viewer';
 import { HighlightedSource } from './highlighted-source';
 import { RelativeTime } from './last-updated';
 
@@ -79,19 +80,15 @@ function DocumentReferences({
         const endLine = mention.startLine + mention.lines.length - 1;
         const label = `${mention.sourcePath ?? primaryFile} · ${endLine === mention.startLine ? `line ${mention.startLine}` : `lines ${mention.startLine}–${endLine}`}`;
         return (
-            <div key={`${mention.sourcePath}:${mention.startLine}`} className="mt-3">
+            <div key={`${mention.sourcePath}:${mention.startLine}`} className="source-excerpt mt-3">
                 {canOpen ? (
-                    <button
-                        type="button"
-                        onClick={() => onOpen(mention)}
-                        className="min-h-9 text-left font-mono text-teal text-xs hover:underline"
-                    >
+                    <button type="button" onClick={() => onOpen(mention)} className="source-excerpt-header min-h-9 hover:underline">
                         {label} <span aria-hidden>↗</span>
                     </button>
                 ) : (
-                    <p className="py-2 font-mono text-gray-550 text-xs">{label}</p>
+                    <p className="source-excerpt-header">{label}</p>
                 )}
-                <pre className="mt-1 rounded border border-gray-750 bg-medium-gray py-3 pr-3 font-mono text-xs leading-6">
+                <pre className="font-mono text-xs leading-6">
                     <code>
                         {mention.lines.map((line, index) => (
                             // biome-ignore lint/suspicious/noArrayIndexKey: source lines are identified by position.
@@ -182,7 +179,6 @@ export function FileTrayProvider({
     const returnFocus = useRef<HTMLElement | null>(null);
     const setPanel = useCallback((node: HTMLDialogElement | null) => {
         panel.current = node;
-        setSelectPortal(node);
     }, []);
 
     const byPath = useMemo(() => new Map(files.map((file) => [file.path, file])), [files]);
@@ -483,185 +479,177 @@ export function FileTrayProvider({
                             rememberSource(request, mode);
                         }}
                     >
-                        <header className="source-header">
-                            <div className="source-file-title">
-                                {instructionFiles.some((item) => item.path === path) && instructionFiles.length > 1 ? (
-                                    <DirectorySelect
-                                        label="Instruction file"
-                                        value={path}
-                                        onValueChange={(path) => open({ path })}
-                                        options={instructionFiles.map((item) => ({ value: item.path, label: item.path }))}
-                                        portalContainer={selectPortal}
-                                    />
-                                ) : (
-                                    <p className="break-all font-mono text-sm">{path}</p>
-                                )}
-                            </div>
-                            <div className="source-actions">
-                                <button type="button" className="source-control" onClick={copyLink} aria-label="Copy source link">
-                                    {linkStatus === 'copied' ? 'Link copied' : 'Copy link'}
-                                </button>
-                                <button
-                                    type="button"
-                                    onClick={copySource}
-                                    disabled={source === undefined || failed}
-                                    className="source-control source-copy disabled:cursor-not-allowed disabled:opacity-50"
-                                    aria-label={file?.truncated ? 'Copy displayed source' : 'Copy source file'}
-                                >
-                                    <svg
-                                        aria-hidden="true"
-                                        width="16"
-                                        height="16"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        strokeWidth="1.75"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                    >
-                                        {copyStatus === 'copied' ? (
-                                            <path d="m5 12 4 4L19 6" />
-                                        ) : (
-                                            <>
-                                                <rect x="8" y="3" width="8" height="4" rx="1" />
-                                                <path d="M8 5H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2" />
-                                            </>
-                                        )}
-                                    </svg>
-                                    <span className="hidden md:inline">{copyStatus === 'copied' ? 'Copied' : 'Copy'}</span>
-                                </button>
-                                <a
-                                    href={sourceUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="source-control source-icon"
-                                    aria-label="View on GitHub"
-                                    title="View on GitHub"
-                                >
-                                    <span className="sr-only">View on GitHub</span>
-                                    <svg
-                                        aria-hidden="true"
-                                        width="16"
-                                        height="16"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        strokeWidth="1.75"
-                                    >
-                                        <path d="M14 3h7v7M21 3 10 14M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5" />
-                                    </svg>
-                                </a>
-                                <button
-                                    type="button"
-                                    data-close-file
-                                    onClick={close}
-                                    className="source-control source-icon"
-                                    aria-label="Close source file"
-                                    title="Close source file"
-                                >
-                                    <svg
-                                        aria-hidden="true"
-                                        width="18"
-                                        height="18"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        strokeWidth="1.75"
-                                    >
-                                        <path d="m6 6 12 12M6 18 18 6" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </header>
-                        {returnDocument ? (
-                            <div className="border-gray-750 border-b px-4 py-2 sm:px-6">
-                                <button
-                                    type="button"
-                                    data-back-source
-                                    onClick={backToDocument}
-                                    className="min-h-9 break-all text-left text-teal text-xs"
-                                >
-                                    ← Back to {returnDocument.request.path}
-                                </button>
-                            </div>
-                        ) : null}
-                        <div className="source-view-bar">
-                            {isMarkdown ? (
-                                <Tabs.List className="source-view-tabs" aria-label="File view">
-                                    <Tabs.Trigger className="source-view-tab" value="markdown">
-                                        Markdown
-                                    </Tabs.Trigger>
-                                    <Tabs.Trigger className="source-view-tab" value="raw">
-                                        Raw
-                                    </Tabs.Trigger>
-                                </Tabs.List>
-                            ) : null}
-                            <div className="source-facts">
-                                <div className="source-metadata">
-                                    {file?.tokens !== undefined ? <span>{file.tokens.toLocaleString()} tokens</span> : null}
-                                    <details className="source-info" key={path}>
-                                        <summary aria-label="File information" title="File information">
-                                            <svg
-                                                aria-hidden="true"
-                                                width="16"
-                                                height="16"
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                strokeWidth="1.75"
-                                            >
-                                                <circle cx="12" cy="12" r="9" />
-                                                <path d="M12 11v6M12 7v1" />
-                                            </svg>
-                                        </summary>
-                                        <div className="source-info-panel">
-                                            <p className="break-words font-mono text-xs leading-relaxed">
-                                                {owner}/{repo} · {sha.slice(0, 7)}
-                                                <br />
-                                                {file ? `${formatBytes(file.bytes)} · ${file.lines} lines` : ''}
-                                                <br />
-                                                {file?.tokens !== undefined ? `${file.tokens.toLocaleString()} tokens · o200k_base` : ''}
-                                                {license ? (
-                                                    <>
-                                                        <br />
-                                                        {license}
-                                                    </>
+                        <DocumentViewer
+                            picker={
+                                <DocumentFilePicker
+                                    files={files.filter((file) => readable.has(file.path)).map(({ path }) => ({ path }))}
+                                    selectedPath={path}
+                                    onSelect={(path) => open({ path })}
+                                />
+                            }
+                            actions={
+                                <DocumentActions
+                                    copyLink={copyLink}
+                                    copySource={copySource}
+                                    linkStatus={linkStatus}
+                                    copyStatus={copyStatus}
+                                    sourceUrl={sourceUrl}
+                                    copyDisabled={source === undefined || failed}
+                                    copyLabel={file?.truncated ? 'Copy displayed source' : 'Copy source file'}
+                                    onClose={close}
+                                />
+                            }
+                            tabs={
+                                isMarkdown ? (
+                                    <Tabs.List className="source-view-tabs" aria-label="File view">
+                                        <Tabs.Trigger className="source-view-tab" value="markdown">
+                                            Markdown
+                                        </Tabs.Trigger>
+                                        <Tabs.Trigger className="source-view-tab" value="raw">
+                                            Raw
+                                        </Tabs.Trigger>
+                                    </Tabs.List>
+                                ) : null
+                            }
+                            facts={
+                                <>
+                                    <div className="source-metadata">
+                                        {file?.tokens !== undefined ? <span>{file.tokens.toLocaleString()} tokens</span> : null}
+                                        <details className="source-info" key={path}>
+                                            <summary aria-label="File information" title="File information">
+                                                <svg
+                                                    aria-hidden="true"
+                                                    width="16"
+                                                    height="16"
+                                                    viewBox="0 0 24 24"
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    strokeWidth="1.75"
+                                                >
+                                                    <circle cx="12" cy="12" r="9" />
+                                                    <path d="M12 11v6M12 7v1" />
+                                                </svg>
+                                            </summary>
+                                            <div className="source-info-panel">
+                                                <p className="break-words font-mono text-xs leading-relaxed">
+                                                    {owner}/{repo} · {sha.slice(0, 7)}
+                                                    <br />
+                                                    {file ? `${formatBytes(file.bytes)} · ${file.lines} lines` : ''}
+                                                    <br />
+                                                    {file?.tokens !== undefined
+                                                        ? `${file.tokens.toLocaleString()} tokens · o200k_base`
+                                                        : ''}
+                                                    {license ? (
+                                                        <>
+                                                            <br />
+                                                            {license}
+                                                        </>
+                                                    ) : null}
+                                                </p>
+                                                {file?.imports?.length || file?.sameContentAs ? (
+                                                    <div className="mt-3 font-mono text-xs text-gray-600">
+                                                        {file.sameContentAs ? <p>Same content as {file.sameContentAs}</p> : null}
+                                                        {file.imports?.map((imported) => (
+                                                            <p key={imported.target} className="py-1">
+                                                                Imports{' '}
+                                                                {imported.path && !imported.unavailable && readable.has(imported.path) ? (
+                                                                    <button
+                                                                        type="button"
+                                                                        className="text-teal hover:underline"
+                                                                        onClick={() => {
+                                                                            if (imported.path) open({ path: imported.path });
+                                                                        }}
+                                                                    >
+                                                                        {imported.target} ↗
+                                                                    </button>
+                                                                ) : (
+                                                                    `${imported.target} · ${imported.unavailable ?? 'Unavailable'}`
+                                                                )}
+                                                            </p>
+                                                        ))}
+                                                    </div>
                                                 ) : null}
-                                            </p>
-                                            {file?.imports?.length || file?.sameContentAs ? (
-                                                <div className="mt-3 font-mono text-xs text-gray-600">
-                                                    {file.sameContentAs ? <p>Same content as {file.sameContentAs}</p> : null}
-                                                    {file.imports?.map((imported) => (
-                                                        <p key={imported.target} className="py-1">
-                                                            Imports{' '}
-                                                            {imported.path && !imported.unavailable && readable.has(imported.path) ? (
-                                                                <button
-                                                                    type="button"
-                                                                    className="text-teal hover:underline"
-                                                                    onClick={() => {
-                                                                        if (imported.path) open({ path: imported.path });
-                                                                    }}
-                                                                >
-                                                                    {imported.target} ↗
-                                                                </button>
-                                                            ) : (
-                                                                `${imported.target} · ${imported.unavailable ?? 'Unavailable'}`
-                                                            )}
-                                                        </p>
-                                                    ))}
-                                                </div>
-                                            ) : null}
+                                            </div>
+                                        </details>
+                                    </div>
+                                    {path === primaryFile && primaryFileModifiedAt ? (
+                                        <span className="source-modified">
+                                            Last modified <RelativeTime iso={primaryFileModifiedAt} />
+                                        </span>
+                                    ) : null}
+                                </>
+                            }
+                            context={
+                                <>
+                                    {' '}
+                                    {returnDocument ? (
+                                        <div className="border-gray-750 border-b px-4 py-2 sm:px-6">
+                                            <button
+                                                type="button"
+                                                data-back-source
+                                                onClick={backToDocument}
+                                                className="min-h-9 break-all text-left text-teal text-xs"
+                                            >
+                                                ← Back to {returnDocument.request.path}
+                                            </button>
                                         </div>
-                                    </details>
-                                </div>
-                                {path === primaryFile && primaryFileModifiedAt ? (
-                                    <span className="source-modified">
-                                        Last modified <RelativeTime iso={primaryFileModifiedAt} />
-                                    </span>
-                                ) : null}
-                            </div>
-                        </div>
-                        <div className="source-scroll" aria-busy={!failed && lines === undefined}>
+                                    ) : null}
+                                </>
+                            }
+                            busy={!failed && lines === undefined}
+                            footer={
+                                <footer className="source-footer">
+                                    <p role="status" className={linkStatus === 'failed' ? 'mb-2' : 'sr-only'}>
+                                        {linkStatus === 'copied'
+                                            ? 'Source link copied to clipboard.'
+                                            : linkStatus === 'failed'
+                                              ? 'Could not copy the link. Copy the address from your browser instead.'
+                                              : ''}
+                                    </p>
+                                    <p role="status" className={copyStatus === 'failed' ? 'mb-2' : 'sr-only'}>
+                                        {copyStatus === 'copied'
+                                            ? 'Source copied to clipboard.'
+                                            : copyStatus === 'failed'
+                                              ? 'Could not copy. Select the source text and copy it manually, or try again.'
+                                              : ''}
+                                    </p>
+                                    {file?.truncated ? (
+                                        <p>
+                                            Showing the first {formatBytes(new Blob([source ?? '']).size)} of {formatBytes(file.bytes)}.{' '}
+                                            <a
+                                                href={sourceUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-teal hover:underline"
+                                            >
+                                                Read the rest on GitHub
+                                            </a>
+                                            .
+                                        </p>
+                                    ) : (
+                                        <p>
+                                            Copy stored at commit {sha.slice(0, 7)}.{' '}
+                                            {license ? `${owner}/${repo} is ${license}-licensed` : `See ${owner}/${repo} for its license`}
+                                            {licensePath ? (
+                                                <>
+                                                    {' ('}
+                                                    <a
+                                                        href={`https://github.com/${owner}/${repo}/blob/${sha}/${licensePath}`}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="text-teal hover:underline"
+                                                    >
+                                                        {licensePath}
+                                                    </a>
+                                                    {')'}
+                                                </>
+                                            ) : null}
+                                            .
+                                        </p>
+                                    )}
+                                </footer>
+                            }
+                        >
                             {showReferences ? (
                                 <div className="source-context">
                                     <DocumentReferences
@@ -690,52 +678,7 @@ export function FileTrayProvider({
                                       </Tabs.Content>
                                   ))
                                 : sourceContent}
-                        </div>
-                        <footer className="source-footer">
-                            <p role="status" className={linkStatus === 'failed' ? 'mb-2' : 'sr-only'}>
-                                {linkStatus === 'copied'
-                                    ? 'Source link copied to clipboard.'
-                                    : linkStatus === 'failed'
-                                      ? 'Could not copy the link. Copy the address from your browser instead.'
-                                      : ''}
-                            </p>
-                            <p role="status" className={copyStatus === 'failed' ? 'mb-2' : 'sr-only'}>
-                                {copyStatus === 'copied'
-                                    ? 'Source copied to clipboard.'
-                                    : copyStatus === 'failed'
-                                      ? 'Could not copy. Select the source text and copy it manually, or try again.'
-                                      : ''}
-                            </p>
-                            {file?.truncated ? (
-                                <p>
-                                    Showing the first {formatBytes(new Blob([source ?? '']).size)} of {formatBytes(file.bytes)}.{' '}
-                                    <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="text-teal hover:underline">
-                                        Read the rest on GitHub
-                                    </a>
-                                    .
-                                </p>
-                            ) : (
-                                <p>
-                                    Copy stored at commit {sha.slice(0, 7)}.{' '}
-                                    {license ? `${owner}/${repo} is ${license}-licensed` : `See ${owner}/${repo} for its license`}
-                                    {licensePath ? (
-                                        <>
-                                            {' ('}
-                                            <a
-                                                href={`https://github.com/${owner}/${repo}/blob/${sha}/${licensePath}`}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="text-teal hover:underline"
-                                            >
-                                                {licensePath}
-                                            </a>
-                                            {')'}
-                                        </>
-                                    ) : null}
-                                    .
-                                </p>
-                            )}
-                        </footer>
+                        </DocumentViewer>
                     </Tabs.Root>
                 </dialog>
             ) : null}
@@ -812,16 +755,19 @@ export function QuoteLink({
     if (!tray?.readable.has(path)) return <>{children}</>;
 
     return (
-        <div className="quote-block">
-            {children}
+        <div className="quote-block source-excerpt">
             <button
                 type="button"
                 data-source-trigger
                 onClick={() => tray.open({ path, match: quote, startLine, lineCount: quote.trimEnd().split('\n').length })}
-                className="quote-open"
+                className="quote-open source-excerpt-header"
             >
-                {path} · View in source <span aria-hidden>↗</span>
+                <span>{path}</span>
+                <span>
+                    View in source <span aria-hidden>↗</span>
+                </span>
             </button>
+            {children}
         </div>
     );
 }
