@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/next';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import localFont from 'next/font/local';
@@ -29,7 +30,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en">
-            <body className={`${inter.variable} ${jetbrains.variable} antialiased`}>{children}</body>
+            <body className={`${inter.variable} ${jetbrains.variable} antialiased`}>
+                {children}
+                <Analytics />
+            </body>
         </html>
     );
 }
