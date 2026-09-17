@@ -24,12 +24,12 @@
     },
     "references": [],
     "hook": "The content-ingestion pipeline gives contributors a route through extraction, tagging, embeddings, and search.",
-    "summary": "Supermemory's CLAUDE.md is primarily an architecture and command reference. It describes the web and MCP applications, API routes, shared dependencies, and the content-processing workflow. It also lists deployment bindings and conventions for generated schema types. The guide has gaps, including an unfinished Web Application section, so its value is orientation rather than a complete change or verification policy.",
+    "summary": "Supermemory's CLAUDE.md maps the web and MCP apps, API routes, shared packages, ingestion pipeline, deployment bindings, and generated schema types. Its Web Application section is unfinished, so use it for orientation rather than as a complete workflow.",
     "patterns": ["architecture-narrative", "verification-matrix"],
     "techniques": [
         {
             "title": "Describe the content-processing path",
-            "body": "The named workflow connects content detection and extraction to summarization, embeddings, chunking, and space relationships. That sequence helps locate where a change in ingestion behavior belongs.",
+            "body": "The ingestion path runs from content detection and extraction through summarization, embeddings, chunking, and space relationships. The sequence shows where each behavior belongs.",
             "quote": "All content goes through the `IngestContentWorkflow` which handles:\n- Content type detection and extraction\n- AI-powered summarization and automatic tagging\n- Vector embedding generation using Cloudflare AI\n- Chunking for semantic search optimization\n- Space relationship management",
             "pattern": "architecture-narrative"
         },

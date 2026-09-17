@@ -23,7 +23,7 @@
     },
     "references": [],
     "hook": "Six fenced code blocks in 161 lines; most style rules show the wrong version beside the right one.",
-    "summary": "A style guide that argues against abstraction, followed by a set of runtime invariants for its session core. Five fenced examples pair good and bad code; another demonstrates a helper-based happy path.",
+    "summary": "OpenCode argues against premature abstraction, then states rules its session core must always preserve. Five examples put bad and good code side by side; a sixth shows the intended helper-based flow.",
     "patterns": ["worked-examples", "hard-prohibition", "generated-file-guard", "architecture-narrative", "behavioral-conditioning"],
     "techniques": [
         {

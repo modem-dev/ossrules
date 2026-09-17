@@ -70,7 +70,7 @@
         }
     ],
     "hook": "Prompt-cache stability and a six-rung capability ladder constrain core growth; tests run through an isolation wrapper.",
-    "summary": "Hermes Agent’s root guide links product intent to implementation and review rules across its CLI, gateway, desktop app, and plugins. It treats prompt stability and tool-schema size as shared costs, then routes area-specific work to nested AGENTS.md files.",
+    "summary": "Hermes Agent limits core growth with a six-step capability ladder and rules that protect prompt caching. The root guide covers the CLI, gateway, desktop app, and plugins, while local AGENTS.md files handle area-specific work.",
     "patterns": ["context-budget", "behavioral-conditioning", "single-source", "verification-matrix", "worked-examples", "skill-routing"],
     "techniques": [
         {

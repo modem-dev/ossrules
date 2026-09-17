@@ -23,7 +23,7 @@
     },
     "tagline": "A browser automation CLI with agent skills and an MCP interface.",
     "hook": "Keeps feature documentation in a core skill while preserving the installable skill as a thin discovery stub.",
-    "summary": "Agent Browser's instructions coordinate the CLI, MCP tools, documentation site, and agent-facing skills. They identify which source owns detailed skill content, how real-browser tests are run, and how release notes feed publication.",
+    "summary": "Agent Browser's instructions cover the CLI, MCP tools, documentation site, and skills. They name the source that owns detailed skill content, show how to run real-browser tests, and connect release notes to publication.",
     "references": [
         {
             "path": "README.md"

@@ -32,7 +32,7 @@
         }
     ],
     "hook": "A two-part monorepo map traces the approval flow and sends package-specific tool choices back to local manifests.",
-    "summary": "HumanLayer’s CLAUDE.md separates its SDK platform from the local tools that coordinate approvals and coding sessions. It combines a protocol-flow diagram with per-language guidance and a priority vocabulary for unfinished work.",
+    "summary": "HumanLayer's CLAUDE.md distinguishes the SDK platform from local tools for approvals and coding sessions. A protocol diagram traces the flow, while language-specific sections and numbered TODO levels guide implementation.",
     "patterns": ["architecture-narrative", "single-source", "house-vocabulary"],
     "techniques": [
         {

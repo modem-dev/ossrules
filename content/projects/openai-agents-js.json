@@ -23,7 +23,7 @@
     },
     "tagline": "A TypeScript SDK for agent workflows, tools, handoffs, tracing, and realtime applications.",
     "hook": "Requires every rendered TypeScript example to come from a compilable source file, so documentation snippets share the package’s verification workflow.",
-    "summary": "The JavaScript Agents SDK guide defines conditional skills, documentation risk tiers, supported-contract review rules, and architecture references for its monorepo. Its recurring concern is proving the behavior at the owning boundary without expanding a change into unsupported cases.",
+    "summary": "The JavaScript Agents SDK guide covers conditional skills, documentation risk, supported contracts, and architecture references. Reviews must prove behavior where it is owned without expanding a change to unsupported cases.",
     "references": [
         {
             "path": "SECURITY.md"

@@ -27,7 +27,7 @@
         }
     ],
     "hook": "The agent guide defines who may submit contributions and write public project discussion, with disclosure required in the artifact.",
-    "summary": "Nuxt’s root guide focuses on contribution boundaries rather than build commands. It assigns public writing and submission to humans who understand the work, and specifies what agents should do when asked to cross that boundary.",
+    "summary": "Nuxt's root guide is about contribution boundaries, not build commands. Humans remain responsible for public discussion and submissions; the file tells agents what help they may offer without crossing that line.",
     "patterns": ["contribution-etiquette", "hard-prohibition"],
     "techniques": [
         {

@@ -10,8 +10,7 @@ import { ogImageUrl } from '@/lib/og';
 import { collectionPageSchema } from '@/lib/schema';
 
 const title = 'Agent Rules';
-const description =
-    'The techniques that recur across AGENTS.md and CLAUDE.md files: hard prohibitions, router files, verification by change type, ratchets, scope layering, and more, with the projects that use each one.';
+const description = 'Recurring techniques from AGENTS.md and CLAUDE.md files, with examples from the projects that use them.';
 
 export const metadata = {
     title,
@@ -48,10 +47,8 @@ export default function TechniquesPage() {
             <main id="main" className="page-shell flex-1">
                 <header className="brand-masthead modem-surface">
                     <p className="eyebrow">Agent Rules / {PATTERNS.length} patterns</p>
-                    <h1 className="page-title mt-5">Patterns worth borrowing.</h1>
-                    <p className="mt-5 max-w-2xl text-gray-550 text-base leading-relaxed">
-                        Different projects. Recurring ideas. Find a technique, then see how real projects put it to work.
-                    </p>
+                    <h1 className="page-title mt-5">Patterns from real projects.</h1>
+                    <p className="mt-5 max-w-2xl text-gray-550 text-base leading-relaxed">See how each technique works in practice.</p>
                 </header>
 
                 <details className="technique-jump mt-8">

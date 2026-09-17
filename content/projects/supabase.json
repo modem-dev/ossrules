@@ -36,18 +36,18 @@
         }
     ],
     "hook": "75 lines, including a rule about what may not appear in a public repository's pull requests and comments.",
-    "summary": "A directory table, a command list, and four short convention sections. Most subsystem detail is delegated to per-app instruction files and to a set of named skills.",
+    "summary": "Supabase's 75-line root guide contains a directory table, commands, and four short convention sections. Per-app files and named skills hold most subsystem detail.",
     "patterns": ["skill-routing", "ratchet", "generated-file-guard", "nested-instructions", "single-source"],
     "techniques": [
         {
             "title": "A rule about the repository being public",
-            "body": "PR descriptions, issues and code comments are identified as world-readable, and three categories are excluded from them: absolute production metrics, internal decision detail such as vendor or pricing discussions, and competitor names. Percentages and ratios are given as the permitted substitute for absolute figures, and the internal tracker is named as where that context belongs.",
+            "body": "Pull requests, issues, and comments are public, so they may not contain absolute production metrics, internal vendor or pricing discussions, or competitor names. Use percentages or ratios for metrics and keep internal context in the tracker.",
             "quote": "Keep internal content out of them: absolute production metrics (event counts, user counts, revenue figures: state percentages, ratios, or relative change instead), internal decision detail (vendor, legal, pricing, or strategy discussions), and competitor names"
         },
         {
             "pattern": "skill-routing",
             "title": "Skills mapped to when they apply",
-            "body": "Nine skills are listed, each with the trigger that should load it: user-facing text anywhere in the monorepo, anything under the docs app, code that builds SQL against user databases, any form code. The file states that the skills, not itself, are the source of truth for those conventions.",
+            "body": "Nine skills each have a clear trigger, including user-facing text, docs work, SQL built against user databases, and form code. Those skills, not the root file, own the detailed conventions.",
             "quote": "The skills in `.agents/skills/` are the source of truth for conventions — load the relevant ones before working, don't guess"
         },
         {

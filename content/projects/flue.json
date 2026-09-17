@@ -23,7 +23,7 @@
     },
     "tagline": "A TypeScript framework for building and deploying autonomous agents.",
     "hook": "Defines a durable conversation vocabulary and separates agent registration from HTTP routing.",
-    "summary": "Flue uses its root instructions to establish the runtime concepts an agent must preserve. A terminology tree connects agents, harnesses, sessions, operations, and turns, while contribution and development sections state the available workflows and their limits.",
+    "summary": "Flue defines how agents, harnesses, sessions, operations, and turns relate before giving development rules. Its contribution section also makes clear which workflows are available and where they stop.",
     "references": [
         {
             "path": "CONTRIBUTING.md"

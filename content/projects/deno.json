@@ -28,7 +28,7 @@
         }
     ],
     "hook": "JavaScript unit tests still run through Cargo because the harness supplies their setup.",
-    "summary": "Deno's CLAUDE.md combines a runtime overview with development commands and test recipes. It explains the split between the CLI, runtime assembly, and native extensions, then shows how spec tests encode commands and expected output. Contribution guidance keeps review history incremental and chooses lint scope based on whether Rust changed.",
+    "summary": "Deno's CLAUDE.md explains the CLI, runtime assembly, native extensions, development commands, and test recipes. It shows how spec tests encode commands and expected output, requires incremental review history, and changes lint scope when Rust is touched.",
     "patterns": ["hard-prohibition", "worked-examples", "house-vocabulary", "verification-matrix", "contribution-etiquette"],
     "techniques": [
         {

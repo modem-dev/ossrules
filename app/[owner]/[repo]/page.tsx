@@ -52,7 +52,7 @@ function ProjectPageNavigation() {
                     ['overview', 'Overview'],
                     ['documents', 'Documents'],
                     ['techniques', 'Techniques'],
-                    ['takeaways', 'Ideas to borrow'],
+                    ['takeaways', 'Ideas for your repo'],
                 ].map(([id, label]) => (
                     <li key={id}>
                         <a href={`#${id}`} className="block py-2 hover:text-teal">
@@ -316,9 +316,7 @@ async function ProjectContent({
                                             <article key={technique.title}>
                                                 <p className="eyebrow">
                                                     {String(position + 1).padStart(2, '0')}
-                                                    {technique.pattern
-                                                        ? ` / ${PATTERNS_BY_ID[technique.pattern].name}`
-                                                        : ' / From this file'}
+                                                    {technique.pattern ? ` / ${PATTERNS_BY_ID[technique.pattern].name}` : ''}
                                                 </p>
                                                 <h3 className="mt-3 font-mono font-medium text-[17px] leading-relaxed tracking-tight">
                                                     {technique.title}
@@ -343,7 +341,7 @@ async function ProjectContent({
                                 id="takeaways"
                                 className="reading-section mt-12 rounded-lg border border-gray-750 bg-dark-teal/40 p-6 sm:p-7"
                             >
-                                <h2 className="section-title">Ideas to borrow</h2>
+                                <h2 className="section-title">Ideas for your repo</h2>
                                 <ol className="mt-5 space-y-4">
                                     {project.steal.map((item, position) => (
                                         <li key={item} className="flex gap-4">
@@ -418,8 +416,8 @@ async function ProjectContent({
 
                     <Suspense fallback={null}>{neighbors}</Suspense>
                     <ModemSponsor>
-                        {project.name}&apos;s file tells an agent how the codebase works. It cannot tell it which bug three customers hit
-                        this week. Modem keeps that context current and attaches it to the work.
+                        {project.name}&apos;s file explains the codebase, but not which bugs customers are seeing now. Modem adds that
+                        context to the work.
                     </ModemSponsor>
                 </main>
 

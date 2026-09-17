@@ -46,7 +46,7 @@
         }
     ],
     "hook": "The contributor may be running inside the app they are changing, so process and database rules protect the live session.",
-    "summary": "T3 Code grounds its contributor guide in product priorities, shared vocabulary, and the risks of developing through the running app itself. It checks changes across clients, providers, connection modes, and reverse actions, then explains the command-to-event architecture and when documentation adds lasting value.",
+    "summary": "Contributors may be working inside the T3 Code app they are changing, so the guide protects the live process and database. It also checks changes across clients and providers, and explains how commands become events.",
     "patterns": ["hard-prohibition", "behavioral-conditioning", "architecture-narrative", "single-source", "house-vocabulary"],
     "techniques": [
         {

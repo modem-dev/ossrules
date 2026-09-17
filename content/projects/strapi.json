@@ -23,7 +23,7 @@
     },
     "tagline": "A headless CMS with a Node.js server, an admin interface, and a plugin ecosystem.",
     "hook": "Treats example apps as test sandboxes, then names the migration fixture that is an explicit exception.",
-    "summary": "Strapi’s root guide maps a Yarn and Nx monorepo and establishes the architectural boundaries for content access, dependency injection, shared types, and edition-specific behavior. It gives separate commands for testing surfaces and keeps committed skills in one canonical directory with local links for different tools.",
+    "summary": "Strapi's root guide maps its Yarn and Nx monorepo and sets boundaries for content access, dependency injection, shared types, and edition-specific code. Test areas use separate commands, while committed skills live in one directory and link into each tool.",
     "references": [
         {
             "path": "docs/docs/docs/01-core/database/01-relations/polymorphic-relations.md"

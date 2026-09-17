@@ -27,7 +27,7 @@
         }
     ],
     "hook": "Lockfile updates must be precise; privileged webhook workflows go through one dispatcher instead of new dangerous triggers.",
-    "summary": "uv’s root instructions are a compact list of contributor constraints. They focus on targeted testing, explicit fallibility, dependency changes, workflow security, and prose written for maintainers rather than for the agent conversation.",
+    "summary": "uv's root file is a compact list of constraints: run targeted tests, handle fallible operations explicitly, keep dependency updates precise, protect privileged workflows, and write prose for maintainers rather than the agent conversation.",
     "patterns": ["hard-prohibition", "single-source", "contribution-etiquette"],
     "techniques": [
         {

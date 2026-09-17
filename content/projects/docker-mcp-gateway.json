@@ -23,7 +23,7 @@
     },
     "tagline": "A Docker CLI plugin that connects AI clients to containerized MCP servers.",
     "hook": "Explains the client-to-gateway-to-container flow and separates catalog definitions, runtime configuration, and server enablement.",
-    "summary": "Docker MCP Gateway's CLAUDE.md is a self-contained orientation to a Go CLI plugin. It describes the gateway and container lifecycle, distinguishes three configuration roles, and names the Docker and caching conditions needed for meaningful integration tests.",
+    "summary": "Docker MCP Gateway's CLAUDE.md introduces a Go CLI plugin, its gateway, and the container lifecycle. It defines three kinds of configuration and the Docker and cache state needed for integration tests.",
     "references": [],
     "techniques": [
         {
