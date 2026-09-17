@@ -20,9 +20,22 @@
     color: var(--color-teal);
 }
 .skill-entry {
+    display: flex;
+    flex-direction: column;
     min-width: 0;
-    padding: 1.5rem 0;
-    border-bottom: 1px solid var(--color-gray-750);
+    padding: 1.375rem;
+    border: 1px solid var(--color-gray-750);
+    border-radius: 0.3rem;
+    background: var(--color-medium-gray);
+}
+.skill-entry:hover,
+.skill-entry:focus-within {
+    border-color: var(--color-teal);
+}
+.skill-entry-footer {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-gray-750);
 }
 /* Skill reading desk: document sections stay visible; bundle files open on demand. */
 .skill-tags {
