@@ -1,0 +1,141 @@
+{
+    "slug": "prisma",
+    "sha": "1ed19e4f3c25551989c218631bf6006e8d55de4b",
+    "license": "Apache-2.0",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".agents/rules/doc-maintenance.mdc",
+            "bytes": 3330,
+            "lines": 45
+        },
+        {
+            "path": ".agents/rules/no-target-branches.mdc",
+            "bytes": 4747,
+            "lines": 106
+        },
+        {
+            "path": ".agents/rules/omit-should-in-tests.mdc",
+            "bytes": 614,
+            "lines": 21
+        },
+        {
+            "path": ".agents/rules/README.md",
+            "bytes": 10891,
+            "lines": 149
+        },
+        {
+            "path": ".agents/rules/sql-orm-client-whole-shape-assertions.mdc",
+            "bytes": 2907,
+            "lines": 56
+        },
+        {
+            "path": ".agents/skills/publish-npm-version/SKILL.md",
+            "bytes": 0,
+            "lines": 0,
+            "missing": true
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 11134,
+            "lines": 130
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 9,
+            "lines": 1,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "AGENTS.md"
+        },
+        {
+            "path": "docs/architecture docs/patterns/frozen-class-ast.md",
+            "bytes": 7830,
+            "lines": 85
+        },
+        {
+            "path": "docs/architecture docs/patterns/interface-plus-factory.md",
+            "bytes": 6927,
+            "lines": 82
+        },
+        {
+            "path": "docs/architecture docs/patterns/json-canonical-class-in-memory.md",
+            "bytes": 7787,
+            "lines": 74
+        },
+        {
+            "path": "docs/architecture docs/patterns/three-layer-polymorphic-ir.md",
+            "bytes": 8072,
+            "lines": 80
+        },
+        {
+            "path": "docs/Architecture Overview.md",
+            "bytes": 23034,
+            "lines": 397
+        },
+        {
+            "path": "docs/onboarding/Common-Tasks-Playbook.md",
+            "bytes": 602,
+            "lines": 13
+        },
+        {
+            "path": "docs/onboarding/Conventions.md",
+            "bytes": 423,
+            "lines": 9
+        },
+        {
+            "path": "docs/onboarding/Cursor-Cloud-Agents.md",
+            "bytes": 19165,
+            "lines": 254
+        },
+        {
+            "path": "docs/onboarding/Getting-Started.md",
+            "bytes": 531,
+            "lines": 12
+        },
+        {
+            "path": "docs/onboarding/Repo-Map-and-Layering.md",
+            "bytes": 2562,
+            "lines": 30
+        },
+        {
+            "path": "docs/onboarding/Testing.md",
+            "bytes": 2656,
+            "lines": 35
+        },
+        {
+            "path": "docs/oss/versioning.md",
+            "bytes": 16509,
+            "lines": 106
+        },
+        {
+            "path": "docs/README.md",
+            "bytes": 3449,
+            "lines": 48
+        },
+        {
+            "path": "docs/reference/typescript-patterns.md",
+            "bytes": 49641,
+            "lines": 1250
+        },
+        {
+            "path": "docs/Telemetry.md",
+            "bytes": 15854,
+            "lines": 198
+        },
+        {
+            "path": "docs/Testing Guide.md",
+            "bytes": 38061,
+            "lines": 1149
+        },
+        {
+            "path": "projects/README.md",
+            "bytes": 1591,
+            "lines": 27
+        },
+        {
+            "path": "skills-contrib/no-bare-casts/SKILL.md",
+            "bytes": 2838,
+            "lines": 57
+        }
+    ]
+}

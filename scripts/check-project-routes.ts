@@ -203,6 +203,16 @@ async function main() {
         assert.ok(!rules.includes(`href="/${project.slug}"`), `rules must not use legacy URLs: ${project.slug}`);
         const html = await page(root);
         assert.ok(html.includes(`href="${root}/skills"`), `project tabs: ${root}`);
+        const instructionPath = project.instructionFile ?? 'AGENTS.md';
+        const instruction = await response(`/files/${project.slug}?path=${encodeURIComponent(instructionPath)}`);
+        assert.equal(instruction.status, 200, `instruction source: ${root}`);
+        assert.match(instruction.headers.get('content-type') ?? '', /text\/plain/);
+        assert.equal(instruction.headers.get('x-content-type-options'), 'nosniff');
+        assert.deepEqual(
+            Buffer.from(await instruction.arrayBuffer()),
+            fs.readFileSync(path.join('public/files', project.slug, instructionPath)),
+            `instruction bytes: ${root}`,
+        );
         await redirected(`/${project.slug}?ref=legacy`, `${root}?ref=legacy`);
         await redirected(`/${project.slug}/skills?q=review`, `${root}/skills?q=review`);
         const manifest = JSON.parse(fs.readFileSync(`content/skills/${project.slug}.json`, 'utf8')) as SkillManifest;
@@ -245,6 +255,16 @@ async function main() {
     assert.equal((await response('/not-the-owner/fresh/skills')).status, 404);
     assert.equal((await response('/not-the-owner/fresh/skills/missing/file?path=SKILL.md')).status, 404);
     assert.equal((await response('/not-the-owner/fresh/skills/missing/download')).status, 404);
+    for (const sourcePath of ['', '../AGENTS.md', '/etc/passwd', 'manifest.json', 'not-vendored.md']) {
+        assert.equal((await response(`/files/zed?path=${encodeURIComponent(sourcePath)}`)).status, 404, sourcePath);
+    }
+    assert.equal((await response('/files/not-a-project?path=AGENTS.md')).status, 404);
+    assert.equal((await response('/files/prisma?path=.agents/skills/publish-npm-version/SKILL.md')).status, 404);
+    assert.equal(
+        await (await response('/files/zed?path=AGENTS.md')).text(),
+        fs.readFileSync('public/files/zed/.rules', 'utf8'),
+        'instruction symlink serves resolved contents',
+    );
     console.log(
         `Verified ${projects.length} repository namespaces, ${skillPaths.size} paginated skills, ${sitemapUrls.length} sitemap URLs, robots, and 404s.`,
     );

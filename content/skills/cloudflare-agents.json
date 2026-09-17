@@ -1,0 +1,242 @@
+{
+    "version": 1,
+    "slug": "cloudflare-agents",
+    "repository": "cloudflare/agents",
+    "branch": "main",
+    "sha": "16b6856070f6c711486011b8b9dd926c2eaae52b",
+    "scannedAt": "2026-09-17T12:03:53.068Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "open-pr-455f541a8b54",
+            "path": "agent-think/skills/open-pr/SKILL.md",
+            "name": "open-pr",
+            "description": "Take a cloudflare/agents GitHub issue plus any repro findings and one-shot a fix PR — branch, change, test, push, and open the PR linked to the issue.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "3ba39dc712e58383f0f819feeaaf273aaa30f674",
+                    "bytes": 8166,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 77928207,
+                        "login": "mattzcarey",
+                        "commits": 5
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "reproduce-a90e885009e9",
+            "path": "agent-think/skills/reproduce/SKILL.md",
+            "name": "reproduce",
+            "description": "Reproduce a cloudflare/agents GitHub issue by scaffolding a minimal Agents/Worker project and deploying it to a temporary Cloudflare account, then report findings back on the issue.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d18b4cfde2d0da05244719dae6f7b0069f9f2a07",
+                    "bytes": 14340,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 77928207,
+                        "login": "mattzcarey",
+                        "commits": 4
+                    },
+                    {
+                        "id": 1517675,
+                        "login": "cjol",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "debug-plan-7a7f64de23ed",
+            "path": "examples/agent-skills/src/skills/debug-plan/SKILL.md",
+            "name": "debug-plan",
+            "description": "Create a systematic debugging plan for a bug report. Use when the user asks how to investigate a failure, regression, or unexpected behavior.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "68332c5e7e81f24da71c6542723c259a192abf7c",
+                    "bytes": 663,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/checklist.md",
+                    "blob": "97e53522e3f55327dda03899c14211c34afacad3",
+                    "bytes": 298,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 18808,
+                        "login": "threepointone",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "pirate-voice-9aa5c7f80f50",
+            "path": "examples/agent-skills/src/skills/pirate-voice/SKILL.md",
+            "name": "pirate-voice",
+            "description": "Rewrite or answer in a playful pirate voice. Use when the user asks for pirate tone, nautical phrasing, or says to talk like a pirate.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "e8d5f4f27bd526b6ebec84bdda6aded668a79a33",
+                    "bytes": 605,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 18808,
+                        "login": "threepointone",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "release-notes-b2d4e7d93789",
+            "path": "examples/agent-skills/src/skills/release-notes/SKILL.md",
+            "name": "release-notes",
+            "description": "Draft short release notes from a list of changes. Use when the user asks for changelogs, release notes, or a concise product update.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "65cace18ce25a8b13f13afbce3ca3abf89f84697",
+                    "bytes": 1063,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/style-guide.md",
+                    "blob": "fe896da759136a9b9b69ce5881579161bd4dd048",
+                    "bytes": 169,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/format-release-notes.ts",
+                    "blob": "59e65b8c85a1f8cc377191d619ace0066e8e5aed",
+                    "bytes": 1071,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 18808,
+                        "login": "threepointone",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "test-plan-75d40f27a17a",
+            "path": "examples/agent-skills/src/skills/test-plan/SKILL.md",
+            "name": "test-plan",
+            "description": "Produce a focused test plan for a change. Use when the user asks how to test a feature, what cases to cover, or for a QA checklist before shipping.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "040ac1be4b9e5995abd3b2da6d31a976d27626bf",
+                    "bytes": 947,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 18808,
+                        "login": "threepointone",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "workspace-digest-4381cf05ba75",
+            "path": "examples/assistant/agents/assistant/agents/my-assistant/skills/workspace-digest/SKILL.md",
+            "name": "workspace-digest",
+            "description": "Summarize the files saved in this assistant's shared workspace. Use when the user asks what is in their workspace, for a file inventory, or a digest of saved work.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ab33c3f3aae745bbe3e49de639d222a061835e9b",
+                    "bytes": 1056,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/format.md",
+                    "blob": "08b74c3dfc8345e4ca7a80eca6f9bbe81b33edf7",
+                    "bytes": 229,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/digest.ts",
+                    "blob": "ff319c09328f921f6027564bdbfb8edb3de66caf",
+                    "bytes": 1455,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 18808,
+                        "login": "threepointone",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "7450d93b73435348507af12dcb6770cdbfa06be1",
+        "bytes": 9313,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "61cc9d46253c84da017eb24752d0264b433d8d7a",
+        "bytes": 1103,
+        "text": true,
+        "mode": "100644"
+    }
+}

@@ -1,0 +1,96 @@
+{
+    "slug": "diffusers",
+    "name": "Diffusers",
+    "owner": "huggingface",
+    "repo": "diffusers",
+    "language": "Python",
+    "stars": 34531,
+    "defaultBranch": "main",
+    "instructionFile": ".ai/AGENTS.md",
+    "lastCommit": {
+        "sha": "ebe93ee5f761455ca99301b902f373fd00fb996d",
+        "date": "2026-09-09T18:32:53Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 4103,
+        "lines": 84,
+        "words": 548,
+        "headings": 7,
+        "bullets": 13,
+        "codeBlocks": 6,
+        "docLinks": 13
+    },
+    "tagline": "A Python library for diffusion models and generative image, video, and audio pipelines.",
+    "hook": "An 84-line shared guide routes to model, pipeline, testing, and reporting references while separating drafts from publication.",
+    "summary": "Both root instruction files resolve to .ai/AGENTS.md. The guide concentrates on setup, human approval boundaries, and dispatch to reference documents and skills, including a self-review pass shared with the project's CI reviewer.",
+    "references": [
+        {
+            "path": ".ai/references/code_style.md"
+        },
+        {
+            "path": ".ai/references/models.md"
+        },
+        {
+            "path": ".ai/references/pipelines.md"
+        },
+        {
+            "path": ".ai/references/modular.md"
+        },
+        {
+            "path": ".ai/references/testing.md"
+        },
+        {
+            "path": ".ai/references/reporting.md"
+        },
+        {
+            "path": ".ai/references/review-rules.md"
+        },
+        {
+            "path": ".ai/skills/model-integration/SKILL.md"
+        },
+        {
+            "path": ".ai/skills/custom-blocks/SKILL.md"
+        },
+        {
+            "path": ".ai/skills/diffusers-cli/SKILL.md"
+        },
+        {
+            "path": ".ai/skills/self-review/SKILL.md"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Separate persistent references from task workflows",
+            "body": "Model conventions, pipeline patterns, tests, and reporting each have a reference guide. Adding or converting a model is routed to a skill, distinguishing ongoing conventions from an end-to-end procedure.",
+            "quote": "**Models** — see [models.md](references/models.md) for model conventions, attention pattern, implementation rules, dependencies, and gotchas. For adding or converting a model, use the [model-integration](skills/model-integration/SKILL.md) skill.",
+            "pattern": "skill-routing"
+        },
+        {
+            "title": "Make exact wording part of the approval boundary",
+            "body": "Human review applies to commit messages, comments, docstrings, and public discussion as well as the PR description. The file asks whether the user will author the text or wants a draft, and separates preparing that draft from publishing it.",
+            "quote": "Everything a PR reviewer sees must come from a human, or be approved by one for the exact wording.",
+            "pattern": "contribution-etiquette"
+        },
+        {
+            "title": "Explain how old skill symlinks can alter the source",
+            "body": "The setup section calls out a previous installation method that linked tool folders into .ai. Removing those links is necessary because a new install would otherwise write through them into the shared source directory.",
+            "quote": "Skills used to be installed through the `Makefile`, which symlinked the project-level `.claude/skills` and\n`.agents/skills` at `.ai/skills` in this repo. Remove those links if they exist — otherwise the install writes through\nthem into `.ai/` itself:",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Use the same review rules locally and in CI",
+            "body": "The pre-PR self-review points at a named rules file and a dedicated skill. The guide states that the CI reviewer uses the same pass, giving local preparation a shared standard.",
+            "quote": "The [self-review skill](skills/self-review/SKILL.md) runs this as the same pass the `@claude` CI reviewer uses.",
+            "pattern": "single-source"
+        }
+    ],
+    "steal": [
+        "Separate reference conventions from procedural skill entry points.",
+        "State approval boundaries for each kind of published text.",
+        "Explain write-through hazards when changing a symlink-based setup.",
+        "Share the same review rules between local workflows and CI."
+    ],
+    "outline": ["Setup", "Human in the loop", "Code formatting", "Reference guides", "Skills", "Self-review before a PR"],
+    "patterns": ["skill-routing", "contribution-etiquette", "behavioral-conditioning", "single-source"]
+}

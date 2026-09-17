@@ -1,0 +1,52 @@
+{
+    "version": 1,
+    "slug": "lancedb",
+    "repository": "lancedb/lancedb",
+    "branch": "main",
+    "sha": "c72931b30fa8cd6f27e2c061187a00cc21011670",
+    "scannedAt": "2026-09-17T12:02:17.774Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "lancedb-update-lance-dependency-542af5d99def",
+            "path": ".agents/skills/lancedb-update-lance-dependency/SKILL.md",
+            "name": "lancedb-update-lance-dependency",
+            "description": "Update LanceDB to a specific Lance release or tag. Use when bumping Lance dependencies in the lancedb repository, including Rust workspace Lance crates, Java lance-core, validation, branch creation, commit, push, and PR creation when requested.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "e97fae7aca0ec84152342826abf22be75aac7e3b",
+                    "bytes": 4230,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5351546,
+                        "login": "Xuanwo",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "f6d01db03a1d2f037ab19b1e5eaa28e7d7c9d7c2",
+        "bytes": 8100,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "7a4a3ea2424c09fbe48d455aed1eaa94d9124835",
+        "bytes": 11357,
+        "text": true,
+        "mode": "100644"
+    }
+}

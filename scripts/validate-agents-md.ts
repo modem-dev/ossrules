@@ -18,6 +18,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { validateAgentsProject } from '../components/agents-md-schema';
+import { isInstructionPath } from '../lib/instruction-path';
 
 const CONTENT_DIR = path.join(process.cwd(), 'content', 'projects');
 const LOGO_DIR = path.join(process.cwd(), 'public', 'logos');
@@ -68,6 +69,13 @@ function checkVendoredFiles(
     const primary = manifest.files?.find((file) => file.path === (entry.instructionFile ?? 'AGENTS.md'));
     if (!primary || primary.missing || primary.unavailable || primary.symlink !== undefined) {
         problems.push('The analyzed instructionFile must be a readable regular file, not a symlink.');
+    }
+    if (
+        primary &&
+        !isInstructionPath(primary.path) &&
+        !manifest.files?.some((file) => isInstructionPath(file.path) && file.resolvedPath === primary.path)
+    ) {
+        problems.push('An instruction source with another filename must be a resolved AGENTS.md or CLAUDE.md symlink target.');
     }
     for (const file of manifest.files ?? []) {
         if (

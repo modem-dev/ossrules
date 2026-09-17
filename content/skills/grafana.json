@@ -1,0 +1,117 @@
+{
+    "version": 1,
+    "slug": "grafana",
+    "repository": "grafana/grafana",
+    "branch": "main",
+    "sha": "20a1eaa5e56d8ca8ac5603a779bb0eb37a98c6c5",
+    "scannedAt": "2026-09-17T12:00:53.323Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "add-e2e-selectors-b9f010a59445",
+            "path": ".claude/skills/add-e2e-selectors/SKILL.md",
+            "name": "add-e2e-selectors",
+            "description": "Add reliable @grafana/e2e-selectors to interactive elements and key containers in the Grafana frontend. Use when adding e2e selectors, data-testid attributes, or test selectors to React components, when a file or component lacks selectors for testing, or when asked to make elements testable. Also use when given a Grafana Pathfinder interactive guide (a guide directory or content.json) to audit or fix — it extracts the guide's reftarget selectors, identifies weak ones, and fixes them at the source in Grafana's JSX. Defines versioned selectors in the e2e-selectors package and wires data-testid into JSX. Accepts a file path, a list of targets, a directory, a pathfinder guide, or the current/open file.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "2b4b5698529ac42cfab91386e9a528eadc65150f",
+                    "bytes": 17810,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 20999846,
+                        "login": "ashharrison90",
+                        "commits": 1
+                    },
+                    {
+                        "id": 231133,
+                        "login": "fastfrwrd",
+                        "commits": 1
+                    },
+                    {
+                        "id": 73201,
+                        "login": "jackw",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "frontend-testing-strategy-68570ec649de",
+            "path": ".claude/skills/frontend-testing-strategy/SKILL.md",
+            "name": "frontend-testing-strategy",
+            "description": "Write unit and E2E tests for Grafana frontend code (React/TypeScript, any package or feature area) to the conventions this repo expects. Use when adding, backfilling, or reviewing frontend tests; when a test only asserts \"it rendered\" or \"it's defined\"; when reviewing AI-generated tests for slop; or when a frontend test is flaky. For visualization panels and grafana-ui viz components specifically, also load the `panel-testing-strategy` skill.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "e55417cdc059e0146802ef417f3d5ffa8b00d0ff",
+                    "bytes": 20138,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 231133,
+                        "login": "fastfrwrd",
+                        "commits": 1
+                    },
+                    {
+                        "id": 13637610,
+                        "login": "mikkancso",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "panel-testing-strategy-a8602b6cd545",
+            "path": ".claude/skills/panel-testing-strategy/SKILL.md",
+            "name": "panel-testing-strategy",
+            "description": "Write unit and E2E tests for Grafana visualization panels and viz utilities to the conventions this repo expects. Use when adding, backfilling, or reviewing tests for panels (barchart, timeseries, table, xychart, heatmap, canvas, etc.), grafana-ui viz components (Table, uPlot, VizLegend, VizTooltip), or grafana-data viz utils; when a panel test only asserts \"it rendered\" or \"it's defined\"; when reviewing AI-generated panel tests for slop; or when a canvas/rendering test is flaky.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "fea6d255645067dcfb2f320d09993eb7b87c0a97",
+                    "bytes": 10380,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 231133,
+                        "login": "fastfrwrd",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "164d5cfdcc5777926cdc169bed732729394d1542",
+        "bytes": 9987,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "be3f7b28e564e7dd05eaf59d64adba1a4065ac0e",
+        "bytes": 34523,
+        "text": true,
+        "mode": "100644"
+    }
+}

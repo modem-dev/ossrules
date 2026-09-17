@@ -18,14 +18,15 @@ export function instructionImports(sourcePath: string, source: string, available
     const found = new Map<string, InstructionImport>();
     let fence: string | undefined;
     for (const line of source.split('\n')) {
-        const marker = /^\s*(`{3,}|~{3,})/.exec(line)?.[1];
+        const content = line.replace(/^(?:[ \t]*>[ \t]?)+/, '');
+        const marker = /^\s*(`{3,}|~{3,})/.exec(content)?.[1];
         if (marker) {
             if (!fence) fence = marker;
             else if (marker[0] === fence[0] && marker.length >= fence.length) fence = undefined;
             continue;
         }
         if (fence) continue;
-        const prose = line.replace(/(`+)[\s\S]*?\1/g, '');
+        const prose = content.replace(/(`+)[\s\S]*?\1/g, '');
         for (const match of prose.matchAll(/(?<![\w@])@([^\s`"'<>()[\],;]+)/g)) {
             const target = match[1].replace(/[.!?:*]+$/, '');
             if (!target) continue;

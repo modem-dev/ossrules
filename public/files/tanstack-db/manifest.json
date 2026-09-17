@@ -1,0 +1,29 @@
+{
+    "slug": "tanstack-db",
+    "sha": "3c4c35d5868c908979058c4dbeae7c4ac9eab88b",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 20298,
+            "lines": 753
+        },
+        {
+            "path": "docs/contributing/oracle-coverage.md",
+            "bytes": 13744,
+            "lines": 139
+        },
+        {
+            "path": "docs/contributing/oracle-tests.md",
+            "bytes": 35795,
+            "lines": 386
+        },
+        {
+            "path": "packages/db/src/query/live/ARCHITECTURE.md",
+            "bytes": 68606,
+            "lines": 1182,
+            "truncated": true
+        }
+    ]
+}

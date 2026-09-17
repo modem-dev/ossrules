@@ -1,0 +1,508 @@
+{
+    "version": 1,
+    "slug": "ray",
+    "repository": "ray-project/ray",
+    "branch": "master",
+    "sha": "39882c660a6d7b579e39d724ce85d9074d6180fb",
+    "scannedAt": "2026-09-17T11:59:56.162Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "backport-docs-7908822ce72a",
+            "path": ".claude/skills/backport-docs/SKILL.md",
+            "name": "backport-docs",
+            "description": "Cherry-pick documentation changes from master onto a release branch so they appear on the docs.ray.io /latest build",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "c851912118bf495c0d5f4de92db44a8dc16be42e",
+                    "bytes": 5191,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 17244985,
+                        "login": "dstrodtman",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "fetch-buildkite-logs-cc42e0894f62",
+            "path": ".claude/skills/fetch-buildkite-logs/SKILL.md",
+            "name": "fetch-buildkite-logs",
+            "description": "Fetch Buildkite CI job logs, and a job's artifacts when the logs are not enough, from a Buildkite build URL or build number, then summarize the failures",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "c3b848d128594ad47f3c06d01211c420ac5df5a0",
+                    "bytes": 4022,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 43576986,
+                        "login": "sampan-s-nayak",
+                        "commits": 2
+                    },
+                    {
+                        "id": 47914085,
+                        "login": "MortalHappiness",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "lint-3e0e9e619851",
+            "path": ".claude/skills/lint/SKILL.md",
+            "name": "lint",
+            "description": "Run linting and formatting checks on Ray code",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "aaa6587b944af66b2cc621a6c0e2667b71133d00",
+                    "bytes": 1387,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 17244985,
+                        "login": "dstrodtman",
+                        "commits": 1
+                    },
+                    {
+                        "id": 43576986,
+                        "login": "sampan-s-nayak",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "ray-dependencies-5a4731607f69",
+            "path": ".claude/skills/ray-dependencies/SKILL.md",
+            "name": "ray-dependencies",
+            "description": "Manage Python dependencies in Ray — add/remove/upgrade packages, work with raydepsets lock files, debug dependency conflicts, and regenerate compiled requirements. Covers `python/requirements*`, `python/requirements/**`, `python/deplocks/**`, and `ci/raydepsets/configs/*.depsets.yaml`.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "370793a3b3ed3afc576ae41d86836593f368d946",
+                    "bytes": 22899,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 211740574,
+                        "login": "elliot-barn",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "rebuild-cbab8f802f23",
+            "path": ".claude/skills/rebuild/SKILL.md",
+            "name": "rebuild",
+            "description": "Rebuild Ray from source — determines the right build mode based on what changed",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "0943e45d941a28f4e28c976836619566422336c1",
+                    "bytes": 3362,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 17244985,
+                        "login": "dstrodtman",
+                        "commits": 1
+                    },
+                    {
+                        "id": 43576986,
+                        "login": "sampan-s-nayak",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "ray-soft-wrap-9151bc72aac3",
+            "path": "doc/.claude/skills/ray-soft-wrap/SKILL.md",
+            "name": "ray-soft-wrap",
+            "description": "Soft-wrap (unwrap) hard-wrapped prose in Markdown/MyST files in the ray-project/ray repo so each paragraph and list item is one line, with deterministic content-invariant, render-equality, and idempotency checks. Use when asked to soft-wrap, unwrap, or reflow Ray docs (.md/.markdown), or to normalize line wrapping before style and grammar edits. Markdown only — rST files are converted to MyST first by a separate effort.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "1df65557e64a8b865fe8da0e4859597e5dc23ce5",
+                    "bytes": 9769,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/README.md",
+                    "blob": "d8df53e67762171991446ac4f83e0a6124426ee8",
+                    "bytes": 2829,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/softwrap.py",
+                    "blob": "58c92599e372905e9bef292df0f5477c82c0c492",
+                    "bytes": 17652,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/verify.py",
+                    "blob": "005945eb77764b30f274c2b7bcd8fac7dba71fbf",
+                    "bytes": 5474,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 17244985,
+                        "login": "dstrodtman",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "rst-to-myst-b1fca9d43de7",
+            "path": "doc/.claude/skills/rst-to-myst/SKILL.md",
+            "name": "rst-to-myst",
+            "description": "Convert Ray documentation pages from reStructuredText (.rst) to MyST Markdown (.md). Use when migrating existing files under doc/source/ to MyST, finishing a partial MyST migration of a directory, or when asked to convert/migrate a doc page to markdown. Covers the RST-to-MyST directive mapping, label and cross-reference preservation, sphinx-design tabs/dropdowns/card grids, doctest/testcode handling, the doc/BUILD.bazel doctest exclusions, and the build and doctest verification needed to land a clean docs PR.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "dc0ca11b92a46652699acece5b24c708e8ad0148",
+                    "bytes": 31656,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "render_diff.py",
+                    "blob": "ad98560246da383855a6322012237cd44de30b45",
+                    "bytes": 8200,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 17244985,
+                        "login": "dstrodtman",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "sphinx-fix-71cc8dc50213",
+            "path": "doc/.claude/skills/sphinx-fix/SKILL.md",
+            "name": "sphinx-fix",
+            "description": "Diagnose a failing Ray Sphinx / Read the Docs documentation build. Parses the Sphinx warning stream (an RtD build log, a local build, or pasted text), classifies each warning against a rules table, and proposes the canonical fix in severity-tier order. Detects a hard-broken build, segregates known-benign suppressed classes, and lists every unclassified warning. Use when a `docs/readthedocs.com:anyscale-ray` check fails, when asked \"why is the docs build failing?\" or \"what warning is breaking this PR?\", or to turn a Sphinx warning dump into an ordered fix list.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "023718d9517e87d8b35f783830292ae781c2cf30",
+                    "bytes": 10256,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules.yaml",
+                    "blob": "5b3d7322b61d71db56ac8f6da1397b5a3d00a42c",
+                    "bytes": 18729,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "sphinx_fix.py",
+                    "blob": "f1de83ac14899609f79ca0f5689bef7dba1e31b6",
+                    "bytes": 39594,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "tests/fixtures/abort_traceback.txt",
+                    "blob": "52588396d7d73d2ca33a7cc9dcc40657a43d5aa1",
+                    "bytes": 331,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "tests/fixtures/autosummary_import_abort.txt",
+                    "blob": "d40ac3ec8a90f738cd07f050b1c75da6febb0711",
+                    "bytes": 799,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "tests/fixtures/autosummary_stub_flood.txt",
+                    "blob": "397bdde35e07c0f337877f75f98e4c9eaf5fd9a1",
+                    "bytes": 3555,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "tests/fixtures/autosummary_stub_masking.txt",
+                    "blob": "9457460e225074c0377b5b6e8cc88a300c2f23ae",
+                    "bytes": 1162,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "tests/fixtures/clean_build.txt",
+                    "blob": "76599c5ca3013064221a366dd881eb0a216bd774",
+                    "bytes": 255,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "tests/fixtures/docutils_inline_markup.txt",
+                    "blob": "a5cafe7363a476289d506f2ff820b7a846c46d4e",
+                    "bytes": 745,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "tests/fixtures/intersphinx_unreachable.txt",
+                    "blob": "261a63a1abe77b1d912530a9563b631c360a68e8",
+                    "bytes": 681,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "tests/fixtures/known_suppressed.txt",
+                    "blob": "5c83956879f6fe4879165b1e088acafaa93df66f",
+                    "bytes": 620,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "tests/fixtures/masked_error.txt",
+                    "blob": "e74fb85909af239984e3b526dfae0be4acd9d942",
+                    "bytes": 727,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "tests/fixtures/py_xref_independent.txt",
+                    "blob": "8e805c504c565a9329ff927cfca3f9072cf244c0",
+                    "bytes": 554,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "tests/fixtures/raw_log_mode.txt",
+                    "blob": "23f1cfee14d2265e7dd681524f755db60a67fb43",
+                    "bytes": 460,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "tests/fixtures/single_xref_missing.txt",
+                    "blob": "364abf50ff36ab1a1ede297ff5cc2462ddf0a18b",
+                    "bytes": 470,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "tests/fixtures/toctree_nonexisting.txt",
+                    "blob": "fbc54a244c6318ab3cd6da2d713321da1b35bf81",
+                    "bytes": 497,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "tests/fixtures/unclassified_only.txt",
+                    "blob": "05b1fe36599de8e60a1ac5dcd84ca4cb9a34e69e",
+                    "bytes": 453,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "tests/fixtures/unknown_document.txt",
+                    "blob": "ce5e9c58049d1affc0eecd150f512e17cb90c1e7",
+                    "bytes": 513,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "tests/fixtures/warnings_only_severe.txt",
+                    "blob": "2bddcba62b0911450e53fbc787c1ce77da5b5d33",
+                    "bytes": 333,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "tests/golden/abort_traceback.txt",
+                    "blob": "37ca1479f61d400b2d95e945630cc2573f3a3021",
+                    "bytes": 609,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "tests/golden/autosummary_import_abort.txt",
+                    "blob": "189514521fbc3efa938e4d467073416e456a3833",
+                    "bytes": 1045,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "tests/golden/autosummary_stub_flood.txt",
+                    "blob": "061794c20814b515bd88eb8fdbeb26446927ea65",
+                    "bytes": 2899,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "tests/golden/autosummary_stub_masking.txt",
+                    "blob": "f329c22aa6e1d817c27e9edbfc1fc3af2657657f",
+                    "bytes": 1527,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "tests/golden/clean_build.txt",
+                    "blob": "2edcc2de000ed53ea2451bb2a5b53b49ec7d9cee",
+                    "bytes": 279,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "tests/golden/docutils_inline_markup.txt",
+                    "blob": "5d1b0f3abc8ce689358ae120942944690d9ef527",
+                    "bytes": 1184,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "tests/golden/intersphinx_unreachable.txt",
+                    "blob": "5c2aa9466db2ed774a0d9ec099a88c13426f7c2a",
+                    "bytes": 1151,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "tests/golden/known_suppressed.txt",
+                    "blob": "475d91f57ecb9ecf5f215f74b860bb2af1d0e8dd",
+                    "bytes": 387,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "tests/golden/masked_error.txt",
+                    "blob": "7f4cb8d938d1a8fb00548e23691fe5eb0390abdb",
+                    "bytes": 1142,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "tests/golden/py_xref_independent.txt",
+                    "blob": "8dc627fd456f7fc8a5c52267834cae0a68810bad",
+                    "bytes": 1366,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "tests/golden/raw_log_mode.txt",
+                    "blob": "97b574408909e538d22067184df82a630657ac33",
+                    "bytes": 577,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "tests/golden/single_xref_missing.txt",
+                    "blob": "d403cf7233ff15834d600a32627fa134512bc7f2",
+                    "bytes": 687,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "tests/golden/toctree_nonexisting.txt",
+                    "blob": "b5d046f55c47c91d812f4763d9632a9d395c4200",
+                    "bytes": 739,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "tests/golden/unclassified_only.txt",
+                    "blob": "0508fcde3604261e2857ef3e0a3da2dd408c43e8",
+                    "bytes": 449,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "tests/golden/unknown_document.txt",
+                    "blob": "109d93e1c4e947ac53b68eea9ecf585799575e8d",
+                    "bytes": 823,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "tests/golden/warnings_only_severe.txt",
+                    "blob": "7f035aa95a0cc5998d3dd82e13b3f81f337ec739",
+                    "bytes": 682,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 17244985,
+                        "login": "dstrodtman",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "88b14137005c0700c3831fbd77891b5e18e9f2ab",
+        "bytes": 3741,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "c247a8575b35eea321f584a57a67cfa93db6d654",
+        "bytes": 27249,
+        "text": true,
+        "mode": "100644"
+    }
+}

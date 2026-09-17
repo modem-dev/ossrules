@@ -1,0 +1,49 @@
+{
+    "slug": "vitest",
+    "sha": "9e1166959e14bd32298d8a0e85352431c769ec7a",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".github/commit-convention.md",
+            "bytes": 2901,
+            "lines": 92
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 17390,
+            "lines": 240
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "AGENTS.md"
+                }
+            ]
+        },
+        {
+            "path": "CONTRIBUTING.md",
+            "bytes": 16732,
+            "lines": 268
+        },
+        {
+            "path": "docs/AGENTS.md",
+            "bytes": 1916,
+            "lines": 26
+        },
+        {
+            "path": "docs/guide/cli-generated.md",
+            "bytes": 32987,
+            "lines": 1029
+        },
+        {
+            "path": "packages/vitest/LICENSE.md",
+            "bytes": 43992,
+            "lines": 965
+        }
+    ]
+}

@@ -1,0 +1,55 @@
+{
+    "slug": "biomejs",
+    "sha": "d37f24b5fa901916a1e1b488857dd3ee4c8e74ec",
+    "license": "Apache-2.0",
+    "licensePath": "LICENSE-APACHE",
+    "files": [
+        {
+            "path": ".claude/skills/biome-code-review/SKILL.md",
+            "bytes": 11327,
+            "lines": 187
+        },
+        {
+            "path": ".claude/skills/changeset/SKILL.md",
+            "bytes": 3309,
+            "lines": 82
+        },
+        {
+            "path": ".claude/skills/doc-comments/SKILL.md",
+            "bytes": 8927,
+            "lines": 208
+        },
+        {
+            "path": ".claude/skills/README.md",
+            "bytes": 2645,
+            "lines": 43
+        },
+        {
+            "path": ".claude/skills/testing-codegen/SKILL.md",
+            "bytes": 5160,
+            "lines": 111
+        },
+        {
+            "path": ".github/PULL_REQUEST_TEMPLATE.md",
+            "bytes": 1458,
+            "lines": 30
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 4521,
+            "lines": 82
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 15,
+            "lines": 1,
+            "symlink": "CONTRIBUTING.md",
+            "resolvedPath": "CONTRIBUTING.md"
+        },
+        {
+            "path": "CONTRIBUTING.md",
+            "bytes": 26680,
+            "lines": 589
+        }
+    ]
+}

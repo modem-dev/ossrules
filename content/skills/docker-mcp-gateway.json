@@ -1,0 +1,52 @@
+{
+    "version": 1,
+    "slug": "docker-mcp-gateway",
+    "repository": "docker/mcp-gateway",
+    "branch": "main",
+    "sha": "a34df45d4ec0e941a9853ad768c4f6cd818966b3",
+    "scannedAt": "2026-09-17T12:00:48.913Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "otel-instrument-c9610c0df879",
+            "path": ".claude/skills/otel-instrument/SKILL.md",
+            "name": "OpenTelemetry Instrumentation Extension",
+            "description": "Extend OpenTelemetry instrumentation when new functionality is added to the MCP Gateway. Use when (1) new operations/functions are added, (2) reviewing code for missing instrumentation, (3) user requests otel/telemetry additions, or (4) working with state-changing operations. Analyzes git diff, suggests instrumentation points following project standards in docs/telemetry/README.md, implements with approval, writes tests, updates documentation, and verifies with debug logging and docker logs.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "35a8687823e19d49303154f7b0f6e9cae336a4a7",
+                    "bytes": 11420,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1126029,
+                        "login": "bobbyhouse",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "CLAUDE.md",
+        "blob": "947c176bdf5fa725047705859c36ae1bc731ca19",
+        "bytes": 4868,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "a48bd09d27352d775eb47e3c3205d1db674afc1f",
+        "bytes": 1063,
+        "text": true,
+        "mode": "100644"
+    }
+}

@@ -1,0 +1,98 @@
+{
+    "slug": "ruff",
+    "name": "Ruff",
+    "owner": "astral-sh",
+    "repo": "ruff",
+    "language": "Rust",
+    "stars": 49648,
+    "defaultBranch": "main",
+    "instructionFile": "AGENTS.md",
+    "lastCommit": {
+        "sha": "fbfc0009049ec518f4875c75373efac04a88d09d",
+        "date": "2026-09-15T16:42:18Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 17405,
+        "lines": 211,
+        "words": 2496,
+        "headings": 25,
+        "bullets": 30,
+        "codeBlocks": 9,
+        "docLinks": 3
+    },
+    "tagline": "A Python linter and formatter whose Rust workspace also contains the ty type checker.",
+    "hook": "Explains why a temporary reproduction inside the checkout silently inherits Python 3.7.",
+    "summary": "Ruff combines Rust workspace guidance with a scoped section for ty development. It explains environment traps, treats Markdown tests as readable specifications, and routes security reviews and specialized ty work to separate documents.",
+    "references": [
+        {
+            "path": "CONTRIBUTING.md"
+        },
+        {
+            "path": "agents/references/threat-models.md"
+        },
+        {
+            "path": "agents/references/repository-threat-model.md"
+        },
+        {
+            "path": ".agents/skills/adding-ty-diagnostics/SKILL.md"
+        },
+        {
+            "path": ".agents/skills/summarise-ecosystem-results/SKILL.md"
+        },
+        {
+            "path": ".agents/skills/minimizing-ty-ecosystem-changes/SKILL.md"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Explain the hidden configuration behind a reproduction",
+            "body": "Temporary Python files belong outside the checkout because configuration discovery changes their inferred Python version. The rule names both the configuration key and the incorrect default that an in-repository reproduction would pick up.",
+            "quote": "A file inside the checkout discovers Ruff's root `pyproject.toml`, whose `requires-python = \">=3.7\"` causes ty to infer Python 3.7 as the default Python version.",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Separate review findings from agent workflow rules",
+            "body": "Review should report introduced code, test, and architectural violations. The file explicitly excludes unrelated existing issues and warns against treating agent-only workflow requirements as obligations on human PR authors.",
+            "quote": "Report\nmeaningful violations introduced by the changes; do not apply agent-only workflow\ninstructions to PR authors or flag unrelated pre-existing issues.",
+            "pattern": "scope-layering"
+        },
+        {
+            "title": "Give generated snapshots a single update path",
+            "body": "Snapshot-update environment variables are supplied for both nextest and cargo test. Agents must inspect the resulting diffs and pending inline snapshots instead of manually changing expected output.",
+            "quote": "Never edit snapshot files or inline snapshot bodies manually. Regenerate them by running the relevant tests with the snapshot-update environment variables documented above, then review the generated diff.",
+            "pattern": "generated-file-guard"
+        },
+        {
+            "title": "Route security reviews to the relevant threat model",
+            "body": "Runtime changes and repository, CI, or release changes use different threat-model documents. The routing gives severity assessment a stated trust boundary instead of relying on a generic security checklist.",
+            "quote": "For security reviews of repository, CI, and release changes, use the\n[repository threat model](agents/references/repository-threat-model.md) to assess\ntrust boundaries and calibrate severity.",
+            "pattern": "skill-routing"
+        },
+        {
+            "title": "Write for someone outside the current session",
+            "body": "Public text should explain the final observable behavior and verified evidence. Before finishing, the agent rereads each artifact without assuming the reader has access to the coding conversation.",
+            "quote": "Before finishing, reread each changed artifact as someone with no access to the Codex session and remove or explain anything that would surprise or confuse that reader.",
+            "pattern": "behavioral-conditioning"
+        }
+    ],
+    "steal": [
+        "Document configuration-discovery traps beside reproduction instructions.",
+        "State which workflow rules apply to agents rather than all contributors.",
+        "Provide the regeneration command and require review of its output.",
+        "Route security work by the trust boundary it touches."
+    ],
+    "outline": [
+        "Before contributing",
+        "Code Review Rules",
+        "Writing for human readers",
+        "Running Tests",
+        "Writing mdtests",
+        "Running Clippy",
+        "Running Debug Builds",
+        "Working on ty",
+        "Generated Release Workflow",
+        "Development Guidelines"
+    ],
+    "patterns": ["behavioral-conditioning", "scope-layering", "generated-file-guard", "skill-routing"]
+}

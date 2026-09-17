@@ -1,0 +1,493 @@
+{
+    "version": 1,
+    "slug": "rustfs",
+    "repository": "rustfs/rustfs",
+    "branch": "main",
+    "sha": "4c02ad40254bc463b9ac8ee53bdf61c773a3b6d0",
+    "scannedAt": "2026-09-17T12:00:51.389Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "adversarial-validation-40c911105fff",
+            "path": ".agents/skills/adversarial-validation/SKILL.md",
+            "name": "adversarial-validation",
+            "description": "Review RustFS diffs or designs for explicit adversarial requests, high-risk changes under the repository review policy, or substantial PR reviews. Skip ordinary questions, diagnosis, planning, status, routine low-risk implementation, and prose with no execution effect.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "95353e19e95e384b0980c88bcf3e77ea53d02b1b",
+                    "bytes": 2564,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/compatibility.md",
+                    "blob": "6946ea647400f8c7508686cea3288469fd9c217c",
+                    "bytes": 2168,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/concurrency-durability.md",
+                    "blob": "ae09a771858a31b4376b50313cbbf75293769d27",
+                    "bytes": 1457,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/correctness.md",
+                    "blob": "05b3d95f6ba1ea2087b7fe5a59e9ed8f4b57ebc3",
+                    "bytes": 1718,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/performance.md",
+                    "blob": "2b352ac2a3f09e2cb0cd713964bcb50fe35c62ee",
+                    "bytes": 1225,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/security.md",
+                    "blob": "9490a09f5b6135c65663835e79c9202c701095d8",
+                    "bytes": 1895,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/simplicity.md",
+                    "blob": "ca192f884e5378e7196854aa229428a7630bed55",
+                    "bytes": 1266,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/test-coverage.md",
+                    "blob": "4c193bcd112b96f726a2e9fa7becb36f99fa9de5",
+                    "bytes": 1493,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1472352,
+                        "login": "overtrue",
+                        "commits": 6
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "arch-checks-7dfde5f0a892",
+            "path": ".agents/skills/arch-checks/SKILL.md",
+            "name": "arch-checks",
+            "description": "Diagnose failures from check_layer_dependencies.sh, check_architecture_migration_rules.sh, check_unsafe_code_allowances.sh, check_logging_guardrails.sh, check_doc_paths.sh, or check_no_planning_docs.sh. Use when one of these guards fails, not for every architecture question or documentation edit.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "848f8f48acaf3e70ee9f57163bce555df12caef7",
+                    "bytes": 3385,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1472352,
+                        "login": "overtrue",
+                        "commits": 6
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "code-change-verification-93ee7b38b68d",
+            "path": ".agents/skills/code-change-verification/SKILL.md",
+            "name": "code-change-verification",
+            "description": "Review a commit, PR, or merged patch when the user requests ordinary code-change verification. Do not combine with adversarial-validation; use that skill instead for explicitly adversarial, substantial, or high-risk RustFS reviews.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "3f91fabb50d73d0bdf37540bef9a00755ab13d8f",
+                    "bytes": 2576,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "2f76eace4e8345c7f7fde2260c188c1e528e06b8",
+                    "bytes": 247,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1472352,
+                        "login": "overtrue",
+                        "commits": 5
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "issue-triage-4de2335966fb",
+            "path": ".agents/skills/issue-triage/SKILL.md",
+            "name": "issue-triage",
+            "description": "Assess whether a GitHub issue is fixed, needs implementation, or can be closed by checking related work and current code. Use for issue completion/triage requests. Status questions are read-only; comment, close, or change labels only when the conversation authorizes that action.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d8512cdfdd5c1c4827ba2a26c1013f81ad47848e",
+                    "bytes": 5074,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1472352,
+                        "login": "overtrue",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "plugin-contract-guard-42ae22fead4d",
+            "path": ".agents/skills/plugin-contract-guard/SKILL.md",
+            "name": "plugin-contract-guard",
+            "description": "Guard changes to target-plugin manifests, extension schemas, admin catalog/instance contracts, secret redaction, and external-plugin install policy. Use when a diff changes those contracts in crates/targets, crates/extension-schema, or admin plugin/extension handlers; path membership alone, comments, and unrelated runtime internals do not trigger it.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "0bf68110bc75b5f35703b10285d36da337cdb36e",
+                    "bytes": 4538,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1472352,
+                        "login": "overtrue",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "pr-review-d6d282245199",
+            "path": ".agents/skills/pr-review/SKILL.md",
+            "name": "pr-review",
+            "description": "Review a GitHub PR from a URL or number using its actual base/head and risk-appropriate code review. Use when the user asks for a PR review, not a status lookup or PR wording edit. Publish a review only when authorized; delegation and monitoring follow the requested scope and root AGENTS.md.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "f1b212f49c377e3086cb953e243b0da1a06fd5e5",
+                    "bytes": 5081,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/posting.md",
+                    "blob": "58cb1c3df7b888e2189d19ca2444c77f78bb6037",
+                    "bytes": 578,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1472352,
+                        "login": "overtrue",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "rust-code-quality-69bfb06d8753",
+            "path": ".agents/skills/rust-code-quality/SKILL.md",
+            "name": "rust-code-quality",
+            "description": "Run a focused Rust quality review when the user requests one or a selected review workflow needs Rust-specific checks for changed behavior. Do not auto-load for every implementation edit, comment-only or formatting-only Rust diff, or repeat an already completed review.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "e63afb78d04a63e8acf45365768384b887845c3e",
+                    "bytes": 6495,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1472352,
+                        "login": "overtrue",
+                        "commits": 5
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "rustfs-logging-governance-479f126cdda7",
+            "path": ".agents/skills/rustfs-logging-governance/SKILL.md",
+            "name": "rustfs-logging-governance",
+            "description": "Add or review RustFS `tracing` events with the repository field shape, level policy, privacy boundaries, and guardrails. Use when a change adds or edits a tracing macro/instrumentation site or the logging guardrail script.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b00e572169598d59ba60071553c5884f45e96c0b",
+                    "bytes": 1674,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "fce6821a063361bd62ac8281f118a6b048ca23cf",
+                    "bytes": 270,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/logging-governance.md",
+                    "blob": "4002932e38b86ab55c8953b74af4f84fb279e8ba",
+                    "bytes": 2479,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1472352,
+                        "login": "overtrue",
+                        "commits": 2
+                    },
+                    {
+                        "id": 4829346,
+                        "login": "houseme",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "rustfs-release-publish-8c9bc9c24a0e",
+            "path": ".agents/skills/rustfs-release-publish/SKILL.md",
+            "name": "rustfs-release-publish",
+            "description": "Run the end-to-end RustFS console gate, version bump, preview validation, human confirmation, and final-tag publication pipeline. Use only when the user explicitly asks to release or publish a RustFS version (发版/发布).",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d3e101b83ebbda14c8945b019763cf473baa52a1",
+                    "bytes": 15074,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/console-gate.md",
+                    "blob": "526e40fac45e26adea079938280376415aff3fa3",
+                    "bytes": 3557,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/preview-acceptance.md",
+                    "blob": "a5216647b387aecfef56211e962a3c687f930ad4",
+                    "bytes": 2759,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1472352,
+                        "login": "overtrue",
+                        "commits": 10
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "rustfs-release-version-bump-de62a576b1a1",
+            "path": ".agents/skills/rustfs-release-version-bump/SKILL.md",
+            "name": "rustfs-release-version-bump",
+            "description": "Prepare the version-file and release-asset bump for an exact RustFS alpha/beta/stable target, with verification and optional commit/push/PR delivery. Use for an explicit version bump or when invoked by the release-publish workflow.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "2f77ee27a8dcfe9554a1b902b0133f9cf962a038",
+                    "bytes": 5075,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "4bd3e0ff6b0244ebe3547ac42d5f98e3865fa0be",
+                    "bytes": 232,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1472352,
+                        "login": "overtrue",
+                        "commits": 4
+                    },
+                    {
+                        "id": 4829346,
+                        "login": "houseme",
+                        "commits": 3
+                    },
+                    {
+                        "id": 256514686,
+                        "login": "marshawcoco",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "security-advisory-lessons-6e433a363f84",
+            "path": ".agents/skills/security-advisory-lessons/SKILL.md",
+            "name": "security-advisory-lessons",
+            "description": "Perform a dedicated RustFS security/advisory review for authn/authz, IAM, RPC trust, paths, secrets, browser isolation, encryption, Object Lock, or other security boundaries. Use only when the user requests a security/advisory review or an adversarial review explicitly escalates to the full advisory map; do not auto-load solely because code touches a sensitive path.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "64cf27780436e86310d8b6906090bb214cd27185",
+                    "bytes": 2066,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "a90ec68ac019305003222d923c3037541cf6426f",
+                    "bytes": 232,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/advisory-patterns.md",
+                    "blob": "ca7117347b6d55b2c76877d00882632d72e6a737",
+                    "bytes": 20129,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1472352,
+                        "login": "overtrue",
+                        "commits": 14
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "test-coverage-improver-4c166b5155c1",
+            "path": ".agents/skills/test-coverage-improver/SKILL.md",
+            "name": "test-coverage-improver",
+            "description": "Analyze a supplied coverage report or perform an explicitly requested RustFS coverage assessment, rank uncovered risks, and propose focused tests. Do not trigger for ordinary implementation verification, a single regression test, documentation wording, or release preparation without a coverage request.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "2ee91cb1872af2039bd6c0c88e451b545c4b2077",
+                    "bytes": 3084,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "d3440c04d035960cd2f4762612034e006e034e13",
+                    "bytes": 292,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/coverage-prioritization.md",
+                    "blob": "8d8aac0d5fda3ba998934cd9d31c95c5d55d748f",
+                    "bytes": 748,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1472352,
+                        "login": "overtrue",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "tier-debug-a2be162bc573",
+            "path": ".agents/skills/tier-debug/SKILL.md",
+            "name": "tier-debug",
+            "description": "Debug ILM tiering / lifecycle transition issues — NoSuchVersion on tier GET, restore failures, xl.meta inspection, remote-tier versionId tracing. Use when investigating tiered/transitioned objects, warm backends, or transition metadata.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "641ef0d3501910d6f9c70ccd603aeae24748af27",
+                    "bytes": 1690,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1472352,
+                        "login": "overtrue",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "40706acaa7152391dfd99193156ec8cb7a750edf",
+        "bytes": 8472,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "7dc8c1149ad2363b73f6a7415d81bf1c2c1b4406",
+        "bytes": 11570,
+        "text": true,
+        "mode": "100644"
+    }
+}
