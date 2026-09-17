@@ -9,6 +9,7 @@ import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { SkillContributors } from '@/components/skill-contributors';
 import { SkillFileNavigation } from '@/components/skill-file-navigation';
+import { SkillInstall } from '@/components/skill-install';
 import { SkillMarkdown } from '@/components/skill-markdown';
 import { SkillOutline } from '@/components/skill-outline';
 import { getAgentsProjectByRepository } from '@/lib/agents-md';
@@ -65,6 +66,8 @@ export default async function SkillPage({
     const source = file.text && bytes ? bytes.toString('utf8') : undefined;
     const baseHref = skillHref(project, id);
     const root = path.posix.dirname(skill.path);
+    const installUrl = `https://github.com/${manifest.repository}/tree/${encodeURIComponent(manifest.branch)}/${root.split('/').map(encodeURIComponent).join('/')}`;
+    const installCommand = `npx skills add '${installUrl.replaceAll("'", "'\\''")}'`;
     const selectedPath = path.posix.join(root, file.path);
     const sourceUrl = skillSourceUrl(manifest, selectedPath);
     const rendered = source !== undefined && /\.mdx?$/i.test(file.path) && query.view !== 'source';
@@ -113,13 +116,16 @@ export default async function SkillPage({
                             </p>
                         ) : null}
                     </div>
-                    {complete ? (
-                        <a href={`${baseHref}/download`} className="action-link shrink-0">
-                            Download bundle ↓
-                        </a>
-                    ) : (
-                        <span className="font-mono text-[11px] text-gray-600">Partial bundle · download unavailable</span>
-                    )}
+                    <div className="relative flex shrink-0 flex-wrap items-center gap-2">
+                        <SkillInstall command={installCommand} />
+                        {complete ? (
+                            <a href={`${baseHref}/download`} className="action-link shrink-0">
+                                Download bundle ↓
+                            </a>
+                        ) : (
+                            <span className="font-mono text-[11px] text-gray-600">Partial bundle · download unavailable</span>
+                        )}
+                    </div>
                 </header>
                 <div className="skill-snapshot mt-6 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[11px] text-gray-600">
                     <a href={`https://github.com/${manifest.repository}/tree/${manifest.sha}`} className="hover:text-teal">
