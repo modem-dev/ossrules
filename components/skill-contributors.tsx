@@ -9,11 +9,13 @@ export function SkillContributors({
     historyUrl,
     skillName,
     align = 'end',
+    fileName = 'SKILL.md',
 }: {
     contributions?: SkillContributions;
     historyUrl?: string;
     skillName: string;
     align?: 'start' | 'end';
+    fileName?: string;
 }) {
     const details = useRef<HTMLDetailsElement>(null);
     const [open, setOpen] = useState(false);
@@ -72,8 +74,8 @@ export function SkillContributors({
                     ))}
                 </ul>
                 <p className="text-gray-600 text-[11px] leading-relaxed">
-                    GitHub-linked commit authors for this SKILL.md at the saved revision. Co-authors and history before file renames are not
-                    included.
+                    GitHub-linked commit authors for this {fileName} at the saved revision. Co-authors and history before file renames are
+                    not included.
                     {unlinkedAuthors ? ' Some commit authors have no linked GitHub account.' : ''}
                 </p>
                 {historyUrl ? (
