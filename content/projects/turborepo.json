@@ -23,12 +23,12 @@
     },
     "references": [],
     "hook": "PR guidance forbids skipping hooks, distinguishes external contributors, and defines title rules with examples.",
-    "summary": "Turborepo’s root AGENTS.md is a pull-request guide. It mandates commit and push hooks, adds a separate instruction for external contributors, and spells out a constrained Conventional Commits title format.",
+    "summary": "Turborepo's root AGENTS.md is a pull-request guide. It requires commit and push hooks, gives external contributors an extra step, and defines a narrow Conventional Commits title format.",
     "patterns": ["hard-prohibition", "scope-layering", "contribution-etiquette"],
     "techniques": [
         {
             "title": "Make local hooks part of the contribution contract",
-            "body": "The opening rules forbid --no-verify and provide the dependency-install command when tools are unavailable. This makes missing dependencies a setup task rather than an exception to the checks.",
+            "body": "The opening rules forbid --no-verify and give the install command for missing tools. Missing dependencies are a setup task, not a reason to skip checks.",
             "quote": "- You are not allowed to use `--no-verify` when making a commit or push.\n- If you do not have dependencies available, you can download them with `pnpm install --frozen-lockfile`.",
             "pattern": "hard-prohibition"
         },

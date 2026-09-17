@@ -23,7 +23,7 @@
     },
     "tagline": "A native coding-agent CLI written in Zig with an embeddable runtime.",
     "hook": "Requires a real interaction with the freshly built binary before declaring work ready, because tests can miss TTY and thread-lifetime failures.",
-    "summary": "fx's guide connects development claims to observable runtime evidence. Alongside architecture and Zig conventions, it defines exact-commit CI requirements, deterministic terminal replay, performance budgets, and the distinction between optimizer training and correctness verification.",
+    "summary": "fx requires runtime evidence from the binary just built, not only a green test run. The guide also covers architecture, Zig style, exact-commit CI, repeatable terminal replays, performance limits, and the difference between optimizer training and correctness checks.",
     "references": [
         {
             "path": "README.md"

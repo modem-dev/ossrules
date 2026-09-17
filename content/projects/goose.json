@@ -23,7 +23,7 @@
     },
     "tagline": "An extensible AI agent with a Rust core, command-line interface, and Electron desktop app.",
     "hook": "Requires behavior changes to stay aligned across both sides of an ongoing agent-loop migration.",
-    "summary": "Goose combines an issue-readiness workflow with practical constraints from its Rust and desktop architecture. The instructions describe concurrent old and new agent loops, a retiring MCP directory, and a macOS failure caused by overwriting a running executable.",
+    "summary": "Goose checks whether an issue is ready before implementation and records constraints from its Rust desktop app. The guide covers old and new agent loops running side by side, a retiring MCP directory, and a macOS failure caused by overwriting a running executable.",
     "references": [
         {
             "path": ".github/ISSUE_TEMPLATE/",

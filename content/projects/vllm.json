@@ -23,7 +23,7 @@
     },
     "tagline": "An inference and serving engine for large language models.",
     "hook": "Requires model evaluations for output-affecting changes and keeps one-off kernel benchmarks out of the test tree.",
-    "summary": "vLLM combines contribution checks with a GPU-oriented development workflow. The file asks for a test's contract and failure mode before implementation, distinguishes correctness tests from performance work, and routes native builds and security reviews to dedicated guides.",
+    "summary": "vLLM asks contributors to state a test's contract and failure mode before writing it. Correctness and performance use different evidence, while native builds and security reviews have dedicated guides.",
     "references": [
         {
             "path": "docs/contributing/incremental_build.md"

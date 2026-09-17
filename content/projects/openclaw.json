@@ -101,7 +101,7 @@
         }
     ],
     "hook": "New capabilities must justify their ownership and the context they add to every agent turn.",
-    "summary": "OpenClaw treats its root instructions as a guide to architectural decisions and task-specific references. It prefers existing owners and optional extension surfaces before adding core capabilities. Cutovers must remove superseded policy and state, context assembly must preserve reusable history, and privileged actions must check live authority at the point of effect. Scoped guides provide the implementation detail.",
+    "summary": "OpenClaw asks contributors to extend existing commands, skills, or plugins before adding to the core. It also requires clean cutovers, stable conversation history, and permission checks immediately before privileged actions. Local guides cover the details.",
     "patterns": ["context-budget", "single-source", "hard-prohibition", "nested-instructions"],
     "techniques": [
         {

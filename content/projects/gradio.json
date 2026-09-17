@@ -23,7 +23,7 @@
     },
     "tagline": "A Python library for building web interfaces around machine-learning models and applications.",
     "hook": "Explains how a handwritten changeset silently overrides the release note generated from a PR title.",
-    "summary": "Gradio uses its root instructions to set contribution expectations across its Python and Svelte packages. The file connects issue ownership, disclosure, human review, and generated release notes with the build and test workflow.",
+    "summary": "Gradio's root file sets contribution rules for its Python and Svelte packages. It covers issue ownership, AI disclosure, human review, generated release notes, builds, and tests.",
     "references": [
         {
             "path": ".github/PULL_REQUEST_TEMPLATE.md"

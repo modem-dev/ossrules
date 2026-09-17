@@ -23,7 +23,7 @@
     },
     "tagline": "A reactive Python notebook with a web interface and application deployment tools.",
     "hook": "Frames agent work around all project users and maintainers, then makes human-directed contribution and disclosure rules explicit.",
-    "summary": "marimo opens with a statement of whom an agent should serve when contributing to a public library. The rest of the file pairs Python and frontend checks with contribution requirements and a docstring convention that automated formatting may not catch.",
+    "summary": "marimo opens by telling agents to consider the library's users and maintainers, not only the person making the request. The rest covers Python and frontend checks, contribution rules, and a docstring convention formatters do not catch.",
     "references": [
         {
             "path": "CONTRIBUTING.md"

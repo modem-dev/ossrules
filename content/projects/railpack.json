@@ -23,7 +23,7 @@
     },
     "tagline": "A BuildKit-based builder that turns application source into runnable container images.",
     "hook": "Explains why a build-only integration fixture cannot prove runtime behavior, and routes server checks through HTTP assertions.",
-    "summary": "Railpack's CLAUDE.md describes the path from language detection to build plans and container execution. Its workflow uses mise tasks, documents integration fixtures, and identifies generated files and unsafe cleanup commands that an agent should leave alone.",
+    "summary": "Railpack's CLAUDE.md follows a project from language detection through build planning and container execution. It uses mise tasks, explains what integration fixtures prove, and names generated files and unsafe cleanup commands to leave alone.",
     "references": [
         {
             "path": "docs/src/content/docs/guides/developing-locally.md"
@@ -44,7 +44,7 @@
         },
         {
             "title": "Protect shared container state from cleanup",
-            "body": "The workflow prohibits broad Docker pruning even when cache behavior is confusing. It makes a commonly suggested cleanup command an explicit boundary.",
+            "body": "The guide forbids broad Docker pruning even when the cache behaves unexpectedly. A commonly suggested cleanup command becomes an explicit boundary.",
             "quote": "- Do not worry about docker cache, etc. Never run `docker system prune` or other similar commands.",
             "pattern": "hard-prohibition"
         },

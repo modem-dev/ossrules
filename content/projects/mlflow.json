@@ -23,7 +23,7 @@
     },
     "tagline": "A platform for experiment tracking, model management, evaluation, and LLM observability.",
     "hook": "Provides credential-free provider stubs for UI review and keeps single-tenant changes covered by workspace-aware tests.",
-    "summary": "MLflow's CLAUDE.md combines local development commands with constraints for its tracking layer and contribution workflow. It explains provider stubs, coordinated dependency cooldown settings, test environments, and why unrelated changes should not share a squash-merged PR.",
+    "summary": "MLflow's CLAUDE.md covers local development, the tracking layer, and contribution rules. It provides credential-free provider stubs, coordinates dependency cooldown settings, names test environments, and keeps unrelated changes out of the same squash-merged pull request.",
     "references": [
         {
             "path": "mlflow/server/js/CLAUDE.md"

@@ -23,7 +23,7 @@
     },
     "tagline": "A formatter, linter, and language toolchain for web projects.",
     "hook": "Requires evidence for codebase claims and gives a fresh reviewer the requirements without suspected defects.",
-    "summary": "Biome separates repository-wide contribution rules from skills for testing, review, changesets, and documentation. The file ties assertions to source evidence, names generator commands for specific edits, and limits what an agent may write in contributor communication.",
+    "summary": "Biome keeps repository-wide rules in one file and puts testing, review, changeset, and documentation work in skills. Claims about the codebase need source evidence. The guide also names generator commands and limits agent-written contributor messages.",
     "references": [
         {
             "path": ".claude/skills/testing-codegen/SKILL.md"

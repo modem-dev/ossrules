@@ -49,7 +49,7 @@
         }
     ],
     "hook": "Cross-platform parity means the same user-visible behavior, not the same hardware performance.",
-    "summary": "VoiceStudio uses AGENTS.md as a compact operating contract and names CLAUDE.md as the fuller authority when the two conflict. The contract turns platform parity, offline testing, review handling, and local-first behavior into concrete checks while routing tracker and domain details to separate documents.",
+    "summary": "VoiceStudio uses AGENTS.md as a quick checklist; CLAUDE.md wins when they conflict. The rules cover consistent behavior across platforms, honest offline tests, review follow-up, and local-first operation. Tracker and domain details live elsewhere.",
     "patterns": ["house-vocabulary", "verification-matrix", "single-source", "contribution-etiquette", "hard-prohibition"],
     "techniques": [
         {

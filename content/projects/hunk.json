@@ -63,7 +63,7 @@
         }
     ],
     "hook": "Documents a shared review seam as two ASCII data flows, then forbids re-deriving it in a renderer.",
-    "summary": "Organized around one constraint: several surfaces share review semantics and none may reimplement them. Also carries a verification section that maps each kind of change to its specific test command, and a naming section defining three words.",
+    "summary": "Hunk has one central constraint: every interface shares the same review model, and renderers may not rebuild it themselves. The file also maps changes to test commands and defines three project terms.",
     "patterns": ["architecture-narrative", "ratchet", "verification-matrix", "generated-file-guard", "house-vocabulary"],
     "techniques": [
         {
@@ -98,7 +98,7 @@
         {
             "pattern": "generated-file-guard",
             "title": "Generated files named with their generators",
-            "body": "The agent-facing skill document, the theme colors, the changelog page and the session wire fixtures are each identified as generated, with the source to edit and the command to run. One of them requires a protocol version bump and deleting the previous fixture in the same change."
+            "body": "The guide names four generated outputs, including the agent skill and session fixtures, with the source and rebuild command for each. Updating one fixture also requires a protocol version bump and deletion of the previous fixture."
         }
     ],
     "steal": [
