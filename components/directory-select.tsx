@@ -41,7 +41,13 @@ export function DirectorySelect({
 }) {
     const selected = options.find((option) => option.value === value);
     return (
-        <Select.Root value={value} onValueChange={onValueChange}>
+        <Select.Root
+            value={value}
+            onValueChange={(nextValue) => {
+                // Radix's hidden native select can emit an empty value while mounting.
+                if (nextValue) onValueChange(nextValue);
+            }}
+        >
             <Select.Trigger className="directory-select-trigger" aria-label={label} data-active={active || undefined}>
                 {selected?.color ? (
                     <span className="directory-select-dot" style={{ backgroundColor: selected.color }} aria-hidden="true" />
