@@ -1,0 +1,78 @@
+{
+ "deploy": {
+  "base": {
+   "image": "ghcr.io/railwayapp/railpack-runtime:mise-2026.9.9"
+  },
+  "inputs": [
+   {
+    "include": [
+     "/railpack/caddy"
+    ],
+    "step": "packages:caddy"
+   },
+   {
+    "include": [
+     "."
+    ],
+    "step": "build"
+   }
+  ],
+  "startCommand": "caddy run --config Caddyfile --adapter caddyfile 2\u003e\u00261",
+  "variables": {
+   "RAILPACK_VERSION": "dev"
+  }
+ },
+ "steps": [
+  {
+   "commands": [
+    {
+     "cmd": "mise install-into caddy@2.11.4 /railpack/caddy"
+    },
+    {
+     "path": "/railpack/caddy"
+    },
+    {
+     "path": "/railpack/caddy/bin"
+    }
+   ],
+   "inputs": [
+    {
+     "image": "ghcr.io/railwayapp/railpack-builder:mise-2026.9.9"
+    }
+   ],
+   "name": "packages:caddy",
+   "variables": {
+    "MISE_PARANOID": "1"
+   }
+  },
+  {
+   "assets": {
+    "Caddyfile": "{\n\tadmin off\n\tpersist_config off\n\tauto_https off\n\n\tlog {\n\t\tformat json\n\t}\n\n\tservers {\n\t\ttrusted_proxies static private_ranges\n\t}\n}\n\n:{$PORT:80} {\n\tlog {\n\t\tformat json\n\t}\n\n\trespond /health 200\n\n\t# Security headers\n\theader {\n\t\t# Enable cross-site filter (XSS) and tell browsers to block detected attacks\n\t\tX-XSS-Protection \"1; mode=block\"\n\t\t# Prevent some browsers from MIME-sniffing a response away from the declared Content-Type\n\t\tX-Content-Type-Options \"nosniff\"\n\t\t# Keep referrer data off of HTTP connections\n\t\tReferrer-Policy \"strict-origin-when-cross-origin\"\n\t\t# Enable strict Content Security Policy\n\t\tContent-Security-Policy \"default-src 'self'; img-src 'self' data: https: *; style-src 'self' 'unsafe-inline' https: *; script-src 'self' 'unsafe-inline' https: *; font-src 'self' data: https: *; connect-src 'self' https: *; media-src 'self' https: *; object-src 'none'; frame-src 'self' https: *;\"\n\t\t# Remove Server header\n\t\t-Server\n\t}\n\n\troot * .\n\n\t# Handle static files\n\tfile_server {\n\t\thide .git\n\t\thide .env*\n\t}\n\n\t# Compression with more formats\n\tencode {\n\t\tgzip\n\t\tzstd\n\t}\n\n\t# Try files with HTML extension\n\ttry_files {path} {path}.html {path}/index.html\n\n\thandle_errors {\n\t\trewrite * /{err.status_code}.html\n\t\tfile_server\n\t}\n}\n"
+   },
+   "commands": [
+    {
+     "name": "Caddyfile",
+     "path": "Caddyfile"
+    },
+    {
+     "cmd": "caddy fmt --overwrite Caddyfile"
+    }
+   ],
+   "inputs": [
+    {
+     "step": "packages:caddy"
+    },
+    {
+     "include": [
+      "."
+     ],
+     "local": true
+    }
+   ],
+   "name": "build",
+   "secrets": [
+    "*"
+   ]
+  }
+ ]
+}

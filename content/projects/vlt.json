@@ -1,0 +1,92 @@
+{
+    "slug": "vlt",
+    "name": "vlt",
+    "owner": "vltpkg",
+    "repo": "vltpkg",
+    "language": "TypeScript",
+    "stars": 552,
+    "defaultBranch": "main",
+    "instructionFile": "AGENTS.md",
+    "lastCommit": {
+        "sha": "4849a970de8f14ceffd590a30b3b51b62a440f55",
+        "date": "2026-07-31T18:59:19Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 4815,
+        "lines": 113,
+        "words": 582,
+        "headings": 8,
+        "bullets": 23,
+        "codeBlocks": 0,
+        "docLinks": 0
+    },
+    "tagline": "A JavaScript package manager with reusable dependency-graph and package-management libraries.",
+    "hook": "Evaluates a skill by its lift over a no-skill baseline, with deterministic checks and separate trigger tests.",
+    "summary": "The vlt guide routes work through its package workspaces and Cursor rule documents. It combines an ordered verification sequence with documentation-build pitfalls and a three-layer method for evaluating its dependency-query skill.",
+    "references": [
+        {
+            "path": ".cursor/rules/graph/index.mdc"
+        },
+        {
+            "path": ".cursor/rules/query-pseudo-selector-creation.mdc"
+        },
+        {
+            "path": ".cursor/rules/cli-sdk-workspace.mdc"
+        },
+        {
+            "path": ".cursor/rules/linting-error-handler.mdc"
+        },
+        {
+            "path": "src/query/skills/dss-query/evals/README.md"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Measure improvement against a baseline",
+            "body": "Skill evaluation compares runs with and without the skill on the same prompts. Parse, execution, and regex checks grade the result, making relative improvement the measure rather than a standalone success rate.",
+            "quote": "The skill's value is the _lift_ over baseline\n   (pass rate, style, time, tokens), not its pass rate alone.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Separate skill activation from skill usefulness",
+            "body": "The guide treats trigger reliability as probabilistic and avoids making it a hard gate. It explains why forced loading is appropriate for the other evaluation layers but does not measure natural activation.",
+            "quote": "Headless `claude -p` cannot force skill\n   invocation, so force-load the skill (subagent reads SKILL.md) when\n   measuring layers 1–2.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Explain why an added check would disappear",
+            "body": "Workspace normalization overwrites custom commands chained into lint scripts. The file tells agents to give extra checks their own script key and invoke them from the docs CI step.",
+            "quote": "- Workspace `lint`/`lint:check` scripts are normalized by\n  `vlr fix:pkg` (CI's \"Consistent Workspaces\" step) — custom commands\n  chained into them get reverted.",
+            "pattern": "generated-file-guard"
+        },
+        {
+            "title": "Tie documentation file extensions to build behavior",
+            "body": "The docs guidance names both the TypeScript check scope and the ignore rule for JavaScript output. These constraints explain why a small docs helper must be typed and saved with the source extension.",
+            "quote": "- `/www/**/*.mjs` is gitignored (treated as build output) — name\n  source scripts `.mts`."
+        },
+        {
+            "title": "Route work by subsystem",
+            "body": "The workspace map attaches focused rule documents to graph operations, query selectors, and the CLI framework. Those references give agents an entry point into detailed guidance without copying it into the root file.",
+            "quote": "- **DSS Query:** `src/dss-parser`, `src/dss-breadcrumb`, `src/query` —\n  See `.cursor/rules/query-pseudo-selector-creation.mdc`",
+            "pattern": "skill-routing"
+        }
+    ],
+    "steal": [
+        "Compare skill-assisted work with the same task without the skill.",
+        "Test trigger reliability separately from execution quality.",
+        "Document normalization tools that overwrite hand-edited scripts.",
+        "Explain build and ignore rules that affect documentation helpers."
+    ],
+    "outline": [
+        "Agent Guide to the vltpkg Monorepo",
+        "Workspaces",
+        "Docs Site (`www/docs`)",
+        "Development",
+        "Steps (run in order, stop on failure)",
+        "Snapshots",
+        "Test Quality",
+        "Skill Evals"
+    ],
+    "patterns": ["verification-matrix", "generated-file-guard", "skill-routing"]
+}

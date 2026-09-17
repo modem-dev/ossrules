@@ -1,0 +1,36 @@
+---
+description: Fixing common linting errors (unused vars, imports, type guards)
+globs: src/*/src/**/*.ts,src/*/test/**/*.ts
+alwaysApply: false
+---
+# Linting Error Fixes
+
+## Unused Variables (`@typescript-eslint/no-unused-vars`)
+
+Preference order:
+1. **Remove** the declaration (call expression without assignment if side-effects needed)
+2. **Use** the variable if it should be used
+3. **Prefix with `_`** (last resort)
+
+## Unused Imports
+
+1. Remove unused imports from the import statement
+2. Remove entire import line if all imports unused
+3. Separate `import type {}` from value imports when needed
+
+## Type Guards for Array Filtering
+
+Use type predicates instead of non-null assertions (`!`):
+```typescript
+// BAD: n.location! causes @typescript-eslint/no-non-null-assertion
+const paths = nodes.filter(n => n.location !== undefined).map(n => n.location!)
+
+// GOOD: type predicate narrows correctly
+const paths = nodes
+  .filter((n): n is { location: string } => typeof n.location === 'string')
+  .map(n => n.location)
+```
+
+## Workflow
+
+`vlr lint` → fix issues → `vlr lint` again to verify.

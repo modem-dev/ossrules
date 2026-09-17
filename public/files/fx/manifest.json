@@ -1,0 +1,33 @@
+{
+    "slug": "fx",
+    "sha": "c63f3c2e8d26e2e9fd88a6168f6e7a5716baf5ae",
+    "license": "Apache-2.0",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 27720,
+            "lines": 470
+        },
+        {
+            "path": "CHANGELOG.md",
+            "bytes": 38742,
+            "lines": 463
+        },
+        {
+            "path": "CONTRIBUTING.md",
+            "bytes": 29345,
+            "lines": 530
+        },
+        {
+            "path": "README.md",
+            "bytes": 8760,
+            "lines": 149
+        },
+        {
+            "path": "sdk/AGENTS.md",
+            "bytes": 7960,
+            "lines": 101
+        }
+    ]
+}

@@ -1,0 +1,52 @@
+{
+    "version": 1,
+    "slug": "transformers",
+    "repository": "huggingface/transformers",
+    "branch": "main",
+    "sha": "230e6f32076df24f8f512d1cc9094e865a448644",
+    "scannedAt": "2026-09-17T12:19:20.211Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "add-or-fix-type-checking-e3f528cac207",
+            "path": ".ai/skills/add-or-fix-type-checking/SKILL.md",
+            "name": "add-or-fix-type-checking",
+            "description": "Fixes broken typing checks detected by ty, make typing, or make check-repo. Use when typing errors appear in local runs, CI, or PR logs.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "324751bcec972391edc23d6da6cbe69b8821e800",
+                    "bytes": 10320,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 250019,
+                        "login": "tarekziade",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": ".ai/AGENTS.md",
+        "blob": "93ba3c6c04840d98cb876e67b1c7fe5692a8d61d",
+        "bytes": 3287,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "68b7d66c97d66c58de883ed0c451af2b3183e6f3",
+        "bytes": 11418,
+        "text": true,
+        "mode": "100644"
+    }
+}

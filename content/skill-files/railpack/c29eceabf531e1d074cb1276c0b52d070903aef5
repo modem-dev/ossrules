@@ -1,0 +1,200 @@
+package mise
+
+import (
+	"fmt"
+	"os"
+	"strings"
+	"testing"
+
+	"github.com/stretchr/testify/require"
+)
+
+func TestMistGetLatestVersion(t *testing.T) {
+	tempDir, err := os.MkdirTemp("", "mise-test")
+	if err != nil {
+		t.Fatalf("failed to create temp dir: %v", err)
+	}
+	defer func() { _ = os.RemoveAll(tempDir) }()
+
+	mise, err := New(tempDir)
+	if err != nil {
+		t.Fatalf("failed to create mise: %v", err)
+	}
+
+	tests := []struct {
+		name       string
+		runtime    string
+		version    string
+		wantPrefix string
+		wantErr    bool
+	}{
+		{
+			name:       "node latest version",
+			runtime:    "node",
+			version:    "22",
+			wantPrefix: "22",
+		},
+		{
+			name:    "bun latest version",
+			runtime: "bun",
+			version: "latest",
+		},
+		{
+			name:    "non-existent latest version",
+			runtime: "node",
+			version: "999",
+			wantErr: true,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got, err := mise.GetLatestVersion(tt.runtime, tt.version)
+			if (err != nil) != tt.wantErr {
+				t.Errorf("GetLatestVersion() error = %v, wantErr %v", err, tt.wantErr)
+				return
+			}
+			if !tt.wantErr {
+				if tt.wantPrefix != "" && !strings.HasPrefix(got, tt.wantPrefix) {
+					t.Errorf("GetLatestVersion() got = %v, want prefix %v", got, tt.wantPrefix)
+				}
+				if got == "" {
+					t.Error("GetLatestVersion() got empty version")
+				}
+			}
+		})
+	}
+}
+
+func TestMiseGetLatestVersionLTS(t *testing.T) {
+	tempDir, err := os.MkdirTemp("", "mise-test")
+	if err != nil {
+		t.Fatalf("failed to create temp dir: %v", err)
+	}
+	defer func() { _ = os.RemoveAll(tempDir) }()
+
+	mise, err := New(tempDir)
+	if err != nil {
+		t.Fatalf("failed to create mise: %v", err)
+	}
+
+	latest, err := mise.GetLatestVersion("node", "lts")
+	require.NoError(t, err)
+	require.Regexp(t, `^\d+\.\d+\.\d+$`, latest)
+}
+
+func TestVersionQueryCandidates(t *testing.T) {
+	tests := []struct {
+		name     string
+		version  string
+		expected []string
+	}{
+		{name: "major", version: "22", expected: []string{"22"}},
+		{name: "major and minor", version: "22.1", expected: []string{"22.1"}},
+		{name: "full version", version: "22.1.3", expected: []string{"22.1.3"}},
+		{name: "prefixed version", version: "v22", expected: []string{"22", "v22"}},
+		{name: "embedded version", version: "node-22.1", expected: []string{"22.1", "node-22.1"}},
+		{name: "alias", version: "lts", expected: []string{"lts"}},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			require.Equal(t, tt.expected, versionQueryCandidates(tt.version))
+		})
+	}
+}
+
+func TestMiseGetAllVersions(t *testing.T) {
+	tempDir, err := os.MkdirTemp("", "mise-test")
+	if err != nil {
+		t.Fatalf("failed to create temp dir: %v", err)
+	}
+	defer func() { _ = os.RemoveAll(tempDir) }()
+
+	mise, err := New(tempDir)
+	if err != nil {
+		t.Fatalf("failed to create mise: %v", err)
+	}
+
+	tests := []struct {
+		name     string
+		runtime  string
+		version  string
+		versions []string
+		wantErr  bool
+	}{
+		{
+			name:     "node all versions",
+			runtime:  "node",
+			version:  "18.20",
+			versions: []string{"18.20.0", "18.20.1", "18.20.2", "18.20.3", "18.20.4", "18.20.5", "18.20.6", "18.20.7", "18.20.8"},
+		},
+		{
+			name:     "bun all versions",
+			runtime:  "bun",
+			version:  "0.8",
+			versions: []string{"0.8.0", "0.8.1"},
+		},
+		{
+			name:     "php all versions",
+			runtime:  "php",
+			version:  "7.4.2",
+			versions: []string{"7.4.2", "7.4.20", "7.4.21", "7.4.22", "7.4.23", "7.4.24", "7.4.25", "7.4.26", "7.4.27", "7.4.28", "7.4.29"},
+		},
+		{
+			name:    "non-existent all versions",
+			runtime: "node",
+			version: "999",
+			wantErr: true,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got, err := mise.GetAllVersions(tt.runtime, tt.version)
+			if (err != nil) != tt.wantErr {
+				t.Errorf("GetAllVersions() error = %v, wantErr %v", err, tt.wantErr)
+				return
+			}
+
+			if !tt.wantErr {
+				require.Equal(t, tt.versions, got)
+			}
+		})
+	}
+}
+
+func TestMiseVersion(t *testing.T) {
+	require.NotEmpty(t, Version, "mise version file should not be empty")
+	require.Equal(t, strings.TrimSpace(Version), Version, "mise version file should be trimmed")
+	require.Regexp(t, `^\d+\.\d+\.\d+$`, Version, "mise version should match format YYYY.M.D")
+}
+
+func TestGetAssetName(t *testing.T) {
+	tests := []struct {
+		goos     string
+		goarch   string
+		expected string
+	}{
+		{goos: "linux", goarch: "amd64", expected: "linux-x64-musl.tar.gz"},
+		{goos: "linux", goarch: "arm64", expected: "linux-arm64-musl.tar.gz"},
+		{goos: "linux", goarch: "arm", expected: "linux-armv7-musl.tar.gz"},
+		{goos: "darwin", goarch: "amd64", expected: "macos-x64.tar.gz"},
+		{goos: "darwin", goarch: "arm64", expected: "macos-arm64.tar.gz"},
+		{goos: "windows", goarch: "amd64", expected: "windows-x64.zip"},
+		{goos: "windows", goarch: "arm64", expected: "windows-arm64.zip"},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.goos+"-"+tt.goarch, func(t *testing.T) {
+			assetName, err := getAssetName(tt.goos, tt.goarch)
+			require.NoError(t, err)
+			require.Equal(t, fmt.Sprintf("mise-v%s-%s", Version, tt.expected), assetName)
+		})
+	}
+}
+
+func TestGetAssetNameUnsupportedPlatform(t *testing.T) {
+	_, err := getAssetName("plan9", "amd64")
+	require.EqualError(t, err, "unsupported platform: plan9 amd64")
+}

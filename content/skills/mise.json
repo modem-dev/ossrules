@@ -1,0 +1,52 @@
+{
+    "version": 1,
+    "slug": "mise",
+    "repository": "jdx/mise",
+    "branch": "main",
+    "sha": "533346cc374382b41ec5ff70536252b2e96e725c",
+    "scannedAt": "2026-09-17T12:28:34.814Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "entire-search-1709f8173994",
+            "path": ".agents/skills/entire-search/SKILL.md",
+            "name": "entire-search",
+            "description": "Search Entire checkpoint history and transcripts with `entire search --json`. Use proactively when the user asks about previous work, commits, sessions, prompts, or historical context in this repository.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "1f441efea540484395706cc3f489d77a641d404b",
+                    "bytes": 2503,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 216188,
+                        "login": "jdx",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "43004cfdcfb7b4026357f6642a7956f3dd78c14a",
+        "bytes": 30241,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "5333824e7fed856d37c22a975e3b323b8bbdf1f7",
+        "bytes": 1068,
+        "text": true,
+        "mode": "100644"
+    }
+}

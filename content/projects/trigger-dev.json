@@ -1,0 +1,119 @@
+{
+    "slug": "trigger-dev",
+    "name": "Trigger.dev",
+    "owner": "triggerdotdev",
+    "repo": "trigger.dev",
+    "language": "TypeScript",
+    "stars": 16317,
+    "defaultBranch": "main",
+    "instructionFile": "AGENTS.md",
+    "lastCommit": {
+        "sha": "9944f44f8528985f3a76cddc2dd4b5bc2402165c",
+        "date": "2026-09-08T10:40:09Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 14491,
+        "lines": 301,
+        "words": 1900,
+        "headings": 40,
+        "bullets": 30,
+        "codeBlocks": 12,
+        "docLinks": 0
+    },
+    "tagline": "A platform for running background tasks with a TypeScript SDK, local development, and managed execution.",
+    "hook": "Chooses verification by package type and release notes by user impact, rather than treating every changed file as the same kind of work.",
+    "summary": "Trigger.dev’s root instructions map its task execution architecture and explain package-specific development, testing, and release workflows. They also preserve boundaries around retired execution paths, versioned SDK documentation, shared dependency versions, and temporary debug instrumentation.",
+    "references": [
+        {
+            "path": ".claude/rules/package-installation.md"
+        },
+        {
+            "path": ".server-changes/README.md"
+        },
+        {
+            "path": "apps/webapp/CLAUDE.md"
+        },
+        {
+            "path": ".claude/rules/legacy-v3-code.md"
+        },
+        {
+            "path": "docs/CLAUDE.md"
+        },
+        {
+            "path": "node_modules/agentcrumbs/skills/agentcrumbs/SKILL.md"
+        },
+        {
+            "path": "node_modules/agentcrumbs/skills/agentcrumbs/init/SKILL.md"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Choose checks by the role of the package",
+            "body": "Apps and internal packages use typecheck, while public packages use build. The guide also limits those checks to major changes, making its verification policy depend on both location and change size.",
+            "quote": "- **Public packages** (`packages/*`): Use `build`.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Define when release notes are worth publishing",
+            "body": "Changesets and server-change files ship verbatim to users. The guide requires them for noticeable behavior and explicitly excludes internal work, tests, and refactors that do not merit a user-facing note.",
+            "quote": "An unnecessary entry is noise in the changelog, not a safe default.",
+            "pattern": "contribution-etiquette"
+        },
+        {
+            "title": "Keep historical paths from reviving retired behavior",
+            "body": "The webapp still contains a v3 directory name, but the guide explains that it now serves Run Engine 2.0. Legacy V1 branches should only reject or finalize gracefully, preventing the path name from being mistaken for an active implementation.",
+            "quote": "The `apps/webapp/app/v3/` directory name is historical - everything there now serves V2",
+            "pattern": "architecture-narrative"
+        },
+        {
+            "title": "Use real service fixtures in tests",
+            "body": "The testing section prohibits mocks and provides named testcontainer helpers for Redis, PostgreSQL, and both together. The examples show how test callbacks receive the actual service connection or Prisma client.",
+            "quote": "We use vitest exclusively. **Never mock anything** - use testcontainers instead.",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Explain why shared dependency versions must match",
+            "body": "Zod must use one exact version throughout the monorepo. The guide connects that constraint to runtime incompatibilities when schemas cross package boundaries.",
+            "quote": "Mismatched zod versions cause runtime type incompatibilities (e.g., schemas from one package can't be used as body validators in another).",
+            "pattern": "single-source"
+        },
+        {
+            "title": "Separate development traces from release code",
+            "body": "The guide describes temporary agentcrumbs markers, lists approved namespaces, and states that instrumentation is stripped before merge. Review instructions account for that lifecycle instead of treating every debug marker as production code.",
+            "quote": "Do not invent new namespaces — pick from this table or ask first.",
+            "pattern": "house-vocabulary"
+        }
+    ],
+    "steal": [
+        "Map verification commands to package roles.",
+        "Write release notes only when the change matters to users.",
+        "Explain misleading historical names near architecture guidance.",
+        "Provide concrete fixtures alongside a no-mocks rule.",
+        "Describe runtime reasons for shared dependency versions.",
+        "Define the removal lifecycle for temporary instrumentation."
+    ],
+    "outline": [
+        "AGENTS.md",
+        "Build and Development Commands",
+        "Testing",
+        "Code Style",
+        "Changesets and Server Changes",
+        "Dependency Pinning",
+        "Architecture Overview",
+        "Docker Image Guidelines",
+        "Writing Trigger.dev Tasks",
+        "Testing with the hello-world Reference Project",
+        "Local Task Testing Workflow",
+        "Skill mappings — when working in these areas, load the linked skill file into context.",
+        "agentcrumbs"
+    ],
+    "patterns": [
+        "verification-matrix",
+        "contribution-etiquette",
+        "architecture-narrative",
+        "hard-prohibition",
+        "single-source",
+        "house-vocabulary"
+    ]
+}

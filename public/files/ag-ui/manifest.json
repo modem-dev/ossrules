@@ -1,0 +1,33 @@
+{
+    "slug": "ag-ui",
+    "sha": "45f4fea34e9c69a3fdb5d243381c36eafeb8f6af",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 1386,
+            "lines": 17
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 4915,
+            "lines": 129
+        },
+        {
+            "path": "integrations/adk-middleware/python/CLAUDE.md",
+            "bytes": 7658,
+            "lines": 233
+        },
+        {
+            "path": "sdks/dotnet/AGENTS.md",
+            "bytes": 13819,
+            "lines": 186
+        },
+        {
+            "path": "skills/ag-ui-a2ui-integration/SKILL.md",
+            "bytes": 6131,
+            "lines": 127
+        }
+    ]
+}

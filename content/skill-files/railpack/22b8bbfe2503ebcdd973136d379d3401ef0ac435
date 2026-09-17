@@ -1,0 +1,60 @@
+# Created by https://www.toptal.com/developers/gitignore/api/go
+# Edit at https://www.toptal.com/developers/gitignore?templates=go
+
+### Go ###
+# If you prefer the allow list template instead of the deny list, see community template:
+# https://github.com/github/gitignore/blob/main/community/Golang/Go.AllowList.gitignore
+#
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Dependency directories (remove the comment below to include it)
+# vendor/
+
+node_modules
+
+# End of https://www.toptal.com/developers/gitignore/api/go
+
+bin
+test
+dist
+
+.vscode/
+.DS_Store
+
+### Python ###
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+*.egg-info/
+dist/
+build/
+
+tmp/
+
+examples/*/size.json
+
+### AI Tooling ###
+.claude/settings.local.json
+examples/**/.claude
+.gemini/
+.antigravitycli/
+
+### Mise ###
+# Local mise env selector (enables mise.dev.toml tools when present)
+.miserc.toml
+# Local env overrides (DOCKER_HOST, etc.)
+mise.local.toml

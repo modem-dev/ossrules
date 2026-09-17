@@ -37,6 +37,20 @@ test('external imports remain visible without reading host paths', () => {
     for (const target of ['/tmp/private.md', '../outside.md', 'C:\\private.md', 'a\\b.md'])
         assert.equal(localTarget('CLAUDE.md', target), undefined);
 });
+test('decorator mentions in prose do not create missing-file imports', () => {
+    const source = [
+        'Only edit the contents inside the function decorator with @app.cell.',
+        'Apply the decorator @functools.cache to this function.',
+        'Read @docs/decorators.md for the decorator.',
+        'Use the decorator @app.cell and read @docs/notebooks.md.',
+        '@app.cell',
+    ].join('\n');
+    assert.deepEqual(instructionImports('docs/CLAUDE.md', source), [
+        { target: 'docs/decorators.md', path: 'docs/docs/decorators.md' },
+        { target: 'docs/notebooks.md', path: 'docs/docs/notebooks.md' },
+        { target: 'app.cell', path: 'docs/app.cell' },
+    ]);
+});
 test('symlink chains resolve within the pinned tree', () => {
     const links = new Map([
         ['AGENTS.md', '.claude/shared.md'],

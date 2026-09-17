@@ -1,0 +1,212 @@
+{
+    "slug": "pydantic-ai",
+    "sha": "5553221b41f74493f62d4b60310690fb0fe092cb",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".github/pull_request_template.md",
+            "bytes": 1445,
+            "lines": 28
+        },
+        {
+            "path": ".github/workflows/AGENTS.md",
+            "bytes": 15290,
+            "lines": 182
+        },
+        {
+            "path": ".github/workflows/CLAUDE.md",
+            "bytes": 9,
+            "lines": 1,
+            "symlink": "AGENTS.md",
+            "resolvedPath": ".github/workflows/AGENTS.md"
+        },
+        {
+            "path": "agent_docs/index.md",
+            "bytes": 16700,
+            "lines": 136
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 16277,
+            "lines": 152
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 9,
+            "lines": 1,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "AGENTS.md"
+        },
+        {
+            "path": "docs/agent.md",
+            "bytes": 108174,
+            "lines": 1963,
+            "truncated": true
+        },
+        {
+            "path": "docs/AGENTS.md",
+            "bytes": 2654,
+            "lines": 36
+        },
+        {
+            "path": "docs/CLAUDE.md",
+            "bytes": 9,
+            "lines": 1,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "docs/AGENTS.md"
+        },
+        {
+            "path": "docs/cli.md",
+            "bytes": 8202,
+            "lines": 236
+        },
+        {
+            "path": "docs/dependencies.md",
+            "bytes": 11898,
+            "lines": 310
+        },
+        {
+            "path": "docs/evals.md",
+            "bytes": 14242,
+            "lines": 286
+        },
+        {
+            "path": "docs/graph.md",
+            "bytes": 23270,
+            "lines": 593
+        },
+        {
+            "path": "docs/logfire.md",
+            "bytes": 25710,
+            "lines": 443
+        },
+        {
+            "path": "docs/message-history.md",
+            "bytes": 62147,
+            "lines": 1019
+        },
+        {
+            "path": "docs/output.md",
+            "bytes": 63465,
+            "lines": 1070
+        },
+        {
+            "path": "docs/realtime/AGENTS.md",
+            "bytes": 2573,
+            "lines": 37
+        },
+        {
+            "path": "docs/realtime/CLAUDE.md",
+            "bytes": 9,
+            "lines": 1,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "docs/realtime/AGENTS.md"
+        },
+        {
+            "path": "docs/tools.md",
+            "bytes": 16421,
+            "lines": 401
+        },
+        {
+            "path": "docs/version-policy.md",
+            "bytes": 3325,
+            "lines": 31
+        },
+        {
+            "path": "docs/web.md",
+            "bytes": 8600,
+            "lines": 200
+        },
+        {
+            "path": "pydantic_ai_slim/pydantic_ai/AGENTS.md",
+            "bytes": 4457,
+            "lines": 48
+        },
+        {
+            "path": "pydantic_ai_slim/pydantic_ai/capabilities/AGENTS.md",
+            "bytes": 1546,
+            "lines": 9
+        },
+        {
+            "path": "pydantic_ai_slim/pydantic_ai/CLAUDE.md",
+            "bytes": 9,
+            "lines": 1,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "pydantic_ai_slim/pydantic_ai/AGENTS.md"
+        },
+        {
+            "path": "pydantic_ai_slim/pydantic_ai/durable_exec/AGENTS.md",
+            "bytes": 4336,
+            "lines": 58
+        },
+        {
+            "path": "pydantic_ai_slim/pydantic_ai/models/AGENTS.md",
+            "bytes": 8708,
+            "lines": 67
+        },
+        {
+            "path": "pydantic_ai_slim/pydantic_ai/models/CLAUDE.md",
+            "bytes": 9,
+            "lines": 1,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "pydantic_ai_slim/pydantic_ai/models/AGENTS.md"
+        },
+        {
+            "path": "pydantic_ai_slim/pydantic_ai/native_tools/AGENTS.md",
+            "bytes": 1931,
+            "lines": 13
+        },
+        {
+            "path": "pydantic_ai_slim/pydantic_ai/native_tools/CLAUDE.md",
+            "bytes": 9,
+            "lines": 1,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "pydantic_ai_slim/pydantic_ai/native_tools/AGENTS.md"
+        },
+        {
+            "path": "pydantic_ai_slim/pydantic_ai/profiles/AGENTS.md",
+            "bytes": 786,
+            "lines": 9
+        },
+        {
+            "path": "pydantic_ai_slim/pydantic_ai/providers/AGENTS.md",
+            "bytes": 685,
+            "lines": 9
+        },
+        {
+            "path": "pydantic_ai_slim/pydantic_ai/realtime/AGENTS.md",
+            "bytes": 3931,
+            "lines": 56
+        },
+        {
+            "path": "pydantic_ai_slim/pydantic_ai/realtime/CLAUDE.md",
+            "bytes": 9,
+            "lines": 1,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "pydantic_ai_slim/pydantic_ai/realtime/AGENTS.md"
+        },
+        {
+            "path": "pydantic_ai_slim/pydantic_ai/toolsets/AGENTS.md",
+            "bytes": 833,
+            "lines": 9
+        },
+        {
+            "path": "pydantic_ai_slim/pydantic_ai/ui/AGENTS.md",
+            "bytes": 6843,
+            "lines": 68
+        },
+        {
+            "path": "pydantic_ai_slim/pydantic_ai/ui/CLAUDE.md",
+            "bytes": 9,
+            "lines": 1,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "pydantic_ai_slim/pydantic_ai/ui/AGENTS.md"
+        },
+        {
+            "path": "tests/AGENTS.md",
+            "bytes": 24322,
+            "lines": 296
+        }
+    ]
+}

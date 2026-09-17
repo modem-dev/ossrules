@@ -1,0 +1,104 @@
+{
+    "slug": "fx",
+    "name": "fx",
+    "owner": "vercel-labs",
+    "repo": "fx",
+    "language": "Zig",
+    "stars": 3024,
+    "defaultBranch": "main",
+    "instructionFile": "AGENTS.md",
+    "lastCommit": {
+        "sha": "c63f3c2e8d26e2e9fd88a6168f6e7a5716baf5ae",
+        "date": "2026-09-15T05:04:47Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 27720,
+        "lines": 470,
+        "words": 3994,
+        "headings": 39,
+        "bullets": 85,
+        "codeBlocks": 8,
+        "docLinks": 0
+    },
+    "tagline": "A native coding-agent CLI written in Zig with an embeddable runtime.",
+    "hook": "Requires a real interaction with the freshly built binary before declaring work ready, because tests can miss TTY and thread-lifetime failures.",
+    "summary": "fx's guide connects development claims to observable runtime evidence. Alongside architecture and Zig conventions, it defines exact-commit CI requirements, deterministic terminal replay, performance budgets, and the distinction between optimizer training and correctness verification.",
+    "references": [
+        {
+            "path": "README.md"
+        },
+        {
+            "path": "CONTRIBUTING.md"
+        },
+        {
+            "path": "CHANGELOG.md"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Explain what passing tests do not establish",
+            "body": "The opening gate names runtime setup that tests may omit: the full application, a TTY, and background threads. It requires a real interaction before a completion claim, with an explicit limitation when the environment cannot run the binary.",
+            "quote": "A passing test suite is necessary, not sufficient — tests in this repo do not always construct the full runtime, attach a TTY, or spawn background threads, so they will not catch startup crashes, render regressions, or thread-lifetime bugs.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Bind verification to the binary containing the change",
+            "body": "The guide requires the newly built executable from the checkout and explains why an installed version on PATH is not evidence. It also tells agents to investigate an incomplete fix rather than immediately blame the user's binary.",
+            "quote": "* `zig build` writes to `zig-out/bin/fx`. That is the only binary that contains your latest change.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Separate optimizer training from correctness coverage",
+            "body": "Every root E2E file must be classified as training, verification-only, or intentionally excluded from the optimization corpus. Rare or security-sensitive behavior can remain mandatory to pass without influencing hot-path optimization.",
+            "quote": "* **Verification-only:** important correctness, recovery, security, or rare\n  behavior that the final candidate must pass without making it hot",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Turn a live terminal failure into replayable evidence",
+            "body": "The render-debugging section records output bytes and resize events in a deterministic tape. It then routes the reproduced failure into an in-process regression test, connecting manual observation with a repeatable check.",
+            "quote": "The tape is deterministic — any reviewer can replay it without a TTY, and a golden file can be checked in as a regression test."
+        },
+        {
+            "title": "Name the authoritative environment for a performance budget",
+            "body": "Linux CI owns the raw startup-latency contract. Local macOS results remain informational because loader and process overhead vary; the guide forbids subtracting a baseline to manufacture a passing result.",
+            "quote": "The\nprocess baseline is diagnostic only and is never subtracted.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Tie CI evidence to the current revision",
+            "body": "The readiness rule rejects stale or partial CI results and requires all four native platform aggregates to pass. A follow-up repair needs a new run on its own commit.",
+            "quote": "A Full CI result is valid only when it belongs to the exact current commit and all four `Full suite (...)` jobs succeed.",
+            "pattern": "contribution-etiquette"
+        }
+    ],
+    "steal": [
+        "State which runtime failures unit tests cannot observe.",
+        "Verify the executable built from the edited checkout.",
+        "Separate performance-training inputs from required correctness cases.",
+        "Convert live terminal failures into deterministic replay and regression tests.",
+        "Name the environment that owns a performance budget."
+    ],
+    "outline": [
+        "AGENTS.md",
+        "Declaring Work Ready",
+        "Language and Toolchain",
+        "Code Style",
+        "Architecture",
+        "Configuration and State",
+        "Permissions",
+        "Zig-Specific Patterns",
+        "Testing (TypeScript)",
+        "Pull Request Classification",
+        "Full CI on Feature Branches",
+        "Reproducing Render Bugs",
+        "Benchmarks",
+        "Binary Size Observability",
+        "Documentation",
+        "Releasing",
+        "Repository and License",
+        "What Not To Do",
+        "Before Marking a PR Ready"
+    ],
+    "patterns": ["verification-matrix", "contribution-etiquette"]
+}

@@ -1,0 +1,157 @@
+{
+    "slug": "openai-agents-python",
+    "name": "OpenAI Agents SDK for Python",
+    "owner": "openai",
+    "repo": "openai-agents-python",
+    "language": "Python",
+    "stars": 29515,
+    "defaultBranch": "main",
+    "instructionFile": "AGENTS.md",
+    "lastCommit": {
+        "sha": "faf10fda7cd68bebdfba5edb887a0805cd1c9464",
+        "date": "2026-09-11T22:55:30Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 38183,
+        "lines": 214,
+        "words": 5094,
+        "headings": 28,
+        "bullets": 96,
+        "codeBlocks": 0,
+        "docLinks": 28
+    },
+    "tagline": "A Python SDK for building agents with tools, handoffs, tracing, and realtime capabilities.",
+    "hook": "Calls for a design reset when a second related finding adds another compatibility case, rather than letting review feedback grow an unbounded patch.",
+    "summary": "The Python Agents SDK guide combines contributor workflows with explicit limits on implementation and review scope. It distinguishes released contracts from branch-local choices, ties tests to observable outcomes, and routes runtime work through a detailed architecture reference map.",
+    "references": [
+        {
+            "path": "SECURITY.md"
+        },
+        {
+            "path": "CONTRIBUTING.md"
+        },
+        {
+            "path": ".github/RELEASING.md"
+        },
+        {
+            "path": ".agents/references/realtime-tracing.md"
+        },
+        {
+            "path": ".agents/references/README.md"
+        },
+        {
+            "path": ".agents/references/agent-definition-and-run-context.md"
+        },
+        {
+            "path": ".agents/references/runner-lifecycle.md"
+        },
+        {
+            "path": ".agents/references/run-item-lifecycle.md"
+        },
+        {
+            "path": ".agents/references/function-and-output-schema.md"
+        },
+        {
+            "path": ".agents/references/tool-identity.md"
+        },
+        {
+            "path": ".agents/references/tool-execution-lifecycle.md"
+        },
+        {
+            "path": ".agents/references/local-mcp-server-lifecycle.md"
+        },
+        {
+            "path": ".agents/references/tracing-lifecycle.md"
+        },
+        {
+            "path": ".agents/references/realtime-session-lifecycle.md"
+        },
+        {
+            "path": ".agents/references/voice-pipeline-lifecycle.md"
+        },
+        {
+            "path": ".agents/references/conversation-state-ownership.md"
+        },
+        {
+            "path": ".agents/references/session-persistence.md"
+        },
+        {
+            "path": ".agents/references/model-provider-boundaries.md"
+        },
+        {
+            "path": ".agents/references/runstate-schema.md"
+        },
+        {
+            "path": ".agents/references/sandbox-runtime-boundary.md"
+        },
+        {
+            "path": "tests/README.md"
+        },
+        {
+            "path": "PLANS.md"
+        },
+        {
+            "path": ".github/PULL_REQUEST_TEMPLATE/pull_request_template.md"
+        },
+        {
+            "path": ".agents/skills/",
+            "kind": "pattern",
+            "label": "Conditionally selected repository skills"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Define a concrete trigger for reconsidering complexity",
+            "body": "The guide requires grouping related findings by root cause and reassessing the complete diff against the original requirement. Its trigger prevents repeated review fixes from accumulating compatibility branches without checking whether the supported behavior needs them.",
+            "quote": "A second related finding that adds another compatibility case or protocol hop triggers this reset.",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Separate documentation need from release timing",
+            "body": "Required documentation for behavior absent from the latest release belongs in separately timed work. The rule distinguishes missing content from content that would be inaccurate if published with the current feature PR.",
+            "quote": "Determine whether documentation is required separately from deciding which pull request should carry it.",
+            "pattern": "contribution-etiquette"
+        },
+        {
+            "title": "Treat public argument order as compatibility",
+            "body": "The guide includes positional parameters and dataclass fields in the exported API contract. That makes seemingly additive changes subject to the behavior existing callers rely on.",
+            "quote": "Treat the parameter and dataclass field order of exported runtime APIs as a compatibility contract."
+        },
+        {
+            "title": "Test the operation that survives a race",
+            "body": "Concurrency evidence must control completion order and inspect surviving work and shared state. Merely running sequential happy paths cannot establish whether stale work overwrites a newer operation.",
+            "quote": "For concurrency findings, require controlled completion ordering plus assertions about the surviving operation and final shared state.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Require an independent oracle for test expectations",
+            "body": "Tests must exercise the stable caller-visible boundary that owns the outcome. Assertions that mirror helper calls or recompute expectations with implementation logic are explicitly insufficient.",
+            "quote": "Do not accept helper-only call-shape assertions or expected values recomputed with the implementation's own logic when another layer owns the outcome.",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Write source documentation for reliable translation",
+            "body": "English source must make actors, ownership, ordering, and lifecycle subjects explicit while preserving exact API identifiers and technical meaning. The guide treats ambiguity as a compatibility concern for generated translations.",
+            "quote": "Treat translation-safe English as a documentation compatibility requirement.",
+            "pattern": "behavioral-conditioning"
+        }
+    ],
+    "steal": [
+        "Give repeated scope expansion an explicit reset trigger.",
+        "Separate required documentation from its publication timing.",
+        "Include positional argument order in API compatibility checks.",
+        "Make race tests inspect surviving work and final shared state.",
+        "Derive expected behavior independently of implementation logic.",
+        "Write documentation with explicit actors and lifecycle subjects."
+    ],
+    "outline": [
+        "Contributor Guide",
+        "Table of Contents",
+        "Policies & Mandatory Rules",
+        "Code Review Rules",
+        "Project Structure Guide",
+        "Operation Guide"
+    ],
+    "patterns": ["behavioral-conditioning", "contribution-etiquette", "verification-matrix"]
+}

@@ -1,0 +1,80 @@
+{
+    "version": 1,
+    "slug": "vlt",
+    "repository": "vltpkg/vltpkg",
+    "branch": "main",
+    "sha": "1017f78f344681eb278fc0b8f032c2c36c2c870b",
+    "scannedAt": "2026-09-17T12:19:15.604Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "dss-query-5bdcadfa28ad",
+            "path": "src/query/skills/dss-query/SKILL.md",
+            "name": "dss-query",
+            "description": "Explain and compose vlt Dependency Selector Syntax (DSS) queries — CSS-selector-like strings for filtering packages in a dependency graph, including Socket-powered security auditing. Use when the user asks about DSS, `vlt query`, dependency selectors, wants to find/filter packages (e.g. \"find outdated deps\", \"select all workspaces\"), or wants to security-audit dependencies (\"which packages have CVEs\", \"check for malware/typosquats\", \"what can run shell commands or hit the network\").",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "e677c5f890c28480f5b62205b6aa86226024807c",
+                    "bytes": 9753,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "REFERENCE.md",
+                    "blob": "7fdb3ebe3b08588530ccbaee98c69cfc5d5075af",
+                    "bytes": 6623,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "evals/README.md",
+                    "blob": "497110fd41e34221b502786aa00ad5aecc29e7a0",
+                    "bytes": 4814,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "evals/evals.json",
+                    "blob": "91a4276834ac7709b96ede4a857769d6a4bffeed",
+                    "bytes": 6037,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "evals/grade.mjs",
+                    "blob": "74e603198ee7946ae5c828203c20f079c3e417a1",
+                    "bytes": 14561,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6406037,
+                        "login": "usrrname",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "ffcc05f50bb772950c035c1c818bbc81c0000845",
+        "bytes": 4815,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "7edaa618bdc8335cc9fcdab31e191d7cf278bb08",
+        "bytes": 2562,
+        "text": true,
+        "mode": "100644"
+    }
+}

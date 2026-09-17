@@ -1,0 +1,43 @@
+{
+    "slug": "nx",
+    "sha": "9c80c2223fb9915cd57781e91e95b54aba434332",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".github/PULL_REQUEST_TEMPLATE.md",
+            "bytes": 899,
+            "lines": 18
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 9130,
+            "lines": 234
+        },
+        {
+            "path": "astro-docs/README.md",
+            "bytes": 14528,
+            "lines": 379
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 10048,
+            "lines": 242
+        },
+        {
+            "path": "CONTRIBUTING.md",
+            "bytes": 18362,
+            "lines": 432
+        },
+        {
+            "path": "packages/devkit/CLAUDE.md",
+            "bytes": 5142,
+            "lines": 65
+        },
+        {
+            "path": "packages/nx/src/native/CLAUDE.md",
+            "bytes": 1793,
+            "lines": 51
+        }
+    ]
+}

@@ -1,0 +1,72 @@
+{
+    "slug": "skills-cli",
+    "name": "Skills CLI",
+    "owner": "vercel-labs",
+    "repo": "skills",
+    "language": "TypeScript",
+    "stars": 31845,
+    "defaultBranch": "main",
+    "instructionFile": "AGENTS.md",
+    "lastCommit": {
+        "sha": "e17a8cae172403ee6fe138d50532c97e9a03666c",
+        "date": "2026-08-25T21:40:58Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 7174,
+        "lines": 169,
+        "words": 876,
+        "headings": 26,
+        "bullets": 0,
+        "codeBlocks": 4,
+        "docLinks": 0
+    },
+    "tagline": "A command-line tool for discovering, installing, and updating agent skills.",
+    "hook": "Documents a credential-preserving GitHub fallback chain and compares skill-folder tree hashes to detect updates.",
+    "summary": "The Skills CLI guide maps commands to implementation files and explains the update algorithm step by step. It records lockfile compatibility, the reason for invoking the current CLI directly, and the generation workflow for supported-agent metadata.",
+    "references": [],
+    "techniques": [
+        {
+            "title": "Describe authentication fallback without exporting credentials",
+            "body": "The update algorithm starts anonymously, then checks explicit tokens, and finally delegates to GitHub CLI. The file states that the CLI credential stays inside that tool rather than being exported into the environment.",
+            "quote": "Tree requests start anonymously, then use an explicit `GITHUB_TOKEN`/`GH_TOKEN`, then `gh api` without exporting the GitHub CLI credential.",
+            "pattern": "architecture-narrative"
+        },
+        {
+            "title": "Explain the exact unit used to detect an update",
+            "body": "Updates compare the latest skill folder tree SHA against the stored hash. That gives agents a precise model of what changed, rather than treating a repository commit as equivalent to a skill update.",
+            "quote": "Compare latest folder tree SHA with lock file `skillFolderHash`; mismatch means update available",
+            "pattern": "architecture-narrative"
+        },
+        {
+            "title": "Give the reason for bypassing a package launcher",
+            "body": "Reinstallation invokes the current CLI entry point directly. The guide calls out nested npm exec and npx behavior as the problem that this choice avoids.",
+            "quote": "`skills update` reinstalls changed skills by invoking the current CLI entrypoint directly (`node <repo>/bin/cli.mjs add <source-tree-url> -g -y`) to avoid nested npm exec/npx behavior"
+        },
+        {
+            "title": "Generate downstream metadata after adding an agent",
+            "body": "The new-agent checklist starts with one source definition, then runs validation and synchronization. README content and package keywords are updated by that workflow rather than as independent edits.",
+            "quote": "3. Run `pnpm run -C scripts sync-agents.ts` to update README.md and package keywords",
+            "pattern": "generated-file-guard"
+        }
+    ],
+    "steal": [
+        "Document authentication fallback order and credential boundaries.",
+        "Name the precise content unit used for change detection.",
+        "Explain why a command bypasses familiar launch tooling.",
+        "Generate repeated metadata from one source definition."
+    ],
+    "outline": [
+        "AGENTS.md",
+        "Project Overview",
+        "Commands",
+        "Architecture",
+        "Update Checking System",
+        "Key Integration Points",
+        "Development",
+        "Code Style",
+        "Publishing",
+        "Adding a New Agent"
+    ],
+    "patterns": ["architecture-narrative", "generated-file-guard"]
+}

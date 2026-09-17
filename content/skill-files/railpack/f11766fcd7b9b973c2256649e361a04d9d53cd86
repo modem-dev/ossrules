@@ -1,0 +1,81 @@
+# run automatically when a tag is created by the release.yml workflow
+version: 2
+
+# TODO replace with a `go mod tidy -check` when go is upgraded
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: cli
+    main: ./cmd/cli
+    binary: railpack
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - windows
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - -s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{.CommitDate}}
+
+archives:
+  - formats: [tar.gz]
+    name_template: >-
+      {{ .ProjectName }}-v{{ .Version }}-
+      {{- if and (eq .Arch "amd64") (eq .Os "darwin") }}x86_64-apple-darwin
+      {{- else if and (eq .Arch "arm64") (eq .Os "darwin") }}arm64-apple-darwin
+      {{- else if and (eq .Arch "amd64") (eq .Os "linux") }}x86_64-unknown-linux-musl
+      {{- else if and (eq .Arch "arm64") (eq .Os "linux") }}arm64-unknown-linux-musl
+      {{- else if and (eq .Arch "amd64") (eq .Os "windows") }}x86_64-pc-windows-msvc
+      {{- else if and (eq .Arch "arm64") (eq .Os "windows") }}arm64-pc-windows-msvc
+      {{- else }}{{ .Arch }}-{{ .Os }}{{ end }}
+    format_overrides:
+      - goos: windows
+        formats: [zip]
+
+# build a multi-arch railpack frontend image to be used by buildkit to convert a repo (and any railpack.json) into docker llb
+# the railpack build and runtime images are created separately. This image bundles the freshly compiled railpack binary
+# which is why we build the images here instead of GHA.
+dockers:
+  - image_templates:
+      - "{{ .Env.PRODUCTION_FRONTEND_IMAGE_NAME }}:{{ .Tag }}-amd64"
+      - "{{ .Env.PRODUCTION_FRONTEND_IMAGE_NAME }}:latest-amd64"
+    use: buildx
+    build_flag_templates:
+      - "--pull"
+      - "--platform=linux/amd64"
+    dockerfile: images/alpine/frontend/goreleaser.Dockerfile
+  - image_templates:
+      - "{{ .Env.PRODUCTION_FRONTEND_IMAGE_NAME }}:{{ .Tag }}-arm64"
+      - "{{ .Env.PRODUCTION_FRONTEND_IMAGE_NAME }}:latest-arm64"
+    use: buildx
+    build_flag_templates:
+      - "--pull"
+      - "--platform=linux/arm64"
+    goarch: arm64
+    dockerfile: images/alpine/frontend/goreleaser.Dockerfile
+
+docker_manifests:
+  - name_template: "{{ .Env.PRODUCTION_FRONTEND_IMAGE_NAME }}:{{ .Tag }}"
+    image_templates:
+      - "{{ .Env.PRODUCTION_FRONTEND_IMAGE_NAME }}:{{ .Tag }}-amd64"
+      - "{{ .Env.PRODUCTION_FRONTEND_IMAGE_NAME }}:{{ .Tag }}-arm64"
+  - name_template: "{{ .Env.PRODUCTION_FRONTEND_IMAGE_NAME }}:latest"
+    image_templates:
+      - "{{ .Env.PRODUCTION_FRONTEND_IMAGE_NAME }}:latest-amd64"
+      - "{{ .Env.PRODUCTION_FRONTEND_IMAGE_NAME }}:latest-arm64"
+
+changelog:
+  use: github-native
+
+checksum:
+  name_template: 'checksums.txt'
+
+release:
+  prerelease: auto
+  name_template: "{{.ProjectName}} v{{.Version}}"
+  include_meta: true

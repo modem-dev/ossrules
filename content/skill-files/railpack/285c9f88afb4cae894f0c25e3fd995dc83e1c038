@@ -1,0 +1,333 @@
+name: Integration Tests
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "docs/**"
+  pull_request:
+    paths-ignore:
+      - "docs/**"
+  schedule:
+    # run every day to alert against breaking changes in mise backends
+    # the backends used for various projects (in registry.toml) are compiled into the mise binary, but the code that runs
+    # these backends, and the services they connect to are not. By running integration tests each day, we'll know if
+    # something changes in the package ecosystem that breaks one of our build tests.
+    - cron: "0 0 * * *"
+
+env:
+  MISE_ENV: ci
+
+jobs:
+  # generate a JSON array of all entries in examples/ to shard out example into a separate job that can be run in parallel
+  find-examples:
+    runs-on: ubuntu-latest
+    outputs:
+      examples: ${{ steps.find-examples.outputs.examples }}
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+      - name: Find examples with test.json
+        id: find-examples
+        run: |
+          examples=$(find examples -name "test.json" -exec dirname {} \; | xargs -n 1 basename | jq -R -s -c 'split("\n")[:-1]')
+          echo "examples=$examples" >> "$GITHUB_OUTPUT"
+
+  # integration tests plan, build, and run example projects. Running the example projects requires both the builder and runtime
+  # images. If the mise version in version.txt is newer than origin/main, we build fresh images containing the pinned mise version.
+  # The code below builds these required images, and pushes them to a production registry so they can be used properly in the
+  # matrix jobs (which all run in an isolated runner, so they must reference a remote registry).
+  # These images are *not* tagged with `latest` or other more generic tags used in the release workflow. Additionally,
+  # since railpack uses a image tag from the mise version compiled into the binary, pushes to the registry should not cause
+  # any production impacts.
+  build-images:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      # duplicated on the release.yml job, keep these in sync
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          # we need the full history to compare the mise version against origin/main
+          fetch-depth: 0
+      - uses: jdx/mise-action@1648a7812b9aeae629881980618f079932869151
+      - uses: docker/setup-docker-action@77e84dbf09b47d1e29270283c22f16145aa85ca1
+        with:
+          version: ${{ env.DOCKER_VERSION }}
+      - uses: docker/setup-qemu-action@06116385d9baf250c9f4dcb4858b16962ea869c3
+      - uses: docker/setup-buildx-action@d7f5e7f509e45cec5c76c4d5afdd7de93d0b3df5
+      - uses: docker/login-action@650006c6eb7dba73a995cc03b0b2d7f5ca915bee
+        with:
+          registry: ${{ env.PRODUCTION_CONTAINER_REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      # since railpack binary is pinned to a specific image version, we only want to build and push the images if the mise version
+      # in version.txt is newer than what is on origin/main. We intentionally only trigger on upgrades to avoid mutating images
+      # that may already be referenced by released railpack binaries or production usage.
+      # Mise versions are updated frequently, which means we'll pick up any updates to the `FROM` images regularly, so we shouldn't need
+      # to update these images outside of a mise version update.
+      - name: Check for image input changes
+        id: mise_version
+        run: |
+          if mise run mise-version-newer-than-main; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+
+      - name: Build Builder Image
+        uses: docker/build-push-action@f9f3042f7e2789586610d6e8b85c8f03e5195baf
+        if: steps.mise_version.outputs.changed == 'true'
+        with:
+          context: images/debian/build
+          platforms: linux/amd64,linux/arm64
+          tags: ${{ env.PRODUCTION_BUILDER_IMAGE_REF }}
+          build-args: MISE_VERSION=${{ env.RAILPACK_MISE_VERSION }}
+          push: true
+          # instead of figuring out the right "what's changed" mechanism
+          cache-from: type=registry,ref=${{ env.PRODUCTION_BUILDER_IMAGE_REF }}
+          # embed cache metadata into the image being pushed so it can be used on the next run against this PR
+          cache-to: type=inline
+
+      - name: Build Runtime Image
+        uses: docker/build-push-action@f9f3042f7e2789586610d6e8b85c8f03e5195baf
+        if: steps.mise_version.outputs.changed == 'true'
+        with:
+          context: images/debian/runtime
+          platforms: linux/amd64,linux/arm64
+          tags: ${{ env.PRODUCTION_RUNTIME_IMAGE_REF }}
+          push: true
+          cache-from: type=registry,ref=${{ env.PRODUCTION_BUILDER_IMAGE_REF }}
+          cache-to: type=inline
+
+  frontend-e2e:
+    name: Frontend E2E
+    needs: [build-images, find-examples]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+      - uses: jdx/mise-action@1648a7812b9aeae629881980618f079932869151
+
+      # GitHub's preinstalled Docker 28 uses the classic image store, which disables
+      # Railpack's merge operations. Fresh Docker 29+ daemons use containerd by default.
+      - uses: docker/setup-docker-action@77e84dbf09b47d1e29270283c22f16145aa85ca1
+        with:
+          version: ${{ env.DOCKER_VERSION }}
+
+      - name: Build Frontend Image
+        run: |
+          docker build \
+            -f images/alpine/frontend/Dockerfile \
+            -t railpack-frontend:local \
+            .
+
+      - name: Select Random Example
+        id: example
+        env:
+          EXAMPLES: ${{ needs.find-examples.outputs.examples }}
+        run: |
+          example=$(jq -r '.[]' <<< "$EXAMPLES" | shuf -n 1)
+          echo "Selected $example"
+          echo "name=$example" >> "$GITHUB_OUTPUT"
+
+      - name: Generate Build Plan
+        env:
+          EXAMPLE: ${{ steps.example.outputs.name }}
+        run: |
+          mkdir -p tmp/frontend-plan
+          mise run cli plan "examples/$EXAMPLE" --out tmp/frontend-plan/railpack-plan.json
+
+      - name: Build Example With Frontend Image
+        env:
+          EXAMPLE: ${{ steps.example.outputs.name }}
+        run: |
+          # This smoke test does not load test.json, so provide non-sensitive values
+          # for every plan-declared secret through BuildKit's secret mount interface.
+          secret_args=()
+          while IFS= read -r secret; do
+            export "$secret=frontend-e2e"
+            secret_args+=(--secret "id=$secret,env=$secret")
+          done < <(jq -r '.secrets[]?' tmp/frontend-plan/railpack-plan.json)
+
+          docker buildx build \
+            --build-arg BUILDKIT_SYNTAX="railpack-frontend:local" \
+            "${secret_args[@]}" \
+            -f tmp/frontend-plan/railpack-plan.json \
+            "examples/$EXAMPLE"
+
+  test:
+    needs: [build-images, find-examples]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # create a separate job for each entry in examples/. i.e. gleam, elixir-ecto, etc
+        example: ${{ fromJson(needs.find-examples.outputs.examples) }}
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+      - uses: jdx/mise-action@1648a7812b9aeae629881980618f079932869151
+      - uses: docker/setup-docker-action@77e84dbf09b47d1e29270283c22f16145aa85ca1
+        with:
+          version: ${{ env.DOCKER_VERSION }}
+
+      - name: Cache Go modules and build artifacts
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae
+        with:
+          #   ~/.cache/go-build  -> GOCACHE (Compiled build artifacts)
+          #   ~/go/pkg/mod       -> GOMODCACHE (Downloaded dependencies)
+          path: |
+            ~/.cache/go-build
+            ~/go/pkg/mod
+          key: go-${{ runner.os }}-${{ hashFiles('mise.lock') }}-${{ hashFiles('go.sum') }}
+          restore-keys: |
+            go-${{ runner.os }}-${{ hashFiles('mise.lock') }}-
+
+      # not strictly required, but authenticating increases rate limits and reduces 429 errors
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@650006c6eb7dba73a995cc03b0b2d7f5ca915bee
+        with:
+          registry: ${{ env.PRODUCTION_CONTAINER_REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      
+      # intermittent docker pull failures kept failing the entire pipeline, which is why we are retrying
+      - name: Start BuildKit
+        run: mise run retry --attempts 5 -- mise run run-buildkit-container
+
+      # required for integration tests that use multiple platforms
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@06116385d9baf250c9f4dcb4858b16962ea869c3
+
+      - name: Run test for ${{ matrix.example }}
+        env:
+          # without the GITHUB_TOKEN, mise will 403 us
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # each test should be run with an exact match otherwise `gleam` will also match `gleam-custom` causing duplicate test runs
+        run: |
+          go test -v ./integration_tests \
+            -run "^TestExamplesIntegration/${{ matrix.example }}$" \
+            -timeout 20m
+
+      - name: Upload size.json
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: size-x86-${{ matrix.example }}
+          path: examples/${{ matrix.example }}/size.json
+          if-no-files-found: ignore
+
+      - name: Stop BuildKit
+        if: always()
+        run: docker stop buildkit
+
+  # Same as `test`, but runs on native ARM hardware to catch ARM-specific failures
+  # without QEMU emulation overhead.
+  test-arm:
+    needs: [build-images, find-examples]
+    runs-on: ubuntu-24.04-arm
+    strategy:
+      matrix:
+        example: ${{ fromJson(needs.find-examples.outputs.examples) }}
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+      - uses: jdx/mise-action@1648a7812b9aeae629881980618f079932869151
+      - uses: docker/setup-docker-action@77e84dbf09b47d1e29270283c22f16145aa85ca1
+        with:
+          version: ${{ env.DOCKER_VERSION }}
+
+      - name: Cache Go modules and build artifacts
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae
+        with:
+          path: |
+            ~/.cache/go-build
+            ~/go/pkg/mod
+          # include runner.arch so ARM and x86 caches don't collide
+          key: go-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('mise.lock') }}-${{ hashFiles('go.sum') }}
+          restore-keys: |
+            go-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('mise.lock') }}-
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@650006c6eb7dba73a995cc03b0b2d7f5ca915bee
+        with:
+          registry: ${{ env.PRODUCTION_CONTAINER_REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Start BuildKit
+        run: mise run run-buildkit-container
+
+      # QEMU provides x86 emulation on this ARM runner for any cross-platform build steps
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@06116385d9baf250c9f4dcb4858b16962ea869c3
+
+      - name: Run test for ${{ matrix.example }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          go test -v ./integration_tests \
+            -run "^TestExamplesIntegration/${{ matrix.example }}$" \
+            -timeout 20m
+
+      - name: Upload size.json
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: size-arm-${{ matrix.example }}
+          path: examples/${{ matrix.example }}/size.json
+          if-no-files-found: ignore
+
+      - name: Stop BuildKit
+        if: always()
+        run: docker stop buildkit
+
+  # Collects size.json artifacts from both x86 and ARM matrix jobs, merges them
+  # into a single benchmark payload with arch-suffixed names (e.g. "node-bun (x86)").
+  # On main, pushes results to gh-pages to track history.
+  # On PRs, compares against stored history and posts a comment with the delta.
+  docker-image-benchmark:
+    needs: [test, test-arm]
+    runs-on: ubuntu-latest
+    permissions:
+      # required for benchmark-action to push to gh-pages on main
+      contents: write
+      # required to post comparison comments on PRs
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+
+      - name: Download all size artifacts
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+        # each artifact lands in its own size-{x86,arm}-<example>/ directory
+        with:
+          pattern: size-*
+          merge-multiple: false
+
+      - name: Merge size.json files into benchmark format
+        # customSmallerIsBetter expects [{name, unit, value}]; suffix name with arch for side-by-side comparison
+        run: |
+          # create a master size.json for manual debugging
+          jq -s 'map(. + {name: (.name + " (x86)")})' size-x86-*/size.json > x86.json
+          jq -s 'map(. + {name: (.name + " (arm)")})' size-arm-*/size.json > arm.json
+          # this debugging data is compared against the "master" copy in gh-pages
+          jq -s 'add | sort_by(.name) | map({name, unit: "bytes", value: .size})' x86.json arm.json > benchmark.json
+
+      - name: Store benchmark results
+        uses: benchmark-action/github-action-benchmark@52576c92bccf6ac60c8223ec7eb2565637cae9ba
+        with:
+          tool: customSmallerIsBetter
+          output-file-path: benchmark.json
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          # only persist history on main
+          auto-push: ${{ github.ref == 'refs/heads/main' }}
+          benchmark-data-dir-path: dev/bench
+          # alert when an image grows more than 20%
+          alert-threshold: "120%"
+          # Enable Job Summary for PRs
+          summary-always: true
+          # no comment-on-alert, comment-always; just on PR

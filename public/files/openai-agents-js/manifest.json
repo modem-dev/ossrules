@@ -1,0 +1,135 @@
+{
+    "slug": "openai-agents-js",
+    "sha": "817161d4076aab6e1215f421bfcf0d1e6f3e3a10",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".agents/references/agent-definition-and-run-context.md",
+            "bytes": 3708,
+            "lines": 46
+        },
+        {
+            "path": ".agents/references/conversation-state-ownership.md",
+            "bytes": 4454,
+            "lines": 56
+        },
+        {
+            "path": ".agents/references/extension-adapter-boundaries.md",
+            "bytes": 3642,
+            "lines": 48
+        },
+        {
+            "path": ".agents/references/mcp-transport-cache-and-shims.md",
+            "bytes": 3406,
+            "lines": 45
+        },
+        {
+            "path": ".agents/references/model-provider-and-conversion-boundaries.md",
+            "bytes": 5803,
+            "lines": 63
+        },
+        {
+            "path": ".agents/references/public-api-package-and-runtime-boundaries.md",
+            "bytes": 3502,
+            "lines": 46
+        },
+        {
+            "path": ".agents/references/README.md",
+            "bytes": 5308,
+            "lines": 41
+        },
+        {
+            "path": ".agents/references/realtime-session-lifecycle.md",
+            "bytes": 3950,
+            "lines": 51
+        },
+        {
+            "path": ".agents/references/realtime-transport-audio-and-events.md",
+            "bytes": 3784,
+            "lines": 47
+        },
+        {
+            "path": ".agents/references/run-item-and-stream-lifecycle.md",
+            "bytes": 3498,
+            "lines": 47
+        },
+        {
+            "path": ".agents/references/runner-lifecycle.md",
+            "bytes": 3693,
+            "lines": 48
+        },
+        {
+            "path": ".agents/references/runstate-schema-and-resume.md",
+            "bytes": 4097,
+            "lines": 50
+        },
+        {
+            "path": ".agents/references/sandbox-runtime-and-provider-boundaries.md",
+            "bytes": 7504,
+            "lines": 63
+        },
+        {
+            "path": ".agents/references/schema-and-zod-boundaries.md",
+            "bytes": 3297,
+            "lines": 46
+        },
+        {
+            "path": ".agents/references/session-persistence.md",
+            "bytes": 7491,
+            "lines": 53
+        },
+        {
+            "path": ".agents/references/tool-execution-and-approval-lifecycle.md",
+            "bytes": 3854,
+            "lines": 50
+        },
+        {
+            "path": ".agents/references/tool-identity-and-routing.md",
+            "bytes": 3702,
+            "lines": 47
+        },
+        {
+            "path": ".agents/references/tracing-and-runtime-context.md",
+            "bytes": 3318,
+            "lines": 47
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 39473,
+            "lines": 248
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 9,
+            "lines": 1,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "AGENTS.md"
+        },
+        {
+            "path": "CONTRIBUTING.md",
+            "bytes": 11202,
+            "lines": 173
+        },
+        {
+            "path": "integration-tests/README.md",
+            "bytes": 8621,
+            "lines": 101
+        },
+        {
+            "path": "PLANS.md",
+            "bytes": 14243,
+            "lines": 146
+        },
+        {
+            "path": "README.md",
+            "bytes": 5828,
+            "lines": 122
+        },
+        {
+            "path": "SECURITY.md",
+            "bytes": 3749,
+            "lines": 36
+        }
+    ]
+}
