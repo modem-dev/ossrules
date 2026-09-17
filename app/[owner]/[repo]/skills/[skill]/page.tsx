@@ -10,15 +10,18 @@ import { SiteHeader } from '@/components/site-header';
 import { SkillContributors } from '@/components/skill-contributors';
 import { SkillFileNavigation } from '@/components/skill-file-navigation';
 import { SkillMarkdown } from '@/components/skill-markdown';
+import { SkillOutline } from '@/components/skill-outline';
 import { getAgentsProjectByRepository } from '@/lib/agents-md';
 import { documentMentions } from '@/lib/document-mentions';
 import { ogImageUrl } from '@/lib/og';
 import { projectHref, projectSkillsHref, skillHref } from '@/lib/project-paths';
-import { markdownBody } from '@/lib/skill-schema';
+import { skillHeadings, skillOutline } from '@/lib/skill-outline';
+import { markdownBody, parseSkill } from '@/lib/skill-schema';
 import { getSkillManifest, readSkillFile, skillSourceUrl } from '@/lib/skills';
 import { countSourceTokens } from '@/lib/token-count';
 
 type Params = { owner: string; repo: string; skill: string };
+
 export async function generateMetadata({ params }: { params: Promise<Params> }) {
     const { owner, repo, skill: id } = await params;
     const project = getAgentsProjectByRepository(owner, repo);
@@ -72,6 +75,9 @@ export default async function SkillPage({
     const rootFile = skill.files.find((file) => file.path === 'SKILL.md');
     const rootSource = rootFile ? readSkillFile(slug, rootFile)?.toString('utf8') : undefined;
     const fileMentions = file.path !== 'SKILL.md' ? (documentMentions(rootSource, [file.path])[file.path] ?? []) : [];
+    const metadata = rootSource ? parseSkill(rootSource) : undefined;
+    const body = rendered ? (file.path === 'SKILL.md' ? markdownBody(source) : source) : '';
+    const headings = skillHeadings(body);
     return (
         <div className="min-h-screen bg-dark-gray flex flex-col">
             <SiteHeader />
@@ -93,18 +99,19 @@ export default async function SkillPage({
                 <header className="skill-page-header mt-9 flex flex-col items-start justify-between gap-5 sm:flex-row">
                     <div className="min-w-0 flex-1">
                         <h1 className="page-title [overflow-wrap:anywhere]">{skill.name}</h1>
-                        {skill.contributions?.contributors.length ? (
-                            <div className="skill-header-contributors mt-3 flex items-center gap-2">
-                                <SkillContributors
-                                    contributions={skill.contributions}
-                                    historyUrl={`https://github.com/${manifest.repository}/commits/${manifest.sha}/${skill.path.split('/').map(encodeURIComponent).join('/')}`}
-                                    skillName={skill.name}
-                                    align="start"
-                                />
-                            </div>
-                        ) : null}
                         <p className="mt-4 max-w-3xl text-gray-500 text-sm leading-relaxed [overflow-wrap:anywhere]">{skill.description}</p>
-                        <p className="skill-header-path mt-4 break-all font-mono text-[11px] text-gray-600">{skill.path}</p>
+                        {metadata?.tags?.length ? (
+                            <ul className="skill-tags" aria-label="Tags declared in SKILL.md">
+                                {metadata.tags.map((tag) => (
+                                    <li key={tag}>{tag}</li>
+                                ))}
+                            </ul>
+                        ) : null}
+                        {metadata?.platforms?.length ? (
+                            <p className="mt-3 font-mono text-[11px] leading-relaxed text-gray-550 [overflow-wrap:anywhere]">
+                                Declared platforms: {metadata.platforms.join(' · ')}
+                            </p>
+                        ) : null}
                     </div>
                     {complete ? (
                         <a href={`${baseHref}/download`} className="action-link shrink-0">
@@ -118,25 +125,31 @@ export default async function SkillPage({
                     <a href={`https://github.com/${manifest.repository}/tree/${manifest.sha}`} className="hover:text-teal">
                         {manifest.branch} · {manifest.sha.slice(0, 7)} ↗
                     </a>
-                    <span>
-                        {skill.files.length} bundle {skill.files.length === 1 ? 'file' : 'files'}
-                    </span>
                     <span>Scanned {manifest.scannedAt.slice(0, 10)}</span>
                 </div>
                 <div className="skill-reader">
-                    <aside className="skill-files" aria-label="Bundle files">
-                        <SkillFileNavigation
-                            files={skill.files.map(({ path, omitted }) => ({ path, omitted }))}
-                            selectedPath={file.path}
-                            baseHref={baseHref}
+                    <aside className="skill-outline" aria-label="Document navigation">
+                        <SkillOutline
+                            key={`${file.path}:${rendered}`}
+                            headings={skillOutline(headings)}
+                            readHref={
+                                !rendered && source !== undefined && /\.mdx?$/i.test(file.path)
+                                    ? `${baseHref}?file=${encodeURIComponent(file.path)}`
+                                    : undefined
+                            }
                         />
                     </aside>
                     <article className="skill-document min-w-0" aria-label={`${file.path} content`}>
-                        <header className="mb-6 flex flex-wrap items-center justify-between gap-4 pb-4">
-                            <div className="min-w-0">
-                                <h2 id="skill-document-title" tabIndex={-1} className="break-all font-mono text-sm">
+                        <header className="skill-document-header">
+                            <div className="min-w-0 flex-1">
+                                <h2 id="skill-document-title" tabIndex={-1} className="sr-only">
                                     {file.path}
                                 </h2>
+                                <SkillFileNavigation
+                                    files={skill.files.map(({ path, omitted }) => ({ path, omitted }))}
+                                    selectedPath={file.path}
+                                    baseHref={baseHref}
+                                />
                                 <p className="mt-2 font-mono text-[11px] text-gray-600">
                                     {source !== undefined
                                         ? `${countSourceTokens(source)?.toLocaleString('en-US')} tokens · o200k_base · `
@@ -160,6 +173,11 @@ export default async function SkillPage({
                                 {source !== undefined ? <CopySource key={file.blob} source={source} /> : null}
                             </div>
                         </header>
+                        {file.path !== 'SKILL.md' ? (
+                            <Link href={baseHref} className="mb-6 inline-block text-teal text-xs hover:underline">
+                                ← Back to SKILL.md
+                            </Link>
+                        ) : null}
                         {file.omitted ? (
                             <p className="prose-copy">
                                 {file.omitted}{' '}
@@ -176,11 +194,12 @@ export default async function SkillPage({
                             </p>
                         ) : rendered ? (
                             <SkillMarkdown
-                                source={file.path === 'SKILL.md' ? markdownBody(source) : source}
+                                source={body}
                                 currentFile={file.path}
                                 files={skill.files.map((f) => f.path)}
                                 baseHref={baseHref}
                                 upstreamRoot={skillSourceUrl(manifest, `${root}/`)}
+                                headings={headings}
                             />
                         ) : (
                             <div className="skill-source">
@@ -231,8 +250,8 @@ export default async function SkillPage({
                             </details>
                         ) : null}
                     </article>
-                    <aside className="skill-file-metadata mt-7 font-mono text-[11px] text-gray-600" aria-label="Source and license">
-                        <details className="skill-mobile-provenance">
+                    <aside className="skill-file-metadata font-mono text-[11px] text-gray-600" aria-label="Source and license">
+                        <details>
                             <summary className="text-teal">Source &amp; attribution</summary>
                             <p className="mt-4 [overflow-wrap:anywhere]">{skill.path}</p>
                             <a
@@ -250,27 +269,27 @@ export default async function SkillPage({
                                     align="start"
                                 />
                             </div>
+                            <p className="eyebrow mt-6 mb-2">License</p>
+                            {skill.license ? <p className="[overflow-wrap:anywhere]">{skill.license}</p> : null}
+                            {manifest.repositoryLicense ? (
+                                <a
+                                    href={skillSourceUrl(manifest, manifest.repositoryLicense.path)}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="mt-2 block text-teal hover:underline"
+                                >
+                                    Repository license ↗
+                                </a>
+                            ) : (
+                                <p>Not declared in the snapshot.</p>
+                            )}
+                            {skill.compatibility ? (
+                                <>
+                                    <p className="eyebrow mt-6 mb-2">Compatibility</p>
+                                    <p className="[overflow-wrap:anywhere]">{skill.compatibility}</p>
+                                </>
+                            ) : null}
                         </details>
-                        <p className="eyebrow mb-2">License</p>
-                        {skill.license ? <p className="[overflow-wrap:anywhere]">{skill.license}</p> : null}
-                        {manifest.repositoryLicense ? (
-                            <a
-                                href={skillSourceUrl(manifest, manifest.repositoryLicense.path)}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="mt-2 block text-teal hover:underline"
-                            >
-                                Repository license ↗
-                            </a>
-                        ) : (
-                            <p>Not declared in the snapshot.</p>
-                        )}
-                        {skill.compatibility ? (
-                            <>
-                                <p className="eyebrow mt-6 mb-2">Compatibility</p>
-                                <p className="[overflow-wrap:anywhere]">{skill.compatibility}</p>
-                            </>
-                        ) : null}
                     </aside>
                 </div>
                 <div className="mt-12 flex flex-wrap justify-between gap-4 text-teal text-sm">
