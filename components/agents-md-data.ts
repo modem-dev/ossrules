@@ -378,21 +378,14 @@ export function patternFacets(projects: AgentsProject[]): { id: PatternId; name:
     }));
 }
 
-/**
- * Sort options offered by the index.
- *
- * Each one answers a different question a reader actually has: which projects
- * carry weight (stars), how much there is to read (lines), how prescriptive the
- * file is (rules), and where something is when you already know its name.
- * `direction` is the sensible default for that column, not a fixed convention.
- */
+/** Sort IDs remain stable for saved URLs; labels describe the underlying measurements. */
 export type SortId = 'stars' | 'lines' | 'rules' | 'updated' | 'name';
 
 export const SORTS: { id: SortId; label: string }[] = [
     { id: 'stars', label: 'Stars' },
     { id: 'lines', label: 'Lines' },
-    { id: 'rules', label: 'Rules' },
-    { id: 'updated', label: 'Updated' },
+    { id: 'rules', label: 'Bullet lines' },
+    { id: 'updated', label: 'Source changed' },
     { id: 'name', label: 'Name' },
 ];
 

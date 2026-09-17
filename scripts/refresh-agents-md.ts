@@ -24,6 +24,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { measureInstructions } from '../lib/instruction-measurements';
 
 const CONTENT_DIR = path.join(process.cwd(), 'content', 'projects');
 const WRITE = process.argv.includes('--write');
@@ -37,20 +38,6 @@ interface Entry {
     evaluatedAt: string;
     lastCommit: { sha: string; date: string };
     file: Record<string, number>;
-}
-
-function measure(source: string) {
-    const lines = source.split('\n');
-    const count = (re: RegExp) => lines.filter((line) => re.test(line)).length;
-    return {
-        bytes: Buffer.byteLength(source, 'utf8'),
-        lines: lines.length - 1,
-        words: source.split(/\s+/).filter(Boolean).length,
-        headings: count(/^#{1,6} /),
-        bullets: count(/^\s*[-*] /),
-        codeBlocks: count(/^\s*```/),
-        docLinks: (source.match(/\]\([^)h][^)]*\)/g) ?? []).length,
-    };
 }
 
 /** Last commit touching AGENTS.md, via a blobless clone (the REST API is often blocked). */
@@ -105,7 +92,7 @@ async function main() {
             continue;
         }
         const source = await response.text();
-        const measured = measure(source);
+        const measured = measureInstructions(source);
         const commit = lastCommit(entry);
 
         const contentChanged = measured.bytes !== entry.file.bytes || measured.lines !== entry.file.lines;

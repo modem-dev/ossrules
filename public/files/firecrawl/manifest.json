@@ -7,12 +7,12 @@
         {
             "path": "AGENTS.md",
             "bytes": 1464,
-            "lines": 18
+            "lines": 19
         },
         {
             "path": "CLAUDE.md",
             "bytes": 1464,
-            "lines": 18,
+            "lines": 19,
             "sameContentAs": "AGENTS.md"
         }
     ]
