@@ -50,7 +50,11 @@ const loading = new Map<string, Promise<void>>();
 
 export async function highlight(source: string, language: string) {
     const name = language.toLowerCase();
-    const lang = aliases[name] ?? name;
+    const declared = aliases[name] ?? name;
+    // Extensionless executables often identify their language only in a shebang.
+    // Keep an explicit, supported grammar authoritative (including Markdown).
+    const nodeShebang = /^#!\s*(?:\/[^\s]*\/env\s+(?:-S\s+)?node|\/[^\s]*\/node)(?=\s|$)/.test(source.split('\n', 1)[0]);
+    const lang = Object.hasOwn(languages, declared) ? declared : nodeShebang ? 'javascript' : declared;
     if (!Object.hasOwn(languages, lang)) return undefined;
     highlighter ??= createHighlighterCore({
         themes: [import('shiki/themes/github-light.mjs'), import('shiki/themes/github-dark.mjs')],
