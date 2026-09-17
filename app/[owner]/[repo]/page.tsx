@@ -11,7 +11,6 @@ import {
     PATTERNS_BY_ID,
     rawAgentsFileUrl,
     repoFileUrl,
-    repoUrl,
     STATS_AS_OF,
 } from '@/components/agents-md-data';
 import { DocTree } from '@/components/doc-tree';
@@ -20,10 +19,12 @@ import { JsonLd } from '@/components/json-ld';
 import { RelativeTime } from '@/components/last-updated';
 import { ModemSponsor } from '@/components/modem-sponsor';
 import { Excerpt, FileStatGrid, PatternBadge } from '@/components/primitives';
+import { ProjectRepositoryLink } from '@/components/project-repository-link';
 import { ProjectTabs } from '@/components/project-tabs';
 import { ProjectTitle } from '@/components/project-title';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
+import { SkillContributors } from '@/components/skill-contributors';
 import {
     getAgentsProject,
     getAgentsProjectByRepository,
@@ -34,6 +35,7 @@ import {
     getVendoredFiles,
     sourceExcerpt,
 } from '@/lib/agents-md';
+import { getInstructionContributions } from '@/lib/instruction-contributors';
 import { ogImageUrl } from '@/lib/og';
 import { type ProjectSearchParams, projectListing, projectNeighbors, projectSearchString, withProjectSearch } from '@/lib/project-list';
 import { projectHref } from '@/lib/project-paths';
@@ -222,6 +224,7 @@ async function ProjectContent({
     // the entry was measured at. See scripts/sync-agents-md-files.ts.
     const vendored = getVendoredFiles(project.slug);
     const agentsSource = getAgentsSource(project.slug);
+    const contributions = getInstructionContributions(project);
     const primaryFile = project.instructionFile ?? 'AGENTS.md';
     const documents = getInstructionDocuments(project.slug);
 
@@ -256,9 +259,7 @@ async function ProjectContent({
                     >
                         <Suspense fallback={<span className="text-teal">Projects</span>}>{breadcrumb}</Suspense>
                         <span aria-hidden>/</span>
-                        <a href={repoUrl(project)} target="_blank" rel="noopener noreferrer" className="break-all hover:text-teal">
-                            {project.owner}/{project.repo} ↗
-                        </a>
+                        <ProjectRepositoryLink project={project} />
                     </nav>
                     <header className="project-heading">
                         <ProjectTitle project={project} section="Agent Rules" />
@@ -362,6 +363,17 @@ async function ProjectContent({
                             <div className="mt-3">
                                 <FileStatGrid project={project} tokens={countSourceTokens(agentsSource)} />
                             </div>
+                            {contributions?.contributors.length ? (
+                                <div className="mt-4 flex items-center justify-between gap-3 text-sm text-gray-550">
+                                    <span>Contributors</span>
+                                    <SkillContributors
+                                        contributions={contributions}
+                                        skillName={primaryFile}
+                                        fileName={primaryFile}
+                                        historyUrl={`https://github.com/${project.owner}/${project.repo}/commits/${project.lastCommit.sha}/${primaryFile.split('/').map(encodeURIComponent).join('/')}`}
+                                    />
+                                </div>
+                            ) : null}
                             <dl className="provenance">
                                 <div>
                                     <dt>Measured on</dt>

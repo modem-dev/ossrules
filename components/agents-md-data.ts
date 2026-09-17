@@ -175,10 +175,11 @@ export interface AgentsProject {
 /** Only the fields the interactive directory displays, searches, or sorts. */
 export type ProjectListingEntry = Pick<
     AgentsProject,
-    'slug' | 'name' | 'owner' | 'repo' | 'tagline' | 'hook' | 'language' | 'stars' | 'patterns'
+    'slug' | 'name' | 'owner' | 'repo' | 'tagline' | 'hook' | 'language' | 'stars' | 'patterns' | 'instructionFile'
 > & {
     file: Pick<FileStats, 'lines' | 'bullets'>;
     lastCommit: Pick<LastCommit, 'date'>;
+    skillCount?: number;
 };
 
 export function toProjectListingEntry(project: AgentsProject): ProjectListingEntry {
@@ -192,6 +193,7 @@ export function toProjectListingEntry(project: AgentsProject): ProjectListingEnt
         language: project.language,
         stars: project.stars,
         patterns: project.patterns,
+        instructionFile: project.instructionFile,
         file: { lines: project.file.lines, bullets: project.file.bullets },
         lastCommit: { date: project.lastCommit.date },
     };

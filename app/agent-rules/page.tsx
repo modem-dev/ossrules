@@ -7,7 +7,6 @@ import { SiteHeader } from '@/components/site-header';
 import { TechniqueIcon } from '@/components/technique-icons';
 import { getAgentsProjects, projectsWithPattern } from '@/lib/agents-md';
 import { ogImageUrl } from '@/lib/og';
-import { projectHref } from '@/lib/project-paths';
 import { collectionPageSchema } from '@/lib/schema';
 
 const title = 'Agent Rules';
@@ -70,7 +69,13 @@ export default function TechniquesPage() {
                     {PATTERNS.map((pattern, index) => {
                         const used = projectsWithPattern(pattern.id);
                         return (
-                            <section key={pattern.id} id={pattern.id} className="technique-card">
+                            <Link
+                                key={pattern.id}
+                                id={pattern.id}
+                                href={`/agent-rules/${pattern.id}`}
+                                aria-labelledby={`${pattern.id}-title`}
+                                className="technique-card group block transition-colors hover:border-teal"
+                            >
                                 <div className="flex flex-wrap items-center justify-between gap-3 font-mono text-[11px] text-gray-600">
                                     <span className="inline-flex items-center gap-2 text-teal">
                                         <TechniqueIcon pattern={pattern.id} className="size-4" />
@@ -80,53 +85,33 @@ export default function TechniquesPage() {
                                         {used.length} of {projects.length} projects
                                     </span>
                                 </div>
-                                <h2 className="section-title mt-5">
-                                    <Link href={`/agent-rules/${pattern.id}`} className="hover:text-teal">
-                                        {pattern.name}
-                                    </Link>
+                                <h2 id={`${pattern.id}-title`} className="section-title mt-5 group-hover:text-teal">
+                                    {pattern.name}
                                 </h2>
                                 <p className="mt-3 text-gray-500 text-sm leading-relaxed">{pattern.summary}</p>
-                                <details className="mt-4">
-                                    <summary className="inline-summary text-gray-550 text-xs">Why it works</summary>
-                                    <p className="mt-3 text-gray-550 text-sm leading-relaxed">{pattern.detail}</p>
-                                </details>
-                                <Link
-                                    href={`/agent-rules/${pattern.id}`}
-                                    className="mt-4 inline-flex min-h-9 items-center gap-2 text-sm text-teal hover:underline"
-                                >
-                                    Read pattern & examples <span aria-hidden>→</span>
-                                </Link>
                                 <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
                                     <ul className="flex gap-1.5" aria-label="Example projects">
                                         {used.slice(0, 5).map((project) => (
                                             <li key={project.slug}>
-                                                <Link
-                                                    href={projectHref(project)}
-                                                    className="block rounded-md transition-opacity hover:opacity-75"
+                                                <Image
+                                                    src={logoSrc(project)}
+                                                    alt={project.name}
                                                     title={project.name}
-                                                >
-                                                    <Image
-                                                        src={logoSrc(project)}
-                                                        alt={project.name}
-                                                        width={28}
-                                                        height={28}
-                                                        className="size-7 rounded-md bg-gray-800 object-cover"
-                                                    />
-                                                </Link>
+                                                    width={28}
+                                                    height={28}
+                                                    className="size-7 rounded-md bg-gray-800 object-cover"
+                                                />
                                             </li>
                                         ))}
                                     </ul>
-                                    <Link
-                                        href={`/?technique=${pattern.id}#projects`}
-                                        className="inline-flex min-h-9 items-center text-teal text-xs hover:underline"
-                                    >
-                                        Explore {used.length} {used.length === 1 ? 'project' : 'projects'}{' '}
+                                    <span className="inline-flex min-h-9 items-center text-teal text-xs group-hover:underline">
+                                        Read pattern & examples
                                         <span aria-hidden className="ml-1.5">
                                             →
                                         </span>
-                                    </Link>
+                                    </span>
                                 </div>
-                            </section>
+                            </Link>
                         );
                     })}
                 </div>

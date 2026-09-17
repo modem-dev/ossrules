@@ -15,6 +15,30 @@ test('same names in different directories keep distinct stable identities', () =
     assert.notEqual(skillId('.agents/skills/review/SKILL.md'), skillId('packages/a/skills/review/SKILL.md'));
     assert.equal(skillId('.agents/skills/review/SKILL.md'), skillId('.agents/skills/review/SKILL.md'));
 });
+test('optional tags and platforms preserve explicit declarations from pinned frontmatter', () => {
+    const skill = parseSkill(`---
+name: video
+description: Make videos.
+platforms: [linux, macos, windows]
+tags: [Video]
+metadata:
+  tags: [Animation]
+  hermes:
+    tags: [Manim, Animation, Math, Video]
+---
+`);
+    assert.deepEqual(skill.tags, ['Video', 'Animation', 'Manim', 'Math']);
+    assert.deepEqual(skill.platforms, ['linux', 'macos', 'windows']);
+});
+test('missing or malformed optional metadata never implies tags or platform support', () => {
+    for (const metadata of ['', 'metadata: []', 'tags: [Video, 42]\nplatforms: all', 'metadata:\n  hermes: [linux]']) {
+        const skill = parseSkill(`---\nname: video\ndescription: Make videos.\n${metadata}\n---\n`);
+        assert.equal(skill.tags, undefined);
+        assert.equal(skill.platforms, undefined);
+    }
+    const skill = parseSkill('---\nname: video\ndescription: Make videos.\ntags: [Video, " Video ", ""]\n---\n');
+    assert.deepEqual(skill.tags, ['Video']);
+});
 test('scope excludes test fixtures but includes hidden and project-specific skill directories', () => {
     assert.equal(excludedSkillPath('packages/a/tests/fixtures/sample/SKILL.md'), true);
     assert.equal(excludedSkillPath('.agents/skills/testing/SKILL.md'), false);
