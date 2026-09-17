@@ -1,9 +1,9 @@
 import {
-    type AgentsProject,
     compareProjects,
     matchesQuery,
     PATTERNS_BY_ID,
     type PatternId,
+    type ProjectListingEntry,
     SORTS,
     type SortId,
 } from '@/components/agents-md-data';
@@ -21,7 +21,7 @@ export function projectSearchString(params: ProjectSearchParams) {
     return search.toString();
 }
 
-export function projectListing<T extends AgentsProject>(projects: T[], search = '') {
+export function projectListing<T extends ProjectListingEntry>(projects: T[], search = '') {
     const params = new URLSearchParams(search);
     const query = params.get('q') ?? '';
     const requestedLanguage = params.get('language');
@@ -60,7 +60,7 @@ export function withProjectSearch(href: string, search: string) {
     return search ? `${href}?${search}` : href;
 }
 
-export function projectNeighbors<T extends AgentsProject>(projects: T[], slug: string, search = '') {
+export function projectNeighbors<T extends ProjectListingEntry>(projects: T[], slug: string, search = '') {
     const listing = projectListing(projects, search);
     const inCollection = listing.visible.some((project) => project.slug === slug);
     const ordered = inCollection ? listing.visible : projectListing(projects).visible;

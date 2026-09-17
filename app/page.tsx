@@ -4,7 +4,7 @@ import { JsonLd } from '@/components/json-ld';
 import { ProjectExplorer } from '@/components/project-explorer';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
-import { getAgentsProjects } from '@/lib/agents-md';
+import { getProjectListings } from '@/lib/agents-md';
 import { ogImageUrl } from '@/lib/og';
 import { type ProjectSearchParams, projectListing, projectSearchString } from '@/lib/project-list';
 import { projectHref } from '@/lib/project-paths';
@@ -35,13 +35,13 @@ const baseMetadata = {
 type Props = { searchParams: Promise<ProjectSearchParams> };
 
 export async function generateMetadata({ searchParams }: Props) {
-    const listing = projectListing(getAgentsProjects(), projectSearchString(await searchParams));
+    const listing = projectListing(getProjectListings(), projectSearchString(await searchParams));
     return { ...baseMetadata, robots: { index: !listing.filtered, follow: true } };
 }
 
 export default async function AgentsMdPage({ searchParams }: Props) {
     const initialSearch = projectSearchString(await searchParams);
-    const projects = getAgentsProjects();
+    const projects = getProjectListings();
     const skillCount = getAllSkills().length;
     const totalStars = projects.reduce((total, project) => total + project.stars, 0);
     const compactStars = new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 }).format(totalStars);
