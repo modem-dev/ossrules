@@ -20,9 +20,22 @@
     color: var(--color-teal);
 }
 .skill-entry {
+    display: flex;
+    flex-direction: column;
     min-width: 0;
-    padding: 1.5rem 0;
-    border-bottom: 1px solid var(--color-gray-750);
+    padding: 1.375rem;
+    border: 1px solid var(--color-gray-750);
+    border-radius: 0.3rem;
+    background: var(--color-medium-gray);
+}
+.skill-entry:hover,
+.skill-entry:focus-within {
+    border-color: var(--color-teal);
+}
+.skill-entry-footer {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-gray-750);
 }
 /* Skill reading desk: document sections stay visible; bundle files open on demand. */
 .skill-tags {
@@ -1481,7 +1494,15 @@ select {
 }
 
 .source-code {
+    --source-gutter-width: 3rem;
     padding-block: 1.5rem;
+    background: linear-gradient(
+        to right,
+        var(--color-gray-800) calc(var(--source-gutter-width) - 1px),
+        var(--color-gray-750) calc(var(--source-gutter-width) - 1px),
+        var(--color-gray-750) var(--source-gutter-width),
+        transparent var(--source-gutter-width)
+    );
     font-family: var(--font-mono);
     font-size: 0.8125rem;
     line-height: 1.85;
@@ -1490,7 +1511,7 @@ select {
 
 .source-line {
     display: grid;
-    grid-template-columns: 3rem minmax(0, 1fr);
+    grid-template-columns: var(--source-gutter-width) minmax(0, 1fr);
     gap: 1.25rem;
     padding-right: 1.5rem;
 }
@@ -1541,10 +1562,10 @@ select {
         flex-basis: 8rem;
     }
     .source-code {
+        --source-gutter-width: 2rem;
         font-size: 0.75rem;
     }
     .source-line {
-        grid-template-columns: 2rem minmax(0, 1fr);
         gap: 0.75rem;
         padding-right: 1rem;
     }

@@ -12,22 +12,24 @@ import { collectionPageSchema } from '@/lib/schema';
 import { getAllSkills, getSkillManifest } from '@/lib/skills';
 
 const title = 'AGENTS.md Examples & Agent Skills';
-const description = 'Browse AGENTS.md and CLAUDE.md files, agent skills, and source-backed notes from open-source projects.';
+const socialTitle = 'OSS Agent Rules And Skill Files';
+const description =
+    'Explore real AGENTS.md and CLAUDE.md examples, agent skills, and original analysis from open source projects. Read the source and borrow useful patterns.';
 
 const baseMetadata = {
     title: { absolute: `${title} | ossrules.md` },
     description,
     alternates: { canonical: '/' },
     openGraph: {
-        title,
+        title: socialTitle,
         description,
-        images: [{ url: ogImageUrl(title), width: 1200, height: 630 }],
+        images: [{ url: ogImageUrl(socialTitle), width: 1200, height: 630 }],
     },
     twitter: {
         card: 'summary_large_image',
-        title,
+        title: socialTitle,
         description,
-        images: [ogImageUrl(title)],
+        images: [ogImageUrl(socialTitle)],
     },
 };
 
