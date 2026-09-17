@@ -1,12 +1,12 @@
 import Link from 'next/link';
-import { Suspense } from 'react';
 import { PATTERNS } from '@/components/agents-md-data';
 import { JsonLd } from '@/components/json-ld';
-import { ProjectExplorer, ProjectExplorerContent } from '@/components/project-explorer';
+import { ProjectExplorer } from '@/components/project-explorer';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { getAgentsProjects } from '@/lib/agents-md';
 import { ogImageUrl } from '@/lib/og';
+import { type ProjectSearchParams, projectListing, projectSearchString } from '@/lib/project-list';
 import { projectHref } from '@/lib/project-paths';
 import { collectionPageSchema } from '@/lib/schema';
 import { getAllSkills } from '@/lib/skills';
@@ -15,7 +15,7 @@ const title = 'AGENTS.md Examples & Agent Skills';
 const description =
     'Explore real AGENTS.md and CLAUDE.md examples, agent skills, and original analysis from open source projects. Read the source and borrow useful patterns.';
 
-export const metadata = {
+const baseMetadata = {
     title: { absolute: `${title} | ossrules.md` },
     description,
     alternates: { canonical: '/' },
@@ -32,7 +32,15 @@ export const metadata = {
     },
 };
 
-export default function AgentsMdPage() {
+type Props = { searchParams: Promise<ProjectSearchParams> };
+
+export async function generateMetadata({ searchParams }: Props) {
+    const listing = projectListing(getAgentsProjects(), projectSearchString(await searchParams));
+    return { ...baseMetadata, robots: { index: !listing.filtered, follow: true } };
+}
+
+export default async function AgentsMdPage({ searchParams }: Props) {
+    const initialSearch = projectSearchString(await searchParams);
     const projects = getAgentsProjects();
     const skillCount = getAllSkills().length;
     const totalStars = projects.reduce((total, project) => total + project.stars, 0);
@@ -76,9 +84,7 @@ export default function AgentsMdPage() {
                     </dl>
                 </header>
                 <section id="projects" aria-label="Projects">
-                    <Suspense fallback={<ProjectExplorerContent projects={projects} />}>
-                        <ProjectExplorer projects={projects} />
-                    </Suspense>
+                    <ProjectExplorer projects={projects} initialSearch={initialSearch} />
                 </section>
                 <div className="mt-10 flex flex-wrap items-center justify-between gap-4">
                     <p className="text-gray-550 text-sm">Different projects. Recurring ideas.</p>
