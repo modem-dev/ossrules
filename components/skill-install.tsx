@@ -38,10 +38,28 @@ export function SkillInstall({ command }: { command: string }) {
                     <path d="m4 6 4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
             </summary>
-            <div className="absolute left-0 top-full z-30 mt-2 flex w-[min(32rem,calc(100vw-3rem))] items-center gap-3 rounded border border-gray-750 bg-gray-850 p-3 shadow-lg sm:left-auto sm:right-0">
-                <code className="min-w-0 flex-1 font-mono text-xs leading-relaxed text-gray-400 [overflow-wrap:anywhere]">{command}</code>
-                <div className="shrink-0">
+            <div className="modem-surface absolute left-0 top-full z-30 mt-2 w-[min(44rem,calc(100vw-3rem))] overflow-hidden rounded border border-gray-750 shadow-lg sm:left-auto sm:right-0">
+                <div className="flex items-center justify-between gap-3 border-b border-gray-750 px-4 py-3">
+                    <p className="flex items-center gap-2 font-mono text-xs text-gray-550">
+                        <span aria-hidden className="text-teal">
+                            &gt;_
+                        </span>
+                        Run in your terminal
+                    </p>
                     <CopySource source={command} label="Copy install command" iconAfter />
+                </div>
+                <div className="flex items-start gap-3 px-4 py-4 font-mono text-xs leading-6">
+                    <span aria-hidden className="shrink-0 select-none text-teal">
+                        $
+                    </span>
+                    <section
+                        // biome-ignore lint/a11y/noNoninteractiveTabindex: keyboard users need to scroll the single-line command.
+                        tabIndex={0}
+                        aria-label="Install command"
+                        className="min-w-0 flex-1 overflow-x-auto whitespace-pre text-light-cream"
+                    >
+                        <code>{command}</code>
+                    </section>
                 </div>
             </div>
         </details>
