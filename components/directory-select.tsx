@@ -23,7 +23,7 @@ function Chevron({ up = false }: { up?: boolean }) {
     );
 }
 
-/** Shared directory filters with keyboard navigation, typeahead, and managed focus. */
+/** Shared select control with keyboard navigation, typeahead, and managed focus. */
 export function DirectorySelect({
     label,
     value,
@@ -31,6 +31,7 @@ export function DirectorySelect({
     options,
     active = false,
     prefix = '',
+    portalContainer,
 }: {
     label: string;
     value: string;
@@ -38,6 +39,7 @@ export function DirectorySelect({
     options: DirectoryOption[];
     active?: boolean;
     prefix?: string;
+    portalContainer?: HTMLElement | null;
 }) {
     const selected = options.find((option) => option.value === value);
     return (
@@ -56,7 +58,7 @@ export function DirectorySelect({
                     <Chevron />
                 </Select.Icon>
             </Select.Trigger>
-            <Select.Portal>
+            <Select.Portal container={portalContainer}>
                 <Select.Content className="directory-select-content" position="popper" sideOffset={6} collisionPadding={12}>
                     <Select.ScrollUpButton className="directory-select-scroll">
                         <Chevron up />
