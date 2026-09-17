@@ -1,11 +1,10 @@
 import path from 'node:path';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
-import Markdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
 import { remarkSkillFileLinks } from '@/lib/skill-file-links';
 import type { SkillHeading } from '@/lib/skill-outline';
 import { bundleFilePath, safeRelativePath } from '@/lib/skill-schema';
+import { DocumentMarkdown } from './document-markdown';
 
 export function SkillMarkdown({
     source,
@@ -64,28 +63,19 @@ export function SkillMarkdown({
         );
     }
     return (
-        <div className="skill-markdown">
-            <Markdown
-                remarkPlugins={[remarkGfm, [remarkSkillFileLinks, { currentFile, files }]]}
-                skipHtml
-                components={{
-                    a: ({ href, children }) => link(href ?? '', children),
-                    img: ({ src, alt }) => (typeof src === 'string' && src ? link(src, alt || 'View image') : null),
-                    table: ({ children }) => (
-                        <div className="overflow-x-auto">
-                            <table>{children}</table>
-                        </div>
-                    ),
-                    h1: ({ children, node }) => heading(1, children, node?.position?.start.line),
-                    h2: ({ children, node }) => heading(2, children, node?.position?.start.line),
-                    h3: ({ children, node }) => heading(3, children, node?.position?.start.line),
-                    h4: ({ children, node }) => heading(4, children, node?.position?.start.line),
-                    h5: ({ children, node }) => heading(5, children, node?.position?.start.line),
-                    h6: ({ children, node }) => heading(6, children, node?.position?.start.line),
-                }}
-            >
-                {source}
-            </Markdown>
-        </div>
+        <DocumentMarkdown
+            source={source}
+            plugins={[[remarkSkillFileLinks, { currentFile, files }]]}
+            components={{
+                a: ({ href, children }) => link(href ?? '', children),
+                img: ({ src, alt }) => (typeof src === 'string' && src ? link(src, alt || 'View image') : null),
+                h1: ({ children, node }) => heading(1, children, node?.position?.start.line),
+                h2: ({ children, node }) => heading(2, children, node?.position?.start.line),
+                h3: ({ children, node }) => heading(3, children, node?.position?.start.line),
+                h4: ({ children, node }) => heading(4, children, node?.position?.start.line),
+                h5: ({ children, node }) => heading(5, children, node?.position?.start.line),
+                h6: ({ children, node }) => heading(6, children, node?.position?.start.line),
+            }}
+        />
     );
 }
