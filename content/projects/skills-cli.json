@@ -23,7 +23,7 @@
     },
     "tagline": "A command-line tool for discovering, installing, and updating agent skills.",
     "hook": "Documents a credential-preserving GitHub fallback chain and compares skill-folder tree hashes to detect updates.",
-    "summary": "The Skills CLI guide maps commands to implementation files and explains the update algorithm step by step. It records lockfile compatibility, the reason for invoking the current CLI directly, and the generation workflow for supported-agent metadata.",
+    "summary": "The Skills CLI guide maps each command to its implementation and walks through the update algorithm. It also covers lockfile compatibility, why tests invoke the current CLI directly, and how supported-agent metadata is generated.",
     "references": [],
     "techniques": [
         {

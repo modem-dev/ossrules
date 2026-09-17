@@ -23,7 +23,7 @@
     },
     "tagline": "A collaborative code editor built in Rust around the GPUI interface framework.",
     "hook": "Root instruction symlinks lead to .rules, which separates agent-suggested rules from reviewer-approved additions.",
-    "summary": "Zed's AGENTS.md and CLAUDE.md resolve to a shared .rules file. The source combines Rust error-handling constraints, GPUI state and concurrency mechanics, a manual review marker, and a process for deciding which lessons become permanent instructions.",
+    "summary": "Zed's AGENTS.md and CLAUDE.md link to one .rules file. It covers Rust errors, GPUI state and concurrency, a manual-review marker, and the process for turning a lesson into a permanent rule.",
     "references": [
         {
             "path": ".factory/prompts/crash/investigate.md"

@@ -20,7 +20,7 @@ type Props = { searchParams: Promise<SkillSearchParams> };
 
 export async function generateMetadata({ searchParams }: Props) {
     const title = 'Skills from open-source projects';
-    const description = 'Explore agent skills, their original instructions, and bundled files from real open-source projects.';
+    const description = 'Browse agent skills, their instructions, and supporting files from open-source projects.';
     const image = ogImageUrl(title);
     return {
         title,
@@ -42,11 +42,9 @@ export default async function SkillsPage({ searchParams }: Props) {
             <SiteHeader />
             <main id="main" className="page-shell flex-1">
                 <header className="brand-masthead modem-surface">
-                    <p className="eyebrow">Skills / From real projects</p>
-                    <h1 className="page-title mt-5">Find the skill for the job.</h1>
-                    <p className="mt-5 max-w-2xl text-gray-550 text-base leading-relaxed">
-                        Explore task-specific agent workflows, their instructions, and the files they bring along.
-                    </p>
+                    <p className="eyebrow">Skills / Open-source projects</p>
+                    <h1 className="page-title mt-5">Browse agent skills.</h1>
+                    <p className="mt-5 max-w-2xl text-gray-550 text-base leading-relaxed">Read their instructions and supporting files.</p>
                 </header>
                 <div className="mt-8">
                     <SkillExplorer entries={entries} initialSearch={initialSearch} />

@@ -23,7 +23,7 @@
     },
     "tagline": "A Vite-powered testing framework for JavaScript and TypeScript.",
     "hook": "Warns that a passing typecheck can coexist with stale test output and names the package that rebuilding Vitest will miss.",
-    "summary": "Vitest's guide documents the boundaries between source checks, bundled output, test helpers, and CI coverage. It uses concrete command pairs and exception lists to prevent apparently successful local checks from testing the wrong files or overlooking generated output.",
+    "summary": "Vitest distinguishes source checks, bundled output, test helpers, and CI coverage. Command pairs and exception lists show when a successful local check has tested the wrong files or missed generated output.",
     "references": [
         {
             "path": "CONTRIBUTING.md"

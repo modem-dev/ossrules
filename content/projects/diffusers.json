@@ -23,7 +23,7 @@
     },
     "tagline": "A Python library for diffusion models and generative image, video, and audio pipelines.",
     "hook": "An 84-line shared guide routes to model, pipeline, testing, and reporting references while separating drafts from publication.",
-    "summary": "Both root instruction files resolve to .ai/AGENTS.md. The guide concentrates on setup, human approval boundaries, and dispatch to reference documents and skills, including a self-review pass shared with the project's CI reviewer.",
+    "summary": "Both root instruction files link to .ai/AGENTS.md. The guide covers setup, actions that need human approval, and which references or skills to read. Its self-review steps are shared with the project's CI reviewer.",
     "references": [
         {
             "path": ".ai/references/code_style.md"

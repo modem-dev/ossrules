@@ -32,7 +32,7 @@
         }
     ],
     "hook": "Skills are selected from their frontmatter before their full instructions enter the context.",
-    "summary": "Pierre keeps repository-wide instructions short and sends domain detail to task-specific skills. The root guide defines tool and dependency authorities, explains how agent environments affect task execution, and ties package licensing and verification rules to concrete checks.",
+    "summary": "Pierre keeps its root file short and puts domain detail in skills selected by task. The root names the authoritative tool and dependency files, explains limits of agent environments, and gives concrete checks for package licenses and verification.",
     "patterns": ["skill-routing", "single-source", "verification-matrix"],
     "techniques": [
         {

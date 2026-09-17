@@ -2,71 +2,71 @@
     "hard-prohibition": {
         "moves": ["Name the action", "Explain the risk", "Give an alternative"],
         "projects": ["uv", "langflow", "pi"],
-        "application": "Name the exact action that must not happen, explain the consequence, and give the permitted alternative. Keep exceptions explicit so a narrow safety rule does not become a ban on unrelated work."
+        "application": "Name the forbidden action, its consequence, and the permitted alternative. State any exceptions so the rule stays narrow."
     },
     "worked-examples": {
         "moves": ["Show the wrong case", "Show the right case", "Explain the difference"],
         "projects": ["better-auth", "hermes", "n8n"],
-        "application": "Choose a decision that prose alone leaves ambiguous. Show the unwanted case and the intended case close together, then explain the distinction the examples are meant to teach."
+        "application": "Use a pair where prose leaves room for doubt. Put the unwanted and intended cases together, then name the difference."
     },
     "generated-file-guard": {
         "moves": ["Mark generated output", "Name its editable source", "Give the rebuild command"],
         "projects": ["effect", "pi", "anarlog"],
-        "application": "Identify the generated file or region, its editable source, and the command that rebuilds it. State whether the generated diff belongs in the change and which nearby files remain hand-maintained."
+        "application": "Name the generated file, its editable source, and the rebuild command. Say whether to commit the output and which nearby files are still edited by hand."
     },
     "verification-matrix": {
         "moves": ["Identify the change", "Choose the matching checks", "Name gaps in coverage"],
         "projects": ["effect", "nextjs", "paperclip"],
-        "application": "Map each kind of change to the checks it needs. Include setup requirements and explain what the default command skips, so a passing narrow check is not mistaken for complete coverage."
+        "application": "List the checks for each kind of change. Include required setup and anything the default command skips."
     },
     "nested-instructions": {
         "moves": ["Keep shared rules at root", "Put detail near the code", "State what takes precedence"],
         "projects": ["gitbutler", "openclaw"],
-        "application": "Keep shared rules at the root and place subsystem guidance beside the code it describes. Explain how to find the applicable files and how to resolve conflicting instructions."
+        "application": "Keep shared rules at the root and local rules beside the code. Explain how to find the applicable files and which one wins when they conflict."
     },
     "single-source": {
         "moves": ["Identify the authority", "Link to it", "Avoid copying its values"],
         "projects": ["workers-sdk", "omarchy", "pierre"],
-        "application": "Link to the file that owns a changing fact instead of copying its value into instructions. Give enough context to locate and interpret that authority without creating another list to maintain."
+        "application": "Point to the file that owns a changing fact instead of copying the value. Add only enough context to find and understand it."
     },
     "skill-routing": {
         "moves": ["Recognize the task", "Point to its guide", "Load it when needed"],
         "projects": ["nuqs", "pierre", "supabase"],
-        "application": "Map recognizable tasks to specific guides and say when to read them. Keep the entry file useful as an index, with detailed workflows in the documents that own them."
+        "application": "Map common tasks to specific guides and say when to read them. Keep the entry file as an index; leave the detailed steps in the focused guides."
     },
     "behavioral-conditioning": {
         "moves": ["Name a recurring mistake", "Set a decision rule", "Make the action observable"],
         "projects": ["astro", "better-auth", "gitbutler"],
-        "application": "Turn a recurring mistake into a concrete decision rule: what to establish before editing, how far to expand scope, or when a question should stay read-only. Connect the rule to an observable action."
+        "application": "Turn a recurring mistake into a decision the agent can act on: what to check before editing, when to stop expanding scope, or when a request should remain read-only."
     },
     "house-vocabulary": {
         "moves": ["Define the term", "Show where it applies", "Preserve literal identifiers"],
         "projects": ["airflow", "t3code", "voicestudio"],
-        "application": "Define terms that are easy to confuse and specify where the convention applies. Preserve literal identifiers and quoted source when a prose convention would otherwise change their meaning."
+        "application": "Define terms that are easy to confuse and say where the convention applies. Do not change literal identifiers or quoted source to match a prose rule."
     },
     "architecture-narrative": {
         "moves": ["Follow a request", "Name each owner", "Explain the boundaries"],
         "projects": ["humanlayer", "hunk", "supermemory"],
-        "application": "Follow a request or piece of data through the system, naming the components and boundaries it crosses. Explain ownership and the reason for a boundary so readers can apply it to a new case."
+        "application": "Follow a request or piece of data through the system. Name who owns each step and why the boundaries exist."
     },
     "ratchet": {
         "moves": ["Name the baseline", "Set its allowed direction", "Check for regressions"],
         "projects": ["hunk", "n8n", "herdr"],
-        "application": "Name the baseline or compatibility boundary and the direction in which it may change. Pair the rule with an enforcement command, and explain any gaps that still require review."
+        "application": "Name the baseline and the only direction it may move. Include the enforcement command and any gaps that still need review."
     },
     "contribution-etiquette": {
         "moves": ["Identify the public action", "State who may take it", "Explain the review workflow"],
         "projects": ["deno", "turborepo", "varlock"],
-        "application": "Describe the project’s expectations for public actions, review updates, and commit or PR text. Explain workflow costs and permission boundaries before an agent opens, posts, or pushes something."
+        "application": "State who may open, post, or push something and what review steps come first. Include the rules for commit and pull-request text."
     },
     "scope-layering": {
         "moves": ["Identify the acting role", "Apply its permissions", "Define a fallback"],
         "projects": ["herdr", "nextjs", "turborepo"],
-        "application": "State how to determine which role or contribution context applies before listing its permissions. Include a fallback for cases where identity or access cannot be verified."
+        "application": "Explain how to identify the contributor’s role before listing its permissions. Use the most restricted role when identity or access cannot be verified."
     },
     "context-budget": {
         "moves": ["Name the context owner", "Set a size limit", "Protect prompt stability"],
         "projects": ["codex", "hermes", "openclaw"],
-        "application": "Give injected material an owner and a size limit. Describe when it is loaded, how it affects existing context, and which changes need extra review for cost or prompt stability."
+        "application": "Give injected material an owner and a size limit. Say when it loads and which changes need extra review for cost or prompt stability."
     }
 }

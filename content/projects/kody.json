@@ -111,7 +111,7 @@
         }
     ],
     "hook": "A 73-line index routes proposals through decision records and higher-risk changes through realistic preview testing.",
-    "summary": "Kody keeps its root instructions as a navigation layer over focused contributor documentation and skills. The index names one authoritative validation command, directs new product surfaces through prior decisions, and separates preview testing and cloud-agent setup from general repository guidance.",
+    "summary": "Kody's 73-line root file is an index to contributor docs and skills. It names one validation command, requires new product areas to follow earlier decisions, and sends preview testing and cloud-agent setup to their own guides.",
     "patterns": ["single-source", "skill-routing"],
     "techniques": [
         {

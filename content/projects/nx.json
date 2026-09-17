@@ -23,7 +23,7 @@
     },
     "tagline": "A build system and workspace toolkit for monorepos and their plugins.",
     "hook": "Selects planning or implementation from the request, then expands validation from the changed project to affected projects and E2E tests.",
-    "summary": "Nx's AGENTS.md combines contributor workflows with a generated block of workspace guidance. It routes documentation work to the Astro site guide, distinguishes issue-analysis requests from implementation requests, and explains how to test local packages in another repository.",
+    "summary": "Nx's AGENTS.md contains contributor workflows and a generated workspace section. It sends documentation work to the Astro site guide, distinguishes issue analysis from implementation, and explains how to test local packages in another repository.",
     "references": [
         {
             "path": "astro-docs/README.md"

@@ -36,7 +36,7 @@
         }
     ],
     "hook": "Opens with four sections on how to approach work, before any repository detail.",
-    "summary": "The first third contains no Astro-specific content: it covers stating assumptions, scope, and success criteria. The rest is a tooling guide covering the monorepo layout, test invocation, background dev servers and browser automation.",
+    "summary": "The first third is not Astro-specific. It covers assumptions, scope, and success criteria. The rest maps the monorepo and explains tests, background development servers, and browser automation.",
     "patterns": ["behavioral-conditioning", "skill-routing", "hard-prohibition", "house-vocabulary"],
     "techniques": [
         {

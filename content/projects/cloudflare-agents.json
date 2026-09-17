@@ -23,7 +23,7 @@
     },
     "tagline": "An SDK for building stateful AI agents on Cloudflare Workers.",
     "hook": "Separates SDK tests, browser hook tests, and type tests, with a coverage matrix mapping features to CI evidence.",
-    "summary": "The Cloudflare Agents root guide distinguishes published packages, examples, tutorials, and design records. It routes each area to local instructions, documents the runtime and browser test split, and treats generated bindings and public-package releases as separate workflows.",
+    "summary": "Cloudflare Agents gives packages, examples, tutorials, and design records their own local instructions. The root guide explains the split between runtime and browser tests, generated bindings, and public package releases.",
     "references": [
         {
             "path": "packages/agents/AGENTS.md"
