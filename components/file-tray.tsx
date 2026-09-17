@@ -350,8 +350,10 @@ export function FileTrayProvider({
 
     useEffect(() => {
         if (!isOpen) return;
-        // Check the initial target before the select changes pointer-event handling.
         const onPointerDown = (event: PointerEvent) => {
+            // Radix disables pointer events outside its menu, including on the trigger.
+            // Let the open menu consume dismissal before considering the reader below it.
+            if (panel.current?.querySelector('[role="combobox"][aria-expanded="true"]')) return;
             const target = event.target;
             if (!(target instanceof Element) || panel.current?.contains(target)) return;
             // Another source link replaces the pane's content instead of dismissing it.
@@ -363,10 +365,11 @@ export function FileTrayProvider({
             event.preventDefault();
             close();
         };
-        document.addEventListener('pointerdown', onPointerDown);
+        // Observe the open menu before Radix dismisses it during the bubble phase.
+        document.addEventListener('pointerdown', onPointerDown, true);
         document.addEventListener('keydown', onKeyDown);
         return () => {
-            document.removeEventListener('pointerdown', onPointerDown);
+            document.removeEventListener('pointerdown', onPointerDown, true);
             document.removeEventListener('keydown', onKeyDown);
         };
     }, [isOpen, close]);
