@@ -29,6 +29,7 @@ import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { instructionImports, localTarget, resolveSymlink } from '../lib/instruction-files';
+import { countSourceLines } from '../lib/instruction-measurements';
 import { isInstructionPath } from '../lib/instruction-path';
 import { excludedSkillPath } from '../lib/skill-schema';
 
@@ -199,7 +200,7 @@ async function syncEntry(entry: Entry, problems: string[]): Promise<{ changed: b
                 record = {
                     path: filePath,
                     bytes: bytes.length,
-                    lines: source.split('\n').length - 1,
+                    lines: countSourceLines(source),
                     ...(truncated ? { truncated: true } : {}),
                 };
                 if (node.mode === '120000') {

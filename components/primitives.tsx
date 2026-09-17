@@ -31,8 +31,8 @@ export function FileStatGrid({ project, tokens }: { project: AgentsProject; toke
         { value: tokens?.toLocaleString('en-US') ?? 'Unavailable', label: 'Tokens', hint: tokens === undefined ? undefined : 'o200k_base' },
         { value: `${(project.file.bytes / 1024).toFixed(1)}kB`, label: 'File size' },
         { value: String(project.file.headings), label: 'Headings' },
-        { value: String(project.file.bullets), label: 'Bullet rules' },
-        { value: String(project.file.codeBlocks), label: 'Code blocks' },
+        { value: String(project.file.bullets), label: 'Bullet lines' },
+        { value: String(project.file.codeBlocks), label: 'Fenced code blocks' },
         {
             value: String(project.file.docLinks),
             label: 'Links to other docs',

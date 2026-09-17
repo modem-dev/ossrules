@@ -12,7 +12,7 @@
         {
             "path": "CLAUDE.md",
             "bytes": 10,
-            "lines": 0,
+            "lines": 1,
             "imports": [
                 {
                     "target": "AGENTS.md",
