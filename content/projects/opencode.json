@@ -18,18 +18,18 @@
         "words": 1234,
         "headings": 13,
         "bullets": 36,
-        "codeBlocks": 12,
+        "codeBlocks": 6,
         "docLinks": 0
     },
     "references": [],
-    "hook": "Twelve code blocks in 161 lines; most style rules show the wrong version beside the right one.",
-    "summary": "A style guide that argues against abstraction, followed by a set of runtime invariants for its session core. The highest ratio of code to prose in the directory.",
+    "hook": "Six fenced code blocks in 161 lines; most style rules show the wrong version beside the right one.",
+    "summary": "A style guide that argues against abstraction, followed by a set of runtime invariants for its session core. Five fenced examples pair good and bad code; another demonstrates a helper-based happy path.",
     "patterns": ["worked-examples", "hard-prohibition", "generated-file-guard", "architecture-narrative", "behavioral-conditioning"],
     "techniques": [
         {
             "pattern": "worked-examples",
             "title": "Paired examples throughout",
-            "body": "Destructuring, variable count, control flow and schema definitions each get a two-block comparison. The rule is stated in one line and then shown twice, marked good and bad."
+            "body": "Destructuring, variable count, control flow and schema definitions each get good and bad examples within one fenced block. The rule is stated in one line and then shown twice, marked good and bad."
         },
         {
             "pattern": "behavioral-conditioning",

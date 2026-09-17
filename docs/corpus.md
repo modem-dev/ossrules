@@ -35,6 +35,14 @@ pnpm build
 | `pnpm sync:files` | Downloads every file an entry reads, pinned to its `lastCommit.sha`, into `public/files/`. `--slug x` for one project, `--check` to verify without writing. |
 | `pnpm refresh` | Re-measures each file against upstream and names entries whose source has changed since it was read. `--write` applies the mechanical updates and re-runs the sync. |
 | `pnpm validate` | Schema, slug/filename agreement, avatar present, no duplicate repo, and that every vendored copy is present and from the commit its entry pins. Offline; runs as part of `pnpm lint`. |
+| `pnpm measure:files` | Checks measurements against complete pinned source, including manifest line counts. Offline; runs as part of `pnpm lint`. `--write` corrects generated measurements without changing source bytes, commits, or analysis dates. |
+
+`pnpm measure:files --file /path/to/AGENTS.md` prints measurements for one file.
+Fenced code blocks are counted with a Markdown parser, including tilde fences,
+nested blocks, and unclosed fences. Line counts include a final line without a
+newline. Bullet lines are literal `-` or `*` list prefixes, not a count of rules;
+words use JavaScript whitespace splitting. After correcting measurements,
+review authored copy that repeats an affected count.
 
 Entries go stale two ways and only one is mechanical. Measurements and commits a
 script can re-derive; when the file itself has changed, the analysis describes a

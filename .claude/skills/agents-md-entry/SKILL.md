@@ -107,13 +107,15 @@ Every number in `file` is measured. Never estimate, and never adjust a stale
 number by eye — re-run this:
 
 ```bash
-f=/tmp/<slug>.md
-echo "bytes=$(wc -c < $f) lines=$(wc -l < $f) words=$(wc -w < $f)"
-echo "headings=$(grep -cE '^#{1,6} ' $f)"
-echo "bullets=$(grep -cE '^\s*[-*] ' $f)"
-echo "codeBlocks=$(grep -cE '^\s*```' $f)"
-echo "docLinks=$(grep -oE '\]\([^)h][^)]*\)' $f | wc -l)"
+pnpm measure:files --file /tmp/<slug>.md
 ```
+
+Use the shared measurement command rather than counting fence markers. Fenced
+code blocks are parsed as Markdown, so opening and closing fences count once.
+Lines include a final unterminated line; bullet lines count raw `-` or `*` list
+prefixes, not inferred rules. To correct measurements for existing entries at
+their pinned revisions, run `pnpm measure:files --write`. This does not change
+commits or analysis dates; review authored copy that repeats affected counts.
 
 `docLinks` counts relative links out to other files in the same repo. A high
 count relative to length is what distinguishes a router from a self-contained
