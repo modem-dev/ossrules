@@ -3,9 +3,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import type { SkillContributions } from '@/lib/skill-contributors';
 import { skillListing } from '@/lib/skill-list';
+import { SKILL_TASKS, type SkillTask } from '@/lib/skill-tasks';
 import { DirectorySelect } from './directory-select';
 import { SkillContributors } from './skill-contributors';
 
@@ -13,6 +14,7 @@ export interface SkillEntry {
     id: string;
     href: string;
     name: string;
+    tasks?: SkillTask[];
     description: string;
     path: string;
     files: number;
@@ -46,7 +48,14 @@ function SkillExplorerContent({
     projectOnly?: boolean;
     search?: string;
 }) {
-    const { query, project, resources, visible, pageCount, page, start, pageEntries } = skillListing(entries, search, projectOnly);
+    const { query, project, resources, task, visible, pageCount, page, start, pageEntries } = skillListing(entries, search, projectOnly);
+    const [allTasks, setAllTasks] = useState(false);
+    const taskSearch = new URLSearchParams(search);
+    taskSearch.delete('task');
+    taskSearch.delete('page');
+    const taskEntries = skillListing(entries, taskSearch.toString(), projectOnly).visible;
+    const taskCounts = new Map(SKILL_TASKS.map(({ id }) => [id, taskEntries.filter((entry) => entry.tasks?.includes(id)).length]));
+    const shownTasks = SKILL_TASKS.filter((item, index) => allTasks || index < 8 || item.id === task);
     const resultsRef = useRef<HTMLDivElement>(null);
     function remember(values: Record<string, string>) {
         const url = new URL(window.location.href);
@@ -144,6 +153,37 @@ function SkillExplorerContent({
                     With supporting files
                 </label>
             </div>
+            <nav aria-label="Browse by task" className="mt-4 border-b border-gray-750 pb-4">
+                <p className="mb-2 font-mono text-[11px] text-gray-600">Browse by task</p>
+                <div className="flex flex-wrap items-center gap-2">
+                    {[{ id: '', label: 'All skills' }, ...shownTasks].map((item) => (
+                        <button
+                            key={item.id}
+                            type="button"
+                            aria-pressed={task === item.id}
+                            onClick={() => remember({ task: item.id })}
+                            className={`inline-flex min-h-9 items-center gap-2 rounded border px-3 py-1.5 text-xs ${
+                                task === item.id
+                                    ? 'border-teal bg-dark-teal text-teal'
+                                    : 'border-gray-750 text-gray-550 hover:border-teal hover:text-teal'
+                            }`}
+                        >
+                            {item.label}
+                            <span className="font-mono text-[11px]">
+                                {item.id ? taskCounts.get(item.id as SkillTask) : taskEntries.length}
+                            </span>
+                        </button>
+                    ))}
+                    <button
+                        type="button"
+                        aria-expanded={allTasks}
+                        onClick={() => setAllTasks(!allTasks)}
+                        className="min-h-9 px-2 text-xs text-teal hover:underline"
+                    >
+                        {allTasks ? 'Fewer tasks ↑' : 'All tasks ↓'}
+                    </button>
+                </div>
+            </nav>
             <div ref={resultsRef} tabIndex={-1} className="flex scroll-mt-6 flex-wrap items-center justify-between gap-x-6 gap-y-1 py-4">
                 <p role="status" className="font-mono text-[11px] text-gray-600">
                     {visible.length ? `${start + 1}–${start + pageEntries.length} of ` : ''}
@@ -170,6 +210,20 @@ function SkillExplorerContent({
                                 </p>
                             </Link>
                             <p className="mt-3 break-all font-mono text-[10px] text-gray-600">{entry.path}</p>
+                            {entry.tasks?.length ? (
+                                <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1">
+                                    {entry.tasks.slice(0, 2).map((id) => (
+                                        <button
+                                            key={id}
+                                            type="button"
+                                            onClick={() => remember({ task: id })}
+                                            className="min-h-8 text-[11px] text-teal hover:underline"
+                                        >
+                                            {SKILL_TASKS.find((item) => item.id === id)?.label}
+                                        </button>
+                                    ))}
+                                </div>
+                            ) : null}
                             <div className="mt-5 flex flex-wrap items-center justify-between gap-3 font-mono text-[11px] text-gray-600">
                                 {!projectOnly ? (
                                     <Link href={entry.project.href} className="inline-flex items-center gap-2 text-teal hover:underline">
@@ -212,7 +266,7 @@ function SkillExplorerContent({
                         type="button"
                         className="action-link mt-5"
                         onClick={() => {
-                            remember({ q: '', project: '', resources: '' });
+                            remember({ q: '', project: '', resources: '', task: '' });
                         }}
                     >
                         Clear filters
