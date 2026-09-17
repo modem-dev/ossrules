@@ -64,7 +64,6 @@
     overscroll-behavior: contain;
     scrollbar-width: thin;
     padding: 0.25rem;
-    margin: -0.25rem;
 }
 .skill-outline :where(nav a) {
     display: block;
