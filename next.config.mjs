@@ -3,6 +3,8 @@ import path from 'node:path';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    // Prerender the pinned corpus while query-dependent controls stream separately.
+    cacheComponents: true,
     images: {
         localPatterns: [
             { pathname: '/**', search: '' },

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Suspense } from 'react';
 import { PATTERNS } from '@/components/agents-md-data';
 import { JsonLd } from '@/components/json-ld';
 import { ProjectExplorer } from '@/components/project-explorer';
@@ -39,8 +40,12 @@ export async function generateMetadata({ searchParams }: Props) {
     return { ...baseMetadata, robots: { index: !listing.filtered, follow: true } };
 }
 
-export default async function AgentsMdPage({ searchParams }: Props) {
+async function ProjectResults({ searchParams }: Props) {
     const initialSearch = projectSearchString(await searchParams);
+    return <ProjectExplorer projects={getProjectListings()} initialSearch={initialSearch} />;
+}
+
+export default function AgentsMdPage({ searchParams }: Props) {
     const projects = getProjectListings();
     const skillCount = getAllSkills().length;
     const totalStars = projects.reduce((total, project) => total + project.stars, 0);
@@ -84,7 +89,15 @@ export default async function AgentsMdPage({ searchParams }: Props) {
                     </dl>
                 </header>
                 <section id="projects" aria-label="Projects">
-                    <ProjectExplorer projects={projects} initialSearch={initialSearch} />
+                    <Suspense
+                        fallback={
+                            <p role="status" className="py-12 text-gray-550 text-sm">
+                                Loading projects…
+                            </p>
+                        }
+                    >
+                        <ProjectResults searchParams={searchParams} />
+                    </Suspense>
                 </section>
                 <div className="mt-10 flex flex-wrap items-center justify-between gap-4">
                     <p className="text-gray-550 text-sm">Different projects. Recurring ideas.</p>

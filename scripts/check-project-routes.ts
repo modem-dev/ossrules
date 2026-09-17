@@ -81,6 +81,14 @@ async function main() {
         'next project retains the collection',
     );
     assert.ok(selectedProject.includes('href="/?language=TypeScript&amp;sort=name"'), 'breadcrumb returns to the collection');
+    // Cached analysis is shared across collections, but navigation must not be.
+    const defaultProject = await page(firstPath);
+    assert.ok(!defaultProject.includes('?language=TypeScript&amp;sort=name"'), 'cached project does not retain a previous filter');
+    const selectedAgain = await page(`${firstPath}?${collection}`, firstPath);
+    assert.ok(
+        selectedAgain.includes(`href="/${nextProject.owner}/${nextProject.repo}?language=TypeScript&amp;sort=name"`),
+        'collection navigation survives a shared-cache hit after an unfiltered visit',
+    );
     await page(
         `${firstPath}?source=${encodeURIComponent(firstProject.instructionFile ?? 'AGENTS.md')}&rev=${firstProject.lastCommit.sha}&line=2&view=raw`,
         firstPath,

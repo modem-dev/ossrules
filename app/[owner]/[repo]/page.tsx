@@ -1,7 +1,10 @@
+import { cacheLife } from 'next/cache';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { type ReactNode, Suspense } from 'react';
 import {
+    type AgentsProject,
     agentsFileCommitUrl,
     formatStars,
     logoSrc,
@@ -22,6 +25,7 @@ import { ProjectTitle } from '@/components/project-title';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import {
+    getAgentsProject,
     getAgentsProjectByRepository,
     getAgentsProjects,
     getAgentsSource,
@@ -56,6 +60,88 @@ function ProjectPageNavigation() {
                 ))}
             </ul>
         </nav>
+    );
+}
+
+type CollectionProps = { project: AgentsProject; searchParams: Promise<ProjectSearchParams> };
+
+// Only these links depend on the request. The analysis and source measurements
+// can stay in the prerendered page and be prefetched before a reader clicks.
+async function CollectionBreadcrumb({ searchParams }: Pick<CollectionProps, 'searchParams'>) {
+    const listing = projectListing(getAgentsProjects(), projectSearchString(await searchParams));
+    return (
+        <Link href={withProjectSearch('/', listing.canonicalSearch)} className="text-teal hover:underline">
+            Projects
+        </Link>
+    );
+}
+
+async function CollectionTabs({ project, searchParams }: CollectionProps) {
+    const listing = projectListing(getAgentsProjects(), projectSearchString(await searchParams));
+    return (
+        <ProjectTabs
+            project={project}
+            skills={getSkillManifest(project.slug)?.skills.length}
+            active="instructions"
+            instructionSearch={listing.canonicalSearch}
+        />
+    );
+}
+
+async function MoreProjects({ project, searchParams }: CollectionProps) {
+    const {
+        previous,
+        next,
+        search: collectionSearch,
+    } = projectNeighbors(getAgentsProjects(), project.slug, projectSearchString(await searchParams));
+    return (
+        <>
+            {previous || next ? (
+                <nav aria-label="More projects" className="mt-14 grid gap-4 sm:grid-cols-2">
+                    {[
+                        { project: previous, direction: 'Previous', arrow: '←' },
+                        { project: next, direction: 'Next', arrow: '→' },
+                    ].map(({ project: neighbor, direction, arrow }) =>
+                        neighbor ? (
+                            <Link
+                                key={direction}
+                                href={withProjectSearch(projectHref(neighbor), collectionSearch)}
+                                rel={direction === 'Previous' ? 'prev' : 'next'}
+                                className="group min-w-0 rounded-md border border-gray-750 bg-medium-gray p-5 transition-colors hover:border-teal"
+                            >
+                                <span className={`eyebrow flex items-center gap-2 ${direction === 'Next' ? 'justify-end' : ''}`}>
+                                    {direction === 'Previous' ? <span aria-hidden>{arrow}</span> : null}
+                                    {direction}
+                                    {direction === 'Next' ? <span aria-hidden>{arrow}</span> : null}
+                                </span>
+                                <span className="mt-4 flex items-center gap-3">
+                                    <Image
+                                        src={logoSrc(neighbor)}
+                                        alt=""
+                                        width={40}
+                                        height={40}
+                                        className="size-10 shrink-0 rounded-md bg-gray-800 object-cover"
+                                    />
+                                    <span className="min-w-0">
+                                        <span className="block font-mono text-base transition-colors group-hover:text-teal">
+                                            {neighbor.name}
+                                        </span>
+                                        <span className="mt-1 block truncate font-mono text-[11px] text-gray-600">
+                                            {neighbor.owner}/{neighbor.repo}
+                                        </span>
+                                    </span>
+                                </span>
+                                <span className="mt-4 line-clamp-2 text-gray-550 text-sm leading-relaxed">{neighbor.tagline}</span>
+                                <span className="mt-4 flex flex-wrap gap-x-4 gap-y-1 font-mono text-[11px] text-gray-600">
+                                    <span>{neighbor.file.lines.toLocaleString('en-US')} lines</span>
+                                    <span>{formatStars(neighbor.stars)} stars</span>
+                                </span>
+                            </Link>
+                        ) : null,
+                    )}
+                </nav>
+            ) : null}
+        </>
     );
 }
 
@@ -106,9 +192,31 @@ export default async function AgentsMdProjectPage({
         notFound();
     }
 
-    const search = projectSearchString(await searchParams);
-    const listing = projectListing(getAgentsProjects(), search);
-    const { previous, next, search: collectionSearch } = projectNeighbors(getAgentsProjects(), project.slug, search);
+    return (
+        <ProjectContent
+            slug={project.slug}
+            breadcrumb={<CollectionBreadcrumb searchParams={searchParams} />}
+            tabs={<CollectionTabs project={project} searchParams={searchParams} />}
+            neighbors={<MoreProjects project={project} searchParams={searchParams} />}
+        />
+    );
+}
+
+async function ProjectContent({
+    slug,
+    breadcrumb,
+    tabs,
+    neighbors,
+}: {
+    slug: string;
+    breadcrumb: ReactNode;
+    tabs: ReactNode;
+    neighbors: ReactNode;
+}) {
+    'use cache';
+    cacheLife('max');
+    const project = getAgentsProject(slug);
+    if (!project) notFound();
 
     // Local copies of the files this AGENTS.md reads, pinned to the same commit
     // the entry was measured at. See scripts/sync-agents-md-files.ts.
@@ -146,9 +254,7 @@ export default async function AgentsMdProjectPage({
                         aria-label="Breadcrumb"
                         className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[11px] text-gray-600"
                     >
-                        <Link href={withProjectSearch('/', listing.canonicalSearch)} className="text-teal hover:underline">
-                            Projects
-                        </Link>
+                        <Suspense fallback={<span className="text-teal">Projects</span>}>{breadcrumb}</Suspense>
                         <span aria-hidden>/</span>
                         <a href={repoUrl(project)} target="_blank" rel="noopener noreferrer" className="break-all hover:text-teal">
                             {project.owner}/{project.repo} ↗
@@ -160,12 +266,13 @@ export default async function AgentsMdProjectPage({
                             Read {primaryFile}
                         </FileLink>
                     </header>
-                    <ProjectTabs
-                        project={project}
-                        skills={getSkillManifest(project.slug)?.skills.length}
-                        active="instructions"
-                        instructionSearch={listing.canonicalSearch}
-                    />
+                    <Suspense
+                        fallback={
+                            <ProjectTabs project={project} skills={getSkillManifest(project.slug)?.skills.length} active="instructions" />
+                        }
+                    >
+                        {tabs}
+                    </Suspense>
 
                     <div className="project-mobile-navigation">
                         <ProjectPageNavigation />
@@ -297,51 +404,7 @@ export default async function AgentsMdProjectPage({
                         </aside>
                     </div>
 
-                    {previous || next ? (
-                        <nav aria-label="More projects" className="mt-14 grid gap-4 sm:grid-cols-2">
-                            {[
-                                { project: previous, direction: 'Previous', arrow: '←' },
-                                { project: next, direction: 'Next', arrow: '→' },
-                            ].map(({ project: neighbor, direction, arrow }) =>
-                                neighbor ? (
-                                    <Link
-                                        key={direction}
-                                        href={withProjectSearch(projectHref(neighbor), collectionSearch)}
-                                        rel={direction === 'Previous' ? 'prev' : 'next'}
-                                        className="group min-w-0 rounded-md border border-gray-750 bg-medium-gray p-5 transition-colors hover:border-teal"
-                                    >
-                                        <span className={`eyebrow flex items-center gap-2 ${direction === 'Next' ? 'justify-end' : ''}`}>
-                                            {direction === 'Previous' ? <span aria-hidden>{arrow}</span> : null}
-                                            {direction}
-                                            {direction === 'Next' ? <span aria-hidden>{arrow}</span> : null}
-                                        </span>
-                                        <span className="mt-4 flex items-center gap-3">
-                                            <Image
-                                                src={logoSrc(neighbor)}
-                                                alt=""
-                                                width={40}
-                                                height={40}
-                                                className="size-10 shrink-0 rounded-md bg-gray-800 object-cover"
-                                            />
-                                            <span className="min-w-0">
-                                                <span className="block font-mono text-base transition-colors group-hover:text-teal">
-                                                    {neighbor.name}
-                                                </span>
-                                                <span className="mt-1 block truncate font-mono text-[11px] text-gray-600">
-                                                    {neighbor.owner}/{neighbor.repo}
-                                                </span>
-                                            </span>
-                                        </span>
-                                        <span className="mt-4 line-clamp-2 text-gray-550 text-sm leading-relaxed">{neighbor.tagline}</span>
-                                        <span className="mt-4 flex flex-wrap gap-x-4 gap-y-1 font-mono text-[11px] text-gray-600">
-                                            <span>{neighbor.file.lines.toLocaleString('en-US')} lines</span>
-                                            <span>{formatStars(neighbor.stars)} stars</span>
-                                        </span>
-                                    </Link>
-                                ) : null,
-                            )}
-                        </nav>
-                    ) : null}
+                    <Suspense fallback={null}>{neighbors}</Suspense>
                     <ModemSponsor>
                         {project.name}&apos;s file tells an agent how the codebase works. It cannot tell it which bug three customers hit
                         this week. Modem keeps that context current and attaches it to the work.
