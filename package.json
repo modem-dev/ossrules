@@ -25,6 +25,7 @@
     "dependencies": {
         "@radix-ui/react-select": "^2.3.7",
         "@radix-ui/react-tabs": "^1.1.21",
+        "@vercel/analytics": "^2.0.1",
         "fflate": "^0.8.3",
         "js-tiktoken": "^1.0.21",
         "mdast-util-from-markdown": "^2.0.3",
