@@ -51,6 +51,9 @@
 .skill-outline {
     position: sticky;
     top: 6.5rem;
+    max-height: calc(100svh - 8rem);
+    overflow-y: auto;
+    scrollbar-width: thin;
     min-width: 0;
     grid-column: 1;
     grid-row: 1;
@@ -61,7 +64,6 @@
     overscroll-behavior: contain;
     scrollbar-width: thin;
     padding: 0.25rem;
-    margin: -0.25rem;
 }
 .skill-outline :where(nav a) {
     display: block;
@@ -321,6 +323,8 @@
         gap: 1.25rem;
     }
     .skill-outline {
+        max-height: none;
+        overflow: visible;
         position: static;
         grid-column: auto;
         grid-row: auto;

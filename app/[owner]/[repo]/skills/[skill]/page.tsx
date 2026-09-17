@@ -2,7 +2,7 @@ import path from 'node:path';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { logoSrc } from '@/components/agents-md-data';
+import { formatStars, logoSrc, STATS_AS_OF } from '@/components/agents-md-data';
 import { CopySource } from '@/components/copy-source';
 import { Excerpt } from '@/components/primitives';
 import { SiteFooter } from '@/components/site-footer';
@@ -90,10 +90,22 @@ export default async function SkillPage({
                         Projects
                     </Link>
                     <span aria-hidden>/</span>
-                    <Link href={projectHref(project)} className="inline-flex items-center gap-2 text-teal hover:underline">
-                        <Image src={logoSrc(project)} alt="" width={22} height={22} className="size-5 rounded object-cover" />
-                        {project.name}
-                    </Link>
+                    <span className="inline-flex min-w-0 items-center gap-2">
+                        <Link href={projectHref(project)} className="min-w-0 break-all text-teal hover:underline">
+                            {project.owner}/{project.repo}
+                        </Link>
+                        <a
+                            href={`https://github.com/${project.owner}/${project.repo}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex shrink-0 items-center gap-1 text-gray-550 hover:text-teal"
+                            aria-label={`${project.stars.toLocaleString('en')} GitHub stars (opens in a new tab)`}
+                            title={`${project.stars.toLocaleString('en')} GitHub stars · ${STATS_AS_OF} snapshot`}
+                        >
+                            <span aria-hidden>☆</span>
+                            {formatStars(project.stars)}
+                        </a>
+                    </span>
                     <span aria-hidden>/</span>
                     <Link href={projectSkillsHref(project)} className="text-teal hover:underline">
                         Skills
@@ -101,7 +113,16 @@ export default async function SkillPage({
                 </nav>
                 <header className="skill-page-header mt-9 flex flex-col items-start justify-between gap-5 sm:flex-row">
                     <div className="min-w-0 flex-1">
-                        <h1 className="page-title [overflow-wrap:anywhere]">{skill.name}</h1>
+                        <div className="flex items-center gap-3 sm:gap-4">
+                            <Image
+                                src={logoSrc(project)}
+                                alt=""
+                                width={48}
+                                height={48}
+                                className="size-9 shrink-0 rounded object-cover sm:size-12"
+                            />
+                            <h1 className="page-title min-w-0 [overflow-wrap:anywhere]">{skill.name}</h1>
+                        </div>
                         <p className="mt-4 max-w-3xl text-gray-500 text-sm leading-relaxed [overflow-wrap:anywhere]">{skill.description}</p>
                         {metadata?.tags?.length ? (
                             <ul className="skill-tags" aria-label="Tags declared in SKILL.md">
@@ -127,11 +148,17 @@ export default async function SkillPage({
                         )}
                     </div>
                 </header>
-                <div className="skill-snapshot mt-6 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[11px] text-gray-600">
+                <div className="skill-snapshot mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[11px] text-gray-600">
                     <a href={`https://github.com/${manifest.repository}/tree/${manifest.sha}`} className="hover:text-teal">
                         {manifest.branch} · {manifest.sha.slice(0, 7)} ↗
                     </a>
                     <span>Scanned {manifest.scannedAt.slice(0, 10)}</span>
+                    <SkillContributors
+                        contributions={skill.contributions}
+                        historyUrl={`https://github.com/${manifest.repository}/commits/${manifest.sha}/${skill.path.split('/').map(encodeURIComponent).join('/')}`}
+                        skillName={skill.name}
+                        align="start"
+                    />
                 </div>
                 <div className="skill-reader">
                     <aside className="skill-outline" aria-label="Document navigation">
@@ -144,6 +171,39 @@ export default async function SkillPage({
                                     : undefined
                             }
                         />
+                        <section className="skill-file-metadata font-mono text-[11px] text-gray-600" aria-label="Source and license">
+                            <details>
+                                <summary className="text-teal">Source &amp; attribution</summary>
+                                <p className="mt-4 [overflow-wrap:anywhere]">{skill.path}</p>
+                                <a
+                                    href={`https://github.com/${manifest.repository}/tree/${manifest.sha}`}
+                                    className="mt-3 block text-teal hover:underline"
+                                >
+                                    {manifest.branch} · {manifest.sha.slice(0, 7)} ↗
+                                </a>
+                                <p className="mt-3">Scanned {manifest.scannedAt.slice(0, 10)}</p>
+                                <p className="eyebrow mt-6 mb-2">License</p>
+                                {skill.license ? <p className="[overflow-wrap:anywhere]">{skill.license}</p> : null}
+                                {manifest.repositoryLicense ? (
+                                    <a
+                                        href={skillSourceUrl(manifest, manifest.repositoryLicense.path)}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="mt-2 block text-teal hover:underline"
+                                    >
+                                        Repository license ↗
+                                    </a>
+                                ) : (
+                                    <p>Not declared in the snapshot.</p>
+                                )}
+                                {skill.compatibility ? (
+                                    <>
+                                        <p className="eyebrow mt-6 mb-2">Compatibility</p>
+                                        <p className="[overflow-wrap:anywhere]">{skill.compatibility}</p>
+                                    </>
+                                ) : null}
+                            </details>
+                        </section>
                     </aside>
                     <article className="skill-document min-w-0" aria-label={`${file.path} content`}>
                         <header className="skill-document-header">
@@ -256,47 +316,6 @@ export default async function SkillPage({
                             </details>
                         ) : null}
                     </article>
-                    <aside className="skill-file-metadata font-mono text-[11px] text-gray-600" aria-label="Source and license">
-                        <details>
-                            <summary className="text-teal">Source &amp; attribution</summary>
-                            <p className="mt-4 [overflow-wrap:anywhere]">{skill.path}</p>
-                            <a
-                                href={`https://github.com/${manifest.repository}/tree/${manifest.sha}`}
-                                className="mt-3 block text-teal hover:underline"
-                            >
-                                {manifest.branch} · {manifest.sha.slice(0, 7)} ↗
-                            </a>
-                            <p className="mt-3">Scanned {manifest.scannedAt.slice(0, 10)}</p>
-                            <div className="mt-3">
-                                <SkillContributors
-                                    contributions={skill.contributions}
-                                    historyUrl={`https://github.com/${manifest.repository}/commits/${manifest.sha}/${skill.path.split('/').map(encodeURIComponent).join('/')}`}
-                                    skillName={skill.name}
-                                    align="start"
-                                />
-                            </div>
-                            <p className="eyebrow mt-6 mb-2">License</p>
-                            {skill.license ? <p className="[overflow-wrap:anywhere]">{skill.license}</p> : null}
-                            {manifest.repositoryLicense ? (
-                                <a
-                                    href={skillSourceUrl(manifest, manifest.repositoryLicense.path)}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="mt-2 block text-teal hover:underline"
-                                >
-                                    Repository license ↗
-                                </a>
-                            ) : (
-                                <p>Not declared in the snapshot.</p>
-                            )}
-                            {skill.compatibility ? (
-                                <>
-                                    <p className="eyebrow mt-6 mb-2">Compatibility</p>
-                                    <p className="[overflow-wrap:anywhere]">{skill.compatibility}</p>
-                                </>
-                            ) : null}
-                        </details>
-                    </aside>
                 </div>
                 <div className="mt-12 flex flex-wrap justify-between gap-4 text-teal text-sm">
                     <Link href={projectSkillsHref(project)}>← All {project.name} skills</Link>

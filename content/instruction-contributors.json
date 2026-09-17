@@ -1,0 +1,3707 @@
+{
+    "ag-ui": {
+        "repository": "ag-ui-protocol/ag-ui",
+        "sha": "45f4fea34e9c69a3fdb5d243381c36eafeb8f6af",
+        "path": "CLAUDE.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 247775,
+                    "login": "mme",
+                    "commits": 2
+                },
+                {
+                    "id": 18480956,
+                    "login": "AlemTuzlak",
+                    "commits": 1
+                },
+                {
+                    "id": 1302526,
+                    "login": "maxkorp",
+                    "commits": 1
+                },
+                {
+                    "id": 11162004,
+                    "login": "ranst91",
+                    "commits": 1
+                },
+                {
+                    "id": 7738189,
+                    "login": "samjulien",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "agent-browser": {
+        "repository": "vercel-labs/agent-browser",
+        "sha": "cd4719211666c7ba8170fc9d3f16c2946bcb1643",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 366502,
+                    "login": "ctate",
+                    "commits": 16
+                },
+                {
+                    "id": 1012,
+                    "login": "rwdaigle",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "ai-sdk": {
+        "repository": "vercel/ai",
+        "sha": "602348dc10036b6968fbabc6cba5a1e3826c700f",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 205036,
+                    "login": "lgrammel",
+                    "commits": 9
+                },
+                {
+                    "id": 39992,
+                    "login": "gr2m",
+                    "commits": 4
+                },
+                {
+                    "id": 3531426,
+                    "login": "felixarntz",
+                    "commits": 2
+                },
+                {
+                    "id": 144584931,
+                    "login": "dancer",
+                    "commits": 1
+                },
+                {
+                    "id": 23266464,
+                    "login": "dnukumamras",
+                    "commits": 1
+                },
+                {
+                    "id": 4142719,
+                    "login": "haydenbleasel",
+                    "commits": 1
+                },
+                {
+                    "id": 49612682,
+                    "login": "nicoalbanese",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "airflow": {
+        "repository": "apache/airflow",
+        "sha": "485107f1340a167e7ae68cfed8667c9f7cfb4e0d",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 595491,
+                    "login": "potiuk",
+                    "commits": 34
+                },
+                {
+                    "id": 60007259,
+                    "login": "shahar1",
+                    "commits": 6
+                },
+                {
+                    "id": 68415893,
+                    "login": "jason810496",
+                    "commits": 3
+                },
+                {
+                    "id": 95105677,
+                    "login": "jscheffl",
+                    "commits": 3
+                },
+                {
+                    "id": 8811558,
+                    "login": "kaxil",
+                    "commits": 3
+                },
+                {
+                    "id": 35884252,
+                    "login": "amoghrajesh",
+                    "commits": 2
+                },
+                {
+                    "id": 103923510,
+                    "login": "RoyLee1224",
+                    "commits": 2
+                },
+                {
+                    "id": 69671930,
+                    "login": "Andrushika",
+                    "commits": 1
+                },
+                {
+                    "id": 6509619,
+                    "login": "Dev-iL",
+                    "commits": 1
+                },
+                {
+                    "id": 66968678,
+                    "login": "jedcunningham",
+                    "commits": 1
+                },
+                {
+                    "id": 3610909,
+                    "login": "kidig",
+                    "commits": 1
+                },
+                {
+                    "id": 5144808,
+                    "login": "Lee-W",
+                    "commits": 1
+                },
+                {
+                    "id": 34734102,
+                    "login": "parkhojeong",
+                    "commits": 1
+                },
+                {
+                    "id": 14861206,
+                    "login": "pierrejeambrun",
+                    "commits": 1
+                },
+                {
+                    "id": 128999446,
+                    "login": "Prab-27",
+                    "commits": 1
+                },
+                {
+                    "id": 605277,
+                    "login": "uranusjr",
+                    "commits": 1
+                },
+                {
+                    "id": 99777196,
+                    "login": "viiccwen",
+                    "commits": 1
+                },
+                {
+                    "id": 97131062,
+                    "login": "vincbeck",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "anarlog": {
+        "repository": "fastrepl/anarlog",
+        "sha": "b93a8c809a977feb3d95f6d64354d52433f0b679",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 63365510,
+                    "login": "ComputelessComputer",
+                    "commits": 23
+                },
+                {
+                    "id": 61503739,
+                    "login": "yujonglee",
+                    "commits": 7
+                },
+                {
+                    "id": 2384694,
+                    "login": "dandaka",
+                    "commits": 1
+                },
+                {
+                    "id": 37990858,
+                    "login": "goranmoomin",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "astro": {
+        "repository": "withastro/astro",
+        "sha": "5be09d64c56eb2688c5a46bf700842f28fd4e998",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 602478,
+                    "login": "ematipico",
+                    "commits": 4
+                },
+                {
+                    "id": 622227,
+                    "login": "FredKSchott",
+                    "commits": 4
+                },
+                {
+                    "id": 361671,
+                    "login": "matthewp",
+                    "commits": 4
+                },
+                {
+                    "id": 18169566,
+                    "login": "deining",
+                    "commits": 1
+                },
+                {
+                    "id": 275437409,
+                    "login": "oab24413gmai",
+                    "commits": 1
+                },
+                {
+                    "id": 18418553,
+                    "login": "sanjibani",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "better-auth": {
+        "repository": "better-auth/better-auth",
+        "sha": "cfedf97dbc8e35fa44c4d517026433660bc91963",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 166604494,
+                    "login": "bytaesu",
+                    "commits": 5
+                },
+                {
+                    "id": 16890942,
+                    "login": "gustavovalverde",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "biomejs": {
+        "repository": "biomejs/biome",
+        "sha": "d37f24b5fa901916a1e1b488857dd3ee4c8e74ec",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 602478,
+                    "login": "ematipico",
+                    "commits": 15
+                },
+                {
+                    "id": 1808807,
+                    "login": "dyc3",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "browser-use": {
+        "repository": "browser-use/browser-use",
+        "sha": "29c12c32020482943fbde9460d6dae90f1335437",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 43824272,
+                    "login": "Alezander9",
+                    "commits": 3
+                },
+                {
+                    "id": 199161495,
+                    "login": "cursoragent",
+                    "commits": 3
+                },
+                {
+                    "id": 12201824,
+                    "login": "sauravpanda",
+                    "commits": 3
+                },
+                {
+                    "id": 68547750,
+                    "login": "ai-naymul",
+                    "commits": 1
+                },
+                {
+                    "id": 81847,
+                    "login": "claude",
+                    "commits": 1
+                },
+                {
+                    "id": 173833211,
+                    "login": "Hardik180704",
+                    "commits": 1
+                },
+                {
+                    "id": 22038471,
+                    "login": "mertunsall",
+                    "commits": 1
+                },
+                {
+                    "id": 129362299,
+                    "login": "ShawnPana",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "bun": {
+        "repository": "oven-sh/bun",
+        "sha": "62838e13c3a17eb2f8212e505461340388eebb32",
+        "path": "CLAUDE.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 709451,
+                    "login": "Jarred-Sumner",
+                    "commits": 32
+                },
+                {
+                    "id": 35280289,
+                    "login": "dylan-conway",
+                    "commits": 5
+                },
+                {
+                    "id": 25351731,
+                    "login": "alii",
+                    "commits": 4
+                },
+                {
+                    "id": 117481402,
+                    "login": "robobun",
+                    "commits": 4
+                },
+                {
+                    "id": 6379399,
+                    "login": "cirospaciari",
+                    "commits": 3
+                },
+                {
+                    "id": 6010774,
+                    "login": "pfgithub",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "cal-diy": {
+        "repository": "calcom/cal.diy",
+        "sha": "ab21c7f805a089fa3a11ffd61c4a9aecc349c16c",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 499898,
+                    "login": "eunjae-lee",
+                    "commits": 10
+                },
+                {
+                    "id": 32841130,
+                    "login": "hbjORbj",
+                    "commits": 2
+                },
+                {
+                    "id": 619072,
+                    "login": "volnei",
+                    "commits": 2
+                },
+                {
+                    "id": 93669429,
+                    "login": "dhairyashiil",
+                    "commits": 1
+                },
+                {
+                    "id": 42170848,
+                    "login": "supalarry",
+                    "commits": 1
+                },
+                {
+                    "id": 53316345,
+                    "login": "Udit-takkar",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "cline": {
+        "repository": "cline/cline",
+        "sha": "359e771ab30b255a4df621a90ecf97638299f918",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 7799382,
+                    "login": "saoudrizwan",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "cloudflare-agents": {
+        "repository": "cloudflare/agents",
+        "sha": "6560a4aa477daf1c5240d53ae1e085942cb2b814",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 18808,
+                    "login": "threepointone",
+                    "commits": 9
+                },
+                {
+                    "id": 77928207,
+                    "login": "mattzcarey",
+                    "commits": 2
+                },
+                {
+                    "id": 1517675,
+                    "login": "cjol",
+                    "commits": 1
+                },
+                {
+                    "id": 13352,
+                    "login": "cpojer",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "cmux": {
+        "repository": "manaflow-ai/cmux",
+        "sha": "c8827b6e4b47ea08c3cc1537001a0a2d1cb50246",
+        "path": "CLAUDE.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 54008264,
+                    "login": "lawrencecchen",
+                    "commits": 71
+                },
+                {
+                    "id": 67667005,
+                    "login": "azooz2003-bit",
+                    "commits": 23
+                },
+                {
+                    "id": 38676809,
+                    "login": "austinywang",
+                    "commits": 6
+                },
+                {
+                    "id": 35414964,
+                    "login": "aniruddhamurali",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "codex": {
+        "repository": "openai/codex",
+        "sha": "4875084025582f9443afeb907e2aa20644241dda",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 655869,
+                    "login": "bolinfest",
+                    "commits": 11
+                },
+                {
+                    "id": 204937752,
+                    "login": "pakrym-oai",
+                    "commits": 11
+                },
+                {
+                    "id": 286154589,
+                    "login": "anp-oai",
+                    "commits": 10
+                },
+                {
+                    "id": 172423086,
+                    "login": "nornagon-openai",
+                    "commits": 9
+                },
+                {
+                    "id": 223546144,
+                    "login": "etraut-openai",
+                    "commits": 6
+                },
+                {
+                    "id": 230027070,
+                    "login": "jif-oai",
+                    "commits": 4
+                },
+                {
+                    "id": 236681816,
+                    "login": "joshka-oai",
+                    "commits": 4
+                },
+                {
+                    "id": 1307745,
+                    "login": "gpeal",
+                    "commits": 3
+                },
+                {
+                    "id": 947871,
+                    "login": "owenlin0",
+                    "commits": 3
+                },
+                {
+                    "id": 173195103,
+                    "login": "ae-openai",
+                    "commits": 2
+                },
+                {
+                    "id": 219906144,
+                    "login": "aibrahim-oai",
+                    "commits": 2
+                },
+                {
+                    "id": 220976066,
+                    "login": "dylan-hurd-oai",
+                    "commits": 2
+                },
+                {
+                    "id": 223547355,
+                    "login": "abhishek-oai",
+                    "commits": 1
+                },
+                {
+                    "id": 213687408,
+                    "login": "caseychow-oai",
+                    "commits": 1
+                },
+                {
+                    "id": 253381928,
+                    "login": "charley-oai",
+                    "commits": 1
+                },
+                {
+                    "id": 272635208,
+                    "login": "fcoury-oai",
+                    "commits": 1
+                },
+                {
+                    "id": 203004014,
+                    "login": "gabec-openai",
+                    "commits": 1
+                },
+                {
+                    "id": 282074198,
+                    "login": "gankra-oai",
+                    "commits": 1
+                },
+                {
+                    "id": 286152634,
+                    "login": "jayp-oai",
+                    "commits": 1
+                },
+                {
+                    "id": 200841089,
+                    "login": "rphilizaire-openai",
+                    "commits": 1
+                },
+                {
+                    "id": 244841968,
+                    "login": "sayan-oai",
+                    "commits": 1
+                },
+                {
+                    "id": 50168688,
+                    "login": "wkrettek",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "continue": {
+        "repository": "continuedev/continue",
+        "sha": "abb1fc0439bd335efafd2dc4f39907e25348c572",
+        "path": "extensions/cli/AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 33237525,
+                    "login": "sestinj",
+                    "commits": 3
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "deepagents": {
+        "repository": "langchain-ai/deepagents",
+        "sha": "c583872844662535ca03df7828f0e582a2ef3ece",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 61371264,
+                    "login": "mdrxy",
+                    "commits": 49
+                },
+                {
+                    "id": 111667698,
+                    "login": "04cb",
+                    "commits": 1
+                },
+                {
+                    "id": 46789226,
+                    "login": "bracesproul",
+                    "commits": 1
+                },
+                {
+                    "id": 65985482,
+                    "login": "jkennedyvz",
+                    "commits": 1
+                },
+                {
+                    "id": 43758706,
+                    "login": "pablorodriper",
+                    "commits": 1
+                },
+                {
+                    "id": 54324534,
+                    "login": "sydney-runkle",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "deno": {
+        "repository": "denoland/deno",
+        "sha": "c439c90d890ad07c2bf4eaa8582cf7389142f97e",
+        "path": "CLAUDE.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 13602871,
+                    "login": "bartlomieju",
+                    "commits": 2
+                },
+                {
+                    "id": 6635286,
+                    "login": "cppcoffee",
+                    "commits": 1
+                },
+                {
+                    "id": 33569,
+                    "login": "dandv",
+                    "commits": 1
+                },
+                {
+                    "id": 17734409,
+                    "login": "nathanwhit",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "diffusers": {
+        "repository": "huggingface/diffusers",
+        "sha": "ebe93ee5f761455ca99301b902f373fd00fb996d",
+        "path": ".ai/AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 12631849,
+                    "login": "yiyixuxu",
+                    "commits": 10
+                },
+                {
+                    "id": 59462357,
+                    "login": "stevhliu",
+                    "commits": 2
+                },
+                {
+                    "id": 7529846,
+                    "login": "DN6",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "docker-mcp-gateway": {
+        "repository": "docker/mcp-gateway",
+        "sha": "fe073985c8eb6e0c9317d2f198c07686f70ea06d",
+        "path": "CLAUDE.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 1643888,
+                    "login": "slimslenderslacks",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "effect": {
+        "repository": "Effect-TS/effect",
+        "sha": "078cdbf6a37d209819ad504274fe72e1080573e0",
+        "path": ".agents/AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 1172528,
+                    "login": "fubhy",
+                    "commits": 8
+                },
+                {
+                    "id": 40680,
+                    "login": "tim-smart",
+                    "commits": 3
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "electron": {
+        "repository": "electron/electron",
+        "sha": "a6fe0f516645c57af941b3089db94e9c0285bca0",
+        "path": "CLAUDE.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 6634592,
+                    "login": "MarshallOfSound",
+                    "commits": 7
+                },
+                {
+                    "id": 2036040,
+                    "login": "codebytere",
+                    "commits": 1
+                },
+                {
+                    "id": 964386,
+                    "login": "deepak1556",
+                    "commits": 1
+                },
+                {
+                    "id": 16010076,
+                    "login": "erickzhao",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "firecrawl": {
+        "repository": "firecrawl/firecrawl",
+        "sha": "d9a35c055a3673a4d47e7146ea91daae3fa194cc",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 66118807,
+                    "login": "mogery",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "flue": {
+        "repository": "withastro/flue",
+        "sha": "5485efe2fc6e84fb2c1c0f98e5ccb8068f9394b6",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 622227,
+                    "login": "FredKSchott",
+                    "commits": 35
+                },
+                {
+                    "id": 13352,
+                    "login": "cpojer",
+                    "commits": 1
+                },
+                {
+                    "id": 83536,
+                    "login": "ketankhairnar",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "fresh": {
+        "repository": "freshframework/fresh",
+        "sha": "86d6cdeb331a719cf8b1c85bf5e43c8ffa889b3b",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 13602871,
+                    "login": "bartlomieju",
+                    "commits": 3
+                },
+                {
+                    "id": 7829205,
+                    "login": "lucacasonato",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "fx": {
+        "repository": "vercel-labs/fx",
+        "sha": "c63f3c2e8d26e2e9fd88a6168f6e7a5716baf5ae",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 221089582,
+                    "login": "fazxes",
+                    "commits": 34
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "ghostty": {
+        "repository": "ghostty-org/ghostty",
+        "sha": "9897d6caba05c0cbf256f86bec2e2935f164a9c7",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 1299,
+                    "login": "mitchellh",
+                    "commits": 13
+                },
+                {
+                    "id": 10311,
+                    "login": "jparise",
+                    "commits": 3
+                },
+                {
+                    "id": 22406910,
+                    "login": "pluiedev",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "gitbutler": {
+        "repository": "gitbutlerapp/gitbutler",
+        "sha": "924a018bef8b4ffc70b51ecef5c434d1518858de",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 4030927,
+                    "login": "krlvi",
+                    "commits": 3
+                },
+                {
+                    "id": 267193182,
+                    "login": "codex",
+                    "commits": 1
+                },
+                {
+                    "id": 921609,
+                    "login": "OliverJAsh",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 1
+        }
+    },
+    "goose": {
+        "repository": "aaif-goose/goose",
+        "sha": "554e07524ca043f2002f19e28f20a4ba9d9250ec",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 15972783,
+                    "login": "angiejones",
+                    "commits": 5
+                },
+                {
+                    "id": 952558,
+                    "login": "DOsinga",
+                    "commits": 3
+                },
+                {
+                    "id": 5307860,
+                    "login": "jamadeo",
+                    "commits": 3
+                },
+                {
+                    "id": 109685178,
+                    "login": "tlongwell-block",
+                    "commits": 3
+                },
+                {
+                    "id": 427516,
+                    "login": "alexhancock",
+                    "commits": 2
+                },
+                {
+                    "id": 93108087,
+                    "login": "lifeizhou-ap",
+                    "commits": 2
+                },
+                {
+                    "id": 7858054,
+                    "login": "baxen",
+                    "commits": 1
+                },
+                {
+                    "id": 44206832,
+                    "login": "filipkujawa",
+                    "commits": 1
+                },
+                {
+                    "id": 39903,
+                    "login": "jbg",
+                    "commits": 1
+                },
+                {
+                    "id": 14976,
+                    "login": "michaelneale",
+                    "commits": 1
+                },
+                {
+                    "id": 2881357,
+                    "login": "r0x0d",
+                    "commits": 1
+                },
+                {
+                    "id": 17150045,
+                    "login": "vincenzopalazzo",
+                    "commits": 1
+                },
+                {
+                    "id": 189686721,
+                    "login": "Wolfe-Jam",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "gradio": {
+        "repository": "gradio-app/gradio",
+        "sha": "39ef9cae8f973f807aeeba02915b9954f339e48c",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 1778297,
+                    "login": "abidlabs",
+                    "commits": 3
+                },
+                {
+                    "id": 15165908,
+                    "login": "hannahblair",
+                    "commits": 2
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "grafana": {
+        "repository": "grafana/grafana",
+        "sha": "e5e725634cb0f48ce96faa1720811de2024b42c2",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 820946,
+                    "login": "itsmylife",
+                    "commits": 6
+                },
+                {
+                    "id": 175174030,
+                    "login": "ryanmorris708",
+                    "commits": 2
+                },
+                {
+                    "id": 2376619,
+                    "login": "dprokop",
+                    "commits": 1
+                },
+                {
+                    "id": 231133,
+                    "login": "fastfrwrd",
+                    "commits": 1
+                },
+                {
+                    "id": 5699976,
+                    "login": "ivanortegaalba",
+                    "commits": 1
+                },
+                {
+                    "id": 4599384,
+                    "login": "jdbaldry",
+                    "commits": 1
+                },
+                {
+                    "id": 8071073,
+                    "login": "Jguer",
+                    "commits": 1
+                },
+                {
+                    "id": 114284895,
+                    "login": "KristianGrafana",
+                    "commits": 1
+                },
+                {
+                    "id": 5732000,
+                    "login": "NWRichmond",
+                    "commits": 1
+                },
+                {
+                    "id": 34734102,
+                    "login": "parkhojeong",
+                    "commits": 1
+                },
+                {
+                    "id": 19229423,
+                    "login": "RafaelPaulovic",
+                    "commits": 1
+                },
+                {
+                    "id": 33540275,
+                    "login": "soniaAguilarPeiron",
+                    "commits": 1
+                },
+                {
+                    "id": 3534544,
+                    "login": "timlevett",
+                    "commits": 1
+                },
+                {
+                    "id": 1438972,
+                    "login": "tskarhed",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "herdr": {
+        "repository": "herdrdev/herdr",
+        "sha": "2778411b6cc31ff804655753c2dee3efe78ad413",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 7064011,
+                    "login": "ogulcancelik",
+                    "commits": 69
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "hermes": {
+        "repository": "NousResearch/hermes-agent",
+        "sha": "d10bb2ab6fb9e16028070bf7075284a7b0476872",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 127238744,
+                    "login": "teknium1",
+                    "commits": 76
+                },
+                {
+                    "id": 770929,
+                    "login": "OutThisLife",
+                    "commits": 15
+                },
+                {
+                    "id": 666465,
+                    "login": "ethernet8023",
+                    "commits": 7
+                },
+                {
+                    "id": 100945007,
+                    "login": "0xharryriddle",
+                    "commits": 2
+                },
+                {
+                    "id": 52913345,
+                    "login": "alt-glitch",
+                    "commits": 2
+                },
+                {
+                    "id": 56565191,
+                    "login": "erosika",
+                    "commits": 2
+                },
+                {
+                    "id": 260188,
+                    "login": "austinpickett",
+                    "commits": 1
+                },
+                {
+                    "id": 258870745,
+                    "login": "bensargotest-sys",
+                    "commits": 1
+                },
+                {
+                    "id": 112503481,
+                    "login": "caentzminger",
+                    "commits": 1
+                },
+                {
+                    "id": 4850809,
+                    "login": "frizikk",
+                    "commits": 1
+                },
+                {
+                    "id": 22631353,
+                    "login": "gigabyte22",
+                    "commits": 1
+                },
+                {
+                    "id": 4317663,
+                    "login": "helix4u",
+                    "commits": 1
+                },
+                {
+                    "id": 687076,
+                    "login": "jquesnelle",
+                    "commits": 1
+                },
+                {
+                    "id": 132060554,
+                    "login": "Jr-kenny",
+                    "commits": 1
+                },
+                {
+                    "id": 242764434,
+                    "login": "jupiterx0910",
+                    "commits": 1
+                },
+                {
+                    "id": 11262660,
+                    "login": "konsisumer",
+                    "commits": 1
+                },
+                {
+                    "id": 144887964,
+                    "login": "nikitaBarkov",
+                    "commits": 1
+                },
+                {
+                    "id": 13574,
+                    "login": "otsune",
+                    "commits": 1
+                },
+                {
+                    "id": 117899760,
+                    "login": "pittosporum-seu",
+                    "commits": 1
+                },
+                {
+                    "id": 6664588,
+                    "login": "TESTPERSONAL",
+                    "commits": 1
+                },
+                {
+                    "id": 73797326,
+                    "login": "TutkuEroglu",
+                    "commits": 1
+                },
+                {
+                    "id": 93273468,
+                    "login": "victor-kyriazakos",
+                    "commits": 1
+                },
+                {
+                    "id": 2196814,
+                    "login": "WideLee",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 1
+        }
+    },
+    "humanlayer": {
+        "repository": "humanlayer/humanlayer",
+        "sha": "6014ccf95edf71b2d0ba31bcd65a9297a3decb65",
+        "path": "CLAUDE.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 3730605,
+                    "login": "dexhorthy",
+                    "commits": 7
+                },
+                {
+                    "id": 20910163,
+                    "login": "allisoneer",
+                    "commits": 4
+                },
+                {
+                    "id": 470240,
+                    "login": "balanceiskey",
+                    "commits": 3
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "hunk": {
+        "repository": "modem-dev/hunk",
+        "sha": "392cb7f99661270ff77df1f6c6bae9d9f5a0f156",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 2153,
+                    "login": "benvinegar",
+                    "commits": 53
+                },
+                {
+                    "id": 2888,
+                    "login": "elucid",
+                    "commits": 2
+                },
+                {
+                    "id": 5576161,
+                    "login": "ferologics",
+                    "commits": 1
+                },
+                {
+                    "id": 52104630,
+                    "login": "masonmcelvain",
+                    "commits": 1
+                },
+                {
+                    "id": 66745745,
+                    "login": "saadjs",
+                    "commits": 1
+                },
+                {
+                    "id": 102886591,
+                    "login": "spiicez21",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "kernel": {
+        "repository": "kernel/kernel-images",
+        "sha": "18a37cae01fa85ca6f8076ea74c44c955a252386",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 43387599,
+                    "login": "masnwilliams",
+                    "commits": 2
+                },
+                {
+                    "id": 1415138,
+                    "login": "Sayan-",
+                    "commits": 2
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "kody": {
+        "repository": "kentcdodds/kody",
+        "sha": "79a9a1fc40a89aa5cc331762c3263dd35ba530c3",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 1500684,
+                    "login": "kentcdodds",
+                    "commits": 40
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "lancedb": {
+        "repository": "lancedb/lancedb",
+        "sha": "a87cada90e0b4a7c7f6bfc5b82ec95f0f57765d2",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 5351546,
+                    "login": "Xuanwo",
+                    "commits": 4
+                },
+                {
+                    "id": 5488879,
+                    "login": "wjones127",
+                    "commits": 3
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "langflow": {
+        "repository": "langflow-ai/langflow",
+        "sha": "38e1fdbc08b8ef85bbf81ed1438e3fed5142c735",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 700235,
+                    "login": "erichare",
+                    "commits": 4
+                },
+                {
+                    "id": 24829397,
+                    "login": "ogabrielluiz",
+                    "commits": 2
+                },
+                {
+                    "id": 40851462,
+                    "login": "HimavarshaVS",
+                    "commits": 1
+                },
+                {
+                    "id": 59585235,
+                    "login": "mendonk",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "langfuse": {
+        "repository": "langfuse/langfuse",
+        "sha": "1a2d1f21157ed7dfde63a4b332c5728d924ed557",
+        "path": ".agents/AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 175438,
+                    "login": "nkabardin",
+                    "commits": 19
+                },
+                {
+                    "id": 17686849,
+                    "login": "maxdeichmann",
+                    "commits": 12
+                },
+                {
+                    "id": 7667273,
+                    "login": "wochinge",
+                    "commits": 4
+                },
+                {
+                    "id": 10088265,
+                    "login": "bezbac",
+                    "commits": 3
+                },
+                {
+                    "id": 68423100,
+                    "login": "hassiebp",
+                    "commits": 3
+                },
+                {
+                    "id": 222471,
+                    "login": "sumerman",
+                    "commits": 3
+                },
+                {
+                    "id": 1880943,
+                    "login": "niklassemmler",
+                    "commits": 2
+                },
+                {
+                    "id": 14163614,
+                    "login": "Steffen911",
+                    "commits": 2
+                },
+                {
+                    "id": 2834609,
+                    "login": "marcklingen",
+                    "commits": 1
+                },
+                {
+                    "id": 246059,
+                    "login": "nimarb",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "logfire": {
+        "repository": "pydantic/logfire",
+        "sha": "cb23455482dd993d8cf96f65fdfe7517c8ec81e1",
+        "path": "CLAUDE.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 3627481,
+                    "login": "alexmojaki",
+                    "commits": 8
+                },
+                {
+                    "id": 6384545,
+                    "login": "strawgate",
+                    "commits": 3
+                },
+                {
+                    "id": 35119617,
+                    "login": "dmontagu",
+                    "commits": 2
+                },
+                {
+                    "id": 52417347,
+                    "login": "bruno-espino",
+                    "commits": 1
+                },
+                {
+                    "id": 20308945,
+                    "login": "ddanielcruzz",
+                    "commits": 1
+                },
+                {
+                    "id": 64162682,
+                    "login": "dsfaccini",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "marimo": {
+        "repository": "marimo-team/marimo",
+        "sha": "917b86334795c2b5af086a3112556587cab91547",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 1994308,
+                    "login": "akshayka",
+                    "commits": 2
+                },
+                {
+                    "id": 19585239,
+                    "login": "Light2Dark",
+                    "commits": 2
+                },
+                {
+                    "id": 24403730,
+                    "login": "manzt",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "mem0": {
+        "repository": "mem0ai/mem0",
+        "sha": "73e7b8763a81f3fa43c6b79312ad049f3106498d",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 266917184,
+                    "login": "kartik-mem0",
+                    "commits": 10
+                },
+                {
+                    "id": 94069182,
+                    "login": "whysosaket",
+                    "commits": 8
+                },
+                {
+                    "id": 104683257,
+                    "login": "Himanshu-Sangshetti",
+                    "commits": 2
+                },
+                {
+                    "id": 197430815,
+                    "login": "youneshima",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "mise": {
+        "repository": "jdx/mise",
+        "sha": "a1117a8bb6aaefd64b92293fadd10c18eba8bb3a",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 216188,
+                    "login": "jdx",
+                    "commits": 24
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "mlflow": {
+        "repository": "mlflow/mlflow",
+        "sha": "b975d8927ec85f324009079115cf1cf0b596e60f",
+        "path": "CLAUDE.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 17039389,
+                    "login": "harupy",
+                    "commits": 17
+                },
+                {
+                    "id": 1100749,
+                    "login": "nsthorat",
+                    "commits": 3
+                },
+                {
+                    "id": 31463517,
+                    "login": "B-Step62",
+                    "commits": 1
+                },
+                {
+                    "id": 39283302,
+                    "login": "BenWilson2",
+                    "commits": 1
+                },
+                {
+                    "id": 10621958,
+                    "login": "tanghaoji",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "moon": {
+        "repository": "moonrepo/moon",
+        "sha": "24a88ae41d4a5316031d49d5a8cc0f6bed30ba96",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 143744,
+                    "login": "milesj",
+                    "commits": 3
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "n8n": {
+        "repository": "n8n-io/n8n",
+        "sha": "b67870cdbcc8c038051bc52396b2b2787be0d919",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 16068444,
+                    "login": "Matsuuu",
+                    "commits": 6
+                },
+                {
+                    "id": 7861842,
+                    "login": "shortstacked",
+                    "commits": 4
+                },
+                {
+                    "id": 13814565,
+                    "login": "CharlieKolb",
+                    "commits": 3
+                },
+                {
+                    "id": 5410822,
+                    "login": "cstuncsik",
+                    "commits": 2
+                },
+                {
+                    "id": 8173528,
+                    "login": "DawidMyslak",
+                    "commits": 2
+                },
+                {
+                    "id": 15361982,
+                    "login": "heymynameisrob",
+                    "commits": 2
+                },
+                {
+                    "id": 10324676,
+                    "login": "tomi",
+                    "commits": 2
+                },
+                {
+                    "id": 11021461,
+                    "login": "aalises",
+                    "commits": 1
+                },
+                {
+                    "id": 3415366,
+                    "login": "afitzek",
+                    "commits": 1
+                },
+                {
+                    "id": 6179477,
+                    "login": "alexgrozav",
+                    "commits": 1
+                },
+                {
+                    "id": 5084068,
+                    "login": "amesinp",
+                    "commits": 1
+                },
+                {
+                    "id": 50590409,
+                    "login": "bjorger",
+                    "commits": 1
+                },
+                {
+                    "id": 6438345,
+                    "login": "Cadiac",
+                    "commits": 1
+                },
+                {
+                    "id": 927609,
+                    "login": "despairblue",
+                    "commits": 1
+                },
+                {
+                    "id": 51036481,
+                    "login": "DeveloperTheExplorer",
+                    "commits": 1
+                },
+                {
+                    "id": 16818300,
+                    "login": "frstavares",
+                    "commits": 1
+                },
+                {
+                    "id": 42832087,
+                    "login": "kgrhartlage",
+                    "commits": 1
+                },
+                {
+                    "id": 8242900,
+                    "login": "looorent",
+                    "commits": 1
+                },
+                {
+                    "id": 4407001,
+                    "login": "mike12345567",
+                    "commits": 1
+                },
+                {
+                    "id": 2598782,
+                    "login": "MiloradFilipovic",
+                    "commits": 1
+                },
+                {
+                    "id": 102315132,
+                    "login": "phyllis-noester",
+                    "commits": 1
+                },
+                {
+                    "id": 6806830,
+                    "login": "scdekov",
+                    "commits": 1
+                },
+                {
+                    "id": 21195228,
+                    "login": "sychovSaveliy",
+                    "commits": 1
+                },
+                {
+                    "id": 2527319,
+                    "login": "Tuukkaa",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "nextjs": {
+        "repository": "vercel/next.js",
+        "sha": "94327e8ade8dedd70a0d007d6a49ace64b75ed70",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 6324199,
+                    "login": "timneutkens",
+                    "commits": 12
+                },
+                {
+                    "id": 1365881,
+                    "login": "sokra",
+                    "commits": 4
+                },
+                {
+                    "id": 180404,
+                    "login": "bgw",
+                    "commits": 3
+                },
+                {
+                    "id": 761683,
+                    "login": "unstubbable",
+                    "commits": 3
+                },
+                {
+                    "id": 3624098,
+                    "login": "acdlite",
+                    "commits": 2
+                },
+                {
+                    "id": 4800338,
+                    "login": "huozhi",
+                    "commits": 2
+                },
+                {
+                    "id": 120007119,
+                    "login": "devjiwonchoi",
+                    "commits": 1
+                },
+                {
+                    "id": 12292047,
+                    "login": "eps1lon",
+                    "commits": 1
+                },
+                {
+                    "id": 11064311,
+                    "login": "feedthejim",
+                    "commits": 1
+                },
+                {
+                    "id": 32973745,
+                    "login": "gaojude",
+                    "commits": 1
+                },
+                {
+                    "id": 20123291,
+                    "login": "lllomh",
+                    "commits": 1
+                },
+                {
+                    "id": 210140,
+                    "login": "lukesandberg",
+                    "commits": 1
+                },
+                {
+                    "id": 39828164,
+                    "login": "sampoder",
+                    "commits": 1
+                },
+                {
+                    "id": 19852293,
+                    "login": "SyMind",
+                    "commits": 1
+                },
+                {
+                    "id": 755844,
+                    "login": "wbinnssmith",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "nuqs": {
+        "repository": "47ng/nuqs",
+        "sha": "fb0835c7ba0033d85a08f0c88822cda346ab546d",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 1174092,
+                    "login": "franky47",
+                    "commits": 7
+                },
+                {
+                    "id": 259815971,
+                    "login": "ryannguyen95",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "nuxt": {
+        "repository": "nuxt/nuxt",
+        "sha": "390b5408043448eb465066405259e1ee9760c7f8",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 28706372,
+                    "login": "danielroe",
+                    "commits": 3
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "nx": {
+        "repository": "nrwl/nx",
+        "sha": "9c80c2223fb9915cd57781e91e95b54aba434332",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 34165455,
+                    "login": "MaxKless",
+                    "commits": 3
+                },
+                {
+                    "id": 8104246,
+                    "login": "FrozenPandaz",
+                    "commits": 2
+                },
+                {
+                    "id": 23272162,
+                    "login": "barbados-clemens",
+                    "commits": 1
+                },
+                {
+                    "id": 4332460,
+                    "login": "Cammisuli",
+                    "commits": 1
+                },
+                {
+                    "id": 542149,
+                    "login": "comp615",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "ollama": {
+        "repository": "ollama/ollama",
+        "sha": "96201a623a62b4434ff434a0a4a6b5b247fce481",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 251292,
+                    "login": "jmorganca",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "omarchy": {
+        "repository": "omacom/omarchy",
+        "sha": "1c8f728b25cb8a42f1d02e4d2441230132cedb6c",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 2741,
+                    "login": "dhh",
+                    "commits": 42
+                },
+                {
+                    "id": 1630358,
+                    "login": "ryanrhughes",
+                    "commits": 10
+                },
+                {
+                    "id": 199,
+                    "login": "jeremy",
+                    "commits": 2
+                },
+                {
+                    "id": 1419214,
+                    "login": "bjarneo",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "openai-agents-js": {
+        "repository": "openai/openai-agents-js",
+        "sha": "817161d4076aab6e1215f421bfcf0d1e6f3e3a10",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 19658,
+                    "login": "seratch",
+                    "commits": 45
+                },
+                {
+                    "id": 200841172,
+                    "login": "dkundel-openai",
+                    "commits": 3
+                },
+                {
+                    "id": 269036200,
+                    "login": "jbeckwith-oai",
+                    "commits": 2
+                },
+                {
+                    "id": 1215868,
+                    "login": "maksymilian-majer",
+                    "commits": 1
+                },
+                {
+                    "id": 186855910,
+                    "login": "mikemikimike",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "openai-agents-python": {
+        "repository": "openai/openai-agents-python",
+        "sha": "faf10fda7cd68bebdfba5edb887a0805cd1c9464",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 19658,
+                    "login": "seratch",
+                    "commits": 40
+                },
+                {
+                    "id": 200841172,
+                    "login": "dkundel-openai",
+                    "commits": 1
+                },
+                {
+                    "id": 269036200,
+                    "login": "jbeckwith-oai",
+                    "commits": 1
+                },
+                {
+                    "id": 192034341,
+                    "login": "rm-openai",
+                    "commits": 1
+                },
+                {
+                    "id": 3506415,
+                    "login": "sdcoffey",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "openclaw": {
+        "repository": "openclaw/openclaw",
+        "sha": "a5fb8446c0e1a4b29b9b0a636e4b18aa3e6afae3",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 58493,
+                    "login": "steipete",
+                    "commits": 435
+                },
+                {
+                    "id": 25068,
+                    "login": "vincentkoc",
+                    "commits": 39
+                },
+                {
+                    "id": 781889,
+                    "login": "Takhoffman",
+                    "commits": 25
+                },
+                {
+                    "id": 22031114,
+                    "login": "obviyus",
+                    "commits": 13
+                },
+                {
+                    "id": 830519,
+                    "login": "joshavant",
+                    "commits": 11
+                },
+                {
+                    "id": 35580099,
+                    "login": "thewilloftheshadow",
+                    "commits": 9
+                },
+                {
+                    "id": 5599352,
+                    "login": "gumadeiras",
+                    "commits": 6
+                },
+                {
+                    "id": 68980965,
+                    "login": "BunsDev",
+                    "commits": 4
+                },
+                {
+                    "id": 2453968,
+                    "login": "osolmaz",
+                    "commits": 4
+                },
+                {
+                    "id": 6581799,
+                    "login": "RomneyDa",
+                    "commits": 4
+                },
+                {
+                    "id": 13352,
+                    "login": "cpojer",
+                    "commits": 3
+                },
+                {
+                    "id": 263060202,
+                    "login": "fuller-stack-dev",
+                    "commits": 3
+                },
+                {
+                    "id": 550978,
+                    "login": "jalehman",
+                    "commits": 2
+                },
+                {
+                    "id": 409321,
+                    "login": "kevinslin",
+                    "commits": 2
+                },
+                {
+                    "id": 165377636,
+                    "login": "shakkernerd",
+                    "commits": 2
+                },
+                {
+                    "id": 239388517,
+                    "login": "100yenadmin",
+                    "commits": 1
+                },
+                {
+                    "id": 5212682,
+                    "login": "ademczuk",
+                    "commits": 1
+                },
+                {
+                    "id": 9790196,
+                    "login": "altaywtf",
+                    "commits": 1
+                },
+                {
+                    "id": 255583030,
+                    "login": "brokemac79",
+                    "commits": 1
+                },
+                {
+                    "id": 31752869,
+                    "login": "buddyh",
+                    "commits": 1
+                },
+                {
+                    "id": 12563194,
+                    "login": "cablackmon",
+                    "commits": 1
+                },
+                {
+                    "id": 280513762,
+                    "login": "clawsweeper",
+                    "commits": 1
+                },
+                {
+                    "id": 294844,
+                    "login": "dguido",
+                    "commits": 1
+                },
+                {
+                    "id": 261991368,
+                    "login": "dutifulbob",
+                    "commits": 1
+                },
+                {
+                    "id": 258679497,
+                    "login": "funmerlin",
+                    "commits": 1
+                },
+                {
+                    "id": 49103247,
+                    "login": "hannesrudolph",
+                    "commits": 1
+                },
+                {
+                    "id": 5617868,
+                    "login": "huntharo",
+                    "commits": 1
+                },
+                {
+                    "id": 2928523,
+                    "login": "jnuyao",
+                    "commits": 1
+                },
+                {
+                    "id": 1497361,
+                    "login": "joshp123",
+                    "commits": 1
+                },
+                {
+                    "id": 14319020,
+                    "login": "martinfrancois",
+                    "commits": 1
+                },
+                {
+                    "id": 7562095,
+                    "login": "mcaxtr",
+                    "commits": 1
+                },
+                {
+                    "id": 6754057,
+                    "login": "MonkeyLeeT",
+                    "commits": 1
+                },
+                {
+                    "id": 1540134,
+                    "login": "ngutman",
+                    "commits": 1
+                },
+                {
+                    "id": 40643627,
+                    "login": "quotentiroler",
+                    "commits": 1
+                },
+                {
+                    "id": 4742789,
+                    "login": "rubencu",
+                    "commits": 1
+                },
+                {
+                    "id": 19554889,
+                    "login": "sebslight",
+                    "commits": 1
+                },
+                {
+                    "id": 95547369,
+                    "login": "zhuisDEV",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 1
+        }
+    },
+    "opencode": {
+        "repository": "anomalyco/opencode",
+        "sha": "f44423609b03a47baf8a771c821a1de17046309f",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 826656,
+                    "login": "thdxr",
+                    "commits": 19
+                },
+                {
+                    "id": 63023139,
+                    "login": "rekram1-node",
+                    "commits": 10
+                },
+                {
+                    "id": 7587245,
+                    "login": "kitlangton",
+                    "commits": 6
+                },
+                {
+                    "id": 2363879,
+                    "login": "adamdotdevin",
+                    "commits": 1
+                },
+                {
+                    "id": 42679190,
+                    "login": "jeis4wpi",
+                    "commits": 1
+                },
+                {
+                    "id": 1764424,
+                    "login": "StarpTech",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "opentui": {
+        "repository": "anomalyco/opentui",
+        "sha": "0733b5382cff539e7d8d9a0c3f90762c38c8d1c9",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 52795,
+                    "login": "simonklee",
+                    "commits": 6
+                },
+                {
+                    "id": 335157,
+                    "login": "kommander",
+                    "commits": 4
+                },
+                {
+                    "id": 18443246,
+                    "login": "bienzaaron",
+                    "commits": 1
+                },
+                {
+                    "id": 10430890,
+                    "login": "Hona",
+                    "commits": 1
+                },
+                {
+                    "id": 826656,
+                    "login": "thdxr",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "oxc": {
+        "repository": "oxc-project/oxc",
+        "sha": "fc175b09d372ec1efc131f045d1027a55359ae5b",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 1430279,
+                    "login": "Boshen",
+                    "commits": 10
+                },
+                {
+                    "id": 6259812,
+                    "login": "leaysgur",
+                    "commits": 8
+                },
+                {
+                    "id": 18101008,
+                    "login": "camc314",
+                    "commits": 3
+                },
+                {
+                    "id": 2977353,
+                    "login": "connorshea",
+                    "commits": 3
+                },
+                {
+                    "id": 1514176,
+                    "login": "camchenry",
+                    "commits": 2
+                },
+                {
+                    "id": 29533304,
+                    "login": "Dunqing",
+                    "commits": 1
+                },
+                {
+                    "id": 69170106,
+                    "login": "lilnasy",
+                    "commits": 1
+                },
+                {
+                    "id": 557937,
+                    "login": "overlookmotel",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "paperclip": {
+        "repository": "paperclipai/paperclip",
+        "sha": "728f7185f6dcf2fda7a1286f6dd115573a02cd65",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 34892728,
+                    "login": "cryppadotta",
+                    "commits": 11
+                },
+                {
+                    "id": 38608178,
+                    "login": "santhiprakash",
+                    "commits": 2
+                },
+                {
+                    "id": 139239,
+                    "login": "devinfoley",
+                    "commits": 1
+                },
+                {
+                    "id": 88843729,
+                    "login": "forgottendev",
+                    "commits": 1
+                },
+                {
+                    "id": 17301927,
+                    "login": "HenkDz",
+                    "commits": 1
+                },
+                {
+                    "id": 331803,
+                    "login": "nickyleach",
+                    "commits": 1
+                },
+                {
+                    "id": 1504818,
+                    "login": "scotttong",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 1
+        }
+    },
+    "payload": {
+        "repository": "payloadcms/payload",
+        "sha": "2bdb79f1d6b99e829108f1bdfba392abfa892c33",
+        "path": "CLAUDE.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 70709113,
+                    "login": "AlessioGr",
+                    "commits": 10
+                },
+                {
+                    "id": 65888,
+                    "login": "denolfe",
+                    "commits": 6
+                },
+                {
+                    "id": 35137243,
+                    "login": "paulpopus",
+                    "commits": 4
+                },
+                {
+                    "id": 30633324,
+                    "login": "JarrodMFlesch",
+                    "commits": 3
+                },
+                {
+                    "id": 64744993,
+                    "login": "r1tsuu",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "pi": {
+        "repository": "earendil-works/pi",
+        "sha": "be26e32704f7cab048e2b356206350ef7ad65999",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 514052,
+                    "login": "badlogic",
+                    "commits": 84
+                },
+                {
+                    "id": 7396,
+                    "login": "mitsuhiko",
+                    "commits": 3
+                },
+                {
+                    "id": 351026,
+                    "login": "davidbrai",
+                    "commits": 2
+                },
+                {
+                    "id": 25783780,
+                    "login": "aos",
+                    "commits": 1
+                },
+                {
+                    "id": 7475150,
+                    "login": "rwachtler",
+                    "commits": 1
+                },
+                {
+                    "id": 562627,
+                    "login": "thomasmhr",
+                    "commits": 1
+                },
+                {
+                    "id": 6326440,
+                    "login": "tmustier",
+                    "commits": 1
+                },
+                {
+                    "id": 439415,
+                    "login": "xl0",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 1
+        }
+    },
+    "pierre": {
+        "repository": "pierrecomputer/pierre",
+        "sha": "43c4783f330efe068f7248cc4f4417c4920da01c",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 83376,
+                    "login": "amadeus",
+                    "commits": 8
+                },
+                {
+                    "id": 96554,
+                    "login": "SlexAxton",
+                    "commits": 8
+                },
+                {
+                    "id": 239676,
+                    "login": "necolas",
+                    "commits": 3
+                },
+                {
+                    "id": 169705,
+                    "login": "fat",
+                    "commits": 2
+                },
+                {
+                    "id": 98681,
+                    "login": "mdo",
+                    "commits": 2
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "playwright": {
+        "repository": "microsoft/playwright",
+        "sha": "5a617bb6b5b9910f341bbb26311f8c60b62471a3",
+        "path": "CLAUDE.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 883973,
+                    "login": "pavelfeldman",
+                    "commits": 11
+                },
+                {
+                    "id": 9798949,
+                    "login": "yury-s",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "pnpm": {
+        "repository": "pnpm/pnpm",
+        "sha": "6b84edfb3a7cc7c374ebc3cb4d48b106149bc52b",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 1927579,
+                    "login": "zkochan",
+                    "commits": 30
+                },
+                {
+                    "id": 11488886,
+                    "login": "KSXGitHub",
+                    "commits": 3
+                },
+                {
+                    "id": 252924706,
+                    "login": "kairosci",
+                    "commits": 2
+                },
+                {
+                    "id": 11986753,
+                    "login": "kimulaco",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "prisma": {
+        "repository": "prisma/orm",
+        "sha": "1ed19e4f3c25551989c218631bf6006e8d55de4b",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 12165,
+                    "login": "wmadden",
+                    "commits": 43
+                },
+                {
+                    "id": 286103357,
+                    "login": "tensordreams",
+                    "commits": 4
+                },
+                {
+                    "id": 12381818,
+                    "login": "jkomyno",
+                    "commits": 2
+                },
+                {
+                    "id": 286902546,
+                    "login": "wmadden-electric",
+                    "commits": 2
+                },
+                {
+                    "id": 4923335,
+                    "login": "aqrln",
+                    "commits": 1
+                },
+                {
+                    "id": 199161495,
+                    "login": "cursoragent",
+                    "commits": 1
+                },
+                {
+                    "id": 603056,
+                    "login": "SevInf",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "pydantic-ai": {
+        "repository": "pydantic/pydantic-ai",
+        "sha": "5553221b41f74493f62d4b60310690fb0fe092cb",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 159434,
+                    "login": "DouweM",
+                    "commits": 9
+                },
+                {
+                    "id": 64162682,
+                    "login": "dsfaccini",
+                    "commits": 9
+                },
+                {
+                    "id": 7353520,
+                    "login": "Kludex",
+                    "commits": 3
+                },
+                {
+                    "id": 76904033,
+                    "login": "adtyavrdhn",
+                    "commits": 1
+                },
+                {
+                    "id": 82463175,
+                    "login": "colesmcintosh",
+                    "commits": 1
+                },
+                {
+                    "id": 77386616,
+                    "login": "piomeer",
+                    "commits": 1
+                },
+                {
+                    "id": 6384545,
+                    "login": "strawgate",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "pytorch": {
+        "repository": "pytorch/pytorch",
+        "sha": "a471a58d241b08025dcb4ec69c2d30e5a49a757a",
+        "path": "CLAUDE.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 13564,
+                    "login": "ezyang",
+                    "commits": 16
+                },
+                {
+                    "id": 6359743,
+                    "login": "albanD",
+                    "commits": 5
+                },
+                {
+                    "id": 15841449,
+                    "login": "ngimel",
+                    "commits": 4
+                },
+                {
+                    "id": 5652049,
+                    "login": "zou3519",
+                    "commits": 4
+                },
+                {
+                    "id": 2453524,
+                    "login": "malfet",
+                    "commits": 2
+                },
+                {
+                    "id": 32754868,
+                    "login": "drisspg",
+                    "commits": 1
+                },
+                {
+                    "id": 224883113,
+                    "login": "liangel-02",
+                    "commits": 1
+                },
+                {
+                    "id": 4468967,
+                    "login": "ZainRizvi",
+                    "commits": 1
+                },
+                {
+                    "id": 150177,
+                    "login": "zxiiro",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "qwik": {
+        "repository": "QwikDev/qwik",
+        "sha": "93f1b2a0187849a14c6872f9cb723a943655dc22",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 45822175,
+                    "login": "maiieul",
+                    "commits": 14
+                },
+                {
+                    "id": 54934,
+                    "login": "wmertens",
+                    "commits": 11
+                },
+                {
+                    "id": 104264123,
+                    "login": "thejackshelton",
+                    "commits": 1
+                },
+                {
+                    "id": 78650133,
+                    "login": "Varixo",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "railpack": {
+        "repository": "railwayapp/railpack",
+        "sha": "33a75f8b7242942a1186afdb6a4f18bbbc2d2cb7",
+        "path": "CLAUDE.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 150855,
+                    "login": "iloveitaly",
+                    "commits": 22
+                },
+                {
+                    "id": 3044853,
+                    "login": "coffee-cup",
+                    "commits": 3
+                },
+                {
+                    "id": 455140,
+                    "login": "mvanhorn",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "ray": {
+        "repository": "ray-project/ray",
+        "sha": "62618a9d012b258d73a6d7f1ab5c4c1a665ce471",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 58963096,
+                    "login": "eicherseiji",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "rolldown": {
+        "repository": "rolldown/rolldown",
+        "sha": "fa6bd5c2c9b389ff6c7e488ab89a724001a44eee",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 49502170,
+                    "login": "hyfdev",
+                    "commits": 13
+                },
+                {
+                    "id": 10465670,
+                    "login": "h-a-n-a",
+                    "commits": 2
+                },
+                {
+                    "id": 17974631,
+                    "login": "IWANABETHATGUY",
+                    "commits": 1
+                },
+                {
+                    "id": 91303803,
+                    "login": "melbinjp",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "ruff": {
+        "repository": "astral-sh/ruff",
+        "sha": "fbfc0009049ec518f4875c75373efac04a88d09d",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 66076021,
+                    "login": "AlexWaygood",
+                    "commits": 12
+                },
+                {
+                    "id": 1309177,
+                    "login": "charliermarsh",
+                    "commits": 7
+                },
+                {
+                    "id": 61586,
+                    "login": "carljm",
+                    "commits": 4
+                },
+                {
+                    "id": 1203881,
+                    "login": "MichaReiser",
+                    "commits": 2
+                },
+                {
+                    "id": 3059210,
+                    "login": "woodruffw",
+                    "commits": 2
+                },
+                {
+                    "id": 66740,
+                    "login": "zsol",
+                    "commits": 2
+                },
+                {
+                    "id": 776168,
+                    "login": "lerebear",
+                    "commits": 1
+                },
+                {
+                    "id": 36778786,
+                    "login": "ntBre",
+                    "commits": 1
+                },
+                {
+                    "id": 70789625,
+                    "login": "shaanmajid",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "rustfs": {
+        "repository": "rustfs/rustfs",
+        "sha": "7c85c72fd14569412a0617598989fdba8a2b19d9",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 1472352,
+                    "login": "overtrue",
+                    "commits": 40
+                },
+                {
+                    "id": 63799833,
+                    "login": "guojidan",
+                    "commits": 2
+                },
+                {
+                    "id": 8022923,
+                    "login": "reatang",
+                    "commits": 2
+                },
+                {
+                    "id": 21300204,
+                    "login": "cxymds",
+                    "commits": 1
+                },
+                {
+                    "id": 51209817,
+                    "login": "evanofslack",
+                    "commits": 1
+                },
+                {
+                    "id": 18332154,
+                    "login": "GatewayJ",
+                    "commits": 1
+                },
+                {
+                    "id": 4865550,
+                    "login": "JaySon-Huang",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "sglang": {
+        "repository": "sgl-project/sglang",
+        "sha": "b819d2fb5bbdff3dfb969b4abd678cf54799e405",
+        "path": "docs/AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 37504505,
+                    "login": "zijiexia",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "skills-cli": {
+        "repository": "vercel-labs/skills",
+        "sha": "e17a8cae172403ee6fe138d50532c97e9a03666c",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 32676955,
+                    "login": "quuu",
+                    "commits": 7
+                },
+                {
+                    "id": 5107440,
+                    "login": "ergunsh",
+                    "commits": 2
+                },
+                {
+                    "id": 80993895,
+                    "login": "dngns",
+                    "commits": 1
+                },
+                {
+                    "id": 361432,
+                    "login": "ecki",
+                    "commits": 1
+                },
+                {
+                    "id": 82015596,
+                    "login": "EDM115",
+                    "commits": 1
+                },
+                {
+                    "id": 4800338,
+                    "login": "huozhi",
+                    "commits": 1
+                },
+                {
+                    "id": 23178074,
+                    "login": "ibrahimhajjaj",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "storybook": {
+        "repository": "storybookjs/storybook",
+        "sha": "5e6fcce59074f7f4889956ed37f254feec6aa9e9",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 5889929,
+                    "login": "valentinpalkovic",
+                    "commits": 22
+                },
+                {
+                    "id": 1035299,
+                    "login": "kasperpeulen",
+                    "commits": 18
+                },
+                {
+                    "id": 199161495,
+                    "login": "cursoragent",
+                    "commits": 16
+                },
+                {
+                    "id": 5678122,
+                    "login": "JReinhold",
+                    "commits": 10
+                },
+                {
+                    "id": 321738,
+                    "login": "ghengeveld",
+                    "commits": 8
+                },
+                {
+                    "id": 63512348,
+                    "login": "huang-julien",
+                    "commits": 8
+                },
+                {
+                    "id": 5108577,
+                    "login": "Sidnioulz",
+                    "commits": 6
+                },
+                {
+                    "id": 1671563,
+                    "login": "yannbf",
+                    "commits": 3
+                }
+            ],
+            "unlinkedAuthors": 1
+        }
+    },
+    "strapi": {
+        "repository": "strapi/strapi",
+        "sha": "9148d2c2e3e52f73077e564a310f1ec9c3875b6e",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 5462986,
+                    "login": "nclsndr",
+                    "commits": 4
+                },
+                {
+                    "id": 999278,
+                    "login": "innerdvations",
+                    "commits": 3
+                },
+                {
+                    "id": 104358430,
+                    "login": "cache-your-dreams",
+                    "commits": 2
+                },
+                {
+                    "id": 8189028,
+                    "login": "butcherZ",
+                    "commits": 1
+                },
+                {
+                    "id": 1881266,
+                    "login": "unrevised6419",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "streamlit": {
+        "repository": "streamlit/streamlit",
+        "sha": "9bfd9f093e42755676bf862d17ba20624bae9670",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 2852129,
+                    "login": "lukasmasuch",
+                    "commits": 24
+                },
+                {
+                    "id": 178842601,
+                    "login": "sfc-gh-bnisco",
+                    "commits": 4
+                },
+                {
+                    "id": 173713422,
+                    "login": "sfc-gh-nbellante",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "supabase": {
+        "repository": "supabase/supabase",
+        "sha": "f125126aec53c1ff4d4c144dccc1fa451372289d",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 10985857,
+                    "login": "alaister",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "supermemory": {
+        "repository": "supermemoryai/supermemory",
+        "sha": "c6792e5100a6d7f4057d5151657ff1bdca6c2b3b",
+        "path": "CLAUDE.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 38828053,
+                    "login": "MaheshtheDev",
+                    "commits": 2
+                },
+                {
+                    "id": 63950637,
+                    "login": "Dhravya",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "svelte": {
+        "repository": "sveltejs/svelte",
+        "sha": "656dae67808651fa6a7ca5f8446e28e3a4e76a62",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 1162160,
+                    "login": "Rich-Harris",
+                    "commits": 2
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "t3code": {
+        "repository": "pingdotgg/t3code",
+        "sha": "50ff4c371eab927a9650c114975241999f4cd7b1",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 51714798,
+                    "login": "juliusmarminge",
+                    "commits": 23
+                },
+                {
+                    "id": 6751787,
+                    "login": "t3dotgg",
+                    "commits": 13
+                },
+                {
+                    "id": 179814302,
+                    "login": "Ivorisnoob",
+                    "commits": 1
+                },
+                {
+                    "id": 4596216,
+                    "login": "saphid",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "tanstack-db": {
+        "repository": "TanStack/db",
+        "sha": "3c4c35d5868c908979058c4dbeae7c4ac9eab88b",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 71047,
+                    "login": "KyleAMathews",
+                    "commits": 8
+                },
+                {
+                    "id": 1667261,
+                    "login": "lachlancollins",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "tanstack-query": {
+        "repository": "TanStack/query",
+        "sha": "9f350003562437899c00443246df27a14d6ffa5e",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 28243511,
+                    "login": "KevinVandy",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "tanstack-router": {
+        "repository": "TanStack/router",
+        "sha": "3dee5b2e9453d01a3172c73426959007b290b3fc",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 6340397,
+                    "login": "schiller-manuel",
+                    "commits": 2
+                },
+                {
+                    "id": 28243511,
+                    "login": "KevinVandy",
+                    "commits": 1
+                },
+                {
+                    "id": 1667261,
+                    "login": "lachlancollins",
+                    "commits": 1
+                },
+                {
+                    "id": 1325721,
+                    "login": "Sheraff",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "temporal": {
+        "repository": "temporalio/temporal",
+        "sha": "109a38e8ca4827ae8c624fc1a9382290dcae0f69",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 13949480,
+                    "login": "chaptersix",
+                    "commits": 1
+                },
+                {
+                    "id": 4077850,
+                    "login": "ShahabT",
+                    "commits": 1
+                },
+                {
+                    "id": 159852,
+                    "login": "stephanos",
+                    "commits": 1
+                },
+                {
+                    "id": 84411014,
+                    "login": "yiminc",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "transformers": {
+        "repository": "huggingface/transformers",
+        "sha": "254e62f7462ca8d19821a6427828ee75765ce123",
+        "path": ".ai/AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 250019,
+                    "login": "tarekziade",
+                    "commits": 4
+                },
+                {
+                    "id": 12866554,
+                    "login": "Rocketknight1",
+                    "commits": 1
+                },
+                {
+                    "id": 34004152,
+                    "login": "SangbumChoi",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "trigger-dev": {
+        "repository": "triggerdotdev/trigger.dev",
+        "sha": "9944f44f8528985f3a76cddc2dd4b5bc2402165c",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 534,
+                    "login": "ericallam",
+                    "commits": 6
+                },
+                {
+                    "id": 19817302,
+                    "login": "carderne",
+                    "commits": 5
+                },
+                {
+                    "id": 55853254,
+                    "login": "nicktrn",
+                    "commits": 4
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "turborepo": {
+        "repository": "vercel/turborepo",
+        "sha": "4f8e6932cf243a4abff1442a8a91786b1e90b962",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 35677084,
+                    "login": "anthonyshew",
+                    "commits": 25
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "turso": {
+        "repository": "tursodatabase/turso",
+        "sha": "85e234697d687d4482b693483ac13fb6c93ae99d",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 22619982,
+                    "login": "jussisaurio",
+                    "commits": 8
+                },
+                {
+                    "id": 81939,
+                    "login": "penberg",
+                    "commits": 8
+                },
+                {
+                    "id": 63058033,
+                    "login": "pedrocarlo",
+                    "commits": 6
+                },
+                {
+                    "id": 22927506,
+                    "login": "LeMikaelF",
+                    "commits": 5
+                },
+                {
+                    "id": 640792,
+                    "login": "avinassh",
+                    "commits": 1
+                },
+                {
+                    "id": 331197,
+                    "login": "glommer",
+                    "commits": 1
+                },
+                {
+                    "id": 121899304,
+                    "login": "PThorpe92",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "twenty": {
+        "repository": "twentyhq/twenty",
+        "sha": "330cf9c39d149e4945cd142d6519bcef56e85628",
+        "path": "CLAUDE.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 6399865,
+                    "login": "FelixMalfait",
+                    "commits": 10
+                },
+                {
+                    "id": 45004772,
+                    "login": "prastoin",
+                    "commits": 3
+                },
+                {
+                    "id": 71827178,
+                    "login": "bosiraphael",
+                    "commits": 2
+                },
+                {
+                    "id": 12035771,
+                    "login": "charlesBochet",
+                    "commits": 2
+                },
+                {
+                    "id": 125115953,
+                    "login": "mabdullahabaid",
+                    "commits": 2
+                },
+                {
+                    "id": 62795688,
+                    "login": "neo773",
+                    "commits": 2
+                },
+                {
+                    "id": 19412894,
+                    "login": "Bonapara",
+                    "commits": 1
+                },
+                {
+                    "id": 179389032,
+                    "login": "kylenngu135",
+                    "commits": 1
+                },
+                {
+                    "id": 26528466,
+                    "login": "lucasbordeau",
+                    "commits": 1
+                },
+                {
+                    "id": 29927851,
+                    "login": "martmull",
+                    "commits": 1
+                },
+                {
+                    "id": 43003421,
+                    "login": "ratishjain12",
+                    "commits": 1
+                },
+                {
+                    "id": 13104895,
+                    "login": "willydouhard",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "uv": {
+        "repository": "astral-sh/uv",
+        "sha": "392f661d2e925b8ff7d1fea55490a959031ac343",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 1309177,
+                    "login": "charliermarsh",
+                    "commits": 2
+                },
+                {
+                    "id": 6826232,
+                    "login": "konstin",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "varlock": {
+        "repository": "dmno-dev/varlock",
+        "sha": "04dc94bdaddf9e05809d8b9777db83818df3f121",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 1158956,
+                    "login": "theoephraim",
+                    "commits": 14
+                },
+                {
+                    "id": 3722211,
+                    "login": "philmillman",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "vitest": {
+        "repository": "vitest-dev/vitest",
+        "sha": "9e1166959e14bd32298d8a0e85352431c769ec7a",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 16173870,
+                    "login": "sheremet-va",
+                    "commits": 13
+                },
+                {
+                    "id": 4232207,
+                    "login": "hi-ogawa",
+                    "commits": 3
+                },
+                {
+                    "id": 14806298,
+                    "login": "AriPerkkio",
+                    "commits": 1
+                },
+                {
+                    "id": 1430726,
+                    "login": "shairez",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "vllm": {
+        "repository": "vllm-project/vllm",
+        "sha": "6259572b283a4df3d0e8690aad5da003b012c103",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 19981378,
+                    "login": "hmellor",
+                    "commits": 4
+                },
+                {
+                    "id": 56071,
+                    "login": "bbrowning",
+                    "commits": 2
+                },
+                {
+                    "id": 3195154,
+                    "login": "mgoin",
+                    "commits": 2
+                },
+                {
+                    "id": 21118851,
+                    "login": "simon-mo",
+                    "commits": 2
+                },
+                {
+                    "id": 26946864,
+                    "login": "gau-nernst",
+                    "commits": 1
+                },
+                {
+                    "id": 7945038,
+                    "login": "tdoublep",
+                    "commits": 1
+                },
+                {
+                    "id": 156319763,
+                    "login": "vadiklyutiy",
+                    "commits": 1
+                },
+                {
+                    "id": 46394894,
+                    "login": "WoosukKwon",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "vlt": {
+        "repository": "vltpkg/vltpkg",
+        "sha": "4849a970de8f14ceffd590a30b3b51b62a440f55",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 6406037,
+                    "login": "usrrname",
+                    "commits": 2
+                },
+                {
+                    "id": 459713,
+                    "login": "darcyclarke",
+                    "commits": 1
+                },
+                {
+                    "id": 542108,
+                    "login": "lukekarrys",
+                    "commits": 1
+                },
+                {
+                    "id": 220900,
+                    "login": "ruyadorno",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "voicestudio": {
+        "repository": "debpalash/VoiceStudio",
+        "sha": "99a534882ccdb870f8b74fc4364c79f5a6279b49",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 4178343,
+                    "login": "debpalash",
+                    "commits": 7
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "workers-sdk": {
+        "repository": "cloudflare/workers-sdk",
+        "sha": "f8308360283f97d33e188aee2e19c1ef9c09524a",
+        "path": "AGENTS.md",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 28503158,
+                    "login": "penalosa",
+                    "commits": 4
+                },
+                {
+                    "id": 15655,
+                    "login": "petebacondarwin",
+                    "commits": 4
+                },
+                {
+                    "id": 61631103,
+                    "login": "dario-piotrowicz",
+                    "commits": 2
+                },
+                {
+                    "id": 213306,
+                    "login": "ascorbic",
+                    "commits": 1
+                },
+                {
+                    "id": 69125074,
+                    "login": "emily-shen",
+                    "commits": 1
+                },
+                {
+                    "id": 13586373,
+                    "login": "jamesopstad",
+                    "commits": 1
+                },
+                {
+                    "id": 248818,
+                    "login": "vicb",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    },
+    "zed": {
+        "repository": "zed-industries/zed",
+        "sha": "2890c340e07a4c4c7e6778e99a49f5414115b250",
+        "path": ".rules",
+        "contributions": {
+            "contributors": [
+                {
+                    "id": 22570,
+                    "login": "mgsloan",
+                    "commits": 4
+                },
+                {
+                    "id": 4828503,
+                    "login": "morgankrey",
+                    "commits": 3
+                },
+                {
+                    "id": 1789,
+                    "login": "nathansobo",
+                    "commits": 3
+                },
+                {
+                    "id": 2690773,
+                    "login": "SomeoneToIgnore",
+                    "commits": 2
+                },
+                {
+                    "id": 3757771,
+                    "login": "Veykril",
+                    "commits": 2
+                },
+                {
+                    "id": 1724813,
+                    "login": "agu-z",
+                    "commits": 1
+                },
+                {
+                    "id": 53574922,
+                    "login": "cole-miller",
+                    "commits": 1
+                },
+                {
+                    "id": 94272,
+                    "login": "ConradIrwin",
+                    "commits": 1
+                },
+                {
+                    "id": 2468434,
+                    "login": "halvko",
+                    "commits": 1
+                },
+                {
+                    "id": 262660609,
+                    "login": "raydroplet",
+                    "commits": 1
+                },
+                {
+                    "id": 37347831,
+                    "login": "smitbarmase",
+                    "commits": 1
+                },
+                {
+                    "id": 16082815,
+                    "login": "UweKrause",
+                    "commits": 1
+                }
+            ],
+            "unlinkedAuthors": 0
+        }
+    }
+}
