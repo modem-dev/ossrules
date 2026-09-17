@@ -253,6 +253,31 @@ export interface AgentsProject {
     patterns: PatternId[];
 }
 
+/** Only the fields the interactive directory displays, searches, or sorts. */
+export type ProjectListingEntry = Pick<
+    AgentsProject,
+    'slug' | 'name' | 'owner' | 'repo' | 'tagline' | 'hook' | 'language' | 'stars' | 'patterns'
+> & {
+    file: Pick<FileStats, 'lines' | 'bullets'>;
+    lastCommit: Pick<LastCommit, 'date'>;
+};
+
+export function toProjectListingEntry(project: AgentsProject): ProjectListingEntry {
+    return {
+        slug: project.slug,
+        name: project.name,
+        owner: project.owner,
+        repo: project.repo,
+        tagline: project.tagline,
+        hook: project.hook,
+        language: project.language,
+        stars: project.stars,
+        patterns: project.patterns,
+        file: { lines: project.file.lines, bullets: project.file.bullets },
+        lastCommit: { date: project.lastCommit.date },
+    };
+}
+
 /** GitHub URLs. Kept as helpers so a future host move does not scatter string building. */
 export function repoUrl(project: AgentsProject): string {
     return `https://github.com/${project.owner}/${project.repo}`;
@@ -343,7 +368,7 @@ export function languageColor(language: string): string {
 }
 
 /** Org avatar, committed under public/logos so the list needs no third-party request. */
-export function logoSrc(project: AgentsProject): string {
+export function logoSrc(project: Pick<AgentsProject, 'slug'>): string {
     // Refresh previously cached GitHub placeholders in browsers and Next's image optimizer.
     const version = ['deno', 'bun', 'langflow', 'better-auth'].includes(project.slug) ? '?v=2' : '';
     return `/logos/${project.slug}.png${version}`;
@@ -353,7 +378,7 @@ export function logoSrc(project: AgentsProject): string {
  * Facets for the index UI. Both derive from the entries rather than a hand list,
  * so adding a project with a new language surfaces its filter with no edit here.
  */
-export function languageFacets(projects: AgentsProject[]): { value: string; count: number }[] {
+export function languageFacets(projects: Pick<AgentsProject, 'language'>[]): { value: string; count: number }[] {
     const counts = new Map<string, number>();
     for (const project of projects) {
         counts.set(project.language, (counts.get(project.language) ?? 0) + 1);
@@ -363,7 +388,7 @@ export function languageFacets(projects: AgentsProject[]): { value: string; coun
         .sort((a, b) => b.count - a.count || a.value.localeCompare(b.value));
 }
 
-export function patternFacets(projects: AgentsProject[]): { id: PatternId; name: string; count: number }[] {
+export function patternFacets(projects: Pick<AgentsProject, 'patterns'>[]): { id: PatternId; name: string; count: number }[] {
     const counts = new Map<PatternId, number>();
     for (const project of projects) {
         for (const pattern of project.patterns) {
@@ -388,22 +413,22 @@ export const SORTS: { id: SortId; label: string }[] = [
     { id: 'name', label: 'Name' },
 ];
 
-export function compareProjects(a: AgentsProject, b: AgentsProject, sort: SortId, descending: boolean): number {
+export function compareProjects(a: ProjectListingEntry, b: ProjectListingEntry, sort: SortId, descending: boolean): number {
     const sign = descending ? -1 : 1;
     if (sort === 'name') {
         return sign * a.name.localeCompare(b.name, 'en', { sensitivity: 'base' });
     }
     if (sort === 'updated') {
-        const time = (p: AgentsProject) => Date.parse(p.lastCommit.date);
+        const time = (p: ProjectListingEntry) => Date.parse(p.lastCommit.date);
         return sign * (time(a) - time(b)) || b.stars - a.stars;
     }
-    const value = (p: AgentsProject) => (sort === 'stars' ? p.stars : sort === 'lines' ? p.file.lines : p.file.bullets);
+    const value = (p: ProjectListingEntry) => (sort === 'stars' ? p.stars : sort === 'lines' ? p.file.lines : p.file.bullets);
     // Stars break ties so equal-length files keep a stable, meaningful order.
     return sign * (value(a) - value(b)) || b.stars - a.stars;
 }
 
 /** Free-text match over the fields a reader would type: name, org, repo, and the prose. */
-export function matchesQuery(project: AgentsProject, query: string): boolean {
+export function matchesQuery(project: ProjectListingEntry, query: string): boolean {
     const q = query.trim().toLowerCase();
     if (!q) return true;
     return [project.name, project.owner, project.repo, project.tagline, project.hook, project.language].join(' ').toLowerCase().includes(q);

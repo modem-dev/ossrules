@@ -6,13 +6,13 @@ import { useSearchParams } from 'next/navigation';
 import { useMemo } from 'react';
 import { projectListing, withProjectSearch } from '@/lib/project-list';
 import { projectHref } from '@/lib/project-paths';
-import type { AgentsProject, SortId } from './agents-md-data';
+import type { ProjectListingEntry, SortId } from './agents-md-data';
 import { formatStars, languageColor, languageFacets, logoSrc, PATTERNS_BY_ID, patternFacets, SORTS, STATS_AS_OF } from './agents-md-data';
 import { DirectorySelect } from './directory-select';
 
 const ALL = 'all';
 
-function ProjectEntry({ project, search }: { project: AgentsProject; search: string }) {
+function ProjectEntry({ project, search }: { project: ProjectListingEntry; search: string }) {
     return (
         <li className="min-w-0 border-gray-750 border-b">
             <Link href={withProjectSearch(projectHref(project), search)} className="project-entry group">
@@ -60,12 +60,12 @@ function ProjectEntry({ project, search }: { project: AgentsProject; search: str
 }
 
 /** URL state is shared by initial HTML, reloads, and browser history. */
-export function ProjectExplorer({ projects, initialSearch }: { projects: AgentsProject[]; initialSearch: string }) {
+export function ProjectExplorer({ projects, initialSearch }: { projects: ProjectListingEntry[]; initialSearch: string }) {
     const searchParams = useSearchParams();
     return <ProjectExplorerContent projects={projects} search={searchParams?.toString() ?? initialSearch} />;
 }
 
-export function ProjectExplorerContent({ projects, search = '' }: { projects: AgentsProject[]; search?: string }) {
+export function ProjectExplorerContent({ projects, search = '' }: { projects: ProjectListingEntry[]; search?: string }) {
     const { query, language, pattern, sort, descending, visible, filtered, canonicalSearch } = useMemo(
         () => projectListing(projects, search),
         [projects, search],
