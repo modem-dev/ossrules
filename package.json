@@ -19,6 +19,7 @@
         "measure:files": "node --import tsx scripts/measure-instructions.ts",
         "refresh": "npx tsx scripts/refresh-agents-md.ts",
         "sync:skills": "node --import tsx scripts/sync-skills.ts",
+        "sync:instruction-contributors": "node --import tsx scripts/sync-instruction-contributors.ts",
         "sync:skill-contributors": "node --import tsx scripts/sync-skill-contributors.ts",
         "check:skills": "node --import tsx scripts/validate-skills.ts"
     },
@@ -28,6 +29,8 @@
         "fflate": "^0.8.3",
         "js-tiktoken": "^1.0.21",
         "mdast-util-from-markdown": "^2.0.3",
+        "mdast-util-gfm": "^3.1.0",
+        "micromark-extension-gfm": "^3.0.0",
         "next": "^16.2.11",
         "react": "^19.2.1",
         "react-dom": "^19.2.1",

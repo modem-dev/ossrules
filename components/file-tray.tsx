@@ -6,9 +6,9 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useRef, use
 import type { DocumentMention } from '@/lib/document-mentions';
 import { readSourceLocation, writeSourceLocation } from '@/lib/source-location';
 import type { VendoredFile } from './agents-md-data';
+import { DirectorySelect } from './directory-select';
 import { HighlightedSource } from './highlighted-source';
 import { RelativeTime } from './last-updated';
-import { SourceComparison } from './source-comparison';
 
 const InstructionMarkdown = dynamic(() => import('./instruction-markdown').then((module) => module.InstructionMarkdown), {
     loading: () => (
@@ -79,19 +79,15 @@ function DocumentReferences({
         const endLine = mention.startLine + mention.lines.length - 1;
         const label = `${mention.sourcePath ?? primaryFile} · ${endLine === mention.startLine ? `line ${mention.startLine}` : `lines ${mention.startLine}–${endLine}`}`;
         return (
-            <div key={`${mention.sourcePath}:${mention.startLine}`} className="mt-3">
+            <div key={`${mention.sourcePath}:${mention.startLine}`} className="source-excerpt mt-3">
                 {canOpen ? (
-                    <button
-                        type="button"
-                        onClick={() => onOpen(mention)}
-                        className="min-h-9 text-left font-mono text-teal text-xs hover:underline"
-                    >
+                    <button type="button" onClick={() => onOpen(mention)} className="source-excerpt-header min-h-9 hover:underline">
                         {label} <span aria-hidden>↗</span>
                     </button>
                 ) : (
-                    <p className="py-2 font-mono text-gray-550 text-xs">{label}</p>
+                    <p className="source-excerpt-header">{label}</p>
                 )}
-                <pre className="mt-1 rounded border border-gray-750 bg-medium-gray py-3 pr-3 font-mono text-xs leading-6">
+                <pre className="font-mono text-xs leading-6">
                     <code>
                         {mention.lines.map((line, index) => (
                             // biome-ignore lint/suspicious/noArrayIndexKey: source lines are identified by position.
@@ -167,7 +163,6 @@ export function FileTrayProvider({
     children,
 }: TrayProps) {
     const [request, setRequest] = useState<TrayRequest | undefined>();
-    const [comparePath, setComparePath] = useState<string>();
     const [view, setView] = useState<'markdown' | 'raw'>('markdown');
     const [source, setSource] = useState<string | undefined>();
     const [failed, setFailed] = useState(false);
@@ -179,7 +174,12 @@ export function FileTrayProvider({
     const scrollRestore = useRef<number | undefined>(undefined);
     const cache = useRef(new Map<string, string>());
     const panel = useRef<HTMLDialogElement>(null);
+    const [selectPortal, setSelectPortal] = useState<HTMLDialogElement | null>(null);
     const returnFocus = useRef<HTMLElement | null>(null);
+    const setPanel = useCallback((node: HTMLDialogElement | null) => {
+        panel.current = node;
+        setSelectPortal(node);
+    }, []);
 
     const byPath = useMemo(() => new Map(files.map((file) => [file.path, file])), [files]);
     const readable = useMemo(() => new Set(files.filter((file) => !file.missing && !file.unavailable).map((file) => file.path)), [files]);
@@ -206,7 +206,6 @@ export function FileTrayProvider({
             setRequest(location.request);
             setView(location.view);
             setSnapshotMismatch(location.mismatch);
-            setComparePath(undefined);
             setReturnDocument(undefined);
             setLinkStatus('idle');
         };
@@ -222,7 +221,6 @@ export function FileTrayProvider({
             setReturnDocument(undefined);
             scrollRestore.current = undefined;
             const resolvedPath = byPath.get(next.path)?.resolvedPath;
-            setComparePath(undefined);
             const mode = next.startLine !== undefined || next.match ? 'raw' : 'markdown';
             const resolved = resolvedPath ? { ...next, via: next.path, path: resolvedPath } : next;
             setView(mode);
@@ -235,7 +233,6 @@ export function FileTrayProvider({
     const close = useCallback(() => {
         const restoreFocus = panel.current?.contains(document.activeElement);
         panel.current?.close();
-        setComparePath(undefined);
         setRequest(undefined);
         rememberSource(undefined, 'markdown');
         setReturnDocument(undefined);
@@ -252,7 +249,6 @@ export function FileTrayProvider({
             !file.unavailable &&
             (file.path === primaryFile || /(^|\/)(AGENTS|CLAUDE)\.md$/.test(file.path)),
     );
-    const alternatives = instructionFiles.filter((file) => file.path !== path);
 
     const visitMention = (mention: DocumentMention) => {
         if (!request) return;
@@ -398,9 +394,9 @@ export function FileTrayProvider({
     }, [lines, request?.match, request?.startLine]);
 
     useEffect(() => {
-        if (markedLine < 0 || view !== 'raw' || comparePath || source === undefined) return;
+        if (markedLine < 0 || view !== 'raw' || source === undefined) return;
         panel.current?.querySelector(`[data-line="${markedLine}"]`)?.scrollIntoView({ block: 'center' });
-    }, [markedLine, view, comparePath, source]);
+    }, [markedLine, view, source]);
 
     const markedCount = request?.lineCount ?? request?.match?.trimEnd().split('\n').length ?? 0;
     const copyLink = async () => {
@@ -425,7 +421,6 @@ export function FileTrayProvider({
     const showReferences = Boolean(
         mentions[path ?? '']?.length || (path && !instructionFiles.some((item) => item.path === path) && path !== primaryFile),
     );
-    const canCompare = instructionFiles.some((item) => item.path === path) && alternatives.length > 0;
     const sourceContent = failed ? (
         <p role="alert" className="p-6 text-gray-550 text-sm leading-relaxed">
             That file could not be loaded. It is still available{' '}
@@ -438,14 +433,6 @@ export function FileTrayProvider({
         <p role="status" className="p-6 font-mono text-gray-600 text-xs">
             Loading source…
         </p>
-    ) : comparePath && source !== undefined ? (
-        <SourceComparison
-            slug={slug}
-            leftPath={path ?? ''}
-            left={source}
-            rightPath={comparePath}
-            rightTruncated={byPath.get(comparePath)?.truncated}
-        />
     ) : isMarkdown && view === 'markdown' && source !== undefined ? (
         <InstructionMarkdown source={source} sourceUrl={sourceUrl} readable={readable} onOpen={(path) => open({ path })} />
     ) : (
@@ -471,7 +458,7 @@ export function FileTrayProvider({
             </div>
             {path ? (
                 <dialog
-                    ref={panel}
+                    ref={setPanel}
                     aria-label={path}
                     className="source-dialog"
                     onCancel={(event) => {
@@ -491,18 +478,13 @@ export function FileTrayProvider({
                         <header className="source-header">
                             <div className="source-file-title">
                                 {instructionFiles.some((item) => item.path === path) && instructionFiles.length > 1 ? (
-                                    <select
-                                        aria-label="Instruction file"
+                                    <DirectorySelect
+                                        label="Instruction file"
                                         value={path}
-                                        className="source-file-select"
-                                        onChange={(event) => open({ path: event.target.value })}
-                                    >
-                                        {instructionFiles.map((item) => (
-                                            <option key={item.path} value={item.path}>
-                                                {item.path}
-                                            </option>
-                                        ))}
-                                    </select>
+                                        onValueChange={(path) => open({ path })}
+                                        options={instructionFiles.map((item) => ({ value: item.path, label: item.path }))}
+                                        portalContainer={selectPortal}
+                                    />
                                 ) : (
                                     <p className="break-all font-mono text-sm">{path}</p>
                                 )}
@@ -596,7 +578,7 @@ export function FileTrayProvider({
                             </div>
                         ) : null}
                         <div className="source-view-bar">
-                            {isMarkdown && !comparePath ? (
+                            {isMarkdown ? (
                                 <Tabs.List className="source-view-tabs" aria-label="File view">
                                     <Tabs.Trigger className="source-view-tab" value="markdown">
                                         Markdown
@@ -672,56 +654,28 @@ export function FileTrayProvider({
                             </div>
                         </div>
                         <div className="source-scroll" aria-busy={!failed && lines === undefined}>
-                            {showReferences || canCompare ? (
+                            {showReferences ? (
                                 <div className="source-context">
-                                    {showReferences ? (
-                                        <DocumentReferences
-                                            key={path}
-                                            path={path}
-                                            primaryFile={primaryFile}
-                                            mentions={mentions[path] ?? []}
-                                            canOpen={true}
-                                            onOpen={visitMention}
-                                            expanded={expandedReferences[path] ?? false}
-                                            onExpandedChange={(expanded) =>
-                                                setExpandedReferences((previous) =>
-                                                    previous[path] === expanded ? previous : { ...previous, [path]: expanded },
-                                                )
-                                            }
-                                        />
-                                    ) : null}
-                                    {canCompare ? (
-                                        <button
-                                            type="button"
-                                            className="source-compare"
-                                            onClick={() => setComparePath(comparePath ? undefined : alternatives[0]?.path)}
-                                        >
-                                            {comparePath ? 'Close comparison' : 'Compare files'}
-                                        </button>
-                                    ) : null}
+                                    <DocumentReferences
+                                        key={path}
+                                        path={path}
+                                        primaryFile={primaryFile}
+                                        mentions={mentions[path] ?? []}
+                                        canOpen={true}
+                                        onOpen={visitMention}
+                                        expanded={expandedReferences[path] ?? false}
+                                        onExpandedChange={(expanded) =>
+                                            setExpandedReferences((previous) =>
+                                                previous[path] === expanded ? previous : { ...previous, [path]: expanded },
+                                            )
+                                        }
+                                    />
                                 </div>
                             ) : null}
                             {request.via ? (
                                 <p className="px-4 pb-2 font-mono text-xs text-gray-600 sm:px-6">Opened via {request.via} symlink</p>
                             ) : null}
-                            {comparePath ? (
-                                <label className="flex items-center gap-2 px-4 py-2 text-gray-550 text-xs sm:px-6">
-                                    Compare with
-                                    <select
-                                        aria-label="Compare with"
-                                        value={comparePath}
-                                        className="source-file-select"
-                                        onChange={(event) => setComparePath(event.target.value)}
-                                    >
-                                        {alternatives.map((item) => (
-                                            <option key={item.path} value={item.path}>
-                                                {item.path}
-                                            </option>
-                                        ))}
-                                    </select>
-                                </label>
-                            ) : null}
-                            {isMarkdown && !comparePath
+                            {isMarkdown
                                 ? (['markdown', 'raw'] as const).map((mode) => (
                                       <Tabs.Content key={mode} value={mode} className="source-view-panel">
                                           {view === mode ? sourceContent : null}
@@ -850,16 +804,19 @@ export function QuoteLink({
     if (!tray?.readable.has(path)) return <>{children}</>;
 
     return (
-        <div className="quote-block">
-            {children}
+        <div className="quote-block source-excerpt">
             <button
                 type="button"
                 data-source-trigger
                 onClick={() => tray.open({ path, match: quote, startLine, lineCount: quote.trimEnd().split('\n').length })}
-                className="quote-open"
+                className="quote-open source-excerpt-header"
             >
-                {path} · View in source <span aria-hidden>↗</span>
+                <span>{path}</span>
+                <span>
+                    View in source <span aria-hidden>↗</span>
+                </span>
             </button>
+            {children}
         </div>
     );
 }

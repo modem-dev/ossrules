@@ -23,7 +23,7 @@ function Chevron({ up = false }: { up?: boolean }) {
     );
 }
 
-/** Shared directory filters with keyboard navigation, typeahead, and managed focus. */
+/** Shared select control with keyboard navigation, typeahead, and managed focus. */
 export function DirectorySelect({
     label,
     value,
@@ -31,6 +31,7 @@ export function DirectorySelect({
     options,
     active = false,
     prefix = '',
+    portalContainer,
 }: {
     label: string;
     value: string;
@@ -38,10 +39,17 @@ export function DirectorySelect({
     options: DirectoryOption[];
     active?: boolean;
     prefix?: string;
+    portalContainer?: HTMLElement | null;
 }) {
     const selected = options.find((option) => option.value === value);
     return (
-        <Select.Root value={value} onValueChange={onValueChange}>
+        <Select.Root
+            value={value}
+            onValueChange={(nextValue) => {
+                // Radix's hidden native select can emit an empty value while mounting.
+                if (nextValue) onValueChange(nextValue);
+            }}
+        >
             <Select.Trigger className="directory-select-trigger" aria-label={label} data-active={active || undefined}>
                 {selected?.color ? (
                     <span className="directory-select-dot" style={{ backgroundColor: selected.color }} aria-hidden="true" />
@@ -56,7 +64,7 @@ export function DirectorySelect({
                     <Chevron />
                 </Select.Icon>
             </Select.Trigger>
-            <Select.Portal>
+            <Select.Portal container={portalContainer}>
                 <Select.Content className="directory-select-content" position="popper" sideOffset={6} collisionPadding={12}>
                     <Select.ScrollUpButton className="directory-select-scroll">
                         <Chevron up />
