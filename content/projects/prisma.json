@@ -1,0 +1,161 @@
+{
+    "slug": "prisma",
+    "name": "Prisma ORM",
+    "owner": "prisma",
+    "repo": "orm",
+    "language": "TypeScript",
+    "stars": 47612,
+    "defaultBranch": "main",
+    "instructionFile": "AGENTS.md",
+    "lastCommit": {
+        "sha": "1ed19e4f3c25551989c218631bf6006e8d55de4b",
+        "date": "2026-09-11T13:30:15Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 11134,
+        "lines": 130,
+        "words": 1343,
+        "headings": 15,
+        "bullets": 58,
+        "codeBlocks": 1,
+        "docLinks": 22
+    },
+    "tagline": "A contract-first data access layer with typed query builders and structured schema artifacts.",
+    "hook": "Keeps tracked skills in skills-contrib and enforces a CI limit against increasing bare type casts.",
+    "summary": "Prisma ORM's guide describes a contract-first architecture and a modular onboarding route. It separates canonical skill and rule files from tool-specific symlink mirrors, names type-safety restrictions, and points specialized work to playbooks and architecture documents.",
+    "references": [
+        {
+            "path": "docs/README.md"
+        },
+        {
+            "path": "docs/Architecture Overview.md"
+        },
+        {
+            "path": "docs/Testing Guide.md"
+        },
+        {
+            "path": ".agents/rules/README.md"
+        },
+        {
+            "path": "docs/onboarding/Getting-Started.md"
+        },
+        {
+            "path": "docs/onboarding/Repo-Map-and-Layering.md"
+        },
+        {
+            "path": "docs/onboarding/Conventions.md"
+        },
+        {
+            "path": "docs/onboarding/Testing.md"
+        },
+        {
+            "path": "docs/onboarding/Common-Tasks-Playbook.md"
+        },
+        {
+            "path": "docs/onboarding/Cursor-Cloud-Agents.md"
+        },
+        {
+            "path": ".agents/rules/no-target-branches.mdc"
+        },
+        {
+            "path": ".agents/rules/omit-should-in-tests.mdc"
+        },
+        {
+            "path": ".agents/rules/sql-orm-client-whole-shape-assertions.mdc"
+        },
+        {
+            "path": ".agents/rules/doc-maintenance.mdc"
+        },
+        {
+            "path": "skills-contrib/no-bare-casts/SKILL.md"
+        },
+        {
+            "path": "docs/architecture docs/patterns/interface-plus-factory.md"
+        },
+        {
+            "path": "docs/reference/typescript-patterns.md"
+        },
+        {
+            "path": "docs/architecture docs/patterns/three-layer-polymorphic-ir.md"
+        },
+        {
+            "path": "docs/architecture docs/patterns/frozen-class-ast.md"
+        },
+        {
+            "path": "docs/architecture docs/patterns/json-canonical-class-in-memory.md"
+        },
+        {
+            "path": "projects/README.md"
+        },
+        {
+            "path": ".agents/skills/publish-npm-version/SKILL.md"
+        },
+        {
+            "path": "docs/oss/versioning.md"
+        },
+        {
+            "path": "docs/Telemetry.md"
+        },
+        {
+            "path": "docs/architecture docs/adrs/",
+            "kind": "pattern",
+            "label": "Architecture Decision Records"
+        },
+        {
+            "path": "docs/architecture docs/subsystems/",
+            "kind": "pattern",
+            "label": "Subsystem architecture guides"
+        },
+        {
+            "path": "skills-contrib/*/SKILL.md",
+            "kind": "pattern",
+            "label": "Canonical contributor skills"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Name the tracked source behind each tool-facing mirror",
+            "body": "Skills live under skills-contrib and rules under .agents/rules. Tool-specific directories are generated or symlinked presentations; editing canonical paths keeps Git diffs aligned with the tracked files.",
+            "quote": "The repo keeps a single canonical home for each kind of agent surface, with presentation symlinks that satisfy the paths each harness expects.",
+            "pattern": "single-source"
+        },
+        {
+            "title": "Enforce a direction of travel for unsafe casts",
+            "body": "Production casts use named utilities with a reason rather than bare as. The file identifies a plugin and CI ratchet that prevent per-PR increases while preserving explicit exceptions for tests and as const.",
+            "quote": "The `no-bare-cast` plugin + CI ratchet enforce no per-PR cast increases.",
+            "pattern": "ratchet"
+        },
+        {
+            "title": "Describe the contract flow from authoring to execution",
+            "body": "The guide follows schema authoring through emitted JSON and declaration files, validation, and typed DSL use. It separates structured artifacts from executable runtime generation.",
+            "quote": "1. **Authoring**: Write `schema.psl` or use TypeScript builders → canonicalized Contract IR\n2. **Emission**: Emitter validates and generates `contract.json` + `contract.d.ts`\n3. **Hydration**: the client factory (or a family `ContractSerializer`) validates `contract.json` into the typed contract\n4. **Usage**: DSL functions (`sql()`, `schema()`) accept the contract and propagate types",
+            "pattern": "architecture-narrative"
+        },
+        {
+            "title": "Route routine work through modular onboarding",
+            "body": "Setup, repository layering, conventions, testing, and common tasks each have a separate document. Day-to-day changes are directed to a playbook instead of duplicating every procedure in the root.",
+            "quote": "Day-to-day playbook (add SQL operation, split monolith, fix import violation, etc.): [Common Tasks Playbook](docs/onboarding/Common-Tasks-Playbook.md)",
+            "pattern": "skill-routing"
+        }
+    ],
+    "steal": [
+        "Distinguish canonical tracked guidance from generated tool-facing paths.",
+        "Attach a measurable direction to an incremental safety policy.",
+        "Explain how generated artifacts participate in the runtime contract.",
+        "Keep common task procedures in a linked playbook."
+    ],
+    "outline": [
+        "Start Here",
+        "Project Overview",
+        "Where skills and rules live",
+        "Golden Rules",
+        "Typesafety rules",
+        "Common Commands",
+        "Core Concepts",
+        "Frequent Tasks",
+        "Subsystem Deep Dives",
+        "Ask First"
+    ],
+    "patterns": ["single-source", "ratchet", "architecture-narrative", "skill-routing"]
+}

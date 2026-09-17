@@ -1,0 +1,220 @@
+{
+    "slug": "oxc",
+    "sha": "fc175b09d372ec1efc131f045d1027a55359ae5b",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 13938,
+            "lines": 329
+        },
+        {
+            "path": "apps/oxfmt/AGENTS.md",
+            "bytes": 11222,
+            "lines": 216
+        },
+        {
+            "path": "apps/oxfmt/CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "apps/oxfmt/AGENTS.md"
+                }
+            ],
+            "sameContentAs": "CLAUDE.md"
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "AGENTS.md"
+                }
+            ]
+        },
+        {
+            "path": "CONTRIBUTING.md",
+            "bytes": 1239,
+            "lines": 21
+        },
+        {
+            "path": "crates/oxc_formatter_core/AGENTS.md",
+            "bytes": 13157,
+            "lines": 173
+        },
+        {
+            "path": "crates/oxc_formatter_core/CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "crates/oxc_formatter_core/AGENTS.md"
+                }
+            ],
+            "sameContentAs": "CLAUDE.md"
+        },
+        {
+            "path": "crates/oxc_formatter_core/FORMATTER_POLICY.md",
+            "bytes": 9198,
+            "lines": 150
+        },
+        {
+            "path": "crates/oxc_formatter_css/AGENTS.md",
+            "bytes": 28209,
+            "lines": 360,
+            "imports": [
+                {
+                    "target": "../oxc_formatter_core/FORMATTER_POLICY.md",
+                    "path": "crates/oxc_formatter_core/FORMATTER_POLICY.md"
+                }
+            ]
+        },
+        {
+            "path": "crates/oxc_formatter_css/CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "crates/oxc_formatter_css/AGENTS.md"
+                }
+            ],
+            "sameContentAs": "CLAUDE.md"
+        },
+        {
+            "path": "crates/oxc_formatter_graphql/AGENTS.md",
+            "bytes": 6302,
+            "lines": 111,
+            "imports": [
+                {
+                    "target": "../oxc_formatter_core/FORMATTER_POLICY.md",
+                    "path": "crates/oxc_formatter_core/FORMATTER_POLICY.md"
+                }
+            ]
+        },
+        {
+            "path": "crates/oxc_formatter_graphql/CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "crates/oxc_formatter_graphql/AGENTS.md"
+                }
+            ],
+            "sameContentAs": "CLAUDE.md"
+        },
+        {
+            "path": "crates/oxc_formatter_json/AGENTS.md",
+            "bytes": 2596,
+            "lines": 44,
+            "imports": [
+                {
+                    "target": "../oxc_formatter_core/FORMATTER_POLICY.md",
+                    "path": "crates/oxc_formatter_core/FORMATTER_POLICY.md"
+                }
+            ]
+        },
+        {
+            "path": "crates/oxc_formatter_json/CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "crates/oxc_formatter_json/AGENTS.md"
+                }
+            ],
+            "sameContentAs": "CLAUDE.md"
+        },
+        {
+            "path": "crates/oxc_formatter_tests/AGENTS.md",
+            "bytes": 3068,
+            "lines": 44
+        },
+        {
+            "path": "crates/oxc_formatter_tests/CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "crates/oxc_formatter_tests/AGENTS.md"
+                }
+            ],
+            "sameContentAs": "CLAUDE.md"
+        },
+        {
+            "path": "crates/oxc_formatter_yaml/AGENTS.md",
+            "bytes": 5201,
+            "lines": 81,
+            "imports": [
+                {
+                    "target": "../oxc_formatter_core/FORMATTER_POLICY.md",
+                    "path": "crates/oxc_formatter_core/FORMATTER_POLICY.md"
+                }
+            ]
+        },
+        {
+            "path": "crates/oxc_formatter_yaml/CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "crates/oxc_formatter_yaml/AGENTS.md"
+                }
+            ],
+            "sameContentAs": "CLAUDE.md"
+        },
+        {
+            "path": "crates/oxc_formatter/AGENTS.md",
+            "bytes": 13210,
+            "lines": 194,
+            "imports": [
+                {
+                    "target": "../oxc_formatter_core/FORMATTER_POLICY.md",
+                    "path": "crates/oxc_formatter_core/FORMATTER_POLICY.md"
+                }
+            ]
+        },
+        {
+            "path": "crates/oxc_formatter/CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "crates/oxc_formatter/AGENTS.md"
+                }
+            ],
+            "sameContentAs": "CLAUDE.md"
+        },
+        {
+            "path": "crates/oxc_minifier/docs/CLAUDE.md",
+            "bytes": 4817,
+            "lines": 184
+        },
+        {
+            "path": "crates/oxc_parser/AGENTS.md",
+            "bytes": 1429,
+            "lines": 43
+        },
+        {
+            "path": "crates/oxc_semantic/AGENTS.md",
+            "bytes": 2060,
+            "lines": 63
+        },
+        {
+            "path": "crates/oxc_transformer/AGENTS.md",
+            "bytes": 1942,
+            "lines": 71
+        }
+    ]
+}

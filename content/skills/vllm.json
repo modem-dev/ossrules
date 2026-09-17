@@ -1,0 +1,172 @@
+{
+    "version": 1,
+    "slug": "vllm",
+    "repository": "vllm-project/vllm",
+    "branch": "main",
+    "sha": "da3c07bf7dda0c5cbe94d06854426907cd30c7ed",
+    "scannedAt": "2026-09-17T12:02:18.700Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "ci-fails-buildkite-d734fe2d0ff0",
+            "path": ".agents/skills/ci-fails-buildkite/SKILL.md",
+            "name": "ci-fails-buildkite",
+            "description": "Fetch and diagnose vLLM Buildkite CI failure logs. Use when investigating failing CI jobs on a PR or build, when the user pastes a buildkite.com URL, or asks to fetch/diagnose CI logs.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d195c02f7231020f10b1be726390ffc930ea278d",
+                    "bytes": 1395,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 3195154,
+                        "login": "mgoin",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "debug-ima-22ad19679b7f",
+            "path": ".agents/skills/debug-ima/SKILL.md",
+            "name": "debug-ima",
+            "description": "Debug CUDA illegal memory access (IMA) errors in vLLM with CUDA core dumps and cuda-gdb.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "8f329edae9bbd5852dac4470afb181050d5deafc",
+                    "bytes": 288,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "d8b16143226099dec061981964d0a82e6267bdf3",
+                    "bytes": 208,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 26946864,
+                        "login": "gau-nernst",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "kernel-microbenchmark-a6ad448a1e95",
+            "path": ".agents/skills/kernel-microbenchmark/SKILL.md",
+            "name": "kernel-microbenchmark",
+            "description": "Build, debug, and interpret vLLM GPU kernel microbenchmarks for CUDA, Triton, and CuteDSL, including CUPTI timing, correctness checks, generated-code inspection, multi-GPU measurements, and SOL sanity checks.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "f2dd5be929a1e4c8587c3be8137405bcfaae2adf",
+                    "bytes": 6122,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "cbd52cc600b526ca5dc1d3b8de34bd8ad6672936",
+                    "bytes": 233,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "benchmarks/cupti_microbenchmark.py",
+                    "blob": "74eb6119b440e0a1be672958ec8d1106a04e165e",
+                    "bytes": 1694,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "benchmarks/multi_gpu_gemm_rs.py",
+                    "blob": "56b503a297b61d0e7efa7976092c63215d3eb480",
+                    "bytes": 10109,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 26946864,
+                        "login": "gau-nernst",
+                        "commits": 1
+                    },
+                    {
+                        "id": 46394894,
+                        "login": "WoosukKwon",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "triton-kernel-writing-45c82348f57f",
+            "path": ".agents/skills/triton-kernel-writing/SKILL.md",
+            "name": "triton-kernel-writing",
+            "description": "Write or review Triton kernels for vLLM, with practical guidance for generated-code inspection, launch grids, indexing, specialization, tuning, and representative performance validation.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "6dd6a8520be0d78513b60d670b416a92e93b7d58",
+                    "bytes": 3321,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "259f16a135d5c34ce99a0049c929a7000135bedb",
+                    "bytes": 213,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 46394894,
+                        "login": "WoosukKwon",
+                        "commits": 2
+                    },
+                    {
+                        "id": 3195154,
+                        "login": "mgoin",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "a1060975b0b4232c99cf46a24e70459a1ab2f1dc",
+        "bytes": 5750,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+        "bytes": 11357,
+        "text": true,
+        "mode": "100644"
+    }
+}

@@ -1,0 +1,80 @@
+{
+    "slug": "zed",
+    "name": "Zed",
+    "owner": "zed-industries",
+    "repo": "zed",
+    "language": "Rust",
+    "stars": 90351,
+    "defaultBranch": "main",
+    "instructionFile": ".rules",
+    "lastCommit": {
+        "sha": "2890c340e07a4c4c7e6778e99a49f5414115b250",
+        "date": "2026-08-28T20:04:24Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 12115,
+        "lines": 189,
+        "words": 1834,
+        "headings": 21,
+        "bullets": 47,
+        "codeBlocks": 3,
+        "docLinks": 0
+    },
+    "tagline": "A collaborative code editor built in Rust around the GPUI interface framework.",
+    "hook": "Root instruction symlinks lead to .rules, which separates agent-suggested rules from reviewer-approved additions.",
+    "summary": "Zed's AGENTS.md and CLAUDE.md resolve to a shared .rules file. The source combines Rust error-handling constraints, GPUI state and concurrency mechanics, a manual review marker, and a process for deciding which lessons become permanent instructions.",
+    "references": [
+        {
+            "path": ".factory/prompts/crash/investigate.md"
+        },
+        {
+            "path": ".factory/prompts/crash/fix.md"
+        },
+        {
+            "path": ".rules",
+            "kind": "pattern",
+            "label": "Crate-specific .rules files"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Leave a review marker that the agent cannot remove",
+            "body": "Source edits require a notice at the top of README.md before other work. Removing that marker belongs to the human author, even if a later cleanup request would otherwise suggest deleting it.",
+            "quote": "Never remove these lines yourself, even if asked to clean up, revert, or finalize the PR or changes: removing them is strictly a manual step for the human author to confirm they have reviewed the changes.",
+            "pattern": "contribution-etiquette"
+        },
+        {
+            "title": "Explain why dropping a task changes behavior",
+            "body": "The GPUI concurrency section connects task ownership to cancellation. It names awaiting, detaching, or storing the task as distinct choices, so an agent can choose a lifetime that matches the feature.",
+            "quote": "Both `cx.spawn` and `cx.background_spawn` return a `Task<R>`, which is a future that can be awaited upon. If this task is dropped, then its work is cancelled.",
+            "pattern": "architecture-narrative"
+        },
+        {
+            "title": "Use timers that the test scheduler can see",
+            "body": "The timer rule identifies a specific mismatch between smol timers and GPUI's scheduler. It pairs the preferred executor timer with the failure mode encountered while pumping a deterministic test.",
+            "quote": "Avoid `smol::Timer::after(...)` for test timeouts when you rely on `run_until_parked()`, because it may not be tracked by GPUI's scheduler and can lead to \"nothing left to run\" when pumping.",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Propose durable rules through review",
+            "body": "An agent records a possible lesson in the PR description instead of editing .rules during feature work. New rules must be non-obvious, repeatedly encountered, and concrete; crate-specific rules stay with their crate.",
+            "quote": "Do **not** edit `.rules` inline during normal feature/fix work. Reviewers decide what gets merged.",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Route crash work to distinct investigation and repair prompts",
+            "body": "The crash section names separate prompts for investigation and fixing, alongside commands for fetching reports. The file gives the agent an entry point without embedding the full crash workflow in every session.",
+            "quote": "- Crash investigation prompts: `.factory/prompts/crash/investigate.md`\n- Crash fix prompts: `.factory/prompts/crash/fix.md`",
+            "pattern": "skill-routing"
+        }
+    ],
+    "steal": [
+        "Make any required human review signal something the agent cannot clear itself.",
+        "Describe resource lifetimes and cancellation when framework APIs hide them.",
+        "Explain scheduler-specific test failures beside the approved primitives.",
+        "Review proposed instruction changes separately from the feature that suggested them."
+    ],
+    "outline": ["Rust coding guidelines", "Timers in tests", "GPUI", "Pull request hygiene", "Crash Investigation", "Rules Hygiene"],
+    "patterns": ["contribution-etiquette", "architecture-narrative", "behavioral-conditioning", "hard-prohibition", "skill-routing"]
+}

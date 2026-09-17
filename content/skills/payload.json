@@ -1,0 +1,309 @@
+{
+    "version": 1,
+    "slug": "payload",
+    "repository": "payloadcms/payload",
+    "branch": "main",
+    "sha": "9a2cdcb87aacae41b66ab558a056d974c8f38f4e",
+    "scannedAt": "2026-09-17T12:03:44.909Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [
+        {
+            "path": ".claude/skills/ui4/SKILL.md",
+            "reason": "Invalid YAML frontmatter."
+        }
+    ],
+    "skills": [
+        {
+            "id": "audit-dependencies-095c87ee6ca3",
+            "path": ".claude/skills/audit-dependencies/SKILL.md",
+            "name": "audit-dependencies",
+            "description": "Use when fixing dependency vulnerabilities, running pnpm audit, or when the audit-dependencies CI check fails",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "3590eedc80dca365bb75872206c8de14d2c1391f",
+                    "bytes": 11173,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 65888,
+                        "login": "denolfe",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "e2e-write-visual-test-460d600bee08",
+            "path": ".claude/skills/e2e-write-visual-test/SKILL.md",
+            "name": "e2e-write-visual-test",
+            "description": "Use when writing a Playwright visual regression (screenshot comparison) test, tagging a test `@visual`, generating or updating baseline screenshots, running visual tests locally, or debugging a failing screenshot comparison in CI.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "46cfcdb6eb27eaae8511f755199e68f236f560b5",
+                    "bytes": 9509,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 35137243,
+                        "login": "paulpopus",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "generate-translations-29d598953110",
+            "path": ".claude/skills/generate-translations/SKILL.md",
+            "name": "generate-translations",
+            "description": "Use when new translation keys are added to packages to generate new translations strings",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "2947349643352390725ff014bbba78f380f4b88b",
+                    "bytes": 4343,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 30633324,
+                        "login": "JarrodMFlesch",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "triage-ci-flake-3a1b2c584211",
+            "path": ".claude/skills/triage-ci-flake/SKILL.md",
+            "name": "triage-ci-flake",
+            "description": "Use when CI tests fail on main branch after PR merge, when investigating flaky test failures, or when user provides a PR URL/number to aggregate all failing tests",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d9495bcde68190443326f90f6dc127da08e0a7e6",
+                    "bytes": 17639,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 30633324,
+                        "login": "JarrodMFlesch",
+                        "commits": 3
+                    },
+                    {
+                        "id": 12823331,
+                        "login": "nathanlentz",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "ui4-convert-tests-45e232345c4a",
+            "path": ".claude/skills/ui4-convert-tests/SKILL.md",
+            "name": "ui4-convert-tests",
+            "description": "Use when UI changes are complete and e2e tests need updating. Analyzes what changed in UI components and systematically finds/fixes affected tests.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "9d0c744cfeff88ebfece2ad544839a0a4125eaf5",
+                    "bytes": 14073,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 67977755,
+                        "login": "JessRynkar",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "ui4-review-adcc6d384b6f",
+            "path": ".claude/skills/ui4-review/SKILL.md",
+            "name": "ui4-review",
+            "description": "Review UI4 CSS migrations for proper token usage. Checks that CSS variables are used instead of hardcoded values.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "467c1729953d9be15dd85553a716aea7f9c669ab",
+                    "bytes": 9597,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 30633324,
+                        "login": "JarrodMFlesch",
+                        "commits": 3
+                    },
+                    {
+                        "id": 35137243,
+                        "login": "paulpopus",
+                        "commits": 2
+                    },
+                    {
+                        "id": 67977755,
+                        "login": "JessRynkar",
+                        "commits": 1
+                    },
+                    {
+                        "id": 35232443,
+                        "login": "PatrikKozak",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "payload-a1001d26e657",
+            "path": "packages/payload/skills/payload/SKILL.md",
+            "name": "payload",
+            "description": "Use when working with Payload projects (payload.config.ts, collections, fields, hooks, access control, Payload API). Use when debugging validation errors, security issues, relationship queries, transactions, or hook behavior.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "4fe021c866e1e19ce9fee8a406913f68f43a1d3d",
+                    "bytes": 24017,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/ACCESS-CONTROL-ADVANCED.md",
+                    "blob": "ad164f20f3d76b04f345c9e2e712ac38fa1e4c85",
+                    "bytes": 17989,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/ACCESS-CONTROL.md",
+                    "blob": "d3703051a8e4edfb5792df7585d75fec2cc5daa0",
+                    "bytes": 18266,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/ADAPTERS.md",
+                    "blob": "1023cbb9904232c21cabb73a0805a09e34efa739",
+                    "bytes": 7049,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/ADVANCED.md",
+                    "blob": "d74440669ae672861443f0b951fdf82dce0bbe95",
+                    "bytes": 8997,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/COLLECTIONS.md",
+                    "blob": "70d1b8b4865a9904dae616defac68ceaf069fad8",
+                    "bytes": 7126,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/ENDPOINTS.md",
+                    "blob": "99ef908d421a9a9fe645e3e6f49f90ce3d77f39a",
+                    "bytes": 15435,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/FIELD-TYPE-GUARDS.md",
+                    "blob": "59ec9380e8a0e3594c10787faf714f320551bc2c",
+                    "bytes": 10900,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/FIELDS.md",
+                    "blob": "af51752210218a4489445c7474c3c990d4819454",
+                    "bytes": 18263,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/HOOKS.md",
+                    "blob": "b67556e883389a7d64b12b2e9cf02face66f8e2b",
+                    "bytes": 4341,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/PLUGIN-DEVELOPMENT.md",
+                    "blob": "d0773fb7eaff5457236760e608c790b7f60a8227",
+                    "bytes": 35329,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "reference/QUERIES.md",
+                    "blob": "89cfff4c61e971cc883b2a3e22cc891f3127d927",
+                    "bytes": 6093,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 65888,
+                        "login": "denolfe",
+                        "commits": 1
+                    },
+                    {
+                        "id": 67977755,
+                        "login": "JessRynkar",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "CLAUDE.md",
+        "blob": "985c1927ada339a83b19bf22fca8f7296b88d59d",
+        "bytes": 20959,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE.md",
+        "blob": "b01626c32d15467951f80dc77a0427ed3483a815",
+        "bytes": 1100,
+        "text": true,
+        "mode": "100644"
+    }
+}

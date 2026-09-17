@@ -1,0 +1,35 @@
+{
+    "slug": "pytorch",
+    "sha": "a471a58d241b08025dcb4ec69c2d30e5a49a757a",
+    "license": "BSD-3-Clause",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".claude/skills/pr-review/SKILL.md",
+            "bytes": 9741,
+            "lines": 228
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 9,
+            "lines": 1,
+            "symlink": "CLAUDE.md",
+            "resolvedPath": "CLAUDE.md"
+        },
+        {
+            "path": "AI_POLICY.md",
+            "bytes": 1818,
+            "lines": 30
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 15226,
+            "lines": 343
+        },
+        {
+            "path": "torch/_dynamo/CLAUDE.md",
+            "bytes": 12493,
+            "lines": 305
+        }
+    ]
+}

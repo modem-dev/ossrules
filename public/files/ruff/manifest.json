@@ -1,0 +1,54 @@
+{
+    "slug": "ruff",
+    "sha": "fbfc0009049ec518f4875c75373efac04a88d09d",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".agents/skills/adding-ty-diagnostics/SKILL.md",
+            "bytes": 1910,
+            "lines": 28
+        },
+        {
+            "path": ".agents/skills/minimizing-ty-ecosystem-changes/SKILL.md",
+            "bytes": 9681,
+            "lines": 143
+        },
+        {
+            "path": ".agents/skills/summarise-ecosystem-results/SKILL.md",
+            "bytes": 8211,
+            "lines": 54
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 17405,
+            "lines": 211
+        },
+        {
+            "path": "agents/references/repository-threat-model.md",
+            "bytes": 3141,
+            "lines": 53
+        },
+        {
+            "path": "agents/references/threat-models.md",
+            "bytes": 693,
+            "lines": 14
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "AGENTS.md"
+                }
+            ]
+        },
+        {
+            "path": "CONTRIBUTING.md",
+            "bytes": 50690,
+            "lines": 1119
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "slug": "payload",
+    "sha": "2bdb79f1d6b99e829108f1bdfba392abfa892c33",
+    "license": "MIT",
+    "licensePath": "LICENSE.md",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 39,
+            "lines": 1
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 20959,
+            "lines": 466
+        },
+        {
+            "path": "packages/codemod/CLAUDE.md",
+            "bytes": 2329,
+            "lines": 30
+        },
+        {
+            "path": "packages/create-payload-app/CLAUDE.md",
+            "bytes": 6275,
+            "lines": 164
+        }
+    ]
+}

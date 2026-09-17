@@ -1,0 +1,84 @@
+{
+    "slug": "cal-diy",
+    "sha": "ab21c7f805a089fa3a11ffd61c4a9aecc349c16c",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".opencode/skill/vercel-react-best-practices/AGENTS.md",
+            "bytes": 60535,
+            "lines": 2249
+        },
+        {
+            "path": "agents.md",
+            "bytes": 0,
+            "lines": 0,
+            "missing": true
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 9225,
+            "lines": 244
+        },
+        {
+            "path": "agents/commands.md",
+            "bytes": 2919,
+            "lines": 89
+        },
+        {
+            "path": "agents/knowledge-base.md",
+            "bytes": 3932,
+            "lines": 94
+        },
+        {
+            "path": "agents/README.md",
+            "bytes": 3991,
+            "lines": 78
+        },
+        {
+            "path": "agents/rules/quality-code-comments.md",
+            "bytes": 1553,
+            "lines": 51
+        },
+        {
+            "path": "agents/rules/quality-error-handling.md",
+            "bytes": 1722,
+            "lines": 52
+        },
+        {
+            "path": "agents/skills/vercel-react-best-practices/AGENTS.md",
+            "bytes": 60535,
+            "lines": 2249,
+            "sameContentAs": ".opencode/skill/vercel-react-best-practices/AGENTS.md"
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 9,
+            "lines": 1,
+            "symlink": "agents.md",
+            "unavailable": "Symlink target is not in this snapshot"
+        },
+        {
+            "path": "SPEC-WORKFLOW.md",
+            "bytes": 2821,
+            "lines": 105
+        },
+        {
+            "path": "specs/_templates/AGENTS.md",
+            "bytes": 444,
+            "lines": 21
+        },
+        {
+            "path": "specs/_templates/CLAUDE.md",
+            "bytes": 9,
+            "lines": 1,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "specs/_templates/AGENTS.md"
+        },
+        {
+            "path": "specs/cancellation-reason-requirement/CLAUDE.md",
+            "bytes": 780,
+            "lines": 23
+        }
+    ]
+}

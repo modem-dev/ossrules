@@ -1,0 +1,272 @@
+{
+    "version": 1,
+    "slug": "zed",
+    "repository": "zed-industries/zed",
+    "branch": "main",
+    "sha": "b6171bcc982c406c34e786c09ae26f59620e52ae",
+    "scannedAt": "2026-09-17T11:59:01.071Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "gpui-bench-4f3beac46bf3",
+            "path": ".agents/skills/gpui-bench/SKILL.md",
+            "name": "gpui-bench",
+            "description": "Design, write, review, run, and interpret production-shaped GPUI Criterion benchmarks, including gpui::bench, BenchAppContext, renderer and task benchmarks, headless Metal frame data, responsiveness and hang regressions, feature isolation from test-support, and before/after performance evidence.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "8aa142b8364a7a13b4534e570ad0d0c30a236551",
+                    "bytes": 21272,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 56899983,
+                        "login": "Anthony-Eid",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "gpui-test-99d4b1b4f062",
+            "path": ".agents/skills/gpui-test/SKILL.md",
+            "name": "gpui-test",
+            "description": "Use when writing, debugging, or reproducing GPUI tests in Zed, including gpui::test arguments, TestAppContext parameters, scheduler seeds, ITERATIONS/SEED reproduction, parking failures, and pending task traces.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "3d92659a55261fce5bfbb2d766d802d646bf5a18",
+                    "bytes": 7849,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 3757771,
+                        "login": "Veykril",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "lint-creator-717f836b7e3a",
+            "path": ".agents/skills/lint-creator/SKILL.md",
+            "name": "lint-creator",
+            "description": "Add, modify, or test a custom dylint lint in `tooling/lints`. Covers the module/registration layout, UI test conventions (including negative tests and the gpui test fixture), how to run tests with the crate's pinned nightly and update `.stderr` files, and how to validate a lint against the real codebase with `single-lint`. Use whenever the user asks to write a new lint or debug an existing one.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "a1861dc50c9de16a5aafe8518894800e66208f9b",
+                    "bytes": 3475,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 13056181,
+                        "login": "miguelraz",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "zed-cherry-pick-98b74ac4db3b",
+            "path": ".agents/skills/zed-cherry-pick/SKILL.md",
+            "name": "zed-cherry-pick",
+            "description": "Cherry-pick one or more merged PRs and/or commits into Zed's `preview` or `stable` release branch. Use this whenever the user mentions cherry-picking to preview/stable, a failed cherry-pick run, or wants to manually port fix(es) into a release branch.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "0f0cd02b92982f045f8085081913b43025c00136",
+                    "bytes": 8707,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1094080,
+                        "login": "rtfeldman",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "brand-writer-31c823d25593",
+            "path": ".factory/skills/brand-writer/SKILL.md",
+            "name": "brand-writer",
+            "description": "Write clear, developer-first copy for Zed — leading with facts, grounded in craft.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "6f08cc6f3b4a6cda824a4cadaf5a43192b2df10f",
+                    "bytes": 9235,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rubric.md",
+                    "blob": "ca84e9a106e54aa440acf3fb6a0659f7d57ac2d7",
+                    "bytes": 6547,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "taboo-phrases.md",
+                    "blob": "c0d72fd8fca5d472e6892db1cf03fc1796d120c0",
+                    "bytes": 6597,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "voice-examples.md",
+                    "blob": "ac7f013bf266afad927aacafb4d27c5243754324",
+                    "bytes": 8698,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 4828503,
+                        "login": "morgankrey",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "humanizer-15299205dbcd",
+            "path": ".factory/skills/humanizer/SKILL.md",
+            "name": "humanizer",
+            "description": "Remove signs of AI-generated writing from text. Use after drafting to make copy sound more natural and human-written. Based on Wikipedia's \"Signs of AI writing\" guide.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "a135efbb7435f6922f10d4bf72de6457cc361182",
+                    "bytes": 14143,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 4828503,
+                        "login": "morgankrey",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "create-skill-010c13f230c0",
+            "path": "crates/agent_skills/builtin/create-skill/SKILL.md",
+            "name": "create-skill",
+            "description": "Helps you create new agent skills for Zed. Use this to create a skill, ask about SKILLs.md, or package reusable agent instructions.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "c88991aeeb78553705e623321e19e89eaee1af4c",
+                    "bytes": 4712,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 67129314,
+                        "login": "danilo-leal",
+                        "commits": 2
+                    },
+                    {
+                        "id": 52641447,
+                        "login": "MartinYe1234",
+                        "commits": 1
+                    },
+                    {
+                        "id": 17836474,
+                        "login": "probably-neb",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "brand-writer-44fe13b23b54",
+            "path": "docs/.conventions/brand-writer/SKILL.md",
+            "name": "brand-writer",
+            "description": "Write clear, developer-first copy for Zed — leading with facts, grounded in craft.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "255173ab580f8e8b260a9132c37e731f3328aec6",
+                    "bytes": 8735,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rubric.md",
+                    "blob": "ca84e9a106e54aa440acf3fb6a0659f7d57ac2d7",
+                    "bytes": 6547,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "taboo-phrases.md",
+                    "blob": "c0d72fd8fca5d472e6892db1cf03fc1796d120c0",
+                    "bytes": 6597,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "voice-examples.md",
+                    "blob": "ac7f013bf266afad927aacafb4d27c5243754324",
+                    "bytes": 8698,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 48318320,
+                        "login": "bechor25",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": ".rules",
+        "blob": "c0d62fcdbe6fac5e92af8d06fa89cea22d4dea09",
+        "bytes": 12115,
+        "text": true,
+        "mode": "100644"
+    }
+}

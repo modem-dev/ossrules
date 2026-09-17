@@ -1,0 +1,63 @@
+{
+    "slug": "qwik",
+    "sha": "93f1b2a0187849a14c6872f9cb723a943655dc22",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".ruler/AGENTS.md",
+            "bytes": 17271,
+            "lines": 369
+        },
+        {
+            "path": ".ruler/README.md",
+            "bytes": 8357,
+            "lines": 203
+        },
+        {
+            "path": ".ruler/skills/qwik-core-development/SKILL.md",
+            "bytes": 2474,
+            "lines": 44
+        },
+        {
+            "path": ".ruler/skills/qwik-docs-development/SKILL.md",
+            "bytes": 5675,
+            "lines": 118
+        },
+        {
+            "path": ".ruler/skills/qwik-e2e-verification/SKILL.md",
+            "bytes": 3672,
+            "lines": 75
+        },
+        {
+            "path": ".ruler/skills/qwik-guidance-maintenance/SKILL.md",
+            "bytes": 4076,
+            "lines": 82
+        },
+        {
+            "path": ".ruler/skills/qwik-optimizer-development/SKILL.md",
+            "bytes": 2535,
+            "lines": 59
+        },
+        {
+            "path": ".ruler/skills/qwik-router-development/SKILL.md",
+            "bytes": 3018,
+            "lines": 65
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 25732,
+            "lines": 582
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 25704,
+            "lines": 581
+        },
+        {
+            "path": "CONTRIBUTING.md",
+            "bytes": 18974,
+            "lines": 414
+        }
+    ]
+}

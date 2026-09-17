@@ -1,0 +1,82 @@
+{
+    "slug": "diffusers",
+    "sha": "ebe93ee5f761455ca99301b902f373fd00fb996d",
+    "license": "Apache-2.0",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".ai/AGENTS.md",
+            "bytes": 4103,
+            "lines": 84
+        },
+        {
+            "path": ".ai/references/code_style.md",
+            "bytes": 1428,
+            "lines": 17
+        },
+        {
+            "path": ".ai/references/models.md",
+            "bytes": 18735,
+            "lines": 229
+        },
+        {
+            "path": ".ai/references/modular.md",
+            "bytes": 27715,
+            "lines": 338
+        },
+        {
+            "path": ".ai/references/pipelines.md",
+            "bytes": 9875,
+            "lines": 91
+        },
+        {
+            "path": ".ai/references/reporting.md",
+            "bytes": 3110,
+            "lines": 59
+        },
+        {
+            "path": ".ai/references/review-rules.md",
+            "bytes": 4142,
+            "lines": 33
+        },
+        {
+            "path": ".ai/references/testing.md",
+            "bytes": 18093,
+            "lines": 89
+        },
+        {
+            "path": ".ai/skills/custom-blocks/SKILL.md",
+            "bytes": 6945,
+            "lines": 159
+        },
+        {
+            "path": ".ai/skills/diffusers-cli/SKILL.md",
+            "bytes": 4327,
+            "lines": 68
+        },
+        {
+            "path": ".ai/skills/model-integration/SKILL.md",
+            "bytes": 8268,
+            "lines": 123
+        },
+        {
+            "path": ".ai/skills/self-review/SKILL.md",
+            "bytes": 2911,
+            "lines": 61
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 13,
+            "lines": 1,
+            "symlink": ".ai/AGENTS.md",
+            "resolvedPath": ".ai/AGENTS.md"
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 13,
+            "lines": 1,
+            "symlink": ".ai/AGENTS.md",
+            "resolvedPath": ".ai/AGENTS.md"
+        }
+    ]
+}

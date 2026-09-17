@@ -1,0 +1,100 @@
+{
+    "slug": "biomejs",
+    "name": "Biome",
+    "owner": "biomejs",
+    "repo": "biome",
+    "language": "Rust",
+    "stars": 25851,
+    "defaultBranch": "main",
+    "instructionFile": "AGENTS.md",
+    "lastCommit": {
+        "sha": "d37f24b5fa901916a1e1b488857dd3ee4c8e74ec",
+        "date": "2026-09-14T07:59:24Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 4521,
+        "lines": 82,
+        "words": 629,
+        "headings": 10,
+        "bullets": 30,
+        "codeBlocks": 0,
+        "docLinks": 6
+    },
+    "tagline": "A formatter, linter, and language toolchain for web projects.",
+    "hook": "Requires evidence for codebase claims and gives a fresh reviewer the requirements without suspected defects.",
+    "summary": "Biome separates repository-wide contribution rules from skills for testing, review, changesets, and documentation. The file ties assertions to source evidence, names generator commands for specific edits, and limits what an agent may write in contributor communication.",
+    "references": [
+        {
+            "path": ".claude/skills/testing-codegen/SKILL.md"
+        },
+        {
+            "path": ".claude/skills/biome-code-review/SKILL.md"
+        },
+        {
+            "path": ".claude/skills/changeset/SKILL.md"
+        },
+        {
+            "path": "CONTRIBUTING.md"
+        },
+        {
+            "path": ".github/PULL_REQUEST_TEMPLATE.md"
+        },
+        {
+            "path": ".claude/skills/doc-comments/SKILL.md"
+        },
+        {
+            "path": ".claude/skills/README.md"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Require evidence for claims about the codebase",
+            "body": "A claimed function, behavior, or convention needs a file and line, an excerpt, or a reproducible command. When that evidence is unavailable, the response must say so instead of filling the gap with remembered behavior.",
+            "quote": "Do not claim a Biome function, module, behavior, or convention exists without an exact file and line, a source excerpt, or a reproducible command.",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Keep review inputs independent of the implementation narrative",
+            "body": "The final review follows implementation and verification, using a fresh subagent when available. Its input contains the scope and business requirements while withholding suspected defects and expected outcomes.",
+            "quote": "Provide only the review scope and intended business requirements. Do not include suspected defects, implementation hints, prior findings, or expected outcomes.",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Map grammar edits to their generators",
+            "body": "The file names the artifacts that must accompany a grammar change. Lint-rule and assist renames have a separate generator pair, while some full analyzer outputs can be left to CI.",
+            "quote": "If you change an `.ungram` file, run:\n- `just gen-grammar <lang>`\n- `just gen-formatter --allow-dirty`",
+            "pattern": "generated-file-guard"
+        },
+        {
+            "title": "Reserve contributor prose for the contributor",
+            "body": "Writing code and opening a PR from supplied text have different boundaries. The agent must preserve the template and disclose assistance, but the contributor authors the description and other communication.",
+            "quote": "Do not write PR descriptions or contributor communication. `CONTRIBUTING.md` requires the contributor to author that prose.",
+            "pattern": "contribution-etiquette"
+        },
+        {
+            "title": "Route by the kind of artifact being edited",
+            "body": "Review, generated tests, changesets, and comments each have a named skill. Even an incidental comment edit activates the comment guide, while the catalog defines the broader trigger boundaries.",
+            "quote": "Load [doc-comments](./.claude/skills/doc-comments/SKILL.md) whenever editing `//`, `///`, or `//!` comments, including comments added incidentally.",
+            "pattern": "skill-routing"
+        }
+    ],
+    "steal": [
+        "Require a concrete evidence format for claims about repository behavior.",
+        "Give an independent reviewer requirements without feeding it the suspected answer.",
+        "Name generator commands beside the changes that require them.",
+        "Separate permission to implement from permission to author contributor communication."
+    ],
+    "outline": [
+        "Communication",
+        "Before Editing",
+        "Implementation Gate",
+        "Final Review",
+        "User-Facing Changes",
+        "Pull Requests",
+        "Comments and Rustdoc",
+        "Cargo Dependencies",
+        "Skills"
+    ],
+    "patterns": ["behavioral-conditioning", "generated-file-guard", "contribution-etiquette", "skill-routing"]
+}

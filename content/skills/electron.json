@@ -1,0 +1,228 @@
+{
+    "version": 1,
+    "slug": "electron",
+    "repository": "electron/electron",
+    "branch": "main",
+    "sha": "b1525cf35d312078dd059a424551fb43306e3737",
+    "scannedAt": "2026-09-17T12:03:44.654Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "chrome-release-cls-cee2ae635a48",
+            "path": ".claude/skills/chrome-release-cls/SKILL.md",
+            "name": "chrome-release-cls",
+            "description": "Given a Chrome Releases blog post URL (chromereleases.googleblog.com), extract every CVE/bug and find the underlying Gerrit CL that fixed it by searching the local Chromium checkout and sub-repos. Use when asked to map Chrome security release notes to fixing CLs, or to find which commits correspond to CVEs in a Chrome stable update.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "835f06baa4194966e9e51b692cc9c305d0219faf",
+                    "bytes": 7729,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 964386,
+                        "login": "deepak1556",
+                        "commits": 1
+                    },
+                    {
+                        "id": 6634592,
+                        "login": "MarshallOfSound",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "chrome-release-verify-91ece8391a09",
+            "path": ".claude/skills/chrome-release-verify/SKILL.md",
+            "name": "chrome-release-verify",
+            "description": "End-to-end Chrome security backport for an Electron release branch. Given a Chrome Releases blog URL and a branch (e.g. 41-x-y), determines which CVE fixes are missing from the *actual synced source*, writes the cherry-pick patches locally, validates them with `e sync --3` + `lint --patches`, then pushes a single PR. Use when asked to backport a Chrome security release to N-x-y, \"is CVE-X already in N-x-y?\", or to produce/validate the cherry-pick set for a release branch.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "c499382b31809bc1e0bb3d6ba96636376820c7ff",
+                    "bytes": 10072,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6634592,
+                        "login": "MarshallOfSound",
+                        "commits": 1
+                    },
+                    {
+                        "id": 4624411,
+                        "login": "VerteDinde",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "electron-chromium-upgrade-460db6736040",
+            "path": ".claude/skills/electron-chromium-upgrade/SKILL.md",
+            "name": "electron-chromium-upgrade",
+            "description": "Guide for performing Chromium version upgrades in the Electron project. Use when working on the roller/chromium/main branch to fix patch conflicts during `e sync --3`. Covers the patch application workflow, conflict resolution, analyzing upstream Chromium changes, and proper commit formatting for patch fixes.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "6c589ae8babbd22d24b6e1dac3b28ae6cce58194",
+                    "bytes": 11059,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/patch-analysis.md",
+                    "blob": "d0504734aff51f6a658342badc25293092e85ac7",
+                    "bytes": 4908,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/phase-one-commit-guidelines.md",
+                    "blob": "707e4ee634ba67845f6914a1e854d453347f7fc0",
+                    "bytes": 8228,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/phase-two-commit-guidelines.md",
+                    "blob": "e4ca55b2594633ba09e2c6fb5e22c75c9d6b3325",
+                    "bytes": 7288,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6634592,
+                        "login": "MarshallOfSound",
+                        "commits": 2
+                    },
+                    {
+                        "id": 5820654,
+                        "login": "dsanders11",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "electron-node-upgrade-1b4c2595951b",
+            "path": ".claude/skills/electron-node-upgrade/SKILL.md",
+            "name": "electron-node-upgrade",
+            "description": "Guide for performing Node.js version upgrades in the Electron project. Use when working on the roller/node/main branch to fix patch conflicts during `e sync --3`. Covers the patch application workflow, conflict resolution, analyzing upstream Node.js changes, building, running the Node.js test suite, and proper commit formatting for patch fixes.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "af208f07892f845f3c3633c94f4b1b0a8fa37736",
+                    "bytes": 20971,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/patch-analysis.md",
+                    "blob": "71b97e83ddb41f460cdd7871900eeee8af92cf52",
+                    "bytes": 5834,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/phase-one-commit-guidelines.md",
+                    "blob": "30f3c70450f874615c4a59ec6a6e95e3feb8763c",
+                    "bytes": 6302,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/phase-three-commit-guidelines.md",
+                    "blob": "386a48552fc8cd6f7db1c3f904e35ef1b58bac07",
+                    "bytes": 2517,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/phase-two-commit-guidelines.md",
+                    "blob": "1ec22dc04c046df28f26619c6ebeec603eb417a1",
+                    "bytes": 4080,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 2036040,
+                        "login": "codebytere",
+                        "commits": 2
+                    },
+                    {
+                        "id": 6634592,
+                        "login": "MarshallOfSound",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "triage-prs-471eefdca19c",
+            "path": ".claude/skills/triage-prs/SKILL.md",
+            "name": "triage-prs",
+            "description": "Triage open electron/electron pull requests by CI check status — lists PRs that are green/passing, failing, still pending, or have no checks at all, annotated with their Status on the \"PR Triage\" project board and with the new-pr label. Can scope to a single named check, e.g. PRs whose \"faraday/cage\" check is pending. Use when asked to triage PRs or do PR triage, list green/passing or mergeable PRs, find PRs with failing or pending CI, find PRs with no checks running, check faraday/cage status, or show each PR's triage board status. Also triggers on the bare words \"faraday\" or \"failing prs\".",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ecbea2bd1b826c14a8d1f5d8fee91f6dfc03dac6",
+                    "bytes": 6566,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "triage-prs.sh",
+                    "blob": "a9474f7d08946873dd2c42299a6be7afeb23c8aa",
+                    "bytes": 10466,
+                    "text": true,
+                    "mode": "100755"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 609052,
+                        "login": "jkleinsc",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "CLAUDE.md",
+        "blob": "d602d64ce7cfc7427934e38f3aee70af56e3520e",
+        "bytes": 13025,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "536d54efc3fd36ff7e079f82ce55f82c887758cd",
+        "bytes": 1096,
+        "text": true,
+        "mode": "100644"
+    }
+}

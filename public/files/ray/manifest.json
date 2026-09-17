@@ -1,0 +1,74 @@
+{
+    "slug": "ray",
+    "sha": "62618a9d012b258d73a6d7f1ab5c4c1a665ce471",
+    "license": "Apache-2.0",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".claude/CLAUDE.md",
+            "bytes": 14,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "../AGENTS.md",
+                    "path": "AGENTS.md"
+                }
+            ]
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 3741,
+            "lines": 99
+        },
+        {
+            "path": "CONTRIBUTING.rst",
+            "bytes": 2288,
+            "lines": 49
+        },
+        {
+            "path": "doc/.claude/CLAUDE.md",
+            "bytes": 4465,
+            "lines": 58
+        },
+        {
+            "path": "doc/source/ray-contribute/development.md",
+            "bytes": 18984,
+            "lines": 479
+        },
+        {
+            "path": "doc/source/ray-contribute/getting-involved.md",
+            "bytes": 16091,
+            "lines": 392
+        },
+        {
+            "path": "python/ray/data/.claude/CLAUDE.md",
+            "bytes": 338,
+            "lines": 10
+        },
+        {
+            "path": "python/ray/serve/.claude/CLAUDE.md",
+            "bytes": 340,
+            "lines": 10
+        },
+        {
+            "path": "python/ray/train/.claude/CLAUDE.md",
+            "bytes": 340,
+            "lines": 10
+        },
+        {
+            "path": "python/ray/tune/.claude/CLAUDE.md",
+            "bytes": 338,
+            "lines": 10
+        },
+        {
+            "path": "rllib/.claude/CLAUDE.md",
+            "bytes": 332,
+            "lines": 10
+        },
+        {
+            "path": "src/ray/.claude/CLAUDE.md",
+            "bytes": 246,
+            "lines": 9
+        }
+    ]
+}
