@@ -1,9 +1,9 @@
 import {
+    type AgentsProject,
     compareProjects,
     matchesQuery,
     PATTERNS_BY_ID,
     type PatternId,
-    type AgentsProject,
     SORTS,
     type SortId,
 } from '@/components/agents-md-data';
