@@ -9,7 +9,7 @@ import { ogImageUrl } from '@/lib/og';
 import { type ProjectSearchParams, projectListing, projectSearchString } from '@/lib/project-list';
 import { projectHref } from '@/lib/project-paths';
 import { collectionPageSchema } from '@/lib/schema';
-import { getAllSkills } from '@/lib/skills';
+import { getAllSkills, getSkillManifest } from '@/lib/skills';
 
 const title = 'AGENTS.md Examples & Agent Skills';
 const description =
@@ -44,7 +44,10 @@ export async function generateMetadata({ searchParams }: Props) {
 
 export default async function AgentsMdPage({ searchParams }: Props) {
     const initialSearch = projectSearchString(await searchParams);
-    const projects = getProjectListings();
+    const projects = getProjectListings().map((project) => ({
+        ...project,
+        skillCount: getSkillManifest(project.slug)?.skills.length,
+    }));
     const skillCount = getAllSkills().length;
     const totalStars = projects.reduce((total, project) => total + project.stars, 0);
     const compactStars = new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 }).format(totalStars);

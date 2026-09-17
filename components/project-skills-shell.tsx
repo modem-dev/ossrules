@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import type { ReactNode } from 'react';
-import { type AgentsProject, repoUrl } from './agents-md-data';
+import type { AgentsProject } from './agents-md-data';
 import { ModemSponsor } from './modem-sponsor';
+import { ProjectRepositoryLink } from './project-repository-link';
 import { ProjectTabs } from './project-tabs';
 import { ProjectTitle } from './project-title';
 import { SiteFooter } from './site-footer';
@@ -17,9 +18,7 @@ export function ProjectSkillsShell({ project, count, children }: { project: Agen
                         Projects
                     </Link>
                     <span aria-hidden>/</span>
-                    <a href={repoUrl(project)} target="_blank" rel="noopener noreferrer" className="break-all hover:text-teal">
-                        {project.owner}/{project.repo} ↗
-                    </a>
+                    <ProjectRepositoryLink project={project} />
                 </nav>
                 <header className="project-heading">
                     <ProjectTitle project={project} section="Agent Skills" />

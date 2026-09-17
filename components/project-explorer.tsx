@@ -31,7 +31,6 @@ function ProjectEntry({ project, search }: { project: ProjectListingEntry; searc
                     </p>
                     <p className="mt-3 text-[14px] text-gray-500 leading-relaxed">{project.hook}</p>
                     <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[11px] text-gray-550">
-                        <span>{project.file.lines.toLocaleString()} lines</span>
                         <span className="inline-flex items-center gap-1.5">
                             <span
                                 aria-hidden
@@ -42,16 +41,19 @@ function ProjectEntry({ project, search }: { project: ProjectListingEntry; searc
                         </span>
                         <span>{formatStars(project.stars)} stars</span>
                     </div>
-                    <div className="mt-4 flex flex-wrap gap-x-3 gap-y-1.5 text-[11px] text-teal">
-                        {project.patterns.slice(0, 2).map((pattern) => (
-                            <span key={pattern}>{PATTERNS_BY_ID[pattern].name}</span>
-                        ))}
-                        {project.patterns.length > 2 ? (
-                            <span>
-                                +{project.patterns.length - 2}
-                                <span className="sr-only"> more {project.patterns.length === 3 ? 'technique' : 'techniques'}</span>
-                            </span>
-                        ) : null}
+                    <div className="mt-2.5 flex flex-wrap items-center gap-2 font-mono text-[11px]">
+                        <span
+                            className={`rounded px-2.5 py-1 ${project.skillCount ? 'bg-dark-teal text-teal' : 'bg-gray-850 text-gray-550'}`}
+                            title="Skills in the stored project snapshot, excluding supporting files."
+                        >
+                            {project.skillCount === undefined
+                                ? 'Skills not scanned'
+                                : `${project.skillCount.toLocaleString('en')} ${project.skillCount === 1 ? 'skill' : 'skills'}`}
+                        </span>
+                        <span className="inline-flex flex-wrap items-center gap-x-2 rounded bg-gray-850 px-2.5 py-1 text-light-cream [overflow-wrap:anywhere]">
+                            <span>{project.instructionFile ?? 'AGENTS.md'}</span>
+                            <span className="text-gray-550">{project.file.lines.toLocaleString('en')} lines</span>
+                        </span>
                     </div>
                 </div>
             </Link>
