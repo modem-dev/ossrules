@@ -22,7 +22,8 @@ third-party material.
 
 - JetBrains Mono is distributed under the [SIL Open Font License 1.1](public/fonts/JetBrainsMono-OFL.txt).
   See the [font notes](public/fonts/README.md) for provenance.
-- Inter is loaded through `next/font/google` and retains its upstream license.
+- Inter is loaded through `next/font/google`; social preview images use a local TTF
+  under the [SIL Open Font License 1.1](public/fonts/Inter-OFL.txt).
 - Project logos and contributor avatars remain associated with their respective
   owners. The project license grants no rights to third-party trademarks or to
   the Modem name and marks.

@@ -27,15 +27,16 @@ export async function generateMetadata({ params }: { params: Promise<Params> }) 
     const skill = manifest?.skills.find((skill) => skill.id === id);
     if (!skill) notFound();
     const title = `${skill.name}: ${project.name} Agent Skill`;
+    const image = ogImageUrl(skill.name, project.slug, `${project.name} / Agent skill`);
     return {
         title,
         description: skill.description,
         openGraph: {
             title,
             description: skill.description,
-            images: [{ url: ogImageUrl(title), width: 1200, height: 630 }],
+            images: [{ url: image, width: 1200, height: 630 }],
         },
-        twitter: { card: 'summary_large_image', title, description: skill.description, images: [ogImageUrl(title)] },
+        twitter: { card: 'summary_large_image', title, description: skill.description, images: [image] },
         alternates: { canonical: skillHref(project, id) },
     };
 }
