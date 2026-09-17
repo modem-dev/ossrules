@@ -1,0 +1,52 @@
+{
+    "version": 1,
+    "slug": "vitest",
+    "repository": "vitest-dev/vitest",
+    "branch": "main",
+    "sha": "9614b803e905bfadb671acd1462c4b25e7c2c79f",
+    "scannedAt": "2026-09-17T11:59:09.829Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "typo-checker-53e5d8ea7863",
+            "path": ".claude/skills/typo-checker/SKILL.md",
+            "name": "typo-checker",
+            "description": "Run typos-cli on the codebase, review findings, fix real typos, and update _typos.toml config to suppress false positives. Use this skill for routine codebase typo maintenance. Invoke when doing periodic codebase hygiene, when the user mentions typos or spelling checks, or as a scheduled maintenance task.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "026939e469dc9aa6130e4fb9997751ba2b1203a2",
+                    "bytes": 2817,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 4232207,
+                        "login": "hi-ogawa",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "8f8354ee5f211a043a5bd800ba0a90f460595719",
+        "bytes": 17390,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "0e5771dddf4e96ebc77c349f53fc763b910e63c0",
+        "bytes": 1102,
+        "text": true,
+        "mode": "100644"
+    }
+}

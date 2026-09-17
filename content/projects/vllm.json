@@ -1,0 +1,81 @@
+{
+    "slug": "vllm",
+    "name": "vLLM",
+    "owner": "vllm-project",
+    "repo": "vllm",
+    "language": "Python",
+    "stars": 91953,
+    "defaultBranch": "main",
+    "instructionFile": "AGENTS.md",
+    "lastCommit": {
+        "sha": "6259572b283a4df3d0e8690aad5da003b012c103",
+        "date": "2026-08-20T11:08:50Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 5750,
+        "lines": 158,
+        "words": 757,
+        "headings": 24,
+        "bullets": 20,
+        "codeBlocks": 6,
+        "docLinks": 9
+    },
+    "tagline": "An inference and serving engine for large language models.",
+    "hook": "Requires model evaluations for output-affecting changes and keeps one-off kernel benchmarks out of the test tree.",
+    "summary": "vLLM combines contribution checks with a GPU-oriented development workflow. The file asks for a test's contract and failure mode before implementation, distinguishes correctness tests from performance work, and routes native builds and security reviews to dedicated guides.",
+    "references": [
+        {
+            "path": "docs/contributing/incremental_build.md"
+        },
+        {
+            "path": "docs/contributing/model/tests.md"
+        },
+        {
+            "path": "SECURITY.md"
+        },
+        {
+            "path": "docs/usage/security.md"
+        },
+        {
+            "path": "docs/contributing/vulnerability_management.md"
+        },
+        {
+            "path": "docs/contributing/editing-agent-instructions.md"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Design the test before writing its setup",
+            "body": "The test section asks what the module does, what crosses its boundary, and which failure the test protects against. It then selects the cheapest level that catches that failure.",
+            "quote": "**Design before you write.** Answer four questions first: what is the module\n  for, what is its I/O contract, what failure am I guarding against, and what is\n  the cheapest level that catches it (unit over integration over e2e)?",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Separate kernel performance from correctness coverage",
+            "body": "One-off performance work belongs in the kernel benchmark directory. Correctness belongs in the existing pytest suites, so the two kinds of evidence have explicit homes.",
+            "quote": "**No one-off kernel benchmarks in `tests/`.** Put kernel perf work in\n  `benchmarks/kernels/`; prove correctness in existing pytest suites.",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Require model evaluations when behavior can change",
+            "body": "Tests alone do not satisfy the guidance for changes affecting output, accuracy, or serving. The file asks for model evaluations and their results in the PR before a reviewer has to request them.",
+            "quote": "**Run model evals for model-affecting changes.** Search `tests/evals/` or use\n  `vllm bench` and include results in the PR — do not wait for reviewers to ask.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Route native builds away from the default editable install",
+            "body": "The default install starts with precompiled artifacts. C, C++, and CUDA changes instead follow the incremental compilation guide, making the distinction depend on the edited implementation.",
+            "quote": "For C/C++ or CUDA changes, follow the\n[incremental compilation workflow](docs/contributing/incremental_build.md) to\nconfigure and perform incremental builds.",
+            "pattern": "skill-routing"
+        }
+    ],
+    "steal": [
+        "Ask for the test contract and target failure before building fixtures.",
+        "Give performance experiments and correctness tests separate homes.",
+        "State which behavioral changes require evaluations beyond unit tests.",
+        "Distinguish precompiled development installs from native rebuild workflows."
+    ],
+    "outline": ["1. Contribution Policy (Mandatory)", "2. Development Workflow", "Domain-Specific Guides"],
+    "patterns": ["behavioral-conditioning", "hard-prohibition", "verification-matrix", "skill-routing"]
+}

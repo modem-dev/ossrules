@@ -1,0 +1,96 @@
+{
+    "slug": "tanstack-db",
+    "name": "TanStack DB",
+    "owner": "TanStack",
+    "repo": "db",
+    "language": "TypeScript",
+    "stars": 3908,
+    "defaultBranch": "main",
+    "instructionFile": "AGENTS.md",
+    "lastCommit": {
+        "sha": "3c4c35d5868c908979058c4dbeae7c4ac9eab88b",
+        "date": "2026-09-14T22:44:06Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 20298,
+        "lines": 753,
+        "words": 2889,
+        "headings": 48,
+        "bullets": 48,
+        "codeBlocks": 42,
+        "docLinks": 13
+    },
+    "tagline": "A reactive client database for collections, live queries, and optimistic mutations.",
+    "hook": "Requires reviewers to explain why a bug escaped existing tests and keeps test oracles independent of production logic.",
+    "summary": "TanStack DB turns recurring review patterns into a long guide with good/bad code pairs. Its query semantics and testing sections go beyond syntax: they require independent expected behavior, counterexamples for changed contracts, and tests that reject plausible incorrect designs.",
+    "references": [
+        {
+            "path": "packages/db/src/query/live/ARCHITECTURE.md"
+        },
+        {
+            "path": "docs/contributing/oracle-tests.md"
+        },
+        {
+            "path": "docs/contributing/oracle-coverage.md"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Treat each review bug as evidence of a missing test dimension",
+            "body": "A confirmed defect should identify the missing law, state transition, generator dimension, adapter boundary, or assertion. The goal is to cover the class of failure rather than only pinning the reported example.",
+            "quote": "When a reviewer agent confirms a bug, it must also ask why the existing tests\ndid not catch it.",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Keep the expected result independent of production branches",
+            "body": "The guide prohibits copying production classifiers or state machines into a supposed oracle. Expected behavior must come from contracts, mathematical laws, prior documented behavior, or a separately specified model.",
+            "quote": "An oracle is useful only when its expected result comes from a source independent\nof the implementation under test. Do not translate production branches, state\nmachines, classifiers, or helper functions into a second implementation and call\nthat an oracle. Both copies can encode the same wrong assumption.",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Show where query intersections stop being intuitive",
+            "body": "The semantics section uses two limited queries to demonstrate that combining predicates and taking the smaller limit need not produce the intersection of the actual results. It connects the example to ordering, limits, and subset edge cases.",
+            "quote": "-- Query 1: WHERE age >= 18 LIMIT 1\n-- Query 2: WHERE age >= 20 LIMIT 3\n-- Naive intersection: WHERE age >= 20 LIMIT 1\n-- Problem: This may not return the actual intersection of results",
+            "pattern": "worked-examples"
+        },
+        {
+            "title": "Read the coverage map before adding another model",
+            "body": "Oracle work begins with both the testing-method guide and a map of existing coverage owners. The guide explicitly does not grant permission to redefine product behavior or discard existing laws.",
+            "quote": "Use the [coverage map](docs/contributing/oracle-coverage.md) to find an existing\nowner and its limits before adding another model.",
+            "pattern": "skill-routing"
+        },
+        {
+            "title": "Treat published history as shared state",
+            "body": "The Git section distinguishes a local commit from a branch others can already see. It provides normal follow-up commits as the alternative to amending or force-pushing, including force-with-lease.",
+            "quote": "Once a branch is visible to others, treat its history as shared. If CI fails or follow-up changes are needed, add a normal follow-up commit and push normally.",
+            "pattern": "contribution-etiquette"
+        }
+    ],
+    "steal": [
+        "Require a review finding to explain the coverage gap that let it survive.",
+        "Derive expected behavior independently from the implementation being tested.",
+        "Use small counterexamples to explain domain semantics.",
+        "Document the existing coverage owner before adding another test model."
+    ],
+    "outline": [
+        "Required reading: live-query materialization",
+        "Table of Contents",
+        "Type Safety",
+        "Code Organization",
+        "Algorithm Efficiency",
+        "Semantic Correctness",
+        "Abstraction Design",
+        "Code Clarity",
+        "Testing Requirements",
+        "Function Design",
+        "Modern JavaScript Patterns",
+        "Edge Cases and Corner Cases",
+        "Git and PR Hygiene",
+        "Package Versioning",
+        "Documentation and Comments",
+        "General Principles",
+        "When in Doubt"
+    ],
+    "patterns": ["behavioral-conditioning", "hard-prohibition", "worked-examples", "skill-routing", "contribution-etiquette"]
+}

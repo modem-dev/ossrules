@@ -1,0 +1,13 @@
+{
+    "slug": "docker-mcp-gateway",
+    "sha": "fe073985c8eb6e0c9317d2f198c07686f70ea06d",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "CLAUDE.md",
+            "bytes": 4868,
+            "lines": 145
+        }
+    ]
+}

@@ -1,0 +1,857 @@
+{
+    "version": 1,
+    "slug": "cal-diy",
+    "repository": "calcom/cal.diy",
+    "branch": "main",
+    "sha": "6bc45298226f96ff79e0c070c8b2ce39727e8477",
+    "scannedAt": "2026-09-17T12:04:30.433Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "vercel-react-best-practices-258cafe2672c",
+            "path": ".opencode/skill/vercel-react-best-practices/SKILL.md",
+            "name": "vercel-react-best-practices",
+            "description": "React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements.",
+            "license": "MIT",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b064716f604767a928c243a1ee40551fbeb4cc81",
+                    "bytes": 5316,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "AGENTS.md",
+                    "blob": "280a6ae68dc428ed305f34b954ceaab88e57b512",
+                    "bytes": 60535,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/advanced-event-handler-refs.md",
+                    "blob": "3a451520578547e16ec45d1ca0e665a9c9f8740e",
+                    "bytes": 1478,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/advanced-use-latest.md",
+                    "blob": "3facdf2cca773ad6784740c833d7ece2f70d7dad",
+                    "bytes": 1191,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/async-api-routes.md",
+                    "blob": "6feda1ef0ac06b57b33c7b5bd6a19ca88d6c8a34",
+                    "bytes": 1125,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/async-defer-await.md",
+                    "blob": "ea7082a3623e3d6439111d86c89b064f22b64447",
+                    "bytes": 2028,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/async-dependencies.md",
+                    "blob": "fb90d861acdb7a010f9b21399216ffc8372daff0",
+                    "bytes": 942,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/async-parallel.md",
+                    "blob": "64133f6c31fec81eaaabd712586337d20122e09f",
+                    "bytes": 654,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/async-suspense-boundaries.md",
+                    "blob": "1fbc05b04ed2474637b12014a77688750e78f931",
+                    "bytes": 2510,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/bundle-barrel-imports.md",
+                    "blob": "ee48f3273c8631f41dda416ce12cd65fb47e2c1d",
+                    "bytes": 2370,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/bundle-conditional.md",
+                    "blob": "40bd6f9826ea8d6324ce41435e073b24eab3beb1",
+                    "bytes": 866,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/bundle-defer-third-party.md",
+                    "blob": "db041d1510e51defeade05926ba4e6bbad1068b5",
+                    "bytes": 920,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/bundle-dynamic-imports.md",
+                    "blob": "60b62695e7a080e2020ff2242d8d841c5e3ecbc4",
+                    "bytes": 791,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/bundle-preload.md",
+                    "blob": "7000504065472628ae614786a3faadd23b0435a7",
+                    "bytes": 1149,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/client-event-listeners.md",
+                    "blob": "aad4ae91605d715aad8e92b76bd7fb85c91d7cdf",
+                    "bytes": 1969,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/client-swr-dedup.md",
+                    "blob": "2a430f27fd6abdc1b1b2f809b7a60114ff506790",
+                    "bytes": 1159,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/js-batch-dom-css.md",
+                    "blob": "92a3b639b92baba40bacfe78cfc9f485b6e65a39",
+                    "bytes": 1902,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/js-cache-function-results.md",
+                    "blob": "180f8ac8fffd7e6ee320242d59d06565d40a12f8",
+                    "bytes": 1949,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/js-cache-property-access.md",
+                    "blob": "39eec9061b4ca820150cc8183fb73f9e0c91ce85",
+                    "bytes": 532,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/js-cache-storage.md",
+                    "blob": "aa4a30c08176aabd27b41fa44d5c1981457b675f",
+                    "bytes": 1651,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/js-combine-iterations.md",
+                    "blob": "044d017ec3b24b53e46d638acd1d936a22ac6323",
+                    "bytes": 753,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/js-early-exit.md",
+                    "blob": "f46cb89c6cbe06e481aba0136848e3b17263ba96",
+                    "bytes": 1133,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/js-hoist-regexp.md",
+                    "blob": "dae3fefdc0a1db66badcd4875489715edcdb038b",
+                    "bytes": 1028,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/js-index-maps.md",
+                    "blob": "9d357a00b15ac67cdd638886f5197a13173a637d",
+                    "bytes": 837,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/js-length-check-first.md",
+                    "blob": "6c38625f9825455b040099ad41a82188408ab150",
+                    "bytes": 1752,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/js-min-max-loop.md",
+                    "blob": "02caec56a54a565b60a0651db3d79ac83ea1be38",
+                    "bytes": 2105,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/js-set-map-lookups.md",
+                    "blob": "680a4892ee291c432bf8e769a44d0f1eb102b74b",
+                    "bytes": 532,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/js-tosorted-immutable.md",
+                    "blob": "eae8b3f8aed2c7a893ceaae4cab55fa1c444b309",
+                    "bytes": 1782,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/rendering-activity.md",
+                    "blob": "c957a490b7c2688542766150741e85e066539251",
+                    "bytes": 564,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/rendering-animate-svg-wrapper.md",
+                    "blob": "646744cbe53b213c6fa5ead54ef107510e5be89d",
+                    "bytes": 1185,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/rendering-conditional-render.md",
+                    "blob": "7e866f5852dac80e0822e7f7c33476f5c9fc22f1",
+                    "bytes": 980,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/rendering-content-visibility.md",
+                    "blob": "aa6656362b2c0dad9ffea788b5850843d6c0629e",
+                    "bytes": 815,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/rendering-hoist-jsx.md",
+                    "blob": "32d2f3fcea53dadcf847231ee20c60fa2c5c3049",
+                    "bytes": 1039,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/rendering-hydration-no-flicker.md",
+                    "blob": "5cf0e79b69afd7564b965c09435a2c7ee79eb2bd",
+                    "bytes": 2308,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/rendering-svg-precision.md",
+                    "blob": "6d7712860365294936a1b736d29d3eb970b91da7",
+                    "bytes": 588,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/rerender-defer-reads.md",
+                    "blob": "e867c95f02fe6ed6ac2f91fdf1c0922304e0423a",
+                    "bytes": 973,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/rerender-dependencies.md",
+                    "blob": "47a4d92685702e3a3b07073c62a61800fa0a6d7d",
+                    "bytes": 824,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/rerender-derived-state.md",
+                    "blob": "a15177caad4621ceab9603fa442679ef15305c13",
+                    "bytes": 724,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/rerender-functional-setstate.md",
+                    "blob": "b004ef45e347503947fee397b6c3d163b0a317fb",
+                    "bytes": 2968,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/rerender-lazy-state-init.md",
+                    "blob": "4ecb350fbadff3db805b72429276e672d42736dc",
+                    "bytes": 2016,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/rerender-memo.md",
+                    "blob": "f8982ab612105a3b7faee1292b797338e7fb5271",
+                    "bytes": 1148,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/rerender-transitions.md",
+                    "blob": "d99f43f764232e994a49a1df89ec9d624552f439",
+                    "bytes": 1055,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/server-after-nonblocking.md",
+                    "blob": "e8f5b260f5fc6d58141bc61e0a091569adb81e7e",
+                    "bytes": 2012,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/server-cache-lru.md",
+                    "blob": "ef6938aa53c55dc3c0035bd6c66838810d870260",
+                    "bytes": 1353,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/server-cache-react.md",
+                    "blob": "fa49e0e87adf813b16e5f10b7ba6409da34b58ac",
+                    "bytes": 681,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/server-parallel-fetching.md",
+                    "blob": "5261f0840899216fe0948a21da13b933a53bad9d",
+                    "bytes": 1515,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/server-serialization.md",
+                    "blob": "39c5c4164c31be7f171ea2f4b3b32fe47709a651",
+                    "bytes": 996,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 53316345,
+                        "login": "Udit-takkar",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "web-design-guidelines-46e4c39406be",
+            "path": ".opencode/skill/web-design-guidelines/SKILL.md",
+            "name": "web-design-guidelines",
+            "description": "Review UI code for Web Interface Guidelines compliance. Use when asked to \"review my UI\", \"check accessibility\", \"audit design\", \"review UX\", or \"check my site against best practices\".",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "484cd99fc7f15391d69d5329459d3b52bed1c520",
+                    "bytes": 1229,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 53316345,
+                        "login": "Udit-takkar",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "calcom-api-8d6503c9010d",
+            "path": "agents/skills/calcom-api/SKILL.md",
+            "name": "calcom-api",
+            "description": "Interact with the Cal.diy API v2 to manage scheduling, bookings, event types, availability, and calendars. Use this skill when building integrations that need to create or manage bookings, check availability, configure event types, or sync calendars with Cal.diy's scheduling infrastructure.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ba5818aaa5d066ccc04dc932e5472a7dc9be7ef9",
+                    "bytes": 4879,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/authentication.md",
+                    "blob": "da3dbf604c021a5eafa21604aa53014fb203130b",
+                    "bytes": 9202,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/bookings.md",
+                    "blob": "ca23900119d4744fe00a40b7762dc9ced1955c61",
+                    "bytes": 7306,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/calendars.md",
+                    "blob": "9ab5fe5d291997d426758928bfc83e1ee045e9e3",
+                    "bytes": 7195,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/event-types.md",
+                    "blob": "0ee12c41dcaeaee68e737b0b964f9fed9b18a78f",
+                    "bytes": 7771,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/schedules.md",
+                    "blob": "60b3d5fe081add0877361a11941ed0fc8e094ac5",
+                    "bytes": 6615,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/slots-availability.md",
+                    "blob": "5549dcfe040bfab728c02f136b8a546a1f8e2b21",
+                    "bytes": 6042,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/webhooks.md",
+                    "blob": "0e7b16ef4c5f25c49e48baba8cdc8464abb1d933",
+                    "bytes": 7455,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 499898,
+                        "login": "eunjae-lee",
+                        "commits": 1
+                    },
+                    {
+                        "id": 32841130,
+                        "login": "hbjORbj",
+                        "commits": 1
+                    },
+                    {
+                        "id": 8019099,
+                        "login": "PeerRich",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "vercel-react-best-practices-4f21774bb332",
+            "path": "agents/skills/vercel-react-best-practices/SKILL.md",
+            "name": "vercel-react-best-practices",
+            "description": "React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements.",
+            "license": "MIT",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b064716f604767a928c243a1ee40551fbeb4cc81",
+                    "bytes": 5316,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "AGENTS.md",
+                    "blob": "280a6ae68dc428ed305f34b954ceaab88e57b512",
+                    "bytes": 60535,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/advanced-event-handler-refs.md",
+                    "blob": "a21914163d7a8a76470d4d91d0f39d1efe48352c",
+                    "bytes": 1503,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/advanced-use-latest.md",
+                    "blob": "3facdf2cca773ad6784740c833d7ece2f70d7dad",
+                    "bytes": 1191,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/async-api-routes.md",
+                    "blob": "6feda1ef0ac06b57b33c7b5bd6a19ca88d6c8a34",
+                    "bytes": 1125,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/async-defer-await.md",
+                    "blob": "ea7082a3623e3d6439111d86c89b064f22b64447",
+                    "bytes": 2028,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/async-dependencies.md",
+                    "blob": "fb90d861acdb7a010f9b21399216ffc8372daff0",
+                    "bytes": 942,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/async-parallel.md",
+                    "blob": "64133f6c31fec81eaaabd712586337d20122e09f",
+                    "bytes": 654,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/async-suspense-boundaries.md",
+                    "blob": "1fbc05b04ed2474637b12014a77688750e78f931",
+                    "bytes": 2510,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/bundle-barrel-imports.md",
+                    "blob": "ee48f3273c8631f41dda416ce12cd65fb47e2c1d",
+                    "bytes": 2370,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/bundle-conditional.md",
+                    "blob": "e6a6827240d5bb0dbd0bbfeab03701f7a7e18485",
+                    "bytes": 985,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/bundle-defer-third-party.md",
+                    "blob": "db041d1510e51defeade05926ba4e6bbad1068b5",
+                    "bytes": 920,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/bundle-dynamic-imports.md",
+                    "blob": "60b62695e7a080e2020ff2242d8d841c5e3ecbc4",
+                    "bytes": 791,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/bundle-preload.md",
+                    "blob": "7000504065472628ae614786a3faadd23b0435a7",
+                    "bytes": 1149,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/client-event-listeners.md",
+                    "blob": "aad4ae91605d715aad8e92b76bd7fb85c91d7cdf",
+                    "bytes": 1969,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/client-swr-dedup.md",
+                    "blob": "2a430f27fd6abdc1b1b2f809b7a60114ff506790",
+                    "bytes": 1159,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/js-batch-dom-css.md",
+                    "blob": "92a3b639b92baba40bacfe78cfc9f485b6e65a39",
+                    "bytes": 1902,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/js-cache-function-results.md",
+                    "blob": "180f8ac8fffd7e6ee320242d59d06565d40a12f8",
+                    "bytes": 1949,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/js-cache-property-access.md",
+                    "blob": "39eec9061b4ca820150cc8183fb73f9e0c91ce85",
+                    "bytes": 532,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/js-cache-storage.md",
+                    "blob": "aa4a30c08176aabd27b41fa44d5c1981457b675f",
+                    "bytes": 1651,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/js-combine-iterations.md",
+                    "blob": "044d017ec3b24b53e46d638acd1d936a22ac6323",
+                    "bytes": 753,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/js-early-exit.md",
+                    "blob": "f46cb89c6cbe06e481aba0136848e3b17263ba96",
+                    "bytes": 1133,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/js-hoist-regexp.md",
+                    "blob": "dae3fefdc0a1db66badcd4875489715edcdb038b",
+                    "bytes": 1028,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/js-index-maps.md",
+                    "blob": "9d357a00b15ac67cdd638886f5197a13173a637d",
+                    "bytes": 837,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/js-length-check-first.md",
+                    "blob": "6c38625f9825455b040099ad41a82188408ab150",
+                    "bytes": 1752,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/js-min-max-loop.md",
+                    "blob": "02caec56a54a565b60a0651db3d79ac83ea1be38",
+                    "bytes": 2105,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/js-set-map-lookups.md",
+                    "blob": "680a4892ee291c432bf8e769a44d0f1eb102b74b",
+                    "bytes": 532,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/js-tosorted-immutable.md",
+                    "blob": "eae8b3f8aed2c7a893ceaae4cab55fa1c444b309",
+                    "bytes": 1782,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/rendering-activity.md",
+                    "blob": "c957a490b7c2688542766150741e85e066539251",
+                    "bytes": 564,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/rendering-animate-svg-wrapper.md",
+                    "blob": "646744cbe53b213c6fa5ead54ef107510e5be89d",
+                    "bytes": 1185,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/rendering-conditional-render.md",
+                    "blob": "7e866f5852dac80e0822e7f7c33476f5c9fc22f1",
+                    "bytes": 980,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/rendering-content-visibility.md",
+                    "blob": "aa6656362b2c0dad9ffea788b5850843d6c0629e",
+                    "bytes": 815,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/rendering-hoist-jsx.md",
+                    "blob": "32d2f3fcea53dadcf847231ee20c60fa2c5c3049",
+                    "bytes": 1039,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/rendering-hydration-no-flicker.md",
+                    "blob": "5cf0e79b69afd7564b965c09435a2c7ee79eb2bd",
+                    "bytes": 2308,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/rendering-svg-precision.md",
+                    "blob": "6d7712860365294936a1b736d29d3eb970b91da7",
+                    "bytes": 588,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/rerender-defer-reads.md",
+                    "blob": "e867c95f02fe6ed6ac2f91fdf1c0922304e0423a",
+                    "bytes": 973,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/rerender-dependencies.md",
+                    "blob": "789b0a65435c5e7b66ac56d77dc426d9988270f2",
+                    "bytes": 834,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/rerender-derived-state.md",
+                    "blob": "77f9bce68a8a35deb505aa55a336d31257729c0e",
+                    "bytes": 736,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/rerender-functional-setstate.md",
+                    "blob": "b004ef45e347503947fee397b6c3d163b0a317fb",
+                    "bytes": 2968,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/rerender-lazy-state-init.md",
+                    "blob": "4ecb350fbadff3db805b72429276e672d42736dc",
+                    "bytes": 2016,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/rerender-memo.md",
+                    "blob": "f8982ab612105a3b7faee1292b797338e7fb5271",
+                    "bytes": 1148,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/rerender-transitions.md",
+                    "blob": "d99f43f764232e994a49a1df89ec9d624552f439",
+                    "bytes": 1055,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/server-after-nonblocking.md",
+                    "blob": "315bea0ed9a9d1364a4b093399a5833d3b727e32",
+                    "bytes": 1910,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/server-cache-lru.md",
+                    "blob": "ef6938aa53c55dc3c0035bd6c66838810d870260",
+                    "bytes": 1353,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/server-cache-react.md",
+                    "blob": "fa49e0e87adf813b16e5f10b7ba6409da34b58ac",
+                    "bytes": 681,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/server-parallel-fetching.md",
+                    "blob": "5261f0840899216fe0948a21da13b933a53bad9d",
+                    "bytes": 1515,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rules/server-serialization.md",
+                    "blob": "39c5c4164c31be7f171ea2f4b3b32fe47709a651",
+                    "bytes": 996,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 499898,
+                        "login": "eunjae-lee",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "web-design-guidelines-24bc3d267ada",
+            "path": "agents/skills/web-design-guidelines/SKILL.md",
+            "name": "web-design-guidelines",
+            "description": "Review UI code for Web Interface Guidelines compliance. Use when asked to \"review my UI\", \"check accessibility\", \"audit design\", \"review UX\", or \"check my site against best practices\".",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "484cd99fc7f15391d69d5329459d3b52bed1c520",
+                    "bytes": 1229,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 499898,
+                        "login": "eunjae-lee",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "064ffc3290b797854dd77ff621116fbcaf4f11a2",
+        "bytes": 9225,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "98b51fbaac9145f1919fd2a79532acdb04a8f24b",
+        "bytes": 1078,
+        "text": true,
+        "mode": "100644"
+    }
+}

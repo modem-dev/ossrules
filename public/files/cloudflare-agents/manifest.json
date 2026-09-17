@@ -1,0 +1,47 @@
+{
+    "slug": "cloudflare-agents",
+    "sha": "6560a4aa477daf1c5240d53ae1e085942cb2b814",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 9313,
+            "lines": 196
+        },
+        {
+            "path": "design/AGENTS.md",
+            "bytes": 9768,
+            "lines": 104
+        },
+        {
+            "path": "design/test-coverage-matrix.md",
+            "bytes": 25918,
+            "lines": 173
+        },
+        {
+            "path": "docs/AGENTS.md",
+            "bytes": 3202,
+            "lines": 45
+        },
+        {
+            "path": "examples/AGENTS.md",
+            "bytes": 11140,
+            "lines": 293
+        },
+        {
+            "path": "guides/AGENTS.md",
+            "bytes": 3204,
+            "lines": 62
+        },
+        {
+            "path": "packages/agents/AGENTS.md",
+            "bytes": 12828,
+            "lines": 235
+        },
+        {
+            "path": "wip/AGENTS.md",
+            "bytes": 1679,
+            "lines": 54
+        }
+    ]
+}

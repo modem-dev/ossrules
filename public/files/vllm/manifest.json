@@ -1,0 +1,98 @@
+{
+    "slug": "vllm",
+    "sha": "6259572b283a4df3d0e8690aad5da003b012c103",
+    "license": "Apache-2.0",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 5750,
+            "lines": 158
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "AGENTS.md"
+                }
+            ]
+        },
+        {
+            "path": "docs/contributing/editing-agent-instructions.md",
+            "bytes": 3663,
+            "lines": 74
+        },
+        {
+            "path": "docs/contributing/incremental_build.md",
+            "bytes": 8703,
+            "lines": 149
+        },
+        {
+            "path": "docs/contributing/model/tests.md",
+            "bytes": 2688,
+            "lines": 57
+        },
+        {
+            "path": "docs/contributing/vulnerability_management.md",
+            "bytes": 2659,
+            "lines": 62
+        },
+        {
+            "path": "docs/usage/security.md",
+            "bytes": 35531,
+            "lines": 536
+        },
+        {
+            "path": "rust/AGENTS.md",
+            "bytes": 4082,
+            "lines": 37
+        },
+        {
+            "path": "rust/AGENTS.override.md",
+            "bytes": 0,
+            "lines": 0,
+            "missing": true
+        },
+        {
+            "path": "rust/CLAUDE.md",
+            "bytes": 98,
+            "lines": 4,
+            "imports": [
+                {
+                    "target": "AGENTS.override.md",
+                    "path": "rust/AGENTS.override.md",
+                    "unavailable": "Not in this repository snapshot"
+                },
+                {
+                    "target": "AGENTS.md",
+                    "path": "rust/AGENTS.md"
+                }
+            ]
+        },
+        {
+            "path": "rust/src/bench/AGENTS.md",
+            "bytes": 11098,
+            "lines": 181
+        },
+        {
+            "path": "rust/src/bench/CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "rust/src/bench/AGENTS.md"
+                }
+            ],
+            "sameContentAs": "CLAUDE.md"
+        },
+        {
+            "path": "SECURITY.md",
+            "bytes": 4446,
+            "lines": 59
+        }
+    ]
+}

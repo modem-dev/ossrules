@@ -1,0 +1,94 @@
+{
+    "slug": "electron",
+    "name": "Electron",
+    "owner": "electron",
+    "repo": "electron",
+    "language": "C++",
+    "stars": 123101,
+    "defaultBranch": "main",
+    "instructionFile": "CLAUDE.md",
+    "lastCommit": {
+        "sha": "a6fe0f516645c57af941b3089db94e9c0285bca0",
+        "date": "2026-09-01T17:33:04Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 13025,
+        "lines": 330,
+        "words": 1869,
+        "headings": 38,
+        "bullets": 37,
+        "codeBlocks": 9,
+        "docLinks": 0
+    },
+    "tagline": "A framework for building desktop applications with Chromium, Node.js, and web technologies.",
+    "hook": "Uses a resolved patch artifact from CI before paying for a full local Chromium sync.",
+    "summary": "Electron's CLAUDE.md explains its multi-repository build and patch workflow, then adds constraints for garbage-collected C++ objects and release maintenance. Several rules replace familiar commands with repository-specific alternatives and explain the cost or failure they avoid.",
+    "references": [
+        {
+            "path": ".claude/skills/electron-chromium-upgrade/SKILL.md"
+        },
+        {
+            "path": ".claude/skills/electron-node-upgrade/SKILL.md"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Use the result CI has already produced",
+            "body": "For patch conflicts on an existing PR, the guide first checks the failed Apply Patches run for an exported resolution. A local three-way sync is the fallback when the artifact is absent.",
+            "quote": "If asked to fix a patch conflict on a branch that already has an open PR, check the PR's failed **Apply Patches** CI run for an `update-patches.patch` artifact before running `e sync` locally.",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Give a prohibition a concrete replacement",
+            "body": "The file bans npx because it may fetch and execute an uninstalled package. It offers a direct node_modules binary or Yarn invocation instead, applying the same restriction to commands and authored scripts.",
+            "quote": "**Never use `npx`.** It is considered dangerous because it can silently fetch and execute arbitrary packages from the registry.",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Explain ownership constraints in the garbage collector",
+            "body": "The C++ guidance distinguishes heap edges, roots, and native stack locals. It connects tracing omissions to use-after-free and explains why destructors cannot inspect other managed objects.",
+            "quote": "Destructors must not access other GC managed objects: sweeping has no object\n  destruction order or timing guarantee.",
+            "pattern": "architecture-narrative"
+        },
+        {
+            "title": "Apply release labels only to users with write access",
+            "body": "Labeling guidance is explicitly scoped to contributors with repository write access. It distinguishes ordinary bug-fix backports from security fixes and derives active branches from label metadata instead of a copied release list.",
+            "quote": "When the user has write access to `electron/electron`, add these labels when creating PRs:",
+            "pattern": "scope-layering"
+        },
+        {
+            "title": "Select upgrade skills from the active branch",
+            "body": "Chromium and Node.js upgrades have separate named skills and branch triggers. The branch is the concrete signal for which specialized workflow to load.",
+            "quote": "When working on the `roller/chromium/main` branch to upgrade Chromium activate the \"Electron Chromium Upgrade\" skill.",
+            "pattern": "skill-routing"
+        }
+    ],
+    "steal": [
+        "Check whether CI already produced the expensive local operation's result.",
+        "Pair forbidden commands with approved alternatives and a reason.",
+        "Explain ownership and destruction-order assumptions near memory rules.",
+        "State which release actions require repository permissions."
+    ],
+    "outline": [
+        "Running node_modules binaries",
+        "Project Overview",
+        "Directory Structure",
+        "Build Tools Setup",
+        "Essential Commands",
+        "Typical Development Workflow",
+        "Patches System",
+        "Testing",
+        "Build Configuration",
+        "Chromium Upgrade Workflow",
+        "Node.js Upgrade Workflow",
+        "Pull Requests",
+        "Code Style",
+        "Key Files",
+        "Environment Variables",
+        "Useful Git Commands for Chromium",
+        "CI/CD",
+        "Common Issues"
+    ],
+    "patterns": ["behavioral-conditioning", "hard-prohibition", "architecture-narrative", "scope-layering", "skill-routing"]
+}

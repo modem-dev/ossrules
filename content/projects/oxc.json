@@ -1,0 +1,80 @@
+{
+    "slug": "oxc",
+    "name": "Oxc",
+    "owner": "oxc-project",
+    "repo": "oxc",
+    "language": "Rust",
+    "stars": 22810,
+    "defaultBranch": "main",
+    "instructionFile": "AGENTS.md",
+    "lastCommit": {
+        "sha": "fc175b09d372ec1efc131f045d1027a55359ae5b",
+        "date": "2026-08-25T01:24:54Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 13938,
+        "lines": 329,
+        "words": 1707,
+        "headings": 38,
+        "bullets": 96,
+        "codeBlocks": 6,
+        "docLinks": 0
+    },
+    "tagline": "A Rust toolchain for parsing, linting, formatting, and transforming JavaScript and TypeScript.",
+    "hook": "Maps individual crates to different test systems and warns that ignored conformance suites disappear from ordinary searches.",
+    "summary": "Oxc organizes its instructions around the different tools in its Rust workspace. Crate-specific test locations, generators, external conformance suites, and Node bindings get separate verification paths, with contribution responsibilities stated before the development commands.",
+    "references": [
+        {
+            "path": "CONTRIBUTING.md"
+        },
+        {
+            "path": "crates/oxc_formatter*/AGENTS.md",
+            "kind": "pattern",
+            "label": "The target formatter crate's AGENTS.md"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Choose verification by crate",
+            "body": "The testing section distinguishes parser conformance, inline linter cases, minifier size snapshots, and Node binding tests. A single successful Rust test command is therefore not presented as coverage for every tool.",
+            "quote": "- **Conformance only** via `tasks/coverage`\n- **Command**: `cargo coverage -- parser`\n- **Suites**: Test262, Babel, TypeScript",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Explain an empty search result before it misleads",
+            "body": "External suites are cloned by scripts and excluded from Git. The file warns that ripgrep respects those ignore rules and supplies the flag needed to search the actual cases.",
+            "quote": "NOTE: These suites are script-cloned and fully gitignored. ripgrep respects `.gitignore`, so a plain `rg` inside them silently returns nothing.\nUse `rg --no-ignore` (or `-u`) when searching them.",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Keep generated rule metadata and timing data together",
+            "body": "Linter code-generation changes require two commands rather than a generic instruction to regenerate files. The rule names both the generator inputs and generated runner paths that trigger the pair.",
+            "quote": "When changing linter codegen files such as `tasks/linter_codegen/**` or generated linter rule runner files under `crates/oxc_linter/src/generated/`, run `cargo lintgen` and `cargo lint-timings` so generated rule metadata and linter timing data stay in sync.",
+            "pattern": "generated-file-guard"
+        },
+        {
+            "title": "Delegate formatter details to the target crate",
+            "body": "The shared guide points formatter work to the relevant crate's AGENTS.md. That keeps language-specific behavior and verification close to the implementation while the root remains a workspace map.",
+            "quote": "Read the target crate's `AGENTS.md`; it includes the shared formatter policy plus language-specific rules and verification commands",
+            "pattern": "skill-routing"
+        }
+    ],
+    "steal": [
+        "Map each subsystem to the test suite that actually covers it.",
+        "Document when ignored files require different search commands.",
+        "Keep coupled generated artifacts in one regeneration instruction.",
+        "Route language-specific work to the local guide."
+    ],
+    "outline": [
+        "AI Usage Policy for Contributors",
+        "Repository Structure",
+        "Development Commands",
+        "Manual Testing & Examples",
+        "Code Navigation",
+        "Common Tasks",
+        "Testing",
+        "Notes"
+    ],
+    "patterns": ["verification-matrix", "behavioral-conditioning", "generated-file-guard", "skill-routing"]
+}

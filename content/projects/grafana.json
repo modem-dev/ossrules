@@ -1,0 +1,90 @@
+{
+    "slug": "grafana",
+    "name": "Grafana",
+    "owner": "grafana",
+    "repo": "grafana",
+    "language": "TypeScript",
+    "stars": 76777,
+    "defaultBranch": "main",
+    "instructionFile": "AGENTS.md",
+    "lastCommit": {
+        "sha": "e5e725634cb0f48ce96faa1720811de2024b42c2",
+        "date": "2026-08-21T17:59:38Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 9987,
+        "lines": 172,
+        "words": 1220,
+        "headings": 25,
+        "bullets": 32,
+        "codeBlocks": 5,
+        "docLinks": 0
+    },
+    "tagline": "An observability platform for dashboards, metrics, logs, and alerting.",
+    "hook": "Connects separate deployment cadences to PR boundaries and bidirectional compatibility requirements.",
+    "summary": "Grafana's root guide maps a Go and TypeScript monorepo, points specialized work to scoped instructions and testing skills, and ties schema and service edits to generators. It also documents environment-specific PATH and test-runner behavior that can change local verification.",
+    "references": [
+        {
+            "path": "docs/AGENTS.md"
+        },
+        {
+            "path": "public/app/features/alerting/unified/AGENTS.md"
+        },
+        {
+            "path": "pkg/storage/unified/AGENTS.md"
+        },
+        {
+            "path": "public/app/core/journeys/AGENTS.md"
+        },
+        {
+            "path": ".claude/skills/frontend-testing-strategy/SKILL.md"
+        },
+        {
+            "path": ".claude/skills/panel-testing-strategy/SKILL.md"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Derive change boundaries from deployment boundaries",
+            "body": "Frontend and backend changes are assigned separate PRs because they ship on different cadences. The storage notes extend that reasoning to independently deployed services that need compatibility in both directions.",
+            "quote": "Separate PRs for frontend and backend changes (deployed at different cadences)",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Route visualization tests through an additional guide",
+            "body": "All frontend testing follows one skill, with panel and visualization code loading another on top. The shared guide defines the default and the specialization without treating every frontend change identically.",
+            "quote": "Write tests for new functionality — for frontend code, use the `frontend-testing-strategy`\n  skill for this repo's testing conventions (and `panel-testing-strategy` on top of it for\n  visualization/panel code)",
+            "pattern": "skill-routing"
+        },
+        {
+            "title": "Tie schema changes to both generated languages",
+            "body": "The CUE schema note explains that a schema edit produces Go and TypeScript output. Service initialization, feature flags, and Go workspace membership have their own named generation commands.",
+            "quote": "**CUE schemas**: Dashboard/panel schemas in `kinds/` generate both Go and TS code via `make gen-cue`.",
+            "pattern": "generated-file-guard"
+        },
+        {
+            "title": "Turn an interactive test default into a one-shot command",
+            "body": "The cloud-environment section warns that the normal frontend test command watches by default. It provides both a direct Jest invocation and a flag that let an automated run terminate.",
+            "quote": "**Frontend tests**: The `yarn test` script includes `--watch` by default. Always use `yarn jest --no-watch` or add `--watchAll=false` to run tests once and exit.",
+            "pattern": "behavioral-conditioning"
+        }
+    ],
+    "steal": [
+        "Explain how deployment cadence constrains the scope of a change.",
+        "Layer specialized test guides on top of shared ones.",
+        "Name every language affected by schema generation.",
+        "Document interactive command defaults that would leave automated work waiting."
+    ],
+    "outline": [
+        "Project Overview",
+        "Principles",
+        "Comments",
+        "Human Review Gates",
+        "Commands",
+        "Architecture",
+        "Key Notes",
+        "Cursor Cloud specific instructions"
+    ],
+    "patterns": ["behavioral-conditioning", "skill-routing", "generated-file-guard"]
+}

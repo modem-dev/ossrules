@@ -1,0 +1,94 @@
+{
+    "slug": "grafana",
+    "sha": "e5e725634cb0f48ce96faa1720811de2024b42c2",
+    "license": "AGPL-3.0",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".claude/skills/frontend-testing-strategy/SKILL.md",
+            "bytes": 15157,
+            "lines": 293
+        },
+        {
+            "path": ".claude/skills/panel-testing-strategy/SKILL.md",
+            "bytes": 10380,
+            "lines": 197
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 9987,
+            "lines": 172
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "AGENTS.md"
+                }
+            ]
+        },
+        {
+            "path": "docs/AGENTS.md",
+            "bytes": 4406,
+            "lines": 150
+        },
+        {
+            "path": "e2e-playwright/alerting-suite/AGENTS.md",
+            "bytes": 6765,
+            "lines": 147
+        },
+        {
+            "path": "e2e-playwright/dashboard-new-layouts/AGENTS.md",
+            "bytes": 32215,
+            "lines": 177
+        },
+        {
+            "path": "e2e-playwright/plugin-e2e/plugin-e2e-api-tests/AGENTS.md",
+            "bytes": 3799,
+            "lines": 55
+        },
+        {
+            "path": "packages/grafana-ui/AGENTS.md",
+            "bytes": 777,
+            "lines": 13
+        },
+        {
+            "path": "pkg/router/AGENTS.md",
+            "bytes": 22918,
+            "lines": 323
+        },
+        {
+            "path": "pkg/storage/unified/AGENTS.md",
+            "bytes": 1742,
+            "lines": 19
+        },
+        {
+            "path": "public/app/core/journeys/AGENTS.md",
+            "bytes": 7755,
+            "lines": 161
+        },
+        {
+            "path": "public/app/features/AGENTS.md",
+            "bytes": 800,
+            "lines": 12
+        },
+        {
+            "path": "public/app/features/alerting/unified/AGENTS.md",
+            "bytes": 20413,
+            "lines": 593
+        },
+        {
+            "path": "public/app/features/expressions/components/SqlExpressions/SqlEditor/AGENTS.md",
+            "bytes": 1286,
+            "lines": 22
+        },
+        {
+            "path": "public/app/plugins/panel/AGENTS.md",
+            "bytes": 736,
+            "lines": 13
+        }
+    ]
+}

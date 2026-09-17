@@ -1,0 +1,66 @@
+{
+    "slug": "lancedb",
+    "name": "LanceDB",
+    "owner": "lancedb",
+    "repo": "lancedb",
+    "language": "Rust",
+    "stars": 11440,
+    "defaultBranch": "main",
+    "instructionFile": "AGENTS.md",
+    "lastCommit": {
+        "sha": "a87cada90e0b4a7c7f6bfc5b82ec95f0f57765d2",
+        "date": "2026-08-28T16:47:47Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 8100,
+        "lines": 157,
+        "words": 1147,
+        "headings": 7,
+        "bullets": 32,
+        "codeBlocks": 2,
+        "docLinks": 1
+    },
+    "tagline": "A database for vector, full-text, and hybrid retrieval with Rust, Python, TypeScript, and Java interfaces.",
+    "hook": "Traces a new table method through native and remote implementations, bindings, and both synchronous and asynchronous Python APIs.",
+    "summary": "LanceDB uses a worked implementation plan to explain how its Rust core and language bindings fit together. It also documents stale native extensions, hand-maintained API references, and documentation checks that PR CI does not run.",
+    "references": [
+        {
+            "path": "docs/src/python/python.md"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Trace a feature across implementation boundaries",
+            "body": "The new-method plan walks through the Table trait, native and remote implementations, Python binding layers, and TypeScript wrappers. It names tests and generated definitions at the steps where they become necessary.",
+            "quote": "Adding a new method involves first adding it to the Rust core, then exposing it\nin the Python and TypeScript bindings. There are both local and remote tables.\nRemote tables are implemented via a HTTP API and require the `remote` cargo\nfeature flag to be enabled. Python has both sync and async methods.",
+            "pattern": "architecture-narrative"
+        },
+        {
+            "title": "Rebuild a stale extension before declaring the environment blocked",
+            "body": "Python validation uses the locked uv environment. Missing or stale Rust/PyO3 bindings have a prescribed rebuild path instead of being treated as final evidence that tests cannot run.",
+            "quote": "If `lancedb._lancedb`\nis missing or stale, or if Rust/PyO3 binding code changed, rebuild the Python\nextension with the bootstrap command above before running tests.",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Expose what the documentation build does not discover",
+            "body": "The Python API reference is hand-maintained. Some modules derive symbols from __all__, while others need individual directives, so a new public API can be silently absent from the rendered reference.",
+            "quote": "`docs/src/python/python.md` is the entire Python API reference. It is maintained by\nhand, and anything not listed there is not rendered at all, so new public classes and\nmodule-level functions have to be added explicitly.",
+            "pattern": "single-source"
+        },
+        {
+            "title": "Name the documentation check missing from PR CI",
+            "body": "The guide supplies a local MkDocs build command after explaining reference-link syntax. It explicitly says the docs site only builds on main, preventing a green PR from being read as evidence that documentation renders.",
+            "quote": "The docs site only builds on pushes to `main`, so this is not covered by PR CI.",
+            "pattern": "verification-matrix"
+        }
+    ],
+    "steal": [
+        "Show a representative feature crossing every public binding layer.",
+        "Give stale generated extensions a recovery procedure.",
+        "Explain which documentation symbols require manual registration.",
+        "State the verification gaps in a successful PR check run."
+    ],
+    "outline": ["Coding tips", "Example plan: adding a new method on Table", "Python API reference", "Review Guidelines"],
+    "patterns": ["architecture-narrative", "behavioral-conditioning", "single-source", "verification-matrix"]
+}

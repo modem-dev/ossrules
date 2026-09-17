@@ -1,0 +1,128 @@
+{
+    "slug": "rustfs",
+    "sha": "7c85c72fd14569412a0617598989fdba8a2b19d9",
+    "license": "Apache-2.0",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".agents/references/adversarial-validation.md",
+            "bytes": 1998,
+            "lines": 33
+        },
+        {
+            "path": ".agents/references/implementation.md",
+            "bytes": 3282,
+            "lines": 65
+        },
+        {
+            "path": ".agents/references/pull-requests.md",
+            "bytes": 2756,
+            "lines": 51
+        },
+        {
+            "path": ".agents/skills/rustfs-logging-governance/SKILL.md",
+            "bytes": 1674,
+            "lines": 34
+        },
+        {
+            "path": ".github/AGENTS.md",
+            "bytes": 1453,
+            "lines": 32
+        },
+        {
+            "path": ".github/pull_request_template.md",
+            "bytes": 1701,
+            "lines": 36
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 8472,
+            "lines": 183
+        },
+        {
+            "path": "ARCHITECTURE.md",
+            "bytes": 18193,
+            "lines": 348
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 2269,
+            "lines": 46
+        },
+        {
+            "path": "crates/AGENTS.md",
+            "bytes": 3189,
+            "lines": 56
+        },
+        {
+            "path": "crates/audit/AGENTS.md",
+            "bytes": 1951,
+            "lines": 52
+        },
+        {
+            "path": "crates/config/AGENTS.md",
+            "bytes": 730,
+            "lines": 28
+        },
+        {
+            "path": "crates/e2e_test/AGENTS.md",
+            "bytes": 974,
+            "lines": 30
+        },
+        {
+            "path": "crates/ecstore/AGENTS.md",
+            "bytes": 2232,
+            "lines": 51
+        },
+        {
+            "path": "crates/iam/AGENTS.md",
+            "bytes": 786,
+            "lines": 26
+        },
+        {
+            "path": "crates/kms/AGENTS.md",
+            "bytes": 3196,
+            "lines": 87
+        },
+        {
+            "path": "crates/notify/AGENTS.md",
+            "bytes": 2489,
+            "lines": 57
+        },
+        {
+            "path": "crates/object-capacity/AGENTS.md",
+            "bytes": 3807,
+            "lines": 87
+        },
+        {
+            "path": "crates/policy/AGENTS.md",
+            "bytes": 738,
+            "lines": 25
+        },
+        {
+            "path": "crates/targets/AGENTS.md",
+            "bytes": 3268,
+            "lines": 77
+        },
+        {
+            "path": "docs/architecture/README.md",
+            "bytes": 9006,
+            "lines": 65
+        },
+        {
+            "path": "docs/testing/README.md",
+            "bytes": 9820,
+            "lines": 96
+        },
+        {
+            "path": "rustfs/src/admin/AGENTS.md",
+            "bytes": 891,
+            "lines": 27
+        },
+        {
+            "path": "rustfs/src/storage/AGENTS.md",
+            "bytes": 937,
+            "lines": 27
+        }
+    ]
+}

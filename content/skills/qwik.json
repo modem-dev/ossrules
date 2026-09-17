@@ -1,0 +1,204 @@
+{
+    "version": 1,
+    "slug": "qwik",
+    "repository": "QwikDev/qwik",
+    "branch": "main",
+    "sha": "638f8096b60a6571d4644566e5cf4bfe13c7e6da",
+    "scannedAt": "2026-09-17T11:59:55.706Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "qwik-core-development-bf2afa321aa5",
+            "path": ".ruler/skills/qwik-core-development/SKILL.md",
+            "name": "qwik-core-development",
+            "description": "Use when modifying or reviewing Qwik core package code under packages/qwik, especially reactive primitives, signals, VNodes, cursor behavior, QRLs, optimizer-facing runtime behavior, or Qwik core tests.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "80c1a654d8aedc55299e2c70589b4f6d41c639b8",
+                    "bytes": 2474,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/core-notes.md",
+                    "blob": "81b6154590b0250432ff95e2983db365c5b7d063",
+                    "bytes": 9372,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 104264123,
+                        "login": "thejackshelton",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "qwik-docs-development-972c2257643f",
+            "path": ".ruler/skills/qwik-docs-development/SKILL.md",
+            "name": "qwik-docs-development",
+            "description": "Use when writing, modifying, or reviewing Qwik docs content or docs-site code under packages/docs, including docs routes, MDX content, generated LLM outputs, docs build behavior, or docs-specific e2e tests.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b3c43f94e2729219ff35e3f961022f87593466ee",
+                    "bytes": 5675,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 45822175,
+                        "login": "maiieul",
+                        "commits": 1
+                    },
+                    {
+                        "id": 104264123,
+                        "login": "thejackshelton",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "qwik-e2e-verification-3dc4a5e96220",
+            "path": ".ruler/skills/qwik-e2e-verification/SKILL.md",
+            "name": "qwik-e2e-verification",
+            "description": "Use when creating, modifying, debugging, or running Qwik Playwright e2e tests under e2e/, including router, adapters, docs, CLI, and React integration suites.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "bb953c436737dd98165b80244a619214309cac8b",
+                    "bytes": 4546,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 54934,
+                        "login": "wmertens",
+                        "commits": 3
+                    },
+                    {
+                        "id": 78650133,
+                        "login": "Varixo",
+                        "commits": 2
+                    },
+                    {
+                        "id": 104264123,
+                        "login": "thejackshelton",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "qwik-guidance-maintenance-9dc5b9cf540e",
+            "path": ".ruler/skills/qwik-guidance-maintenance/SKILL.md",
+            "name": "qwik-guidance-maintenance",
+            "description": "Use when editing Qwik's .ruler guidance, adding or changing rules or skills, keeping AI guidance from going stale, updating assistant setup docs, or answering how Ruler should generate assistant-native guidance, skills, config, or policy for this repo.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b0f5627fb48d6a860c139139bb6ac62c3fe1b744",
+                    "bytes": 4076,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 45822175,
+                        "login": "maiieul",
+                        "commits": 1
+                    },
+                    {
+                        "id": 104264123,
+                        "login": "thejackshelton",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "qwik-optimizer-development-addfd448e2b4",
+            "path": ".ruler/skills/qwik-optimizer-development/SKILL.md",
+            "name": "qwik-optimizer-development",
+            "description": "Use when modifying or reviewing the Qwik optimizer under packages/optimizer, Rust transform code, WASM/NAPI bindings, optimizer snapshots, or optimizer-facing runtime behavior.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ae0848881ff073c89fbc25c98df679433d579618",
+                    "bytes": 2535,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 104264123,
+                        "login": "thejackshelton",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "qwik-router-development-9373418e892c",
+            "path": ".ruler/skills/qwik-router-development/SKILL.md",
+            "name": "qwik-router-development",
+            "description": "Use when modifying or reviewing Qwik Router code under packages/qwik-router, including runtime routing, buildtime route generation, middleware, adapters, SSG, markdown/MDX handling, or router tests.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "5a47802408849c443a03bad6dcfdaa96b079fcd5",
+                    "bytes": 3018,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 104264123,
+                        "login": "thejackshelton",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "822c57ac78fd581c4b487eebd692b7c43642b2dd",
+        "bytes": 25732,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "5a8a0e25c4fc3e9c52a2d7e4d7b2c86b638ce7cf",
+        "bytes": 1093,
+        "text": true,
+        "mode": "100644"
+    }
+}

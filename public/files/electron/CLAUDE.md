@@ -1,0 +1,330 @@
+# Electron Development Guide
+
+## Running node_modules binaries
+
+**Never use `npx`.** It is considered dangerous because it can silently fetch and execute arbitrary packages from the registry. Always run binaries through one of these safer mechanisms instead:
+
+1. **Preferred** — spawn the executable directly from `node_modules/.bin/<tool>` (or the platform equivalent on Windows). This is what `script/lint.js` does for `oxlint`.
+2. **Acceptable** — invoke via `yarn <tool>` or `yarn run <tool>`, which resolves to the locally installed version without the registry fallback that `npx` performs.
+
+This rule applies to shell commands you run yourself and to any scripts you author or modify in this repo.
+
+## Project Overview
+
+Electron is a framework for building cross-platform desktop applications using web technologies. It embeds Chromium for rendering and Node.js for backend functionality.
+
+## Directory Structure
+
+```text
+electron/                 # This repo (run `e` commands here)
+├── shell/               # Core C++ application code
+│   ├── browser/         # Main process implementation (107+ API modules)
+│   ├── renderer/        # Renderer process code
+│   ├── common/          # Shared code between processes
+│   ├── app/             # Application entry points
+│   └── services/        # Node.js service integration
+├── lib/                 # TypeScript/JavaScript library code
+│   ├── browser/         # Main process JS (47 API implementations)
+│   ├── renderer/        # Renderer process JS
+│   └── common/          # Shared JS modules
+├── patches/             # Patches for upstream dependencies
+│   ├── chromium/        # ~159 patches to Chromium
+│   ├── node/            # ~48 patches to Node.js
+│   └── ...              # Other targets (v8, boringssl, etc.)
+├── spec/                # Test suite (1189+ TypeScript test files)
+├── docs/                # API documentation and guides
+├── build/               # Build configuration
+├── script/              # Build and automation scripts
+└── chromium_src/        # Chromium source overrides
+../                      # Parent directory is Chromium source
+```
+
+## Build Tools Setup
+
+Electron uses `@electron/build-tools` for development. The `e` command is the primary CLI.
+
+**Installation:**
+
+```bash
+npm i -g @electron/build-tools
+```
+
+**Configuration location:** `~/.electron_build_tools/configs/`
+
+## Essential Commands
+
+### Configuration Management
+
+| Command | Purpose |
+|---------|---------|
+| `e init <name> --root=<path> --bootstrap testing` | Create new build config and sync |
+| `e use <name>` | Switch to a different build configuration |
+| `e show current` | Display active configuration name |
+| `e show configs` | List all available configurations |
+
+### Build & Development Loop
+
+| Command | Purpose |
+|---------|---------|
+| `e sync` | Fetch/update all source code and apply patches |
+| `e sync --3` | Sync with 3-way merge (required for Chromium upgrades) |
+| `e build` | Build Electron (runs GN + Ninja) |
+| `e build -k 999` | Build and continue on errors (up to 999) |
+| `e build -t <target>` | Build specific target (e.g., `electron:node_headers`) |
+| `e start` | Run the built Electron executable |
+| `e start --version` | Verify Electron launches and print version |
+| `e test` | Run the test suite |
+| `e debug` | Run Electron in debugger (lldb on macOS, gdb on Linux) |
+
+### Patch Management
+
+| Command | Purpose |
+|---------|---------|
+| `e patches <target>` | Export patches for a target (chromium, node, v8, etc.) |
+| `e patches all` | Export all patches from all targets |
+| `e patches --list-targets` | List available patch targets |
+
+## Typical Development Workflow
+
+```bash
+# 1. Ensure you're on the right config
+e show current
+
+# 2. Sync to get latest code
+e sync
+
+# 3. Make your changes in shell/ or lib/ or ../
+
+# 4. Build
+e build
+
+# 5. Test your changes (Leave the user to do this, don't run these commands unless asked)
+e start
+e test
+
+# 6. If you modified patched files in Chromium:
+cd ..  # Go to Chromium repo
+git add <files>
+git commit -m "description of change"
+cd electron
+e patches chromium  # Export the patch
+```
+
+## Patches System
+
+Electron patches upstream dependencies (Chromium, Node.js, V8, etc.) to add features or modify behavior.
+
+**How patches work:**
+
+```text
+patches/{target}/*.patch  →  [e sync --3]  →  target repo commits
+                          ←  [e patches]   ←
+```
+
+**Patch configuration:** `patches/config.json` maps patch directories to target repos.
+
+**Key rules:**
+
+- Fix existing patches 99% of the time rather than creating new ones
+- Preserve original authorship in TODO comments
+- Never change TODO assignees (`TODO(name)` must retain original name)
+- Each patch file includes commit message explaining its purpose
+
+**Creating/modifying patches:**
+
+1. Make changes in the target repo (e.g., `../` for Chromium)
+2. Create a git commit
+3. Run `e patches <target>` to export
+
+**Fixing patch conflicts on an existing PR:**
+
+If asked to fix a patch conflict on a branch that already has an open PR, check the PR's failed **Apply Patches** CI run for an `update-patches.patch` artifact before running `e sync` locally. CI has already performed the 3-way merge and exported the resolved patch diff — applying it is much faster than a full local sync.
+
+```bash
+# Find the failed Apply Patches run for the PR, then fetch its artifact. The
+# artifact is uploaded unarchived (name `update-patches.patch`), so
+# `gh run download` rejects it as "not a valid zip"; the artifact zip endpoint
+# returns the raw patch instead.
+gh run list --repo electron/electron --branch <pr-branch> --workflow "Apply Patches" --limit 1
+gh api repos/electron/electron/actions/runs/<run-id>/artifacts --jq '.artifacts[] | select(.name == "update-patches.patch") | .id'
+gh api repos/electron/electron/actions/artifacts/<artifact-id>/zip > update-patches.patch
+git am update-patches.patch
+git push
+```
+
+If no artifact exists (e.g. the 3-way merge itself failed), fall back to `e sync --3` and resolve manually.
+
+## Testing
+
+**Test location:** `spec/` directory
+
+**Running tests:**
+
+```bash
+e test                    # Run full test suite
+```
+
+**Test frameworks:** Mocha, Chai
+
+## Build Configuration
+
+**GN build arguments:** Located in `build/args/`:
+
+- `testing.gn` - Debug/testing builds
+- `release.gn` - Release builds
+- `all.gn` - Common arguments for all builds
+
+**Main build file:** `BUILD.gn`
+
+**Feature flags:** `buildflags/buildflags.gni`
+
+## Chromium Upgrade Workflow
+
+When working on the `roller/chromium/main` branch to upgrade Chromium activate the "Electron Chromium Upgrade" skill.
+
+## Node.js Upgrade Workflow
+
+When working on the `roller/node/main` branch to upgrade Node.js activate the "Electron Node.js Upgrade" skill.
+
+## Pull Requests
+
+PR bodies must always include a `Notes:` section as the **last line** of the body. This is a consumer-facing release note for Electron app developers — describe the user-visible fix or change, not internal implementation details. Use `Notes: none` if there is no user-facing change.
+
+### PR Labeling (write-access only)
+
+When the user has write access to `electron/electron`, add these labels when creating PRs:
+
+**Semver label** — one of:
+
+- `semver/none` — build changes, refactors, CI, or anything with no end-user impact
+- `semver/patch` — backwards-compatible bug fixes
+- `semver/minor` — backwards-compatible new functionality
+- `semver/major` — incompatible API changes
+
+**Backport target labels** — add `target/{N}-x-y` for each supported release branch the change should land on. Default policy:
+
+- **Bug fixes** — backport to all active release lines _except the oldest_
+- **Security fixes** — backport to all active release lines _including the oldest_
+- **Features (semver/minor) and breaking changes (semver/major)** — no backport labels; main-only by default
+
+To find which release branches are active, check label colors — active `target/*` labels use color `#ad244f`, older/EOL ones use `#ededed`:
+
+```bash
+gh label list --repo electron/electron --search target/ --json name,color --jq '.[] | select(.color == "ad244f") | .name'
+```
+
+## Code Style
+
+**C++:** Follows Chromium style, enforced by clang-format
+**TypeScript/JavaScript:** [oxlint](https://oxc.rs/docs/guide/usage/linter) configuration in `.oxlintrc.json`
+
+### cppgc / Oilpan
+
+- Treat prefinalizers as an absolute last resort. They add GC cost to every
+  collection involving the object; first redesign ownership or make teardown
+  release only non GC resources in the destructor. Use
+  `CPPGC_USING_PRE_FINALIZER` only when teardown unavoidably needs to inspect
+  another GC managed object.
+- Destructors must not access other GC managed objects: sweeping has no object
+  destruction order or timing guarantee.
+- Never store a bare pointer or `raw_ptr` to a GC managed object in a heap
+  field. Use `cppgc::Member`/`WeakMember` for on heap edges and
+  `cppgc::Persistent`/`WeakPersistent` for off heap edges. A bare pointer is
+  safe only as a native stack local.
+- Allocate GC-managed objects only with `cppgc::MakeGarbageCollected`; never
+  use `new`, `delete`, `std::unique_ptr`, or `scoped_refptr`.
+- Trace every `Member`, `WeakMember`, `v8::TracedReference`, and traceable
+  helper such as `gin::WeakCellFactory`; call the GC managed base class's
+  `Trace()` first. Missing an edge can cause use-after-free.
+- Use `v8::TracedReference` for V8 values that participate in unified heap
+  tracing. Use `v8::Global` only for an intentionally independent V8 root.
+- Keep handle construction, access, and destruction on the owning isolate's
+  thread. Use a cross thread handle only when a cross thread reference is
+  unavoidable.
+- Use `gin_helper::SelfKeepAlive` only when native asynchronous work must keep
+  the object alive after all JavaScript references are gone. Clear it on every
+  terminal path.
+- For callbacks that may outlive or escape the object, use `WeakCellFactory`.
+  Use `base::Unretained(this)` only when the callback is registered on a member
+  owned by the object and destroying that member guarantees cancellation.
+- `GetHumanReadableName()` must return stable storage (normally a string
+  literal) and must not allocate GC objects or mutate the heap.
+- Annotate intentionally untraced owned members that the Blink GC plugin cannot
+  understand, such as Mojo remotes and receivers, with `GC_PLUGIN_IGNORE` and a
+  specific justification.
+
+**Linting:**
+
+```bash
+npm run lint              # Run all linters
+npm run lint:js           # Run oxlint over all JS/TS/MJS sources
+npm run lint:clang-format # C++ formatting
+npm run lint:api-history  # Validate API history YAML blocks in docs
+```
+
+## Key Files
+
+| File | Purpose |
+|------|---------|
+| `BUILD.gn` | Main GN build configuration |
+| `DEPS` | Dependency versions and checkout paths |
+| `patches/config.json` | Patch target configuration |
+| `filenames.gni` | Source file lists by platform |
+| `package.json` | Node.js dependencies and scripts |
+
+## Environment Variables
+
+| Variable | Purpose |
+|----------|---------|
+| `GN_EXTRA_ARGS` | Additional GN arguments (useful in CI) |
+| `ELECTRON_RUN_AS_NODE=1` | Run Electron as Node.js |
+
+## Useful Git Commands for Chromium
+
+```bash
+# Find CL that changed a file
+cd ..
+git log --oneline -10 -- {file}
+git blame -L {start},{end} -- {file}
+
+# Look for Chromium CL reference in commit
+git log -1 {commit_sha}  # Find "Reviewed-on:" line
+
+# Find which patch affects a file
+grep -l "filename.cc" patches/chromium/*.patch
+```
+
+## CI/CD
+
+GitHub Actions workflows in `.github/workflows/`:
+
+- `build.yml` - Main build workflow
+- `pipeline-electron-lint.yml` - Linting
+- `pipeline-segment-electron-test.yml` - Testing
+
+### Reading audit findings
+
+These workflows upload their findings as a build artifact named `audit-results.md` because GitHub Actions step summaries cannot be read via the API:
+
+- `.github/workflows/audit-branch-ci.yml` - Table of release-branch CI runs that errored
+- `.github/workflows/archaeologist-dig.yml` - The `electron.d.ts` diff report ("Changes Detected" patch, or a no-changes note)
+
+The artifact is uploaded unarchived (`archive: false`), so it downloads as raw markdown — no unzipping needed. Agents should list the run's artifacts (`GET /repos/electron/electron/actions/runs/{run_id}/artifacts`), find the one named `audit-results.md`, and fetch its `archive_download_url` to read the findings directly.
+
+## Common Issues
+
+**Patch conflict during sync:**
+
+- Use `e sync --3` for 3-way merge
+- Check if file was renamed/moved upstream
+- Verify patch is still needed
+
+**Build error in patched file:**
+
+- Find the patch: `grep -l "filename" patches/chromium/*.patch`
+- Match existing patch style (#if 0 guards, BUILDFLAG conditionals, etc.)
+
+**Remote build issues:**
+
+- Try `e build --no-remote` to build locally
+- Check reclient/siso configuration in your build config

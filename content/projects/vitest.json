@@ -1,0 +1,99 @@
+{
+    "slug": "vitest",
+    "name": "Vitest",
+    "owner": "vitest-dev",
+    "repo": "vitest",
+    "language": "TypeScript",
+    "stars": 17112,
+    "defaultBranch": "main",
+    "instructionFile": "AGENTS.md",
+    "lastCommit": {
+        "sha": "9e1166959e14bd32298d8a0e85352431c769ec7a",
+        "date": "2026-09-04T09:23:19Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 17390,
+        "lines": 240,
+        "words": 2530,
+        "headings": 37,
+        "bullets": 114,
+        "codeBlocks": 1,
+        "docLinks": 0
+    },
+    "tagline": "A Vite-powered testing framework for JavaScript and TypeScript.",
+    "hook": "Warns that a passing typecheck can coexist with stale test output and names the package that rebuilding Vitest will miss.",
+    "summary": "Vitest's guide documents the boundaries between source checks, bundled output, test helpers, and CI coverage. It uses concrete command pairs and exception lists to prevent apparently successful local checks from testing the wrong files or overlooking generated output.",
+    "references": [
+        {
+            "path": "CONTRIBUTING.md"
+        },
+        {
+            "path": "docs/AGENTS.md"
+        },
+        {
+            "path": "docs/guide/cli-generated.md"
+        },
+        {
+            "path": "packages/vitest/LICENSE.md"
+        },
+        {
+            "path": ".github/commit-convention.md"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Show the test-filter command that silently broadens a run",
+            "body": "The guide pairs the pnpm invocation that loses its filter with the one that forwards it correctly. It explains the consequence so an agent can recognize an unexpectedly broad run.",
+            "quote": "# WRONG - runs ALL tests (filter is ignored):\npnpm test -- basic.test.ts -t 'expect'\n\n# CORRECT - runs only matching tests:\npnpm test basic.test.ts -t 'expect'",
+            "pattern": "worked-examples"
+        },
+        {
+            "title": "Separate source checking from the output tests execute",
+            "body": "Typechecking reads TypeScript source while tests resolve workspace exports into dist. The mocker package is singled out because rebuilding Vitest does not inline its changes.",
+            "quote": "Tests execute built output: test suites resolve `vitest` through workspace symlinks whose package exports point at `dist/`, while `pnpm typecheck` resolves TypeScript source. A passing typecheck never proves `dist` is fresh; rebuild before re-running tests.",
+            "pattern": "architecture-narrative"
+        },
+        {
+            "title": "State the holes in the root typecheck",
+            "body": "The file lists the excluded test and documentation directories. It also supplies a separate command for Vue UI client changes, making the coverage boundary part of the workflow.",
+            "quote": "Root typecheck does not cover the UI client Vue code; when changing `packages/ui/client`, also run `pnpm -C packages/ui typecheck:client`",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Name generated files even when the file has no banner",
+            "body": "CLI option changes require regenerating the documentation table. The guide also explains that CI rebuilds and checks the diff, so reverting generated output does not make a change complete.",
+            "quote": "`docs/guide/cli-generated.md` is generated from `packages/vitest/src/node/cli/cli-config.ts` (it carries no banner saying so)",
+            "pattern": "generated-file-guard"
+        },
+        {
+            "title": "Make external contribution limits explicit",
+            "body": "Opening issues, PRs, or comments requires human review. Contributors without write access are limited to one PR and are explicitly prohibited from using drafts to bypass that boundary.",
+            "quote": "This repository has a limit of 1 PR if you don't have write access. DO NOT try to bypass it by creating draft PRs.",
+            "pattern": "contribution-etiquette"
+        }
+    ],
+    "steal": [
+        "Explain when source checks and tests consume different artifacts.",
+        "Pair misleading command syntax with a corrected invocation.",
+        "List the important exclusions from default verification.",
+        "Name unmarked generated files and the commands that produce them."
+    ],
+    "outline": [
+        "If you are an AI agent",
+        "Project Overview",
+        "Setup and Development",
+        "Testing",
+        "Project Structure",
+        "Code Style and Conventions",
+        "Common Workflows",
+        "Generated Files and CI Checks",
+        "Dependencies and Tools",
+        "Browser Testing",
+        "Performance Considerations",
+        "Troubleshooting",
+        "Commit Messages and PR Titles",
+        "PR Limitations"
+    ],
+    "patterns": ["worked-examples", "architecture-narrative", "verification-matrix", "generated-file-guard", "contribution-etiquette"]
+}

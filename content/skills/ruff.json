@@ -1,0 +1,156 @@
+{
+    "version": 1,
+    "slug": "ruff",
+    "repository": "astral-sh/ruff",
+    "branch": "main",
+    "sha": "353969e3da333ab7155deb63e1ec0d469b8d86d3",
+    "scannedAt": "2026-09-17T11:59:00.737Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "adding-ty-diagnostics-6de18074e496",
+            "path": ".agents/skills/adding-ty-diagnostics/SKILL.md",
+            "name": "adding-ty-diagnostics",
+            "description": "Use when a user says \"add a ty diagnostic\", \"write this new ty diagnostic\", \"change a ty error message\", \"review ty diagnostics\", or asks to add, update, or review ty checks, diagnostic messages, subdiagnostics, or concise output behavior.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "255f9ef397042963498dd8311518963e12af02aa",
+                    "bytes": 1910,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 66076021,
+                        "login": "AlexWaygood",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "minimizing-ty-ecosystem-changes-0bcf18a2e8d8",
+            "path": ".agents/skills/minimizing-ty-ecosystem-changes/SKILL.md",
+            "name": "minimizing-ty-ecosystem-changes",
+            "description": "Use when a user says \"minimize this ty ecosystem change\", \"reproduce this ecosystem result\", \"investigate a primer difference\", \"investigate a mypy_primer difference\", \"investigate a mypy-primer difference\", or asks to reproduce, investigate, or minimize behavior changes in ty ecosystem/primer/mypy_primer/mypy-primer projects.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "cb61ef912233c1c11c702f00fd771baf0ada6f66",
+                    "bytes": 9681,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/advanced-minimization.md",
+                    "blob": "b374f351713326080a7ec87606ce10f433f7231d",
+                    "bytes": 4093,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 66076021,
+                        "login": "AlexWaygood",
+                        "commits": 8
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "summarise-ecosystem-results-abecf7bcff37",
+            "path": ".agents/skills/summarise-ecosystem-results/SKILL.md",
+            "name": "summarise-ecosystem-results",
+            "description": "Use when a user says \"summarise ecosystem results\", \"summarize this ty ecosystem report\", \"what changed in this ecosystem run?\", or asks to summarise or summarize ty ecosystem results for a Ruff PR from a PR number, PR URL, GitHub ecosystem-results comment, or detailed HTML report.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "a6e52e3b2b67745a154077665440df69a7e5ef25",
+                    "bytes": 8211,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/report-template.md",
+                    "blob": "991a7c5bb76f5c2f2a1d6a9a13a052fe51f9a5be",
+                    "bytes": 4049,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/evidence-acquisition.md",
+                    "blob": "c5ca836eda4dc292765b862c37045944f884304b",
+                    "bytes": 4959,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/subagent-handoff.md",
+                    "blob": "8496df1de4acab694c204fa08de6ee1364086d99",
+                    "bytes": 5221,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 66076021,
+                        "login": "AlexWaygood",
+                        "commits": 9
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "wobbling-ty-constraint-order-33b37f109406",
+            "path": ".agents/skills/wobbling-ty-constraint-order/SKILL.md",
+            "name": "wobbling-ty-constraint-order",
+            "description": "Use when a user asks to wobble ty constraint ordering, check constraint-set or TDD ordering determinism, test reversed constraint/typevar IDs, or investigate nondeterministic ty inference and mdtest results.\n",
+            "compatibility": "Requires Cargo, mktemp, and a POSIX-compatible shell; uses cargo-nextest when available and otherwise falls back to cargo test.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "3b6b3588feeadece49c338ba47dc13285f2c1cd0",
+                    "bytes": 3352,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 7499,
+                        "login": "dcreager",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "f4327be631c59cc39d64d655851a6c2590aa38ce",
+        "bytes": 17405,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "655a0c76fc5539b2f8e63b673741a5fd0e0c5799",
+        "bytes": 20731,
+        "text": true,
+        "mode": "100644"
+    }
+}

@@ -1,0 +1,114 @@
+{
+    "slug": "rustfs",
+    "name": "RustFS",
+    "owner": "rustfs",
+    "repo": "rustfs",
+    "language": "Rust",
+    "stars": 32611,
+    "defaultBranch": "main",
+    "instructionFile": "AGENTS.md",
+    "lastCommit": {
+        "sha": "7c85c72fd14569412a0617598989fdba8a2b19d9",
+        "date": "2026-09-07T15:58:05Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 8472,
+        "lines": 183,
+        "words": 1135,
+        "headings": 15,
+        "bullets": 40,
+        "codeBlocks": 1,
+        "docLinks": 3
+    },
+    "tagline": "An S3-compatible object storage system written in Rust.",
+    "hook": "Keeps root verification tiers authoritative while letting the nearest AGENTS.md define storage invariants.",
+    "summary": "RustFS writes out instruction precedence, authorization boundaries, and verification tiers before its storage rules. It distinguishes ordinary reviews from adversarial validation, requires evidence for findings, and routes task-specific work to references and skills.",
+    "references": [
+        {
+            "path": ".agents/references/implementation.md"
+        },
+        {
+            "path": ".agents/references/pull-requests.md"
+        },
+        {
+            "path": ".github/pull_request_template.md"
+        },
+        {
+            "path": "ARCHITECTURE.md"
+        },
+        {
+            "path": "docs/architecture/README.md"
+        },
+        {
+            "path": "docs/testing/README.md"
+        },
+        {
+            "path": ".agents/references/adversarial-validation.md"
+        },
+        {
+            "path": ".agents/skills/rustfs-logging-governance/SKILL.md"
+        },
+        {
+            "path": ".agents/skills/*/SKILL.md",
+            "kind": "pattern",
+            "label": "Task-matching repository skills"
+        },
+        {
+            "path": "AGENTS.md",
+            "kind": "pattern",
+            "label": "The nearest scoped AGENTS.md"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Keep local invariants distinct from shared workflow",
+            "body": "The nearest instruction file wins on domain invariants, but scoped guidance cannot replace the root verification tiers with a generic workspace gate. The file also says that skills cannot expand user authorization.",
+            "quote": "Nested instructions add to ancestor rules; they do not discard non-conflicting\nrules. A skill cannot expand the user's requested scope or grant authorization.",
+            "pattern": "nested-instructions"
+        },
+        {
+            "title": "Scale verification to the final diff",
+            "body": "Documentation, non-behavioral source edits, localized behavior changes, and broad cross-module changes have different checks. Broader gates are conditional, and successful umbrella checks should not be duplicated.",
+            "quote": "Select checks from the final task-owned diff. Scoped `AGENTS.md` files may add a\nconcrete path-specific check, but must not replace this tiering with a generic\nfull-workspace gate.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Permit a review with no findings",
+            "body": "The review guidance rejects a finding quota and requires checking callers, invariants, and tests for counterevidence. Missing tests are described as verification gaps rather than proof of a runtime defect.",
+            "quote": "A review has no finding quota; `No findings` is a complete outcome. A request to\nfind problems is not evidence that a defect exists.",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Keep transient plans out of the durable knowledge base",
+            "body": "One-shot plans and benchmark snapshots are distinguished from architecture, operations, and testing references. A named script enforces the boundary, making documentation placement an operational rule.",
+            "quote": "Do not commit one-shot plans, trackers, migration ledgers, benchmark snapshots,\nor agent scratch notes.",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Attach logging changes to a dedicated skill",
+            "body": "The root defines level semantics, reusable fields, and restrictions on sensitive data. It sends logging edits to a specific governance skill for the detailed workflow.",
+            "quote": "Use `.agents/skills/rustfs-logging-governance/SKILL.md` for logging changes.",
+            "pattern": "skill-routing"
+        }
+    ],
+    "steal": [
+        "Write precedence separately for local invariants and shared workflow.",
+        "Match verification to the effect of the final diff.",
+        "Allow no-findings reviews and require counterevidence checks.",
+        "Define which working notes belong outside the durable documentation."
+    ],
+    "outline": [
+        "Precedence",
+        "Operating Model",
+        "Task-Specific Guidance",
+        "Sources of Truth",
+        "Verification",
+        "Adversarial Validation",
+        "Security Baseline",
+        "Logging",
+        "Cross-Cutting Storage Invariants",
+        "Scoped Guidance"
+    ],
+    "patterns": ["nested-instructions", "verification-matrix", "behavioral-conditioning", "hard-prohibition", "skill-routing"]
+}

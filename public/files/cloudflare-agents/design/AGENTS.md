@@ -1,0 +1,104 @@
+# AGENTS.md — design/
+
+Internal design records — the "why" behind decisions in this repo and its libraries. This is the Diátaxis **explanation** quadrant: architecture rationale, tradeoffs, and alternatives considered.
+
+## Two kinds of document
+
+### Design docs
+
+Living documents that describe how a concept or subsystem works **right now**. Named by topic: `state.md`, `mcp.md`, `visuals.md`. These are the primary entry point — a contributor looking for "how does state work" should open one file and get the full picture.
+
+Design docs get updated as the implementation evolves. They always reflect the current reality.
+
+### RFCs
+
+Point-in-time decision records for significant changes. Named with an `rfc-` prefix: `rfc-state-v2-sync-protocol.md`. These capture why a specific change was made and what alternatives were considered. They do not get updated after the decision — they are snapshots.
+
+RFCs are never deleted, even after rejection. Rejected RFCs are valuable — they prevent re-litigating the same idea later.
+
+## Workflow
+
+```
+1. Propose:  write rfc-<name>.md (status: proposed)
+2. Decide:   update status to accepted or rejected
+3. Implement: update the relevant design doc to reflect the new reality
+              (create one if it does not exist yet)
+```
+
+Step 3 is important — the design doc is what people read day-to-day. The RFC is the footnote explaining one particular decision within it.
+
+A design doc may link to multiple RFCs that shaped it over time:
+
+```markdown
+## History
+
+- [rfc-state-sync.md](./rfc-state-sync.md) — original bidirectional sync design
+- [rfc-state-v2-batching.md](./rfc-state-v2-batching.md) — added batched updates
+```
+
+## RFC format
+
+Include a status line at the top:
+
+```
+Status: proposed | accepted | rejected
+```
+
+Then cover:
+
+- **The problem** — what we need to solve
+- **The proposal** — what we want to do
+- **The alternatives** — what else we considered and why not
+- **The decision** — what was decided (filled in after discussion)
+
+## Design doc format
+
+No strict template. Each file should at minimum cover:
+
+- **How it works** — the current design, kept up to date
+- **Key decisions** — link to relevant RFCs for the reasoning
+- **Tradeoffs** — what we gave up and why
+
+Keep it concise. A few paragraphs is fine. These are records, not essays.
+
+## What does not belong here
+
+- **API reference or usage guides** — those go in `/docs` (see `/docs/AGENTS.md`)
+- **Code comments** — keep inline explanations in the code itself
+- **Changelogs** — those live in package `CHANGELOG.md` files
+
+## Current contents
+
+| File                                    | Type       | Scope                                                                                                                                                                           |
+| --------------------------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `chat-shared-layer.md`                  | design doc | Chat shared layer — streaming, sanitization, and protocol primitives in agents/chat                                                                                             |
+| `durable-streams-comparison.md`         | analysis   | Durable Streams (ElectricSQL) vs the Agents SDK — layer mapping, what each has, strategic takeaways                                                                             |
+| `think.md`                              | design doc | Think — chat agent base class, streaming, client tools, resumable streams, extensions                                                                                           |
+| `think-sessions.md`                     | design doc | Think + Session integration design (implemented in Phase 1)                                                                                                                     |
+| `think-vs-aichat.md`                    | design doc | Think vs AIChatAgent — comparison, use cases, architectural differences                                                                                                         |
+| `think-roadmap.md`                      | design doc | Think implementation plan — all 5 phases complete, full AIChatAgent parity                                                                                                      |
+| `chat-api.md`                           | analysis   | AIChatAgent + useAgentChat API analysis — pain points, improvements, Think influence                                                                                            |
+| `chat-improvements.md`                  | design doc | Non-breaking improvements — shared extraction complete, client DX items remain                                                                                                  |
+| `readonly-connections.md`               | design doc | Readonly connections — enforcement, storage wrapping, caveats                                                                                                                   |
+| `retries.md`                            | design doc | Retry system — primitives, integration points, backoff strategy, tradeoffs                                                                                                      |
+| `visuals.md`                            | design doc | UI component library (Kumo), dark mode, custom patterns, routing integration                                                                                                    |
+| `workspace.md`                          | design doc | Workspace — hybrid SQLite+R2 filesystem, bash, symlinks, observability                                                                                                          |
+| `agent-tools.md`                        | design doc | Agent tools — chat sub-agent orchestration, parent registry, event replay                                                                                                       |
+| `sub-agent-routing.md`                  | design doc | Sub-agent routing as shipped — facets, nested URLs, registry, parent lookup, caveats                                                                                            |
+| `rfc-sub-agents.md`                     | RFC        | Sub-agents — child DOs via facets, typed stubs, built into Agent (accepted)                                                                                                     |
+| `rfc-sub-agent-routing.md`              | RFC        | Sub-agent external addressability — nested URLs, `onBeforeSubAgent`, per-call bridge                                                                                            |
+| `rfc-helper-sub-agent-orchestration.md` | RFC        | Agent tool orchestration — `runAgentTool`, `agentTool`, event forwarding                                                                                                        |
+| `rfc-detached-agent-tools.md`           | RFC        | Detached ("background") agent-tool runs — `detached` mode, durable named-method completion hook                                                                                 |
+| `rfc-think-multi-session.md`            | RFC        | Multi-session Think / Chats pattern — parent directory + per-chat child DOs                                                                                                     |
+| `rfc-chat-recovery-work-budget.md`      | RFC        | Decouple chat-recovery duration from the runaway guard — work budget + `shouldKeepRecovering` (accepted)                                                                        |
+| `rfc-chat-recovery-foundation.md`       | RFC        | Shared chat recovery foundation — internal engine, adapters, behavior convergence, and testing strategy                                                                         |
+| `rfc-ai-chat-maintenance.md`            | RFC        | AIChatAgent first-class stance, shared chat toolkit, multi-session example direction                                                                                            |
+| `loopback.md`                           | design doc | Loopback pattern — cross-boundary RPC for sub-agents and dynamic isolates                                                                                                       |
+| `worker-bundler.md`                     | design doc | Worker bundler — host-side assets, no code generation, mounting is caller's concern                                                                                             |
+| `rfc-workers-ai-gateway-merge.md`       | RFC        | Merge ai-gateway-provider into workers-ai-provider — registry routing, universal run API, resume (proposed)                                                                     |
+| `rfc-coding-agent.md`                   | RFC        | `CodingAgent` — new `@cloudflare/coding-agent` package (extends AIChatAgent), CLI coding agents in Sandbox, pluggable engine (Cli/Harness), two-lifecycle durability (proposed) |
+| `test-coverage-matrix.md`               | design doc | Feature × test-layer coverage rollup, CI→layer mapping, skipped-test debt, nightly hygiene                                                                                      |
+
+## Relationship to `/docs`
+
+`/docs` is user-facing ("how to use the SDK"). `/design` is contributor-facing ("why the SDK works this way"). If a design decision affects how users interact with the SDK, distil the user-relevant parts into a doc in `/docs` and link back here for the full rationale.

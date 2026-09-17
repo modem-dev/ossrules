@@ -1,0 +1,1379 @@
+{
+    "version": 1,
+    "slug": "prisma",
+    "repository": "prisma/orm",
+    "branch": "main",
+    "sha": "fac86049338b022ab74668b27dc97018594cfe48",
+    "scannedAt": "2026-09-17T12:03:48.487Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "adr-review-b95c519b6767",
+            "path": "skills-contrib/adr-review/SKILL.md",
+            "name": "adr-review",
+            "description": "Review one or more ADRs with fresh eyes (as a team member without prior context), identify narrative and structural issues, then rewrite them. Use when the user asks to review, improve, rewrite, or take a fresh-eyes pass on an ADR or a set of ADRs (Architecture Decision Records).",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "322ff645ae601939c5e693806ccc506e2387fd63",
+                    "bytes": 2695,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 12165,
+                        "login": "wmadden",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "ast-visitor-pattern-971a9c2dd05c",
+            "path": "skills-contrib/ast-visitor-pattern/SKILL.md",
+            "name": "ast-visitor-pattern",
+            "description": "Use the frozen-class/visitor pattern for discriminated unions that have multiple dispatch sites. Use when creating a new set of variants (commands, IR nodes, factory calls) that will be switched over in 2+ places, or when refactoring an existing union type that has grown multiple switch sites.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "61e69149a187492b36951c2214c8d57a72140697",
+                    "bytes": 3341,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 12165,
+                        "login": "wmadden",
+                        "commits": 2
+                    },
+                    {
+                        "id": 286103357,
+                        "login": "tensordreams",
+                        "commits": 1
+                    },
+                    {
+                        "id": 286902546,
+                        "login": "wmadden-electric",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "bumping-biome-f3aad847c91b",
+            "path": "skills-contrib/bumping-biome/SKILL.md",
+            "name": "bumping-biome",
+            "description": "Bumps `biome` package versions (e.g. `@biomejs/biome`) using `pnpm`, aligns `biome.jsonc` files with the new version/s across the repository and runs biome-related checks. Use when required to update `biome` to a newer version - explicitly or implicitly (e.g. after running `pnpm up`, `pnpm update`, `pnpm upgrade` without specific package names).",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "461c859d3999d649a24b1104f194a5e18756e280",
+                    "bytes": 1600,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 12165,
+                        "login": "wmadden",
+                        "commits": 2
+                    },
+                    {
+                        "id": 286103357,
+                        "login": "tensordreams",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "contrib-pr-26231cbbd411",
+            "path": "skills-contrib/contrib-pr/SKILL.md",
+            "name": "contrib-pr",
+            "description": "Open a high-quality external contributor PR against prisma/orm. Use when the user is an outside contributor (not a Prisma maintainer) and wants to submit a change as a pull request from a fork. Encodes the contribution flow from CONTRIBUTING.md so the resulting PR passes review on the first round.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "4ff6ec11fa0f7b5aadb295eee9fa9524a0e36df6",
+                    "bytes": 9360,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 12165,
+                        "login": "wmadden",
+                        "commits": 2
+                    },
+                    {
+                        "id": 286103357,
+                        "login": "tensordreams",
+                        "commits": 1
+                    },
+                    {
+                        "id": 286902546,
+                        "login": "wmadden-electric",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "create-pr-bc809c46fc01",
+            "path": "skills-contrib/create-pr/SKILL.md",
+            "name": "create-pr",
+            "description": "Creates a GitHub PR with a Linear-ticket-prefixed title and a decision-led, narrative description for Prisma 8. Use when the user wants to create a pull request, open a PR, or submit changes for review.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "25fd9d3dae54d26c9e1506877bd298b4a09d5a7f",
+                    "bytes": 18486,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 12165,
+                        "login": "wmadden",
+                        "commits": 2
+                    },
+                    {
+                        "id": 286902546,
+                        "login": "wmadden-electric",
+                        "commits": 2
+                    },
+                    {
+                        "id": 286103357,
+                        "login": "tensordreams",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "draft-release-notes-05614ea2973a",
+            "path": "skills-contrib/draft-release-notes/SKILL.md",
+            "name": "draft-release-notes",
+            "description": "Author the committed release-notes file for a Prisma 8 release (stable or `8.0.0-rc.N`) by enumerating the merged PRs since the previous release `v*` tag (stable or `-rc.N`), resolving opaque `TML-NNNN:` titles via Linear context (never copied verbatim), triaging public-worthiness, and writing categorized notes — breaking changes first — into `docs/releases/v<version>.md` plus a mirrored `CHANGELOG.md` entry. Use when cutting a release, when the `publish-npm-version` skill reaches its \"draft the release notes\" step, when asked to \"draft the release notes\", \"write the changelog for this release\", \"author docs/releases/v<x>.md\", or \"summarize what shipped since the last release\".",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "0a4a9eb287c4a87a521a92938e6d073377880eb9",
+                    "bytes": 20970,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 12165,
+                        "login": "wmadden",
+                        "commits": 4
+                    },
+                    {
+                        "id": 286902546,
+                        "login": "wmadden-electric",
+                        "commits": 4
+                    },
+                    {
+                        "id": 308712764,
+                        "login": "StevenMcClankerton",
+                        "commits": 1
+                    },
+                    {
+                        "id": 286103357,
+                        "login": "tensordreams",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "github-review-iteration-8d87e43453cb",
+            "path": "skills-contrib/github-review-iteration/SKILL.md",
+            "name": "github-review-iteration",
+            "description": "Orchestrates a GitHub PR review loop by delegating triage and implementation to dedicated sub-agents, then repeating until actionable review items are cleared. Use when the user says “address PR review”, “triage review comments”, or “iterate until review is clean”.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "a139ce37a10e2eb348f47e8987bb905acd1e95b2",
+                    "bytes": 8957,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/review-orchestrator.md",
+                    "blob": "5b8644632b84fd80a6dcf6afb30534d9477e3976",
+                    "bytes": 2697,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "package.json",
+                    "blob": "9fd3206b63b64a71d40b78e5db31a48b71820a60",
+                    "bytes": 275,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/review-iterate.mjs",
+                    "blob": "8c7dbf80e073ac38af2792c80889d2e8a31c04e4",
+                    "bytes": 4270,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 12165,
+                        "login": "wmadden",
+                        "commits": 3
+                    },
+                    {
+                        "id": 286103357,
+                        "login": "tensordreams",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "markdown-no-artificial-line-wraps-b6d62ff4f9e1",
+            "path": "skills-contrib/markdown-no-artificial-line-wraps/SKILL.md",
+            "name": "markdown-no-artificial-line-wraps",
+            "description": "Writes and edits Markdown without inserting manual hard line breaks at a fixed column (e.g. 72 or 80). GitHub, docs sites, and editors soft-wrap prose; artificial breaks make diffs noisy and reflow awkward. Use when creating or editing .md files, PR bodies, ADRs, READMEs, rulecards, or any Markdown where the user cares about readable source and clean diffs — or when the user asks to avoid \"hard wrapping\" or \"80-column\" line breaks in prose.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "f1d5a08859d69bd76d6310d20412e9d133259e36",
+                    "bytes": 1896,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 12165,
+                        "login": "wmadden",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "multiline-commit-messages-337ed6f05017",
+            "path": "skills-contrib/multiline-commit-messages/SKILL.md",
+            "name": "multiline-commit-messages",
+            "description": "Use single-quoted strings for multiline git commit messages in the Shell tool. Prevents heredoc escaping failures that produce garbled commit messages.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "af6a0cf4029117f4c2902fb696250bb68bdc8ea3",
+                    "bytes": 1203,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 12165,
+                        "login": "wmadden",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "no-bare-casts-efa20b56b9fc",
+            "path": "skills-contrib/no-bare-casts/SKILL.md",
+            "name": "no-bare-casts",
+            "description": "Writing `as` in TypeScript or TSX production code, modifying a file that contains a bare `as` cast, silencing a type error with a cast, encountering `as unknown as`, or reviewing a cast site.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ebae5361c31381885beb9b43abe19dc79d3bcadf",
+                    "bytes": 2838,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 12165,
+                        "login": "wmadden",
+                        "commits": 1
+                    },
+                    {
+                        "id": 286902546,
+                        "login": "wmadden-electric",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "psl-ast-layers-6cf5bee90462",
+            "path": "skills-contrib/psl-ast-layers/SKILL.md",
+            "name": "psl-ast-layers",
+            "description": "How to use the PSL syntax tree layers (green tree, red tree, strongly-typed AST classes) correctly. Use for any PSL-related work: PSL interpreters (contract-psl), helpers inside the psl-parser package, the language server, formatters, or anything else that consumes `parse()` output from @internal/psl-parser.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "4aba602832efdb86eaec25072533792e93bd161c",
+                    "bytes": 9076,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 603056,
+                        "login": "SevInf",
+                        "commits": 1
+                    },
+                    {
+                        "id": 286103357,
+                        "login": "tensordreams",
+                        "commits": 1
+                    },
+                    {
+                        "id": 286902546,
+                        "login": "wmadden-electric",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "publish-npm-version-59133afc0470",
+            "path": "skills-contrib/publish-npm-version/SKILL.md",
+            "name": "publish-npm-version",
+            "description": "Cuts the next release of Prisma 8: bumps the root package.json version (on the v8 RC line: 8.0.0-rc.N → rc.N+1), propagates it to every workspace package, and opens a PR titled \"chore(release): bump to <next-version>\". When the maintainer merges the PR, the `Publish to npm` workflow runs automatically and ships the new version to npm under the dist-tag its shape implies (`latest`; RC releases get a pre-release GitHub Release), plus a matching GitHub Release. Also prepares the matching prisma/web docs-site PR from the same release notes, to merge once the release is published. Use when a maintainer asks to \"cut the next RC\", \"cut the next release\", \"bump to the next version\", \"open a release PR\", or \"prepare a publish PR\".",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "9effa367acc3b043470220deac50590e583eea54",
+                    "bytes": 15866,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 12165,
+                        "login": "wmadden",
+                        "commits": 4
+                    },
+                    {
+                        "id": 286902546,
+                        "login": "wmadden-electric",
+                        "commits": 3
+                    },
+                    {
+                        "id": 308712764,
+                        "login": "StevenMcClankerton",
+                        "commits": 1
+                    },
+                    {
+                        "id": 286103357,
+                        "login": "tensordreams",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "record-gotcha-254a4c3fd347",
+            "path": "skills-contrib/record-gotcha/SKILL.md",
+            "name": "record-gotchas",
+            "description": "Capture surprises, workarounds, and rough edges hit while *consuming* the public surface of Prisma 8, Prisma Compute, or Prisma Postgres — anything a real user of these products would experience. Fires whenever an operator (or agent) writes a workaround, hits a surprising failure mode, or finds undocumented behaviour while using one of these three products from the outside (extension authoring, example apps, integration tests, customer reproductions, internal demos, manual repros). Does NOT fire on bugs in code the operator's own team maintains — those are normal product-backlog bugs. In product-team repos (e.g. `prisma-8-ws`), surfaces the gotcha and offers the operator three paths (capture-as-gotcha, file a normal bug, or note-and-move-on). Outside product-team repos (pet projects, hackathon entries, customer codebases), silent-captures into the project's gotchas log AND a Triage-state Linear ticket in the matching gotchas project — no operator escalation. Do not skip the recording step.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d2abad6b5e92db9e4e2a51aace2c70af65bf27ba",
+                    "bytes": 22925,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 286902546,
+                        "login": "wmadden-electric",
+                        "commits": 4
+                    },
+                    {
+                        "id": 12165,
+                        "login": "wmadden",
+                        "commits": 2
+                    },
+                    {
+                        "id": 286103357,
+                        "login": "tensordreams",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "record-upgrade-instructions-10af200206d1",
+            "path": "skills-contrib/record-upgrade-instructions/SKILL.md",
+            "name": "record-upgrade-instructions",
+            "description": "Record upgrade instructions alongside a Prisma 8 breaking-change PR, so downstream consumers (users of `@internal/*` and authors of Prisma 8 extensions) can apply the matching code translation automatically via the published upgrade skills. Use when you have refactored framework code and the test suite went red in `examples/` or `packages/3-extensions/`, when you fixed those red tests by updating example or extension code, when you are told to \"record upgrade instructions for this PR\", or when you made a breaking change to Prisma 8 that downstream consumers will need help migrating across.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "a8c7fb0f9db53022e90d8fcbc76a1231007844ad",
+                    "bytes": 10352,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 12165,
+                        "login": "wmadden",
+                        "commits": 7
+                    },
+                    {
+                        "id": 286902546,
+                        "login": "wmadden-electric",
+                        "commits": 6
+                    },
+                    {
+                        "id": 286103357,
+                        "login": "tensordreams",
+                        "commits": 2
+                    },
+                    {
+                        "id": 308712764,
+                        "login": "StevenMcClankerton",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "review-fetch-phase-ea23c3ea7dc1",
+            "path": "skills-contrib/review-fetch-phase/SKILL.md",
+            "name": "review-fetch-phase",
+            "description": "Fetches canonical PR review state and renders derived state artifacts. Use when the user wants the state acquisition phase only (fetch, render, summarize) for a review-framework PR.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7715e42d7aded511a0970ed7cdf4d2ce934c6e3a",
+                    "bytes": 3067,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "package.json",
+                    "blob": "6af71567e4a325a9a087e125f6d25f3d3b419cce",
+                    "bytes": 548,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/extract-review-targets.mjs",
+                    "blob": "68b6de2e4216ce2e25a8f89acb0a811c23ebd8d4",
+                    "bytes": 3219,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/fetch-review-state.mjs",
+                    "blob": "b54f213de6017ea45b93eaf1334f804a29127b70",
+                    "bytes": 16191,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/guard-review-artifacts-ignored.mjs",
+                    "blob": "76a25ac34a6cbf2e1b30314844d33da74009840c",
+                    "bytes": 6380,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/guard-review-artifacts-ignored.test.mjs",
+                    "blob": "4454a5aa19553bbae58dbc34a68dfbd77d11ce6e",
+                    "bytes": 4730,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/render-review-state.mjs",
+                    "blob": "3ddd09d22ea83235cbe5d958185364af1e7f9ca3",
+                    "bytes": 7658,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/render-review-state.test.mjs",
+                    "blob": "cf682dd33ae6da84a94fff634a40cfe2f9c9ab9d",
+                    "bytes": 2402,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/review-artifacts.mjs",
+                    "blob": "67a5faaedc36ccb7e39e1a2a8c3bf48b85f83bad",
+                    "bytes": 17854,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/summarize-review-state.mjs",
+                    "blob": "228827541f125b4e994e1bc7b84b78a2fa35a3f7",
+                    "bytes": 6158,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/validate-review-state.mjs",
+                    "blob": "2949a559c98178408759997290ccda0dafdb5b06",
+                    "bytes": 2306,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 12165,
+                        "login": "wmadden",
+                        "commits": 2
+                    },
+                    {
+                        "id": 286103357,
+                        "login": "tensordreams",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "review-implement-phase-c4f593ea60be",
+            "path": "skills-contrib/review-implement-phase/SKILL.md",
+            "name": "review-implement-phase",
+            "description": "Implements triaged review actions, commits focused fixes, and posts Done plus resolves threads. Use when the user wants only the implementation phase of the review-framework workflow.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "42c0f08b9e4aba88236cca2de17152e5a860c6e6",
+                    "bytes": 6920,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/review-implementer.md",
+                    "blob": "b54d8b7cfd998743775e4f29aa4edfd4b9cc8ab6",
+                    "bytes": 4289,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "package.json",
+                    "blob": "8608e36c053a5d5189442bdcc1c851b93d51ef07",
+                    "bytes": 427,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/check-github-admin-ready.mjs",
+                    "blob": "e574ab8a4c123eab9606a5cb9285947ad655b674",
+                    "bytes": 4716,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/post-review-thread-reply.mjs",
+                    "blob": "0d32e3d3479c72e30d240c76d672d45aebef504f",
+                    "bytes": 10398,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/resolve-review-thread.mjs",
+                    "blob": "f96dc56e5fc399fd37ebb7d1812acd2b434e2b75",
+                    "bytes": 4982,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/resolve-review-thread.test.mjs",
+                    "blob": "a4028bf50967b04e7d5cd3b31507857ac26c7a8e",
+                    "bytes": 3147,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 12165,
+                        "login": "wmadden",
+                        "commits": 2
+                    },
+                    {
+                        "id": 286103357,
+                        "login": "tensordreams",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "review-triage-phase-913f79d015bd",
+            "path": "skills-contrib/review-triage-phase/SKILL.md",
+            "name": "review-triage-phase",
+            "description": "Produces canonical review actions from fetched review state and renders action markdown. Use when the user wants only triage/action-planning for the review-framework workflow.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "1172dfccec382b979f41007222f7d1403baefe10",
+                    "bytes": 3981,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/review-triager.md",
+                    "blob": "9a8b172553e5affa8989ba50e7c34f1cfa8c0910",
+                    "bytes": 8374,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "package.json",
+                    "blob": "363b37bd9a3149cd7b44a3e4ad97f0591e34b773",
+                    "bytes": 398,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/bootstrap-review-actions.mjs",
+                    "blob": "402dee8d04f9a7871872fdd9f5c22ddf2492a016",
+                    "bytes": 4608,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/render-review-actions.mjs",
+                    "blob": "612f817fd11ddd0a21005c332b923ad0145e25ce",
+                    "bytes": 7439,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/render-review-actions.test.mjs",
+                    "blob": "e7de30224be087113dfef49419f71755c50be57d",
+                    "bytes": 2480,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/review-artifacts.mjs",
+                    "blob": "b0f43f7e9b596d1dcfb80f0c4060743bfba7cbab",
+                    "bytes": 6135,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/validate-review-actions.mjs",
+                    "blob": "b297c90e2a1b9c8543b7abf4101f8fd1b5955d27",
+                    "bytes": 2994,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 286103357,
+                        "login": "tensordreams",
+                        "commits": 2
+                    },
+                    {
+                        "id": 12165,
+                        "login": "wmadden",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "triage-contributor-pr-75bb12457c68",
+            "path": "skills-contrib/triage-contributor-pr/SKILL.md",
+            "name": "triage-contributor-pr",
+            "description": "Triage open pull requests from external contributors to prisma/prisma and produce a per-PR verdict with evidence. Use when a maintainer asks to triage, evaluate, assess, or review the queue of incoming contributor PRs, to decide whether a fork PR is safe to run CI on, to check whether a PR is in scope for its version line, or to find stale contributor PRs. Applies the criteria in docs/oss/pr-triage.md. Read-only by default — it reports verdicts and does not close PRs, post comments, or approve workflow runs unless the maintainer asks for that separately.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7ff4c602090c8013096734d2be0b8a65a899984a",
+                    "bytes": 11837,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 286902546,
+                        "login": "wmadden-electric",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "write-architecture-docs-b497b7590ec3",
+            "path": "skills-contrib/write-architecture-docs/SKILL.md",
+            "name": "write-architecture-docs",
+            "description": "Write or rewrite architecture subsystem docs, ADRs, and reference material for the engineering team. Use when creating, updating, or reviewing docs under docs/architecture docs/, or when the user asks you to write documentation that describes the system's design.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "4965e35bc909221944d20d3d1068ff339db6c3c4",
+                    "bytes": 6343,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 12165,
+                        "login": "wmadden",
+                        "commits": 2
+                    },
+                    {
+                        "id": 286103357,
+                        "login": "tensordreams",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "prisma-8-9dcc988a5ad1",
+            "path": "skills/prisma-8/SKILL.md",
+            "name": "prisma-8",
+            "description": "Use when working in a project that depends on @prisma/orm-postgres, @prisma/orm-sqlite, or @prisma/orm-mongo (Prisma 8, formerly Prisma Next): editing contract.prisma or a contract.ts builder, running `prisma contract emit`, planning or applying migrations, editing migration.ts, writing db.orm / db.sql / db.query queries, wiring db.ts or middleware, integrating a build tool, using the Supabase extension or RLS, or reading a dotted error code such as MIGRATION.HASH_MISMATCH. Use when the user asks \"what is Prisma 8\", \"where do I start\", or compares it to another ORM. Use when the user asks to upgrade or bump Prisma 8 in an app or an extension package. Use when you see @internal/* or @prisma/orm-* imports, prisma.config.ts with definePrismaConfig, or contract.json / contract.d.ts. Do not use for Prisma ORM 7 or earlier (schema.prisma + @prisma/client).",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "1c91009a37c35351753e6828f1c4dac6164ea851",
+                    "bytes": 14772,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/build.md",
+                    "blob": "949a4812eed6e9e84083f462fce0b761e4cecf43",
+                    "bytes": 9294,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/contract.md",
+                    "blob": "19935a37f997b8db5dfc7b90ab07efcafb02a201",
+                    "bytes": 35100,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/debug.md",
+                    "blob": "b1dfb44af5d0fde874ce6470d68ba4e9b7d578aa",
+                    "bytes": 18724,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/feedback.md",
+                    "blob": "251c0715d9a40a47a0aa2d5c6ed86bd4e5e7dc65",
+                    "bytes": 16907,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/migration-model.md",
+                    "blob": "22a295340e4bb3de5cc8f2a3d4c27d3a7068bc17",
+                    "bytes": 18464,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/migration-review.md",
+                    "blob": "dae6d16162aea68a6c0cfc2975680b306c468c71",
+                    "bytes": 22081,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/migrations.md",
+                    "blob": "6426954ef8546c8863cc4922027ce7b843f1168d",
+                    "bytes": 47265,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/queries-mongo.md",
+                    "blob": "43e515eadfae496af8e2f6bd33f382180245dd6f",
+                    "bytes": 13033,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/queries-postgres.md",
+                    "blob": "1f0354751a93196ab1dd6fb5367b78356d499365",
+                    "bytes": 26472,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/queries.md",
+                    "blob": "5e5898e7f6c9c2c0064b9225aa8900da8f1bbc85",
+                    "bytes": 21225,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/quickstart.md",
+                    "blob": "e906a1464a6508775d446184dc933fd149de7d5b",
+                    "bytes": 31880,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/runtime.md",
+                    "blob": "140ef006170b2f4a78e36bb34e1a7c3668bc8fb9",
+                    "bytes": 27722,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/supabase.md",
+                    "blob": "488d6c94dec49bd842be2c9058335fdc6b7d4c20",
+                    "bytes": 20602,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/upgrade-app.md",
+                    "blob": "9a8eb7a29469063eeb4e9ec90b17c3a372a2eaa0",
+                    "bytes": 9526,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/upgrade-extension.md",
+                    "blob": "34ac691e3831fc7b5d3f4a60a560804c5713b10b",
+                    "bytes": 9311,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/app/upgrades/0.10-to-0.11/instructions.md",
+                    "blob": "8c22066fb654b7f35713f5468b15caf65ba006e0",
+                    "bytes": 1899,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/app/upgrades/0.11-to-0.12/instructions.md",
+                    "blob": "04a1cc8893647a199d037ffe2e279cabdeffd4ed",
+                    "bytes": 22388,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/app/upgrades/0.11-to-0.12/re-emit-closed-mongo-contracts.ts",
+                    "blob": "08d1c9d5a34a59abb1f5f4dc98479444094730ae",
+                    "bytes": 7014,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/app/upgrades/0.11-to-0.12/re-emit-domain-namespaced-contracts.ts",
+                    "blob": "e5db41ce3e1b4793ae97af02c63d620e46765601",
+                    "bytes": 6334,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/app/upgrades/0.11-to-0.12/re-emit-postgres-public-default.ts",
+                    "blob": "2eb23018fbbfa4711ea077afac1f5632ca988209",
+                    "bytes": 6378,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/app/upgrades/0.11-to-0.12/strip-migration-labels-hints.ts",
+                    "blob": "e501317d8eb6508e4716e8d10ad601a96f2f6451",
+                    "bytes": 12558,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/app/upgrades/0.12-to-0.13/instructions.md",
+                    "blob": "392a5dc71c9228edfec35a88d46918d1d9a99200",
+                    "bytes": 16939,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/app/upgrades/0.12-to-0.13/re-emit-mti-variant-link-columns.ts",
+                    "blob": "1590c861d554fa1115a88f13f81cf093db232b23",
+                    "bytes": 7838,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/app/upgrades/0.13-to-0.14/instructions.md",
+                    "blob": "a4a610cb501e6d80042136cf150643801dd5da8e",
+                    "bytes": 29728,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/app/upgrades/0.13-to-0.14/migration-op-factories-to-methods.ts",
+                    "blob": "dfd1bb56cd68ba26f1a60273ae1e7e04d94b4203",
+                    "bytes": 10243,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/app/upgrades/0.13-to-0.14/uuid-preset-rename.ts",
+                    "blob": "d2aeebfd2de0880301bb2d689384da2e59a8cac1",
+                    "bytes": 1312,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/app/upgrades/0.14-to-0.15/instructions.md",
+                    "blob": "b25f16b1bee2a20ed070c6f3f93b720da1754cbc",
+                    "bytes": 20683,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/app/upgrades/0.15-to-0.16/instructions.md",
+                    "blob": "39bb8d888e5940b2642a2befa70a72b370d5d455",
+                    "bytes": 11293,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/app/upgrades/0.16-to-0.17/instructions.md",
+                    "blob": "d673d2c0980795121c8e791e7e83d59d8f0baf13",
+                    "bytes": 55482,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/app/upgrades/0.16-to-0.17/strip-sha256-hash-prefixes.ts",
+                    "blob": "199b26375f23be3f5083720dfa806e67e81d9513",
+                    "bytes": 14715,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/app/upgrades/0.17-to-8.0.0-rc.1/instructions.md",
+                    "blob": "db7193b58fc387d70986a23ab8649eca491ffd81",
+                    "bytes": 5004,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/app/upgrades/0.7-to-0.8/instructions.md",
+                    "blob": "745bd0043c98687741f3f9e828580f70894ac9ec",
+                    "bytes": 183,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/app/upgrades/0.8-to-0.9/instructions.md",
+                    "blob": "4399a9ab5c2a0fa9a4def668ea4f84bb085da570",
+                    "bytes": 2762,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/app/upgrades/0.8-to-0.9/strip-inline-contracts.ts",
+                    "blob": "37911f4d34a3d628e8cf962c760e9f517f2019d1",
+                    "bytes": 8001,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/app/upgrades/0.9-to-0.10/instructions.md",
+                    "blob": "7bf0b822e4cc3db4b29e447a0dff2e0b674ddc33",
+                    "bytes": 5512,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/app/upgrades/0.9-to-0.10/stamp-storage-types-kind.ts",
+                    "blob": "c0c35d94937469b860f0ab11d38590faa5412785",
+                    "bytes": 12983,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/app/upgrades/8.0.0-rc.1-to-8.0.0-rc.2/instructions.md",
+                    "blob": "9105904b355cda9044a8ea43b49378803aebecf2",
+                    "bytes": 40390,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/app/upgrades/8.0.0-rc.10-to-8.0.0-rc.11/instructions.md",
+                    "blob": "f982bd9e1627e6e4b3a9d191e4b185761f4e4466",
+                    "bytes": 1568,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/app/upgrades/8.0.0-rc.2-to-8.0.0-rc.3/instructions.md",
+                    "blob": "ad929d9208f8ff699bae95475d25f90e739818ed",
+                    "bytes": 56,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/app/upgrades/8.0.0-rc.3-to-8.0.0-rc.4/instructions.md",
+                    "blob": "7463ce44bf0ed12f164398d3a727d2b6ef0cfb03",
+                    "bytes": 7670,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/app/upgrades/8.0.0-rc.4-to-8.0.0-rc.5/instructions.md",
+                    "blob": "86ad33e84f8e473dc3c9a076090c141a299a8294",
+                    "bytes": 2343,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/app/upgrades/8.0.0-rc.5-to-8.0.0-rc.6/instructions.md",
+                    "blob": "9313f9c77958d0e66dad5a85e774e20b928c2f2b",
+                    "bytes": 9731,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/app/upgrades/8.0.0-rc.6-to-8.0.0-rc.7/instructions.md",
+                    "blob": "8ca7235738e58d48c5fe1db41184295863975be6",
+                    "bytes": 1794,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/app/upgrades/8.0.0-rc.7-to-8.0.0-rc.8/instructions.md",
+                    "blob": "589a0a9348703522c0b6434de1f7a40256781d0b",
+                    "bytes": 1821,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/app/upgrades/8.0.0-rc.8-to-8.0.0-rc.9/instructions.md",
+                    "blob": "22ecb3ef2cc0a01336acd029ea5bec0e66432f48",
+                    "bytes": 5202,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/app/upgrades/8.0.0-rc.9-to-8.0.0-rc.10/instructions.md",
+                    "blob": "fca92f64c50dc7b57b8cadcdde4f354f7f0d0842",
+                    "bytes": 5194,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/extension/upgrades/0.10-to-0.11/instructions.md",
+                    "blob": "281e0a729d59d37411959b890bc988ca9af8ef37",
+                    "bytes": 14915,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/extension/upgrades/0.11-to-0.12/instructions.md",
+                    "blob": "8866e317c612dc6d8696c80efed2d4a78863dbb8",
+                    "bytes": 43135,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/extension/upgrades/0.11-to-0.12/migrate-contract-testing-imports.ts",
+                    "blob": "b10cc003421992c7e2591fca53a877db7c8ebbf7",
+                    "bytes": 2810,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/extension/upgrades/0.11-to-0.12/regenerate-extension-public-baseline.ts",
+                    "blob": "47a4a5183619adb68c5291faaae74ed54aab7fac",
+                    "bytes": 7282,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/extension/upgrades/0.11-to-0.12/strip-migration-labels-hints.ts",
+                    "blob": "e501317d8eb6508e4716e8d10ad601a96f2f6451",
+                    "bytes": 12558,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/extension/upgrades/0.12-to-0.13/instructions.md",
+                    "blob": "a148fc148723d6833c2516d05b00a6afeb802079",
+                    "bytes": 14901,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/extension/upgrades/0.13-to-0.14/instructions.md",
+                    "blob": "2bfa011761e0902ae9c9bd05fea5876d7dca1473",
+                    "bytes": 26433,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/extension/upgrades/0.13-to-0.14/migration-op-factories-to-methods.ts",
+                    "blob": "dfd1bb56cd68ba26f1a60273ae1e7e04d94b4203",
+                    "bytes": 10243,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/extension/upgrades/0.13-to-0.14/uuid-preset-rename.ts",
+                    "blob": "d2aeebfd2de0880301bb2d689384da2e59a8cac1",
+                    "bytes": 1312,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/extension/upgrades/0.14-to-0.15/instructions.md",
+                    "blob": "1962577c8bcb033eced0796d7e3476675436732a",
+                    "bytes": 48937,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/extension/upgrades/0.15-to-0.16/instructions.md",
+                    "blob": "22a788d3a42b0d92e466969602d7e5426909edd0",
+                    "bytes": 14822,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/extension/upgrades/0.16-to-0.17/instructions.md",
+                    "blob": "e9e4f60910aeb58b851121435d596f651054b936",
+                    "bytes": 56581,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/extension/upgrades/0.16-to-0.17/strip-sha256-hash-prefixes.ts",
+                    "blob": "199b26375f23be3f5083720dfa806e67e81d9513",
+                    "bytes": 14715,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/extension/upgrades/0.17-to-8.0.0-rc.1/instructions.md",
+                    "blob": "8540c0202894f0d77c00f8cb03b280a6c2a4dc14",
+                    "bytes": 12479,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/extension/upgrades/0.7-to-0.8/instructions.md",
+                    "blob": "104c675ad9877c5ee7d8d65560fea9b49bfcb96e",
+                    "bytes": 188,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/extension/upgrades/0.8-to-0.9/instructions.md",
+                    "blob": "f1c708d2401d5197f645ae652a72b15d7e477d62",
+                    "bytes": 5322,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/extension/upgrades/0.8-to-0.9/strip-inline-contracts.ts",
+                    "blob": "37911f4d34a3d628e8cf962c760e9f517f2019d1",
+                    "bytes": 8001,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/extension/upgrades/0.9-to-0.10/instructions.md",
+                    "blob": "6b7bca4c270684649a12d4e1d09f2c31c2828948",
+                    "bytes": 8887,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/extension/upgrades/0.9-to-0.10/stamp-storage-types-kind.ts",
+                    "blob": "c0c35d94937469b860f0ab11d38590faa5412785",
+                    "bytes": 12983,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/extension/upgrades/8.0.0-rc.1-to-8.0.0-rc.2/instructions.md",
+                    "blob": "8e6dfa61febf8dc1ab0fa4f2b32e13cd2c676877",
+                    "bytes": 48954,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/extension/upgrades/8.0.0-rc.10-to-8.0.0-rc.11/instructions.md",
+                    "blob": "d5444cdad888f46c246b222c32f822e0710b28b6",
+                    "bytes": 1669,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/extension/upgrades/8.0.0-rc.2-to-8.0.0-rc.3/instructions.md",
+                    "blob": "ad929d9208f8ff699bae95475d25f90e739818ed",
+                    "bytes": 56,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/extension/upgrades/8.0.0-rc.3-to-8.0.0-rc.4/instructions.md",
+                    "blob": "e38a92b2b2db25d0230799958c60aba34e0cda86",
+                    "bytes": 7036,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/extension/upgrades/8.0.0-rc.4-to-8.0.0-rc.5/instructions.md",
+                    "blob": "686210041e45e83ebb8b36e4b90de51cd38954d1",
+                    "bytes": 8167,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/extension/upgrades/8.0.0-rc.5-to-8.0.0-rc.6/instructions.md",
+                    "blob": "94ee12a271a8c9706f05fd37bbb9a0b13c1d9cbb",
+                    "bytes": 6232,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/extension/upgrades/8.0.0-rc.6-to-8.0.0-rc.7/instructions.md",
+                    "blob": "9547e6d5c29bf81eb4e853699768e401ba4eb815",
+                    "bytes": 1924,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/extension/upgrades/8.0.0-rc.7-to-8.0.0-rc.8/instructions.md",
+                    "blob": "902472d40bc9d27750235364658925b4a186591f",
+                    "bytes": 1813,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/extension/upgrades/8.0.0-rc.8-to-8.0.0-rc.9/instructions.md",
+                    "blob": "49cb105e4ea2e69f1224947c415cfc76054cdcf3",
+                    "bytes": 9766,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "upgrading/extension/upgrades/8.0.0-rc.9-to-8.0.0-rc.10/instructions.md",
+                    "blob": "8744529b5d361f1258c03c72edcaf02823087219",
+                    "bytes": 3733,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 286902546,
+                        "login": "wmadden-electric",
+                        "commits": 14
+                    },
+                    {
+                        "id": 308712764,
+                        "login": "StevenMcClankerton",
+                        "commits": 2
+                    },
+                    {
+                        "id": 6434544,
+                        "login": "rtbenfield",
+                        "commits": 1
+                    },
+                    {
+                        "id": 286103357,
+                        "login": "tensordreams",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "e61d7de2cf5c21247ceb1bb7e720d83f686c31da",
+        "bytes": 11134,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "da7733987d4bba2642cbe0a064dd2bb36db7b5fb",
+        "bytes": 11350,
+        "text": true,
+        "mode": "100644"
+    }
+}

@@ -1,0 +1,142 @@
+{
+    "version": 1,
+    "slug": "oxc",
+    "repository": "oxc-project/oxc",
+    "branch": "main",
+    "sha": "62a2bb2930757f95bbab130c1e650d42d5f7cbac",
+    "scannedAt": "2026-09-17T11:59:09.773Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "insta-snapshots-133dd4d01cba",
+            "path": ".agents/skills/insta-snapshots/SKILL.md",
+            "name": "insta-snapshots",
+            "description": "Review and update Oxc Insta snapshots non-interactively after expected output changes or snapshot test failures.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "3a683e6186df95c04ee920bf6763f9508afdccda",
+                    "bytes": 1422,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 18101008,
+                        "login": "camc314",
+                        "commits": 1
+                    },
+                    {
+                        "id": 2977353,
+                        "login": "connorshea",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "migrate-oxfmt-7284c68b502c",
+            "path": ".agents/skills/migrate-oxfmt/SKILL.md",
+            "name": "migrate-oxfmt",
+            "description": "Guide for migrating a project from Prettier or Biome to Oxfmt. Use when asked to migrate, convert, or switch a JavaScript/TypeScript project's formatter from Prettier or Biome to Oxfmt.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d0f480b71fa14d68886b44a55d297362da1820ea",
+                    "bytes": 11354,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6259812,
+                        "login": "leaysgur",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "migrate-oxlint-6d58109c1a9f",
+            "path": ".agents/skills/migrate-oxlint/SKILL.md",
+            "name": "migrate-oxlint",
+            "description": "Guide for migrating a project from ESLint to Oxlint. Use when asked to migrate, convert, or switch a JavaScript/TypeScript project's linter from ESLint to Oxlint.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "74c38d9fdde41285be28cb8d464c2e869b2ec60f",
+                    "bytes": 9941,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 2977353,
+                        "login": "connorshea",
+                        "commits": 1
+                    },
+                    {
+                        "id": 6259812,
+                        "login": "leaysgur",
+                        "commits": 1
+                    },
+                    {
+                        "id": 83744975,
+                        "login": "mehm8128",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "performance-lint-rules-9be33d81d136",
+            "path": ".agents/skills/performance-lint-rules/SKILL.md",
+            "name": "performance-lint-rules",
+            "description": "Performance review guidance for Oxc linter rule implementations. Use only when reviewing Rust rule code under crates/oxc_linter/src/rules/ or when explicitly auditing those rules for performance improvements.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ecf213923a8bbf9001aceec142095d54b7932fec",
+                    "bytes": 4282,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 18101008,
+                        "login": "camc314",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "dc0fcaa12133de364b1a6de60ca1965e9fd9c0e7",
+        "bytes": 13938,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "444bffc00e5190817c0092e5e6fde787102977d2",
+        "bytes": 1119,
+        "text": true,
+        "mode": "100644"
+    }
+}

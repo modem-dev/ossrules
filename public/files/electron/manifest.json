@@ -1,0 +1,28 @@
+{
+    "slug": "electron",
+    "sha": "a6fe0f516645c57af941b3089db94e9c0285bca0",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".claude/skills/electron-chromium-upgrade/SKILL.md",
+            "bytes": 10790,
+            "lines": 193
+        },
+        {
+            "path": ".claude/skills/electron-node-upgrade/SKILL.md",
+            "bytes": 20971,
+            "lines": 351
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 13025,
+            "lines": 330
+        },
+        {
+            "path": "docs/CLAUDE.md",
+            "bytes": 2672,
+            "lines": 58
+        }
+    ]
+}
