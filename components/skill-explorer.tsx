@@ -241,23 +241,15 @@ function SkillExplorerContent({
                                             {entry.project.name}
                                         </Link>
                                     ) : null}
-                                    {projectOnly ? (
-                                        <span>
-                                            {entry.files === 1 ? 'SKILL.md only' : `${entry.files} bundle files`}
-                                            {!entry.complete ? ' · Partial bundle' : ''}
-                                        </span>
-                                    ) : null}
+                                    {projectOnly && !entry.complete ? <span>Partial bundle</span> : null}
                                     <SkillContributors
                                         contributions={entry.contributions}
                                         historyUrl={entry.historyUrl}
                                         skillName={entry.name}
                                     />
                                 </div>
-                                {!projectOnly ? (
-                                    <p className="mt-3 font-mono text-[11px] text-gray-600">
-                                        {entry.files === 1 ? 'SKILL.md only' : `${entry.files} bundle files`}
-                                        {!entry.complete ? ' · Partial bundle' : ''}
-                                    </p>
+                                {!projectOnly && !entry.complete ? (
+                                    <p className="mt-3 font-mono text-[11px] text-gray-600">Partial bundle</p>
                                 ) : null}
                             </div>
                         </li>
