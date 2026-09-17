@@ -1,11 +1,12 @@
 import type { MetadataRoute } from 'next';
+import { PATTERNS } from '@/components/agents-md-data';
 import { getAgentsProjects } from '@/lib/agents-md';
 import { projectHref, projectSkillsHref, skillHref } from '@/lib/project-paths';
 import { SITE_URL } from '@/lib/schema';
 import { getSkillManifest } from '@/lib/skills';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const paths = ['/', '/agent-rules', '/skills'];
+    const paths = ['/', '/agent-rules', '/skills', ...PATTERNS.map((pattern) => `/agent-rules/${pattern.id}`)];
     for (const project of getAgentsProjects()) {
         paths.push(projectHref(project));
         const skills = getSkillManifest(project.slug)?.skills ?? [];
