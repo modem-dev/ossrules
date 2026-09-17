@@ -9,7 +9,7 @@ const nextConfig = {
             { pathname: '/logos/*', search: '?v=2' },
         ],
     },
-    // Every project page is generated from content/projects at build time.
+    // Server-rendered project pages read the committed corpus from content/.
     outputFileTracingIncludes: {
         '/**': ['./content/**'],
     },
