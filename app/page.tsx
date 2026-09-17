@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Suspense } from 'react';
 import { PATTERNS } from '@/components/agents-md-data';
 import { JsonLd } from '@/components/json-ld';
 import { ProjectExplorer } from '@/components/project-explorer';
@@ -35,17 +36,25 @@ const baseMetadata = {
 
 type Props = { searchParams: Promise<ProjectSearchParams> };
 
+function projectsWithSkillCounts() {
+    return getProjectListings().map((project) => ({
+        ...project,
+        skillCount: getSkillManifest(project.slug)?.skills.length,
+    }));
+}
+
 export async function generateMetadata({ searchParams }: Props) {
     const listing = projectListing(getProjectListings(), projectSearchString(await searchParams));
     return { ...baseMetadata, robots: { index: !listing.filtered, follow: true } };
 }
 
-export default async function AgentsMdPage({ searchParams }: Props) {
+async function ProjectResults({ searchParams }: Props) {
     const initialSearch = projectSearchString(await searchParams);
-    const projects = getProjectListings().map((project) => ({
-        ...project,
-        skillCount: getSkillManifest(project.slug)?.skills.length,
-    }));
+    return <ProjectExplorer projects={projectsWithSkillCounts()} initialSearch={initialSearch} />;
+}
+
+export default function AgentsMdPage({ searchParams }: Props) {
+    const projects = projectsWithSkillCounts();
     const skillCount = getAllSkills().length;
     const totalStars = projects.reduce((total, project) => total + project.stars, 0);
     const compactStars = new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 }).format(totalStars);
@@ -88,7 +97,15 @@ export default async function AgentsMdPage({ searchParams }: Props) {
                     </dl>
                 </header>
                 <section id="projects" aria-label="Projects">
-                    <ProjectExplorer projects={projects} initialSearch={initialSearch} />
+                    <Suspense
+                        fallback={
+                            <p role="status" className="py-12 text-gray-550 text-sm">
+                                Loading projects…
+                            </p>
+                        }
+                    >
+                        <ProjectResults searchParams={searchParams} />
+                    </Suspense>
                 </section>
                 <div className="mt-10 flex flex-wrap items-center justify-between gap-4">
                     <p className="text-gray-550 text-sm">See the techniques these projects share.</p>

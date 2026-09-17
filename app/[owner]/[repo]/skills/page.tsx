@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import { Suspense } from 'react';
 import { ProjectSkillsShell } from '@/components/project-skills-shell';
 import { SkillExplorer } from '@/components/skill-explorer';
 import { getAgentsProjectByRepository, getAgentsProjects } from '@/lib/agents-md';
@@ -37,9 +38,32 @@ export default async function ProjectSkillsPage({ params, searchParams }: Props)
     const project = getAgentsProjectByRepository(owner, repo);
     if (!project) notFound();
     const manifest = getSkillManifest(project.slug);
-    const initialSearch = skillSearchString(await searchParams);
     return (
         <ProjectSkillsShell project={project} count={manifest?.skills.length}>
+            <Suspense
+                fallback={
+                    <p role="status" className="py-12 text-gray-550 text-sm">
+                        Loading skills…
+                    </p>
+                }
+            >
+                <SkillResults project={project} searchParams={searchParams} />
+            </Suspense>
+        </ProjectSkillsShell>
+    );
+}
+
+async function SkillResults({
+    project,
+    searchParams,
+}: {
+    project: NonNullable<ReturnType<typeof getAgentsProjectByRepository>>;
+    searchParams: Props['searchParams'];
+}) {
+    const initialSearch = skillSearchString(await searchParams);
+    const manifest = getSkillManifest(project.slug);
+    return (
+        <>
             {!manifest ? (
                 <p className="prose-copy">This project has not been scanned for skills yet.</p>
             ) : (
@@ -83,6 +107,6 @@ export default async function ProjectSkillsPage({ params, searchParams }: Props)
                     </details>
                 </>
             )}
-        </ProjectSkillsShell>
+        </>
     );
 }

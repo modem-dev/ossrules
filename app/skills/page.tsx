@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { SkillExplorer } from '@/components/skill-explorer';
@@ -28,9 +29,12 @@ export async function generateMetadata({ searchParams }: Props) {
     };
 }
 
-export default async function SkillsPage({ searchParams }: Props) {
+async function SkillResults({ searchParams }: Props) {
     const initialSearch = skillSearchString(await searchParams);
-    const entries = getEntries();
+    return <SkillExplorer entries={getEntries()} initialSearch={initialSearch} />;
+}
+
+export default function SkillsPage({ searchParams }: Props) {
     const manifests = getAgentsProjects()
         .map((p) => getSkillManifest(p.slug))
         .filter((m) => !!m);
@@ -44,7 +48,15 @@ export default async function SkillsPage({ searchParams }: Props) {
                     <p className="mt-5 max-w-2xl text-gray-550 text-base leading-relaxed">Read their instructions and supporting files.</p>
                 </header>
                 <div className="mt-8">
-                    <SkillExplorer entries={entries} initialSearch={initialSearch} />
+                    <Suspense
+                        fallback={
+                            <p role="status" className="py-12 text-gray-550 text-sm">
+                                Loading skills…
+                            </p>
+                        }
+                    >
+                        <SkillResults searchParams={searchParams} />
+                    </Suspense>
                 </div>
                 <p className="mt-8 font-mono text-[11px] text-gray-600">
                     {manifests.length} project snapshots scanned. Descriptions come from each skill’s metadata.
