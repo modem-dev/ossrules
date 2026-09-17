@@ -1,0 +1,168 @@
+{
+    "version": 1,
+    "slug": "gradio",
+    "repository": "gradio-app/gradio",
+    "branch": "main",
+    "sha": "0293306f3f25bf4cda44b6e819060edd5fcbd09e",
+    "scannedAt": "2026-09-17T12:21:47.784Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "frontend-unit-testing-43fef709b5c2",
+            "path": ".agents/skills/frontend-unit-testing/SKILL.md",
+            "name": "frontend-unit-testing",
+            "description": "Write comprehensive, behaviour-driven unit tests for Gradio frontend Svelte components using Vitest browser mode, Playwright, and the @self/tootils test utilities.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "8bd056c22ec1da443e354ed026b23eb2819ed287",
+                    "bytes": 17406,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 12937446,
+                        "login": "pngwn",
+                        "commits": 4
+                    },
+                    {
+                        "id": 12725292,
+                        "login": "dawoodkhan82",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "gradio-themes-c51bed922cdb",
+            "path": ".agents/skills/gradio-themes/SKILL.md",
+            "name": "gradio-themes",
+            "description": "Build and customise Gradio themes. Use when creating, editing, or publishing Python-based Gradio themes that control colours, typography, spacing, shadows, and dark mode.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "822208305e4808f93b20c0b0db07709359913e73",
+                    "bytes": 14726,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 15165908,
+                        "login": "hannahblair",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "gradio-8e5fc03c9949",
+            "path": ".agents/skills/gradio/SKILL.md",
+            "name": "gradio",
+            "description": "Build Gradio web UIs and demos in Python. Use when creating, modifying, debugging, or answering questions about Gradio and its capabilties, components, event listeners, or layouts.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "6203ff732cbc1109ef537fd051a7043863d8a208",
+                    "bytes": 4105,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/api-signatures.md",
+                    "blob": "4f0521192d6eda5359db090e32e63cf53e018d32",
+                    "bytes": 16583,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/event-listeners.md",
+                    "blob": "5042479dd506fb6f1dd5162379c7912ea9221ddc",
+                    "bytes": 3809,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/examples.md",
+                    "blob": "db7fba02688d82e312953203cfa5f803ec6eb724",
+                    "bytes": 15319,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1778297,
+                        "login": "abidlabs",
+                        "commits": 2
+                    },
+                    {
+                        "id": 7870876,
+                        "login": "aliabid94",
+                        "commits": 2
+                    },
+                    {
+                        "id": 41651716,
+                        "login": "freddyaboulton",
+                        "commits": 2
+                    },
+                    {
+                        "id": 9021060,
+                        "login": "aliabd",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "hf-gradio-bf7b27eff032",
+            "path": ".agents/skills/hf-gradio/SKILL.md",
+            "name": "hf-gradio",
+            "description": "Use Gradio applications via API. Use when the user asks for to generate a prediction from a Gradio app on Hugging Face spaces or public URL. For example, \"Generate an image using black-forest-labs/FLUX.2-dev\".",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "bf5d77665a5554e6fb9854fff3f83f90f3c4fd73",
+                    "bytes": 2586,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 41651716,
+                        "login": "freddyaboulton",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "5ffe42db7ce1d16017756515da9ca6b6e358500d",
+        "bytes": 3530,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+        "bytes": 11357,
+        "text": true,
+        "mode": "100644"
+    }
+}

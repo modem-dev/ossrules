@@ -1,0 +1,156 @@
+{
+    "slug": "openai-agents-js",
+    "name": "OpenAI Agents SDK for TypeScript",
+    "owner": "openai",
+    "repo": "openai-agents-js",
+    "language": "TypeScript",
+    "stars": 3830,
+    "defaultBranch": "main",
+    "instructionFile": "AGENTS.md",
+    "lastCommit": {
+        "sha": "817161d4076aab6e1215f421bfcf0d1e6f3e3a10",
+        "date": "2026-09-13T22:04:33Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 39473,
+        "lines": 248,
+        "words": 5167,
+        "headings": 28,
+        "bullets": 122,
+        "codeBlocks": 2,
+        "docLinks": 28
+    },
+    "tagline": "A TypeScript SDK for agent workflows, tools, handoffs, tracing, and realtime applications.",
+    "hook": "Requires every rendered TypeScript example to come from a compilable source file, so documentation snippets share the package’s verification workflow.",
+    "summary": "The JavaScript Agents SDK guide defines conditional skills, documentation risk tiers, supported-contract review rules, and architecture references for its monorepo. Its recurring concern is proving the behavior at the owning boundary without expanding a change into unsupported cases.",
+    "references": [
+        {
+            "path": "SECURITY.md"
+        },
+        {
+            "path": "CONTRIBUTING.md"
+        },
+        {
+            "path": ".agents/references/README.md"
+        },
+        {
+            "path": ".agents/references/public-api-package-and-runtime-boundaries.md"
+        },
+        {
+            "path": ".agents/references/agent-definition-and-run-context.md"
+        },
+        {
+            "path": ".agents/references/runner-lifecycle.md"
+        },
+        {
+            "path": ".agents/references/run-item-and-stream-lifecycle.md"
+        },
+        {
+            "path": ".agents/references/schema-and-zod-boundaries.md"
+        },
+        {
+            "path": ".agents/references/conversation-state-ownership.md"
+        },
+        {
+            "path": ".agents/references/session-persistence.md"
+        },
+        {
+            "path": ".agents/references/runstate-schema-and-resume.md"
+        },
+        {
+            "path": ".agents/references/tool-identity-and-routing.md"
+        },
+        {
+            "path": ".agents/references/tool-execution-and-approval-lifecycle.md"
+        },
+        {
+            "path": ".agents/references/mcp-transport-cache-and-shims.md"
+        },
+        {
+            "path": ".agents/references/model-provider-and-conversion-boundaries.md"
+        },
+        {
+            "path": ".agents/references/tracing-and-runtime-context.md"
+        },
+        {
+            "path": ".agents/references/realtime-session-lifecycle.md"
+        },
+        {
+            "path": ".agents/references/realtime-transport-audio-and-events.md"
+        },
+        {
+            "path": ".agents/references/sandbox-runtime-and-provider-boundaries.md"
+        },
+        {
+            "path": ".agents/references/extension-adapter-boundaries.md"
+        },
+        {
+            "path": "integration-tests/README.md"
+        },
+        {
+            "path": "PLANS.md"
+        },
+        {
+            "path": "README.md"
+        },
+        {
+            "path": ".agents/skills/",
+            "kind": "pattern",
+            "label": "Conditionally selected repository skills"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Compile the examples that readers see",
+            "body": "Rendered TypeScript and TSX snippets must live under examples/docs and be imported into MDX as raw source. The required build-check ties the displayed example to a maintained, compilable file.",
+            "quote": "Do not add ad hoc TypeScript or TSX fenced blocks directly to MDX.",
+            "pattern": "single-source"
+        },
+        {
+            "title": "Classify documentation checks by the complete diff",
+            "body": "Editorial, Content, and Structural tiers distinguish wording changes from changed claims, snippet wiring, navigation, and generators. The highest applicable tier determines focused checks across all task-owned files.",
+            "quote": "Classify the complete task-owned diff, including committed, staged, unstaged, and task-owned untracked files, by the highest applicable documentation risk tier.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Look for stale ownership at asynchronous boundaries",
+            "body": "The review rules call out awaits, callbacks, retries, reconnects, cleanup, and rollback as places where older work can corrupt surviving work. A finding must identify the concrete interleaving and missing invariant where the mutation occurs.",
+            "quote": "When changed code mutates shared state across an `await`, callback, retry, reconnect, cancellation, cleanup, or rollback boundary, check whether stale or failing work can overwrite, revert, or dispose state owned by surviving work.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Keep persisted data from granting runtime authority",
+            "body": "Serialized state, manifests, and provider data are not automatically trusted to control host-owned security, identity, or cleanup decisions. The guide requires a supported trust boundary before allowing those values to influence side effects.",
+            "quote": "Preserve trusted current configuration and validate untrusted state before it can affect side effects, replay, or resource ownership."
+        },
+        {
+            "title": "Make a runtime finding prove a supported consequence",
+            "body": "Review comments must connect changed code to incorrect behavior on a supported path. A constructible typed value, alternate semantic preference, or imagined symmetry does not establish a defect on its own.",
+            "quote": "Report a runtime defect only when the changed code causes a concrete incorrect behavior on a supported path.",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Reuse scripted doubles except at their fidelity limit",
+            "body": "The testing section names common doubles for models, realtime transports, and sandbox sessions. Specialized replacements need a documented boundary such as wire conversion, controlled concurrency, or exact abort delivery that the shared utilities cannot represent.",
+            "quote": "For provider-neutral agent workflow tests, prefer `ScriptedModel` over a new mock or fake `Model`."
+        }
+    ],
+    "steal": [
+        "Render documentation examples from compilable source files.",
+        "Choose documentation checks using the highest risk in the whole diff.",
+        "Review asynchronous mutations for stale ownership.",
+        "Distinguish persisted values from trusted runtime authority.",
+        "Require supported, observable consequences in review findings.",
+        "Document why a specialized test double needs more fidelity."
+    ],
+    "outline": [
+        "Contributor Guide",
+        "Table of Contents",
+        "Policies & Mandatory Rules",
+        "Code Review Rules",
+        "Project Structure Guide",
+        "Operation Guide"
+    ],
+    "patterns": ["single-source", "verification-matrix", "behavioral-conditioning"]
+}

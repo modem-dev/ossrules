@@ -1,0 +1,73 @@
+{
+    "slug": "logfire",
+    "name": "Logfire",
+    "owner": "pydantic",
+    "repo": "logfire",
+    "language": "Python",
+    "stars": 4477,
+    "defaultBranch": "main",
+    "instructionFile": "CLAUDE.md",
+    "lastCommit": {
+        "sha": "cb23455482dd993d8cf96f65fdfe7517c8ec81e1",
+        "date": "2026-09-15T17:21:41Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 9834,
+        "lines": 139,
+        "words": 1417,
+        "headings": 12,
+        "bullets": 3,
+        "codeBlocks": 3,
+        "docLinks": 3
+    },
+    "tagline": "An open-source Python SDK for the Logfire observability platform, built on OpenTelemetry.",
+    "hook": "Locates the coverage gate in CI rather than pyproject.toml and explains why a local coverage percentage can mislead.",
+    "summary": "Logfire's CLAUDE.md covers the open-source SDK and documentation, explicitly distinguishing them from the closed-source service. Its guidance concentrates on realistic telemetry tests, documentation routing, and interpreting CI and review findings against the repository's actual configuration.",
+    "references": [
+        {
+            "path": "dev-docs/documentation-style-guide.md"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Locate the enforcement point, not just the configuration file",
+            "body": "Coverage has a 100% CI gate even though the local report configuration does not set a failure threshold. The guide names the workflow step to prevent a successful local command from being mistaken for proof.",
+            "quote": "`[tool.coverage.report]` sets no `fail_under`, so reading `pyproject.toml` suggests there is no bar and a plain `coverage report` exits 0 on a regression.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Explain why matrix-wide coverage differs from local coverage",
+            "body": "CI combines observations across test jobs, so a branch missed on one machine may be exercised elsewhere. The file prefers targeted local investigation and lets the combined CI result define complete coverage.",
+            "quote": "CI combines coverage across the whole test matrix, so a line reached only by another matrix job looks missed on one machine, and a local number is both slow to get and misleading.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Preserve intentional warnings in production",
+            "body": "Warnings-as-errors should be addressed in tests when the warning is deliberate. The file tells agents to expect or narrowly filter the warning instead of removing a useful user-facing signal.",
+            "quote": "When a warning is intentional, update affected tests to expect it or narrow their warning filters instead of suppressing the warning in production code.",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Verify a review finding against active rules",
+            "body": "The review section gives a concrete example of a generally valid Ruff concern that does not apply because the rule is disabled here. It asks agents to inspect governing configuration before accepting or dismissing feedback.",
+            "quote": "A reviewer can be right about Python in general and wrong about this repository.",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Separate source-relative links from published routes",
+            "body": "The docs workflow uses a navigation manifest to define public routes. It requires source-relative links and rendered preview checks, avoiding deployment prefixes that would be wrong in repository source.",
+            "quote": "Verify the page and any anchor in a rendered preview, and never include the\ndeployment-specific `/docs` prefix in source links.",
+            "pattern": "single-source"
+        }
+    ],
+    "steal": [
+        "Point to the command that actually enforces a quality gate.",
+        "Explain when a combined CI metric cannot be reproduced on one machine.",
+        "Handle expected warnings in tests without hiding them in production.",
+        "Check review claims against enabled rules and local configuration.",
+        "Distinguish documentation source paths from published URLs."
+    ],
+    "outline": ["Code Quality", "Documentation", "Core Structure", "Testing", "logfire-api", "CI", "Iterating on a pull request", "Misc"],
+    "patterns": ["verification-matrix", "behavioral-conditioning", "single-source"]
+}

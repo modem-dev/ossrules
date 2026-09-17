@@ -1,0 +1,99 @@
+{
+    "slug": "agent-browser",
+    "name": "Agent Browser",
+    "owner": "vercel-labs",
+    "repo": "agent-browser",
+    "language": "Rust",
+    "stars": 42762,
+    "defaultBranch": "main",
+    "instructionFile": "AGENTS.md",
+    "lastCommit": {
+        "sha": "cd4719211666c7ba8170fc9d3f16c2946bcb1643",
+        "date": "2026-09-16T13:52:30Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 7794,
+        "lines": 152,
+        "words": 1141,
+        "headings": 21,
+        "bullets": 15,
+        "codeBlocks": 5,
+        "docLinks": 0
+    },
+    "tagline": "A browser automation CLI with agent skills and an MCP interface.",
+    "hook": "Keeps feature documentation in a core skill while preserving the installable skill as a thin discovery stub.",
+    "summary": "Agent Browser's instructions coordinate the CLI, MCP tools, documentation site, and agent-facing skills. They identify which source owns detailed skill content, how real-browser tests are run, and how release notes feed publication.",
+    "references": [
+        {
+            "path": "README.md"
+        },
+        {
+            "path": "skill-data/core/SKILL.md"
+        },
+        {
+            "path": "skills/agent-browser/SKILL.md"
+        },
+        {
+            "path": "CHANGELOG.md"
+        },
+        {
+            "path": "docs/src/app/changelog/page.mdx"
+        },
+        {
+            "path": "skill-data/core/references/",
+            "kind": "pattern",
+            "label": "Core skill reference documents"
+        },
+        {
+            "path": "docs/src/app/",
+            "kind": "pattern",
+            "label": "Feature documentation pages"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Keep discovery stubs separate from working instructions",
+            "body": "The documentation checklist routes overview changes to the core skill and detailed content to its references. The installable stub remains a redirect, preventing two diverging versions of the feature instructions.",
+            "quote": "Do **not** put feature content in `skills/agent-browser/SKILL.md` — that file is an intentionally thin discovery stub for `npx skills add` and exists only to redirect agents to `agent-browser skills get core`.",
+            "pattern": "single-source"
+        },
+        {
+            "title": "Require CLI and MCP behavior to move together",
+            "body": "The parity section covers commands, flags, output, environment variables, and parsing. It recommends reusing the canonical CLI parser and demands tests for agreement between the two interfaces.",
+            "quote": "MCP tools should stay in sync with canonical CLI behavior by delegating through the normal CLI parser where possible.",
+            "pattern": "single-source"
+        },
+        {
+            "title": "Make real-browser test execution distinct",
+            "body": "The test section separates fast unit tests from ignored tests that launch Chrome. It states both the serial-execution requirement and the contention that requirement avoids.",
+            "quote": "- Must run serially (`--test-threads=1`) to avoid Chrome instance contention",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Describe the release-note extraction boundary",
+            "body": "Release preparation uses markers around only the current changelog entry. The guide explains that CI extracts the GitHub release body from those markers, so moving them is part of preparing the release.",
+            "quote": "The GitHub release body is extracted from the content between the `<!-- release:start -->` and `<!-- release:end -->` markers in `CHANGELOG.md`.",
+            "pattern": "architecture-narrative"
+        }
+    ],
+    "steal": [
+        "Distinguish skill discovery documents from the detailed instructions they locate.",
+        "Define parity obligations across CLI and protocol interfaces.",
+        "Document test isolation requirements and their causes.",
+        "Explain the markers consumed by release automation."
+    ],
+    "outline": [
+        "AGENTS.md",
+        "Package Manager",
+        "Code Style",
+        "Documentation",
+        "CLI/MCP Parity",
+        "Dashboard (packages/dashboard)",
+        "Releasing",
+        "Architecture",
+        "Testing",
+        "Source Code Reference"
+    ],
+    "patterns": ["single-source", "verification-matrix", "architecture-narrative"]
+}

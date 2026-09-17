@@ -1,0 +1,165 @@
+{
+    "slug": "pydantic-ai",
+    "name": "Pydantic AI",
+    "owner": "pydantic",
+    "repo": "pydantic-ai",
+    "language": "Python",
+    "stars": 20007,
+    "defaultBranch": "main",
+    "instructionFile": "AGENTS.md",
+    "lastCommit": {
+        "sha": "5553221b41f74493f62d4b60310690fb0fe092cb",
+        "date": "2026-09-14T12:00:16Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 16277,
+        "lines": 152,
+        "words": 2365,
+        "headings": 11,
+        "bullets": 55,
+        "codeBlocks": 0,
+        "docLinks": 29
+    },
+    "tagline": "A typed, provider-independent Python framework for building agents and working with language models.",
+    "hook": "Requires reproducing a sibling defect before expanding a bug fix, and treats a compatibility-preserving default as part of the API contract.",
+    "summary": "Pydantic AI's root guide defines contributor responsibility to the project and its users, then constrains scope, compatibility, and verification. It routes detailed coding work into topic and directory guides while distinguishing design philosophy from permission to broaden an individual fix.",
+    "references": [
+        {
+            "path": "docs/agent.md"
+        },
+        {
+            "path": "docs/dependencies.md"
+        },
+        {
+            "path": "docs/tools.md"
+        },
+        {
+            "path": "docs/output.md"
+        },
+        {
+            "path": "docs/message-history.md"
+        },
+        {
+            "path": "docs/version-policy.md"
+        },
+        {
+            "path": ".github/pull_request_template.md"
+        },
+        {
+            "path": "docs/graph.md"
+        },
+        {
+            "path": "docs/evals.md"
+        },
+        {
+            "path": "docs/cli.md"
+        },
+        {
+            "path": "docs/web.md"
+        },
+        {
+            "path": "docs/logfire.md"
+        },
+        {
+            "path": "agent_docs/index.md"
+        },
+        {
+            "path": "docs/AGENTS.md"
+        },
+        {
+            "path": "docs/realtime/AGENTS.md"
+        },
+        {
+            "path": "pydantic_ai_slim/pydantic_ai/AGENTS.md"
+        },
+        {
+            "path": "pydantic_ai_slim/pydantic_ai/capabilities/AGENTS.md"
+        },
+        {
+            "path": "pydantic_ai_slim/pydantic_ai/durable_exec/AGENTS.md"
+        },
+        {
+            "path": "pydantic_ai_slim/pydantic_ai/models/AGENTS.md"
+        },
+        {
+            "path": "pydantic_ai_slim/pydantic_ai/native_tools/AGENTS.md"
+        },
+        {
+            "path": "pydantic_ai_slim/pydantic_ai/profiles/AGENTS.md"
+        },
+        {
+            "path": "pydantic_ai_slim/pydantic_ai/providers/AGENTS.md"
+        },
+        {
+            "path": "pydantic_ai_slim/pydantic_ai/realtime/AGENTS.md"
+        },
+        {
+            "path": "pydantic_ai_slim/pydantic_ai/toolsets/AGENTS.md"
+        },
+        {
+            "path": "pydantic_ai_slim/pydantic_ai/ui/AGENTS.md"
+        },
+        {
+            "path": "tests/AGENTS.md"
+        },
+        {
+            "path": "pydantic_ai_slim/pydantic_ai/.agents/skills/building-pydantic-ai-agents/",
+            "kind": "pattern",
+            "label": "Product skills for building Pydantic AI agents"
+        },
+        {
+            "path": ".claude/skills/",
+            "kind": "pattern",
+            "label": "Repository workflow skills"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Keep general design philosophy from widening a bug fix",
+            "body": "The guide prefers extensible primitives for new designs but explicitly limits a fix to reproduced behavior. Sibling providers or fields enter the patch only after their shared defect has been confirmed.",
+            "quote": "Extend a fix to sibling fields, providers, or models only after confirming, by reproducing, that they share the same defect;",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Define compatibility through existing behavior",
+            "body": "Adding a defaulted parameter is not sufficient if users must pass a new argument to retain what they already had. The guide requires the default to preserve behavior and makes the new behavior opt-in.",
+            "quote": "The default must preserve existing behavior; the new behavior is what users opt into",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Protect wider APIs from narrow fixes",
+            "body": "The file describes product surfaces as nested: users of an adapter or durable engine also use the base Agent. A fix for the narrower layer must not change behavior for unaffected users of the wider one.",
+            "quote": "Documenting it doesn't make it acceptable, only expected; if no scoping leaves the wider surface untouched, that's a design question for maintainers, not a docs note.",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Reserve process isolation for process-dependent behavior",
+            "body": "The test guidance explains the cost of starting another interpreter. It permits subprocesses for CLI, startup, or import isolation while keeping ordinary logic tests in process.",
+            "quote": "Reserve subprocesses for behavior that depends on the process boundary, such as CLI invocation, interpreter startup, or import isolation.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Use scoped guides for implementation details",
+            "body": "The root file makes the topic index mandatory and then lists directory-specific instructions for models, providers, tools, durable execution, UI, and other areas. The global requirements remain separate from those local mechanics.",
+            "quote": "When generating or reviewing code anywhere in this repo, always read [agent_docs/index.md](agent_docs/index.md) and follow/enforce those guidelines.",
+            "pattern": "nested-instructions"
+        }
+    ],
+    "steal": [
+        "Require evidence before extending a fix to neighboring implementations.",
+        "Define compatibility in terms of unchanged default behavior.",
+        "Keep fixes for a narrow integration from affecting a wider API.",
+        "Use subprocess tests only when the process boundary matters.",
+        "Route implementation work through topic and directory instructions."
+    ],
+    "outline": [
+        "Your primary responsibility is to the project and its users",
+        "Gathering context on the task",
+        "Ensuring the task is ready for implementation",
+        "Philosophy",
+        "Requirements of all contributions",
+        "Coding Guidelines"
+    ],
+    "patterns": ["behavioral-conditioning", "verification-matrix", "nested-instructions"]
+}

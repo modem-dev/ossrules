@@ -1,0 +1,109 @@
+{
+    "slug": "deepagents",
+    "sha": "c583872844662535ca03df7828f0e582a2ef3ece",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".github/LAYOUT.md",
+            "bytes": 5023,
+            "lines": 98
+        },
+        {
+            "path": ".github/PULL_REQUEST_TEMPLATE.md",
+            "bytes": 1728,
+            "lines": 32
+        },
+        {
+            "path": ".github/RELEASING.md",
+            "bytes": 86929,
+            "lines": 1087,
+            "truncated": true
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 10315,
+            "lines": 154
+        },
+        {
+            "path": "examples/content-builder-agent/AGENTS.md",
+            "bytes": 1729,
+            "lines": 42
+        },
+        {
+            "path": "examples/deploy-coding-agent/AGENTS.md",
+            "bytes": 2032,
+            "lines": 53
+        },
+        {
+            "path": "examples/deploy-content-writer/AGENTS.md",
+            "bytes": 2029,
+            "lines": 41
+        },
+        {
+            "path": "examples/deploy-content-writer/user/AGENTS.md",
+            "bytes": 169,
+            "lines": 5
+        },
+        {
+            "path": "examples/deploy-gtm-agent/AGENTS.md",
+            "bytes": 1145,
+            "lines": 23
+        },
+        {
+            "path": "examples/deploy-gtm-agent/subagents/market-researcher/AGENTS.md",
+            "bytes": 1044,
+            "lines": 21
+        },
+        {
+            "path": "examples/deploy-mcp-docs-agent/AGENTS.md",
+            "bytes": 1729,
+            "lines": 40
+        },
+        {
+            "path": "examples/nvidia_deep_agent/src/AGENTS.md",
+            "bytes": 10690,
+            "lines": 172
+        },
+        {
+            "path": "examples/talon/AGENTS.md",
+            "bytes": 172,
+            "lines": 4
+        },
+        {
+            "path": "examples/text-to-sql-agent/AGENTS.md",
+            "bytes": 1744,
+            "lines": 59
+        },
+        {
+            "path": "libs/ARCHITECTURE.md",
+            "bytes": 11326,
+            "lines": 115
+        },
+        {
+            "path": "libs/code/AGENTS.md",
+            "bytes": 24689,
+            "lines": 175
+        },
+        {
+            "path": "libs/code/DEVELOPMENT.md",
+            "bytes": 12748,
+            "lines": 241
+        },
+        {
+            "path": "libs/DEVELOPMENT.md",
+            "bytes": 13336,
+            "lines": 238
+        },
+        {
+            "path": "libs/evals/AGENTS.md",
+            "bytes": 9169,
+            "lines": 192
+        },
+        {
+            "path": "libs/partners/AGENTS.md",
+            "bytes": 1939,
+            "lines": 25
+        }
+    ]
+}

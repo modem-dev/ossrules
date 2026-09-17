@@ -1,0 +1,69 @@
+{
+    "slug": "transformers",
+    "name": "Transformers",
+    "owner": "huggingface",
+    "repo": "transformers",
+    "language": "Python",
+    "stars": 166258,
+    "defaultBranch": "main",
+    "instructionFile": ".ai/AGENTS.md",
+    "lastCommit": {
+        "sha": "254e62f7462ca8d19821a6427828ee75765ce123",
+        "date": "2026-09-07T09:10:23Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 3287,
+        "lines": 40,
+        "words": 476,
+        "headings": 4,
+        "bullets": 11,
+        "codeBlocks": 1,
+        "docLinks": 3
+    },
+    "tagline": "A library of pretrained machine-learning models for text, vision, audio, and multimodal tasks.",
+    "hook": "Warns that AttributeError values are converter directives and that one modular edit can regenerate several models.",
+    "summary": "The root AGENTS.md and CLAUDE.md symlinks resolve to .ai/AGENTS.md. This short file concentrates on contribution coordination and generated-model mechanics, explaining how legacy copies and current modular sources must be edited and checked.",
+    "references": [
+        {
+            "path": "CONTRIBUTING.md"
+        },
+        {
+            "path": "docs/source/en/modular_transformers.md"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Distinguish current generators from legacy copies",
+            "body": "The file describes two mechanisms for maintaining standalone model files. It permits existing copied blocks to be maintained through their source but directs new work toward modular files.",
+            "quote": "**Do not add new `# Copied from` statements**; write a modular file instead.",
+            "pattern": "generated-file-guard"
+        },
+        {
+            "title": "Inspect the full output of a shared source change",
+            "body": "A named modular file also generates another model family. The guide requires regeneration and review of every changed output, so a fix cannot quietly leave dependent generated code stale.",
+            "quote": "**Other models inherit your modular file.** `modular_deepseek_vl.py` also generates `modeling_deepseek_vl_hybrid.py`.",
+            "pattern": "generated-file-guard"
+        },
+        {
+            "title": "Explain a value that looks like a mistake",
+            "body": "AttributeError is intentional converter syntax for removing inherited members. The file explains that replacing it with an apparently sensible value can change model sharding behavior.",
+            "quote": "**`attr = AttributeError()` deletes an inherited attribute** — it is an instruction to the converter, not a bug or placeholder.",
+            "pattern": "architecture-narrative"
+        },
+        {
+            "title": "Check ownership and overlapping work before contributing",
+            "body": "Before a PR, agents must coordinate on the issue and inspect open work. The guide supplies issue and PR queries and asks for an explanation when a different approach warrants another patch.",
+            "quote": "Check for overlapping work, and do not open a second PR for a fix already covered:",
+            "pattern": "contribution-etiquette"
+        }
+    ],
+    "steal": [
+        "Explain the source of truth for generated model files.",
+        "Review every generated output affected by a shared source edit.",
+        "Document special sentinel values that resemble errors.",
+        "Check issue ownership and existing patches before opening a PR."
+    ],
+    "outline": ["Commands", "Local agent setup", "Before opening a PR", "Copies and modular models"],
+    "patterns": ["generated-file-guard", "architecture-narrative", "contribution-etiquette"]
+}

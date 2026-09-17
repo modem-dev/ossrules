@@ -1,0 +1,716 @@
+{
+    "version": 1,
+    "slug": "deepagents",
+    "repository": "langchain-ai/deepagents",
+    "branch": "main",
+    "sha": "229ffef3d41bbe6dcfff3852bbd2058331aabe01",
+    "scannedAt": "2026-09-17T12:24:03.938Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "textual-screenshot-3bac30d72f1c",
+            "path": ".agents/skills/textual-screenshot/SKILL.md",
+            "name": "textual-screenshot",
+            "description": "Capture a Textual terminal UI as an SVG using its headless test harness. Use when asked to make, attach, or preview a screenshot of deepagents-code/dcode or another Textual app, visually verify a TUI state, or render a modal, screen, or widget without a desktop or browser.",
+            "license": "MIT",
+            "compatibility": "designed for deepagents-code and Textual apps",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "41e8377d063e1d0ebf0ad71edc88bc8cd67517ad",
+                    "bytes": 3570,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 61371264,
+                        "login": "mdrxy",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "blog-post-de771954befe",
+            "path": "examples/content-builder-agent/skills/blog-post/SKILL.md",
+            "name": "blog-post",
+            "description": "Writes and structures long-form blog posts, creates tutorial outlines, and optimizes content for SEO with cover image generation. Use when the user asks to write a blog post, article, how-to guide, tutorial, technical writeup, thought leadership piece, or long-form content.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b3e07dfbb1010acd90fb32aa26b30451bbac8828",
+                    "bytes": 4734,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1841272,
+                        "login": "popey",
+                        "commits": 1
+                    },
+                    {
+                        "id": 28938224,
+                        "login": "vtrivedy",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "social-media-9769403dfaa2",
+            "path": "examples/content-builder-agent/skills/social-media/SKILL.md",
+            "name": "social-media",
+            "description": "Drafts engaging social media posts, writes hooks, suggests hashtags, creates thread structures, and generates companion images. Use when the user asks to write a LinkedIn post, tweet, Twitter/X thread, social media caption, social post, or repurpose content for social platforms.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "344e94f408affbf00ef324d22d6d181a3c528de8",
+                    "bytes": 4924,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1841272,
+                        "login": "popey",
+                        "commits": 1
+                    },
+                    {
+                        "id": 28938224,
+                        "login": "vtrivedy",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "code-review-5c6737165886",
+            "path": "examples/deploy-coding-agent/skills/code-review/SKILL.md",
+            "name": "code-review",
+            "description": "Perform a structured code review of changes, checking for correctness, style, tests, and potential issues.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "f070cf58322ec64f2e410bc9c37603f0ce2aeeeb",
+                    "bytes": 1757,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "lint_check.py",
+                    "blob": "806f97d7dbac3632dbe120df9907e48a9f58626c",
+                    "bytes": 2273,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 54324534,
+                        "login": "sydney-runkle",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "coding-prefs-cdde3c6b9a4f",
+            "path": "examples/deploy-coding-agent/skills/coding-prefs/SKILL.md",
+            "name": "coding-prefs",
+            "description": "Read the user's coding preferences from /memory/coding-prefs.md before making non-trivial style decisions, and append new preferences when the user gives durable feedback.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "6de6a957d5988a219e1f6870cf5273e4c8dc5930",
+                    "bytes": 1254,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 61371264,
+                        "login": "mdrxy",
+                        "commits": 1
+                    },
+                    {
+                        "id": 54324534,
+                        "login": "sydney-runkle",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "planning-8e85b3ed2b78",
+            "path": "examples/deploy-coding-agent/skills/planning/SKILL.md",
+            "name": "planning",
+            "description": "Break down a coding task into a structured implementation plan with clear steps, file identification, and risk assessment.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ae81adfba9126df2ffed1b2a4f6f58060c5ccaa4",
+                    "bytes": 1635,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 54324534,
+                        "login": "sydney-runkle",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "blog-post-2acf135f61f4",
+            "path": "examples/deploy-content-writer/skills/blog-post/SKILL.md",
+            "name": "blog-post",
+            "description": "Write structured long-form blog posts with research, SEO optimization, and cover image generation.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "484c0cbee7bf3b51816c79d4c198822a6232081a",
+                    "bytes": 1249,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 54324534,
+                        "login": "sydney-runkle",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "social-media-809942628ecf",
+            "path": "examples/deploy-content-writer/skills/social-media/SKILL.md",
+            "name": "social-media",
+            "description": "Create social media content including Twitter/X threads, LinkedIn posts, and short-form updates.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "42dcb82589b21493b040c676209824a7f279b005",
+                    "bytes": 1157,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 54324534,
+                        "login": "sydney-runkle",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "competitor-analysis-651fc0f6d33a",
+            "path": "examples/deploy-gtm-agent/skills/competitor-analysis/SKILL.md",
+            "name": "competitor-analysis",
+            "description": "Analyze competitors in a given market segment. Trigger on: competitive landscape, competitor analysis, market comparison, competitive positioning.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "9fa45e76a15b5f103c27cb87bebc95cb68f66b5d",
+                    "bytes": 594,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 54324534,
+                        "login": "sydney-runkle",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "analyze-market-39f5fe75d768",
+            "path": "examples/deploy-gtm-agent/subagents/market-researcher/skills/analyze-market/SKILL.md",
+            "name": "analyze-market",
+            "description": "Perform a market analysis for a product category or segment. Trigger on: market analysis, market size, TAM SAM SOM, market opportunity, industry analysis.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "8c118ef0bc3564e583e7ca7968f6a9f951739955",
+                    "bytes": 538,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 54324534,
+                        "login": "sydney-runkle",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "cudf-analytics-ec9c586dfe60",
+            "path": "examples/nvidia_deep_agent/skills/cudf-analytics/SKILL.md",
+            "name": "cudf-analytics",
+            "description": "Use for GPU-accelerated data analysis on datasets, CSVs, or tabular data using NVIDIA cuDF. Triggers when tasks involve groupby aggregations, statistical summaries, anomaly detection, or large-scale data profiling.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "399d0503cdafb1cef466aeb7cc20b31235a07542",
+                    "bytes": 3555,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 207930161,
+                        "login": "victorm-lc",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "cuml-machine-learning-47cfded50e0b",
+            "path": "examples/nvidia_deep_agent/skills/cuml-machine-learning/SKILL.md",
+            "name": "cuml-machine-learning",
+            "description": "Use for GPU-accelerated machine learning on tabular data using NVIDIA cuML. Triggers when tasks involve classification, regression, clustering, dimensionality reduction, or model training on datasets.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "62208288a15ee536c23f413e670a8a6a5af35ef7",
+                    "bytes": 7014,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 207930161,
+                        "login": "victorm-lc",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "data-visualization-050b9ce97f98",
+            "path": "examples/nvidia_deep_agent/skills/data-visualization/SKILL.md",
+            "name": "data-visualization",
+            "description": "Use for creating publication-quality charts and multi-panel analysis summaries. Triggers when tasks involve visualizing data, plotting results, creating charts, or producing visual reports from analysis output.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "03f311880ee93e7720db43d8535be1c1c7079a7f",
+                    "bytes": 11614,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 207930161,
+                        "login": "victorm-lc",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "gpu-document-processing-b5e43051190e",
+            "path": "examples/nvidia_deep_agent/skills/gpu-document-processing/SKILL.md",
+            "name": "gpu-document-processing",
+            "description": "Use when processing large PDFs, document collections, or bulk text extraction tasks that benefit from GPU-accelerated processing. Triggers when the user provides large documents or needs bulk document analysis.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "a5fbcf3f228f68e0f1cce9cc8cd618d1ee3646da",
+                    "bytes": 3745,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 207930161,
+                        "login": "victorm-lc",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "query-writing-fffd0b79b299",
+            "path": "examples/text-to-sql-agent/skills/query-writing/SKILL.md",
+            "name": "query-writing",
+            "description": "Writes and executes SQL queries from simple SELECTs to complex multi-table JOINs, aggregations, and subqueries. Use when the user asks to query a database, write SQL, run a SELECT statement, retrieve data, filter records, or generate reports from database tables.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "a50d53cd4b5edf2162843dd810a32dbff71a806a",
+                    "bytes": 2218,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 73301432,
+                        "login": "kevinbfrank",
+                        "commits": 1
+                    },
+                    {
+                        "id": 1841272,
+                        "login": "popey",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "schema-exploration-63f1d599618e",
+            "path": "examples/text-to-sql-agent/skills/schema-exploration/SKILL.md",
+            "name": "schema-exploration",
+            "description": "Lists tables, describes columns and data types, identifies foreign key relationships, and maps entity relationships in a database. Use when the user asks about database schema, table structure, column types, what tables exist, ERD, foreign keys, or how entities relate.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b67c5e76af57225003ff2fd7b57107cc43507c01",
+                    "bytes": 3804,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 73301432,
+                        "login": "kevinbfrank",
+                        "commits": 1
+                    },
+                    {
+                        "id": 1841272,
+                        "login": "popey",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "deepagents-thread-inspector-57da46d33199",
+            "path": "libs/code/deepagents_code/built_in_skills/deepagents-thread-inspector/SKILL.md",
+            "name": "deepagents-thread-inspector",
+            "description": "Inspect and explain conversations in the local Deep Agents Code SQLite session store. Use as a fallback when LangSmith trace tooling is unavailable, for offline or untraced sessions, or when asked to identify or summarize a local dcode thread, inspect checkpoint metadata, list recent local threads, or parse $DEEPAGENTS_HOME/.state/sessions.db and a thread UUID or prefix.",
+            "license": "MIT",
+            "compatibility": "designed for deepagents-code",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "c4863afeac00e43a892e3052e9382f18f44cf56a",
+                    "bytes": 3230,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/inspect_sessions.py",
+                    "blob": "4afbef9ac331e86f6e5679098a41ba6256764458",
+                    "bytes": 24300,
+                    "text": true,
+                    "mode": "100755"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 61371264,
+                        "login": "mdrxy",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "remember-55d35a688d65",
+            "path": "libs/code/deepagents_code/built_in_skills/remember/SKILL.md",
+            "name": "remember",
+            "description": "Review the current conversation and capture valuable knowledge — best practices, coding conventions, architecture decisions, workflows, and user feedback — into persistent memory (AGENTS.md) or reusable skills. Use when the user says: (1) remember this, (2) save what we learned, (3) update memory, (4) capture learnings.",
+            "license": "MIT",
+            "compatibility": "designed for deepagents-code",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "35e09989fe7ca50707781d318cae334dcb8f3de6",
+                    "bytes": 4457,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 61371264,
+                        "login": "mdrxy",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "skill-creator-cf5cd948e21d",
+            "path": "libs/code/deepagents_code/built_in_skills/skill-creator/SKILL.md",
+            "name": "skill-creator",
+            "description": "Guide for creating effective skills that extend agent capabilities with specialized knowledge, workflows, or tool integrations. Use this skill when the user asks to: (1) create a new skill, (2) make a skill, (3) build a skill, (4) set up a skill, (5) initialize a skill, (6) scaffold a skill, (7) update or modify an existing skill, (8) validate a skill, (9) learn about skill structure, (10) understand how skills work, or (11) get guidance on skill design patterns. Trigger on phrases like \"create a skill\", \"new skill\", \"make a skill\", \"skill for X\", \"how do I create a skill\", or \"help me build a skill\".",
+            "license": "MIT",
+            "compatibility": "designed for deepagents-code",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "06639764e62bc4456ec08038f06487441b6b3110",
+                    "bytes": 19309,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/init_skill.py",
+                    "blob": "567032eb7d495f3ac1493bd537182d20fe6e332d",
+                    "bytes": 13193,
+                    "text": true,
+                    "mode": "100755"
+                },
+                {
+                    "path": "scripts/quick_validate.py",
+                    "blob": "e794a8d454b840ef0aaa91b863f24fca76ea47c7",
+                    "bytes": 5077,
+                    "text": true,
+                    "mode": "100755"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 61371264,
+                        "login": "mdrxy",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "arxiv-search-ecb01c4f6104",
+            "path": "libs/code/examples/skills/arxiv-search/SKILL.md",
+            "name": "arxiv-search",
+            "description": "Searches arXiv for preprints and academic papers, retrieves abstracts, and filters by topic. Use when the user asks to find research papers, search arXiv, look up preprints, find academic articles in physics, math, CS, biology, statistics, or related fields.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "acb9afcf58e11449f6311a72a0ef730fbd97f260",
+                    "bytes": 1007,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "arxiv_search.py",
+                    "blob": "234c4814a252f8d1b83f5302169066a58ddc1193",
+                    "bytes": 1653,
+                    "text": true,
+                    "mode": "100755"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 61371264,
+                        "login": "mdrxy",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "langgraph-docs-9fd8fd4962e6",
+            "path": "libs/code/examples/skills/langgraph-docs/SKILL.md",
+            "name": "langgraph-docs",
+            "description": "Fetches and references LangGraph Python documentation to build stateful agents, create multi-agent workflows, and implement human-in-the-loop patterns. Use when the user asks about LangGraph, graph agents, state machines, agent orchestration, LangGraph API, or needs LangGraph implementation guidance.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "bb2126237ba75acf4197aae552746fb8039a8f65",
+                    "bytes": 1138,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 61371264,
+                        "login": "mdrxy",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "skill-creator-d3e22c89c815",
+            "path": "libs/code/examples/skills/skill-creator/SKILL.md",
+            "name": "skill-creator",
+            "description": "Guide for creating effective skills that extend agent capabilities with specialized knowledge, workflows, or tool integrations. Use this skill when the user asks to: (1) create a new skill, (2) make a skill, (3) build a skill, (4) set up a skill, (5) initialize a skill, (6) scaffold a skill, (7) update or modify an existing skill, (8) validate a skill, (9) learn about skill structure, (10) understand how skills work, or (11) get guidance on skill design patterns. Trigger on phrases like \"create a skill\", \"new skill\", \"make a skill\", \"skill for X\", \"how do I create a skill\", or \"help me build a skill\".",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "92246e147d0a789aaee1490e28822e75b596922d",
+                    "bytes": 19079,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/init_skill.py",
+                    "blob": "5f8d69c2e8375c2bc7c3274372e22852ec4af510",
+                    "bytes": 11169,
+                    "text": true,
+                    "mode": "100755"
+                },
+                {
+                    "path": "scripts/quick_validate.py",
+                    "blob": "4a4ebb0a164ff555165ef338506b610cc7d0c00e",
+                    "bytes": 4840,
+                    "text": true,
+                    "mode": "100755"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 61371264,
+                        "login": "mdrxy",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "web-research-04930f4dccbf",
+            "path": "libs/code/examples/skills/web-research/SKILL.md",
+            "name": "web-research",
+            "description": "Searches multiple web sources, synthesizes findings, and produces cited research reports using delegated subagents. Use when the user asks to research a topic online, search the web, look something up, find current information, compare options, or produce a research report.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "63424a2c5ea395146a4d12e1b6c1104b3c23bff5",
+                    "bytes": 3274,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 61371264,
+                        "login": "mdrxy",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "configuration-hardening-6a2e1338a1f3",
+            "path": "libs/talon/deepagents_talon/defaults/skills/configuration-hardening/SKILL.md",
+            "name": "configuration-hardening",
+            "description": "Review Talon tool placement and defensive prompts when requested or when adding or changing tools or subagents; apply confirmed changes and verify active capabilities.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7ae59131979e443156456eb45c6600c43309f228",
+                    "bytes": 3858,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/hardening-model.md",
+                    "blob": "29001e2a331902ad44ddfa86cc723e546b103ab7",
+                    "bytes": 6874,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 65985482,
+                        "login": "jkennedyvz",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "fd9fa9998d64c0c0948694ffe33feab074fb21a1",
+        "bytes": 10315,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "3957738673765912ca83a0048f833e095d61e087",
+        "bytes": 1067,
+        "text": true,
+        "mode": "100644"
+    }
+}

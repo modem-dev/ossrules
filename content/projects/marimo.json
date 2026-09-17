@@ -1,0 +1,73 @@
+{
+    "slug": "marimo",
+    "name": "marimo",
+    "owner": "marimo-team",
+    "repo": "marimo",
+    "language": "Python",
+    "stars": 22809,
+    "defaultBranch": "main",
+    "instructionFile": "AGENTS.md",
+    "lastCommit": {
+        "sha": "917b86334795c2b5af086a3112556587cab91547",
+        "date": "2026-05-21T17:12:56Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 2947,
+        "lines": 65,
+        "words": 448,
+        "headings": 10,
+        "bullets": 12,
+        "codeBlocks": 2,
+        "docLinks": 2
+    },
+    "tagline": "A reactive Python notebook with a web interface and application deployment tools.",
+    "hook": "Frames agent work around all project users and maintainers, then makes human-directed contribution and disclosure rules explicit.",
+    "summary": "marimo opens with a statement of whom an agent should serve when contributing to a public library. The rest of the file pairs Python and frontend checks with contribution requirements and a docstring convention that automated formatting may not catch.",
+    "references": [
+        {
+            "path": "CONTRIBUTING.md"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Expand the audience beyond the immediate requester",
+            "body": "The opening frames APIs, abstractions, documentation, and code as the product. It asks the agent to consider existing and future users as well as the person requesting a patch.",
+            "quote": "Being an open source library, the public API, abstractions, documentation, and the code itself are the product and deserve careful consideration.",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Put human direction before PR creation",
+            "body": "The PR section explicitly requires a human request before submission. The file presents contribution authority as a separate constraint from the ability to produce code.",
+            "quote": "- DO NOT open a pull request autonomously, without explicit instructions from a human",
+            "pattern": "contribution-etiquette"
+        },
+        {
+            "title": "Provide exact disclosure wording",
+            "body": "The guide gives the location and full text of the agent-authorship notice and also requires a draft. This removes ambiguity about how a contributor should disclose the origin of a patch.",
+            "quote": "- You MUST disclose that you are an agent at the very top of your PR description: \"**This pull request was authored by a coding agent.**\"",
+            "pattern": "contribution-etiquette"
+        },
+        {
+            "title": "Reserve prose guidance for a linting gap",
+            "body": "The Python conventions section says most rules already live in tooling. Its additional instruction concerns the Markdown dialect used by rendered docstrings, including the exact inline-code delimiter.",
+            "quote": "- Docstrings are rendered as Markdown, not reStructuredText. Use single\n  backticks for inline code (`value`), never double backticks."
+        }
+    ],
+    "steal": [
+        "Describe the long-term audience for a contribution.",
+        "State whether a human must initiate public submissions.",
+        "Supply exact wording when attribution must be consistent.",
+        "Keep prose style rules focused on gaps in automated checks."
+    ],
+    "outline": [
+        "marimo Development Guidelines",
+        "Your primary responsibility is to the project and its users",
+        "Quick Setup",
+        "Development Commands",
+        "Commits",
+        "Pull Requests",
+        "Conventions"
+    ],
+    "patterns": ["behavioral-conditioning", "contribution-etiquette"]
+}

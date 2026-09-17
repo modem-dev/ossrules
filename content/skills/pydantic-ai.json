@@ -1,0 +1,786 @@
+{
+    "version": 1,
+    "slug": "pydantic-ai",
+    "repository": "pydantic/pydantic-ai",
+    "branch": "main",
+    "sha": "9e9fdc4ba18da5b277822dadbf2ab6e2af4ee070",
+    "scannedAt": "2026-09-17T12:25:10.223Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [
+        {
+            "path": ".claude/skills/pre-push-review/SKILL.md",
+            "reason": "Missing or invalid skill name."
+        }
+    ],
+    "skills": [
+        {
+            "id": "add-new-model-589cb49d95b4",
+            "path": ".agents/skills/add-new-model/SKILL.md",
+            "name": "add-new-model",
+            "description": "Add support for a newly-released language or image generation model in pydantic-ai (e.g. openai:gpt-5.6, anthropic:claude-sonnet-5, openai:gpt-image-2). Use when a provider ships a new model id and you need to wire literals, profile flags, adapters, and tests to recognize it. Handles SDK-lag, gateway list conventions, capability probing, and direct image-model geometry.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "e8906933287440101c75722b1b861775d5565e48",
+                    "bytes": 30628,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 64162682,
+                        "login": "dsfaccini",
+                        "commits": 7
+                    },
+                    {
+                        "id": 43636749,
+                        "login": "EgonFerri",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "adding-a-provider-api-feature-61014555dc75",
+            "path": ".agents/skills/adding-a-provider-api-feature/SKILL.md",
+            "name": "adding-a-provider-api-feature",
+            "description": "Add a new provider API capability (prompt caching, strict/structured tool calling, thinking/reasoning effort, service tier, safety settings, logprobs, etc.) to Pydantic AI. Use when wiring a provider feature through the library — it enforces reasoning from the existing cross-provider abstraction before designing anything, and picking default-on vs opt-in deliberately. Not for adding a new model id (that's a different flow) or a bug fix.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "31ec8fba7a7377b0882dce950fe6bf3c1b9a6e53",
+                    "bytes": 12944,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 64162682,
+                        "login": "dsfaccini",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "complete-partial-pr-f1bfeefaf776",
+            "path": ".agents/skills/complete-partial-pr/SKILL.md",
+            "name": "complete-partial-pr",
+            "description": "Evaluate and complete an issue or PR where the submitted patch fixes only a narrow symptom of the reported pain point. Use when a contribution may miss adjacent integration surfaces, provider/spec semantics, roundtrip behavior, tests, docs, or historical maintainer decisions.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b40c118b6bcd8ed243355fdab0b47c66b983ed14",
+                    "bytes": 9569,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 64162682,
+                        "login": "dsfaccini",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "i-have-adhd-64a4d308af25",
+            "path": ".agents/skills/i-have-adhd/SKILL.md",
+            "name": "i-have-adhd",
+            "description": "Shape every response for an ADHD reader who reviews the work but does not do the coding — the agent does. Use whenever responding to ANY message — coding, debugging, planning, casual. Lead with the result or the decision. Surface anything needing the user's input as a structured question, never buried in prose they'll skim past. No preamble, no recap, no closers. State errors matter-of-factly. Make finished work visible. Trigger even on casual messages and even when brevity wasn't requested.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "2e2034d57be05094a1d90050e8581c7ca3b73bcf",
+                    "bytes": 5669,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 64162682,
+                        "login": "dsfaccini",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "poweruser-feature-audit-e4794c60d0d5",
+            "path": ".agents/skills/poweruser-feature-audit/SKILL.md",
+            "name": "poweruser-feature-audit",
+            "description": "Independent power-user audit of a big new-feature PR. Research the feature domain from external sources before reading any implementation code, design the ideal test suite from a power-user's perspective, then gap-compare it against the PR to produce evidence-backed, precedent-linked review items. Use when a large feature PR (new provider API surface, new modality, new subsystem) needs an unbiased second opinion grounded in what the underlying APIs and real integrators require. Not a diff review.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "a4e7e0eeac5852414e3359cd9ffc4c0ca45ef38d",
+                    "bytes": 11480,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 64162682,
+                        "login": "dsfaccini",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "pushing-commits-to-the-repo-1878b92f9844",
+            "path": ".agents/skills/pushing-commits-to-the-repo/SKILL.md",
+            "name": "pushing-commits-to-the-repo",
+            "description": "Open and advance a PR — write a current title and body, label it, review before every push, watch CI, and triage every comment. Use whenever you open a PR or push a commit to one.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "84e1d9cbf8e5a03470e551af752ded9c61db4799",
+                    "bytes": 7633,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 64162682,
+                        "login": "dsfaccini",
+                        "commits": 6
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "address-feedback-8ac116ca2372",
+            "path": ".claude/skills/address-feedback/SKILL.md",
+            "name": "address-feedback",
+            "description": "Find and address unresolved PR review comments for the current branch, then continue the canonical push, reply, reaction, and resolution workflow.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ff0f699ec748862f207b29885bd295d7b7827590",
+                    "bytes": 4386,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 64162682,
+                        "login": "dsfaccini",
+                        "commits": 2
+                    },
+                    {
+                        "id": 35119617,
+                        "login": "dmontagu",
+                        "commits": 1
+                    },
+                    {
+                        "id": 7780875,
+                        "login": "pandego",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "testing-skill-5fee12554f12",
+            "path": ".claude/skills/testing-skill/SKILL.md",
+            "name": "testing-skill",
+            "description": "Record, rewrite, and debug VCR cassettes for HTTP recordings. Use when running tests with --record-mode, verifying cassette playback, or inspecting request/response bodies in YAML cassettes.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "e1d5b624e3766f1072d03f254750822117192c8c",
+                    "bytes": 3354,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "parse_cassette.py",
+                    "blob": "59055cc7d3180abf491ddabeaeb998c6ead02970",
+                    "bytes": 3554,
+                    "text": true,
+                    "mode": "100755"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 64162682,
+                        "login": "dsfaccini",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "building-pydantic-ai-agents-b21ab4f795d5",
+            "path": "pydantic_ai_slim/pydantic_ai/.agents/skills/building-pydantic-ai-agents/SKILL.md",
+            "name": "building-pydantic-ai-agents",
+            "description": "Build AI agents with Pydantic AI — tools, capabilities (including on-demand loading), structured output, streaming, testing, and multi-agent patterns. Use when the user mentions Pydantic AI, imports pydantic_ai, or asks to build an AI agent, add tools/capabilities, defer capability loading, stream output, define agents from YAML, or test agent behavior.",
+            "license": "MIT",
+            "compatibility": "Requires Python 3.10+",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "046357bf08acf599a2a1dbf9f0f5701cdef0a7d5",
+                    "bytes": 22393,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/AGENTS-CORE.md",
+                    "blob": "6a21bd4079575bf897ca946f089c726906b8c790",
+                    "bytes": 7352,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/ARCHITECTURE.md",
+                    "blob": "a33e0c84bf58e1f7dfdca650619802a36eb3fdbd",
+                    "bytes": 12922,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/CAPABILITIES-AND-HOOKS.md",
+                    "blob": "3c9fcad5442e31e07a797ad5ae5bc649d0fa0396",
+                    "bytes": 14340,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/COMMON-TASKS.md",
+                    "blob": "ffefb1373c6747940be781b54818f812f21fde93",
+                    "bytes": 4941,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/INPUT-AND-HISTORY.md",
+                    "blob": "b03b8d22426433c88448b23f12726dd3625bea2d",
+                    "bytes": 11920,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/NATIVE-TOOLS.md",
+                    "blob": "4238085e5ba0144099e63f23326929ce2599a50a",
+                    "bytes": 3489,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/ON-DEMAND-CAPABILITIES.md",
+                    "blob": "4b405bc755f6b3765f94ff264ac31181962b89fb",
+                    "bytes": 15104,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/ORCHESTRATION-AND-INTEGRATIONS.md",
+                    "blob": "d8b2f98a47bd9100e27c49b7fc0a03e198806b97",
+                    "bytes": 7894,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/TESTING-AND-DEBUGGING.md",
+                    "blob": "178bb37fbeb7995abd4363f2cc421a56e39906b5",
+                    "bytes": 2946,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/TOOLS-ADVANCED.md",
+                    "blob": "1662f21df9af8c52198f2418d49355eae6eccab2",
+                    "bytes": 13767,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/TOOLS-CORE.md",
+                    "blob": "033ec35e01eb0f8aa3dd04d0b474eb0b3249da5b",
+                    "bytes": 4581,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 159434,
+                        "login": "DouweM",
+                        "commits": 12
+                    },
+                    {
+                        "id": 76904033,
+                        "login": "adtyavrdhn",
+                        "commits": 7
+                    },
+                    {
+                        "id": 64162682,
+                        "login": "dsfaccini",
+                        "commits": 5
+                    },
+                    {
+                        "id": 43636749,
+                        "login": "EgonFerri",
+                        "commits": 1
+                    },
+                    {
+                        "id": 16179442,
+                        "login": "grahamcracker1234",
+                        "commits": 1
+                    },
+                    {
+                        "id": 7353520,
+                        "login": "Kludex",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "migrating-agno-to-pydantic-ai-2beaa1e3f5b3",
+            "path": "pydantic_ai_slim/pydantic_ai/.agents/skills/migrating-agno-to-pydantic-ai/SKILL.md",
+            "name": "migrating-agno-to-pydantic-ai",
+            "description": "Migrate Python Agno applications to Pydantic AI and, only when needed, Pydantic AI Harness. Use when source code imports `agno` or relies on Agno agents, teams, workflows, sessions, memory, knowledge, tools, hooks, guardrails, approvals, skills, streaming, or AgentOS.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "192f9f2fc1bce826df18a63f5d7758fa8c33e798",
+                    "bytes": 7176,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "8a72392d5e9f54759ddb29589f5d7b416b1f5a53",
+                    "bytes": 293,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/RESEARCH-AND-MAPPING.md",
+                    "blob": "9a9a2d9d3b87729ef7ec4d268bdf6f7f2cb5e39a",
+                    "bytes": 9351,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/VERIFICATION-AND-CUTOVER.md",
+                    "blob": "8aedf2c5c573ea35db12fa9414cca4629222df73",
+                    "bytes": 5929,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 76904033,
+                        "login": "adtyavrdhn",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "migrating-claude-agent-sdk-to-pydantic-ai-9fdf3d08b9bd",
+            "path": "pydantic_ai_slim/pydantic_ai/.agents/skills/migrating-claude-agent-sdk-to-pydantic-ai/SKILL.md",
+            "name": "migrating-claude-agent-sdk-to-pydantic-ai",
+            "description": "Migrate Python applications from the Claude Agent SDK to Pydantic AI and, only when needed, Pydantic AI Harness. Use when source code imports `claude_agent_sdk` or relies on Claude Code's agent loop, sessions, built-in tools, hooks, permissions, skills, or subagents. Do not use for the Anthropic Messages SDK or Claude Managed Agents.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "47bae6eb051574f9636b8b92b1b6358dd3a614d5",
+                    "bytes": 6405,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "438f8077c77c982316609738af9faf071b1af7d5",
+                    "bytes": 341,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/RESEARCH-AND-MAPPING.md",
+                    "blob": "6e9623e4718b85eac53058cf63ba45e2b5ac69f6",
+                    "bytes": 7779,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/VERIFICATION-AND-CUTOVER.md",
+                    "blob": "01fa584b29ab1509f6d657c494557eea9b581c97",
+                    "bytes": 4546,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 76904033,
+                        "login": "adtyavrdhn",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "migrating-google-adk-to-pydantic-ai-e6169392299a",
+            "path": "pydantic_ai_slim/pydantic_ai/.agents/skills/migrating-google-adk-to-pydantic-ai/SKILL.md",
+            "name": "migrating-google-adk-to-pydantic-ai",
+            "description": "Migrate Python Google Agent Development Kit (ADK) applications to Pydantic AI. Use for `LlmAgent`, `Runner`, sessions, state, memory, tools, callbacks, plugins, graph or dynamic workflows, resumability, events, artifacts, MCP, and ADK deployment boundaries.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "01877e9534dca8b062a759e86445c0cd86794396",
+                    "bytes": 6240,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "1ac376458340227751c2c98f1a9ed9299e6987f0",
+                    "bytes": 317,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/CONCEPT-MAPPING.md",
+                    "blob": "9795f4e4b97bc695bed0781ca0448e0c6afc2cca",
+                    "bytes": 6655,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/SEMANTIC-GAPS.md",
+                    "blob": "6de2fe01d820dc08fafb1993a636639b1b4d090f",
+                    "bytes": 7165,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/VERIFICATION-AND-CUTOVER.md",
+                    "blob": "4c7237c6441d6b16e6b871d127bbbe97f3eec52a",
+                    "bytes": 3546,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 76904033,
+                        "login": "adtyavrdhn",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "migrating-langchain-to-pydantic-ai-cfa20d10d952",
+            "path": "pydantic_ai_slim/pydantic_ai/.agents/skills/migrating-langchain-to-pydantic-ai/SKILL.md",
+            "name": "migrating-langchain-to-pydantic-ai",
+            "description": "Migrate Python LangChain, LangGraph, or Deep Agents applications to Pydantic AI and, when the source uses harness features, Pydantic AI Harness. Use for LangChain agents, chains, LCEL, direct LangGraph graphs, persistence, interrupts, streaming, and `create_deep_agent` projects with planning, filesystem or sandbox backends, skills, memory, subagents, permissions, approvals, or Deep Agents Code hosts.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "83a654810557e9420b95a134ef2e4b1aee647f7d",
+                    "bytes": 10107,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "f04a636e166f4dd680255f1bd8d60c108ffa1ba1",
+                    "bytes": 394,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/CONCEPT-MAPPING.md",
+                    "blob": "641a0b71b95e285ede0546f3657cc6d278ace665",
+                    "bytes": 16556,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/DEEP-AGENTS-MAPPING.md",
+                    "blob": "00a6231d60e20008fc468ffccebb3f8568c7e6db",
+                    "bytes": 25042,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/LOGFIRE-VERIFICATION.md",
+                    "blob": "7a66aa6b1f528e431eb75ebeb0b237b7c07d93a6",
+                    "bytes": 10433,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/SEMANTIC-GAPS.md",
+                    "blob": "a0c37f6248498567aa66905980a44483f01ce410",
+                    "bytes": 22149,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/VERIFICATION-AND-CUTOVER.md",
+                    "blob": "b43d12b0fc005ebe1f384b5e29549e06c9dce725",
+                    "bytes": 12619,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/WORKAROUND-RECIPES.md",
+                    "blob": "2785333ace3c0e01ff0701e10ea6980a72d769f6",
+                    "bytes": 18438,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 76904033,
+                        "login": "adtyavrdhn",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "migrating-mastra-to-pydantic-ai-c861f890c40e",
+            "path": "pydantic_ai_slim/pydantic_ai/.agents/skills/migrating-mastra-to-pydantic-ai/SKILL.md",
+            "name": "migrating-mastra-to-pydantic-ai",
+            "description": "Migrate TypeScript Mastra applications to Python with Pydantic AI and, only when needed, Pydantic AI Harness. Use when source code imports `@mastra/*` or relies on Mastra agents, tools, workflows, memory, processors, streaming, approvals, skills, or subagents.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "8fac60cc6793e11e3e49910d79b71ce1f920e82f",
+                    "bytes": 8067,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "47767d61b62c844561120b748946a9671f504b1e",
+                    "bytes": 301,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/RESEARCH-AND-MAPPING.md",
+                    "blob": "76fedaebb32a244459ad425a3c320cc0b4ca2f9d",
+                    "bytes": 9338,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/VERIFICATION-AND-CUTOVER.md",
+                    "blob": "6ce5d270d223fb7b541f0038c7661bde0b6218e9",
+                    "bytes": 6205,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 76904033,
+                        "login": "adtyavrdhn",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "migrating-openai-agents-sdk-to-pydantic-ai-6ea60423d0dc",
+            "path": "pydantic_ai_slim/pydantic_ai/.agents/skills/migrating-openai-agents-sdk-to-pydantic-ai/SKILL.md",
+            "name": "migrating-openai-agents-sdk-to-pydantic-ai",
+            "description": "Migrate Python OpenAI Agents SDK applications to Pydantic AI and, when warranted, Pydantic AI Harness. Use for `agents.Agent`, `Runner`, function tools, handoffs, guardrails, sessions, human approval, streaming, or `SandboxAgent`. Do not use for applications built directly on the OpenAI Responses API without the Agents SDK runtime.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "29f9d1d98d4835b0096f3b798358c3ea2ddf3a63",
+                    "bytes": 7019,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "b9a76ce8a4ec8a9ec630f32d9a051fbc3c246d82",
+                    "bytes": 317,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/CONCEPT-MAPPING.md",
+                    "blob": "d270ace0a67e1329898f3eb74a771da1159e664c",
+                    "bytes": 10030,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/VERIFICATION-AND-CUTOVER.md",
+                    "blob": "b62080ff46e20d72fb51acbcacb80902c135de72",
+                    "bytes": 6243,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 76904033,
+                        "login": "adtyavrdhn",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "migrating-pi-to-pydantic-ai-439f5815a4dc",
+            "path": "pydantic_ai_slim/pydantic_ai/.agents/skills/migrating-pi-to-pydantic-ai/SKILL.md",
+            "name": "migrating-pi-to-pydantic-ai",
+            "description": "Migrate TypeScript Pi coding-agent applications, extensions, or packages to Python with Pydantic AI and Pydantic AI Harness. Use when source code imports `@earendil-works/pi-*`, calls `createAgentSession`, registers Pi extensions, or relies on Pi tools, hooks, skills, sessions, compaction, providers, TUI, RPC, or packages.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "c6b7d4dee6c5b2e25a06e171fb8ee4fbfca3e490",
+                    "bytes": 8477,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "ec68f2c14e4902a7f6513da58c0b81c21de84332",
+                    "bytes": 350,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/RESEARCH-AND-MAPPING.md",
+                    "blob": "e96ac1d9665346cb8f3729b75b73497abdcccc17",
+                    "bytes": 12364,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/VERIFICATION-AND-CUTOVER.md",
+                    "blob": "2f38f6270daadfccfa9ae5227a44850bf0eeff12",
+                    "bytes": 7244,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 76904033,
+                        "login": "adtyavrdhn",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "migrating-vercel-ai-sdk-and-eve-to-pydantic-ai-405cee328208",
+            "path": "pydantic_ai_slim/pydantic_ai/.agents/skills/migrating-vercel-ai-sdk-and-eve-to-pydantic-ai/SKILL.md",
+            "name": "migrating-vercel-ai-sdk-and-eve-to-pydantic-ai",
+            "description": "Migrate TypeScript Vercel AI SDK or Eve applications to Python with Pydantic AI and, only when needed, Pydantic AI Harness. Use when source code imports `ai`, `@ai-sdk/*`, or `eve`, or relies on `generateText`, `streamText`, `ToolLoopAgent`, `useChat`, Eve agents, tools, skills, subagents, approvals, sessions, channels, schedules, or sandboxes.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "40435a64216eba94b50e099ae97721141354e953",
+                    "bytes": 9228,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "ee824cdd41018f5425e8b6f7580ee9a7ee7a7874",
+                    "bytes": 324,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/RESEARCH-AND-MAPPING.md",
+                    "blob": "a3fe0c3a62ee42b06b19c3259cd58101595a715c",
+                    "bytes": 12434,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/VERIFICATION-AND-CUTOVER.md",
+                    "blob": "b9ef057feb40915847c7147b1090a1da5c0832e8",
+                    "bytes": 8269,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 76904033,
+                        "login": "adtyavrdhn",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "13a48df03ed5896b7e210a0c18ab591766341a1d",
+        "bytes": 16277,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "1bf1f55e6d1736b499ded961ec6b94bfebb17aec",
+        "bytes": 1100,
+        "text": true,
+        "mode": "100644"
+    }
+}

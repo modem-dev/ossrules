@@ -1,0 +1,135 @@
+{
+    "slug": "openai-agents-python",
+    "sha": "faf10fda7cd68bebdfba5edb887a0805cd1c9464",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".agents/references/agent-definition-and-run-context.md",
+            "bytes": 5333,
+            "lines": 57
+        },
+        {
+            "path": ".agents/references/conversation-state-ownership.md",
+            "bytes": 5488,
+            "lines": 67
+        },
+        {
+            "path": ".agents/references/function-and-output-schema.md",
+            "bytes": 4145,
+            "lines": 50
+        },
+        {
+            "path": ".agents/references/local-mcp-server-lifecycle.md",
+            "bytes": 6611,
+            "lines": 58
+        },
+        {
+            "path": ".agents/references/model-provider-boundaries.md",
+            "bytes": 7986,
+            "lines": 84
+        },
+        {
+            "path": ".agents/references/README.md",
+            "bytes": 5062,
+            "lines": 40
+        },
+        {
+            "path": ".agents/references/realtime-session-lifecycle.md",
+            "bytes": 5783,
+            "lines": 73
+        },
+        {
+            "path": ".agents/references/realtime-tracing.md",
+            "bytes": 3399,
+            "lines": 42
+        },
+        {
+            "path": ".agents/references/run-item-lifecycle.md",
+            "bytes": 6097,
+            "lines": 79
+        },
+        {
+            "path": ".agents/references/runner-lifecycle.md",
+            "bytes": 5226,
+            "lines": 67
+        },
+        {
+            "path": ".agents/references/runstate-schema.md",
+            "bytes": 3870,
+            "lines": 64
+        },
+        {
+            "path": ".agents/references/sandbox-runtime-boundary.md",
+            "bytes": 9187,
+            "lines": 84
+        },
+        {
+            "path": ".agents/references/session-persistence.md",
+            "bytes": 6576,
+            "lines": 80
+        },
+        {
+            "path": ".agents/references/tool-execution-lifecycle.md",
+            "bytes": 5967,
+            "lines": 64
+        },
+        {
+            "path": ".agents/references/tool-identity.md",
+            "bytes": 5324,
+            "lines": 73
+        },
+        {
+            "path": ".agents/references/tracing-lifecycle.md",
+            "bytes": 5162,
+            "lines": 58
+        },
+        {
+            "path": ".agents/references/voice-pipeline-lifecycle.md",
+            "bytes": 4910,
+            "lines": 56
+        },
+        {
+            "path": ".github/PULL_REQUEST_TEMPLATE/pull_request_template.md",
+            "bytes": 694,
+            "lines": 19
+        },
+        {
+            "path": ".github/RELEASING.md",
+            "bytes": 1326,
+            "lines": 25
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 38183,
+            "lines": 214
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 9,
+            "lines": 1,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "AGENTS.md"
+        },
+        {
+            "path": "CONTRIBUTING.md",
+            "bytes": 5247,
+            "lines": 36
+        },
+        {
+            "path": "PLANS.md",
+            "bytes": 5485,
+            "lines": 100
+        },
+        {
+            "path": "SECURITY.md",
+            "bytes": 4474,
+            "lines": 38
+        },
+        {
+            "path": "tests/README.md",
+            "bytes": 10369,
+            "lines": 66
+        }
+    ]
+}

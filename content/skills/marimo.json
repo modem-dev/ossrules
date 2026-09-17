@@ -1,0 +1,98 @@
+{
+    "version": 1,
+    "slug": "marimo",
+    "repository": "marimo-team/marimo",
+    "branch": "main",
+    "sha": "cbb66e0bb4db04199f4c14240f8715e5355de2e5",
+    "scannedAt": "2026-09-17T12:30:59.994Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "marimo-pair-c426aafde64a",
+            "path": "marimo/_server/ai/skills/marimo-pair/SKILL.md",
+            "name": "marimo-pair",
+            "description": "Work inside the user's live marimo notebook from the code editor: run Python in the same kernel the user does, inspect live notebook state, and commit durable notebook changes through code mode. Use whenever you create, analyze, or improve the user's marimo notebook.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "40e54961622a30b2f20f51546cc36a711fb8ef32",
+                    "bytes": 10993,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/gotchas.md",
+                    "blob": "4a31e7b472bd194d6df16d3f5c746d14a75a2a02",
+                    "bytes": 3074,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/notebook-improvements.md",
+                    "blob": "e460a166ebf75f996269339cee467ec9d2f467de",
+                    "bytes": 4067,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/rich-representations.md",
+                    "blob": "ac0cfc42c4ada70ccd4a2fa58aff13000af6af0d",
+                    "bytes": 10508,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 19585239,
+                        "login": "Light2Dark",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "skills-5b664aed1951",
+            "path": "packages/llm-info/skills/SKILL.md",
+            "name": "fill-model-descriptions",
+            "description": "Fill missing and refresh obsolete model descriptions in `packages/llm-info/data/models.yml` by querying OpenRouter and provider documentation. Use when the user asks to populate model descriptions, enrich the model catalog, or curate descriptions after running `pnpm sync-models`.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "4911d5c624b25eceb257550cd3f8b1493a9d667e",
+                    "bytes": 7118,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 19585239,
+                        "login": "Light2Dark",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "dbbf58430b78d1e8ffc5a213fba1ab966cf7f23f",
+        "bytes": 2947,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+        "bytes": 11358,
+        "text": true,
+        "mode": "100644"
+    }
+}

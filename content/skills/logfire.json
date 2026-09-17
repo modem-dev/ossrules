@@ -1,0 +1,262 @@
+{
+    "version": 1,
+    "slug": "logfire",
+    "repository": "pydantic/logfire",
+    "branch": "main",
+    "sha": "39d1eb4058286eda3e9550b87a3c7327597f1004",
+    "scannedAt": "2026-09-17T12:24:10.691Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "update-deps-1bf87826100c",
+            "path": ".agents/skills/update-deps/SKILL.md",
+            "name": "update-deps",
+            "description": "Create a PR in which all dependencies are updated to their latest versions and CI is passing. Only user initiated.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "84c22c39de75e6c40b1f5eb12ec8745ca82fee60",
+                    "bytes": 1635,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 3627481,
+                        "login": "alexmojaki",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "logfire-evals-c782176426a0",
+            "path": "logfire-sdk/logfire/.agents/skills/logfire-evals/SKILL.md",
+            "name": "logfire-evals",
+            "description": "Run offline Python (`pydantic_evals`) or Node.js (`logfire/evals`) evaluations and review them in Logfire. Also redirect existing Braintrust `Eval()` suites. Use for eval setup, test datasets, AI scoring, agent checks, LLM judges, Braintrust migration, or Logfire Datasets & Experiments. Not for live traffic or infrastructure monitoring.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "e73d1e6f0df1097cdbf2f6bfcf4bc013a9a20d55",
+                    "bytes": 14254,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6384545,
+                        "login": "strawgate",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "logfire-infrastructure-9d298207bb31",
+            "path": "logfire-sdk/logfire/.agents/skills/logfire-infrastructure/SKILL.md",
+            "name": "logfire-infrastructure",
+            "description": "Monitor hosts, Docker containers, Kubernetes clusters, database/queue/cache servers, and cloud-provider metrics with Pydantic Logfire — no application code required. Use this skill whenever the user asks to \"monitor my host/server/VM\", \"monitor my Docker containers\", \"monitor my Kubernetes cluster\", \"send infrastructure metrics to Logfire\", \"watch my database/Postgres/Redis/MongoDB/Kafka\", \"collect cloud metrics\" (AWS/GCP), or mentions the OpenTelemetry Collector in the context of Logfire. This is infrastructure only — for instrumenting APPLICATION CODE (traces, logs, AI/agent spans) use the logfire-instrumentation skill instead.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "a266b17847d4cdb914e2263df172e9cec21d01b7",
+                    "bytes": 7230,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/collector/host-and-infra-metrics.md",
+                    "blob": "fc861d63c4fd2c2494916f0d1f70e6034a599549",
+                    "bytes": 9708,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6384545,
+                        "login": "strawgate",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "logfire-instrumentation-2b3530a05deb",
+            "path": "logfire-sdk/logfire/.agents/skills/logfire-instrumentation/SKILL.md",
+            "name": "logfire-instrumentation",
+            "description": "Add Pydantic Logfire observability to application code — traces, logs, metrics, and AI/agent spans. Use when the user asks to add or configure Logfire, observability, tracing, logging, or monitoring; maximize useful telemetry; or understand what an app is doing. Supports Python, JavaScript/TypeScript, Rust, and major AI agent frameworks including Pydantic AI, OpenAI Agents SDK, Claude Agent SDK, LangChain, LangGraph, CrewAI, AutoGen, and Google ADK. For infrastructure-only monitoring (hosts, Docker, Kubernetes, databases, or cloud metrics with no app-code changes), use `logfire-infrastructure`. For evaluating AI/agent behavior against test datasets, use `logfire-evals`.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "c5a6e8d629e9f98c1ada14e5a2a47183c47eb81e",
+                    "bytes": 24471,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/auth.md",
+                    "blob": "cb017d4af6b853f70c8b03503a7163e6aef0ec34",
+                    "bytes": 13029,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/javascript/ai-sdk.md",
+                    "blob": "653541372d7136bd7d3781bf00ee3148f7019f96",
+                    "bytes": 4812,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/javascript/cloudflare-and-deno.md",
+                    "blob": "9fb65f4cac6bf724b8d34ab53daaa7f408520432",
+                    "bytes": 3099,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/javascript/frameworks.md",
+                    "blob": "3ab2e35df376bbe8aa6cefdeabba55316958c8e0",
+                    "bytes": 1793,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/javascript/installation-and-env.md",
+                    "blob": "dccfa97c7448de9314d44cf2b37ee7d8e22084ed",
+                    "bytes": 4167,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/javascript/nextjs.md",
+                    "blob": "9d98237d47f317b0c43da5e37f3ec896958ab55c",
+                    "bytes": 5613,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/javascript/node-runtime.md",
+                    "blob": "44cd406d161b25efe3f0bd96d16c5a952be303cf",
+                    "bytes": 3137,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/javascript/patterns.md",
+                    "blob": "2be3d91f5f135120ef48998c707c2eb19fd2474f",
+                    "bytes": 5078,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/javascript/project-detection.md",
+                    "blob": "5f86bcfb4979e9bf40f0179957fee60ba7512714",
+                    "bytes": 2948,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/javascript/react-browser.md",
+                    "blob": "d81dec974bc5125f22af6a9fa7bdfa6982018e37",
+                    "bytes": 4858,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/javascript/verification-troubleshooting.md",
+                    "blob": "968d06f52b0ffc38ae169f33ecedfe8f4ba68363",
+                    "bytes": 2853,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/python/integrations.md",
+                    "blob": "0a0e8d509d53313332c0ab46e69f9cca1d4dc676",
+                    "bytes": 4727,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/python/logging-patterns.md",
+                    "blob": "0f0e98729356fcf61f4bd55debe5192bbc0bc05b",
+                    "bytes": 3761,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/rust/patterns.md",
+                    "blob": "e14db30ed8695c2e3ec15b3304694cf6101e81a2",
+                    "bytes": 2858,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 13347,
+                        "login": "petyosi",
+                        "commits": 1
+                    },
+                    {
+                        "id": 6384545,
+                        "login": "strawgate",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "logfire-setup-65e50003b306",
+            "path": "logfire-sdk/logfire/.agents/skills/logfire-setup/SKILL.md",
+            "name": "logfire-setup",
+            "description": "Entry point for Pydantic Logfire — an observability, monitoring, and evals platform. Use this skill when the user asks to \"set up Logfire\", \"add Logfire to my project\", \"get me set up properly with Logfire\", \"send as much data as would be useful\", mentions Logfire without a specific scope, or their request spans more than one of instrumenting application code / monitoring infrastructure / evaluating AI behavior. If the request is clearly scoped to exactly one of those, fetch that specific skill directly instead of this one — this skill exists to route, not to duplicate their content.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "85ad67dfc39eca8b22fb0e9b2c2a318ec9eee3f7",
+                    "bytes": 6108,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6384545,
+                        "login": "strawgate",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "CLAUDE.md",
+        "blob": "2140135129474563187bf1cc594a73667ad094be",
+        "bytes": 9834,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "87e548a71b88be93caf4b107f8512f2155d04210",
+        "bytes": 1099,
+        "text": true,
+        "mode": "100644"
+    }
+}

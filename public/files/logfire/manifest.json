@@ -1,0 +1,30 @@
+{
+    "slug": "logfire",
+    "sha": "cb23455482dd993d8cf96f65fdfe7517c8ec81e1",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 9,
+            "lines": 1,
+            "symlink": "CLAUDE.md",
+            "resolvedPath": "CLAUDE.md"
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 9834,
+            "lines": 139
+        },
+        {
+            "path": "dev-docs/documentation-style-guide.md",
+            "bytes": 29529,
+            "lines": 478
+        },
+        {
+            "path": "docs/integrations/agent-frameworks/CLAUDE.md",
+            "bytes": 2686,
+            "lines": 37
+        }
+    ]
+}

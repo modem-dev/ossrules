@@ -1,0 +1,98 @@
+{
+    "slug": "rolldown",
+    "name": "Rolldown",
+    "owner": "rolldown",
+    "repo": "rolldown",
+    "language": "Rust",
+    "stars": 13947,
+    "defaultBranch": "main",
+    "instructionFile": "AGENTS.md",
+    "lastCommit": {
+        "sha": "fa6bd5c2c9b389ff6c7e488ab89a724001a44eee",
+        "date": "2026-08-19T11:49:40Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 7965,
+        "lines": 106,
+        "words": 1164,
+        "headings": 13,
+        "bullets": 51,
+        "codeBlocks": 1,
+        "docLinks": 0
+    },
+    "tagline": "A Rust-based JavaScript and TypeScript bundler with a TypeScript API.",
+    "hook": "Splits internal documentation into design rationale and implementation mechanics, and assigns CI suites by change type.",
+    "summary": "Rolldown treats instructions as a route into the context missing from code. Its root guide describes a three-layer runtime, generated bindings, and the CI coverage needed for browser, Windows, and WebContainer changes.",
+    "references": [
+        {
+            "path": "docs/apis/rust-crates.md"
+        },
+        {
+            "path": "internal-docs/watch-mode/implementation.md"
+        },
+        {
+            "path": "internal-docs/path-manipulation/style-guide.md"
+        },
+        {
+            "path": "internal-docs/",
+            "kind": "pattern",
+            "label": "Feature design and implementation documents"
+        },
+        {
+            "path": "internal-docs/template/",
+            "kind": "pattern",
+            "label": "Design and implementation templates"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Separate rationale from machinery",
+            "body": "Internal documentation has distinct design and implementation files. A feature only needs a design file when there is reasoning worth retaining, so the structure does not require inventing rationale for every feature.",
+            "quote": "A feature with no recorded rationale keeps only `implementation.md`; add `design.md` when there's a _why_ worth capturing."
+        },
+        {
+            "title": "Remove context that code now explains",
+            "body": "The guide asks maintainers to trim completed details while retaining decisions, failure modes, and unresolved questions. Documentation is maintained for the context it adds, not for a complete inventory of implementation.",
+            "quote": "Trim what's been implemented and is now obvious from the code. Keep what's still valuable — the \"why\" behind decisions, failure modes, unresolved questions.",
+            "pattern": "context-budget"
+        },
+        {
+            "title": "Specify what CI activation actually requires",
+            "body": "The Windows rule requires both a label and rerunning jobs on the current PR commit. It explains why adding the label alone is insufficient.",
+            "quote": "Adding the label alone does not start a workflow.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Distinguish execution tests from package installation tests",
+            "body": "The WebContainer guidance separates the default wasm suite from a suite that installs and builds packed artifacts. Changes to bindings and their packaging therefore need an additional kind of evidence.",
+            "quote": "Pure wasm behavior changes don't need it — the default CI's `wasi` job already runs the test suite against the wasm binding; this label checks that the packed packages install and work inside WebContainer.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Explain an internal compatibility exception",
+            "body": "The root tips state that the internal Rust crates do not promise semver stability. Reviews should check in-repository callers rather than report a public compatibility violation that the project does not claim.",
+            "quote": "Breaking API changes are expected and acceptable in any version — do not raise them as code-review findings as long as in-repo callers are updated.",
+            "pattern": "behavioral-conditioning"
+        }
+    ],
+    "steal": [
+        "Separate design decisions from implementation descriptions.",
+        "Remove documentation that no longer adds context beyond the code.",
+        "Explain how optional CI coverage is activated.",
+        "Distinguish runtime behavior from packaged-installation behavior."
+    ],
+    "outline": [
+        "Project Identity",
+        "Context Engineering",
+        "Architecture",
+        "Repository Structure",
+        "Bash commands",
+        "Pull Requests",
+        "Windows CI",
+        "Browser CI",
+        "WebContainer CI",
+        "Common Pitfalls & Best Practices"
+    ],
+    "patterns": ["context-budget", "verification-matrix", "behavioral-conditioning"]
+}

@@ -1,0 +1,62 @@
+{
+    "version": 1,
+    "slug": "skills-cli",
+    "repository": "vercel-labs/skills",
+    "branch": "main",
+    "sha": "1a6f8649f93dda000a9672e63e8c9c9eeed24da4",
+    "scannedAt": "2026-09-17T12:21:53.290Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "find-skills-0591428e265c",
+            "path": "skills/find-skills/SKILL.md",
+            "name": "find-skills",
+            "description": "Helps users discover and install agent skills when they ask questions like \"how do I do X\", \"find a skill for X\", \"is there a skill that can...\", or express interest in extending capabilities. This skill should be used when the user is looking for functionality that might exist as an installable skill.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "a41bdd074bb587afd861332cf2f473f3154de4d7",
+                    "bytes": 5472,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 32676955,
+                        "login": "quuu",
+                        "commits": 2
+                    },
+                    {
+                        "id": 18634836,
+                        "login": "crskzn",
+                        "commits": 1
+                    },
+                    {
+                        "id": 55885132,
+                        "login": "elliotllliu",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "6f004bf1f696d8d83b2c1950c40cd8239d66a442",
+        "bytes": 7174,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "eabe3008f6c0275929faa8b07d406e82717648cc",
+        "bytes": 1069,
+        "text": true,
+        "mode": "100644"
+    }
+}

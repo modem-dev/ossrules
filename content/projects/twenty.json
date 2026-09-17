@@ -1,0 +1,75 @@
+{
+    "slug": "twenty",
+    "name": "Twenty",
+    "owner": "twentyhq",
+    "repo": "twenty",
+    "language": "TypeScript",
+    "stars": 56903,
+    "defaultBranch": "main",
+    "instructionFile": "CLAUDE.md",
+    "lastCommit": {
+        "sha": "330cf9c39d149e4945cd142d6519bcef56e85628",
+        "date": "2026-09-16T09:13:22Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 4853,
+        "lines": 50,
+        "words": 613,
+        "headings": 4,
+        "bullets": 18,
+        "codeBlocks": 1,
+        "docLinks": 0
+    },
+    "tagline": "An open-source CRM with a React frontend, NestJS backend, and application SDK.",
+    "hook": "Explains how branch-local build output and Nx caching can produce misleading failures or stale passes.",
+    "summary": "Twenty's AGENTS.md resolves to CLAUDE.md, a compact guide to a multi-package CRM. It prioritizes neighboring code, identifies recurring agent mistakes, and records verification and migration pitfalls that are not apparent from the commands alone.",
+    "references": [
+        {
+            "path": "packages/twenty-ui/src/icon/icon-dictionary.md"
+        },
+        {
+            "path": "packages/twenty-server/docs/UPGRADE_COMMANDS.md"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Give surrounding code precedence over written defaults",
+            "body": "The opening instruction makes adjacent files the authority when local conventions differ. It explicitly includes file naming, which varies across this monorepo.",
+            "quote": "Match the surrounding code — the adjacent files in the directory you are editing beat any written rule, including for file naming, which varies by area.",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Identify stale artifacts before diagnosing failures",
+            "body": "The guide treats the shared package output as branch-specific state. It requires rebuilding without Nx cache after branch switches or shared-package edits before trusting dependent test results.",
+            "quote": "- **`twenty-shared/dist` is per-branch state nothing tracks.** After switching branches or editing `twenty-shared`, run `npx nx build twenty-shared --skip-nx-cache` before trusting any typecheck or test failure in a dependent package.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Bypass cached success when verifying a fix",
+            "body": "A separate gotcha warns that the task runner can return an old passing result. It names a direct compiler invocation for checking whether a change actually fixes the problem.",
+            "quote": "- **Nx caching can serve a stale pass.** To verify a fix, run `npx tsgo -p tsconfig.json --noEmit` in the package directly rather than `nx typecheck`.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Keep incidental generated changes out of a patch",
+            "body": "Translation extraction can rewrite large catalogs as a side effect of editing a message. The guide reserves those files for translation work and leaves their routine maintenance to the translation pipeline.",
+            "quote": "**Do not commit translation catalogs unless translations are the task.**",
+            "pattern": "generated-file-guard"
+        },
+        {
+            "title": "Name an observed agent failure",
+            "body": "The house rules point to existing guard packages before allowing new helpers. They identify redundant utilities as a recurring agent-authored defect, giving the lookup step a concrete reason.",
+            "quote": "Reimplementing an existing util is the most common AI-authored defect here.",
+            "pattern": "behavioral-conditioning"
+        }
+    ],
+    "steal": [
+        "State when local examples override repository-wide defaults.",
+        "Document build artifacts that survive branch switches.",
+        "Name a verification command that bypasses task caches.",
+        "Exclude incidental generated files from unrelated patches."
+    ],
+    "outline": ["CLAUDE.md", "House rules", "Commands", "Gotchas"],
+    "patterns": ["behavioral-conditioning", "verification-matrix", "generated-file-guard"]
+}

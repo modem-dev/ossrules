@@ -1,0 +1,12 @@
+{
+    "version": 1,
+    "slug": "fx",
+    "repository": "vercel-labs/fx",
+    "branch": "main",
+    "sha": "a1e3265dd7ce9c00d14702d2789146af4596cb3f",
+    "scannedAt": "2026-09-17T12:22:26.175Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": []
+}

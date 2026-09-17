@@ -1,0 +1,52 @@
+{
+    "slug": "railpack",
+    "sha": "33a75f8b7242942a1186afdb6a4f18bbbc2d2cb7",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 11,
+            "lines": 1
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 6058,
+            "lines": 99,
+            "imports": [
+                {
+                    "target": "images/debian/runtime/Dockerfile",
+                    "path": "images/debian/runtime/Dockerfile"
+                },
+                {
+                    "target": "mise.toml",
+                    "path": "mise.toml"
+                },
+                {
+                    "target": "docs/src/content/docs/guides/developing-locally.md",
+                    "path": "docs/src/content/docs/guides/developing-locally.md"
+                }
+            ]
+        },
+        {
+            "path": "docs/src/content/docs/guides/developing-locally.md",
+            "bytes": 17606,
+            "lines": 491
+        },
+        {
+            "path": "examples/tanstack-latest/AGENTS.md",
+            "bytes": 14119,
+            "lines": 97
+        },
+        {
+            "path": "images/debian/runtime/Dockerfile",
+            "bytes": 356,
+            "lines": 14
+        },
+        {
+            "path": "mise.toml",
+            "bytes": 5881,
+            "lines": 171
+        }
+    ]
+}

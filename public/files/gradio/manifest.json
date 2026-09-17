@@ -1,0 +1,23 @@
+{
+    "slug": "gradio",
+    "sha": "39ef9cae8f973f807aeeba02915b9954f339e48c",
+    "license": "Apache-2.0",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".github/PULL_REQUEST_TEMPLATE.md",
+            "bytes": 1391,
+            "lines": 25
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 3530,
+            "lines": 72
+        },
+        {
+            "path": "CONTRIBUTING.md",
+            "bytes": 17396,
+            "lines": 532
+        }
+    ]
+}

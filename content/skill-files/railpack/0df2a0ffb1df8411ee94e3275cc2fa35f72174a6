@@ -1,0 +1,133 @@
+{
+ "deploy": {
+  "base": {
+   "image": "ghcr.io/railwayapp/railpack-runtime:mise-2026.9.9"
+  },
+  "inputs": [
+   {
+    "include": [
+     "/mise/shims",
+     "/mise/installs",
+     "/usr/local/bin/mise",
+     "/etc/mise/config.toml",
+     "/root/.local/state/mise"
+    ],
+    "step": "packages:mise"
+   },
+   {
+    "include": [
+     "/app/.venv"
+    ],
+    "step": "build"
+   },
+   {
+    "exclude": [
+     ".venv"
+    ],
+    "include": [
+     "."
+    ],
+    "step": "build"
+   }
+  ],
+  "startCommand": "python main.py",
+  "variables": {
+   "PIP_DEFAULT_TIMEOUT": "100",
+   "PIP_DISABLE_PIP_VERSION_CHECK": "1",
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "PYTHONFAULTHANDLER": "1",
+   "PYTHONHASHSEED": "random",
+   "PYTHONUNBUFFERED": "1",
+   "RAILPACK_VERSION": "dev"
+  }
+ },
+ "steps": [
+  {
+   "assets": {
+    "generated-mise-toml": "[generated-mise-toml]"
+   },
+   "commands": [
+    {
+     "path": "/mise/shims"
+    },
+    {
+     "customName": "create mise config",
+     "name": "generated-mise-toml",
+     "path": "/etc/mise/config.toml"
+    },
+    {
+     "cmd": "mise install",
+     "customName": "install mise packages: pipx, pipx:pipenv, python, uv"
+    }
+   ],
+   "inputs": [
+    {
+     "image": "ghcr.io/railwayapp/railpack-builder:mise-2026.9.9"
+    }
+   ],
+   "name": "packages:mise",
+   "variables": {
+    "MISE_CACHE_DIR": "/mise/cache",
+    "MISE_CONFIG_DIR": "/mise",
+    "MISE_DATA_DIR": "/mise",
+    "MISE_INSTALLS_DIR": "/mise/installs",
+    "MISE_SHIMS_DIR": "/mise/shims"
+   }
+  },
+  {
+   "commands": [
+    {
+     "path": "/root/.local/bin"
+    },
+    {
+     "path": "/app/.venv/bin"
+    },
+    {
+     "dest": "Pipfile",
+     "src": "Pipfile"
+    },
+    {
+     "dest": "Pipfile.lock",
+     "src": "Pipfile.lock"
+    },
+    {
+     "cmd": "pipenv install --deploy --ignore-pipfile"
+    }
+   ],
+   "inputs": [
+    {
+     "step": "packages:mise"
+    }
+   ],
+   "name": "install",
+   "variables": {
+    "PIPENV_CHECK_UPDATE": "false",
+    "PIPENV_IGNORE_VIRTUALENVS": "1",
+    "PIPENV_VENV_IN_PROJECT": "1",
+    "PIP_DEFAULT_TIMEOUT": "100",
+    "PIP_DISABLE_PIP_VERSION_CHECK": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONFAULTHANDLER": "1",
+    "PYTHONHASHSEED": "random",
+    "PYTHONUNBUFFERED": "1"
+   }
+  },
+  {
+   "inputs": [
+    {
+     "step": "install"
+    },
+    {
+     "include": [
+      "."
+     ],
+     "local": true
+    }
+   ],
+   "name": "build",
+   "secrets": [
+    "*"
+   ]
+  }
+ ]
+}

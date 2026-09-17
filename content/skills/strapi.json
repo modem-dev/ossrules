@@ -1,0 +1,52 @@
+{
+    "version": 1,
+    "slug": "strapi",
+    "repository": "strapi/strapi",
+    "branch": "develop",
+    "sha": "3cd7dba3495e094682cc7a8d0eb83bde77e9b0b4",
+    "scannedAt": "2026-09-17T12:29:56.059Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "git-conventions-42762425c158",
+            "path": ".ai/skills/git-conventions/SKILL.md",
+            "name": "git-conventions",
+            "description": "Use when writing any git commit message, PR title, or squash subject in the Strapi repo. Trigger whenever a commit/PR subject is being drafted, even if the user didn't say the word \"commit\".",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "0f82793d28966f38351d68875919809667510e2c",
+                    "bytes": 4150,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 104358430,
+                        "login": "cache-your-dreams",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "eb5a67acce4f7efa3314946ab70106386f47f2d4",
+        "bytes": 11763,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "f63cf15b91b4878a1d3afe0f7c59d28fc7564ebe",
+        "bytes": 2423,
+        "text": true,
+        "mode": "100644"
+    }
+}

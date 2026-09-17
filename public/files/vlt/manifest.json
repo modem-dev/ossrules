@@ -1,0 +1,38 @@
+{
+    "slug": "vlt",
+    "sha": "4849a970de8f14ceffd590a30b3b51b62a440f55",
+    "license": "BSD-2-Clause-Patent",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".cursor/rules/cli-sdk-workspace.mdc",
+            "bytes": 1695,
+            "lines": 50
+        },
+        {
+            "path": ".cursor/rules/graph/index.mdc",
+            "bytes": 3207,
+            "lines": 68
+        },
+        {
+            "path": ".cursor/rules/linting-error-handler.mdc",
+            "bytes": 1099,
+            "lines": 36
+        },
+        {
+            "path": ".cursor/rules/query-pseudo-selector-creation.mdc",
+            "bytes": 1722,
+            "lines": 48
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 4815,
+            "lines": 113
+        },
+        {
+            "path": "src/query/skills/dss-query/evals/README.md",
+            "bytes": 4814,
+            "lines": 79
+        }
+    ]
+}

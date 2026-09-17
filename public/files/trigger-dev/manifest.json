@@ -1,0 +1,101 @@
+{
+    "slug": "trigger-dev",
+    "sha": "9944f44f8528985f3a76cddc2dd4b5bc2402165c",
+    "license": "Apache-2.0",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".claude/rules/legacy-v3-code.md",
+            "bytes": 1912,
+            "lines": 26
+        },
+        {
+            "path": ".claude/rules/package-installation.md",
+            "bytes": 692,
+            "lines": 22
+        },
+        {
+            "path": ".server-changes/README.md",
+            "bytes": 3894,
+            "lines": 97
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 14491,
+            "lines": 301
+        },
+        {
+            "path": "apps/supervisor/CLAUDE.md",
+            "bytes": 919,
+            "lines": 20
+        },
+        {
+            "path": "apps/webapp/CLAUDE.md",
+            "bytes": 8745,
+            "lines": 131
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "AGENTS.md"
+                }
+            ]
+        },
+        {
+            "path": "docs/CLAUDE.md",
+            "bytes": 1527,
+            "lines": 55
+        },
+        {
+            "path": "internal-packages/clickhouse/CLAUDE.md",
+            "bytes": 2298,
+            "lines": 58
+        },
+        {
+            "path": "internal-packages/database/CLAUDE.md",
+            "bytes": 2157,
+            "lines": 60
+        },
+        {
+            "path": "internal-packages/run-engine/CLAUDE.md",
+            "bytes": 1780,
+            "lines": 46
+        },
+        {
+            "path": "node_modules/agentcrumbs/skills/agentcrumbs/init/SKILL.md",
+            "bytes": 0,
+            "lines": 0,
+            "missing": true
+        },
+        {
+            "path": "node_modules/agentcrumbs/skills/agentcrumbs/SKILL.md",
+            "bytes": 0,
+            "lines": 0,
+            "missing": true
+        },
+        {
+            "path": "packages/cli-v3/CLAUDE.md",
+            "bytes": 1693,
+            "lines": 38
+        },
+        {
+            "path": "packages/core/CLAUDE.md",
+            "bytes": 785,
+            "lines": 25
+        },
+        {
+            "path": "packages/redis-worker/CLAUDE.md",
+            "bytes": 638,
+            "lines": 19
+        },
+        {
+            "path": "packages/trigger-sdk/CLAUDE.md",
+            "bytes": 957,
+            "lines": 27
+        }
+    ]
+}

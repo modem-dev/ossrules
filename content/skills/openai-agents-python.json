@@ -1,0 +1,758 @@
+{
+    "version": 1,
+    "slug": "openai-agents-python",
+    "repository": "openai/openai-agents-python",
+    "branch": "main",
+    "sha": "1d17ca40b927452d5f27df662092f767fa9f05b7",
+    "scannedAt": "2026-09-17T12:27:51.420Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "code-change-verification-93ee7b38b68d",
+            "path": ".agents/skills/code-change-verification/SKILL.md",
+            "name": "code-change-verification",
+            "description": "Run the required final formatting, lint, type, and test checks after eligible SDK changes pass review.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "077cb231f63c552b480f8f7bb261080a830a9193",
+                    "bytes": 5499,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "555019386cc50b717b1fa0c73eb6fc91972b4a35",
+                    "bytes": 476,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/run.ps1",
+                    "blob": "bcf82db83cc53a31b8a121213471d79918d74e88",
+                    "bytes": 6476,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/run.sh",
+                    "blob": "9aa1b98b94126022e20c0016f679a998de939856",
+                    "bytes": 1899,
+                    "text": true,
+                    "mode": "100755"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 19658,
+                        "login": "seratch",
+                        "commits": 9
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "docs-sync-85a85afce628",
+            "path": ".agents/skills/docs-sync/SKILL.md",
+            "name": "docs-sync",
+            "description": "Audit or update English SDK documentation against the requested implementation scope.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "cbdba999d39aec6d1b31198af7da15f2518ed299",
+                    "bytes": 5038,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "145f6d99a59005b22955c24dd959c30829423221",
+                    "bytes": 232,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/doc-coverage-checklist.md",
+                    "blob": "46b5eccadaede8666637b55c8f4082e701667cc1",
+                    "bytes": 2798,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 19658,
+                        "login": "seratch",
+                        "commits": 4
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "examples-run-analysis-bb5e87c984d9",
+            "path": ".agents/skills/examples-run-analysis/SKILL.md",
+            "name": "examples-run-analysis",
+            "description": "Analyze logs and source from a completed manual examples run. Never execute or control examples.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "c5b063755840aa318a3a732ee282440a80b0d29e",
+                    "bytes": 4217,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "a3753614e5eb957b98a2b32d5c456c98289e65f7",
+                    "bytes": 293,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 19658,
+                        "login": "seratch",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "final-release-review-6bb46dfaa526",
+            "path": ".agents/skills/final-release-review/SKILL.md",
+            "name": "final-release-review",
+            "description": "Assess a Python SDK release candidate or release plan against the previous release and recommend ship or block.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "3ded69490485558f356cea1a2685dfca88218a0b",
+                    "bytes": 17648,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "437d0f86a10b181adb409ef822376e901a0dc715",
+                    "bytes": 342,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/review-checklist.md",
+                    "blob": "6946b297adfafead3ee80547fbf2e2dce14e2d3f",
+                    "bytes": 9609,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/find_latest_release_tag.sh",
+                    "blob": "f36ae497b05bdb63c4f48fe65e47dc2808881ec5",
+                    "bytes": 422,
+                    "text": true,
+                    "mode": "100755"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 19658,
+                        "login": "seratch",
+                        "commits": 10
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "implementation-final-review-a08817150910",
+            "path": ".agents/skills/implementation-final-review/SKILL.md",
+            "name": "implementation-final-review",
+            "description": "Review completed implementation changes before final verification. Use when repository policy requires independent review or the user explicitly requests it.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d7d59d1944238f6659303163c933dfa613a55c15",
+                    "bytes": 7887,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "c8e7a08bf1f4294aeea28322281c6e8d2d363eb7",
+                    "bytes": 302,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/high-risk-review.md",
+                    "blob": "ddbd3a2ddb7075cfd3b4dc1b766f98e6a82c0bab",
+                    "bytes": 56025,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/reviewer-brief.md",
+                    "blob": "20c1b47a4412471f1be5caae0f1e1ee64a3eb24b",
+                    "bytes": 21563,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/review_protocol.py",
+                    "blob": "a40f8d52caf6cb4ff9963a226836e074db114948",
+                    "bytes": 61729,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/review_state.py",
+                    "blob": "3fdbe1a613f8b0046f3d4fc50d0369a5089a2f64",
+                    "bytes": 25165,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/test_review_protocol.py",
+                    "blob": "fe7cf4a3783310102b0de62e7d9727d9a4b21838",
+                    "bytes": 79279,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/test_review_state.py",
+                    "blob": "bb7aed62f3ee84ee35c87e60cc6218ea711d64c3",
+                    "bytes": 33934,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 19658,
+                        "login": "seratch",
+                        "commits": 12
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "implementation-kickoff-586e75613ab3",
+            "path": ".agents/skills/implementation-kickoff/SKILL.md",
+            "name": "implementation-kickoff",
+            "description": "Carry implementation through an isolated worktree and local handoff. Use only when this skill is explicitly invoked.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "42bac39c8d51e3fd0961cfeaf4270f28e37ef1ef",
+                    "bytes": 11640,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "d99003f17284d87da3e991bf503ab17eb1ed0753",
+                    "bytes": 300,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/test_validate_handoff.py",
+                    "blob": "5d82d49a3ac3d2e2f349eeab51016c6cab5068d3",
+                    "bytes": 11078,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/validate_handoff.py",
+                    "blob": "af35b09c33ecd5001c4387936bcdc842c7829d5e",
+                    "bytes": 10326,
+                    "text": true,
+                    "mode": "100755"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 19658,
+                        "login": "seratch",
+                        "commits": 5
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "implementation-strategy-2bc83cfc1285",
+            "path": ".agents/skills/implementation-strategy/SKILL.md",
+            "name": "implementation-strategy",
+            "description": "Choose supported scope and compatibility boundaries for SDK behavior changes; revisit when feedback changes the design.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d67b21623bcde46fc8a2658f401fef5005d8c4e8",
+                    "bytes": 14740,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "2acfd1c43211603e1939c20dbb135376dec3f5f1",
+                    "bytes": 350,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 19658,
+                        "login": "seratch",
+                        "commits": 11
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "maintainer-review-74b31ea97b8d",
+            "path": ".agents/skills/maintainer-review/SKILL.md",
+            "name": "maintainer-review",
+            "description": "Assess a GitHub issue or PR for demonstrated need, supported alternatives, correctness, and maintainer action. Desk review only.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "96686a30bb59238f00e7aa1156f3a3521d67ef9b",
+                    "bytes": 35615,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "edbffab315d3a56ffdb26a971e7a76f19a0ee978",
+                    "bytes": 387,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/evaluation-framework.md",
+                    "blob": "516d6dfc7ae93ca81c6b3e3c231ad89ed9d1b986",
+                    "bytes": 33877,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 19658,
+                        "login": "seratch",
+                        "commits": 15
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "openai-knowledge-1de733fb0425",
+            "path": ".agents/skills/openai-knowledge/SKILL.md",
+            "name": "openai-knowledge",
+            "description": "Retrieve authoritative OpenAI API and platform documentation when an integration or claim needs current external evidence.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "dc0198428e12762a509296f09e52fe58f8dfcb2a",
+                    "bytes": 1634,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "5012167865a736e448337e5c5218cfd07d7ac94d",
+                    "bytes": 233,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 19658,
+                        "login": "seratch",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "pr-draft-summary-c0fd4129403c",
+            "path": ".agents/skills/pr-draft-summary/SKILL.md",
+            "name": "pr-draft-summary",
+            "description": "Prepare the required local PR title, description, and branch suggestion after eligible implementation work is complete.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "5b872a9f6f80e8fbaf6bbba83c051c9ebf7b85af",
+                    "bytes": 7202,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "572ac1f62fd073ce4a04b2772b15ecd6e1a79728",
+                    "bytes": 251,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 19658,
+                        "login": "seratch",
+                        "commits": 7
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "release-candidate-prep-c429c1f447ef",
+            "path": ".agents/skills/release-candidate-prep/SKILL.md",
+            "name": "release-candidate-prep",
+            "description": "Prepare a local Python SDK release candidate in a dedicated worktree. Use only when explicitly invoked with a version.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "05ddcaeda61e6ab710203770c31f22d5a141a347",
+                    "bytes": 18222,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/prepare.py",
+                    "blob": "29ef65eeea352437e2e02a96a4c08d2fa84d0962",
+                    "bytes": 21508,
+                    "text": true,
+                    "mode": "100755"
+                },
+                {
+                    "path": "scripts/test_prepare.py",
+                    "blob": "192aa7dd399b6f463f23aec0c7bce31c318a2b84",
+                    "bytes": 25978,
+                    "text": true,
+                    "mode": "100755"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 19658,
+                        "login": "seratch",
+                        "commits": 6
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "runtime-behavior-probe-6813c4b9c5de",
+            "path": ".agents/skills/runtime-behavior-probe/SKILL.md",
+            "name": "runtime-behavior-probe",
+            "description": "Plan controlled runtime probes when explicitly invoked; execute only after the required probe approval.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "957420f78985777ff23bfe50e4310d2e86e0c257",
+                    "bytes": 15356,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "0d9c58cbaf92d10c73db33a201737470260a78d2",
+                    "bytes": 428,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/error-cases.md",
+                    "blob": "66f713992de69e05e7022668c20cddad5ff3ac19",
+                    "bytes": 2781,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/openai-runtime-patterns.md",
+                    "blob": "1aaeb19504dbf520d966bcf0b26c05692309f900",
+                    "bytes": 7365,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/reporting-format.md",
+                    "blob": "936888eef4c397351f7656b318db0cd6d6e4e454",
+                    "bytes": 4910,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/validation-matrix.md",
+                    "blob": "60e67826ed4a960054a2bd15799f76108acb838e",
+                    "bytes": 9012,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "templates/python_probe.py",
+                    "blob": "c3e03f6f79cbec6aa0f2143c8089e20a9b253e0a",
+                    "bytes": 6772,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 19658,
+                        "login": "seratch",
+                        "commits": 5
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "sensitive-logging-audit-1e4a33e3a8a3",
+            "path": ".agents/skills/sensitive-logging-audit/SKILL.md",
+            "name": "sensitive-logging-audit",
+            "description": "Audit or fix sensitive-data exposure in Python SDK diagnostics, exceptions, logging, and telemetry.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "bc641578bca64069fe7f04a87db343fe18485379",
+                    "bytes": 4045,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "1f0e17b1bd3c2201c37ba3cc8ef99319b8d2aa3f",
+                    "bytes": 244,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/redaction-validation.md",
+                    "blob": "35b2ab6cba8b0ae9507930a110e04770f5ab0ada",
+                    "bytes": 4323,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/inventory_logging.py",
+                    "blob": "da2bea1f20bf06133d3bf4f4b9216eb766349698",
+                    "bytes": 11946,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/test_inventory.py",
+                    "blob": "44a6b42a1a3b88d3e38c1af99de0805a98b1e8dc",
+                    "bytes": 5669,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 19658,
+                        "login": "seratch",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "test-coverage-improver-4c166b5155c1",
+            "path": ".agents/skills/test-coverage-improver/SKILL.md",
+            "name": "test-coverage-improver",
+            "description": "Measure Python SDK coverage or address measured coverage gaps. Use for coverage audits and metric regressions, not routine test additions.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "bb60485bce9ac4836b1f9a72dfaac428aed50f2f",
+                    "bytes": 2746,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "d512de45d89f12efe03eaea63ed9f2a28d43c10a",
+                    "bytes": 264,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 19658,
+                        "login": "seratch",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "credit-note-fixer-063bd3561921",
+            "path": "examples/sandbox/docs/skills/credit-note-fixer/SKILL.md",
+            "name": "credit-note-fixer",
+            "description": "Fix the tiny credit-note formatting bug and rerun the exact targeted test command.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "0ef2949ffecc73cc26115bea7a34551c257f0e1b",
+                    "bytes": 645,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 3506415,
+                        "login": "sdcoffey",
+                        "commits": 1
+                    },
+                    {
+                        "id": 19658,
+                        "login": "seratch",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "prior-auth-packet-builder-c40625f1fb1d",
+            "path": "examples/sandbox/healthcare_support/skills/prior-auth-packet-builder/SKILL.md",
+            "name": "prior-auth-packet-builder",
+            "description": "Build a concise prior authorization packet from local case files and payer policy docs.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "47ae0035de5b244e91e47344d77bbb3eb6ce8b6e",
+                    "bytes": 1716,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 19658,
+                        "login": "seratch",
+                        "commits": 2
+                    },
+                    {
+                        "id": 3506415,
+                        "login": "sdcoffey",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "playwright-2694bbf720ce",
+            "path": "examples/sandbox/tutorials/vision_website_clone/skills/playwright/SKILL.md",
+            "name": "playwright",
+            "description": "Use when the task requires capturing or automating a real browser from the terminal.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "5a7a9709db5c96c9382222bbc1f384eaf340ad24",
+                    "bytes": 718,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 3506415,
+                        "login": "sdcoffey",
+                        "commits": 1
+                    },
+                    {
+                        "id": 19658,
+                        "login": "seratch",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "csv-workbench-65dec67c526d",
+            "path": "examples/tools/skills/csv-workbench/SKILL.md",
+            "name": "csv-workbench",
+            "description": "Analyze CSV files in /mnt/data and return concise numeric summaries.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "a954e42fb7c8a64fb014f892ddfb609282b4c8f7",
+                    "bytes": 587,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "playbook.md",
+                    "blob": "95cacedeb69c8a8ccd510941e845ea6786486534",
+                    "bytes": 599,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 19658,
+                        "login": "seratch",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "377f61f36728f99d6ed8a8bb005d4c4faad18742",
+        "bytes": 38183,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "e5ad2c5aa30343f143a5c418004ca1a8d2cfaff4",
+        "bytes": 1063,
+        "text": true,
+        "mode": "100644"
+    }
+}

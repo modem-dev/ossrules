@@ -1,0 +1,44 @@
+{
+    "slug": "marimo",
+    "sha": "917b86334795c2b5af086a3112556587cab91547",
+    "license": "Apache-2.0",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 2947,
+            "lines": 65
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "AGENTS.md"
+                }
+            ]
+        },
+        {
+            "path": "CONTRIBUTING.md",
+            "bytes": 12254,
+            "lines": 362
+        },
+        {
+            "path": "docs/_static/CLAUDE.md",
+            "bytes": 9981,
+            "lines": 367
+        },
+        {
+            "path": "frontend/AGENTS.md",
+            "bytes": 1670,
+            "lines": 55
+        },
+        {
+            "path": "marimo/AGENTS.md",
+            "bytes": 1189,
+            "lines": 41
+        }
+    ]
+}

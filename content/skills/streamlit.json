@@ -1,0 +1,1032 @@
+{
+    "version": 1,
+    "slug": "streamlit",
+    "repository": "streamlit/streamlit",
+    "branch": "develop",
+    "sha": "f4546fd5487e12cf5781e98cf1c5cc2bb9ee3b73",
+    "scannedAt": "2026-09-17T12:21:51.720Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "addressing-pr-review-comments-80dcd4370770",
+            "path": ".claude/skills/addressing-pr-review-comments/SKILL.md",
+            "name": "addressing-pr-review-comments",
+            "description": "Address all valid review comments on a PR for the current branch in the streamlit/streamlit repo. Covers both inline review comments and general PR (issue) comments. Use when a PR has reviewer feedback to address, including code changes, style fixes, and documentation updates.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7bf163e8b3ab5ea256aa1ba599521fa3c1b74a5a",
+                    "bytes": 11449,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 2852129,
+                        "login": "lukasmasuch",
+                        "commits": 3
+                    },
+                    {
+                        "id": 178842601,
+                        "login": "sfc-gh-bnisco",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "assessing-external-test-risk-bf85e2aab3ec",
+            "path": ".claude/skills/assessing-external-test-risk/SKILL.md",
+            "name": "assessing-external-test-risk",
+            "description": "Assesses whether branch or PR changes are high-risk for externally hosted or embedded Streamlit usage and recommends whether external e2e coverage with `@pytest.mark.external_test` is needed. Use during code review, PR triage, or test planning when changes touch routing, auth, websocket/session behavior, embedding, assets, cross-origin behavior, SiS/Snowflake runtime, storage, or security headers.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "07872450cbeb2f8d855f626958beb6817b23746f",
+                    "bytes": 5678,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 2852129,
+                        "login": "lukasmasuch",
+                        "commits": 1
+                    },
+                    {
+                        "id": 178842601,
+                        "login": "sfc-gh-bnisco",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "checking-changes-b7f20d52625e",
+            "path": ".claude/skills/checking-changes/SKILL.md",
+            "name": "checking-changes",
+            "description": "Validates all code changes before committing by running format, lint, type, and unit test checks. Use after making backend (Python) or frontend (TypeScript) changes, before committing or finishing a work session.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "089f42b55afcfc23dde2581ba616a15a825d7452",
+                    "bytes": 970,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 2852129,
+                        "login": "lukasmasuch",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "creating-pull-requests-94eea3342bbc",
+            "path": ".claude/skills/creating-pull-requests/SKILL.md",
+            "name": "creating-pull-requests",
+            "description": "Creates a draft pull request on GitHub with proper labels, branch naming, and description formatting. Use when changes are ready to be submitted as a PR to the streamlit/streamlit repository.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "aeb713b832ba10cdbde38fa5ee935d7a548d781c",
+                    "bytes": 5216,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 2852129,
+                        "login": "lukasmasuch",
+                        "commits": 2
+                    },
+                    {
+                        "id": 278311958,
+                        "login": "sfc-gh-lwilby-1",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "debugging-streamlit-2806eb7ddf6c",
+            "path": ".claude/skills/debugging-streamlit/SKILL.md",
+            "name": "debugging-streamlit",
+            "description": "Debug Streamlit frontend and backend changes using make debug with hot-reload. Use when testing code changes, investigating bugs, checking UI behavior, or needing screenshots of the running app.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "654fc3a822f8039434f7801876f81ed225f15429",
+                    "bytes": 8099,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 2852129,
+                        "login": "lukasmasuch",
+                        "commits": 3
+                    },
+                    {
+                        "id": 178842601,
+                        "login": "sfc-gh-bnisco",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "discovering-make-commands-053de4e72cfc",
+            "path": ".claude/skills/discovering-make-commands/SKILL.md",
+            "name": "discovering-make-commands",
+            "description": "Lists available make commands for Streamlit development. Use for build, test, lint, or format tasks.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "c5d475143083618f716c015c88be99a7d004b078",
+                    "bytes": 3688,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 2852129,
+                        "login": "lukasmasuch",
+                        "commits": 5
+                    },
+                    {
+                        "id": 178842601,
+                        "login": "sfc-gh-bnisco",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "finalizing-pr-14706993940e",
+            "path": ".claude/skills/finalizing-pr/SKILL.md",
+            "name": "finalizing-pr",
+            "description": "Finalizes branch changes for merging by simplifying code, running checks, reviewing changes, and creating a PR if needed. Use when ready to merge changes into the target branch.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "eb10c6f0c9cbffef15c5b8ad01940e7b6108c0bd",
+                    "bytes": 7204,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 2852129,
+                        "login": "lukasmasuch",
+                        "commits": 15
+                    },
+                    {
+                        "id": 178842601,
+                        "login": "sfc-gh-bnisco",
+                        "commits": 1
+                    },
+                    {
+                        "id": 278311958,
+                        "login": "sfc-gh-lwilby-1",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "fixing-flaky-e2e-tests-11a5fbe39a31",
+            "path": ".claude/skills/fixing-flaky-e2e-tests/SKILL.md",
+            "name": "fixing-flaky-e2e-tests",
+            "description": "Diagnose and fix flaky Playwright e2e tests. Use when tests fail intermittently, show timeout errors, have snapshot mismatches, or exhibit browser-specific failures.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "9bbfb6b572e466e56e6feb2860466e85663dd0f2",
+                    "bytes": 8604,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 2852129,
+                        "login": "lukasmasuch",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "fixing-streamlit-ci-5256cb37a64f",
+            "path": ".claude/skills/fixing-streamlit-ci/SKILL.md",
+            "name": "fixing-streamlit-ci",
+            "description": "Analyze and fix failed GitHub Actions CI jobs for the current branch/PR. Use when CI checks fail, PR checks show failures, or you need to diagnose lint/type/test errors and verify fixes locally.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "970e35678bcf644d28acf82fa9813ee72e471a57",
+                    "bytes": 8543,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 2852129,
+                        "login": "lukasmasuch",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "generating-changelog-53e2a1f442c5",
+            "path": ".claude/skills/generating-changelog/SKILL.md",
+            "name": "generating-changelog",
+            "description": "Generates polished website release notes between two git tags for docs.streamlit.io. Use when preparing a new Streamlit release or reviewing changes between versions.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "e9b7451de5044f6ab96a50f2e8e6d4f6e5ba9f81",
+                    "bytes": 12792,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 69432,
+                        "login": "kmcgrady",
+                        "commits": 1
+                    },
+                    {
+                        "id": 178842601,
+                        "login": "sfc-gh-bnisco",
+                        "commits": 1
+                    },
+                    {
+                        "id": 127552870,
+                        "login": "sfc-gh-jrieke",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "implementing-feature-003ef9a61052",
+            "path": ".claude/skills/implementing-feature/SKILL.md",
+            "name": "implementing-feature",
+            "description": "Implement a feature from a product/tech spec, URL, GitHub issue, or by auto-selecting the next papercut enhancement. Reads the spec, implements the feature following Streamlit patterns, and creates a merge-ready PR. Use when given a spec folder path, document URL, or issue link to implement, or when asked to implement a feature or papercut without a spec.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "32ea31e1e6f7739ce69c3d2cbb3c46fd140437a0",
+                    "bytes": 9058,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 2852129,
+                        "login": "lukasmasuch",
+                        "commits": 5
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "improving-frontend-coverage-f077c2e07e7f",
+            "path": ".claude/skills/improving-frontend-coverage/SKILL.md",
+            "name": "improving-frontend-coverage",
+            "description": "Runs frontend unit tests with coverage, analyzes coverage reports, and implements meaningful tests to increase coverage by ~0.2%. Use when you want to systematically improve frontend test coverage with high-value test cases.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "68e376d767aa2745c30ae8b6bf15de150934da2c",
+                    "bytes": 3712,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 2852129,
+                        "login": "lukasmasuch",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "improving-python-coverage-3547a5553782",
+            "path": ".claude/skills/improving-python-coverage/SKILL.md",
+            "name": "improving-python-coverage",
+            "description": "Runs Python unit tests with coverage, analyzes coverage reports, and implements meaningful tests to increase coverage by ~0.2%. Use when you want to systematically improve Python test coverage with high-value test cases.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "5e2d7be3dcbcda7acf05df6c624e8c7128c5907c",
+                    "bytes": 5493,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 2852129,
+                        "login": "lukasmasuch",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "reviewing-pr-description-9f15b76103dd",
+            "path": ".claude/skills/reviewing-pr-description/SKILL.md",
+            "name": "reviewing-pr-description",
+            "description": "Evaluates a PR's title and description for readability — do they clearly and concisely convey what changed and why to a reviewer? Produces findings with concrete proposed rewrites; the caller decides whether to apply them or present them as feedback. Use when finalizing a PR or reviewing PR metadata. For code comments, docstrings, and naming, use reviewing-readability instead.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "c835728e517239bb85e3f60c88cb84e74f215481",
+                    "bytes": 4158,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 278311958,
+                        "login": "sfc-gh-lwilby-1",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "reviewing-readability-7719fc289612",
+            "path": ".claude/skills/reviewing-readability/SKILL.md",
+            "name": "reviewing-readability",
+            "description": "Evaluates comments, docstrings, and naming in code for readability by a developer new to the codebase — is the documentation clear and concise, and is non-obvious logic documented? Produces findings with concrete proposed rewrites (or additions where documentation is missing); the caller decides whether to apply them or present them as feedback. Use when reviewing a PR, branch, or set of changes for comment quality, naming clarity, or documentation readability. For a PR's title and description, use reviewing-pr-description instead.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "5f7bac6bdce430983374ec18a6ab4c8d9a9e1415",
+                    "bytes": 6851,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 278311958,
+                        "login": "sfc-gh-lwilby-1",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "sharing-pr-agent-artifacts-120c0c55046b",
+            "path": ".claude/skills/sharing-pr-agent-artifacts/SKILL.md",
+            "name": "sharing-pr-agent-artifacts",
+            "description": "Uploads agent-generated artifacts (specs, plans, learnings) to the streamlit.wiki for sharing via PR comments. Use when you have agent artifacts to share with reviewers.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "aa67ed25237cf4bdb85459c3afd68d6adb3a490a",
+                    "bytes": 5182,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 2852129,
+                        "login": "lukasmasuch",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "understanding-streamlit-architecture-3add53a95a5f",
+            "path": ".claude/skills/understanding-streamlit-architecture/SKILL.md",
+            "name": "understanding-streamlit-architecture",
+            "description": "Explains Streamlit's internal architecture including backend runtime, frontend rendering, and WebSocket communication. Use when debugging cross-layer issues, understanding how features work end-to-end, planning architectural changes, or onboarding to the codebase. Covers ForwardMsg/BackMsg protocol, script rerun model, element tree, widget state management, and more.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "c811fbdd2d25651752ad267f8afdf34dbc6768df",
+                    "bytes": 13085,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/backend.md",
+                    "blob": "87779c315bdbd38b1a2d5125607d15b4d1b48657",
+                    "bytes": 17793,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/communication.md",
+                    "blob": "a3526d00c24d3a1d986fa3633ff3a8edd4a8ba75",
+                    "bytes": 6876,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/element-identity.md",
+                    "blob": "32cfc5cd639f723abe360a96b23c909cd4ec33a5",
+                    "bytes": 4986,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/frontend.md",
+                    "blob": "9655290a82b086c4d120ac74990b5f6b34d64cab",
+                    "bytes": 10496,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/layout.md",
+                    "blob": "d311621bda0663ba4e7e82b490ef35473e9e4017",
+                    "bytes": 13814,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 2852129,
+                        "login": "lukasmasuch",
+                        "commits": 4
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "updating-internal-docs-6ce2cc80f27f",
+            "path": ".claude/skills/updating-internal-docs/SKILL.md",
+            "name": "updating-internal-docs",
+            "description": "Review internal documentation (*.md files) against the current codebase state and propose updates for outdated or incorrect information.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "4bf77fea9f81ff421fb7e67ca82c887416e8e17c",
+                    "bytes": 6940,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 2852129,
+                        "login": "lukasmasuch",
+                        "commits": 3
+                    },
+                    {
+                        "id": 178842601,
+                        "login": "sfc-gh-bnisco",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "writing-spec-040a2137c59f",
+            "path": ".claude/skills/writing-spec/SKILL.md",
+            "name": "writing-spec",
+            "description": "Writes product and tech specs for new Streamlit features. Use when designing new API commands, widgets, or significant changes that need team review before implementation.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "94bb7b007c2932e51d32a1e71eb7d209547022bb",
+                    "bytes": 572,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 2852129,
+                        "login": "lukasmasuch",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "developing-with-streamlit-d2657ace40e6",
+            "path": "lib/streamlit/.agents/meta-skill/developing-with-streamlit/SKILL.md",
+            "name": "developing-with-streamlit",
+            "description": "Use for ALL Streamlit tasks: creating, editing, debugging, beautifying, styling, theming, optimizing, or deploying Streamlit apps. Also custom components, st.components.v2, HTML/JS/CSS work. Discovers and loads version-matched reference docs from the user's installed Streamlit (>=1.57). Triggers: streamlit, st., dashboard, app.py, beautify, style, CSS, color, background, theme, button, widget styling, custom component, st.components, CCv2, session state, performance, cache, fragment, slow rerun, deploy.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "5cfe2507cc96d7124c40c7c64943fb2ec91f5c25",
+                    "bytes": 1650,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/discover.py",
+                    "blob": "0b246f0d39e2f15ac5ff497d3d8c3d6560fec7e5",
+                    "bytes": 11227,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 173713422,
+                        "login": "sfc-gh-nbellante",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "developing-with-streamlit-6023ca812d18",
+            "path": "lib/streamlit/.agents/skills/developing-with-streamlit/SKILL.md",
+            "name": "developing-with-streamlit",
+            "description": "**[REQUIRED]** Use for ALL Streamlit tasks: creating, editing, debugging, beautifying, styling, theming, or optimizing Streamlit applications. Also required for building custom components (inline or packaged), using st.components.v2, or any HTML/JS/CSS component work. Triggers: streamlit, st., dashboard, app.py, beautify, style, CSS, color, background, theme, button, widget styling, custom component, st.components, packaged component, pyproject.toml, asset_dir, CCv2, HTML/JS component.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7e260a0a1a9ab8df8a65d011a82501bbd40577c6",
+                    "bytes": 19531,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/templates/apps/README.md",
+                    "blob": "bf5ea7bd837015418cc78a1df730077528829ba4",
+                    "bytes": 6372,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/templates/apps/dashboard-companies/pyproject.toml",
+                    "blob": "c7f4b085f87abc2d63e3e3b0b8cdd7595d7536f4",
+                    "bytes": 281,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/templates/apps/dashboard-companies/streamlit_app.py",
+                    "blob": "ddb053427b29a5705b4616da84f87941b05e75ef",
+                    "bytes": 13183,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/templates/apps/dashboard-compute/pyproject.toml",
+                    "blob": "479f59b0b19a8126ffef21175181aa3b67589ec0",
+                    "bytes": 270,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/templates/apps/dashboard-compute/streamlit_app.py",
+                    "blob": "adf79dd2232eab19da98bbe9c0a047786e031a70",
+                    "bytes": 14359,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/templates/apps/dashboard-feature-usage/pyproject.toml",
+                    "blob": "2d29b75300ba7b9a0e1383cb815faa583a57fa05",
+                    "bytes": 271,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/templates/apps/dashboard-feature-usage/streamlit_app.py",
+                    "blob": "e3e6dbdcc32927ff394549cdc1cea4d9ddb314b9",
+                    "bytes": 11423,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/templates/apps/dashboard-metrics/pyproject.toml",
+                    "blob": "881e9dbb2313426bcdfa1206f570e637d6189964",
+                    "bytes": 276,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/templates/apps/dashboard-metrics/streamlit_app.py",
+                    "blob": "7eaa1c058b3c2c1f11da54bdb4ef3876701381c0",
+                    "bytes": 14670,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/templates/apps/dashboard-seattle-weather/pyproject.toml",
+                    "blob": "c5c91222e951e1b60fa4a482a4451ec3b617ef8a",
+                    "bytes": 271,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/templates/apps/dashboard-seattle-weather/streamlit_app.py",
+                    "blob": "095165920e7259baa157afeb8710ae07c6560813",
+                    "bytes": 7454,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/templates/apps/dashboard-stock-peers/pyproject.toml",
+                    "blob": "ab2c7498e569cac317c717a1aff84ae739bd0bc7",
+                    "bytes": 292,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/templates/apps/dashboard-stock-peers/streamlit_app.py",
+                    "blob": "d4108dc600fc588c2dc7fd74792d70acb4a618d5",
+                    "bytes": 8070,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/templates/themes/README.md",
+                    "blob": "cd321b5019d81b6ee53daf8be327a06288e7ca41",
+                    "bytes": 1329,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/templates/themes/configs/dracula.toml",
+                    "blob": "1b4773b2a2f7e7aebbb6874ee6bdfa3e78fcb7c3",
+                    "bytes": 1246,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/templates/themes/configs/financial-dashboard.toml",
+                    "blob": "c6eaaec257f000b6b56ad60d0355b79e8853efdb",
+                    "bytes": 2267,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/templates/themes/configs/fluent.toml",
+                    "blob": "d7d6562ce2c772ceb642a4ad1c42d31797319c96",
+                    "bytes": 1535,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/templates/themes/configs/jupyter.toml",
+                    "blob": "bd66bee0f00107d203f21eb6f8be2419733dea28",
+                    "bytes": 1520,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/templates/themes/configs/material-ui.toml",
+                    "blob": "cf4db13100eca866c4cf01aea095cfc6c4a96c95",
+                    "bytes": 1378,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/templates/themes/configs/minimal.toml",
+                    "blob": "28b4b8a0341de704a1c88180ba39bf1fce77ee79",
+                    "bytes": 1231,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/templates/themes/configs/nord.toml",
+                    "blob": "1b3370dc2b4415d70f4a5abf5eb62ac47690f972",
+                    "bytes": 1252,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/templates/themes/configs/one-dark-pro.toml",
+                    "blob": "c56cbbe3160b84f3cc41f1810bde10428f1b5e76",
+                    "bytes": 1310,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/templates/themes/configs/shadcn.toml",
+                    "blob": "1b2e42012e99b9ee6789d1a9ae30811b4679eb13",
+                    "bytes": 1506,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/templates/themes/configs/solarized-light.toml",
+                    "blob": "8954d12396c989e8c8f369d99a4f70e93640d592",
+                    "bytes": 1274,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/templates/themes/configs/ubuntu.toml",
+                    "blob": "2efb9597e689b4d23bb62b725800aef483135155",
+                    "bytes": 1485,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "assets/templates/themes/configs/vscode.toml",
+                    "blob": "6d76f67af1b55ce1d435b53ac365d700412e4668",
+                    "bytes": 1264,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/api-reference.md",
+                    "blob": "8af79f9e93d480ab8fff979db665aa244f378cc7",
+                    "bytes": 23457,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/authentication.md",
+                    "blob": "dc5bb0da310f253c79adf776b7992b960eb979bf",
+                    "bytes": 4892,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/best-practices.md",
+                    "blob": "5a32cf0a23184c66dca7f97f8dd7382b464b19b2",
+                    "bytes": 11465,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/ccv2-packaged-components.md",
+                    "blob": "1ecab2a5b49150ee82a70e4e0f3a3fc28babfe86",
+                    "bytes": 11282,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/ccv2-state-sync.md",
+                    "blob": "dc64317a9c9a7496478ff3b00950026346f930d5",
+                    "bytes": 5033,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/ccv2-theme-css-variables.md",
+                    "blob": "66adc528c2bdb18bad6401d424017530c12ca006",
+                    "bytes": 8348,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/ccv2-troubleshooting.md",
+                    "blob": "eee51cad43e4aed2c1de7ddd869a907854b6117a",
+                    "bytes": 7153,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/chat-ui.md",
+                    "blob": "42aa1e4e422ef03d411737945d04b067ce045a8a",
+                    "bytes": 9100,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/cli.md",
+                    "blob": "12d7445184320d1481af5e2531b229812c88711e",
+                    "bytes": 5272,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/code-organization.md",
+                    "blob": "f17cc4f877647e17c4d84c114e6bf085ad8be776",
+                    "bytes": 1963,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/custom-components-v2.md",
+                    "blob": "bdfa833a6cde672a70fba7bb3ee9d8a0c3b21873",
+                    "bytes": 11395,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/dashboards.md",
+                    "blob": "69d37cdb69f2687f4c6f8ba7436da7ed11f7e050",
+                    "bytes": 5663,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/data-display.md",
+                    "blob": "4b013d0b0ae1f8d432a3799693ce0cc79c47a0b5",
+                    "bytes": 15679,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/design.md",
+                    "blob": "a2eeb98f022a573f9f0151dcb965fda31f62cb6d",
+                    "bytes": 6650,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/environment-setup.md",
+                    "blob": "055449cd2da2bbf4572b0c6542da9c400a8d23a7",
+                    "bytes": 2921,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/layouts.md",
+                    "blob": "05859cf3c66bcca049e208124dfc170be09f0e29",
+                    "bytes": 13565,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/markdown.md",
+                    "blob": "8bcfc4869be7e9f5bfc36139778c8c4afc43fe5c",
+                    "bytes": 11109,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/media-display.md",
+                    "blob": "dcfaa52d55a703d126c87924afc6ac8ad25b3e4c",
+                    "bytes": 2151,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/multipage-apps.md",
+                    "blob": "01639eda5d7edffdca78293fcfc5ada6514a5298",
+                    "bytes": 6167,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/performance.md",
+                    "blob": "f3767c297420649fdc2bbf2a138846b61bca5734",
+                    "bytes": 17804,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/selection-widgets.md",
+                    "blob": "7a80db85eb0ba74f6acf3170f33fb9b604761fc7",
+                    "bytes": 4883,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/server-asgi.md",
+                    "blob": "6d07dc86616c74042784d241ff21514ecb02ef1c",
+                    "bytes": 14332,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/session-state.md",
+                    "blob": "4a546151e9e4258f072543bfb19b901d65a98eed",
+                    "bytes": 9677,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/snowflake-connection.md",
+                    "blob": "665f43ff71ff3899734e970f06abcee38183f53b",
+                    "bytes": 6165,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/testing.md",
+                    "blob": "33910258509b9dadd90199992c0098a412ee7567",
+                    "bytes": 9075,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/text-display.md",
+                    "blob": "88e16ba169fd2c87d956718b6b6fb0a0326f4fa2",
+                    "bytes": 3802,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/theme.md",
+                    "blob": "a5db47099eee7af756e58a6e813d7d75ec400c70",
+                    "bytes": 14331,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/third-party-components.md",
+                    "blob": "b568bdee666071a2eb405bf8a9dbbe2c717e0464",
+                    "bytes": 4014,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 2852129,
+                        "login": "lukasmasuch",
+                        "commits": 10
+                    },
+                    {
+                        "id": 173713422,
+                        "login": "sfc-gh-nbellante",
+                        "commits": 8
+                    },
+                    {
+                        "id": 278311958,
+                        "login": "sfc-gh-lwilby-1",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "2b20d058adfba7ff09dfae01f59fce7f89819c17",
+        "bytes": 8862,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "57bc88a15a0ee8266c259b2667e64608d3f7e292",
+        "bytes": 11358,
+        "text": true,
+        "mode": "100644"
+    }
+}

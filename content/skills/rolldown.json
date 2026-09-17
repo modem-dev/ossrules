@@ -1,0 +1,91 @@
+{
+    "version": 1,
+    "slug": "rolldown",
+    "repository": "rolldown/rolldown",
+    "branch": "main",
+    "sha": "a42049b31d82b21f0056f621fabce9b41f6be151",
+    "scannedAt": "2026-09-17T12:20:34.290Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "rolldown-repl-f76d5a4f79d7",
+            "path": ".claude/skills/rolldown-repl/SKILL.md",
+            "name": "rolldown-repl",
+            "description": "Use to encode or decode rolldown REPL share URLs — `repl.rolldown.rs/#…`, `rolldown-repl.netlify.app/#…`, or any URL whose hash is a base64-encoded rolldown REPL payload. Decode whenever such a URL appears in the conversation (commonly in GitHub issues with a \"minimal reproduction\" link) to read the actual source files + rolldown version. Encode when you need to share a local set of source files as a REPL URL (e.g. to attach a live reproduction to an issue or PR). Trigger even if the user only pastes the URL without explicitly asking.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "000a69df6ce9216790b7947d8a93ced0c8cfbaa3",
+                    "bytes": 7993,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/decode.mjs",
+                    "blob": "2721b5918ce6cf2654dfa2deb235fac325d7bd7c",
+                    "bytes": 2552,
+                    "text": true,
+                    "mode": "100755"
+                },
+                {
+                    "path": "scripts/encode.mjs",
+                    "blob": "15e3910a75d1b021f6a5c2ce0dce633226b12197",
+                    "bytes": 13636,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 17974631,
+                        "login": "IWANABETHATGUY",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "upgrade-oxc-c95b0be995fa",
+            "path": ".claude/skills/upgrade-oxc/SKILL.md",
+            "name": "upgrade-oxc",
+            "description": "Upgrade oxc, run codegen, and fix any breaking changes.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "f975175d769a15acba987a80b0d2f6b74a960867",
+                    "bytes": 1927,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1430279,
+                        "login": "Boshen",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "6eacea394cf9982bca6c18a2c916b4d9cc542038",
+        "bytes": 7965,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "afc0cdbabfb99ed4030bf9be2b852977f1ed72a0",
+        "bytes": 1302,
+        "text": true,
+        "mode": "100644"
+    }
+}
