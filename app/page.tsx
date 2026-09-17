@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { Suspense } from 'react';
 import { PATTERNS } from '@/components/agents-md-data';
 import { JsonLd } from '@/components/json-ld';
 import { ProjectExplorer } from '@/components/project-explorer';
@@ -34,6 +33,9 @@ const baseMetadata = {
     },
 };
 
+// Keep navigation on the current page until the requested content is ready.
+export const instant = false;
+
 type Props = { searchParams: Promise<ProjectSearchParams> };
 
 function projectsWithSkillCounts() {
@@ -48,12 +50,8 @@ export async function generateMetadata({ searchParams }: Props) {
     return { ...baseMetadata, robots: { index: !listing.filtered, follow: true } };
 }
 
-async function ProjectResults({ searchParams }: Props) {
+export default async function AgentsMdPage({ searchParams }: Props) {
     const initialSearch = projectSearchString(await searchParams);
-    return <ProjectExplorer projects={projectsWithSkillCounts()} initialSearch={initialSearch} />;
-}
-
-export default function AgentsMdPage({ searchParams }: Props) {
     const projects = projectsWithSkillCounts();
     const skillCount = getAllSkills().length;
     const totalStars = projects.reduce((total, project) => total + project.stars, 0);
@@ -97,15 +95,7 @@ export default function AgentsMdPage({ searchParams }: Props) {
                     </dl>
                 </header>
                 <section id="projects" aria-label="Projects">
-                    <Suspense
-                        fallback={
-                            <p role="status" className="py-12 text-gray-550 text-sm">
-                                Loading projects…
-                            </p>
-                        }
-                    >
-                        <ProjectResults searchParams={searchParams} />
-                    </Suspense>
+                    <ProjectExplorer projects={projects} initialSearch={initialSearch} />
                 </section>
                 <div className="mt-10 flex flex-wrap items-center justify-between gap-4">
                     <p className="text-gray-550 text-sm">See the techniques these projects share.</p>

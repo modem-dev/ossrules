@@ -1,5 +1,4 @@
 import { notFound } from 'next/navigation';
-import { Suspense } from 'react';
 import { ProjectSkillsShell } from '@/components/project-skills-shell';
 import { SkillExplorer } from '@/components/skill-explorer';
 import { getAgentsProjectByRepository, getAgentsProjects } from '@/lib/agents-md';
@@ -12,6 +11,9 @@ import { getSkillManifest } from '@/lib/skills';
 export function generateStaticParams() {
     return getAgentsProjects().map(({ owner, repo }) => ({ owner, repo }));
 }
+// Keep navigation on the current page until the requested content is ready.
+export const instant = false;
+
 type Props = { params: Promise<{ owner: string; repo: string }>; searchParams: Promise<SkillSearchParams> };
 
 export async function generateMetadata({ params, searchParams }: Props) {
@@ -38,32 +40,9 @@ export default async function ProjectSkillsPage({ params, searchParams }: Props)
     const project = getAgentsProjectByRepository(owner, repo);
     if (!project) notFound();
     const manifest = getSkillManifest(project.slug);
+    const initialSearch = skillSearchString(await searchParams);
     return (
         <ProjectSkillsShell project={project} count={manifest?.skills.length}>
-            <Suspense
-                fallback={
-                    <p role="status" className="py-12 text-gray-550 text-sm">
-                        Loading skills…
-                    </p>
-                }
-            >
-                <SkillResults project={project} searchParams={searchParams} />
-            </Suspense>
-        </ProjectSkillsShell>
-    );
-}
-
-async function SkillResults({
-    project,
-    searchParams,
-}: {
-    project: NonNullable<ReturnType<typeof getAgentsProjectByRepository>>;
-    searchParams: Props['searchParams'];
-}) {
-    const initialSearch = skillSearchString(await searchParams);
-    const manifest = getSkillManifest(project.slug);
-    return (
-        <>
             {!manifest ? (
                 <p className="prose-copy">This project has not been scanned for skills yet.</p>
             ) : (
@@ -107,6 +86,6 @@ async function SkillResults({
                     </details>
                 </>
             )}
-        </>
+        </ProjectSkillsShell>
     );
 }

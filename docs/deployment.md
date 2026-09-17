@@ -5,20 +5,20 @@ For a local production preview, see [development](development.md#preview-a-produ
 
 ## Rendering and navigation
 
-Next.js Cache Components prerender the fixed content and stream the parts that
-depend on query parameters. Project analysis, source excerpts, and token counts
-are cached together; breadcrumbs, tabs, and Previous/Next links retain the
-requested collection. Keep query reads inside their Suspense boundaries so they
-do not block the page or prevent its static content from being prefetched.
+Next.js Cache Components prerender project analysis, source excerpts, and token
+counts together. Breadcrumbs, tabs, and Previous/Next links stream separately
+and retain the requested collection. Keep these query reads inside their
+Suspense boundaries so they do not block the analysis or prevent its static
+content from being prefetched.
 
-Directories stream the requested results with a short loading placeholder, not a
-second list of default results. Skill readers enumerate the stored skill paths
-at build time so their page shells and metadata can also be prerendered. Source
+Directories and skill readers resolve the requested content on the server.
+They deliberately omit loading-only Suspense fallbacks so navigation keeps the
+current page visible until the next page is ready. Their `instant = false`
+configuration permits these routes to block under Cache Components. Source
 selection, filters, pagination, and their canonical/indexing rules still resolve
-on the server. Skill document bodies and download routes also run on request;
-prerendering their page shells does not make the entire site static.
+on the server. Download routes also run on request; the entire site is not static.
 
-The production build should report these routes as partial prerenders (`◐`).
+The production build should report project pages as partial prerenders (`◐`).
 Use `pnpm check:routes` against a production preview to verify the complete
 streamed HTML, query-dependent links, metadata, downloads, and missing routes.
 Measure navigation using a production build; development does not exercise the

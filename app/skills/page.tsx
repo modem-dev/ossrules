@@ -1,4 +1,3 @@
-import { Suspense } from 'react';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { SkillExplorer } from '@/components/skill-explorer';
@@ -13,6 +12,9 @@ function getEntries() {
         .map(({ skill, project }) => skillEntry(skill, project))
         .sort((a, b) => a.name.localeCompare(b.name));
 }
+
+// Keep navigation on the current page until the requested content is ready.
+export const instant = false;
 
 type Props = { searchParams: Promise<SkillSearchParams> };
 
@@ -29,12 +31,9 @@ export async function generateMetadata({ searchParams }: Props) {
     };
 }
 
-async function SkillResults({ searchParams }: Props) {
+export default async function SkillsPage({ searchParams }: Props) {
     const initialSearch = skillSearchString(await searchParams);
-    return <SkillExplorer entries={getEntries()} initialSearch={initialSearch} />;
-}
-
-export default function SkillsPage({ searchParams }: Props) {
+    const entries = getEntries();
     const manifests = getAgentsProjects()
         .map((p) => getSkillManifest(p.slug))
         .filter((m) => !!m);
@@ -48,15 +47,7 @@ export default function SkillsPage({ searchParams }: Props) {
                     <p className="mt-5 max-w-2xl text-gray-550 text-base leading-relaxed">Read their instructions and supporting files.</p>
                 </header>
                 <div className="mt-8">
-                    <Suspense
-                        fallback={
-                            <p role="status" className="py-12 text-gray-550 text-sm">
-                                Loading skills…
-                            </p>
-                        }
-                    >
-                        <SkillResults searchParams={searchParams} />
-                    </Suspense>
+                    <SkillExplorer entries={entries} initialSearch={initialSearch} />
                 </div>
                 <p className="mt-8 font-mono text-[11px] text-gray-600">
                     {manifests.length} project snapshots scanned. Descriptions come from each skill’s metadata.

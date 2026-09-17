@@ -2,7 +2,6 @@ import path from 'node:path';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { Suspense } from 'react';
 import { formatStars, logoSrc, STATS_AS_OF } from '@/components/agents-md-data';
 import { HighlightedSource } from '@/components/highlighted-source';
 import { Excerpt } from '@/components/primitives';
@@ -21,6 +20,9 @@ import { skillHeadings, skillOutline } from '@/lib/skill-outline';
 import { markdownBody, parseSkill } from '@/lib/skill-schema';
 import { getAllSkills, getSkillManifest, readSkillFile, skillSourceUrl } from '@/lib/skills';
 import { countSourceTokens } from '@/lib/token-count';
+
+// Keep the existing document visible while a file or view change is prepared.
+export const instant = false;
 
 type Params = { owner: string; repo: string; skill: string };
 
@@ -50,27 +52,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }) 
     };
 }
 
-export default function SkillPage(props: { params: Promise<Params>; searchParams: Promise<{ file?: string; view?: string }> }) {
-    return (
-        <Suspense
-            fallback={
-                <div className="min-h-screen bg-dark-gray flex flex-col">
-                    <SiteHeader />
-                    <main id="main" className="page-shell flex-1">
-                        <p role="status" className="py-12 text-gray-550 text-sm">
-                            Loading skill…
-                        </p>
-                    </main>
-                    <SiteFooter />
-                </div>
-            }
-        >
-            <SkillContent {...props} />
-        </Suspense>
-    );
-}
-
-async function SkillContent({
+export default async function SkillPage({
     params,
     searchParams,
 }: {
