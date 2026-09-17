@@ -3,6 +3,7 @@ import 'server-only';
 import fs from 'node:fs';
 import path from 'node:path';
 import type { AgentsProject, VendoredFiles } from '@/components/agents-md-data';
+import { toProjectListingEntry } from '@/components/agents-md-data';
 import { validateAgentsProject } from '@/components/agents-md-schema';
 import { type DocumentMention, documentMentions } from './document-mentions';
 import { countSourceTokens } from './token-count';
@@ -48,6 +49,11 @@ export function getAgentsProjects(): AgentsProject[] {
 
 export function getAgentsProject(slug: string): AgentsProject | undefined {
     return getAgentsProjects().find((project) => project.slug === slug);
+}
+
+/** Project-page prose stays on the server; the directory receives only listing data. */
+export function getProjectListings() {
+    return getAgentsProjects().map(toProjectListingEntry);
 }
 
 export function getAgentsProjectByRepository(owner: string, repo: string): AgentsProject | undefined {

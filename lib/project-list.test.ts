@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import test from 'node:test';
 import type { AgentsProject } from '../components/agents-md-data';
+import { languageFacets, patternFacets, SORTS, toProjectListingEntry } from '../components/agents-md-data';
 import { projectListing, projectNeighbors, projectSearchString, withProjectSearch } from './project-list';
 
 const projects: AgentsProject[] = ['opencode', 'playwright', 'ghostty'].map((slug) =>
@@ -43,4 +44,33 @@ test('neighbors follow the selected collection and single results do not link to
     assert.equal(projectNeighbors(projects, 'ghostty', 'language=Zig').next, undefined);
     assert.equal(projectNeighbors(projects, 'ghostty', 'q=opencode').search, '');
     assert.equal(projectNeighbors(projects, 'ghostty', 'q=opencode').next?.slug, 'opencode');
+});
+
+test('compact records preserve directory search, facets, and every sort across the corpus', () => {
+    const full: AgentsProject[] = fs
+        .readdirSync('content/projects')
+        .filter((name) => name.endsWith('.json'))
+        .map((name) => JSON.parse(fs.readFileSync(`content/projects/${name}`, 'utf8')));
+    const compact = full.map(toProjectListingEntry);
+    assert.deepEqual(languageFacets(compact), languageFacets(full));
+    assert.deepEqual(patternFacets(compact), patternFacets(full));
+    const searches = ['', 'q=testing', 'q=monorepo', 'q=wrong+version', 'language=Rust', 'technique=verification-matrix'];
+    for (const { id } of SORTS) {
+        for (const direction of ['asc', 'desc']) {
+            for (const search of searches) {
+                const params = `${search}&sort=${id}&direction=${direction}`;
+                assert.deepEqual(
+                    projectListing(compact, params).visible.map((project) => project.slug),
+                    projectListing(full, params).visible.map((project) => project.slug),
+                    params,
+                );
+            }
+        }
+    }
+    const fullBytes = Buffer.byteLength(JSON.stringify(full));
+    const compactBytes = Buffer.byteLength(JSON.stringify(compact));
+    assert.ok(compactBytes < fullBytes / 4, `directory payload should omit detail prose: ${compactBytes}/${fullBytes} bytes`);
+    console.log(
+        `Directory data: ${fullBytes.toLocaleString('en')} → ${compactBytes.toLocaleString('en')} bytes before compression (${(100 * (1 - compactBytes / fullBytes)).toFixed(1)}% smaller).`,
+    );
 });
