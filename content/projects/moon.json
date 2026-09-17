@@ -1,0 +1,66 @@
+{
+    "slug": "moon",
+    "name": "moon",
+    "owner": "moonrepo",
+    "repo": "moon",
+    "language": "Rust",
+    "stars": 4104,
+    "defaultBranch": "master",
+    "instructionFile": "AGENTS.md",
+    "lastCommit": {
+        "sha": "24a88ae41d4a5316031d49d5a8cc0f6bed30ba96",
+        "date": "2026-08-14T18:45:25Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 4871,
+        "lines": 101,
+        "words": 678,
+        "headings": 8,
+        "bullets": 35,
+        "codeBlocks": 1,
+        "docLinks": 1
+    },
+    "tagline": "A Rust-based tool for managing repositories, projects, and build tasks.",
+    "hook": "Treats Rust warnings as errors but JavaScript lint warnings as informational, with separate workflows for each side.",
+    "summary": "moon's root guide explains how the repository uses its own task orchestration for JavaScript packages while building the Rust tool with just. It records environment prerequisites, different warning policies, and branch rules for stable and breaking work.",
+    "references": [
+        {
+            "path": "CONTRIBUTING.md"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Scope warning policies by language",
+            "body": "The Rust workflow treats Clippy warnings as errors, while the JavaScript workflow says oxlint warnings should be left alone. The distinction prevents applying one cleanup policy to every tool in the monorepo.",
+            "quote": "- **Linting** with [oxlint](https://oxc.rs/docs/guide/usage/linter). Errors must be fixed; **leave\n  warnings alone** — they are informational (browser differences, polyfill hints), not actionable.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Explain the wrapper's hidden test environment",
+            "body": "The Rust section names the environment variables that tests require and says the just recipe sets them. That gives the task wrapper a functional purpose beyond command convenience.",
+            "quote": "- **Tests** run under [`nextest`](https://nexte.st/). Tests must pass with `MOON_TEST=true` and\n  `STARBASE_TEST=true` (the `just test` recipe sets these for you).",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Preserve a manual release boundary",
+            "body": "Crates are released independently, but the file explicitly excludes automating that operation. An agent can follow the development workflow without assuming publishing is the next step.",
+            "quote": "- Applicable crates are published independently using `cargo release`. Never automate this!",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Route stable fixes and breaking work to different branches",
+            "body": "The PR section connects target branches with compatibility expectations. Bug fixes belong on master, while new features and breaking changes use a versioned development branch.",
+            "quote": "- Target `master` for bug fixes; target `develop-x.x` for new features / breaking changes.",
+            "pattern": "contribution-etiquette"
+        }
+    ],
+    "steal": [
+        "Scope warning handling to the tool that emitted it.",
+        "Document test environment variables hidden by task wrappers.",
+        "Separate development automation from publishing authority.",
+        "Tie target branches to compatibility promises."
+    ],
+    "outline": ["AGENTS.md", "Repository layout", "Prerequisites", "Rust workflow", "JavaScript workflow", "Pull requests"],
+    "patterns": ["verification-matrix", "hard-prohibition", "contribution-etiquette"]
+}

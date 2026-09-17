@@ -1,0 +1,84 @@
+{
+    "version": 1,
+    "slug": "flue",
+    "repository": "withastro/flue",
+    "branch": "main",
+    "sha": "b1abc138d4a07434182711519964a31e98946321",
+    "scannedAt": "2026-09-17T12:19:14.887Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "greet-82f86d7e3fb8",
+            "path": "examples/hello-world/.agents/skills/greet/SKILL.md",
+            "name": "greet",
+            "description": "Generate a personalized greeting for a given name. Use when asked to greet someone.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "4b617983145fe3283e2cbcfab6b2f12275e73aa9",
+                    "bytes": 233,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 622227,
+                        "login": "FredKSchott",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "review-55bebd86c8fb",
+            "path": "examples/imported-skill/src/skills/review/SKILL.md",
+            "name": "review",
+            "description": "Reviews an answer using packaged supporting guidance.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "f0d99fb1e35eb57782cf96f374927319d8edf67a",
+                    "bytes": 145,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "CHECKLIST.txt",
+                    "blob": "5c802d5d598158b7ee0d5ea112b06eed5a3b2d0c",
+                    "bytes": 54,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 622227,
+                        "login": "FredKSchott",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "636aaba42d8eebafb57a54de9a47f0e1ba812a2c",
+        "bytes": 4051,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "78adfdd7f79b88a077c7cc5533bbfb7d0c4e3c33",
+        "bytes": 11263,
+        "text": true,
+        "mode": "100644"
+    }
+}

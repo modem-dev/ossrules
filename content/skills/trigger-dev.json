@@ -1,0 +1,427 @@
+{
+    "version": 1,
+    "slug": "trigger-dev",
+    "repository": "triggerdotdev/trigger.dev",
+    "branch": "main",
+    "sha": "2d03fee2e3ff368128302ed4c783ba4e32d1cb00",
+    "scannedAt": "2026-09-17T12:30:59.551Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [
+        {
+            "path": ".claude/skills/drizzle/SKILL.md",
+            "reason": "Invalid YAML frontmatter."
+        }
+    ],
+    "skills": [
+        {
+            "id": "errors-api-e2e-efe0b53a224d",
+            "path": ".claude/skills/errors-api-e2e/SKILL.md",
+            "name": "errors-api-e2e",
+            "description": "End-to-end smoke test for the public Errors HTTP API (error groups). Seeds failed runs into ClickHouse so the error materialized views populate, then drives the real endpoints against the running webapp — list (with filters + pagination), retrieve, resolve/ignore/unresolve, the `filter[error]` runs filter, user attribution via the `trigger.dev mint-token` -> JWT exchange, and the 401/403/404 negatives. Use for \"smoke test the errors API\", \"test the errors API e2e\", \"prove the errors endpoints work\", or to re-verify after changes.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "162526ee445fad610b33066d6aba7ac74da1d4bf",
+                    "bytes": 13923,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 534,
+                        "login": "ericallam",
+                        "commits": 1
+                    },
+                    {
+                        "id": 4035897,
+                        "login": "kathiekiwi",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "span-timeline-events-a3e796c973a5",
+            "path": ".claude/skills/span-timeline-events/SKILL.md",
+            "name": "span-timeline-events",
+            "description": "Use when adding, modifying, or debugging OTel span timeline events in the trace view. Covers event structure, ClickHouse storage constraints, rendering in SpanTimeline component, admin visibility, and the step-by-step process for adding new events.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "122f49912d710c8c4c3c8bdc2e8b76e3ddbd202c",
+                    "bytes": 4309,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 55853254,
+                        "login": "nicktrn",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "trigger-dev-tasks-6e1681010833",
+            "path": ".claude/skills/trigger-dev-tasks/SKILL.md",
+            "name": "trigger-dev-tasks",
+            "description": "Use this skill when writing, designing, or optimizing Trigger.dev background tasks and workflows. This includes creating reliable async tasks, implementing AI workflows, setting up scheduled jobs, structuring complex task hierarchies with subtasks, configuring build extensions for tools like ffmpeg or Puppeteer/Playwright, and handling task schemas with Zod validation.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "791c22c27ed68063bfc72cfcc85bf73162fd8c56",
+                    "bytes": 6050,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "advanced-tasks.md",
+                    "blob": "32a00337f892d21cdd93496674a24c4dc0528199",
+                    "bytes": 12365,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "basic-tasks.md",
+                    "blob": "56bff3407619a832bd8b6c4f87b8344d1773c817",
+                    "bytes": 5111,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "config.md",
+                    "blob": "f6a4db1c4b85db0e0b181652d0319345479eb2d6",
+                    "bytes": 7742,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "realtime.md",
+                    "blob": "c1c4c5821a9ed9a6b5566fdafb24c923a6c0a1b2",
+                    "bytes": 6245,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scheduled-tasks.md",
+                    "blob": "b314753497fc96a6e52b837d6f9129001381fa62",
+                    "bytes": 2697,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 534,
+                        "login": "ericallam",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "trigger-authoring-chat-agent-d6e28b26ca84",
+            "path": "packages/cli-v3/skills/trigger-authoring-chat-agent/SKILL.md",
+            "name": "trigger-authoring-chat-agent",
+            "description": "Author and run a durable AI chat agent with chat.agent from @trigger.dev/sdk/ai: the per-turn run loop, why you MUST take streamText from the run argument rather than importing it from ai, returning a StreamTextResult vs calling chat.pipe(), the two server actions (chat.createStartSessionAction + auth.createPublicToken), and wiring useChat to useTriggerChatTransport. Load this when building, modifying, or debugging a chat backend (the agent task or its lifecycle hooks) or its React transport, when declaring typed tools or custom data parts, or when migrating a plain AI SDK streamText route to chat.agent.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b23b20a9ce64d6b88c160dff0ec9d3d3cccac368",
+                    "bytes": 4212,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 534,
+                        "login": "ericallam",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "trigger-authoring-tasks-48a276b6bca2",
+            "path": "packages/cli-v3/skills/trigger-authoring-tasks/SKILL.md",
+            "name": "trigger-authoring-tasks",
+            "description": "Covers writing backend Trigger.dev tasks with @trigger.dev/sdk: defining task() and schemaTask(), the run function and its ctx, retries, waits, queues and concurrency, idempotency keys, run metadata, logging, triggering other tasks (and the Result shape), scheduled/cron tasks, and the essentials of trigger.config.ts. Load this whenever you are authoring or editing code inside a /trigger directory, defining a task, or writing backend code that triggers tasks. Realtime/React hooks and AI chat are covered by separate skills.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "413c754ad76514672e36522b3f708571b8b76255",
+                    "bytes": 3829,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 534,
+                        "login": "ericallam",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "trigger-chat-agent-advanced-fce764718ba4",
+            "path": "packages/cli-v3/skills/trigger-chat-agent-advanced/SKILL.md",
+            "name": "trigger-chat-agent-advanced",
+            "description": "Advanced and operational chat.agent capabilities for Trigger.dev, loaded on demand. Load this when working on the raw Sessions primitive (sessions / SessionHandle), a custom chat transport or the realtime wire protocol, durable sub-agents (AgentChat, chat.stream.writer), human-in-the-loop, steering, actions, background injection (chat.defer / chat.inject), fast starts (preload, Head Start via @trigger.dev/sdk/chat-server), context resilience (compaction, recovery boot, OOM, large payloads), chat.local run-scoped state, offline testing with mockChatAgent, or prerelease/version upgrades. For the everyday chat.agent({...}) definition and the useTriggerChatTransport happy path, use the trigger-authoring-chat-agent skill instead.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "998929240ccd10b6df51d27478300425de9bc4a7",
+                    "bytes": 4695,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 534,
+                        "login": "ericallam",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "trigger-cost-savings-43c808d46a8d",
+            "path": "packages/cli-v3/skills/trigger-cost-savings/SKILL.md",
+            "name": "trigger-cost-savings",
+            "description": "Analyze Trigger.dev tasks, schedules, and runs for cost optimization opportunities. Use when asked to reduce spend, optimize costs, audit usage, right-size machines, or review task efficiency. Combines static source analysis with live run analysis via the Trigger.dev MCP tools (list_runs, get_run_details, get_current_worker).\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "6f43489cd20ac72ab35d92145ed222478022b0f5",
+                    "bytes": 2489,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 534,
+                        "login": "ericallam",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "trigger-getting-started-81f406fdc99b",
+            "path": "packages/cli-v3/skills/trigger-getting-started/SKILL.md",
+            "name": "trigger-getting-started",
+            "description": "Bootstrap Trigger.dev into an existing project from scratch: authenticate the CLI, install @trigger.dev/sdk and @trigger.dev/build, write trigger.config.ts with the project ref and task dirs, scaffold a /trigger directory with a first task, wire tsconfig and .gitignore, set TRIGGER_SECRET_KEY, and run the dev server. Load this when a project has no trigger.config.ts yet and the user asks to \"add Trigger.dev\", \"set up Trigger.dev\", \"initialize Trigger.dev\", or get a first task running, including in a monorepo. Once the project is set up and you are writing task code, switch to the trigger-authoring-tasks skill.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "6b0a346de6c37dbfbb7bbe547524ff435eb09f6a",
+                    "bytes": 8015,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 19817302,
+                        "login": "carderne",
+                        "commits": 1
+                    },
+                    {
+                        "id": 534,
+                        "login": "ericallam",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "trigger-realtime-and-frontend-5482c1c8c65e",
+            "path": "packages/cli-v3/skills/trigger-realtime-and-frontend/SKILL.md",
+            "name": "trigger-realtime-and-frontend",
+            "description": "Trigger.dev client/frontend surface: subscribe to runs in realtime (runs.subscribeToRun and the @trigger.dev/react-hooks hook useRealtimeRun), consume metadata and AI/text streams in React (useRealtimeStream), trigger tasks from the browser (useTaskTrigger, useRealtimeTaskTrigger), and mint scoped frontend credentials with auth.createPublicToken / auth.createTriggerPublicToken. Load when wiring a frontend (React/Next.js/Remix) or backend-for-frontend to show live run progress, status badges, token streams, trigger buttons, or wait-token approval UIs. NOT for writing the backend task itself (streams.define / metadata.set is trigger-authoring-tasks territory); this is the consumer side.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "822f8f6483a64b5496ba312a8be5d9aed2eda593",
+                    "bytes": 3664,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 534,
+                        "login": "ericallam",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "trigger-authoring-chat-agent-8acf1b6ae24c",
+            "path": "packages/trigger-sdk/skills/trigger-authoring-chat-agent/SKILL.md",
+            "name": "trigger-authoring-chat-agent",
+            "description": "Author and run a durable AI chat agent with chat.agent from @trigger.dev/sdk/ai: the per-turn run loop, why you MUST take streamText from the run argument rather than importing it from ai, returning a StreamTextResult vs calling chat.pipe(), the two server actions (chat.createStartSessionAction + auth.createPublicToken), and wiring useChat to useTriggerChatTransport. Load this when building, modifying, or debugging a chat backend (the agent task or its lifecycle hooks) or its React transport, when declaring typed tools or custom data parts, or when migrating a plain AI SDK streamText route to chat.agent.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "25ffe3c6c3003ce5bb8ae1c2376da594c9d4bafe",
+                    "bytes": 13737,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 534,
+                        "login": "ericallam",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "trigger-authoring-tasks-f72ed3bc7a26",
+            "path": "packages/trigger-sdk/skills/trigger-authoring-tasks/SKILL.md",
+            "name": "trigger-authoring-tasks",
+            "description": "Covers writing backend Trigger.dev tasks with @trigger.dev/sdk: defining task() and schemaTask(), the run function and its ctx, retries, waits, queues and concurrency, idempotency keys, run metadata, logging, triggering other tasks (and the Result shape), scheduled/cron tasks, and the essentials of trigger.config.ts. Load this whenever you are authoring or editing code inside a /trigger directory, defining a task, or writing backend code that triggers tasks. Realtime/React hooks and AI chat are covered by separate skills.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "9192fa8964213f8ee1899af2ffa89fe340e4488a",
+                    "bytes": 11520,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 534,
+                        "login": "ericallam",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "trigger-chat-agent-advanced-eecd88157e15",
+            "path": "packages/trigger-sdk/skills/trigger-chat-agent-advanced/SKILL.md",
+            "name": "trigger-chat-agent-advanced",
+            "description": "Advanced and operational chat.agent capabilities for Trigger.dev, loaded on demand. Load this when working on the raw Sessions primitive (sessions / SessionHandle), a custom chat transport or the realtime wire protocol, durable sub-agents (AgentChat, chat.stream.writer), human-in-the-loop, steering, actions, background injection (chat.defer / chat.inject), fast starts (preload, Head Start via @trigger.dev/sdk/chat-server), context resilience (compaction, recovery boot, OOM, large payloads), chat.local run-scoped state, offline testing with mockChatAgent, or prerelease/version upgrades. For the everyday chat.agent({...}) definition and the useTriggerChatTransport happy path, use the trigger-authoring-chat-agent skill instead.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "c372422e312c23514adee90bade9c6af8aaad63d",
+                    "bytes": 20043,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 534,
+                        "login": "ericallam",
+                        "commits": 4
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "trigger-cost-savings-e010174f9b56",
+            "path": "packages/trigger-sdk/skills/trigger-cost-savings/SKILL.md",
+            "name": "trigger-cost-savings",
+            "description": "Analyze Trigger.dev tasks, schedules, and runs for cost optimization opportunities. Use when asked to reduce spend, optimize costs, audit usage, right-size machines, or review task efficiency. Combines static source analysis with live run analysis via the Trigger.dev MCP tools (list_runs, get_run_details, get_current_worker).\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "2485ae1ab5be4f049872497d0b05f5dfb4651a77",
+                    "bytes": 5484,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 534,
+                        "login": "ericallam",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "trigger-realtime-and-frontend-941f9094f322",
+            "path": "packages/trigger-sdk/skills/trigger-realtime-and-frontend/SKILL.md",
+            "name": "trigger-realtime-and-frontend",
+            "description": "Trigger.dev client/frontend surface: subscribe to runs in realtime (runs.subscribeToRun and the @trigger.dev/react-hooks hook useRealtimeRun), consume metadata and AI/text streams in React (useRealtimeStream), trigger tasks from the browser (useTaskTrigger, useRealtimeTaskTrigger), and mint scoped frontend credentials with auth.createPublicToken / auth.createTriggerPublicToken. Load when wiring a frontend (React/Next.js/Remix) or backend-for-frontend to show live run progress, status badges, token streams, trigger buttons, or wait-token approval UIs. NOT for writing the backend task itself (streams.define / metadata.set is trigger-authoring-tasks territory); this is the consumer side.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "8753634174289938d10cf9564d70b16aacb1a9ac",
+                    "bytes": 11006,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 534,
+                        "login": "ericallam",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "2e26ecab6457f75dafd84b735d27103ea5d7cf46",
+        "bytes": 14491,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "5e468e5078530707eb8d28fe28cad2f72fb64bf0",
+        "bytes": 10935,
+        "text": true,
+        "mode": "100644"
+    }
+}

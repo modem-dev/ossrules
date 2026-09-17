@@ -1,0 +1,86 @@
+{
+    "slug": "sglang",
+    "name": "SGLang",
+    "owner": "sgl-project",
+    "repo": "sglang",
+    "language": "Python",
+    "stars": 36068,
+    "defaultBranch": "main",
+    "instructionFile": "docs/AGENTS.md",
+    "lastCommit": {
+        "sha": "b819d2fb5bbdff3dfb969b4abd678cf54799e405",
+        "date": "2026-08-03T23:51:00Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 15476,
+        "lines": 381,
+        "words": 2102,
+        "headings": 44,
+        "bullets": 120,
+        "codeBlocks": 3,
+        "docLinks": 0
+    },
+    "tagline": "A serving framework for language and multimodal models, with a guide for its documentation site.",
+    "hook": "Scopes documentation commands by hardware platform, model identifier, parallelism, and credentials before supplying copyable examples.",
+    "summary": "This is SGLang’s nested docs/AGENTS.md, a documentation-specific guide for its Mintlify site and cookbook rather than a repository-wide runtime guide. It combines SGLang accuracy requirements and a source hierarchy with page structure, component selection, navigation, and validation workflows.",
+    "references": [],
+    "techniques": [
+        {
+            "title": "Define which source owns each kind of fact",
+            "body": "The hierarchy assigns navigation and voice to the local site, migration context to the existing public documentation, release-sensitive behavior to the implementation, and recipe patterns to the cookbook. It tells writers where a claim should be checked.",
+            "quote": "- `sgl-project/sglang` for anything that can change with releases (flags, env vars, defaults, supported models).",
+            "pattern": "single-source"
+        },
+        {
+            "title": "Make the execution context part of every command example",
+            "body": "Commands and configuration must identify hardware platform, relevant OS and version constraints, the model identifier, parallelism knobs, and required tokens. These details prevent a runnable-looking example from hiding its prerequisites.",
+            "quote": "* **Parallelism knobs** used in the example (`--tp`, `--dp`, node count, etc.)"
+        },
+        {
+            "title": "Read neighboring pages before choosing a structure",
+            "body": "The preparation workflow asks writers to search for existing coverage and then inspect two or three similar pages. That grounds new content in the site’s actual voice and level of detail.",
+            "quote": "Before writing, read 2-3 similar pages to understand the site's voice, structure, formatting conventions, and level of detail.",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Show how uncertainty should remain visible",
+            "body": "The writing workflow explicitly marks unverified claims with TODO comments and provides a concrete MDX example. The final checklist retains those markers instead of presenting uncertain defaults as verified facts.",
+            "quote": "{/* TODO: Verify the default timeout value */}",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Distinguish reachable pages from navigable pages",
+            "body": "A page must be added to docs.json to appear in the sidebar. The hidden-page guidance explains when direct URL access and search visibility are deliberate rather than a missed navigation update.",
+            "quote": "Any page that is not included in the `docs.json` navigation is hidden."
+        }
+    ],
+    "steal": [
+        "Map factual claims to the source that owns them.",
+        "State execution prerequisites next to command examples.",
+        "Read neighboring pages before adding new documentation.",
+        "Leave explicit markers on facts that still need verification.",
+        "Check navigation membership separately from page existence."
+    ],
+    "outline": [
+        "SGLang Mintlify documentation guide for agents",
+        "Non-negotiables",
+        "Source of truth hierarchy",
+        "Writing standards (SGLang-specific)",
+        "Mintlify best practices",
+        "Before you write",
+        "Quick reference",
+        "Page frontmatter",
+        "File conventions",
+        "Organize content",
+        "Customize docs sites",
+        "Write content",
+        "Writing standards",
+        "Deploy",
+        "Workflow",
+        "Edge cases",
+        "Common gotchas",
+        "Resources"
+    ],
+    "patterns": ["single-source", "behavioral-conditioning"]
+}

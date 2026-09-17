@@ -1,0 +1,127 @@
+{
+    "version": 1,
+    "slug": "pnpm",
+    "repository": "pnpm/pnpm",
+    "branch": "main",
+    "sha": "aa8d0ab9aff8da1f9893f284f1cec7e14746a474",
+    "scannedAt": "2026-09-17T12:23:57.087Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "pull-requests-d62867280537",
+            "path": ".agents/skills/pull-requests/SKILL.md",
+            "name": "pull-requests",
+            "description": "Take a change through a pull request in the pnpm repository — opening it, then staying with it after every push until CI is green and the review round is quiet. Use when opening a PR, after pushing to one, when a check fails, or when review comments arrive.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "8eb6021a248a2e34c79806acf6daaddeb075cb09",
+                    "bytes": 8565,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1927579,
+                        "login": "zkochan",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "release-notes-e00f87b4393e",
+            "path": ".agents/skills/release-notes/SKILL.md",
+            "name": "release-notes",
+            "description": "Curate a pending release page - merging entries that describe one change, dropping notes for defects that never shipped, ordering by importance, and checking the version the intents ask for. Use when reviewing a release PR, a generated changelog, or the notes for a specific version.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "57e0281d02af6a1698ba36e2d9ee241889d9f9b4",
+                    "bytes": 11218,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1927579,
+                        "login": "zkochan",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "testing-changes-c84194270e15",
+            "path": ".agents/skills/testing-changes/SKILL.md",
+            "name": "testing-changes",
+            "description": "Run the tests that cover a change in the pnpm repository, in the Rust workspace (pnpm/, pnpr/) or the TypeScript CLI (pnpm11/), and recognize the cases where a scoped run passes without testing anything. Use whenever verifying a change before committing or pushing, or when deciding what to run after an edit.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "3bf416c0010f4c633de0b144b4afaa4bc148731c",
+                    "bytes": 4573,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1927579,
+                        "login": "zkochan",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "triage-e1a987817fd5",
+            "path": ".agents/skills/triage/SKILL.md",
+            "name": "triage",
+            "description": "Triage an incoming GitHub issue against the pnpm codebase and related open issues, then apply exactly one implementation-readiness label using pnpm's `state:` taxonomy. Use whenever the user asks to triage, classify, assess, prioritize, or label an issue for implementation readiness, especially when an issue URL or number is supplied in the prompt.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "718b7948f23e77cea8a672cfa3e4412c3cd0d647",
+                    "bytes": 11482,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1927579,
+                        "login": "zkochan",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "ed5bf15bf44f1c0f8444333dd1b8be300b056969",
+        "bytes": 26219,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "565d3e85af157e84829fc486d58a199d4b4f4de4",
+        "bytes": 1170,
+        "text": true,
+        "mode": "100644"
+    }
+}

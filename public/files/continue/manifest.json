@@ -1,0 +1,13 @@
+{
+    "slug": "continue",
+    "sha": "abb1fc0439bd335efafd2dc4f39907e25348c572",
+    "license": "Apache-2.0",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "extensions/cli/AGENTS.md",
+            "bytes": 4302,
+            "lines": 94
+        }
+    ]
+}

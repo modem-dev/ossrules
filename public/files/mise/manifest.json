@@ -1,0 +1,30 @@
+{
+    "slug": "mise",
+    "sha": "a1117a8bb6aaefd64b92293fadd10c18eba8bb3a",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 30241,
+            "lines": 417
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 9,
+            "lines": 1,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "AGENTS.md"
+        },
+        {
+            "path": "CONTRIBUTING.md",
+            "bytes": 1099,
+            "lines": 25
+        },
+        {
+            "path": "docs/contributing.md",
+            "bytes": 41483,
+            "lines": 992
+        }
+    ]
+}

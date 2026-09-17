@@ -1,0 +1,46 @@
+{
+    "slug": "goose",
+    "sha": "554e07524ca043f2002f19e28f20a4ba9d9250ec",
+    "license": "Apache-2.0",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 6076,
+            "lines": 135
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "AGENTS.md"
+                }
+            ]
+        },
+        {
+            "path": "documentation/AGENTS.md",
+            "bytes": 1406,
+            "lines": 32
+        },
+        {
+            "path": "documentation/CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "documentation/AGENTS.md"
+                }
+            ],
+            "sameContentAs": "CLAUDE.md"
+        },
+        {
+            "path": "ui/text/README.md",
+            "bytes": 696,
+            "lines": 17
+        }
+    ]
+}

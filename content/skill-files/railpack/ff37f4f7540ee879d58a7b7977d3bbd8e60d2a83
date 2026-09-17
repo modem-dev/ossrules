@@ -1,0 +1,94 @@
+
+[TestGenerateContext - 1]
+{
+ "deploy": {
+  "base": {
+   "image": "ghcr.io/railwayapp/railpack-runtime:mise-2026.9.9"
+  },
+  "inputs": [
+   {
+    "step": "build"
+   }
+  ],
+  "startCommand": "echo hello",
+  "variables": {
+   "HELLO": "world"
+  }
+ },
+ "secrets": [
+  "RAILWAY_SECRET_1",
+  "RAILWAY_SECRET_2"
+ ],
+ "steps": [
+  {
+   "assets": {
+    "generated-mise-toml": "[tools]\n  go = \"1.23.5\"\n  node = \"20.18.2\"\n  python = \"3.13.1\"\n\n[settings]\n  idiomatic_version_file_enable_tools = [\"python\", \"node\", \"ruby\", \"elixir\", \"go\", \"java\", \"yarn\", \"pnpm\", \"bun\", \"deno\", \"dotnet\", \"rust\"]\n  minimum_release_age = \"14d\"\n  paranoid = true\n  trusted_config_paths = [\"/app\"]\n  [settings.node]\n    verify = false\n"
+   },
+   "commands": [
+    {
+     "path": "/mise/shims"
+    },
+    {
+     "customName": "create mise config",
+     "name": "generated-mise-toml",
+     "path": "/etc/mise/config.toml"
+    },
+    {
+     "cmd": "mise install",
+     "customName": "install mise packages: go, node, python"
+    }
+   ],
+   "inputs": [
+    {
+     "image": "ghcr.io/railwayapp/railpack-builder:mise-2026.9.9"
+    }
+   ],
+   "name": "packages:mise",
+   "variables": {
+    "MISE_CACHE_DIR": "/mise/cache",
+    "MISE_CONFIG_DIR": "/mise",
+    "MISE_DATA_DIR": "/mise",
+    "MISE_INSTALLS_DIR": "/mise/installs",
+    "MISE_SHIMS_DIR": "/mise/shims"
+   }
+  },
+  {
+   "commands": [
+    {
+     "cmd": "npm install"
+    }
+   ],
+   "inputs": [
+    {
+     "include": [
+      "/mise/shims",
+      "/mise/installs",
+      "/usr/local/bin/mise",
+      "/etc/mise/config.toml",
+      "/root/.local/state/mise"
+     ],
+     "step": "packages:mise"
+    }
+   ],
+   "name": "install"
+  },
+  {
+   "commands": [
+    {
+     "cmd": "sh -c 'echo building'",
+     "customName": "echo building"
+    }
+   ],
+   "inputs": [
+    {
+     "step": "install"
+    }
+   ],
+   "name": "build",
+   "secrets": [
+    "*"
+   ]
+  }
+ ]
+}
+---

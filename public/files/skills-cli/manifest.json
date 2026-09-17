@@ -1,0 +1,13 @@
+{
+    "slug": "skills-cli",
+    "sha": "e17a8cae172403ee6fe138d50532c97e9a03666c",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 7174,
+            "lines": 169
+        }
+    ]
+}

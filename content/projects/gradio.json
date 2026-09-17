@@ -1,0 +1,69 @@
+{
+    "slug": "gradio",
+    "name": "Gradio",
+    "owner": "gradio-app",
+    "repo": "gradio",
+    "language": "Python",
+    "stars": 43559,
+    "defaultBranch": "main",
+    "instructionFile": "AGENTS.md",
+    "lastCommit": {
+        "sha": "39ef9cae8f973f807aeeba02915b9954f339e48c",
+        "date": "2026-07-29T00:58:00Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 3530,
+        "lines": 72,
+        "words": 524,
+        "headings": 9,
+        "bullets": 24,
+        "codeBlocks": 0,
+        "docLinks": 1
+    },
+    "tagline": "A Python library for building web interfaces around machine-learning models and applications.",
+    "hook": "Explains how a handwritten changeset silently overrides the release note generated from a PR title.",
+    "summary": "Gradio uses its root instructions to set contribution expectations across its Python and Svelte packages. The file connects issue ownership, disclosure, human review, and generated release notes with the build and test workflow.",
+    "references": [
+        {
+            "path": ".github/PULL_REQUEST_TEMPLATE.md"
+        },
+        {
+            "path": "CONTRIBUTING.md"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Explain the consequence of overriding generated release notes",
+            "body": "The guide says a GitHub Action creates changesets from the PR title. A manually authored changeset takes precedence, which is why the instruction prohibits adding one rather than merely calling it unnecessary.",
+            "quote": "The bot leaves an existing changeset alone, so a hand-written one silently replaces your title in the changelog.",
+            "pattern": "generated-file-guard"
+        },
+        {
+            "title": "Check for overlapping work before proposing a patch",
+            "body": "The agentic contribution policy distinguishes duplicate fixes from materially different approaches. A second approach requires an explanation in the issue rather than an unexplained competing PR.",
+            "quote": "- If your approach is materially different, explain the difference and why a second PR is needed in the issue thread.",
+            "pattern": "contribution-etiquette"
+        },
+        {
+            "title": "Define what disclosure covers",
+            "body": "Disclosure applies to non-trivial AI assistance in both code and the PR description. The rule also distinguishes trivial autocomplete and requires self-review of generated code.",
+            "quote": "**AI disclosure is mandatory.** If AI was used in any non-trivial way (drafting code, writing the PR description, etc.), you must disclose this in the PR template.",
+            "pattern": "contribution-etiquette"
+        },
+        {
+            "title": "Assign review responsibility to the submitting human",
+            "body": "The policy requires a human who understands and can defend the change. It makes reviewing every changed line and running relevant tests part of that responsibility.",
+            "quote": "- The submitting human is responsible for reviewing every changed line and running relevant tests.",
+            "pattern": "behavioral-conditioning"
+        }
+    ],
+    "steal": [
+        "Explain how generated release notes obtain their source text.",
+        "Require an overlap check before opening another patch.",
+        "Define the scope of AI disclosure with concrete examples.",
+        "State who is accountable for reviewing and verifying a contribution."
+    ],
+    "outline": ["AGENTS.md", "Repository Structure", "Pull Request Rules", "Code Style", "Agentic Contribution Policy", "More Details"],
+    "patterns": ["generated-file-guard", "contribution-etiquette", "behavioral-conditioning"]
+}

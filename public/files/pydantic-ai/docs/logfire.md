@@ -1,0 +1,443 @@
+# Pydantic Logfire Debugging and Monitoring
+
+Applications that use LLMs have some challenges that are well known and understood: LLMs are **slow**, **unreliable** and **expensive**.
+
+These applications also have some challenges that most developers have encountered much less often: LLMs are **fickle** and **non-deterministic**. Subtle changes in a prompt can completely change a model's performance, and there's no `EXPLAIN` query you can run to understand why.
+
+!!! danger "Warning"
+    From a software engineers point of view, you can think of LLMs as the worst database you've ever heard of, but worse.
+
+    If LLMs weren't so bloody useful, we'd never touch them.
+
+To build successful applications with LLMs, we need new tools to understand both model performance, and the behavior of applications that rely on them.
+
+LLM Observability tools that just let you understand how your model is performing are useless: making API calls to an LLM is easy, it's building that into an application that's hard.
+
+## Pydantic Logfire
+
+[Pydantic Logfire](https://pydantic.dev/logfire) is an observability platform developed by the team who created and maintain Pydantic Validation and Pydantic AI. Logfire aims to let you understand your entire application: Gen AI, classic predictive AI, HTTP traffic, database queries and everything else a modern application needs, all using OpenTelemetry.
+
+!!! tip "Pydantic Logfire is a commercial product"
+    Logfire is a commercially supported, hosted platform with an extremely generous and perpetual [free tier](https://pydantic.dev/pricing/).
+    You can sign up and start using Logfire in a couple of minutes. Logfire can also be self-hosted on the enterprise tier.
+
+Pydantic AI has built-in (but optional) support for Logfire. That means if the `logfire` package is installed and configured and agent instrumentation is enabled then detailed information about agent runs is sent to Logfire. Otherwise there's virtually no overhead and nothing is sent.
+
+Here's an example showing details of running the [Weather Agent](examples/weather-agent.md) in Logfire:
+
+![Weather Agent Logfire](img/logfire-weather-agent.png)
+
+A trace is generated for the agent run, and spans are emitted for each model request and tool call.
+
+## Using Logfire
+
+To use Logfire, you'll need a Logfire [account](https://logfire.pydantic.dev). The Logfire Python SDK is included with `pydantic-ai`:
+
+```bash
+pip/uv-add pydantic-ai
+```
+
+Or if you're using the slim package, you can install it with the `logfire` optional group:
+
+```bash
+pip/uv-add "pydantic-ai-slim[logfire]"
+```
+
+Then authenticate your local environment with Logfire:
+
+```bash
+py-cli logfire auth
+```
+
+And configure a project to send data to:
+
+```bash
+py-cli logfire projects new
+```
+
+(Or use an existing project with `logfire projects use`)
+
+This will write to a `.logfire` directory in the current working directory, which the Logfire SDK will use for configuration at run time.
+
+With that, you can start using Logfire to instrument Pydantic AI code:
+
+```python {title="instrument_pydantic_ai.py" hl_lines="1 5 6"}
+import logfire
+
+from pydantic_ai import Agent
+
+logfire.configure()  # (1)!
+logfire.instrument_pydantic_ai()  # (2)!
+
+agent = Agent('openai:gpt-5.2', name='hello_world_agent', instructions='Be concise, reply with one sentence.')  # (4)!
+result = agent.run_sync('Where does "hello world" come from?')  # (3)!
+print(result.output)
+"""
+The first known use of "hello, world" was in a 1974 textbook about the C programming language.
+"""
+```
+
+1. [`logfire.configure()`][logfire.configure] configures the SDK, by default it will find the write token from the `.logfire` directory, but you can also pass a token directly.
+2. [`logfire.instrument_pydantic_ai()`][logfire.Logfire.instrument_pydantic_ai] enables instrumentation of Pydantic AI.
+3. Since we've enabled instrumentation, a trace will be generated for each run, with spans emitted for models calls and tool function execution
+4. Passing `name` is optional but recommended: it labels the agent's run span in Logfire. When omitted, the name is inferred from the variable the agent is assigned to and falls back to `'agent'` when it can't be (e.g. agents kept in a list or dict). This matters most when several agents run in one app and you need to tell their traces apart.
+
+_(This example is complete, it can be run "as is")_
+
+Which will display in Logfire thus:
+
+![Logfire Simple Agent Run](img/logfire-simple-agent.png)
+
+The [Logfire documentation](https://logfire.pydantic.dev/docs/) has more details on how to use Logfire,
+including how to instrument other libraries like [HTTPX](https://logfire.pydantic.dev/docs/integrations/http-clients/httpx/) and [FastAPI](https://logfire.pydantic.dev/docs/integrations/web-frameworks/fastapi/).
+
+Since Logfire is built on [OpenTelemetry](https://opentelemetry.io/), you can use the Logfire Python SDK to send data to any OpenTelemetry collector, see [below](#using-opentelemetry).
+
+### Debugging
+
+To demonstrate how Logfire can let you visualise the flow of a Pydantic AI run, here's the view you get from Logfire while running the [chat app examples](examples/chat-app.md):
+
+{{ video('a764aff5840534dc77eba7d028707bfa', 25) }}
+
+[Realtime (speech-to-speech) sessions](realtime/observability.md) are instrumented by the same
+`logfire.instrument_pydantic_ai()` call: a session appears as an agent run whose child spans mark
+each model response, tool call, and turn boundary as the live conversation unfolds.
+
+### Monitoring Performance
+
+We can also query data with SQL in Logfire to monitor the performance of an application. Here's a real world example of using Logfire to monitor Pydantic AI runs inside Logfire itself:
+
+![Logfire monitoring Pydantic AI](img/logfire-monitoring-pydanticai.png)
+
+### Monitoring HTTP Requests
+
+As per Hamel Husain's influential 2024 blog post ["Fuck You, Show Me The Prompt."](https://hamel.dev/blog/posts/prompt/)
+(bear with the capitalization, the point is valid), it's often useful to be able to view the raw HTTP requests and responses made to model providers.
+
+To observe raw HTTP requests made to model providers, you can use Logfire's [HTTPX instrumentation](https://logfire.pydantic.dev/docs/integrations/http-clients/httpx/). Provider SDKs use either `httpx` or [`httpx2`](https://httpx2.pydantic.dev/) internally, except for [Bedrock](models/bedrock.md), which uses boto3:
+
+
+```py {title="with_logfire_instrument_httpx.py" hl_lines="7"}
+import logfire
+
+from pydantic_ai import Agent
+
+logfire.configure()
+logfire.instrument_pydantic_ai()
+logfire.instrument_httpx(capture_all=True)  # (1)!
+
+agent = Agent('openai:gpt-5.2')
+result = agent.run_sync('What is the capital of France?')
+print(result.output)
+#> The capital of France is Paris.
+```
+
+1. See the [`logfire.instrument_httpx` docs][logfire.Logfire.instrument_httpx] for more details. `capture_all=True` means both headers and body are captured for both the request and response.
+
+    `httpx2` instrumentation requires `opentelemetry-instrumentation-httpx>=0.65b0`, which the [`logfire` extra](install.md#slim-install) installs for you. If you pin OpenTelemetry yourself and end up below that version, `logfire.instrument_httpx()` reports the missing requirement and emits no `httpx2` spans.
+
+![Logfire with HTTPX instrumentation](img/logfire-with-httpx.png)
+
+## Using OpenTelemetry
+
+Pydantic AI's instrumentation uses [OpenTelemetry](https://opentelemetry.io/) (OTel), which Logfire is based on.
+
+This means you can debug and monitor Pydantic AI with any OpenTelemetry backend.
+
+Pydantic AI follows the [OpenTelemetry Semantic Conventions for Generative AI systems](https://opentelemetry.io/docs/specs/semconv/gen-ai/), so while we think you'll have the best experience using the Logfire platform :wink:, you should be able to use any OTel service with GenAI support.
+
+### Logfire with an alternative OTel backend {#otel}
+
+You can use the Logfire SDK completely freely and send the data to any OpenTelemetry backend.
+
+Here's an example of configuring the Logfire library to send data to the excellent [otel-tui](https://github.com/ymtdzzz/otel-tui) — an open source terminal based OTel backend and viewer (no association with Pydantic Validation).
+
+Run `otel-tui` with docker (see [the otel-tui readme](https://github.com/ymtdzzz/otel-tui) for more instructions):
+
+```txt title="Terminal"
+docker run --rm -it -p 4318:4318 --name otel-tui ymtdzzz/otel-tui:latest
+```
+
+then run,
+
+```python {title="otel_tui.py" hl_lines="7 8" test="skip"}
+import os
+
+import logfire
+
+from pydantic_ai import Agent
+
+os.environ['OTEL_EXPORTER_OTLP_ENDPOINT'] = 'http://localhost:4318'  # (1)!
+logfire.configure(send_to_logfire=False)  # (2)!
+logfire.instrument_pydantic_ai()
+logfire.instrument_httpx(capture_all=True)
+
+agent = Agent('openai:gpt-5.2')
+result = agent.run_sync('What is the capital of France?')
+print(result.output)
+#> Paris
+```
+
+1. Set the `OTEL_EXPORTER_OTLP_ENDPOINT` environment variable to the URL of your OpenTelemetry backend. If you're using a backend that requires authentication, you may need to set [other environment variables](https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/). Of course, these can also be set outside the process, e.g. with `export OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4318`.
+2. We [configure][logfire.configure] Logfire to disable sending data to the Logfire OTel backend itself. If you removed `send_to_logfire=False`, data would be sent to both Logfire and your OpenTelemetry backend.
+
+Running the above code will send tracing data to `otel-tui`, which will display like this:
+
+![otel tui simple](img/otel-tui-simple.png)
+
+Running the [weather agent](examples/weather-agent.md) example connected to `otel-tui` shows how it can be used to visualise a more complex trace:
+
+![otel tui weather agent](img/otel-tui-weather.png)
+
+For more information on using the Logfire SDK to send data to alternative backends, see
+[the Logfire documentation](https://logfire.pydantic.dev/docs/how-to-guides/alternative-backends/).
+
+### OTel without Logfire
+
+You can also emit OpenTelemetry data from Pydantic AI without using Logfire at all.
+
+To do this, you'll need to install and configure the OpenTelemetry packages you need. To run the following examples, use
+
+```txt title="Terminal"
+uv run \
+  --with 'pydantic-ai-slim[openai]' \
+  --with opentelemetry-sdk \
+  --with opentelemetry-exporter-otlp \
+  raw_otel.py
+```
+
+```python {title="raw_otel.py" test="skip"}
+import os
+
+from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
+from opentelemetry.sdk.trace import TracerProvider
+from opentelemetry.sdk.trace.export import BatchSpanProcessor
+from opentelemetry.trace import set_tracer_provider
+
+from pydantic_ai import Agent
+
+os.environ['OTEL_EXPORTER_OTLP_ENDPOINT'] = 'http://localhost:4318'
+exporter = OTLPSpanExporter()
+span_processor = BatchSpanProcessor(exporter)
+tracer_provider = TracerProvider()
+tracer_provider.add_span_processor(span_processor)
+
+set_tracer_provider(tracer_provider)
+
+Agent.instrument_all()
+agent = Agent('openai:gpt-5.2')
+result = agent.run_sync('What is the capital of France?')
+print(result.output)
+#> Paris
+```
+
+### Alternative Observability backends
+
+Because Pydantic AI uses OpenTelemetry for observability, you can easily configure it to send data to any OpenTelemetry-compatible backend, not just our observability platform [Pydantic Logfire](#pydantic-logfire).
+
+The following providers have dedicated documentation on Pydantic AI:
+
+<!--Feel free to add other platforms here. They MUST be added to the bottom of the list, and may only be a name with link.-->
+- [Langfuse](https://langfuse.com/docs/integrations/pydantic-ai)
+- [W&B Weave](https://weave-docs.wandb.ai/guides/integrations/pydantic_ai/)
+- [Arize](https://arize.com/docs/ax/observe/tracing-integrations-auto/pydantic-ai)
+- [Openlayer](https://www.openlayer.com/docs/integrations/pydantic-ai)
+- [LangWatch](https://docs.langwatch.ai/integration/python/integrations/pydantic-ai)
+- [Patronus AI](https://docs.patronus.ai/docs/percival/integrations/pydantic)
+- [Opik](https://www.comet.com/docs/opik/tracing/integrations/pydantic-ai)
+- [mlflow](https://mlflow.org/docs/latest/genai/tracing/integrations/listing/pydantic_ai)
+- [Agenta](https://docs.agenta.ai/observability/integrations/pydanticai)
+- [Braintrust](https://www.braintrust.dev/docs/integrations/sdk-integrations/pydantic-ai)
+- [SigNoz](https://signoz.io/docs/pydantic-ai-observability/)
+- [Laminar](https://docs.laminar.sh/tracing/integrations/pydantic-ai)
+- [Respan](https://respan.ai/docs/integrations/pydantic-ai)
+- [Raindrop](https://raindrop.ai/docs/integrations/pydantic-ai)
+- [Sentry](https://docs.sentry.io/platforms/python/integrations/pydantic-ai/)
+
+## Advanced usage
+
+### Emitted metrics
+
+In addition to spans, the instrumentation records the following [OpenTelemetry metrics](https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-metrics/), all histograms:
+
+| Metric | Unit | Description |
+|--------|------|-------------|
+| `gen_ai.client.token.usage` | `{token}` | Number of tokens used per model or embedding request, split by the `gen_ai.token.type` attribute (`input` or `output`). Defined by the GenAI semantic conventions. |
+| `operation.cost` | `{USD}` | Estimated monetary cost of each model or embedding request, recorded when a price is known for the model. |
+| `gen_ai.client.operation.time_to_first_chunk` | `s` | Time from issuing a streaming request to the first chunk being surfaced to the consumer. Only recorded for streaming requests; the same value is also set as an attribute of the same name on the model request span. |
+
+Each metric point carries the `gen_ai.provider.name` (and legacy `gen_ai.system`), `gen_ai.operation.name`, `gen_ai.request.model`, and `gen_ai.response.model` attributes, so histograms can be broken down by provider and model.
+
+!!! note "Stability and histogram buckets"
+    `gen_ai.client.operation.time_to_first_chunk` is currently at **Development** stability in the [GenAI semantic conventions](https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-metrics.md#metric-gen_aiclientoperationtime_to_first_chunk), so its name or shape may change before stabilization. Both `gen_ai.client.token.usage` and `gen_ai.client.operation.time_to_first_chunk` advise the explicit bucket boundaries specified by the conventions. These are only advisories: you can override them by configuring a [View](https://opentelemetry.io/docs/specs/otel/metrics/sdk/#view) on your `MeterProvider`, and SDKs configured for exponential histogram aggregation (such as Logfire) ignore them entirely.
+
+### Aggregated usage attribute names
+
+By default, model request spans use the standard `gen_ai.usage.input_tokens` and `gen_ai.usage.output_tokens` attributes, while agent run spans use `gen_ai.aggregated_usage.input_tokens`, `gen_ai.aggregated_usage.output_tokens`, and `gen_ai.aggregated_usage.details.*`.
+
+This avoids double-counting in observability backends that aggregate usage attributes across parent and child spans, since agent run spans report the sum of their child model request spans' usage.
+
+!!! note "Custom namespace"
+    The `gen_ai.aggregated_usage.*` namespace is a custom extension not part of the [OpenTelemetry Semantic Conventions for GenAI](https://opentelemetry.io/docs/specs/semconv/gen-ai/). It was introduced to work around double-counting in observability backends. If OpenTelemetry introduces an official convention for aggregated usage in the future, this namespace may be updated or deprecated.
+
+If you want agent run spans to use the standard `gen_ai.usage.*` attributes and handle double-counting in your backend, disable aggregated usage attribute names:
+
+```python
+from pydantic_ai import Agent
+from pydantic_ai.models.instrumented import InstrumentationSettings
+
+Agent.instrument_all(InstrumentationSettings(use_aggregated_usage_attribute_names=False))
+```
+
+### Configuring data format
+
+Pydantic AI follows the [OpenTelemetry Semantic Conventions for Generative AI systems](https://opentelemetry.io/docs/specs/semconv/gen-ai/), specifically version 1.37.0 of the conventions. The instrumentation format can be configured using the `version` parameter of [`InstrumentationSettings`][pydantic_ai.models.instrumented.InstrumentationSettings].
+
+**The default is `version=5`**.
+
+Versions 2, 3, and 4 are deprecated compatibility formats. Passing one of these versions to [`InstrumentationSettings`][pydantic_ai.models.instrumented.InstrumentationSettings] emits a [`PydanticAIDeprecationWarning`][pydantic_ai.agent.PydanticAIDeprecationWarning]; use version 5 unless you are temporarily preserving an older telemetry pipeline.
+
+Version 6 is opt-in: it changes the role of messages you already receive, so pass it explicitly once your telemetry consumer is ready for the new role.
+
+#### Version 2 (deprecated)
+
+Uses the newer OpenTelemetry GenAI spec and stores messages in the following attributes:
+
+- `gen_ai.system_instructions` for instructions passed to the agent
+- `gen_ai.input.messages` and `gen_ai.output.messages` on model request spans
+- `pydantic_ai.all_messages` on agent run spans
+
+Some span and attribute names are not fully spec-compliant for compatibility reasons. Use version 5 for current telemetry.
+
+#### Version 3 (deprecated)
+
+Builds on version 2 with the following improvements:
+
+- **Spec-compliant span names:**
+    - `agent run` becomes `invoke_agent {gen_ai.agent.name}` (with the agent name filled in)
+    - `running tool` becomes `execute_tool {gen_ai.tool.name}` (with the tool name filled in)
+- **Spec-compliant attribute names:**
+    - `tool_arguments` becomes `gen_ai.tool.call.arguments`
+    - `tool_response` becomes `gen_ai.tool.call.result`
+- **Thinking tokens support:** Captures thinking/reasoning tokens when available
+
+#### Version 4 (deprecated)
+
+Builds on version 3 with improved multimodal content handling to better align with the [GenAI semantic conventions for multimodal inputs](https://opentelemetry.io/docs/specs/semconv/gen-ai/non-normative/examples-llm-calls/#multimodal-inputs-example):
+
+**URL-based media (ImageUrl, AudioUrl, VideoUrl):**
+
+- Old (v2-3): `{"type": "image-url", "url": "..."}`
+- New (v4): `{"type": "uri", "modality": "image", "uri": "...", "mime_type": "..."}`
+
+**Inline binary content (BinaryContent, FilePart):**
+
+- Old (v2-3): `{"type": "binary", "media_type": "...", "content": "..."}`
+- New (v4): `{"type": "blob", "modality": "image", "mime_type": "...", "content": "..."}`
+
+Note: The `modality` field is only included for image, audio, and video content types as specified in the OTel spec. DocumentUrl and unsupported media types omit the `modality` field.
+
+#### Version 5
+
+Builds on version 4 with improved handling of deferred tool calls:
+
+- [`CallDeferred`][pydantic_ai.exceptions.CallDeferred] and [`ApprovalRequired`][pydantic_ai.exceptions.ApprovalRequired] exceptions no longer record an exception event or set the span status to ERROR — the span is left as UNSET, since deferrals are control flow, not errors.
+
+#### Version 6 (opt-in)
+
+Builds on version 5 by giving tool results the message role the [GenAI semantic conventions](https://github.com/open-telemetry/semantic-conventions-genai/blob/main/model/gen-ai/gen-ai-input-messages.json) pair with the `tool_call_response` parts they carry:
+
+- Old (v2-5): a tool result is a `tool_call_response` part inside a `{"role": "user"}` message
+- New (v6): it moves to a `{"role": "tool"}` message
+
+This applies to tool returns and to retries that answer a tool call. A retry that answers nothing — output validation, a `ModelRetry` from a validator — stays on `user`, which is the role it reaches the model as. A request whose parts span both roles is emitted as consecutive messages in part order rather than one merged message.
+
+---
+
+Note that the OpenTelemetry Semantic Conventions are still experimental and are likely to change.
+
+### Setting OpenTelemetry SDK providers
+
+By default, the global `TracerProvider` is used. This is set automatically by `logfire.configure()`. It can also be set by the `set_tracer_provider` function in the OpenTelemetry Python SDK. You can set custom providers with [`InstrumentationSettings`][pydantic_ai.models.instrumented.InstrumentationSettings].
+
+```python {title="instrumentation_settings_providers.py"}
+from opentelemetry.sdk.trace import TracerProvider
+
+from pydantic_ai import Agent, InstrumentationSettings
+from pydantic_ai.capabilities import Instrumentation
+
+instrumentation_settings = InstrumentationSettings(
+    tracer_provider=TracerProvider(),
+)
+
+agent = Agent('openai:gpt-5.2', capabilities=[Instrumentation(settings=instrumentation_settings)])
+# or to instrument all agents:
+Agent.instrument_all(instrumentation_settings)
+```
+
+### Excluding binary content
+
+When `include_binary_content=False`, Pydantic AI excludes binary file data, including images, audio, and documents, from telemetry for user prompts, model responses, tool returns, the agent's output, output-function arguments, and run and tool deferral metadata. The media type remains recorded everywhere. When a value is recorded as a file rather than a message part, its vendor metadata and identifier are recorded too; Pydantic AI derives the identifier from the content when you do not set one.
+
+Binary content is found inside dictionaries, lists and [`ToolReturn`][pydantic_ai.messages.ToolReturn]s, but not inside your own types: a [`BinaryContent`][pydantic_ai.messages.BinaryContent] held as a field of a model or dataclass you define is still recorded in full.
+
+```python {title="excluding_binary_content.py"}
+from pydantic_ai import Agent, InstrumentationSettings
+from pydantic_ai.capabilities import Instrumentation
+
+instrumentation_settings = InstrumentationSettings(include_binary_content=False)
+
+agent = Agent('openai:gpt-5.2', capabilities=[Instrumentation(settings=instrumentation_settings)])
+# or to instrument all agents:
+Agent.instrument_all(instrumentation_settings)
+```
+
+### Excluding prompts and completions
+
+For privacy and security reasons, you may want to monitor your agent's behavior and performance without exposing sensitive user data or proprietary prompts in your observability platform. Pydantic AI allows you to exclude the actual content from telemetry while preserving the structural information needed for debugging and monitoring.
+
+When `include_content=False` is set, Pydantic AI will exclude sensitive content from telemetry, including user prompts and model completions, tool call arguments and responses, and any other message content.
+
+```python {title="excluding_sensitive_content.py"}
+from pydantic_ai import Agent
+from pydantic_ai.capabilities import Instrumentation
+from pydantic_ai.models.instrumented import InstrumentationSettings
+
+instrumentation_settings = InstrumentationSettings(include_content=False)
+
+agent = Agent('openai:gpt-5.2', capabilities=[Instrumentation(settings=instrumentation_settings)])
+# or to instrument all agents:
+Agent.instrument_all(instrumentation_settings)
+```
+
+This setting is particularly useful in production environments where compliance requirements or data sensitivity concerns make it necessary to limit what content is sent to your observability platform.
+
+### Excluding model request parameters
+
+By default, each model request span carries a `model_request_parameters` attribute that serializes the full [`ModelRequestParameters`][pydantic_ai.models.ModelRequestParameters], including the output configuration and every tool definition. Tools that carry large output schemas (some MCP toolsets, for example) can make this attribute big enough to strain span export and inflate memory use. Set `include_model_request_parameters=False` to omit it entirely:
+
+```python {title="excluding_model_request_parameters.py"}
+from pydantic_ai import Agent
+from pydantic_ai.capabilities import Instrumentation
+from pydantic_ai.models.instrumented import InstrumentationSettings
+
+instrumentation_settings = InstrumentationSettings(include_model_request_parameters=False)
+
+agent = Agent('openai:gpt-5.2', capabilities=[Instrumentation(settings=instrumentation_settings)])
+# or to instrument all agents:
+Agent.instrument_all(instrumentation_settings)
+```
+
+The `gen_ai.tool.definitions` attribute (tool name, description, and parameters) is emitted regardless of this setting, so observability platforms that read the available tools from it are unaffected.
+
+### Adding Custom Metadata
+
+Use the agent's `metadata` parameter to attach additional data to the agent's span.
+When instrumentation is enabled, the computed metadata is recorded on the agent span under the `metadata` attribute.
+See the [usage and metadata example in the agents guide](agent.md#run-metadata) for details and usage.
+
+### The first-run banner
+
+Until instrumentation is configured, the first agent run in a process prints a short banner to `stderr` describing the run and pointing here. It's shown only where someone is there to read it: when `stderr` is a terminal, or when a coding agent is running the process and reads back what it writes. It's never shown when instrumentation is configured, under `pytest`, or when `CI` is set to any value. To turn it off entirely, set `PYDANTIC_AI_NO_BANNER` to any value in the environment, or set `pydantic_ai.BANNER_ENABLED = False` before the first agent run.
+
+Coding agents are recognized by the environment variables they set for the purpose. That list is best-effort and will always be behind, so a harness it doesn't recognize — including one built on Pydantic AI — can set `AI_AGENT` (or `AGENT`) to be treated the same way, naming itself in the value.

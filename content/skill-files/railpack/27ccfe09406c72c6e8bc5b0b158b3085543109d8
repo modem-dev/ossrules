@@ -1,0 +1,34 @@
+name: Linting, Formatting, and Unit Tests
+
+# Security: Actions are pinned to commit SHAs instead of tags/versions where possible.
+# Tags are mutable and can be force-pushed, allowing attackers to replace trusted
+# code with malicious code. SHAs are immutable and protect against supply chain attacks.
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "docs/**"
+  pull_request:
+    paths-ignore:
+      - "docs/**"
+  schedule:
+    # run every day to alert against changes in default mise versions which break snapshot tests
+    - cron: "0 0 * * *"
+
+env:
+  MISE_ENV: ci
+
+jobs:
+  test:
+    name: Check and Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+      - uses: jdx/mise-action@1648a7812b9aeae629881980618f079932869151
+
+      - name: Go Checks
+        run: mise run check
+
+      - name: Test Unit
+        run: mise run test

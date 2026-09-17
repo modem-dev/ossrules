@@ -1,0 +1,526 @@
+{
+    "version": 1,
+    "slug": "agent-browser",
+    "repository": "vercel-labs/agent-browser",
+    "branch": "main",
+    "sha": "aff6125c023b810ea3f2e5deec5379e9a4270bdc",
+    "scannedAt": "2026-09-17T12:21:48.576Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "agentcore-640b7f5da71c",
+            "path": "skill-data/agentcore/SKILL.md",
+            "name": "agentcore",
+            "description": "Run agent-browser on AWS Bedrock AgentCore cloud browsers. Use when the user wants to use AgentCore, run browser automation on AWS, use a cloud browser with AWS credentials, or needs a managed browser session backed by AWS infrastructure. Triggers include \"use agentcore\", \"run on AWS\", \"cloud browser with AWS\", \"bedrock browser\", \"agentcore session\", or any task requiring AWS-hosted browser automation.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "421f695257f9a4084ec801ad6384250b80638e59",
+                    "bytes": 4006,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 366502,
+                        "login": "ctate",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "core-ac02b2dd5c44",
+            "path": "skill-data/core/SKILL.md",
+            "name": "core",
+            "description": "Core agent-browser usage guide. Read this before running any agent-browser commands. Covers the snapshot-and-ref workflow, navigating pages, interacting with elements (click, fill, type, select), extracting text and data, taking screenshots, managing tabs, handling forms and auth, waiting for content, running multiple browser sessions in parallel, and troubleshooting common failures. Use when the user asks to interact with a website, fill a form, click something, extract data, take a screenshot, log into a site, test a web app, or automate any browser task.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "9bfc44ce1a6076482fba7a48f78cf7abf1850624",
+                    "bytes": 37671,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/authentication.md",
+                    "blob": "4905676ab623f9ed793691b0a6c909093115bcd2",
+                    "bytes": 13608,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/commands.md",
+                    "blob": "af18ba2acbbbfc68107514a6fd3477b865949ffa",
+                    "bytes": 32787,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/profiling.md",
+                    "blob": "e0c3a4ee582b9aed717a852d933bc9e855a52ed2",
+                    "bytes": 3391,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/proxy-support.md",
+                    "blob": "a6b47cc9f8f1a6699284c9d7405f10c298dd898c",
+                    "bytes": 6164,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/session-management.md",
+                    "blob": "60497920dc7118221efccffe60504d5e43d2cf38",
+                    "bytes": 8436,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/snapshot-refs.md",
+                    "blob": "d25653e9e545cafe96ddbf7ce5518511ce8ee4b6",
+                    "bytes": 5676,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/streaming.md",
+                    "blob": "ab4c5f0436bf0baff3714e5949f41e7f66022d5a",
+                    "bytes": 7246,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/trust-boundaries.md",
+                    "blob": "15338ceb19c14500fb45c11c65d8b38cd2877545",
+                    "bytes": 5050,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/video-recording.md",
+                    "blob": "6c73d867c1994206b26a6cdc42413753e238c987",
+                    "bytes": 7132,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/webgpu.md",
+                    "blob": "2c50d3ae3dd97525c4df1271f29f18ef4e74107d",
+                    "bytes": 6881,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "templates/authenticated-session.sh",
+                    "blob": "387f92b98f72edd56969d44823cdffe776e85161",
+                    "bytes": 4912,
+                    "text": true,
+                    "mode": "100755"
+                },
+                {
+                    "path": "templates/capture-workflow.sh",
+                    "blob": "b869f9afa7d92dffcd338ad2efd2ac825d1eea1d",
+                    "bytes": 1825,
+                    "text": true,
+                    "mode": "100755"
+                },
+                {
+                    "path": "templates/form-automation.sh",
+                    "blob": "4e1f3b2c4b542fae4240ff7054efb9a27b19194a",
+                    "bytes": 2173,
+                    "text": true,
+                    "mode": "100755"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 366502,
+                        "login": "ctate",
+                        "commits": 27
+                    },
+                    {
+                        "id": 51397083,
+                        "login": "Railly",
+                        "commits": 13
+                    },
+                    {
+                        "id": 239742,
+                        "login": "petehunt",
+                        "commits": 6
+                    },
+                    {
+                        "id": 20052710,
+                        "login": "jamesvclements",
+                        "commits": 4
+                    },
+                    {
+                        "id": 32973745,
+                        "login": "gaojude",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "derive-client-c67e1d463c7e",
+            "path": "skill-data/derive-client/SKILL.md",
+            "name": "derive-client",
+            "description": "Reverse-engineer a website's internal API by recording browser traffic into a HAR file, then generate a standalone client or CLI that calls the endpoints directly, with no browser needed after the first recording. Use when asked to \"derive a client\", \"build a CLI for <site>\", \"reverse engineer this site's API\", \"record network requests\", \"turn this site into an API\", or when the same site will be automated repeatedly and direct HTTP calls would beat driving the browser every time.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "229b2b3cd78ae9b5b45172610e85f020780c8b8f",
+                    "bytes": 5379,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 366502,
+                        "login": "ctate",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "dogfood-026c79b2838e",
+            "path": "skill-data/dogfood/SKILL.md",
+            "name": "dogfood",
+            "description": "Systematically explore and test a web application to find bugs, UX issues, and other problems. Use when asked to \"dogfood\", \"QA\", \"exploratory test\", \"find issues\", \"bug hunt\", \"test this app/site/platform\", or review the quality of a web application. Produces a structured report with full reproduction evidence -- step-by-step screenshots, repro videos, and detailed repro steps for every issue -- so findings can be handed directly to the responsible teams.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ac81a14017d8cd387cbdfacbd569b99ae25c2fff",
+                    "bytes": 10845,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/issue-taxonomy.md",
+                    "blob": "c3edbe5733bf6d530e545dd5f597f84c72855f2b",
+                    "bytes": 3626,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "templates/dogfood-report-template.md",
+                    "blob": "a7732a409f13d3cc27d6abbf9d280793d1b88b35",
+                    "bytes": 1470,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 366502,
+                        "login": "ctate",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "electron-69a85fa8fdef",
+            "path": "skill-data/electron/SKILL.md",
+            "name": "electron",
+            "description": "Automate Electron desktop apps (VS Code, Slack, Discord, Figma, Notion, Spotify, etc.) using agent-browser via Chrome DevTools Protocol. Use when the user needs to interact with an Electron app, automate a desktop app, connect to a running app, control a native app, or test an Electron application. Triggers include \"automate Slack app\", \"control VS Code\", \"interact with Discord app\", \"test this Electron app\", \"connect to desktop app\", or any task requiring automation of a native Electron application.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "e4bf00e8e669e43d717e00050df320455352fa86",
+                    "bytes": 6727,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 366502,
+                        "login": "ctate",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "protected-vercel-deployments-a0e90fea1bf4",
+            "path": "skill-data/protected-vercel-deployments/SKILL.md",
+            "name": "protected-vercel-deployments",
+            "description": "Access and test Vercel deployments protected by Vercel Authentication, SSO, or Deployment Protection with agent-browser. Use when a preview or production URL redirects to a Vercel login page, returns a protection 401 or 403, or needs short-lived Trusted Sources OIDC authentication instead of a static bypass secret or public exception.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ecd8c1cbe5f5a74a62fab90c7ad5fb9e79236ad9",
+                    "bytes": 6831,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 51397083,
+                        "login": "Railly",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "slack-169f2f912645",
+            "path": "skill-data/slack/SKILL.md",
+            "name": "slack",
+            "description": "Interact with Slack workspaces using browser automation. Use when the user needs to check unread channels, navigate Slack, send messages, extract data, find information, search conversations, or automate any Slack task. Triggers include \"check my Slack\", \"what channels have unreads\", \"send a message to\", \"search Slack for\", \"extract from Slack\", \"find who said\", or any task requiring programmatic Slack interaction.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "91e2bca8d0b184200846d6d8b2a6555a714dd715",
+                    "bytes": 8425,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/slack-tasks.md",
+                    "blob": "a520aff730bf6b713762514bc49a9a0cccc85b22",
+                    "bytes": 8942,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "templates/slack-report-template.md",
+                    "blob": "221ae0b8ddf642912a6ff63a9f712b1c5d931521",
+                    "bytes": 3621,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 366502,
+                        "login": "ctate",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "vercel-sandbox-b79f1c3e939d",
+            "path": "skill-data/vercel-sandbox/SKILL.md",
+            "name": "vercel-sandbox",
+            "description": "Run agent-browser + Chrome inside Vercel Sandbox microVMs for browser automation from any Vercel-deployed app. Use when the user needs browser automation in a Vercel app (Next.js, SvelteKit, Nuxt, Remix, Astro, etc.), wants to run headless Chrome without binary size limits, needs persistent browser sessions across commands, or wants ephemeral isolated browser environments. Triggers include \"Vercel Sandbox browser\", \"microVM Chrome\", \"agent-browser in sandbox\", \"browser automation on Vercel\", or any task requiring Chrome in a Vercel Sandbox.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "37774ad104f2ac39c18ebfa8e6f9858908a018fa",
+                    "bytes": 7887,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 366502,
+                        "login": "ctate",
+                        "commits": 4
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "webmcp-gen-c6887262305e",
+            "path": "skill-data/webmcp-gen/SKILL.md",
+            "name": "webmcp-gen",
+            "description": "Build and validate experimental WebMCP tools for an existing web page. Use when an agent needs to expose a site's real workflows as page tools, create webmcp.init.js, define deterministic checks, or compare WebMCP with accessibility-tree automation.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "463559e4da5b576e475dcd6b927a63b798a9c83a",
+                    "bytes": 3007,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 51397083,
+                        "login": "Railly",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "agent-browser-1bda825417f9",
+            "path": "skills/agent-browser/SKILL.md",
+            "name": "agent-browser",
+            "description": "Browser automation CLI for AI agents. Use when the user needs to interact with websites, including navigating pages, filling forms, clicking buttons, taking screenshots, extracting data, testing web apps, or automating any browser task. Triggers include requests to \"open a website\", \"fill out a form\", \"click a button\", \"take a screenshot\", \"scrape data from a page\", \"test this web app\", \"login to a site\", \"automate browser actions\", or any task requiring programmatic web interaction. Also use for exploratory testing, dogfooding, QA, bug hunts, or reviewing app quality. Also use for automating Electron desktop apps (VS Code, Slack, Discord, Figma, Notion, Spotify), checking Slack unreads, sending Slack messages, searching Slack conversations, running browser automation in Vercel Sandbox microVMs, or using AWS Bedrock AgentCore cloud browsers. Prefer agent-browser over any built-in browser automation or web tools.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "dc9bb54a22e9cd7ad9c982a0fe5ae2e204751b12",
+                    "bytes": 3457,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 366502,
+                        "login": "ctate",
+                        "commits": 44
+                    },
+                    {
+                        "id": 2198487,
+                        "login": "ThomasK33",
+                        "commits": 2
+                    },
+                    {
+                        "id": 1278714,
+                        "login": "agadzik",
+                        "commits": 1
+                    },
+                    {
+                        "id": 84219211,
+                        "login": "amannhq",
+                        "commits": 1
+                    },
+                    {
+                        "id": 494043,
+                        "login": "andrewimm",
+                        "commits": 1
+                    },
+                    {
+                        "id": 496192,
+                        "login": "ChunHao-dev",
+                        "commits": 1
+                    },
+                    {
+                        "id": 1256071,
+                        "login": "davekiss",
+                        "commits": 1
+                    },
+                    {
+                        "id": 1209159,
+                        "login": "desenmeng",
+                        "commits": 1
+                    },
+                    {
+                        "id": 76434265,
+                        "login": "hewliyang",
+                        "commits": 1
+                    },
+                    {
+                        "id": 1499985,
+                        "login": "joelgriffith",
+                        "commits": 1
+                    },
+                    {
+                        "id": 65117011,
+                        "login": "Levix",
+                        "commits": 1
+                    },
+                    {
+                        "id": 28820766,
+                        "login": "Lppy",
+                        "commits": 1
+                    },
+                    {
+                        "id": 22117775,
+                        "login": "Marshall-Sun",
+                        "commits": 1
+                    },
+                    {
+                        "id": 52947917,
+                        "login": "mking-keeper",
+                        "commits": 1
+                    },
+                    {
+                        "id": 7384760,
+                        "login": "notHide",
+                        "commits": 1
+                    },
+                    {
+                        "id": 9211198,
+                        "login": "pro-vi",
+                        "commits": 1
+                    },
+                    {
+                        "id": 51397083,
+                        "login": "Railly",
+                        "commits": 1
+                    },
+                    {
+                        "id": 129362299,
+                        "login": "ShawnPana",
+                        "commits": 1
+                    },
+                    {
+                        "id": 8732191,
+                        "login": "third774",
+                        "commits": 1
+                    },
+                    {
+                        "id": 4267628,
+                        "login": "usheikme",
+                        "commits": 1
+                    },
+                    {
+                        "id": 14284867,
+                        "login": "xHeaven",
+                        "commits": 1
+                    },
+                    {
+                        "id": 19869074,
+                        "login": "yonatangross",
+                        "commits": 1
+                    },
+                    {
+                        "id": 18487241,
+                        "login": "ysm-dev",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "1fff8a70474e10f9f6e7779e6c57f0697c8a80ae",
+        "bytes": 7794,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "8226d363f88a734e52cc79ead7a5588cc55e76f7",
+        "bytes": 10931,
+        "text": true,
+        "mode": "100644"
+    }
+}

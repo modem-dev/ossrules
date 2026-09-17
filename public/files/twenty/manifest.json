@@ -1,0 +1,123 @@
+{
+    "slug": "twenty",
+    "sha": "330cf9c39d149e4945cd142d6519bcef56e85628",
+    "license": "AGPL-3.0",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 9,
+            "lines": 1,
+            "symlink": "CLAUDE.md",
+            "resolvedPath": "CLAUDE.md"
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 4853,
+            "lines": 50
+        },
+        {
+            "path": "packages/create-twenty-app/src/constants/template/AGENTS.md",
+            "bytes": 4660,
+            "lines": 70
+        },
+        {
+            "path": "packages/twenty-agent-skills/AGENTS.md",
+            "bytes": 4647,
+            "lines": 66
+        },
+        {
+            "path": "packages/twenty-apps/examples/postcard/CLAUDE.md",
+            "bytes": 586,
+            "lines": 13
+        },
+        {
+            "path": "packages/twenty-apps/internal/twenty-partners/AGENTS.md",
+            "bytes": 8594,
+            "lines": 149
+        },
+        {
+            "path": "packages/twenty-apps/internal/twenty-partners/CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "packages/twenty-apps/internal/twenty-partners/AGENTS.md"
+                }
+            ]
+        },
+        {
+            "path": "packages/twenty-apps/public/call-recorder/AGENTS.md",
+            "bytes": 4230,
+            "lines": 66
+        },
+        {
+            "path": "packages/twenty-apps/public/call-recorder/CLAUDE.md",
+            "bytes": 4230,
+            "lines": 66,
+            "sameContentAs": "packages/twenty-apps/public/call-recorder/AGENTS.md"
+        },
+        {
+            "path": "packages/twenty-apps/public/companion/AGENTS.md",
+            "bytes": 4660,
+            "lines": 70,
+            "sameContentAs": "packages/create-twenty-app/src/constants/template/AGENTS.md"
+        },
+        {
+            "path": "packages/twenty-apps/public/companion/CLAUDE.md",
+            "bytes": 4660,
+            "lines": 70,
+            "sameContentAs": "packages/create-twenty-app/src/constants/template/AGENTS.md"
+        },
+        {
+            "path": "packages/twenty-apps/public/fathom/AGENTS.md",
+            "bytes": 4660,
+            "lines": 70,
+            "sameContentAs": "packages/create-twenty-app/src/constants/template/AGENTS.md"
+        },
+        {
+            "path": "packages/twenty-apps/public/fathom/CLAUDE.md",
+            "bytes": 4660,
+            "lines": 70,
+            "sameContentAs": "packages/create-twenty-app/src/constants/template/AGENTS.md"
+        },
+        {
+            "path": "packages/twenty-apps/public/granola/AGENTS.md",
+            "bytes": 4662,
+            "lines": 70
+        },
+        {
+            "path": "packages/twenty-apps/public/granola/CLAUDE.md",
+            "bytes": 4662,
+            "lines": 70,
+            "sameContentAs": "packages/twenty-apps/public/granola/AGENTS.md"
+        },
+        {
+            "path": "packages/twenty-apps/public/last-contact/AGENTS.md",
+            "bytes": 4228,
+            "lines": 66
+        },
+        {
+            "path": "packages/twenty-apps/public/last-contact/CLAUDE.md",
+            "bytes": 4228,
+            "lines": 66,
+            "sameContentAs": "packages/twenty-apps/public/last-contact/AGENTS.md"
+        },
+        {
+            "path": "packages/twenty-apps/public/linear/CLAUDE.md",
+            "bytes": 586,
+            "lines": 13
+        },
+        {
+            "path": "packages/twenty-server/docs/UPGRADE_COMMANDS.md",
+            "bytes": 12329,
+            "lines": 199
+        },
+        {
+            "path": "packages/twenty-ui/src/icon/icon-dictionary.md",
+            "bytes": 14701,
+            "lines": 130
+        }
+    ]
+}

@@ -1,0 +1,80 @@
+{
+    "slug": "mlflow",
+    "name": "MLflow",
+    "owner": "mlflow",
+    "repo": "mlflow",
+    "language": "Python",
+    "stars": 27996,
+    "defaultBranch": "master",
+    "instructionFile": "CLAUDE.md",
+    "lastCommit": {
+        "sha": "b975d8927ec85f324009079115cf1cf0b596e60f",
+        "date": "2026-09-05T02:11:45Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 8176,
+        "lines": 236,
+        "words": 1134,
+        "headings": 46,
+        "bullets": 27,
+        "codeBlocks": 12,
+        "docLinks": 3
+    },
+    "tagline": "A platform for experiment tracking, model management, evaluation, and LLM observability.",
+    "hook": "Provides credential-free provider stubs for UI review and keeps single-tenant changes covered by workspace-aware tests.",
+    "summary": "MLflow's CLAUDE.md combines local development commands with constraints for its tracking layer and contribution workflow. It explains provider stubs, coordinated dependency cooldown settings, test environments, and why unrelated changes should not share a squash-merged PR.",
+    "references": [
+        {
+            "path": "mlflow/server/js/CLAUDE.md"
+        },
+        {
+            "path": ".github/pull_request_template.md"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Make gated interfaces reviewable without credentials",
+            "body": "The local server can substitute a fake provider CLI so authentication probes pass and the interface renders. The guide labels those stubs as development and CI tools, allowing review without real provider calls.",
+            "quote": "Features gated on an external provider/credentials can be rendered without real\nkeys, cost, or nondeterminism via credential-free stubs (see `dev/dev_stubs/`):",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Preserve a wider tenancy contract during a narrow change",
+            "body": "Tracking-store edits must retain workspace-aware validation even when motivated by single-tenant behavior. The accompanying rule requires matching workspace test variants.",
+            "quote": "- When touching the SQLAlchemy tracking store, keep all workspace-aware paths and validations intact; never drop workspace plumbing even if the change focuses on single-tenant behavior",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Synchronize a dependency policy across package managers",
+            "body": "The repository applies a seven-day cooldown through Python, npm, and Yarn configuration. The guide also extends the policy to new npx invocations so one-off commands do not bypass it.",
+            "quote": "7-day cooldown on new package releases to guard against compromised or broken\nversions that get pulled and yanked within a few days. Keep these in sync:"
+        },
+        {
+            "title": "Connect patch scope to the merge strategy",
+            "body": "The one-concern rule explains that squash merging combines unrelated work into one commit. That makes separate reverts and later reasoning harder, which supplies the practical reason to split changes.",
+            "quote": "since this repo squash-merges, they land as\none commit that can't be reverted piece by piece and is hard to reason about\nlater.",
+            "pattern": "contribution-etiquette"
+        }
+    ],
+    "steal": [
+        "Provide credential-free fixtures for gated UI states.",
+        "Test the broader tenancy contract when changing a shared store.",
+        "Apply dependency-age policy consistently across toolchains.",
+        "Explain how merge strategy affects patch scope and reversibility."
+    ],
+    "outline": [
+        "CLAUDE.md",
+        "Knowledge Cutoff Note",
+        "Code Style Principles",
+        "Repository Overview",
+        "Quick Start: Development Server",
+        "Debugging",
+        "Development Commands",
+        "Important Files",
+        "Common Development Tasks",
+        "Git Workflow",
+        "Pre-commit Hooks"
+    ],
+    "patterns": ["verification-matrix", "hard-prohibition", "contribution-etiquette"]
+}

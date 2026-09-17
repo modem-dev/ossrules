@@ -1,0 +1,110 @@
+{
+    "slug": "pnpm",
+    "name": "pnpm",
+    "owner": "pnpm",
+    "repo": "pnpm",
+    "language": "Rust",
+    "stars": 36547,
+    "defaultBranch": "main",
+    "instructionFile": "AGENTS.md",
+    "lastCommit": {
+        "sha": "6b84edfb3a7cc7c374ebc3cb4d48b106149bc52b",
+        "date": "2026-09-16T23:42:31Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 26219,
+        "lines": 399,
+        "words": 3928,
+        "headings": 33,
+        "bullets": 75,
+        "codeBlocks": 17,
+        "docLinks": 9
+    },
+    "tagline": "A package manager for JavaScript projects, with TypeScript and Rust implementations and a registry server.",
+    "hook": "Distinguishes intentional v12-only features from shared bugs that must be fixed in both the Rust and TypeScript CLIs.",
+    "summary": "pnpm's root guide covers three products and delegates their local rules to nested instructions. It defines version-specific development policy, warns about stale bundled tests, and explains release identifiers and platform-dependent skill discovery.",
+    "references": [
+        {
+            "path": "pnpm/AGENTS.md"
+        },
+        {
+            "path": "pnpr/AGENTS.md"
+        },
+        {
+            "path": "pnpm/CONTRIBUTING.md"
+        },
+        {
+            "path": ".agents/skills/testing-changes/SKILL.md"
+        },
+        {
+            "path": "REVIEW_GUIDE.md"
+        },
+        {
+            "path": ".agents/skills/pull-requests/SKILL.md"
+        },
+        {
+            "path": "CONTRIBUTING.md"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Separate version policy from bug parity",
+            "body": "New features belong only in the Rust v12 CLI. Shared bugs require fixes in both stacks, with observable behavior aligned, so an intentional product difference is not mistaken for a defect.",
+            "quote": "**Implement new features only in pnpm v12. Do not add them to pnpm v11.** A feature that intentionally exists only in v12 is not a parity gap.",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Warn when tests exercise a stale artifact",
+            "body": "The TypeScript E2E suite uses the bundled executable rather than individual package outputs. The guide requires rebuilding that bundle after package edits so the test actually covers the change.",
+            "quote": "Without this step, e2e tests will use a stale bundle and your changes won't be tested.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Disambiguate internal and published package names",
+            "body": "Rust releases target pacquet in changeset metadata, while release prose still calls the executable pnpm. The distinction prevents a Rust-only change from assigning a release to the maintained TypeScript CLI.",
+            "quote": "Use `pacquet` as the changeset package name, but use `pnpm` in its release-note prose and command examples (`pnpm add`, not `pacquet add`).",
+            "pattern": "house-vocabulary"
+        },
+        {
+            "title": "Explain why a familiar type check fails in tests",
+            "body": "The common-gotchas section shows that Error identity does not cross Jest VM realms reliably. It supplies util.types.isNativeError as the corresponding check and includes a wrong/right example.",
+            "quote": "Jest runs tests in a VM context where `instanceof` checks can fail across realms.",
+            "pattern": "worked-examples"
+        },
+        {
+            "title": "Document the platform prerequisite for shared instructions",
+            "body": "Claude's skill directory and root instructions use symlinks to canonical sources. The guide explains that a Windows clone without real symlink support produces text files instead, so agents fail to discover their instructions.",
+            "quote": "Without it `.claude/skills` is checked out as a text file holding the target path, and Claude Code finds no skills.",
+            "pattern": "single-source"
+        }
+    ],
+    "steal": [
+        "Distinguish intentional version differences from shared defects.",
+        "Document the artifact a test runner actually executes.",
+        "Disambiguate internal package IDs from public product names.",
+        "Show framework-specific exceptions to familiar language checks.",
+        "Record platform requirements for symlink-based instruction sharing."
+    ],
+    "outline": [
+        "Agent Guide to pnpm Repository",
+        "pnpm v12 and v11 development policy",
+        "Repository Structure",
+        "Setup & Build (TypeScript only)",
+        "Testing",
+        "Linting (TypeScript only)",
+        "Never ignore test failures",
+        "AI Review Guidance",
+        "Code Reuse and Avoiding Duplication",
+        "Commit Messages",
+        "Changesets",
+        "Comments",
+        "Code Style (TypeScript only)",
+        "Common Gotchas",
+        "Working with GitHub PRs, Issues, and Comments",
+        "Resolving Conflicts in GitHub PRs",
+        "Agent Skills",
+        "Key Configuration Files"
+    ],
+    "patterns": ["behavioral-conditioning", "verification-matrix", "house-vocabulary", "worked-examples", "single-source"]
+}

@@ -1,0 +1,154 @@
+{
+ "caches": {
+  "cargo_git": {
+   "directory": "/root/.cargo/git",
+   "type": "shared"
+  },
+  "cargo_registry": {
+   "directory": "/root/.cargo/registry",
+   "type": "shared"
+  },
+  "cargo_target": {
+   "directory": "target",
+   "type": "shared"
+  }
+ },
+ "deploy": {
+  "base": {
+   "image": "ghcr.io/railwayapp/railpack-runtime:mise-2026.9.9"
+  },
+  "inputs": [
+   {
+    "exclude": [
+     "target"
+    ],
+    "include": [
+     "."
+    ],
+    "step": "build"
+   }
+  ],
+  "startCommand": "./bin/rocket",
+  "variables": {
+   "RAILPACK_VERSION": "dev",
+   "ROCKET_ADDRESS": "0.0.0.0"
+  }
+ },
+ "steps": [
+  {
+   "assets": {
+    "generated-mise-toml": "[generated-mise-toml]"
+   },
+   "commands": [
+    {
+     "path": "/mise/shims"
+    },
+    {
+     "dest": "mise.toml",
+     "src": "mise.toml"
+    },
+    {
+     "customName": "create mise config",
+     "name": "generated-mise-toml",
+     "path": "/etc/mise/config.toml"
+    },
+    {
+     "cmd": "mise install",
+     "customName": "install mise packages: rust"
+    }
+   ],
+   "inputs": [
+    {
+     "image": "ghcr.io/railwayapp/railpack-builder:mise-2026.9.9"
+    }
+   ],
+   "name": "packages:mise",
+   "variables": {
+    "MISE_CACHE_DIR": "/mise/cache",
+    "MISE_CONFIG_DIR": "/mise",
+    "MISE_DATA_DIR": "/mise",
+    "MISE_INSTALLS_DIR": "/mise/installs",
+    "MISE_SHIMS_DIR": "/mise/shims"
+   }
+  },
+  {
+   "assets": {
+    "main.rs": "fn main() { }"
+   },
+   "caches": [
+    "cargo_registry",
+    "cargo_git"
+   ],
+   "commands": [
+    {
+     "dest": ".",
+     "src": "Cargo.toml*"
+    },
+    {
+     "dest": ".",
+     "src": "Cargo.lock*"
+    },
+    {
+     "cmd": "mkdir -p src"
+    },
+    {
+     "customName": "compile dependencies",
+     "name": "main.rs",
+     "path": "src/main.rs"
+    },
+    {
+     "cmd": "cargo build --release"
+    },
+    {
+     "cmd": "rm -rf src target/release/rocket*"
+    }
+   ],
+   "inputs": [
+    {
+     "step": "packages:mise"
+    }
+   ],
+   "name": "install",
+   "secrets": [
+    "*"
+   ]
+  },
+  {
+   "caches": [
+    "cargo_target"
+   ],
+   "commands": [
+    {
+     "cmd": "mkdir -p bin"
+    },
+    {
+     "cmd": "cargo build --release"
+    },
+    {
+     "cmd": "cp target/release/rocket bin"
+    }
+   ],
+   "inputs": [
+    {
+     "step": "packages:mise"
+    },
+    {
+     "exclude": [
+      "/app/"
+     ],
+     "step": "install"
+    },
+    {
+     "include": [
+      "."
+     ],
+     "local": true
+    }
+   ],
+   "name": "build",
+   "secrets": [
+    "*"
+   ]
+  }
+ ]
+}

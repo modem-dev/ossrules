@@ -1,0 +1,106 @@
+{
+    "slug": "deepagents",
+    "name": "Deep Agents",
+    "owner": "langchain-ai",
+    "repo": "deepagents",
+    "language": "Python",
+    "stars": 29515,
+    "defaultBranch": "main",
+    "instructionFile": "AGENTS.md",
+    "lastCommit": {
+        "sha": "c583872844662535ca03df7828f0e582a2ef3ece",
+        "date": "2026-08-28T22:08:56Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 10315,
+        "lines": 154,
+        "words": 1340,
+        "headings": 22,
+        "bullets": 47,
+        "codeBlocks": 0,
+        "docLinks": 19
+    },
+    "tagline": "An agent framework and monorepo for planning, coding agents, tools, and partner integrations.",
+    "hook": "Keeps global rules short by routing to scoped guides, and rejects tests that merely restate the current implementation.",
+    "summary": "Deep Agents uses the root file for shared constraints while delegating architecture, development, releases, and package-specific work. It adds precise guidance for warning filters, API compatibility, repository searches, and the authority of generated reference material.",
+    "references": [
+        {
+            "path": "libs/DEVELOPMENT.md"
+        },
+        {
+            "path": "libs/ARCHITECTURE.md"
+        },
+        {
+            "path": ".github/RELEASING.md"
+        },
+        {
+            "path": ".github/PULL_REQUEST_TEMPLATE.md"
+        },
+        {
+            "path": "libs/code/AGENTS.md"
+        },
+        {
+            "path": "libs/evals/AGENTS.md"
+        },
+        {
+            "path": "libs/partners/AGENTS.md"
+        },
+        {
+            "path": "libs/code/DEVELOPMENT.md"
+        },
+        {
+            "path": ".github/LAYOUT.md"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Reject tests that only freeze implementation shape",
+            "body": "The testing rules require meaningful observable behavior and warn against asserting incidental call order. Behavior-preserving refactors should not force mechanical test changes.",
+            "quote": "Refactors that preserve behavior should not require mechanical test updates; rewrite or remove tests that do.",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Match suppression scope to the actual exception",
+            "body": "A single Ruff violation gets an inline suppression with a reason; file-wide ignores are reserved for categorical policies. The rule makes unjustified suppression a signal to reconsider the code.",
+            "quote": "Do not hide a single violation with a file-wide ignore. If you cannot justify a suppression, the code is probably the problem.",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Keep generated context below source evidence",
+            "body": "The optional OpenWiki index is available just in time, but its unknowns are not new requirements. Source and tests remain authoritative, and normal updates happen by changing those inputs.",
+            "quote": "- Treat source code and tests as authoritative. A brief's unknowns and review items are verification gaps, not automatic requirements.",
+            "pattern": "single-source"
+        },
+        {
+            "title": "Constrain searches to the relevant package",
+            "body": "The routing section names SDK, coding-agent, ACP, eval, and partner paths. It excludes environment and generated trees from normal work and asks agents to locate the exact dependency file instead of searching every installed package.",
+            "quote": "For dependency internals, find the exact environment file instead of searching all of `site-packages`.",
+            "pattern": "context-budget"
+        },
+        {
+            "title": "Preserve anchors that other configuration depends on",
+            "body": "The warnings section is not only prose: package configuration comments refer to its heading. The guide explicitly asks editors to keep that name stable.",
+            "quote": "Keep this heading stable: package `pyproject.toml` comments cite it by name."
+        }
+    ],
+    "steal": [
+        "Test behavior that should survive refactoring.",
+        "Keep individual suppressions local and justified.",
+        "Treat generated summaries as context with explicit authority limits.",
+        "Give agents narrow search roots for each subsystem.",
+        "Protect documentation anchors that configuration cites."
+    ],
+    "outline": [
+        "Global development guidelines for the Deep Agents monorepo",
+        "Corridor security analysis",
+        "Development workflow",
+        "PR conventions",
+        "Core development principles",
+        "Repository routing",
+        "CI and releases",
+        "Additional resources",
+        "OpenWiki"
+    ],
+    "patterns": ["behavioral-conditioning", "hard-prohibition", "single-source", "context-budget"]
+}

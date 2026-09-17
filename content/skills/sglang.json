@@ -1,0 +1,1492 @@
+{
+    "version": 1,
+    "slug": "sglang",
+    "repository": "sgl-project/sglang",
+    "branch": "main",
+    "sha": "a9fb1c32384695bde87877c9e5e468a272356380",
+    "scannedAt": "2026-09-17T12:29:55.913Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "add-jit-kernel-05616d34eabc",
+            "path": ".claude/skills/add-jit-kernel/SKILL.md",
+            "name": "add-jit-kernel",
+            "description": "Step-by-step tutorial for adding a new lightweight JIT CUDA kernel to sglang's jit_kernel module",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "9789ce7fd36ad3242f06e67ffb22f50a090d0390",
+                    "bytes": 42084,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 35585791,
+                        "login": "BBuf",
+                        "commits": 9
+                    },
+                    {
+                        "id": 76582120,
+                        "login": "DarkSharpness",
+                        "commits": 7
+                    },
+                    {
+                        "id": 95566987,
+                        "login": "hnyls2002",
+                        "commits": 3
+                    },
+                    {
+                        "id": 15100009,
+                        "login": "merrymercy",
+                        "commits": 2
+                    },
+                    {
+                        "id": 37504505,
+                        "login": "zijiexia",
+                        "commits": 2
+                    },
+                    {
+                        "id": 56809903,
+                        "login": "Fridge003",
+                        "commits": 1
+                    },
+                    {
+                        "id": 264503018,
+                        "login": "kpham-sgl",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "add-sgl-kernel-ee82df38951e",
+            "path": ".claude/skills/add-sgl-kernel/SKILL.md",
+            "name": "add-sgl-kernel",
+            "description": "Step-by-step tutorial for adding a heavyweight AOT CUDA/C++ kernel to sgl-kernel (including tests & benchmarks)",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "1916a4abbb46c5bce92424c760dfe9e9d763464d",
+                    "bytes": 12461,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 35585791,
+                        "login": "BBuf",
+                        "commits": 7
+                    },
+                    {
+                        "id": 15100009,
+                        "login": "merrymercy",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "babysit-pr-to-pass-ci-7e8d85441f93",
+            "path": ".claude/skills/babysit-pr-to-pass-ci/SKILL.md",
+            "name": "babysit-pr-to-pass-ci",
+            "description": "Start and persistently pursue a goal to babysit an SGLang pull request until selected GitHub Actions workflows pass on the latest PR head. Use when asked to monitor, babysit, retry, or fix PR CI for lint.yml, pr-test.yml, pr-test-extra.yml, AMD, or other named workflows; classify failures as PR-related versus flaky or infrastructural, auto-fix and push only small clean fixes, rerun failed jobs only up to 10 times, and ignore unselected workflows.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "350b4ac86eb44c71db6631129d4865ba395e2bd1",
+                    "bytes": 11878,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "0087e2ba03035666b1ce9655633fa2b90d681e43",
+                    "bytes": 220,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 195740905,
+                        "login": "bingxche",
+                        "commits": 1
+                    },
+                    {
+                        "id": 15100009,
+                        "login": "merrymercy",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "ci-workflow-guide-754f01ce95e3",
+            "path": ".claude/skills/ci-workflow-guide/SKILL.md",
+            "name": "ci-workflow-guide",
+            "description": "Guide to SGLang CI workflow orchestration — stage ordering, fast-fail, gating, partitioning, execution modes, and debugging CI failures. Use when modifying CI workflows, adding stages, debugging CI pipeline issues, or understanding how tests are dispatched and gated across stages.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "0a6ed7b30ddc5bbe1cbe4f5a8e17ecb9f95b5d29",
+                    "bytes": 24114,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 95566987,
+                        "login": "hnyls2002",
+                        "commits": 4
+                    },
+                    {
+                        "id": 54658187,
+                        "login": "alisonshao",
+                        "commits": 2
+                    },
+                    {
+                        "id": 47200617,
+                        "login": "alphabetc1",
+                        "commits": 1
+                    },
+                    {
+                        "id": 35585791,
+                        "login": "BBuf",
+                        "commits": 1
+                    },
+                    {
+                        "id": 26454835,
+                        "login": "ispobock",
+                        "commits": 1
+                    },
+                    {
+                        "id": 12483620,
+                        "login": "Kangyan-Zhou",
+                        "commits": 1
+                    },
+                    {
+                        "id": 264503018,
+                        "login": "kpham-sgl",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "clean-startup-log-06683cb464c6",
+            "path": ".claude/skills/clean-startup-log/SKILL.md",
+            "name": "clean-startup-log",
+            "description": "Clean up noisy startup warnings and spurious prints in SGLang server logs. Use when users ask to clean up unwanted warnings, deprecation messages, or third-party noise in the server startup output.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "c1b9e886f9524257ae7cbde0c681895fe904b27e",
+                    "bytes": 18236,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 15100009,
+                        "login": "merrymercy",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "compute-mamba-ratio-78a78778ffb3",
+            "path": ".claude/skills/compute-mamba-ratio/SKILL.md",
+            "name": "compute-mamba-ratio",
+            "description": "Compute the optimal --mamba-full-memory-ratio (or --max-mamba-cache-size pin) for a hybrid attention + linear-attention (Mamba / GDN / KDA) model's two serving memory pools, from the workload and serving config. Use when a user asks what ratio to set, why concurrency is clamped, or how to size the state vs KV pools for a hybrid model.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "2134a2dff7a9ad500161568d2529543cce0d3e77",
+                    "bytes": 11941,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 26454835,
+                        "login": "ispobock",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "cookbook-add-model-d6b4b7d72036",
+            "path": ".claude/skills/cookbook-add-model/SKILL.md",
+            "name": "cookbook-add-model",
+            "description": "Add a new model to the SGLang Cookbook (docs/, Mintlify), config-driven format — instantiate the model-agnostic template into a per-model config (+ benchmarks) JSX under src/snippets/configs/, an MDX page, the docs.json nav entry, NEW-tag hygiene, and the homepage vendor card. Interactive, multi-phase. Run with /cookbook-add-model.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "2d5e722fdc34e62ebb2e798791abbde261bf7eaa",
+                    "bytes": 16136,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/authoring-reference.md",
+                    "blob": "d98d2d4feda32338eb77efdba0105d87a7594889",
+                    "bytes": 25689,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/diffusion-authoring.md",
+                    "blob": "3c2065dc1874ebe06ba4ffe9d4aa3dd5e8edf45d",
+                    "bytes": 5670,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/engine-axis.md",
+                    "blob": "9caea458227fa8439ced93a8238b096204dc0c66",
+                    "bytes": 13697,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/mintlify-authoring.md",
+                    "blob": "56d96a63aa0ee8e96972e9bea852019247c80cb5",
+                    "bytes": 6781,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/vendor-logo.md",
+                    "blob": "375c5d3e91faf3233a322d6fd85f9071d1f2ab76",
+                    "bytes": 3295,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "templates/benchmarks.jsx.tmpl",
+                    "blob": "6362e16c935b5d0a3435fa8613ce057d047f0a1a",
+                    "bytes": 2227,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "templates/config.jsx.tmpl",
+                    "blob": "dfb5e537adc716b4f2e53cbb4dbed804901fc017",
+                    "bytes": 18698,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "templates/diffusion-config.jsx.tmpl",
+                    "blob": "9f0da490e94f15194dcc3b4726af2d6c60e2912a",
+                    "bytes": 6194,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "templates/diffusion-page.mdx.tmpl",
+                    "blob": "ab3f04e1c20a38ec1efc55cc608f5d02854af5b1",
+                    "bytes": 1556,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "templates/page.mdx.tmpl",
+                    "blob": "62081cf8f26f5005a6bdbb6df7dc814c683c1199",
+                    "bytes": 5981,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 37504505,
+                        "login": "zijiexia",
+                        "commits": 6
+                    },
+                    {
+                        "id": 30898949,
+                        "login": "mickqian",
+                        "commits": 1
+                    },
+                    {
+                        "id": 8556301,
+                        "login": "yvbbrjdr",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "cookbook-migrate-model-96eba592d6a1",
+            "path": ".claude/skills/cookbook-migrate-model/SKILL.md",
+            "name": "cookbook-migrate-model",
+            "description": "Migrate a legacy-template SGLang cookbook page (monolithic per-model generator under docs/src/snippets/autoregressive/) onto the config-driven template (shared _deployment.jsx / _playground.jsx engines + per-model config). Use when asked to migrate, convert, or port an existing cookbook page — NOT for brand-new models (use cookbook-add-model for those). Run with /cookbook-migrate-model <Model page name, e.g. GLM-5.1>.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ae9b55dad95ffe419c765334ac6006e3a101b478",
+                    "bytes": 16141,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/dimension-mapping.md",
+                    "blob": "3e34ae7903212ae9ac2fbeee99ed4da3a6cb3d8c",
+                    "bytes": 23712,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 37504505,
+                        "login": "zijiexia",
+                        "commits": 5
+                    },
+                    {
+                        "id": 54331508,
+                        "login": "ch-wan",
+                        "commits": 1
+                    },
+                    {
+                        "id": 90162804,
+                        "login": "dougyster",
+                        "commits": 1
+                    },
+                    {
+                        "id": 95566987,
+                        "login": "hnyls2002",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "cookbook-review-pr-15efcfc76f16",
+            "path": ".claude/skills/cookbook-review-pr/SKILL.md",
+            "name": "cookbook-review-pr",
+            "description": "Review a pull request against the SGLang Cookbook (docs/, Mintlify) contribution checklist — the config-driven format (per-model config + benchmarks JSX consumed by the shared _deployment.jsx / _playground.jsx engines). Run with /cookbook-review-pr <PR number>.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d7ccaf46a5deed14fd17a6c7d374304e04068be8",
+                    "bytes": 16321,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 37504505,
+                        "login": "zijiexia",
+                        "commits": 9
+                    },
+                    {
+                        "id": 90162804,
+                        "login": "dougyster",
+                        "commits": 1
+                    },
+                    {
+                        "id": 8556301,
+                        "login": "yvbbrjdr",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "debug-cuda-crash-655c4af55447",
+            "path": ".claude/skills/debug-cuda-crash/SKILL.md",
+            "name": "debug-cuda-crash",
+            "description": "Call this skill when you need to debug CUDA crashes in SGLang using kernel API logging",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d32126c7a744633e15d2ef50cf9ba753b0292bc3",
+                    "bytes": 19737,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 35585791,
+                        "login": "BBuf",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "debug-distributed-hang-6b489d928df6",
+            "path": ".claude/skills/debug-distributed-hang/SKILL.md",
+            "name": "debug-distributed-hang",
+            "description": "Debug hanging issues in SGLang distributed inference (TP/PP/DP/EP). Covers identifying hang locations via py-spy/watchdog/cuda coredump, per-rank logging to find state divergence, binary-search methodology for locating the first diverge point, and fix patterns. Use when a multi-GPU SGLang run hangs, freezes, or times out during collective operations.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "4db4086b41559c4ac70c351ce5ac2ff67d3801a3",
+                    "bytes": 9504,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 26454835,
+                        "login": "ispobock",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "env-var-conventions-7d902b08816f",
+            "path": ".claude/skills/env-var-conventions/SKILL.md",
+            "name": "env-var-conventions",
+            "description": "Conventions for SGLang environment variables — where to define, how to access, how to name, and how to deprecate. Use when adding, renaming, or reviewing any `SGLANG_*` environment variable (or migrating a legacy `SGL_*` alias), or when touching `python/sglang/srt/environ.py`.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "048c6e26b06c6328b6ebc69fc773e712b03ed17b",
+                    "bytes": 11572,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 95566987,
+                        "login": "hnyls2002",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "generate-profile-2fa300965f2f",
+            "path": ".claude/skills/generate-profile/SKILL.md",
+            "name": "generate-profile",
+            "description": "Generate an e2e profiling trace of an SGLang server run. Launches a server, validates accuracy, captures a Chrome-compatible trace, and returns the profile path.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "dae475cfafcef18e8b59ab8eb345411dde14ff9b",
+                    "bytes": 4619,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 35585791,
+                        "login": "BBuf",
+                        "commits": 1
+                    },
+                    {
+                        "id": 15100009,
+                        "login": "merrymercy",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "kl-consistency-test-cf3482368c42",
+            "path": ".claude/skills/kl-consistency-test/SKILL.md",
+            "name": "kl-consistency-test",
+            "description": "Write, calibrate, and debug the prefill-vs-decode logprob (KL) consistency tests in sglang -- the two independent conditions a zero requires (every operator batch-invariant, and the two paths computing the same function), which helper separates them, how to pick a threshold once they hold, and how to localize a divergence to a single operator. Use when adding a KL test to a model, picking or defending a kl_div threshold, or investigating a KL number that is too high.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "3bf67c240b41e3c3fb1412480ece0bd843880769",
+                    "bytes": 14798,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 26454835,
+                        "login": "ispobock",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "large-class-style-d44f2ecec3c5",
+            "path": ".claude/skills/large-class-style/SKILL.md",
+            "name": "large-class-style",
+            "description": "Code style for SGLang large classes `Scheduler`, `TokenizerManager`, and `ModelRunner`: frozen-code conventions and `__init__` orchestration style. Use when modifying any of these three classes or reviewing changes to them.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ef86b498ffd0487c5f446717006e8792659fde38",
+                    "bytes": 7791,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5236035,
+                        "login": "fzyzcjy",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "llm-torch-profiler-analysis-e47efe934818",
+            "path": ".claude/skills/llm-torch-profiler-analysis/SKILL.md",
+            "name": "llm-torch-profiler-analysis",
+            "description": "Unified LLM torch-profiler triage skill for `sglang`, `vllm`, `TensorRT-LLM`, and `TokenSpeed`. Use it to inspect an existing `trace.json(.gz)` or profile directory, or to drive live profiling against a running server when supported and return one three-table report with kernel, overlap-opportunity, and fuse-pattern tables.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ccb722183282c22dda6ec713979159a5ad1eadd7",
+                    "bytes": 25470,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/fuse-overlap-catalog.md",
+                    "blob": "ef953174d8ef2b6db2b3b45f78e9e643b50b3703",
+                    "bytes": 95022,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/heuristics.md",
+                    "blob": "e0f55ab4a630474aa0c25e616d062e060aaf7ed4",
+                    "bytes": 3874,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/overlap-catalog.md",
+                    "blob": "ee7097406c09d985c9381d6d101f0a1ce09a3ef8",
+                    "bytes": 24726,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/source-map.md",
+                    "blob": "88e0219027db5534f509274ce930dddc488c9fb5",
+                    "bytes": 1453,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/vllm-torch-compile-fusions.md",
+                    "blob": "616c689f77fb9474af1ff342b39da1e71041fc23",
+                    "bytes": 7706,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/analyze_llm_torch_profile.py",
+                    "blob": "9b2d5aeb562b0f095a489106591a42b4de2c6be0",
+                    "bytes": 32183,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/analyze_sglang_torch_profile.py",
+                    "blob": "caa619640fa141429927595526a26e60ac081225",
+                    "bytes": 506,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/make_trtllm_py_executor_override.py",
+                    "blob": "597665d67bc1fa9b681f9244f46f5f56241522ad",
+                    "bytes": 4372,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/probe_llm_server.py",
+                    "blob": "7fb1b90ea775d437d28f32a07cb35c70491199cf",
+                    "bytes": 6953,
+                    "text": true,
+                    "mode": "100755"
+                },
+                {
+                    "path": "scripts/profile_common.py",
+                    "blob": "6d801382e87f561906c6e0d720a47c595c5bc0f2",
+                    "bytes": 40177,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/render_triage_markdown_bundle.py",
+                    "blob": "c263028efe9cbea3f08885c1e204482f6ff3772e",
+                    "bytes": 7833,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/run_llm_single_model_matrix_host.sh",
+                    "blob": "b80f3fe43147977d3ef2329055bf3970f2856d6d",
+                    "bytes": 9647,
+                    "text": true,
+                    "mode": "100755"
+                },
+                {
+                    "path": "scripts/run_sglang_torch_profile_host.sh",
+                    "blob": "c22af0e57f2ec75f7046984e284807e88f179294",
+                    "bytes": 7162,
+                    "text": true,
+                    "mode": "100755"
+                },
+                {
+                    "path": "scripts/run_trtllm_pytorch_profile_host.sh",
+                    "blob": "1e3b51e1dd7741bc1002393b85783e2194be5dfc",
+                    "bytes": 10825,
+                    "text": true,
+                    "mode": "100755"
+                },
+                {
+                    "path": "scripts/run_vllm_torch_profile_host.sh",
+                    "blob": "c21d014ddd47490de9e639bdd954a902c4137e11",
+                    "bytes": 9141,
+                    "text": true,
+                    "mode": "100755"
+                },
+                {
+                    "path": "scripts/triage_kernel_helpers.py",
+                    "blob": "de702db730ba1d19b17bba453c276ed3640776da",
+                    "bytes": 93873,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/triage_overlap_helpers.py",
+                    "blob": "dfc7d6ae4becbed2d32e62739bb689ff4ccd1218",
+                    "bytes": 57535,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 35585791,
+                        "login": "BBuf",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "mechanical-refactor-verify-3b0a5d18dc19",
+            "path": ".claude/skills/mechanical-refactor-verify/SKILL.md",
+            "name": "mechanical-refactor-verify",
+            "description": "Make mechanical refactoring (file splits, function moves, module extractions, renames) machine-checkable instead of eyeballed. Reproduce a relocation commit byte-for-byte from faithful primitives, and split an extraction into a verifiable prepare + move + postpare. Use when doing or reviewing such changes.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "079d80db60c53995ac1ba6c78a69686af908751a",
+                    "bytes": 5689,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "guide-construct-proof.md",
+                    "blob": "683e75fe6c445e493ec4d7fde3782de5f2348fc6",
+                    "bytes": 8793,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "guide-modify-skill.md",
+                    "blob": "4cc11ddb0dcca93401dffc6ed287be8e932b2a0e",
+                    "bytes": 6457,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "guide-split.md",
+                    "blob": "014b6a0948687242d8f6fafc85861de64758c98c",
+                    "bytes": 19731,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "guide-verify-proof.md",
+                    "blob": "054841400cf59e7058d424f2fd532684ccbfe402",
+                    "bytes": 8529,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/mechanical_refactor_proof_generator.py",
+                    "blob": "0aeb0ea5f2a2c74503a84a18efdb4895e66dd4f5",
+                    "bytes": 64274,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/mechanical_refactor_reproduction_cli.py",
+                    "blob": "899561d42e7f82010d350e2a41d21d3d89b1db5b",
+                    "bytes": 18414,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/mechanical_refactor_reproduction_utils.py",
+                    "blob": "8c2856a7ef73df927515466719ea246cff038b32",
+                    "bytes": 65594,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/tests/proof_generator/conftest.py",
+                    "blob": "11ad0980adc3e4f5a850e8398ee98815d3219bea",
+                    "bytes": 559,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/tests/proof_generator/generator_testlib.py",
+                    "blob": "1a98808fe63b7e88d9d3663e8f0aad735b2cd400",
+                    "bytes": 3137,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/tests/proof_generator/test_infer_extract_functions.py",
+                    "blob": "1ab6889d1fce2599e6123f7c3df47df5fcd46ba5",
+                    "bytes": 10649,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/tests/proof_generator/test_infer_extracts.py",
+                    "blob": "f9e3e5b5e78317cea64f958f2a83e728c48c45b6",
+                    "bytes": 6747,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/tests/proof_generator/test_infer_imports.py",
+                    "blob": "c8f445c2e1b3b0612155ad1c8f5a70adef9da1c4",
+                    "bytes": 5205,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/tests/proof_generator/test_infer_moves.py",
+                    "blob": "8e5e4b601420c7cf7c07700575db97f18374e6a7",
+                    "bytes": 17236,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/tests/proof_generator/test_main_single_commit.py",
+                    "blob": "50508957426d3abeff873eba26f691f4306b885a",
+                    "bytes": 2167,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/tests/proof_generator/test_script_and_diff.py",
+                    "blob": "0ca8c735b47f62a052e5e9856a9ffa08cbe47947",
+                    "bytes": 6890,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/tests/reproduction_cli/cli_testlib.py",
+                    "blob": "e9490fdfa0ced799cf0cb25581540507d01b6128",
+                    "bytes": 1882,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/tests/reproduction_cli/conftest.py",
+                    "blob": "e2a3787859f2e5627e354c637bbbac1b0d2a50f3",
+                    "bytes": 514,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/tests/reproduction_cli/test_classification.py",
+                    "blob": "1d067d81b941ee8e06479e9afcad9f0db414ddf9",
+                    "bytes": 4144,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/tests/reproduction_cli/test_proof_discovery.py",
+                    "blob": "e40292f4cd337b8008705f0a8ff69fb56ff02fc0",
+                    "bytes": 3337,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/tests/reproduction_cli/test_report.py",
+                    "blob": "8f827b11faaeb603d1325147f86bbbcad33643ed",
+                    "bytes": 3351,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/tests/reproduction_cli/test_skip_passed.py",
+                    "blob": "972d98820eb9ae4f535cab9e67425c705d6ddc68",
+                    "bytes": 6155,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/tests/reproduction_cli/test_verify_chain.py",
+                    "blob": "6bd7bd58c89486cbb0aa417c175d43ea23f1c9ae",
+                    "bytes": 7605,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/tests/reproduction_utils/conftest.py",
+                    "blob": "3cd9c54457e11f95d6a162199a9c6af2d93f2606",
+                    "bytes": 841,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/tests/reproduction_utils/reproduction_testlib.py",
+                    "blob": "6eb38762105d7d3bd5f01289dd7176d56c0f0d33",
+                    "bytes": 1233,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/tests/reproduction_utils/test_add_imports.py",
+                    "blob": "3b63e3ad48624852b4fbba17effcbcd1f80ef631",
+                    "bytes": 9598,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/tests/reproduction_utils/test_call_sites.py",
+                    "blob": "87ced0522ea8640e811cfff760f2615335b585a0",
+                    "bytes": 8154,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/tests/reproduction_utils/test_delete_file.py",
+                    "blob": "8347def972129c70085966ce31192aca6dfe73a8",
+                    "bytes": 2355,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/tests/reproduction_utils/test_extract_function.py",
+                    "blob": "1a822ed8971983885ad5edcc321a3313694592a8",
+                    "bytes": 6420,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/tests/reproduction_utils/test_extract_symbols_to_new_module.py",
+                    "blob": "7e0b1ebbfd74b73294f1bd6c218134ebd01f415d",
+                    "bytes": 8880,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/tests/reproduction_utils/test_extract_to_new_module.py",
+                    "blob": "0c1540042e140c17a85e8fe25c8841e954da7d55",
+                    "bytes": 3750,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/tests/reproduction_utils/test_infra_helpers.py",
+                    "blob": "d433cc384057b848570250b98963180afa69dd1d",
+                    "bytes": 5459,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/tests/reproduction_utils/test_move_assign.py",
+                    "blob": "1ba4e192ea6400cd852c73b715e3509ebe874821",
+                    "bytes": 2517,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/tests/reproduction_utils/test_move_symbol.py",
+                    "blob": "fc808a9982ed96ea6168af6aa4b10a9ba5f1cb83",
+                    "bytes": 16123,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/tests/reproduction_utils/test_move_symbol_delegate.py",
+                    "blob": "6761a04902f822a554dac75601268d6d9d54b7c2",
+                    "bytes": 10351,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/tests/reproduction_utils/test_remove_import.py",
+                    "blob": "0f7a4945208ec6f1753e265915e0df5bd29543b9",
+                    "bytes": 5288,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/tests/reproduction_utils/test_remove_imported_name.py",
+                    "blob": "1b5a7a6940d18a084dc02455adae1b1a780af95c",
+                    "bytes": 6334,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/tests/reproduction_utils/test_repath_import.py",
+                    "blob": "c248bce7ac9d53b8a240a362ee3f4f9a88d7516f",
+                    "bytes": 2905,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/tests/reproduction_utils/test_verify_and_run.py",
+                    "blob": "c458cadc52487b775825aa01a497212e00bd7ca1",
+                    "bytes": 6593,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "spec-reproduction-cli.md",
+                    "blob": "8ec1617c433679870ab73422920dc09f70ac7b9f",
+                    "bytes": 8464,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "spec-reproduction-utils.md",
+                    "blob": "1af0d46e6ed5bbf9ea116d158024341b51e5dc0a",
+                    "bytes": 12934,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5236035,
+                        "login": "fzyzcjy",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "scripted-runtime-notes-638922228811",
+            "path": ".claude/skills/scripted-runtime-notes/SKILL.md",
+            "name": "scripted-runtime-notes",
+            "description": "Requirements for the SGLang scripted runtime, chiefly when to add (vs not add) a harness API. Use for anything related to the scripted runtime.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "8ad89d951dddce55233f6e41422cf6cb163eff1c",
+                    "bytes": 1805,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5236035,
+                        "login": "fzyzcjy",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "sglang-bisect-ci-regression-b47c106c8865",
+            "path": ".claude/skills/sglang-bisect-ci-regression/SKILL.md",
+            "name": "sglang-bisect-ci-regression",
+            "description": "Investigate consistently failing SGLang CI tests by extracting the failure signature from scheduled or rerun workflows, bisecting the passing/failing commit window, checking runner or hardware specificity, and optionally reproducing on a remote GPU host.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "0afd159721a05d565fc7ac4da32a387feb46b201",
+                    "bytes": 9995,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 35585791,
+                        "login": "BBuf",
+                        "commits": 1
+                    },
+                    {
+                        "id": 12483620,
+                        "login": "Kangyan-Zhou",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "sglang-cherrypick-6e6d31aadee5",
+            "path": ".claude/skills/sglang-cherrypick/SKILL.md",
+            "name": "sglang-cherrypick",
+            "description": "Trigger the bot-cherry-pick workflow for a batch of merged PRs onto a release branch and monitor each run to completion. Use when an SGLang release manager asks to cherry-pick a list of PRs to a release branch.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "452ddce07b2d03a26cb9f28eae6160ff901954c2",
+                    "bytes": 16256,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 12483620,
+                        "login": "Kangyan-Zhou",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "sglang-prod-incident-triage-08fe7baf5255",
+            "path": ".claude/skills/sglang-prod-incident-triage/SKILL.md",
+            "name": "sglang-prod-incident-triage",
+            "description": "Replay-first debug flow for SGLang serving problems. Use when a live or recent server shows health-check failures, latency or throughput regressions, queue growth, timeouts, distributed stalls, crash dumps, wrong outputs after deploys, or PD/EP/HiCache issues, and the job is to turn the problem into a replay plus the right next debug tool.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "708e399f1c991adb23326e258e59162b14ef3742",
+                    "bytes": 8533,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/case-studies.md",
+                    "blob": "70de41d51f5aeae795339196608dc6c910ae1741",
+                    "bytes": 2472,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/decision-tree.md",
+                    "blob": "9aa03b567c67284b658037cc05e32aad04cfb920",
+                    "bytes": 3786,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/endpoints-and-signals.md",
+                    "blob": "c99e95d7ac38419e0682efdfea9de2064cf507f8",
+                    "bytes": 4519,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/replay-trace-profile.md",
+                    "blob": "6dde7a2542b852af482b9775ea615e0d633c03ee",
+                    "bytes": 4963,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/incident_artifact_tool.py",
+                    "blob": "fdc4aa875421d36cff943e9a27d4207cc1a2456c",
+                    "bytes": 26646,
+                    "text": true,
+                    "mode": "100755"
+                },
+                {
+                    "path": "scripts/replay_trusted_request_dump.py",
+                    "blob": "768b3a33a2f9e67d593f76d0435bfa092cd081d6",
+                    "bytes": 6895,
+                    "text": true,
+                    "mode": "100755"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 35585791,
+                        "login": "BBuf",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "sglang-runtime-context-db6463270a04",
+            "path": ".claude/skills/sglang-runtime-context/SKILL.md",
+            "name": "sglang-runtime-context",
+            "description": "How SGLang's runtime configuration and process-global state are organized (RuntimeContext tiers, publish + namespace config bags, the pristine ServerArgs seed, override entry points, resource/stream/buffer leases, per-forward flags), the CI guardrails that enforce the design, and the idioms for developing and testing against it. Load this before touching server_args, model overrides, module-level state, or per-forward state in sglang.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "6733281bc2b9de283dc508268fbcc79696ef718a",
+                    "bytes": 46029,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 54331508,
+                        "login": "ch-wan",
+                        "commits": 21
+                    },
+                    {
+                        "id": 115166877,
+                        "login": "JustinTong0323",
+                        "commits": 2
+                    },
+                    {
+                        "id": 35585791,
+                        "login": "BBuf",
+                        "commits": 1
+                    },
+                    {
+                        "id": 95566987,
+                        "login": "hnyls2002",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "speculative-naming-f4650d53f582",
+            "path": ".claude/skills/speculative-naming/SKILL.md",
+            "name": "speculative-naming",
+            "description": "Naming conventions for SGLang speculative decoding identifiers. Use when adding, renaming, or reviewing identifiers in speculative decoding code — anything under `python/sglang/srt/speculative/`, related attention backends, scheduler accumulators, IPC fields, observability metrics, or CLI flags.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "4109ba1b57425e6eb4d6931660dc8bf7e191dcfa",
+                    "bytes": 6298,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 5236035,
+                        "login": "fzyzcjy",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "write-sglang-test-5b1726eeed8b",
+            "path": ".claude/skills/write-sglang-test/SKILL.md",
+            "name": "write-sglang-test",
+            "description": "Guide for writing SGLang CI/UT tests. Covers CustomTestCase, CI registration, server fixtures, model selection, mock testing, and test placement. Always read test/README.md for the full CI layout, how to run tests, and extra tips. Use when creating new tests, adding CI test cases, writing unit tests, or when the user asks to add tests for SGLang features.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "6c945c6d288feda510711a20eeccf3993d3bdaed",
+                    "bytes": 20506,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 95566987,
+                        "login": "hnyls2002",
+                        "commits": 8
+                    },
+                    {
+                        "id": 35585791,
+                        "login": "BBuf",
+                        "commits": 5
+                    },
+                    {
+                        "id": 26454835,
+                        "login": "ispobock",
+                        "commits": 3
+                    },
+                    {
+                        "id": 15100009,
+                        "login": "merrymercy",
+                        "commits": 2
+                    },
+                    {
+                        "id": 195740905,
+                        "login": "bingxche",
+                        "commits": 1
+                    },
+                    {
+                        "id": 264503018,
+                        "login": "kpham-sgl",
+                        "commits": 1
+                    },
+                    {
+                        "id": 58187114,
+                        "login": "OrangeRedeng",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "sglang-diffusion-add-model-f6d00d22b97d",
+            "path": "python/sglang/multimodal_gen/.claude/skills/sglang-diffusion-add-model/SKILL.md",
+            "name": "sglang-diffusion-add-model",
+            "description": "Use when adding a new diffusion model or Diffusers pipeline to SGLang.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d43593bdd1fa27282c88e0952b7225bd25702621",
+                    "bytes": 39749,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/testing-and-accuracy.md",
+                    "blob": "fe10dc69547288be708e117bed9807a020217a93",
+                    "bytes": 6431,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 35585791,
+                        "login": "BBuf",
+                        "commits": 11
+                    },
+                    {
+                        "id": 37504505,
+                        "login": "zijiexia",
+                        "commits": 2
+                    },
+                    {
+                        "id": 30898949,
+                        "login": "mickqian",
+                        "commits": 1
+                    },
+                    {
+                        "id": 114130421,
+                        "login": "Ratish1",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "sglang-diffusion-benchmark-profile-d16a198eb21b",
+            "path": "python/sglang/multimodal_gen/.claude/skills/sglang-diffusion-benchmark-profile/SKILL.md",
+            "name": "sglang-diffusion-benchmark-profile",
+            "description": "Use when benchmarking denoise latency or profiling a diffusion bottleneck in SGLang.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "3844bc779da46ec4ab5f4b43fd7f84c1d4405543",
+                    "bytes": 9467,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "benchmark-and-profile.md",
+                    "blob": "efef0fe8063e085887d646ab9911ca53e4a046c0",
+                    "bytes": 47549,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "existing-fast-paths.md",
+                    "blob": "2382df6fd71c5155ef4f9afdac847b5d16f5030c",
+                    "bytes": 40554,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/bench_diffusion_denoise.py",
+                    "blob": "322001b246e1f8e1c143275fe1a153d3a1cb3901",
+                    "bytes": 86609,
+                    "text": true,
+                    "mode": "100755"
+                },
+                {
+                    "path": "scripts/diffusion_skill_env.py",
+                    "blob": "1bf8e5c550ab02d56a4106a22733ce62755dd7a3",
+                    "bytes": 5521,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 35585791,
+                        "login": "BBuf",
+                        "commits": 21
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "sglang-diffusion-modelopt-quant-f1e5a4cd9ca3",
+            "path": "python/sglang/multimodal_gen/.claude/skills/sglang-diffusion-modelopt-quant/SKILL.md",
+            "name": "sglang-diffusion-modelopt-quant",
+            "description": "Use when quantizing a diffusion DiT with NVIDIA ModelOpt and making the resulting FP8 or NVFP4 checkpoint loadable, verifiable, and benchmarkable in SGLang Diffusion.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "3936f4c26fb9d8d63ac10d14c52a672ebed7f9a7",
+                    "bytes": 19920,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 35585791,
+                        "login": "BBuf",
+                        "commits": 14
+                    },
+                    {
+                        "id": 37504505,
+                        "login": "zijiexia",
+                        "commits": 2
+                    },
+                    {
+                        "id": 30898949,
+                        "login": "mickqian",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "sglang-diffusion-performance-46b110cbee4b",
+            "path": "python/sglang/multimodal_gen/.claude/skills/sglang-diffusion-performance/SKILL.md",
+            "name": "sglang-diffusion-performance",
+            "description": "Use when choosing the fastest SGLang Diffusion flags for a model, GPU, and VRAM budget.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "a6d1ea657f6c8f92fc66d2639ab79b29516641e3",
+                    "bytes": 52208,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 35585791,
+                        "login": "BBuf",
+                        "commits": 23
+                    },
+                    {
+                        "id": 30898949,
+                        "login": "mickqian",
+                        "commits": 4
+                    },
+                    {
+                        "id": 37504505,
+                        "login": "zijiexia",
+                        "commits": 3
+                    },
+                    {
+                        "id": 42559837,
+                        "login": "AgainstEntropy",
+                        "commits": 1
+                    },
+                    {
+                        "id": 42087078,
+                        "login": "niehen6174",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "docs/AGENTS.md",
+        "blob": "dd60e68fbdec1da53be16cae93567cc751618aee",
+        "bytes": 15476,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "9c422689c8f5c317c7c65153b1209349ec57007e",
+        "bytes": 11346,
+        "text": true,
+        "mode": "100644"
+    }
+}

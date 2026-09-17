@@ -1,0 +1,35 @@
+{
+    "slug": "rolldown",
+    "sha": "fa6bd5c2c9b389ff6c7e488ab89a724001a44eee",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 7965,
+            "lines": 106
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 9,
+            "lines": 1,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "AGENTS.md"
+        },
+        {
+            "path": "docs/apis/rust-crates.md",
+            "bytes": 826,
+            "lines": 15
+        },
+        {
+            "path": "internal-docs/path-manipulation/style-guide.md",
+            "bytes": 2502,
+            "lines": 36
+        },
+        {
+            "path": "internal-docs/watch-mode/implementation.md",
+            "bytes": 27854,
+            "lines": 497
+        }
+    ]
+}

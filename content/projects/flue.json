@@ -1,0 +1,65 @@
+{
+    "slug": "flue",
+    "name": "Flue",
+    "owner": "withastro",
+    "repo": "flue",
+    "language": "TypeScript",
+    "stars": 8255,
+    "defaultBranch": "main",
+    "instructionFile": "AGENTS.md",
+    "lastCommit": {
+        "sha": "5485efe2fc6e84fb2c1c0f98e5ccb8068f9394b6",
+        "date": "2026-07-31T07:33:27Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 4051,
+        "lines": 53,
+        "words": 517,
+        "headings": 5,
+        "bullets": 9,
+        "codeBlocks": 2,
+        "docLinks": 0
+    },
+    "tagline": "A TypeScript framework for building and deploying autonomous agents.",
+    "hook": "Defines a durable conversation vocabulary and separates agent registration from HTTP routing.",
+    "summary": "Flue uses its root instructions to establish the runtime concepts an agent must preserve. A terminology tree connects agents, harnesses, sessions, operations, and turns, while contribution and development sections state the available workflows and their limits.",
+    "references": [
+        {
+            "path": "CONTRIBUTING.md"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Name the durable unit explicitly",
+            "body": "The guide rules out familiar workflow and run terminology. It identifies conversations as the persistent unit and distinguishes bounded tool jobs from that lifecycle.",
+            "quote": "There are no workflows or runs: conversations are the only durable unit, and a bounded code job is a tool with `harness: true`.",
+            "pattern": "house-vocabulary"
+        },
+        {
+            "title": "Separate registration from exposure",
+            "body": "The routing paragraph explains that mounting an HTTP route does not register an agent. Registration belongs to the source scan, which prevents an agent from conflating two different mechanisms.",
+            "quote": "Registration comes from the `'use agent'` scan, not from mounting.",
+            "pattern": "architecture-narrative"
+        },
+        {
+            "title": "State which contribution paths are accepted",
+            "body": "The contribution section directs bug reports and feature requests to different places. It also states that incoming pull requests are converted rather than accepted, so code submission is not presented as the default path.",
+            "quote": "- **Pull requests** are not accepted; they are automatically closed and converted into one of the two contribution types above.",
+            "pattern": "contribution-etiquette"
+        },
+        {
+            "title": "Make a verification gap visible",
+            "body": "The file names the absence of tests instead of implying a test suite exists. Its development commands cover installation, builds, type checking, and formatting, leaving readers able to distinguish those checks from behavioral tests.",
+            "quote": "No tests exist in the repo."
+        }
+    ],
+    "steal": [
+        "Define the persistent unit before describing agent operations.",
+        "Distinguish code discovery from public route registration.",
+        "Document absent verification tools alongside the checks that do exist.",
+        "Tell agents which contribution channels maintainers accept."
+    ],
+    "outline": ["Flue", "Contributing", "Terminology", "Project Structure", "Development"],
+    "patterns": ["house-vocabulary", "architecture-narrative", "contribution-etiquette"]
+}

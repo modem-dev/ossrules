@@ -1,0 +1,1682 @@
+{
+    "version": 1,
+    "slug": "mem0",
+    "repository": "mem0ai/mem0",
+    "branch": "main",
+    "sha": "0df3e4b87df20785f0741370c75e44428796193e",
+    "scannedAt": "2026-09-17T12:25:09.375Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [
+        {
+            "path": "skills/mem0-oss-to-platform/SKILL.md",
+            "reason": "Missing or invalid skill description."
+        }
+    ],
+    "skills": [
+        {
+            "id": "forget-f4ee98edf17a",
+            "path": "integrations/antigravity-plugin/skills/forget/SKILL.md",
+            "name": "forget",
+            "description": "Delete the Mem0 memories stored for this repository and this user. Use when the user asks to forget, clear, wipe, or delete memories.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "a0c4cbe5cd0e506eaa763c0a0928c1cb0cf7140c",
+                    "bytes": 1064,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "pause-5e6d15e2fb07",
+            "path": "integrations/antigravity-plugin/skills/pause/SKILL.md",
+            "name": "pause",
+            "description": "Pause Mem0 memory capture on this machine. Use when the user wants to stop memories being recorded, for example for private work or experiments.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "e88f7d3150cbb79cb31b90f6d16496043b1b3501",
+                    "bytes": 750,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "remember-cd85642632cc",
+            "path": "integrations/antigravity-plugin/skills/remember/SKILL.md",
+            "name": "remember",
+            "description": "Acknowledge a \"remember this\" request and make sure it is captured well. Use when the user explicitly asks to remember, note, or save something for future sessions.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7be5fc9be27cf5343b90841176bf406935c56e79",
+                    "bytes": 978,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "resume-f1e60e0432c2",
+            "path": "integrations/antigravity-plugin/skills/resume/SKILL.md",
+            "name": "resume",
+            "description": "Resume Mem0 memory capture after it was paused with /mem0:pause.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "52a88a38dc117b102b2046be99d3260846eba88d",
+                    "bytes": 476,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "search-b8e54b5c488c",
+            "path": "integrations/antigravity-plugin/skills/search/SKILL.md",
+            "name": "search",
+            "description": "Search memories from earlier Antigravity sessions in this repository. Use it when earlier work may already explain the code, error, decision, or command you need, so you can avoid repeating file reads, searches, or experiments.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7a6af05fa629d1226e6044dcd39e8d037495f316",
+                    "bytes": 1490,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "status-cafbcf0e7688",
+            "path": "integrations/antigravity-plugin/skills/status/SKILL.md",
+            "name": "status",
+            "description": "Show whether Mem0 memory is working in this repository, covering configuration, capture state, pending flushes, and whether the Mem0 API key is valid. Use when the user asks whether memory is on, why a memory is missing, or anything looks broken.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d417e4a407042b6865cd64fd919ae8fb2aca412f",
+                    "bytes": 1179,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "forget-f830dad76701",
+            "path": "integrations/claude-code-plugin/skills/forget/SKILL.md",
+            "name": "forget",
+            "description": "Delete the Mem0 memories stored for this repository and this user. Use when the user asks to forget, clear, wipe, or delete memories.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7cf25a38e136ea8a6a08917320b5c8c0ab99a457",
+                    "bytes": 1100,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "pause-d482608cd6c2",
+            "path": "integrations/claude-code-plugin/skills/pause/SKILL.md",
+            "name": "pause",
+            "description": "Pause Mem0 memory capture on this machine. Use when the user wants to stop memories being recorded, for example for private work or experiments.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "5aef04f39b60dc4d4a0eb0d405f6986cfee1d3d1",
+                    "bytes": 786,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "remember-c4b4de86b3ea",
+            "path": "integrations/claude-code-plugin/skills/remember/SKILL.md",
+            "name": "remember",
+            "description": "Acknowledge a \"remember this\" request and make sure it is captured well. Use when the user explicitly asks to remember, note, or save something for future sessions.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7be5fc9be27cf5343b90841176bf406935c56e79",
+                    "bytes": 978,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "resume-b09e54858a70",
+            "path": "integrations/claude-code-plugin/skills/resume/SKILL.md",
+            "name": "resume",
+            "description": "Resume Mem0 memory capture after it was paused with /mem0:pause.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "61082fb42272cbf87dff12e19cda56b459af8a72",
+                    "bytes": 512,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "search-4b9ab63dd100",
+            "path": "integrations/claude-code-plugin/skills/search/SKILL.md",
+            "name": "search",
+            "description": "Search memories from earlier Claude Code sessions in this repository. Use it when earlier work may already explain the code, error, decision, or command you need, so you can avoid repeating file reads, searches, or experiments.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "198a1f023d0b180bebceed46b0d1cb81e13536d9",
+                    "bytes": 1490,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "status-d6fb1bffc05e",
+            "path": "integrations/claude-code-plugin/skills/status/SKILL.md",
+            "name": "status",
+            "description": "Show whether Mem0 memory is working in this repository, covering configuration, capture state, pending flushes, and whether the Mem0 API key is valid. Use when the user asks whether memory is on, why a memory is missing, or anything looks broken.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ed5e49b3fc4cff2c26b7faca2246ca22b9348f81",
+                    "bytes": 1251,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "forget-bd1041773ec0",
+            "path": "integrations/codex-plugin/skills/forget/SKILL.md",
+            "name": "forget",
+            "description": "Delete the Mem0 memories stored for this repository and this user. Use when the user asks to forget, clear, wipe, or delete memories.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "09b285cac3093d0019344b384852385f889de937",
+                    "bytes": 1080,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "pause-5dd805192934",
+            "path": "integrations/codex-plugin/skills/pause/SKILL.md",
+            "name": "pause",
+            "description": "Pause Mem0 memory capture on this machine. Use when the user wants to stop memories being recorded, for example for private work or experiments.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d8a52f47bdab4026bf5d8bf7493182dbbfdaa303",
+                    "bytes": 766,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "remember-dae611f3875d",
+            "path": "integrations/codex-plugin/skills/remember/SKILL.md",
+            "name": "remember",
+            "description": "Acknowledge a \"remember this\" request and make sure it is captured well. Use when the user explicitly asks to remember, note, or save something for future sessions.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7be5fc9be27cf5343b90841176bf406935c56e79",
+                    "bytes": 978,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "resume-0910783789b7",
+            "path": "integrations/codex-plugin/skills/resume/SKILL.md",
+            "name": "resume",
+            "description": "Resume Mem0 memory capture after it was paused with /mem0:pause.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "59a0975855434d8b68304f69c474c354747e0b42",
+                    "bytes": 492,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "search-06703ff58bcc",
+            "path": "integrations/codex-plugin/skills/search/SKILL.md",
+            "name": "search",
+            "description": "Search memories from earlier Codex sessions in this repository. Use it when earlier work may already explain the code, error, decision, or command you need, so you can avoid repeating file reads, searches, or experiments.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "f6c27b19c896ce02c6aadb9346230103c6b6cf7c",
+                    "bytes": 1484,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "status-b50831c257c2",
+            "path": "integrations/codex-plugin/skills/status/SKILL.md",
+            "name": "status",
+            "description": "Show whether Mem0 memory is working in this repository, covering configuration, capture state, pending flushes, and whether the Mem0 API key is valid. Use when the user asks whether memory is on, why a memory is missing, or anything looks broken.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "4f67cc8297c22d8f26070b5a694178e581dfba04",
+                    "bytes": 1211,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "forget-169e800c022a",
+            "path": "integrations/cursor-plugin/skills/forget/SKILL.md",
+            "name": "forget",
+            "description": "Delete the Mem0 memories stored for this repository and this user. Use when the user asks to forget, clear, wipe, or delete memories.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "c3af4d3df105e3b444d3a773397294fa9e64ab0e",
+                    "bytes": 1054,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "pause-0f4b3c7b18cb",
+            "path": "integrations/cursor-plugin/skills/pause/SKILL.md",
+            "name": "pause",
+            "description": "Pause Mem0 memory capture on this machine. Use when the user wants to stop memories being recorded, for example for private work or experiments.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "634385145f491d263a5dfc36e608fcc78627917b",
+                    "bytes": 740,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "remember-04212b571f11",
+            "path": "integrations/cursor-plugin/skills/remember/SKILL.md",
+            "name": "remember",
+            "description": "Acknowledge a \"remember this\" request and make sure it is captured well. Use when the user explicitly asks to remember, note, or save something for future sessions.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7be5fc9be27cf5343b90841176bf406935c56e79",
+                    "bytes": 978,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "resume-626a08eff636",
+            "path": "integrations/cursor-plugin/skills/resume/SKILL.md",
+            "name": "resume",
+            "description": "Resume Mem0 memory capture after it was paused with /mem0:pause.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d45bd545d7fef95d3484b3abe74fc5ae8756ae4b",
+                    "bytes": 466,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "search-4f165fda5373",
+            "path": "integrations/cursor-plugin/skills/search/SKILL.md",
+            "name": "search",
+            "description": "Search memories from earlier Cursor sessions in this repository. Use it when earlier work may already explain the code, error, decision, or command you need, so you can avoid repeating file reads, searches, or experiments.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7a7ddfa90d58687bd3e26b096d440f77cbc52d98",
+                    "bytes": 1485,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "status-16480a82ad6e",
+            "path": "integrations/cursor-plugin/skills/status/SKILL.md",
+            "name": "status",
+            "description": "Show whether Mem0 memory is working in this repository, covering configuration, capture state, pending flushes, and whether the Mem0 API key is valid. Use when the user asks whether memory is on, why a memory is missing, or anything looks broken.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "23ad94e334d483c97e6717f13cb66c4a8d011ba5",
+                    "bytes": 1159,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "forget-5db9d282efa5",
+            "path": "integrations/kimi-plugin/skills/forget/SKILL.md",
+            "name": "forget",
+            "description": "Delete the Mem0 memories stored for this repository and this user. Use when the user asks to forget, clear, wipe, or delete memories.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "f4709793e3cd2a7fa4c4855c99a9592f0a81e3ee",
+                    "bytes": 1050,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "pause-fe017c08ad03",
+            "path": "integrations/kimi-plugin/skills/pause/SKILL.md",
+            "name": "pause",
+            "description": "Pause Mem0 memory capture on this machine. Use when the user wants to stop memories being recorded, for example for private work or experiments.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "9f217a4685e03a6a0e280993cf82915894a302a1",
+                    "bytes": 736,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "remember-07f6d0106a99",
+            "path": "integrations/kimi-plugin/skills/remember/SKILL.md",
+            "name": "remember",
+            "description": "Acknowledge a \"remember this\" request and make sure it is captured well. Use when the user explicitly asks to remember, note, or save something for future sessions.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7be5fc9be27cf5343b90841176bf406935c56e79",
+                    "bytes": 978,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "resume-87d574bb6e17",
+            "path": "integrations/kimi-plugin/skills/resume/SKILL.md",
+            "name": "resume",
+            "description": "Resume Mem0 memory capture after it was paused with /mem0:pause.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7dd91be9690ea70a34f63a33231617a72c2d6906",
+                    "bytes": 462,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "search-00e40b03f930",
+            "path": "integrations/kimi-plugin/skills/search/SKILL.md",
+            "name": "search",
+            "description": "Search memories from earlier Kimi sessions in this repository. Use it when earlier work may already explain the code, error, decision, or command you need, so you can avoid repeating file reads, searches, or experiments.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "eb92a6ca8c93c9cfd0485116b92289bf208e4779",
+                    "bytes": 1483,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "status-160b11224f48",
+            "path": "integrations/kimi-plugin/skills/status/SKILL.md",
+            "name": "status",
+            "description": "Show whether Mem0 memory is working in this repository, covering configuration, capture state, pending flushes, and whether the Mem0 API key is valid. Use when the user asks whether memory is on, why a memory is missing, or anything looks broken.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "165c0c675c28b12ca619075a0ea5bed252c12137",
+                    "bytes": 1151,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "forget-594fe400d2c2",
+            "path": "integrations/mem0-agent-plugin/skills/forget/SKILL.md",
+            "name": "forget",
+            "description": "Delete the Mem0 memories stored for this repository and this user. Use when the user asks to forget, clear, wipe, or delete memories.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "0c272e9ff33d52562b0d3c121a3f2a49089781f5",
+                    "bytes": 1022,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "pause-69fcbc86771a",
+            "path": "integrations/mem0-agent-plugin/skills/pause/SKILL.md",
+            "name": "pause",
+            "description": "Pause Mem0 memory capture on this machine. Use when the user wants to stop memories being recorded, for example for private work or experiments.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "c6316dd0bb89d90cb95c5221d72bd28765b788be",
+                    "bytes": 708,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "remember-2a85893bf057",
+            "path": "integrations/mem0-agent-plugin/skills/remember/SKILL.md",
+            "name": "remember",
+            "description": "Acknowledge a \"remember this\" request and make sure it is captured well. Use when the user explicitly asks to remember, note, or save something for future sessions.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "531a8b70bfb0d2a6a0b91b8589665b5e16c95085",
+                    "bytes": 947,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "resume-00b0608339bb",
+            "path": "integrations/mem0-agent-plugin/skills/resume/SKILL.md",
+            "name": "resume",
+            "description": "Resume Mem0 memory capture after it was paused with /mem0:pause.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "3668d68ddd6f54a47f1a5f9afdc087cadae86a98",
+                    "bytes": 434,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "search-d36a8b07fb9b",
+            "path": "integrations/mem0-agent-plugin/skills/search/SKILL.md",
+            "name": "search",
+            "description": "Search memories from earlier Coding Agent sessions in this repository. Use it when earlier work may already explain the code, error, decision, or command you need, so you can avoid repeating file reads, searches, or experiments.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d52c4ff34e2b446a9ad8033de4dcbd843a562077",
+                    "bytes": 1342,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "status-7fa75d738159",
+            "path": "integrations/mem0-agent-plugin/skills/status/SKILL.md",
+            "name": "status",
+            "description": "Show whether Mem0 memory is working in this repository, covering configuration, capture state, pending flushes, and whether the Mem0 API key is valid. Use when the user asks whether memory is on, why a memory is missing, or anything looks broken.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7717e656b9e86a0e8cbac41ce7e0f84c15bd714f",
+                    "bytes": 1125,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "memory-triage-22fba54813d2",
+            "path": "integrations/openclaw/skills/memory-triage/SKILL.md",
+            "name": "memory-triage",
+            "description": "Persistent long-term memory protocol powered by mem0. Evaluate conversations for durable facts worth storing via memory_add. Handles identity, preferences, decisions, configurations, rules, projects, and relationships. Loaded by the openclaw-mem0 plugin when skills mode is active.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "3487d7f1aceffe64000acc6547021df64ce350df",
+                    "bytes": 20379,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "domains/companion.md",
+                    "blob": "631eaa2d933989a4c63513a2c88d8f52e40c6407",
+                    "bytes": 3495,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "recall-protocol.md",
+                    "blob": "e09fc9e22fd80c79fe2731f49bae7a9cd264485a",
+                    "bytes": 10169,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "mem0-context-loader-4b71ac83800d",
+            "path": "integrations/opencode-plugin/opencode-skills/mem0-context-loader/SKILL.md",
+            "name": "mem0-context-loader",
+            "description": "Searches and injects relevant memories into context before starting work on a task. Use when beginning a new task, switching context, or when project history, past decisions, or coding conventions need to be loaded.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "803689076adbff2d4d7b680645c25f4f256eeab4",
+                    "bytes": 2349,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "mem0-forget-40484b0561d8",
+            "path": "integrations/opencode-plugin/opencode-skills/mem0-forget/SKILL.md",
+            "name": "mem0-forget",
+            "description": "Deletes memories by search query or memory ID with confirmation before removal. Use when removing outdated decisions, incorrect memories, sensitive data, or cleaning up after experiments. Also handles undo of recent additions.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "0125472e52579b36d734ff32f05f83a49c4050c4",
+                    "bytes": 2658,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "mem0-remember-60287a91b13e",
+            "path": "integrations/opencode-plugin/opencode-skills/mem0-remember/SKILL.md",
+            "name": "mem0-remember",
+            "description": "Stores a memory verbatim from user input with appropriate type classification and metadata. Use when the user says remember this, save this, store this, note that, or explicitly asks to record a decision, preference, convention, or learning.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b8ddfd0bf25907fc35b79b3cbf2ef0797ed181be",
+                    "bytes": 2241,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "mem0-scope-04841a23d21a",
+            "path": "integrations/opencode-plugin/opencode-skills/mem0-scope/SKILL.md",
+            "name": "mem0-scope",
+            "description": "Views or changes the default memory scope (project, session, or global) used when saving and searching memories. Use when the user wants to control whether memories are scoped to this repo, this run, or shared across all their projects.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "1e2128141c3a39eadf84dad5f95e4287f660cd9f",
+                    "bytes": 4564,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "mem0-search-d10e1f63e4a8",
+            "path": "integrations/opencode-plugin/opencode-skills/mem0-search/SKILL.md",
+            "name": "mem0-search",
+            "description": "Searches memories and displays compact one-liner results, or looks up a specific memory by ID. Use for quick memory lookups, checking if a decision was recorded, resolving [mem0:id] citations, or browsing memories without full category detail.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ed3533991388f17a377e9f3cba9e968ab776998f",
+                    "bytes": 2208,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "mem0-status-8ad0fc703f0e",
+            "path": "integrations/opencode-plugin/opencode-skills/mem0-status/SKILL.md",
+            "name": "mem0-status",
+            "description": "Diagnoses mem0 connectivity, API key validity, and memory read/write functionality. Use when memory operations fail, searches return empty, add_memory errors occur, or to verify the plugin is working correctly.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "9c1d6f151cad5a277314777b39a8b78a12b6979a",
+                    "bytes": 6088,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "mem0-tour-a37a27bcb4d7",
+            "path": "integrations/opencode-plugin/opencode-skills/mem0-tour/SKILL.md",
+            "name": "mem0-tour",
+            "description": "Browses all stored memories grouped by category with full content display. Use when reviewing all project memories, exploring stored knowledge, onboarding to a project, or getting an overview of captured decisions, conventions, and learnings.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "2caaf30ec5bf446e54f4642ac04d7215a4741a53",
+                    "bytes": 6574,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "context-loader-f031a858e460",
+            "path": "integrations/pi-agent-plugin/skills/context-loader/SKILL.md",
+            "name": "context-loader",
+            "description": "Searches and injects relevant memories into context before starting work on a task or topic. Use when beginning a new task, switching context, or when past decisions, preferences, or knowledge need to be loaded.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "22c10b2c83c8c656391520bd7a8a3978ad964904",
+                    "bytes": 1716,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "forget-02f105afbf48",
+            "path": "integrations/pi-agent-plugin/skills/forget/SKILL.md",
+            "name": "forget",
+            "description": "Deletes memories by search query or memory ID with confirmation before removal. Use when removing outdated information, incorrect memories, sensitive data, or cleaning up after experiments.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "cffeb58069c174c5c62fc9e9d2bf8d826b08f331",
+                    "bytes": 1440,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "remember-7ba979ff1431",
+            "path": "integrations/pi-agent-plugin/skills/remember/SKILL.md",
+            "name": "remember",
+            "description": "Stores a memory verbatim from user input with appropriate category classification. Use when the user says remember this, save this, store this, note that, or explicitly asks to record a preference, decision, goal, or lesson.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "4b7456b184e7588ee358909a2f15f5a311457f3e",
+                    "bytes": 1641,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "search-46913fbb4dec",
+            "path": "integrations/pi-agent-plugin/skills/search/SKILL.md",
+            "name": "search",
+            "description": "Searches memories and displays compact one-liner results, or looks up a specific memory by ID. Use for quick memory lookups, checking if something was recorded, resolving [mem0:id] citations, or browsing memories without full category detail.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "a53ce776483cd0a561d4313385aef5c100a1f50b",
+                    "bytes": 1207,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "status-739e9553b602",
+            "path": "integrations/pi-agent-plugin/skills/status/SKILL.md",
+            "name": "status",
+            "description": "Diagnoses Mem0 connectivity, API key validity, and memory read/write functionality. Use when memory operations fail, searches return empty, or to verify the plugin is working correctly.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "5778cfe7f06e447027e0e6630a89478f2239a146",
+                    "bytes": 2616,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "tour-80f7db8fd089",
+            "path": "integrations/pi-agent-plugin/skills/tour/SKILL.md",
+            "name": "tour",
+            "description": "Browses all stored memories grouped by category with full content display. Use when reviewing all memories, exploring stored knowledge, onboarding to a new session, or getting an overview of what the agent remembers.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b635b46ac747ad206a7f41fb2bb91dfcd6e3611e",
+                    "bytes": 2619,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "mem0-cli-8092cde88cf5",
+            "path": "skills/mem0-cli/SKILL.md",
+            "name": "mem0-cli",
+            "description": "Mem0 CLI -- the command-line interface for mem0 memory operations. TRIGGER when: user mentions \"mem0 cli\", \"mem0 command line\", \"@mem0/cli\", \"mem0-cli\", \"pip install mem0-cli\", \"npm install -g @mem0/cli\", or is running mem0 commands in a terminal/shell (mem0 add, mem0 search, mem0 list, mem0 get, mem0 init, mem0 config, mem0 import). Also triggers when query includes CLI flags like --user-id, --output, --json, --agent, or describes bash/zsh/terminal/shell usage. DO NOT TRIGGER when: user asks about programmatic SDK integration in Python/TS code (use mem0 skill), or Vercel AI SDK provider (use mem0-vercel-ai-sdk skill).\n",
+            "license": "Apache-2.0",
+            "compatibility": "Node.js 18+ (npm install -g @mem0/cli) or Python 3.10+ (pip install mem0-cli), MEM0_API_KEY env var",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "10afd34293873217b2e4539ed5028dfceb6c07d1",
+                    "bytes": 5779,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "LICENSE",
+                    "blob": "78c99ae280e90f9274949bcdbbb13676c8ab893f",
+                    "bytes": 10705,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "README.md",
+                    "blob": "4333116e857d26bfd0feebbf12b25e06781ba10a",
+                    "bytes": 3685,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/command-reference.md",
+                    "blob": "16f85ed5033168112a7cd59af43a7fa8cc816698",
+                    "bytes": 23186,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/configuration.md",
+                    "blob": "0c5484cfcb76e131f2ce492bc5c9e15c42342fe4",
+                    "bytes": 6336,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/workflows.md",
+                    "blob": "58a441abbaa1be1dc7094f47f7ef604000c8d2a9",
+                    "bytes": 9423,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 265382656,
+                        "login": "gabrielstein-mem0",
+                        "commits": 1
+                    },
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    },
+                    {
+                        "id": 40512095,
+                        "login": "MgeeeeK",
+                        "commits": 1
+                    },
+                    {
+                        "id": 94069182,
+                        "login": "whysosaket",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "mem0-integrate-215fd52be719",
+            "path": "skills/mem0-integrate/SKILL.md",
+            "name": "mem0-integrate",
+            "description": "Integrate Mem0 into an existing repository using a goal-driven, TDD pipeline. Detects the repo's language automatically and asks the user to pick between Mem0 Platform (managed) and Mem0 Open Source (self-hosted). Writes failing tests before any implementation. Produces a local feature branch plus `.mem0-integration/` artifacts consumed by the paired verification skill. TRIGGER when: user says \"integrate mem0\", \"add mem0 to this repo\", \"wire mem0 into <repo>\", or asks how to add memory to an existing project. DO NOT TRIGGER when: the user wants general SDK usage (use skill:mem0), CLI usage (use skill:mem0-cli), or Vercel AI SDK (use skill:mem0-vercel-ai-sdk). After success, invoke skill:mem0-test-integration to verify in the same workspace (loose coupling).\n",
+            "license": "Apache-2.0",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "34dfd284fd842726f651389d4731b141046d06ca",
+                    "bytes": 12965,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "LICENSE",
+                    "blob": "78c99ae280e90f9274949bcdbbb13676c8ab893f",
+                    "bytes": 10705,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "README.md",
+                    "blob": "3c8e47478792bfedd20f128fc1e51cac5c8ddcdd",
+                    "bytes": 3551,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/pipeline.md",
+                    "blob": "da8d42495df7953f27cba9c8946590b38172752f",
+                    "bytes": 16415,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/subagent-prompts.md",
+                    "blob": "811f0483bf292ea2130b143bd6881a76a3a5b0d9",
+                    "bytes": 3008,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 3
+                    },
+                    {
+                        "id": 40512095,
+                        "login": "MgeeeeK",
+                        "commits": 1
+                    },
+                    {
+                        "id": 94069182,
+                        "login": "whysosaket",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "mem0-test-integration-9ba90441d9e8",
+            "path": "skills/mem0-test-integration/SKILL.md",
+            "name": "mem0-test-integration",
+            "description": "Verify a Mem0 integration produced by /mem0-integrate. Runs in the same workspace on the same branch (loose coupling) — installs dependencies, runs the repo's native test suite, then exercises a real end-to-end smoke flow against the user's API key. Produces a scorecard. TRIGGER when: user has just run /mem0-integrate and says \"verify\", \"test the integration\", \"run /mem0-test-integration\", or when a .mem0-integration/ directory exists and tests have not been run yet on the current branch. DO NOT TRIGGER when: the user wants to run general project tests (defer to the repo's native test command), or when no prior /mem0-integrate run exists in the current branch (ask them to run /mem0-integrate first). This skill ONLY catches compile and runtime bugs by design. Logical integration errors — wrong data stored, wrong time retrieved, wrong user scoping — are on the human reviewer.\n",
+            "license": "Apache-2.0",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "773d0dd260eb732979541ced4c5d96bc41c73199",
+                    "bytes": 17337,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "LICENSE",
+                    "blob": "78c99ae280e90f9274949bcdbbb13676c8ab893f",
+                    "bytes": 10705,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "README.md",
+                    "blob": "da905006cf23af0aa283af66a6c3dd379f8bbfcc",
+                    "bytes": 3349,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 94069182,
+                        "login": "whysosaket",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "mem0-vercel-ai-sdk-ba0d97d00986",
+            "path": "skills/mem0-vercel-ai-sdk/SKILL.md",
+            "name": "mem0-vercel-ai-sdk",
+            "description": "Mem0 provider for Vercel AI SDK (@mem0/vercel-ai-provider). TRIGGER when: user mentions \"vercel ai sdk\", \"@mem0/vercel-ai-provider\", \"createMem0\", \"retrieveMemories\", \"addMemories\", \"getMemories\", \"searchMemories\", \"mem0 vercel\", \"AI SDK provider\", \"AI SDK memory\", or is using generateText/streamText with mem0. Also triggers for Next.js apps needing memory-augmented AI. DO NOT TRIGGER when: user asks about direct Python/TS SDK calls without Vercel (use mem0 skill), or CLI terminal commands (use mem0-cli skill).\n",
+            "license": "Apache-2.0",
+            "compatibility": "Node.js 18+, npm install @mem0/vercel-ai-provider, Vercel AI SDK v5 (ai package), MEM0_API_KEY + LLM provider API key",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "8b5e9929e0ff393e751dae55c8da047a603a741e",
+                    "bytes": 7475,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "LICENSE",
+                    "blob": "78c99ae280e90f9274949bcdbbb13676c8ab893f",
+                    "bytes": 10705,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "README.md",
+                    "blob": "886e352f74673cd5dac65378ced131ef36726ed2",
+                    "bytes": 3228,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/memory-utilities.md",
+                    "blob": "0ad297fc131676bccad5ca4e3294c1d0c33118ef",
+                    "bytes": 9731,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/provider-api.md",
+                    "blob": "63222b81542a366a4c878d2c8e3723065fd5d1d5",
+                    "bytes": 9360,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/usage-patterns.md",
+                    "blob": "bd1e665189c61a6dd666f1add779b26f3c402c76",
+                    "bytes": 9767,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 265382656,
+                        "login": "gabrielstein-mem0",
+                        "commits": 1
+                    },
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 1
+                    },
+                    {
+                        "id": 94069182,
+                        "login": "whysosaket",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "mem0-84fc3f6630ee",
+            "path": "skills/mem0/SKILL.md",
+            "name": "mem0",
+            "description": "Mem0 Platform SDK for adding persistent memory to AI applications. TRIGGER when: user mentions \"mem0\", \"MemoryClient\", \"memory layer\", \"remember user preferences\", \"persistent context\", \"personalization\", or needs to add long-term memory to chatbots, agents, or AI apps. Covers Python SDK (mem0ai), TypeScript SDK (mem0ai), and framework integrations (LangChain, CrewAI, OpenAI Agents SDK, Pipecat, LlamaIndex, AutoGen, LangGraph). Also covers the open-source self-hosted Memory class. This is the DEFAULT mem0 skill for ambiguous queries. DO NOT TRIGGER when: user asks about CLI commands, terminal usage, or shell scripts (use mem0-cli), or Vercel AI SDK / @mem0/vercel-ai-provider / createMem0 (use mem0-vercel-ai-sdk).\n",
+            "license": "Apache-2.0",
+            "compatibility": "Requires Python 3.10+ or Node.js 18+, pip install mem0ai or npm install mem0ai, MEM0_API_KEY env var (Platform), and internet access to api.mem0.ai. SDK v3 with v2 compatibility mode available.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "508870f014e7c745e75a3df62511086ef44b9b9c",
+                    "bytes": 7783,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "LICENSE",
+                    "blob": "78c99ae280e90f9274949bcdbbb13676c8ab893f",
+                    "bytes": 10705,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "README.md",
+                    "blob": "b6692ffc456d5c7b9593dcdcff209623b1e2d70d",
+                    "bytes": 3452,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "client/differences.md",
+                    "blob": "e5e80e2503bb34151fea2077808aa2fd06b4ffcf",
+                    "bytes": 4978,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "client/node.md",
+                    "blob": "ca85ba7ba5ebf8979267e3cc81c65feaafd6b760",
+                    "bytes": 11540,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "client/python.md",
+                    "blob": "0cf35a550a0d65d011e57ca402e87cac851377ed",
+                    "bytes": 12858,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/api-reference.md",
+                    "blob": "62ec4bea7db846b7aae172e9659468ef28a859d2",
+                    "bytes": 4616,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/architecture.md",
+                    "blob": "4a04c820b1a8d3e7eef3646339f84eb7d39920f7",
+                    "bytes": 11227,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/features.md",
+                    "blob": "f930d9a7466c5df7d7654b13d10acda253cdde43",
+                    "bytes": 10626,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/integration-patterns.md",
+                    "blob": "68232719e0ff937c8d175b7405be63505de60f65",
+                    "bytes": 11692,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/quickstart.md",
+                    "blob": "c4afd7841a92cd536dfeba5a47802463261ec4cd",
+                    "bytes": 2919,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/sdk-guide.md",
+                    "blob": "512c0d19c2c67c70cbb71d688877c90c1121662d",
+                    "bytes": 9382,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/use-cases.md",
+                    "blob": "5f3ba655dc1fb3c3801f673cd8f517292564eed5",
+                    "bytes": 22540,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/mem0_doc_search.py",
+                    "blob": "a04c89afb289d25ae1ee534cbf428b83bbb05ad6",
+                    "bytes": 8154,
+                    "text": true,
+                    "mode": "100755"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 266917184,
+                        "login": "kartik-mem0",
+                        "commits": 2
+                    },
+                    {
+                        "id": 265382656,
+                        "login": "gabrielstein-mem0",
+                        "commits": 1
+                    },
+                    {
+                        "id": 40512095,
+                        "login": "MgeeeeK",
+                        "commits": 1
+                    },
+                    {
+                        "id": 94069182,
+                        "login": "whysosaket",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "ba1b72f4795de66914cca9e413cc7b9266f14761",
+        "bytes": 11997,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "d20d5102c3cf97ecbee54afd65893de4a11d26fe",
+        "bytes": 11349,
+        "text": true,
+        "mode": "100644"
+    }
+}

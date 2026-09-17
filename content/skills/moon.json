@@ -1,0 +1,89 @@
+{
+    "version": 1,
+    "slug": "moon",
+    "repository": "moonrepo/moon",
+    "branch": "master",
+    "sha": "171d301f74c4f069ec0df8c9aa0b4a32dc4269f1",
+    "scannedAt": "2026-09-17T12:20:38.871Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [
+        {
+            "path": "skills/debug-task/SKILL.md",
+            "reason": "Missing or invalid skill description."
+        }
+    ],
+    "skills": [
+        {
+            "id": "doc-coauthoring-24f41bb5cd95",
+            "path": ".agents/skills/doc-coauthoring/SKILL.md",
+            "name": "doc-coauthoring",
+            "description": "Guide users through a structured workflow for co-authoring documentation. Use when user wants to write documentation, proposals, technical specs, decision docs, or similar structured content. This workflow helps users efficiently transfer context, refine content through iteration, and verify the doc works for readers. Trigger when user mentions writing docs, creating proposals, drafting specs, or similar documentation tasks.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "836ade8e73de74e1ad18af1cf43ea3fceaae5ec6",
+                    "bytes": 15871,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 143744,
+                        "login": "milesj",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "improve-code-quality-4be8316493b0",
+            "path": ".agents/skills/improve-code-quality/SKILL.md",
+            "name": "improve-code-quality",
+            "description": "Analyze and improve code quality for any path in the monorepo. Use whenever the user asks to improve, audit, review, clean up, refactor, lint, or check code quality for a directory or file. Also trigger for requests about security review, performance optimization, robustness checks, dependency audits, or readability improvements. Activate for any mention of code quality, code health, code smells, tech debt, or cleanup tasks targeting a specific path. Even if the user just says \"check this code\" or \"review crates/foo\", this skill applies.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "19747fb69e89a2ff8481e62200ae1253f794250b",
+                    "bytes": 7172,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "evals/evals.json",
+                    "blob": "49ff41f20bb10b17e32ba31ca80026e4d009e852",
+                    "bytes": 933,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 143744,
+                        "login": "milesj",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "28fb4d0335b43bcf3783252209b41d05980d0c22",
+        "bytes": 4871,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "2d59928a5b0e02530ca02bff50d7418e599460d6",
+        "bytes": 1071,
+        "text": true,
+        "mode": "100644"
+    }
+}

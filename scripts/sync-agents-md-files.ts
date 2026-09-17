@@ -124,6 +124,10 @@ const LICENSE_SIGNATURES: [RegExp, string][] = [
     [/Business Source License/i, 'BUSL-1.1'],
     [/Functional Source License/i, 'FSL-1.1'],
     [/Permission is hereby granted, free of charge/i, 'MIT'],
+    [
+        /Redistribution and use in source and binary forms[\s\S]*each copyright holder and contributor hereby grants[\s\S]*patent license/i,
+        'BSD-2-Clause-Patent',
+    ],
     [/Redistribution and use in source and binary forms[\s\S]{0,600}Neither the name/i, 'BSD-3-Clause'],
     [/Redistribution and use in source and binary forms/i, 'BSD-2-Clause'],
     [/Permission to use, copy, modify, and\/or distribute/i, 'ISC'],

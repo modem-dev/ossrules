@@ -28,6 +28,8 @@ export function instructionImports(sourcePath: string, source: string, available
         if (fence) continue;
         const prose = content.replace(/(`+)[\s\S]*?\1/g, '');
         for (const match of prose.matchAll(/(?<![\w@])@([^\s`"'<>()[\],;]+)/g)) {
+            // Prose can name a Python decorator without marking it as inline code.
+            if (/\bdecorator(?:\s+with)?\s+$/i.test(prose.slice(0, match.index))) continue;
             const target = match[1].replace(/[.!?:*]+$/, '');
             if (!target) continue;
             const resolved = localTarget(sourcePath, target);

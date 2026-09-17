@@ -1,0 +1,221 @@
+{
+    "slug": "streamlit",
+    "sha": "9bfd9f093e42755676bf862d17ba20624bae9670",
+    "license": "Apache-2.0",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".claude/agents/AGENTS.md",
+            "bytes": 3421,
+            "lines": 81
+        },
+        {
+            "path": ".claude/agents/CLAUDE.md",
+            "bytes": 13,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "./AGENTS.md",
+                    "path": ".claude/agents/AGENTS.md"
+                }
+            ]
+        },
+        {
+            "path": ".claude/skills/AGENTS.md",
+            "bytes": 3864,
+            "lines": 91
+        },
+        {
+            "path": ".claude/skills/CLAUDE.md",
+            "bytes": 13,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "./AGENTS.md",
+                    "path": ".claude/skills/AGENTS.md"
+                }
+            ],
+            "sameContentAs": ".claude/agents/CLAUDE.md"
+        },
+        {
+            "path": ".claude/skills/debugging-streamlit/SKILL.md",
+            "bytes": 8099,
+            "lines": 201
+        },
+        {
+            "path": ".github/workflows/AGENTS.md",
+            "bytes": 10439,
+            "lines": 166
+        },
+        {
+            "path": ".github/workflows/CLAUDE.md",
+            "bytes": 13,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "./AGENTS.md",
+                    "path": ".github/workflows/AGENTS.md"
+                }
+            ],
+            "sameContentAs": ".claude/agents/CLAUDE.md"
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 8862,
+            "lines": 108
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 13,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "./AGENTS.md",
+                    "path": "AGENTS.md"
+                }
+            ],
+            "sameContentAs": ".claude/agents/CLAUDE.md"
+        },
+        {
+            "path": "e2e_playwright/AGENTS.md",
+            "bytes": 10126,
+            "lines": 118
+        },
+        {
+            "path": "e2e_playwright/CLAUDE.md",
+            "bytes": 13,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "./AGENTS.md",
+                    "path": "e2e_playwright/AGENTS.md"
+                }
+            ],
+            "sameContentAs": ".claude/agents/CLAUDE.md"
+        },
+        {
+            "path": "frontend/AGENTS.md",
+            "bytes": 20267,
+            "lines": 359
+        },
+        {
+            "path": "frontend/CLAUDE.md",
+            "bytes": 13,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "./AGENTS.md",
+                    "path": "frontend/AGENTS.md"
+                }
+            ],
+            "sameContentAs": ".claude/agents/CLAUDE.md"
+        },
+        {
+            "path": "lib/AGENTS.md",
+            "bytes": 5016,
+            "lines": 75
+        },
+        {
+            "path": "lib/CLAUDE.md",
+            "bytes": 13,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "./AGENTS.md",
+                    "path": "lib/AGENTS.md"
+                }
+            ],
+            "sameContentAs": ".claude/agents/CLAUDE.md"
+        },
+        {
+            "path": "lib/streamlit/.agents/skills/AGENTS.md",
+            "bytes": 2494,
+            "lines": 13
+        },
+        {
+            "path": "lib/streamlit/.agents/skills/CLAUDE.md",
+            "bytes": 13,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "./AGENTS.md",
+                    "path": "lib/streamlit/.agents/skills/AGENTS.md"
+                }
+            ],
+            "sameContentAs": ".claude/agents/CLAUDE.md"
+        },
+        {
+            "path": "lib/streamlit/AGENTS.md",
+            "bytes": 9799,
+            "lines": 154
+        },
+        {
+            "path": "lib/streamlit/CLAUDE.md",
+            "bytes": 13,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "./AGENTS.md",
+                    "path": "lib/streamlit/AGENTS.md"
+                }
+            ],
+            "sameContentAs": ".claude/agents/CLAUDE.md"
+        },
+        {
+            "path": "proto/streamlit/proto/AGENTS.md",
+            "bytes": 842,
+            "lines": 27
+        },
+        {
+            "path": "proto/streamlit/proto/CLAUDE.md",
+            "bytes": 13,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "./AGENTS.md",
+                    "path": "proto/streamlit/proto/AGENTS.md"
+                }
+            ],
+            "sameContentAs": ".claude/agents/CLAUDE.md"
+        },
+        {
+            "path": "scripts/AGENTS.md",
+            "bytes": 350,
+            "lines": 10
+        },
+        {
+            "path": "scripts/CLAUDE.md",
+            "bytes": 13,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "./AGENTS.md",
+                    "path": "scripts/AGENTS.md"
+                }
+            ],
+            "sameContentAs": ".claude/agents/CLAUDE.md"
+        },
+        {
+            "path": "specs/AGENTS.md",
+            "bytes": 16502,
+            "lines": 454
+        },
+        {
+            "path": "specs/CLAUDE.md",
+            "bytes": 13,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "./AGENTS.md",
+                    "path": "specs/AGENTS.md"
+                }
+            ],
+            "sameContentAs": ".claude/agents/CLAUDE.md"
+        },
+        {
+            "path": "wiki/new-feature-guide.md",
+            "bytes": 1726,
+            "lines": 41
+        }
+    ]
+}

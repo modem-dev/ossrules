@@ -1,0 +1,48 @@
+---
+description: Guide for implementing new query pseudo-selectors
+globs: src/query/src/pseudo/*,src/query/test/pseudo/*,src/query/src/pseudo.ts
+alwaysApply: false
+---
+# Creating Query Pseudo-Selectors
+
+Guide for adding pseudo-selectors to `src/query/`.
+
+## Steps
+
+1. **Study patterns**: `src/query/src/pseudo/` — see `missing.ts` (edge), `private.ts` (node), `overridden.ts` (edge property)
+2. **Create**: `src/query/src/pseudo/your-selector.ts`
+3. **Register**: import in `src/query/src/pseudo.ts`, add to `pseudoSelectors` Map
+4. **Test**: `src/query/test/pseudo/your-selector.ts`
+5. **Validate**: follow `@code-validation-workflow.mdc`
+
+## Implementation Template
+
+```typescript
+import type { ParserState } from '../types.ts'
+import { removeEdge, removeUnlinkedNodes } from './helpers.ts'
+
+export const yourSelector = async (state: ParserState) => {
+  // Edge-based: iterate state.partial.edges, call removeEdge()
+  // Node-based: iterate state.partial.nodes, call removeNode()
+  for (const edge of state.partial.edges) {
+    if (/* condition */) removeEdge(state, edge)
+  }
+  removeUnlinkedNodes(state) // after edge filtering
+  return state
+}
+```
+
+## Helpers (`helpers.ts`)
+
+- `removeNode(state, node)` — removes node + incoming edges
+- `removeEdge(state, edge)` — removes edge + outgoing node
+- `removeDanglingEdges(state)` — edges with no destination
+- `removeUnlinkedNodes(state)` — nodes with no incoming edges
+
+## Test Pattern
+
+Use `getSimpleGraph()` from `test/fixtures/graph.ts`. Build `ParserState` with `postcssSelectorParser().astSync(query)`. Assert on `res.partial.nodes`/`res.partial.edges` using snapshots.
+
+## Docs
+
+Update `www/docs/src/content/docs/cli/selectors.mdx` after implementation.

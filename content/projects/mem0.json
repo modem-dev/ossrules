@@ -1,0 +1,133 @@
+{
+    "slug": "mem0",
+    "name": "Mem0",
+    "owner": "mem0ai",
+    "repo": "mem0",
+    "language": "Python",
+    "stars": 65486,
+    "defaultBranch": "main",
+    "instructionFile": "AGENTS.md",
+    "lastCommit": {
+        "sha": "73e7b8763a81f3fa43c6b79312ad049f3106498d",
+        "date": "2026-09-08T18:02:25Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 11997,
+        "lines": 175,
+        "words": 1695,
+        "headings": 13,
+        "bullets": 22,
+        "codeBlocks": 3,
+        "docLinks": 29
+    },
+    "tagline": "A persistent memory layer for agents, with Python and TypeScript SDKs and integrations.",
+    "hook": "Maps each package to its own instructions and toolchain, then distinguishes the contribution gate for a change from the gate for an account.",
+    "summary": "Mem0's root guide coordinates a polyglot repository whose formatting and testing rules differ by package. It provides a routing table, a change-to-deliverable matrix, and detailed explanations of its accepted-issue and contributor-account workflows.",
+    "references": [
+        {
+            "path": "mem0/AGENTS.md"
+        },
+        {
+            "path": "tests/AGENTS.md"
+        },
+        {
+            "path": "mem0-ts/AGENTS.md"
+        },
+        {
+            "path": "cli/python/AGENTS.md"
+        },
+        {
+            "path": "cli/node/AGENTS.md"
+        },
+        {
+            "path": "integrations/AGENTS.md"
+        },
+        {
+            "path": "server/AGENTS.md"
+        },
+        {
+            "path": "docs/AGENTS.md"
+        },
+        {
+            "path": "skills/AGENTS.md"
+        },
+        {
+            "path": ".github/AGENTS.md"
+        },
+        {
+            "path": "CONTRIBUTING.md"
+        },
+        {
+            "path": "CODE_OF_CONDUCT.md"
+        },
+        {
+            "path": "SECURITY.md"
+        },
+        {
+            "path": ".github/PULL_REQUEST_TEMPLATE.md"
+        },
+        {
+            "path": "docs/contributing/development.mdx"
+        },
+        {
+            "path": "docs/contributing/documentation.mdx"
+        },
+        {
+            "path": ".github/ISSUE_TEMPLATE/",
+            "kind": "pattern",
+            "label": "Matching issue form"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Route by the edited package before running tools",
+            "body": "The opening requires reading the nearest instructions and explains that line lengths, linters, and test runners differ. The routing table makes those differences visible before an agent applies a root-level default.",
+            "quote": "Read the `AGENTS.md` nearest the files you are editing before running any command.",
+            "pattern": "nested-instructions"
+        },
+        {
+            "title": "Explain a filename-sensitive workflow restriction",
+            "body": "The Do NOT section requires maintainer approval for workflow changes. It ties that restriction to publishing credentials pinned to workflow filenames, giving the rule a concrete operational reason.",
+            "quote": "- Modify anything in `.github/workflows/` without explicit maintainer approval. Publishing credentials are pinned to workflow filenames.",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Map change types to supporting evidence",
+            "body": "The shipping table distinguishes bug fixes, features, integrations, providers, and refactors. Bug fixes require a regression that fails without the change; public features also require docs and discovery updates.",
+            "quote": "| **Bug fix** | A regression test that fails without the fix, written first. The fix. The relevant suite passing. The package's linter run. |",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Separate change readiness from account recognition",
+            "body": "The contribution section explains two independent gates. It states that being vouched does not bypass accepted-issue requirements, while absence from the list does not itself block a newcomer.",
+            "quote": "Being vouched grants nothing. It is a \"we have seen this person before\" flag that mutes the newcomer comment, not permission to skip the accepted-issue rule. Being absent from the list costs nothing.",
+            "pattern": "contribution-etiquette"
+        },
+        {
+            "title": "Describe recovery instead of encouraging gate bypasses",
+            "body": "An unaccepted issue can close a PR automatically, and maintainer acceptance reopens it. The guide tells agents not to create duplicate submissions or manually work around that state machine.",
+            "quote": "Do not work around either gate, do not reopen a gated pull request by hand, and do not re-file the same change under a new pull request when one is closed.",
+            "pattern": "contribution-etiquette"
+        }
+    ],
+    "steal": [
+        "Put package-specific tool differences in an instruction routing table.",
+        "Explain restrictions tied to publishing configuration.",
+        "Match verification and documentation to the type of change.",
+        "Separate account trust from acceptance of a proposed change.",
+        "Document how gated work can recover without duplicate submissions."
+    ],
+    "outline": [
+        "AGENTS.md",
+        "Do NOT",
+        "Where to look",
+        "Repository map",
+        "Setup",
+        "Conventions everywhere",
+        "Benchmarking",
+        "What to ship with a change",
+        "Contributing"
+    ],
+    "patterns": ["nested-instructions", "hard-prohibition", "verification-matrix", "contribution-etiquette"]
+}

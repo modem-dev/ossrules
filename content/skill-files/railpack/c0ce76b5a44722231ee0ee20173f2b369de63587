@@ -1,0 +1,180 @@
+{
+ "caches": {
+  "apt": {
+   "directory": "/var/cache/apt",
+   "type": "locked"
+  },
+  "apt-lists": {
+   "directory": "/var/lib/apt/lists",
+   "type": "locked"
+  }
+ },
+ "deploy": {
+  "base": {
+   "step": "packages:apt:runtime"
+  },
+  "inputs": [
+   {
+    "include": [
+     "/mise/shims",
+     "/mise/installs",
+     "/usr/local/bin/mise",
+     "/etc/mise/config.toml",
+     "/root/.local/state/mise"
+    ],
+    "step": "packages:mise"
+   },
+   {
+    "include": [
+     "/usr/local/bundle"
+    ],
+    "step": "install"
+   },
+   {
+    "include": [
+     "/app"
+    ],
+    "step": "build"
+   }
+  ],
+  "startCommand": "ruby app.rb",
+  "variables": {
+   "BUNDLE_GEMFILE": "/app/Gemfile",
+   "GEM_HOME": "/usr/local/bundle",
+   "GEM_PATH": "/usr/local/bundle",
+   "LD_PRELOAD": "libjemalloc.so.2",
+   "MALLOC_ARENA_MAX": "2",
+   "RAILPACK_VERSION": "dev"
+  }
+ },
+ "steps": [
+  {
+   "caches": [
+    "apt",
+    "apt-lists"
+   ],
+   "commands": [
+    {
+     "cmd": "sh -c 'apt-get update \u0026\u0026 apt-get install -y libjemalloc-dev libyaml-dev'",
+     "customName": "install apt packages: libjemalloc-dev libyaml-dev"
+    }
+   ],
+   "inputs": [
+    {
+     "image": "ghcr.io/railwayapp/railpack-builder:mise-2026.9.9"
+    }
+   ],
+   "name": "packages:apt:build"
+  },
+  {
+   "assets": {
+    "generated-mise-toml": "[generated-mise-toml]"
+   },
+   "commands": [
+    {
+     "path": "/mise/shims"
+    },
+    {
+     "dest": "Gemfile",
+     "src": "Gemfile"
+    },
+    {
+     "customName": "create mise config",
+     "name": "generated-mise-toml",
+     "path": "/etc/mise/config.toml"
+    },
+    {
+     "cmd": "mise install",
+     "customName": "install mise packages: node, ruby"
+    }
+   ],
+   "inputs": [
+    {
+     "step": "packages:apt:build"
+    }
+   ],
+   "name": "packages:mise",
+   "variables": {
+    "MISE_CACHE_DIR": "/mise/cache",
+    "MISE_CONFIG_DIR": "/mise",
+    "MISE_DATA_DIR": "/mise",
+    "MISE_INSTALLS_DIR": "/mise/installs",
+    "MISE_SHIMS_DIR": "/mise/shims",
+    "RUBY_CONFIGURE_OPTS": "--disable-install-doc"
+   }
+  },
+  {
+   "commands": [
+    {
+     "cmd": "gem install -N bundler:2.3.7"
+    },
+    {
+     "dest": "Gemfile",
+     "src": "Gemfile"
+    },
+    {
+     "dest": "Gemfile.lock",
+     "src": "Gemfile.lock"
+    },
+    {
+     "cmd": "bundle install"
+    },
+    {
+     "path": "/usr/local/bundle"
+    }
+   ],
+   "inputs": [
+    {
+     "step": "packages:mise"
+    }
+   ],
+   "name": "install",
+   "variables": {
+    "BUNDLE_GEMFILE": "/app/Gemfile",
+    "GEM_HOME": "/usr/local/bundle",
+    "GEM_PATH": "/usr/local/bundle",
+    "LD_PRELOAD": "libjemalloc.so.2",
+    "MALLOC_ARENA_MAX": "2"
+   }
+  },
+  {
+   "inputs": [
+    {
+     "step": "install"
+    },
+    {
+     "include": [
+      "."
+     ],
+     "local": true
+    }
+   ],
+   "name": "build",
+   "variables": {
+    "BUNDLE_GEMFILE": "/app/Gemfile",
+    "GEM_HOME": "/usr/local/bundle",
+    "GEM_PATH": "/usr/local/bundle",
+    "LD_PRELOAD": "libjemalloc.so.2",
+    "MALLOC_ARENA_MAX": "2"
+   }
+  },
+  {
+   "caches": [
+    "apt",
+    "apt-lists"
+   ],
+   "commands": [
+    {
+     "cmd": "sh -c 'apt-get update \u0026\u0026 apt-get install -y libatomic1 libjemalloc2 libyaml-dev'",
+     "customName": "install apt packages: libatomic1 libjemalloc2 libyaml-dev"
+    }
+   ],
+   "inputs": [
+    {
+     "image": "ghcr.io/railwayapp/railpack-runtime:mise-2026.9.9"
+    }
+   ],
+   "name": "packages:apt:runtime"
+  }
+ ]
+}

@@ -1,0 +1,52 @@
+{
+    "version": 1,
+    "slug": "goose",
+    "repository": "aaif-goose/goose",
+    "branch": "main",
+    "sha": "d213a3b13545b4e85524a572ac695b2181728e3b",
+    "scannedAt": "2026-09-17T12:21:57.902Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "compare-tasks-67ac81a37d10",
+            "path": "evals/harbor/.agents/skills/compare-tasks/SKILL.md",
+            "name": "compare-tasks",
+            "description": "Compare how two harbor benchmark runs performed on a single shared task",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "68e24e2668c4e2e10017f7628a0d9da71bc9d038",
+                    "bytes": 9042,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 48318320,
+                        "login": "bechor25",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "4cebf537540d344c3d6cc36cd2ff1e66c539f513",
+        "bytes": 6076,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "c83043d4494071fbd93ef245a14e573c5a8280c4",
+        "bytes": 11341,
+        "text": true,
+        "mode": "100644"
+    }
+}

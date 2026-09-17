@@ -1,0 +1,163 @@
+{
+    "slug": "mem0",
+    "sha": "73e7b8763a81f3fa43c6b79312ad049f3106498d",
+    "license": "Apache-2.0",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".github/AGENTS.md",
+            "bytes": 19893,
+            "lines": 156
+        },
+        {
+            "path": ".github/CLAUDE.md",
+            "bytes": 9,
+            "lines": 1,
+            "symlink": "AGENTS.md",
+            "resolvedPath": ".github/AGENTS.md"
+        },
+        {
+            "path": ".github/PULL_REQUEST_TEMPLATE.md",
+            "bytes": 1544,
+            "lines": 50
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 11997,
+            "lines": 175
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 9,
+            "lines": 1,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "AGENTS.md"
+        },
+        {
+            "path": "cli/node/AGENTS.md",
+            "bytes": 1228,
+            "lines": 41
+        },
+        {
+            "path": "cli/node/CLAUDE.md",
+            "bytes": 9,
+            "lines": 1,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "cli/node/AGENTS.md"
+        },
+        {
+            "path": "cli/python/AGENTS.md",
+            "bytes": 1456,
+            "lines": 47
+        },
+        {
+            "path": "cli/python/CLAUDE.md",
+            "bytes": 9,
+            "lines": 1,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "cli/python/AGENTS.md"
+        },
+        {
+            "path": "CODE_OF_CONDUCT.md",
+            "bytes": 8437,
+            "lines": 181
+        },
+        {
+            "path": "CONTRIBUTING.md",
+            "bytes": 11543,
+            "lines": 256
+        },
+        {
+            "path": "docs/AGENTS.md",
+            "bytes": 1877,
+            "lines": 49
+        },
+        {
+            "path": "docs/CLAUDE.md",
+            "bytes": 9,
+            "lines": 1,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "docs/AGENTS.md"
+        },
+        {
+            "path": "docs/contributing/development.mdx",
+            "bytes": 7342,
+            "lines": 208
+        },
+        {
+            "path": "docs/contributing/documentation.mdx",
+            "bytes": 1036,
+            "lines": 56
+        },
+        {
+            "path": "integrations/AGENTS.md",
+            "bytes": 5224,
+            "lines": 61
+        },
+        {
+            "path": "integrations/CLAUDE.md",
+            "bytes": 9,
+            "lines": 1,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "integrations/AGENTS.md"
+        },
+        {
+            "path": "mem0-ts/AGENTS.md",
+            "bytes": 2072,
+            "lines": 56
+        },
+        {
+            "path": "mem0-ts/CLAUDE.md",
+            "bytes": 9,
+            "lines": 1,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "mem0-ts/AGENTS.md"
+        },
+        {
+            "path": "mem0/AGENTS.md",
+            "bytes": 4600,
+            "lines": 105
+        },
+        {
+            "path": "mem0/CLAUDE.md",
+            "bytes": 9,
+            "lines": 1,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "mem0/AGENTS.md"
+        },
+        {
+            "path": "SECURITY.md",
+            "bytes": 2280,
+            "lines": 54
+        },
+        {
+            "path": "server/AGENTS.md",
+            "bytes": 1113,
+            "lines": 31
+        },
+        {
+            "path": "server/CLAUDE.md",
+            "bytes": 9,
+            "lines": 1,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "server/AGENTS.md"
+        },
+        {
+            "path": "skills/AGENTS.md",
+            "bytes": 4674,
+            "lines": 100
+        },
+        {
+            "path": "skills/CLAUDE.md",
+            "bytes": 9,
+            "lines": 1,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "skills/AGENTS.md"
+        },
+        {
+            "path": "tests/AGENTS.md",
+            "bytes": 1007,
+            "lines": 24
+        }
+    ]
+}

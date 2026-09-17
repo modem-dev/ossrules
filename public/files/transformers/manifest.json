@@ -1,0 +1,37 @@
+{
+    "slug": "transformers",
+    "sha": "254e62f7462ca8d19821a6427828ee75765ce123",
+    "license": "Apache-2.0",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".ai/AGENTS.md",
+            "bytes": 3287,
+            "lines": 40
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 13,
+            "lines": 1,
+            "symlink": ".ai/AGENTS.md",
+            "resolvedPath": ".ai/AGENTS.md"
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 13,
+            "lines": 1,
+            "symlink": ".ai/AGENTS.md",
+            "resolvedPath": ".ai/AGENTS.md"
+        },
+        {
+            "path": "CONTRIBUTING.md",
+            "bytes": 14764,
+            "lines": 228
+        },
+        {
+            "path": "docs/source/en/modular_transformers.md",
+            "bytes": 24832,
+            "lines": 500
+        }
+    ]
+}
