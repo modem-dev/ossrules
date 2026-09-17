@@ -8,7 +8,6 @@ import {
     PATTERNS_BY_ID,
     rawAgentsFileUrl,
     repoFileUrl,
-    repoUrl,
     STATS_AS_OF,
 } from '@/components/agents-md-data';
 import { DocTree } from '@/components/doc-tree';
@@ -17,6 +16,7 @@ import { JsonLd } from '@/components/json-ld';
 import { RelativeTime } from '@/components/last-updated';
 import { ModemSponsor } from '@/components/modem-sponsor';
 import { Excerpt, FileStatGrid, PatternBadge } from '@/components/primitives';
+import { ProjectRepositoryLink } from '@/components/project-repository-link';
 import { ProjectTabs } from '@/components/project-tabs';
 import { ProjectTitle } from '@/components/project-title';
 import { SiteFooter } from '@/components/site-footer';
@@ -150,9 +150,7 @@ export default async function AgentsMdProjectPage({
                             Projects
                         </Link>
                         <span aria-hidden>/</span>
-                        <a href={repoUrl(project)} target="_blank" rel="noopener noreferrer" className="break-all hover:text-teal">
-                            {project.owner}/{project.repo} ↗
-                        </a>
+                        <ProjectRepositoryLink project={project} />
                     </nav>
                     <header className="project-heading">
                         <ProjectTitle project={project} section="Agent Rules" />
