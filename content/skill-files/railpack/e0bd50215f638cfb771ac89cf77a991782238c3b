@@ -1,0 +1,125 @@
+{
+ "deploy": {
+  "base": {
+   "image": "ghcr.io/railwayapp/railpack-runtime:mise-2026.9.9"
+  },
+  "inputs": [
+   {
+    "include": [
+     "/mise/shims",
+     "/mise/installs",
+     "/usr/local/bin/mise",
+     "/etc/mise/config.toml",
+     "/root/.local/state/mise"
+    ],
+    "step": "packages:mise:runtime"
+   },
+   {
+    "include": [
+     "build/erlang-shipment/."
+    ],
+    "step": "build"
+   }
+  ],
+  "startCommand": "./build/erlang-shipment/entrypoint.sh run",
+  "variables": {
+   "RAILPACK_VERSION": "dev"
+  }
+ },
+ "steps": [
+  {
+   "assets": {
+    "generated-mise-toml": "[generated-mise-toml]"
+   },
+   "commands": [
+    {
+     "path": "/mise/shims"
+    },
+    {
+     "dest": ".tool-versions",
+     "src": ".tool-versions"
+    },
+    {
+     "customName": "create mise config",
+     "name": "generated-mise-toml",
+     "path": "/etc/mise/config.toml"
+    },
+    {
+     "cmd": "mise install",
+     "customName": "install mise packages: erlang, gleam"
+    }
+   ],
+   "inputs": [
+    {
+     "image": "ghcr.io/railwayapp/railpack-builder:mise-2026.9.9"
+    }
+   ],
+   "name": "packages:mise",
+   "variables": {
+    "MISE_CACHE_DIR": "/mise/cache",
+    "MISE_CONFIG_DIR": "/mise",
+    "MISE_DATA_DIR": "/mise",
+    "MISE_INSTALLS_DIR": "/mise/installs",
+    "MISE_SHIMS_DIR": "/mise/shims"
+   }
+  },
+  {
+   "commands": [
+    {
+     "cmd": "gleam export erlang-shipment"
+    }
+   ],
+   "inputs": [
+    {
+     "step": "packages:mise"
+    },
+    {
+     "include": [
+      "."
+     ],
+     "local": true
+    }
+   ],
+   "name": "build",
+   "secrets": [
+    "*"
+   ]
+  },
+  {
+   "assets": {
+    "generated-mise-toml": "[generated-mise-toml]"
+   },
+   "commands": [
+    {
+     "path": "/mise/shims"
+    },
+    {
+     "dest": ".tool-versions",
+     "src": ".tool-versions"
+    },
+    {
+     "customName": "create mise config",
+     "name": "generated-mise-toml",
+     "path": "/etc/mise/config.toml"
+    },
+    {
+     "cmd": "mise install",
+     "customName": "install mise packages: erlang"
+    }
+   ],
+   "inputs": [
+    {
+     "image": "ghcr.io/railwayapp/railpack-builder:mise-2026.9.9"
+    }
+   ],
+   "name": "packages:mise:runtime",
+   "variables": {
+    "MISE_CACHE_DIR": "/mise/cache",
+    "MISE_CONFIG_DIR": "/mise",
+    "MISE_DATA_DIR": "/mise",
+    "MISE_INSTALLS_DIR": "/mise/installs",
+    "MISE_SHIMS_DIR": "/mise/shims"
+   }
+  }
+ ]
+}

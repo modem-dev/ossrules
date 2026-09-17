@@ -1,0 +1,87 @@
+{
+    "slug": "nx",
+    "name": "Nx",
+    "owner": "nrwl",
+    "repo": "nx",
+    "language": "TypeScript",
+    "stars": 29346,
+    "defaultBranch": "master",
+    "instructionFile": "AGENTS.md",
+    "lastCommit": {
+        "sha": "9c80c2223fb9915cd57781e91e95b54aba434332",
+        "date": "2026-08-26T23:45:26Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 9130,
+        "lines": 234,
+        "words": 1398,
+        "headings": 33,
+        "bullets": 42,
+        "codeBlocks": 7,
+        "docLinks": 0
+    },
+    "tagline": "A build system and workspace toolkit for monorepos and their plugins.",
+    "hook": "Selects planning or implementation from the request, then expands validation from the changed project to affected projects and E2E tests.",
+    "summary": "Nx's AGENTS.md combines contributor workflows with a generated block of workspace guidance. It routes documentation work to the Astro site guide, distinguishes issue-analysis requests from implementation requests, and explains how to test local packages in another repository.",
+    "references": [
+        {
+            "path": "astro-docs/README.md"
+        },
+        {
+            "path": ".github/PULL_REQUEST_TEMPLATE.md"
+        },
+        {
+            "path": "CONTRIBUTING.md"
+        },
+        {
+            "path": "node_modules/@nx/<plugin>/PLUGIN.md",
+            "kind": "pattern",
+            "label": "Installed plugin guidance, when available"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Select a work mode from the request",
+            "body": "The issue-response section defaults analytical or ambiguous requests to a plan and reserves immediate implementation for explicit action requests. The file makes this distinction before describing the issue workflow.",
+            "quote": "### Plan-First Mode (Default)\n\nUse this approach when users ask you to:\n\n- \"analyze\", \"investigate\", \"assess\", \"review\", \"examine\", or \"plan\"\n- Or when the request is ambiguous",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Expand validation through the dependency graph",
+            "body": "The testing sequence begins with the specific project, then affected projects, and finally affected E2E tests. Each stage adds evidence beyond the directly edited package.",
+            "quote": "nx affected -t build,test,lint",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Provide an external-consumer test workflow",
+            "body": "A dedicated command builds and copies a local package into another repository. The guide explicitly says this includes native Rust code, so integration testing is not limited to JavaScript-only packages.",
+            "quote": "This builds the package and copies it into the target repo's `node_modules`. It works for all packages including native Rust code.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Route scaffolding before exploration",
+            "body": "The generated Nx block assigns generator discovery to a skill that must run before workspace exploration or MCP calls. It also distinguishes advanced documentation questions from basic generator syntax already handled by that skill.",
+            "quote": "- For scaffolding tasks (creating apps, libs, project structure, setup), ALWAYS invoke the `nx-generate` skill FIRST before exploring or calling MCP tools",
+            "pattern": "skill-routing"
+        }
+    ],
+    "steal": [
+        "Distinguish investigation requests from implementation requests.",
+        "Expand testing from changed components to their dependents.",
+        "Provide a repeatable way to test a local package in a consumer repository.",
+        "Load task-specific discovery guidance before using generic exploration tools."
+    ],
+    "outline": [
+        "Documentation Contributions",
+        "GitHub Issue Response Mode",
+        "Avoid making changes to generated files",
+        "Essential Commands",
+        "Fixing GitHub Issues",
+        "Pull Request Template",
+        "General Guidelines for working with Nx",
+        "Scaffolding & Generators",
+        "When to use nx_docs"
+    ],
+    "patterns": ["behavioral-conditioning", "verification-matrix", "skill-routing"]
+}

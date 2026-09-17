@@ -1,0 +1,50 @@
+{
+    "slug": "mlflow",
+    "sha": "b975d8927ec85f324009079115cf1cf0b596e60f",
+    "license": "Apache-2.0",
+    "licensePath": "LICENSE.txt",
+    "files": [
+        {
+            "path": ".github/pull_request_template.md",
+            "bytes": 4576,
+            "lines": 98
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 9,
+            "lines": 1,
+            "symlink": "CLAUDE.md",
+            "resolvedPath": "CLAUDE.md"
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 8176,
+            "lines": 236
+        },
+        {
+            "path": "mlflow/server/AGENTS.md",
+            "bytes": 5430,
+            "lines": 181
+        },
+        {
+            "path": "mlflow/server/js/CLAUDE.md",
+            "bytes": 12573,
+            "lines": 421
+        },
+        {
+            "path": "mlflow/server/js/src/experiment-tracking/pages/experiment-scorers/CLAUDE.md",
+            "bytes": 7054,
+            "lines": 143
+        },
+        {
+            "path": "mlflow/server/js/src/shared/web-shared/traces-table/CLAUDE.md",
+            "bytes": 4084,
+            "lines": 54
+        },
+        {
+            "path": "mlflow/server/js/src/shared/web-shared/traces-table/data/CLAUDE.md",
+            "bytes": 2396,
+            "lines": 38
+        }
+    ]
+}

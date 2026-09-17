@@ -1,0 +1,76 @@
+{
+    "slug": "railpack",
+    "name": "Railpack",
+    "owner": "railwayapp",
+    "repo": "railpack",
+    "language": "Go",
+    "stars": 1196,
+    "defaultBranch": "main",
+    "instructionFile": "CLAUDE.md",
+    "lastCommit": {
+        "sha": "33a75f8b7242942a1186afdb6a4f18bbbc2d2cb7",
+        "date": "2026-08-24T19:48:07Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 6058,
+        "lines": 99,
+        "words": 928,
+        "headings": 11,
+        "bullets": 46,
+        "codeBlocks": 0,
+        "docLinks": 0
+    },
+    "tagline": "A BuildKit-based builder that turns application source into runnable container images.",
+    "hook": "Explains why a build-only integration fixture cannot prove runtime behavior, and routes server checks through HTTP assertions.",
+    "summary": "Railpack's CLAUDE.md describes the path from language detection to build plans and container execution. Its workflow uses mise tasks, documents integration fixtures, and identifies generated files and unsafe cleanup commands that an agent should leave alone.",
+    "references": [
+        {
+            "path": "docs/src/content/docs/guides/developing-locally.md"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Distinguish a successful build from a working application",
+            "body": "The integration-test section limits build-only fixtures because they skip output and other assertions. It directs server projects toward HTTP checks, making the required evidence match the application behavior.",
+            "quote": "* In `test.json` we should avoid using `justBuild` for all but the most simple projects. `justBuild` does not test `expectedOutput` or any other assertions.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Choose defaults that users can override",
+            "body": "Mise settings belong in a generated TOML file instead of environment variables. The guide gives user override behavior as the reason for choosing that configuration channel.",
+            "quote": "- When configuring Mise settings, prefer TOML settings in the generated\n  `mise.toml` (via `AddMiseSetting`) over environment variables, so users can\n  override defaults with their own `mise.toml`.",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Protect shared container state from cleanup",
+            "body": "The workflow prohibits broad Docker pruning even when cache behavior is confusing. It makes a commonly suggested cleanup command an explicit boundary.",
+            "quote": "- Do not worry about docker cache, etc. Never run `docker system prune` or other similar commands.",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Identify generated fixture metadata",
+            "body": "The test description separates hand-authored test and service configuration from generated size data. It explicitly forbids creating or editing that generated record manually.",
+            "quote": "* The `size.json` is auto-generated and should never be manually created or updated.",
+            "pattern": "generated-file-guard"
+        }
+    ],
+    "steal": [
+        "Define runtime assertions for integration fixtures.",
+        "Put defaults in a configuration layer users can override.",
+        "Name destructive cleanup commands that are outside the workflow.",
+        "Label generated test metadata beside editable fixture files."
+    ],
+    "outline": [
+        "What is Railpack",
+        "Architecture",
+        "Code style",
+        "Workflow",
+        "Tests",
+        "Documentation",
+        "File Conventions",
+        "Mise Functionality",
+        "Pull Requests"
+    ],
+    "patterns": ["verification-matrix", "behavioral-conditioning", "hard-prohibition", "generated-file-guard"]
+}

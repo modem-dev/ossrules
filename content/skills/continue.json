@@ -1,0 +1,78 @@
+{
+    "version": 1,
+    "slug": "continue",
+    "repository": "continuedev/continue",
+    "branch": "main",
+    "sha": "5522c6f44ca0ac3528b37244818fbfa39b5af470",
+    "scannedAt": "2026-09-17T12:20:38.583Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "docs-style-b5be0ea1a10f",
+            "path": ".claude/skills/docs-style/SKILL.md",
+            "name": "docs-style",
+            "description": "Style guidelines for writing and updating documentation. Use when writing new docs, updating existing docs, or reviewing docs for quality.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d65086856cdf29fe7e1f163f92c9a27d2ca1b90e",
+                    "bytes": 4690,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 33237525,
+                        "login": "sestinj",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "cn-check-7cc4e0a4d47f",
+            "path": "skills/cn-check/SKILL.md",
+            "name": "cn-check",
+            "description": "Install and run the Continue CLI (`cn`) to execute AI agent checks on local code changes. Use when asked to \"run checks\", \"lint with AI\", \"review my changes with cn\", or set up Continue CI locally.",
+            "license": "Apache-2.0",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "98b7ab9c1c7f85c8859e77238206d33820eb5934",
+                    "bytes": 5778,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 33237525,
+                        "login": "sestinj",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "extensions/cli/AGENTS.md",
+        "blob": "a64377ee96177bcfe467af7695037c7241fcf095",
+        "bytes": 4302,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "c25dc1768217ba50d454fcc06290d66886512872",
+        "bytes": 11348,
+        "text": true,
+        "mode": "100644"
+    }
+}

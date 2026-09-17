@@ -1,0 +1,71 @@
+{
+    "slug": "ag-ui",
+    "name": "AG-UI",
+    "owner": "ag-ui-protocol",
+    "repo": "ag-ui",
+    "language": "Python",
+    "stars": 15931,
+    "defaultBranch": "main",
+    "instructionFile": "CLAUDE.md",
+    "lastCommit": {
+        "sha": "45f4fea34e9c69a3fdb5d243381c36eafeb8f6af",
+        "date": "2026-07-27T11:34:40Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 4915,
+        "lines": 129,
+        "words": 684,
+        "headings": 29,
+        "bullets": 28,
+        "codeBlocks": 3,
+        "docLinks": 0
+    },
+    "tagline": "An event-based protocol and SDKs for communication between agents and user interfaces.",
+    "hook": "Defines which state survives sequential runs in one event stream and which per-run tracking must reset.",
+    "summary": "AG-UI's CLAUDE.md describes typed protocol events, streaming abstractions, and the framework integration pattern. It also routes A2UI rendering work to a dedicated skill and separates TypeScript and Python development commands.",
+    "references": [
+        {
+            "path": "skills/ag-ui-a2ui-integration/SKILL.md"
+        },
+        {
+            "path": "node_modules/@nx/<plugin>/PLUGIN.md",
+            "kind": "pattern",
+            "label": "Installed Nx plugin guidance"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Route a specific integration task to its skill",
+            "body": "The file opens with a trigger for adding A2UI rendering or scaffolding a combined quickstart. It gives the exact skill path rather than leaving the agent to search a large integration repository.",
+            "quote": "For requests to add A2UI rendering to AG-UI applications or to scaffold an\nAG-UI + A2UI quickstart, use `skills/ag-ui-a2ui-integration/SKILL.md`.",
+            "pattern": "skill-routing"
+        },
+        {
+            "title": "Define the boundary between sequential runs",
+            "body": "The protocol section requires one run to finish before another begins. It separately records that messages accumulate while active-message, tool-call, and step tracking reset.",
+            "quote": "- Each run must complete (RUN_FINISHED) before a new run can start (RUN_STARTED)",
+            "pattern": "architecture-narrative"
+        },
+        {
+            "title": "Distinguish evolving state from a reset",
+            "body": "State management names full snapshots and JSON Patch deltas. The sequential-run section clarifies that starting another run does not itself discard the state.",
+            "quote": "- State continues to evolve across runs unless explicitly reset with STATE_SNAPSHOT",
+            "pattern": "architecture-narrative"
+        },
+        {
+            "title": "Name the adapter contract for new integrations",
+            "body": "The architecture section identifies AbstractAgent and its streaming return type. The integration checklist then describes translating framework events into protocol events and providing runnable examples.",
+            "quote": "**AbstractAgent**: Base class that all agents must implement with a `run(input: RunAgentInput) -> Observable<BaseEvent>` method",
+            "pattern": "architecture-narrative"
+        }
+    ],
+    "steal": [
+        "Give named integration tasks an exact skill entry point.",
+        "Document lifecycle boundaries in long-lived event streams.",
+        "State what persists and what resets between operations.",
+        "Show the typed contract every adapter must implement."
+    ],
+    "outline": ["CLAUDE.md", "Common Development Commands", "High-Level Architecture", "General Guidelines for working with Nx"],
+    "patterns": ["skill-routing", "architecture-narrative"]
+}

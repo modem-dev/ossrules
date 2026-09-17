@@ -1,0 +1,85 @@
+{
+    "slug": "goose",
+    "name": "Goose",
+    "owner": "aaif-goose",
+    "repo": "goose",
+    "language": "Rust",
+    "stars": 54366,
+    "defaultBranch": "main",
+    "instructionFile": "AGENTS.md",
+    "lastCommit": {
+        "sha": "554e07524ca043f2002f19e28f20a4ba9d9250ec",
+        "date": "2026-09-10T18:49:07Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 6076,
+        "lines": 135,
+        "words": 865,
+        "headings": 24,
+        "bullets": 39,
+        "codeBlocks": 8,
+        "docLinks": 0
+    },
+    "tagline": "An extensible AI agent with a Rust core, command-line interface, and Electron desktop app.",
+    "hook": "Requires behavior changes to stay aligned across both sides of an ongoing agent-loop migration.",
+    "summary": "Goose combines an issue-readiness workflow with practical constraints from its Rust and desktop architecture. The instructions describe concurrent old and new agent loops, a retiring MCP directory, and a macOS failure caused by overwriting a running executable.",
+    "references": [
+        {
+            "path": ".github/ISSUE_TEMPLATE/",
+            "kind": "pattern",
+            "label": "Matching issue template"
+        },
+        {
+            "path": "ui/text/README.md"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Require an agreed plan before implementing external work",
+            "body": "The contribution workflow requires a Ready issue with design, constraints, non-goals, and verification already recorded. A material design change sends implementation back to the issue discussion.",
+            "quote": "- If implementation reveals a material design change, return to the issue before continuing.",
+            "pattern": "contribution-etiquette"
+        },
+        {
+            "title": "Maintain behavioral parity during a migration",
+            "body": "The guide identifies the legacy loop and the state-machine replacement. Until migration is complete, an agent must implement and test applicable behavior in both paths.",
+            "quote": "Until the migration is complete, changes to agent-loop behavior must be implemented and tested in both paths.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Freeze additions without blocking migration maintenance",
+            "body": "New third-party entries in the old MCP directory are no longer accepted, while changes that maintain or remove entries remain possible. The policy makes the migration direction explicit without treating legacy data as untouchable.",
+            "quote": "- Treat the existing goose directory as legacy data while registry-backed discovery and installation are implemented.",
+            "pattern": "contribution-etiquette"
+        },
+        {
+            "title": "Attach an operating-system failure to a file-operation rule",
+            "body": "The Never section forbids overwriting a live executable and names unlinking or atomic rename as alternatives. It explains that macOS can kill running processes because the code signature becomes invalid.",
+            "quote": "- Never: Overwrite a live binary in place (e.g. `cp`/`fs.copyFileSync` onto an existing executable) - unlink or atomic-rename the destination first, otherwise macOS SIGKILLs running processes with \"Code Signature Invalid\"",
+            "pattern": "hard-prohibition"
+        }
+    ],
+    "steal": [
+        "Require design agreement before externally contributed implementation.",
+        "Document parity obligations while old and new systems coexist.",
+        "Separate prohibited legacy expansion from allowed migration work.",
+        "Pair unsafe file operations with their concrete failure modes and alternatives."
+    ],
+    "outline": [
+        "AGENTS Instructions",
+        "Contribution Workflow",
+        "MCP Server Directory",
+        "GitHub Communication",
+        "Agent Loop Migration",
+        "Setup",
+        "Commands",
+        "Structure",
+        "Development Loop",
+        "Rules",
+        "Code Quality",
+        "Never",
+        "Entry Points"
+    ],
+    "patterns": ["contribution-etiquette", "verification-matrix", "hard-prohibition"]
+}

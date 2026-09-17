@@ -1,0 +1,40 @@
+{
+    "slug": "flue",
+    "sha": "5485efe2fc6e84fb2c1c0f98e5ccb8068f9394b6",
+    "license": "Apache-2.0",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 4051,
+            "lines": 53
+        },
+        {
+            "path": "CONTRIBUTING.md",
+            "bytes": 6342,
+            "lines": 63
+        },
+        {
+            "path": "examples/assistant/AGENTS.md",
+            "bytes": 2007,
+            "lines": 24
+        },
+        {
+            "path": "examples/braintrust/AGENTS.md",
+            "bytes": 112,
+            "lines": 1
+        },
+        {
+            "path": "examples/hello-world/AGENTS.md",
+            "bytes": 112,
+            "lines": 1,
+            "sameContentAs": "examples/braintrust/AGENTS.md"
+        },
+        {
+            "path": "examples/sentry/AGENTS.md",
+            "bytes": 112,
+            "lines": 1,
+            "sameContentAs": "examples/braintrust/AGENTS.md"
+        }
+    ]
+}

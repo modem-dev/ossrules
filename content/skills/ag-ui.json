@@ -1,0 +1,644 @@
+{
+    "version": 1,
+    "slug": "ag-ui",
+    "repository": "ag-ui-protocol/ag-ui",
+    "branch": "main",
+    "sha": "cd06f5d2c825590c9c6f74cd424033ca95aa14ed",
+    "scannedAt": "2026-09-17T12:23:56.374Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [
+        {
+            "path": ".github/skills/agui-cross-sdk-parity/SKILL.md",
+            "reason": "Missing or invalid skill description."
+        }
+    ],
+    "skills": [
+        {
+            "id": "agui-dojo-389de8ccdea1",
+            "path": ".github/skills/agui-dojo/SKILL.md",
+            "name": "agui-dojo",
+            "description": "Run the AG-UI Dojo demo viewer locally and wire the AG-UI .NET SDK in as a dojo integration. USE FOR: starting the dojo app (apps/dojo), running the .NET dojo backend (AGUIDojoServer), registering or modifying the ag-ui-dotnet integration (agents.ts/menu.ts/env.ts/files.json), running the dojo Playwright e2e suite for the .NET integration (agUiDotnetTests), or understanding how dojo-e2e.yml runs it in CI. DO NOT USE FOR: generic Playwright validation of arbitrary pages (use agui-playwright-validate), or the docs site (use agui-dotnet-sdk-docs).\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b7f06fc5942e750f606ca7e7bf7a24a31235871b",
+                    "bytes": 6335,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6995051,
+                        "login": "javiercn",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "agui-dotnet-agents-sync-0c1eb8184bab",
+            "path": ".github/skills/agui-dotnet-agents-sync/SKILL.md",
+            "name": "agui-dotnet-agents-sync",
+            "description": "Keep the AG-UI .NET SDK docs (sdks/dotnet/AGENTS.md and docs/architecture.md) in sync with the real code tree after structural changes. USE FOR: \"update AGENTS.md / docs/architecture.md\", \"check the dotnet docs are current\", verifying docs after a .NET SDK refactor (package rename, added/removed project, changed endpoint pattern, new/renamed test project, sample step added, new convention). DO NOT USE FOR: writing product code or tests (follow AGENTS.md itself), Python/TypeScript SDK docs, or generic markdown editing unrelated to the dotnet SDK structure.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "64eed2115c1f6b2ea33efcb85afd9657042c684d",
+                    "bytes": 5375,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6995051,
+                        "login": "javiercn",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "agui-dotnet-code-review-931c3a5c7003",
+            "path": ".github/skills/agui-dotnet-code-review/SKILL.md",
+            "name": "agui-dotnet-code-review",
+            "description": "Review C#/.NET code changes to the AG-UI .NET SDK (sdks/dotnet/) against its specific conventions and architectural rules — AOT serialization, the \"no ASP.NET in src/\" boundary, the PublicAPI analyzer workflow, wire compatibility with the TypeScript reference, and the house style (sealed/no-records/ConfigureAwait). Runs a phased, rule-by-rule review. USE FOR: reviewing a PR, diff, or branch that touches sdks/dotnet/; checking a new event/message type; verifying serialization, package placement, or public-API changes in the .NET SDK. DO NOT USE FOR: generic C# style nits already enforced by analyzers/EditorConfig; reviewing the TypeScript SDK (sdks/typescript/) or Python SDK (sdks/python/); writing new features (only flag violations, never rewrite code).\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "5c44fd2c7019144300f6cdffd61495d54b9b2d07",
+                    "bytes": 14078,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/rules.md",
+                    "blob": "2cc51ee2e884ddd9abe44dd5649b8eedb8adac39",
+                    "bytes": 20352,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6995051,
+                        "login": "javiercn",
+                        "commits": 1
+                    },
+                    {
+                        "id": 247775,
+                        "login": "mme",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "agui-dotnet-cross-language-tests-513c42a8ca89",
+            "path": ".github/skills/agui-dotnet-cross-language-tests/SKILL.md",
+            "name": "agui-dotnet-cross-language-tests",
+            "description": "Author cross-language interop tests that verify the AG-UI .NET SDK is wire-compatible with the TypeScript SDK — a Vitest TS client driving a C# CrossLanguage.TestServer over HTTP, both directions, including protobuf byte-parity against @ag-ui/proto. USE FOR: adding or modifying cross-language interop coverage, CrossLanguage.TestServer routes, the CrossLanguage.Vitest suite, protobuf wire parity tests, TS-client-to-C#-server or C#-client-to-TS-server scenarios. DO NOT USE FOR: .NET-only unit tests (use agui-dotnet-unit-tests), ASP.NET Core hosting integration tests (use agui-dotnet-integration-tests).\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "c743eb055ffd16a6f0c95386f05b36ebe0a8c2c8",
+                    "bytes": 10840,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6995051,
+                        "login": "javiercn",
+                        "commits": 1
+                    },
+                    {
+                        "id": 247775,
+                        "login": "mme",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "agui-dotnet-feature-workflow-c1e62e5b20ca",
+            "path": ".github/skills/agui-dotnet-feature-workflow/SKILL.md",
+            "name": "agui-dotnet-feature-workflow",
+            "description": "Orchestrator/hub for implementing a feature or change in the AG-UI .NET SDK (sdks/dotnet). USE FOR: \"what's the workflow\", \"what order do I do things in\", \"how do I implement a feature in the .NET SDK\", starting any non-trivial AG-UI .NET SDK change, planning the end-to-end steps and definition-of-done (code + AOT serialization + client/server mapping + unit/integration/cross-language tests + docs + PublicAPI + AGENTS.md sync). DO NOT USE FOR: the deep how-to of a single step — this skill ROUTES to focused siblings: adding wire types (agui-dotnet-wire-types), transport/encoding (agui-dotnet-transport), unit tests (agui-dotnet-unit-tests), integration tests (agui-dotnet-integration-tests), cross-language tests (agui-dotnet-cross-language-tests), porting from TS/Python (agui-cross-sdk-parity), adding a GettingStarted sample Step (agui-dotnet-sample-step), SDK docs (agui-dotnet-sdk-docs), AGENTS/Architecture sync (agui-dotnet-agents-sync), the dojo (agui-dojo), review (agui-dotnet-code-review).\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7b216d91a72e1b0a1a895832007c0c113befaa53",
+                    "bytes": 8168,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6995051,
+                        "login": "javiercn",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "agui-dotnet-integration-tests-76074ef35913",
+            "path": ".github/skills/agui-dotnet-integration-tests/SKILL.md",
+            "name": "agui-dotnet-integration-tests",
+            "description": "Write integration tests for the AG-UI .NET SDK. USE FOR: adding a new AG-UI event type and covering it end-to-end, testing SSE or protobuf streaming through the hosting pipeline, verifying AGUIChatClient maps events to ChatResponseUpdate, multi-turn conversation tests, parameterizing a test over Json/Protobuf transports, adding or updating a GettingStarted sample replay/Verify snapshot. Covers: WebApplicationFactory + DelegatingStreamingChatClient setup, IChatClient-based assertions with Assert.Collection, TransportFormat [Theory] (Json/Protobuf), recording/replay capture infrastructure, and the 8-capture-point Verify baselines. DO NOT USE FOR: unit tests of event serialization (use tests/AGUI.Abstractions.UnitTests) or stream-conversion unit tests (use tests/AGUI.Server.UnitTests).",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "a21716307eb04da56ecd605336109fda4d9cec3c",
+                    "bytes": 17317,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6995051,
+                        "login": "javiercn",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "agui-dotnet-sample-step-f8dbc3ebb106",
+            "path": ".github/skills/agui-dotnet-sample-step/SKILL.md",
+            "name": "agui-dotnet-sample-step",
+            "description": "Add a GettingStarted sample Step (a Server/Client pair) to the AG-UI .NET SDK that demonstrates one protocol feature the way we want users to write it. USE FOR: adding a new samples/GettingStarted/StepNN_<Name> Server+Client pair, wiring it into AGUI.slnx and the integration-test project, giving it a deterministic FakeChatClient for replay, and registering it in the Step tables in AGENTS.md / docs/architecture.md. DO NOT USE FOR: the replay/Verify integration-test mechanics (use agui-dotnet-integration-tests), the dojo scenarios under samples/AGUIClientServer (use agui-dojo), or protocol/wire changes the sample exercises (use agui-dotnet-wire-types / agui-dotnet-transport).\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "4a797c0a48b10a1aafebb5309efa4da6d71841e2",
+                    "bytes": 6069,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6995051,
+                        "login": "javiercn",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "agui-dotnet-sdk-docs-bb7c8c0fb150",
+            "path": ".github/skills/agui-dotnet-sdk-docs/SKILL.md",
+            "name": "agui-dotnet-sdk-docs",
+            "description": "Author, update, and validate the AG-UI .NET SDK documentation pages on the docs.ag-ui.com Mintlify site (under docs/). USE FOR: adding or editing a \".NET SDK\" docs page (sdk/dotnet/**/*.mdx), wiring it into the docs.json \".NET\" nav group and global anchor, running the docs site locally with mintlify dev, previewing/validating rendered .NET pages, checking the .NET sidebar anchor/icon. DO NOT USE FOR: in-repo dotnet markdown such as sdks/dotnet/AGENTS.md or docs/architecture.md (use agui-dotnet-agents-sync); TypeScript/Python docs pages; product code, tests, or wire types.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "3663623b6f41f762fb76216d36d4e341b6ffe10d",
+                    "bytes": 5504,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6995051,
+                        "login": "javiercn",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "agui-dotnet-transport-e7805bfe368a",
+            "path": ".github/skills/agui-dotnet-transport/SKILL.md",
+            "name": "agui-dotnet-transport",
+            "description": "Add or modify a wire transport / event-stream encoding in the AG-UI .NET SDK — the protobuf codec, the SSE format, content negotiation, the JsonElement-to-protobuf Value bridge, or a brand new encoding — while preserving Native AOT compatibility and byte-level wire compatibility with @ag-ui/proto. USE FOR: working on AGUI.Formatting / AGUI.Protobuf, IAGUIEventStreamFormatter, transport content negotiation, the JsonElement-to-google.protobuf.Value bridge, SSE or protobuf framing, server formatter registration / AGUIResults.Events negotiation. DO NOT USE FOR: adding a new wire event TYPE (use agui-dotnet-wire-types), writing tests (use agui-dotnet-integration-tests).\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "03709166f3e36ec15d8e1803d92d04603364cc32",
+                    "bytes": 6390,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/wire-format.md",
+                    "blob": "ff34399d78af8a917426a7339f86e91657c63c3b",
+                    "bytes": 9087,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6995051,
+                        "login": "javiercn",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "agui-dotnet-unit-tests-5d3278f6071e",
+            "path": ".github/skills/agui-dotnet-unit-tests/SKILL.md",
+            "name": "agui-dotnet-unit-tests",
+            "description": "Author unit tests for the AG-UI .NET SDK (the *.UnitTests projects), following the SDK's serialization and compatibility conventions. USE FOR: adding unit-test coverage for a new type/method in AGUI.Abstractions/Formatting/Protobuf/Client/Server, event serialization round-trips, JsonDocument property-name assertions, backward-compatibility fixtures against TypeScript JSON, protobuf codec round-trips, client builder/handler tests, server ChatResponseUpdate conversion tests, SSE formatter tests. DO NOT USE FOR: HTTP pipeline / WebApplicationFactory end-to-end tests (use the agui-dotnet-integration-tests skill), cross-language TS↔C# server-parity tests (use the cross-language test skill).\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "235858e5ea0783e18a0eea105323a56347fa8d7a",
+                    "bytes": 6555,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6995051,
+                        "login": "javiercn",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "agui-dotnet-wire-types-7ac0d55f4013",
+            "path": ".github/skills/agui-dotnet-wire-types/SKILL.md",
+            "name": "agui-dotnet-wire-types",
+            "description": "Add or modify a wire/protocol type in the AG-UI .NET SDK AGUI.Abstractions package — a new event, message, or content-part type, the AOT source-gen serializer context, or a polymorphic JSON converter, keeping it AOT-safe, JSON-wire-compatible with the TypeScript reference, and PublicAPI-clean. USE FOR: adding an AG-UI event type, adding a message role or input-content type, editing AGUIJsonSerializerContext, editing BaseEventJsonConverter / AGUIMessageJsonConverter / AGUIInputContentJsonConverter, fixing PublicAPI.Unshipped analyzer build failures on protocol types, wire-format round-trip serialization. DO NOT USE FOR: writing integration/SSE tests (use agui-dotnet-integration-tests), server hosting/endpoint code, or non-Abstractions packages.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "98c5cd157956aaa267690ad76797ab82c432843e",
+                    "bytes": 8544,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6995051,
+                        "login": "javiercn",
+                        "commits": 1
+                    },
+                    {
+                        "id": 247775,
+                        "login": "mme",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "agui-playwright-validate-8daf7fc59332",
+            "path": ".github/skills/agui-playwright-validate/SKILL.md",
+            "name": "agui-playwright-validate",
+            "description": "Manually validate a running web app or docs site with the Playwright MCP server — navigate pages, assert headings/text/status, check for console errors, hover/click to exercise interactions, take screenshots for human review, and verify visual details such as an icon's color in light vs dark mode by reading computed styles. USE FOR: \"validate with Playwright\", \"open the browser and check\", visually verifying a UI or docs change, confirming a CSS/SVG/icon edit rendered, checking a page for console errors, comparing light/dark mode appearance. DO NOT USE FOR: writing automated unit/E2E test files (dojo e2e lives in agui-dojo); docs-site content/structure checks specific to the .NET SDK docs (use agui-dotnet-sdk-docs). INVOKES: browser_navigate, browser_snapshot, browser_take_screenshot, browser_evaluate, browser_hover, browser_click, browser_console_messages Playwright MCP tools.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b30d9831b02533869919922333d7ad987387d71f",
+                    "bytes": 6257,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6995051,
+                        "login": "javiercn",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "agui-dotnet-client-tools-b4f050751cd7",
+            "path": "sdks/dotnet/plugins/ag-ui-dotnet/skills/agui-dotnet-client-tools/SKILL.md",
+            "name": "agui-dotnet-client-tools",
+            "description": "Expose client-side (frontend) tools to an AG-UI agent with the AG-UI .NET SDK — C# functions that run in the CLIENT app (read local state, GPS, UI, device APIs), where the client executes the call and returns the result so the run continues. USE FOR: declaring an AIFunction in the client and passing it via ChatOptions.Tools to AGUIChatClient; having the client execute a tool the model requested and feed the result back automatically; understanding why no UseFunctionInvocation is needed on the client (AGUIChatClient already invokes functions); what the server must do (UseFunctionInvocation + TerminateOnUnknownCalls) so it forwards an unknown/client tool instead of erroring. DO NOT USE FOR: tools that run on the server/backend (use agui-dotnet-server-tools); pausing for human approval/input before acting (interrupts / human-in-the-loop); plain chat (use agui-dotnet-streaming-chat); shared state, generative UI, multimodal, or protobuf.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "05db8993719da0647200a96df8c223edb13d95ab",
+                    "bytes": 4325,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6995051,
+                        "login": "javiercn",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "agui-dotnet-human-in-the-loop-dcc0fc02c0f7",
+            "path": "sdks/dotnet/plugins/ag-ui-dotnet/skills/agui-dotnet-human-in-the-loop/SKILL.md",
+            "name": "agui-dotnet-human-in-the-loop",
+            "description": "Pause an AG-UI agent run for a human, then resume it, with the AG-UI .NET SDK — gate a sensitive tool behind explicit approval, or interrupt a run to collect free-form input from the user before continuing. USE FOR: requiring human approval before a tool executes (ApprovalRequiredAIFunction + ToolApprovalRequestContent/ToolApprovalResponseContent, resume by appending the request + CreateResponse(approved)); pausing a run to ask the user a question and resuming with their answer (InterruptRequestContent / InterruptResponseContent, RunAgentInput.Resume); how a paused run surfaces as RUN_FINISHED outcome=interrupt and how the client detects and answers it. DO NOT USE FOR: tools that run without approval on the server (use agui-dotnet-server-tools) or in the client (use agui-dotnet-client-tools); plain chat (use agui-dotnet-streaming-chat); shared state, generative UI, multimodal, or protobuf.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7d8ede41d53a7f96903f16b8665361911521ff44",
+                    "bytes": 6167,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6995051,
+                        "login": "javiercn",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "agui-dotnet-multimodal-b05c633a5562",
+            "path": "sdks/dotnet/plugins/ag-ui-dotnet/skills/agui-dotnet-multimodal/SKILL.md",
+            "name": "agui-dotnet-multimodal",
+            "description": "Send images and other binary/file content to an AG-UI agent with the AG-UI .NET SDK — attach pictures (or audio, PDFs, etc.) to a user message so a multimodal model can see them. USE FOR: building a user ChatMessage with mixed content parts (TextContent plus DataContent for inline bytes, or UriContent for a hosted URL); choosing inline bytes vs a URL reference; setting the correct media type; sending the message through AGUIChatClient so the content parts cross the AG-UI wire to a vision/multimodal model. DO NOT USE FOR: plain text chat (use agui-dotnet-streaming-chat); tool calls (use agui-dotnet-server-tools / agui-dotnet-client-tools); structured shared state (use agui-dotnet-shared-state); reasoning traces, interrupts, generative UI, or protobuf.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "094eec77a93cec26f890e6eb270b4cb9ff5838ec",
+                    "bytes": 3276,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6995051,
+                        "login": "javiercn",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "agui-dotnet-protobuf-dc667380295c",
+            "path": "sdks/dotnet/plugins/ag-ui-dotnet/skills/agui-dotnet-protobuf/SKILL.md",
+            "name": "agui-dotnet-protobuf",
+            "description": "Use the protobuf wire transport (instead of the default Server-Sent Events) for an AG-UI connection with the AG-UI .NET SDK — a compact binary event stream negotiated via the Accept header. USE FOR: making an AGUIChatClient prefer protobuf by wiring an AGUIEventStreamHandler with ProtobufEventStreamFormatter (then SseEventStreamFormatter as fallback) into the HttpClient; enabling a server to answer protobuf by registering ProtobufEventStreamFormatter and negotiating the response format from the request Accept header; understanding the protobuf-or-SSE fallback. DO NOT USE FOR: the default SSE transport or first-time setup (use agui-dotnet-streaming-chat); JSON event serialization questions; tools, state, interrupts, multimodal, or generative UI.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "d7c440bc03508e8790fdf9f16f30dab69d6becb1",
+                    "bytes": 5099,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6995051,
+                        "login": "javiercn",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "agui-dotnet-reasoning-f8bce1d9de51",
+            "path": "sdks/dotnet/plugins/ag-ui-dotnet/skills/agui-dotnet-reasoning/SKILL.md",
+            "name": "agui-dotnet-reasoning",
+            "description": "Surface a reasoning/thinking model's intermediate thoughts separately from its final answer with the AG-UI .NET SDK — so a client can show the agent \"thinking\" before it responds, and handle that reasoning trace correctly across turns. USE FOR: distinguishing the model's reasoning trace from its answer on the client by matching TextReasoningContent vs TextContent in each ChatResponseUpdate's Contents; rendering thinking and answer in different ways as they stream; deciding whether to carry the reasoning text into later turns (whether to append/resend the model's reasoning back into conversation history). DO NOT USE FOR: plain text streaming with no reasoning display (use agui-dotnet-streaming-chat); tools, shared state, interrupts, multimodal, generative UI, or protobuf.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ffbaffc6ef4b61c07836ec677e0df19aa1734fbb",
+                    "bytes": 3239,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6995051,
+                        "login": "javiercn",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "agui-dotnet-server-tools-9fec9beea128",
+            "path": "sdks/dotnet/plugins/ag-ui-dotnet/skills/agui-dotnet-server-tools/SKILL.md",
+            "name": "agui-dotnet-server-tools",
+            "description": "Expose server-side (backend) tools an AG-UI agent can call with the AG-UI .NET SDK — C# functions that run on the server, where the server executes the call and feeds the result back to the model. USE FOR: defining an AIFunction with AIFunctionFactory.Create and registering it on the server's IChatClient via ConfigureOptions + UseFunctionInvocation; making the model call your backend function during a run; AOT-safe tool arguments/results (registering a JsonSerializerContext for complex tool parameter types); parallel/concurrent backend tool calls (AllowConcurrentInvocation); TerminateOnUnknownCalls behavior. DO NOT USE FOR: tools that run in the client/frontend (use agui-dotnet-client-tools); pausing a tool for human approval or input (interrupts / human-in-the-loop); plain streaming chat with no tools (use agui-dotnet-streaming-chat); shared state, generative UI, multimodal, or protobuf.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "9e967759c5ad7610ccc0d0cd75c233bbaf31cc03",
+                    "bytes": 6520,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6995051,
+                        "login": "javiercn",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "agui-dotnet-shared-state-7366799cdb1d",
+            "path": "sdks/dotnet/plugins/ag-ui-dotnet/skills/agui-dotnet-shared-state/SKILL.md",
+            "name": "agui-dotnet-shared-state",
+            "description": "Share structured, evolving state between an AG-UI agent and its client with the AG-UI .NET SDK — the client seeds state on the request, the server reads it, mutates it, and streams the updated state back as snapshots or deltas alongside the chat. USE FOR: sending initial/working state from the client via ChatOptions.RawRepresentationFactory -> RunAgentInput.State; reading inbound state on the server with ChatOptions.TryGetRunAgentInput and RunAgentInput.State; emitting a full state object as a StateSnapshotEvent (or incremental JSON-Patch changes as a StateDeltaEvent) from a DelegatingChatClient via ChatResponseUpdate.RawRepresentation; reading state back on the client from update.RawRepresentation as StateSnapshotEvent. DO NOT USE FOR: passing one-off tool arguments (use agui-dotnet-server-tools); rendering UI components from tool calls (use agui-dotnet-generative-ui); plain chat (use agui-dotnet-streaming-chat); approvals/interrupts, multimodal, or protobuf.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "4eadfd0e8eaf9437f6113e217821e4b60121747d",
+                    "bytes": 6327,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6995051,
+                        "login": "javiercn",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "agui-dotnet-streaming-chat-c827aa708ea0",
+            "path": "sdks/dotnet/plugins/ag-ui-dotnet/skills/agui-dotnet-streaming-chat/SKILL.md",
+            "name": "agui-dotnet-streaming-chat",
+            "description": "Get started with the AG-UI .NET SDK: bootstrap and run your first streaming-chat app (client + server) with the AG-UI .NET NuGet packages (AGUI.Client, AGUI.Server, AGUI.Formatting, AGUI.Abstractions). USE FOR: which packages to install and how to wire them; constructing an AGUIChatClient against an endpoint and streaming the reply as Microsoft.Extensions.AI IChatClient / ChatResponseUpdate; hosting an AG-UI POST endpoint yourself over any IChatClient; running a single- or multi-turn conversation; STATELESS agents (client owns history, resends it every turn) vs HOSTED / conversation-holding agents (server keeps the session, client pins a thread id). DO NOT USE FOR: changing the AG-UI .NET SDK itself (use the agui-dotnet-* contributor skills); server tools (agui-dotnet-server-tools); client tools (agui-dotnet-client-tools); interrupts / human-in-the-loop; shared state; generative UI; multimodal; or protobuf transport.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "0c5667e56d303ca6122b3313f0793f2c3a581444",
+                    "bytes": 10189,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6995051,
+                        "login": "javiercn",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "agui-dotnet-troubleshoot-1785194c8495",
+            "path": "sdks/dotnet/plugins/ag-ui-dotnet/skills/agui-dotnet-troubleshoot/SKILL.md",
+            "name": "agui-dotnet-troubleshoot",
+            "description": "Diagnose and fix problems in an AG-UI .NET app built on the AG-UI SDK — when streaming chat, tools, state, interrupts, or the transport misbehave. USE FOR: the agent forgetting earlier turns / history truncated; update.ConversationId always null; state or lifecycle updates that never arrive; a tool throwing at runtime or producing AOT/trim warnings; an unknown-tool error mid-run; 406 Not Acceptable from the endpoint; an interrupt or approval that won't resume; and inspecting the raw AG-UI event stream (curl SSE frames, RawEvent on ChatResponseUpdate.RawRepresentation) to see what's actually on the wire. DO NOT USE FOR: first-time setup or the happy path (use agui-dotnet-streaming-chat); implementing a specific feature cleanly (use the matching agui-dotnet-* skill).\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "07a3611334dc839eb60b633556ca61bb91b2e647",
+                    "bytes": 5422,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6995051,
+                        "login": "javiercn",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "ag-ui-a2ui-integration-6654ab6962eb",
+            "path": "skills/ag-ui-a2ui-integration/SKILL.md",
+            "name": "ag-ui-a2ui-integration",
+            "description": "Use when adding A2UI rendering to any AG-UI-supported framework or custom AG-UI application, scaffolding an AG-UI app that should render A2UI, adapting an AG-UI integration to emit A2UI surfaces, or wiring the AG-UI A2UI middleware/toolkit with a compatible renderer.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "567db54cb6b63f489dd650b4de43443a0a1a985d",
+                    "bytes": 6131,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/a2ui-runtime-and-renderer.md",
+                    "blob": "522add35a1e458ac270ae3ad275ebf26592271fb",
+                    "bytes": 6718,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/framework-adapters.md",
+                    "blob": "983a9427b1193c2765e9a9f3e17b50c745eeeaba",
+                    "bytes": 6307,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/verification.md",
+                    "blob": "6317766dee6e2f6a5730f5a21fcc574214a904f2",
+                    "bytes": 4192,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "sources.md",
+                    "blob": "9aa28f875e9cfa8a43d7649265cff2291934931f",
+                    "bytes": 2375,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 7738189,
+                        "login": "samjulien",
+                        "commits": 2
+                    },
+                    {
+                        "id": 215433208,
+                        "login": "contextablemark",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "CLAUDE.md",
+        "blob": "2fe0d66356b2b531170b8c97f0fa150cb440dff2",
+        "bytes": 4915,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
+        "bytes": 1056,
+        "text": true,
+        "mode": "100644"
+    }
+}

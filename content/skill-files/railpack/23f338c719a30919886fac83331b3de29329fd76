@@ -1,0 +1,123 @@
+{
+ "caches": {
+  "go-build": {
+   "directory": "/root/.cache/go-build",
+   "type": "shared"
+  }
+ },
+ "deploy": {
+  "base": {
+   "image": "ghcr.io/railwayapp/railpack-runtime:mise-2026.9.9"
+  },
+  "inputs": [
+   {
+    "include": [
+     "."
+    ],
+    "step": "build"
+   }
+  ],
+  "startCommand": "./out",
+  "variables": {
+   "RAILPACK_VERSION": "dev"
+  }
+ },
+ "steps": [
+  {
+   "assets": {
+    "generated-mise-toml": "[generated-mise-toml]"
+   },
+   "commands": [
+    {
+     "path": "/mise/shims"
+    },
+    {
+     "customName": "create mise config",
+     "name": "generated-mise-toml",
+     "path": "/etc/mise/config.toml"
+    },
+    {
+     "cmd": "mise install",
+     "customName": "install mise packages: go"
+    }
+   ],
+   "inputs": [
+    {
+     "image": "ghcr.io/railwayapp/railpack-builder:mise-2026.9.9"
+    }
+   ],
+   "name": "packages:mise",
+   "variables": {
+    "MISE_CACHE_DIR": "/mise/cache",
+    "MISE_CONFIG_DIR": "/mise",
+    "MISE_DATA_DIR": "/mise",
+    "MISE_INSTALLS_DIR": "/mise/installs",
+    "MISE_SHIMS_DIR": "/mise/shims"
+   }
+  },
+  {
+   "caches": [
+    "go-build"
+   ],
+   "commands": [
+    {
+     "path": "/go/bin"
+    },
+    {
+     "dest": "go.work",
+     "src": "go.work"
+    },
+    {
+     "dest": "api/go.mod",
+     "src": "api/go.mod"
+    },
+    {
+     "dest": "shared/go.mod",
+     "src": "shared/go.mod"
+    },
+    {
+     "cmd": "go mod download"
+    }
+   ],
+   "inputs": [
+    {
+     "step": "packages:mise"
+    }
+   ],
+   "name": "install",
+   "secrets": [
+    "*"
+   ],
+   "variables": {
+    "CGO_ENABLED": "0",
+    "GOBIN": "/go/bin",
+    "GOPATH": "/go"
+   }
+  },
+  {
+   "caches": [
+    "go-build"
+   ],
+   "commands": [
+    {
+     "cmd": "go build -ldflags=\"-w -s\" -o out ./api"
+    }
+   ],
+   "inputs": [
+    {
+     "step": "install"
+    },
+    {
+     "include": [
+      "."
+     ],
+     "local": true
+    }
+   ],
+   "name": "build",
+   "secrets": [
+    "*"
+   ]
+  }
+ ]
+}

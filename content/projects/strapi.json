@@ -1,0 +1,103 @@
+{
+    "slug": "strapi",
+    "name": "Strapi",
+    "owner": "strapi",
+    "repo": "strapi",
+    "language": "TypeScript",
+    "stars": 73177,
+    "defaultBranch": "develop",
+    "instructionFile": "AGENTS.md",
+    "lastCommit": {
+        "sha": "9148d2c2e3e52f73077e564a310f1ec9c3875b6e",
+        "date": "2026-08-20T13:33:15Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 11763,
+        "lines": 262,
+        "words": 1505,
+        "headings": 28,
+        "bullets": 32,
+        "codeBlocks": 15,
+        "docLinks": 2
+    },
+    "tagline": "A headless CMS with a Node.js server, an admin interface, and a plugin ecosystem.",
+    "hook": "Treats example apps as test sandboxes, then names the migration fixture that is an explicit exception.",
+    "summary": "Strapi’s root guide maps a Yarn and Nx monorepo and establishes the architectural boundaries for content access, dependency injection, shared types, and edition-specific behavior. It gives separate commands for testing surfaces and keeps committed skills in one canonical directory with local links for different tools.",
+    "references": [
+        {
+            "path": "docs/docs/docs/01-core/database/01-relations/polymorphic-relations.md"
+        },
+        {
+            "path": "CONTRIBUTING.md"
+        },
+        {
+            "path": ".github/PULL_REQUEST_TEMPLATE.md"
+        },
+        {
+            "path": ".ai/skills/",
+            "kind": "pattern",
+            "label": "Canonical committed repository skills"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Name the exception to a sandbox-only rule",
+            "body": "Example apps normally reproduce and test fixes rather than receive production changes. The guide explicitly identifies examples/complex as a migration test fixture used by CI, preserving the reason that particular example may need changes.",
+            "quote": "**Exception:** `examples/complex` is the **migration test fixture**",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Keep skill sources independent of tool-specific paths",
+            "body": "Committed skills live in .ai/skills. A sync command creates or prunes local links for Agents, Claude, and Cursor, with Windows junctions supported and a read-only status command for diagnosing missing or conflicting links.",
+            "quote": "**`.ai/skills/`** is the canonical source for committed repo skills.",
+            "pattern": "single-source"
+        },
+        {
+            "title": "Route content operations through the owning abstraction",
+            "body": "The architecture section identifies Document Service as the high-level content API and restricts raw database access to the database package. It also explains that content type schemas generate tables, rather than requiring raw migrations.",
+            "quote": "Always use this for reading/writing content — never raw DB queries unless you're working inside `@strapi/database` itself.",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Separate edition toggles across testing layers",
+            "body": "Frontend and end-to-end tests use different environment variables to enable Enterprise behavior. The guide lists both alongside Community Edition frontend commands, making the distinction explicit for verification.",
+            "quote": "- `IS_EE=true` — enables Enterprise features in frontend tests (`yarn test:front`)\n- `RUN_EE=true` — enables Enterprise features in E2E tests",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Identify stale generated test apps as misleading evidence",
+            "body": "API integration test applications are generated automatically. The instructions require regeneration before reuse and explain that stale apps can produce failures unrelated to the current change.",
+            "quote": "always regenerate with `yarn test:generate-app` rather than reusing a stale one (stale apps cause misleading failures).",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Distinguish an absent optional tool from a broken one",
+            "body": "The worktree bootstrap quietly continues when the optional brain-start skill is unavailable, which is the normal external-contributor path. If the tool is installed but refresh fails, the failure must be reported and remediated.",
+            "quote": "Only the absence of the optional skill is a clean no-op.",
+            "pattern": "behavioral-conditioning"
+        }
+    ],
+    "steal": [
+        "Name real exceptions to sandbox-only editing rules.",
+        "Keep committed skills in one canonical location.",
+        "Route data operations through the abstraction that owns them.",
+        "Document distinct test toggles for product editions.",
+        "Regenerate fixtures before interpreting integration failures.",
+        "Distinguish absent optional integrations from failed installed ones."
+    ],
+    "outline": [
+        "Strapi Monorepo — Agent Guide",
+        "Repository Structure",
+        "Architecture",
+        "Monorepo Setup",
+        "Development",
+        "Build",
+        "Testing",
+        "Quality Gates",
+        "Security",
+        "PR Guidelines",
+        "Notes for Agents"
+    ],
+    "patterns": ["hard-prohibition", "single-source", "verification-matrix", "behavioral-conditioning"]
+}

@@ -1,0 +1,531 @@
+{
+    "version": 1,
+    "slug": "twenty",
+    "repository": "twentyhq/twenty",
+    "branch": "main",
+    "sha": "cd4911338e3f11a3f0f0c371510926596fc5dc4d",
+    "scannedAt": "2026-09-17T12:19:18.119Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "qa-scout-3b7f795761f3",
+            "path": ".claude/skills/qa-scout/SKILL.md",
+            "name": "qa-scout",
+            "description": "Browser QA of a PR against a running Twenty app, post-merge on main or pre-merge via the qa-scout label. Derives user-visible scenarios from the PR diff, executes them with the Playwright MCP browser, attests database effects over SQL, watches server and worker logs for swallowed errors, and writes a structured verdict plus a report. Invoked by ci-e2e-main.yaml after the deterministic e2e suite; also runnable locally against a dev stack.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "3ce4c29da779bffd235239a3a24950ecdb809fd7",
+                    "bytes": 8125,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6399865,
+                        "login": "FelixMalfait",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "syncable-entity-builder-and-validation-f734a80f302a",
+            "path": ".claude/skills/syncable-entity-builder-and-validation/SKILL.md",
+            "name": "syncable-entity-builder-and-validation",
+            "description": "Contributing to the Twenty codebase itself (twentyhq/twenty server internals), not for building apps on top of Twenty. Create validation logic and migration action builders for syncable entities in Twenty. Use when implementing business rule validation, uniqueness checks, foreign key validation, or building workspace migration actions for syncable entities. Validators never throw and never mutate.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "40daab6fbee74dae63de0dcffb21668e8164ae9b",
+                    "bytes": 13296,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 29927851,
+                        "login": "martmull",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "syncable-entity-cache-and-transform-40fae8f3fdb2",
+            "path": ".claude/skills/syncable-entity-cache-and-transform/SKILL.md",
+            "name": "syncable-entity-cache-and-transform",
+            "description": "Contributing to the Twenty codebase itself (twentyhq/twenty server internals), not for building apps on top of Twenty. Create cache services and transformation utilities for syncable entities in Twenty. Use when implementing entity-to-flat conversions, input DTO transpilation to universal flat entities, or cache recomputation for syncable entities.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7d1844aaea3f61e9bb674c3a41a5ec1b7154fd8e",
+                    "bytes": 9722,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 29927851,
+                        "login": "martmull",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "syncable-entity-integration-ab72f40b6423",
+            "path": ".claude/skills/syncable-entity-integration/SKILL.md",
+            "name": "syncable-entity-integration",
+            "description": "Contributing to the Twenty codebase itself (twentyhq/twenty server internals), not for building apps on top of Twenty. Wire syncable entity services into NestJS modules, create service layer and resolvers for Twenty entities. Use when registering builders, validators, and action handlers in modules, creating business services, or exposing entities via GraphQL API with proper exception handling.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7f9bdfdae76ece9bb46b94a31e33399bdd833b70",
+                    "bytes": 11498,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 29927851,
+                        "login": "martmull",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "syncable-entity-runner-and-actions-60c3d0b21422",
+            "path": ".claude/skills/syncable-entity-runner-and-actions/SKILL.md",
+            "name": "syncable-entity-runner-and-actions",
+            "description": "Contributing to the Twenty codebase itself (twentyhq/twenty server internals), not for building apps on top of Twenty. Implement action handlers for executing workspace migrations in Twenty. Use when creating database operations for syncable entities, implementing universal-to-flat entity transpilation, or handling create/update/delete actions in the runner layer.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "cdfa6f0eceb02cfdf8942ba37cfdee9bb338bfb4",
+                    "bytes": 12498,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 29927851,
+                        "login": "martmull",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "syncable-entity-testing-b83ab2cca7eb",
+            "path": ".claude/skills/syncable-entity-testing/SKILL.md",
+            "name": "syncable-entity-testing",
+            "description": "Contributing to the Twenty codebase itself (twentyhq/twenty server internals), not for building apps on top of Twenty. Create comprehensive integration tests for syncable entities in Twenty. Use when writing integration tests for metadata entities, covering validator exceptions, input transpilation errors, and CRUD operations. Tests are MANDATORY for all syncable entities.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "1a67cbf0b06c026d087a349824ab4f2ca6b740cf",
+                    "bytes": 13757,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 29927851,
+                        "login": "martmull",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "syncable-entity-types-and-constants-0b901ec06113",
+            "path": ".claude/skills/syncable-entity-types-and-constants/SKILL.md",
+            "name": "syncable-entity-types-and-constants",
+            "description": "Contributing to the Twenty codebase itself (twentyhq/twenty server internals), not for building apps on top of Twenty. Define types, entities, and central constant registrations for syncable entities in Twenty's workspace migration system. Use when creating new syncable entities, defining TypeORM entities, flat entity types, or registering in central constants (ALL_ENTITY_PROPERTIES_CONFIGURATION_BY_METADATA_NAME, ALL_ONE_TO_MANY_METADATA_RELATIONS, ALL_MANY_TO_ONE_METADATA_FOREIGN_KEY, ALL_MANY_TO_ONE_METADATA_RELATIONS).",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "1c7bab40396ebde3704b63450523a60c12b9a564",
+                    "bytes": 11395,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 29927851,
+                        "login": "martmull",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "create-app-8df885bfb2fd",
+            "path": "packages/twenty-agent-skills/skills/create-app/SKILL.md",
+            "name": "create-app",
+            "description": "Use when the user wants to create or scaffold a new Twenty app",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ed0e3804234efba4b0a33eb30a094377ff6e7048",
+                    "bytes": 6227,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "4f63f9457909ee2e048d47fd5c28562084f5572b",
+                    "bytes": 171,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 29927851,
+                        "login": "martmull",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "develop-app-eaf4bf5e8ce7",
+            "path": "packages/twenty-agent-skills/skills/develop-app/SKILL.md",
+            "name": "develop-app",
+            "description": "Use when the user wants to add or modify Twenty app entities, including objects, layouts, logic functions, and front components inside an existing Twenty app.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "57bf21fdebb830801d300e4fbbfd75232e25c678",
+                    "bytes": 7394,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "bcf5a17440b7467caf55b2289c57a22e8beb52c6",
+                    "bytes": 258,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 29927851,
+                        "login": "martmull",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "manage-app-b1eac8bb812c",
+            "path": "packages/twenty-agent-skills/skills/manage-app/SKILL.md",
+            "name": "manage-app",
+            "description": "Use when the user wants to manage or troubleshoot tooling, remotes, sync, build, deploy, logs, CI/CD, or operational workflows for an existing Twenty app.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "4f37ad4def2801063745f168c74c31ff326de1d8",
+                    "bytes": 7650,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "91787529cdf0327241a398c4d15ab327ac447597",
+                    "bytes": 222,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 29927851,
+                        "login": "martmull",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "publish-app-e7362ecb2356",
+            "path": "packages/twenty-agent-skills/skills/publish-app/SKILL.md",
+            "name": "publish-app",
+            "description": "Use when the user wants to prepare or verify a Twenty app for npm or marketplace publication, including README/About copy, package metadata, defineApplication marketplace metadata, logos, screenshots, and public assets.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7934afc5f484bff3faf77539d5d5c5fc31107255",
+                    "bytes": 2988,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "43f031bef927c9bd2d2e14c88eb51bac98c7757f",
+                    "bytes": 221,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 29927851,
+                        "login": "martmull",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "use-twenty-mcp-ba275a32a63e",
+            "path": "packages/twenty-agent-skills/skills/use-twenty-mcp/SKILL.md",
+            "name": "use-twenty-mcp",
+            "description": "Use when the user wants the agent to connect to an existing Twenty workspace through MCP, retrieve or inspect workspace records and metadata, or present Twenty CRM data as readable Markdown with formatted dates, values, record links, and compact tables instead of raw API output.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "88d99048752d966d3d607be6e0770a3a84ae9135",
+                    "bytes": 3100,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "agents/openai.yaml",
+                    "blob": "ca6bbed3fe1208bbf5230e738e07c46bfc6dac11",
+                    "bytes": 221,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 29927851,
+                        "login": "martmull",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "twenty-lead-brief-aac721533ae9",
+            "path": "packages/twenty-apps/internal/twenty-partners/src/skills/twenty-lead-brief/SKILL.md",
+            "name": "twenty-lead-brief",
+            "description": "Turn a Twenty sales/discovery call into a partner-ready brief and record the lead in the CRM. Use whenever the user has a call recording, transcript, Fireflies link, or a lead folder and wants to qualify the deal, summarize the call, write a partner brief, or prep the partner handoff. Trigger even without the word \"brief\" - \"summarize this call\", \"what did we learn from the X call\", \"qualify this lead\", \"scope this for a partner\", \"draft a design doc\", or pointing at a transcript file all count. Produces a qualification summary, a partner brief, matching criteria, and an Opportunity in the partners workspace. Pass --full for inference mode.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b010367a951851d541b85e84cdd465dfa20dedbe",
+                    "bytes": 11251,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "design-doc-doctrine.md",
+                    "blob": "aec4721440c8261ab3e47216edee5bc3fdfb99a9",
+                    "bytes": 19450,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 11599358,
+                        "login": "rashad",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "twenty-partner-intro-30bcc07419a3",
+            "path": "packages/twenty-apps/internal/twenty-partners/src/skills/twenty-partner-intro/SKILL.md",
+            "name": "twenty-partner-intro",
+            "description": "Send the partner introductions for a lead - record them in the CRM and open the ready-to-send emails in Chrome. Use once the user has reviewed a shortlist and named the partners they want to introduce, or whenever they say to make the intro, send the intros, connect the client with a partner, or generate the intro emails. Writes Application records in INVITED state, stamps introSentAt on the Opportunity, and opens each partner email as a prefilled Gmail draft. Chains after twenty-partner-shortlist.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "54ae8b2444c676085be542c6d7249d566957927d",
+                    "bytes": 5927,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 11599358,
+                        "login": "rashad",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "twenty-partner-recap-723832d4a58d",
+            "path": "packages/twenty-apps/internal/twenty-partners/src/skills/twenty-partner-recap/SKILL.md",
+            "name": "twenty-partner-recap",
+            "description": "Pull recent Fireflies partner meetings, match each to an existing Partner record by attendee email or domain, write a recap (transcript-first, Fireflies summary as fallback), and inject it as a Note on the partner's profile. Use after a batch of partner calls when you want each partner's CRM record updated with what was said. Leads and discovery calls have no Partner match and are skipped. Pass --prune to delete the Fireflies recordings once the recaps are safely in the CRM.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "380466ee3f26034dd60491a3b42b1eb50adeba92",
+                    "bytes": 7394,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 11599358,
+                        "login": "rashad",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "twenty-partner-shortlist-f87d9a25d7a1",
+            "path": "packages/twenty-apps/internal/twenty-partners/src/skills/twenty-partner-shortlist/SKILL.md",
+            "name": "twenty-partner-shortlist",
+            "description": "Shortlist the Twenty partners who fit a lead, with the reason for each, and stop so the user can review. Use when the user asks who to introduce, who fits this deal, which partners to consider, or to match a lead to partners. Works from a lead folder's partner-match-criteria.md, or straight from an Opportunity's need and requirements for a website form submission that has no call behind it. Read-only - it never writes to the CRM and never writes emails. Chains forward into twenty-partner-intro once the user has picked.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "8922345aa9639ce0e85bcd921471fc004564126e",
+                    "bytes": 6304,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 11599358,
+                        "login": "rashad",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "twenty-partner-triage-a19cb889dc48",
+            "path": "packages/twenty-apps/internal/twenty-partners/src/skills/twenty-partner-triage/SKILL.md",
+            "name": "twenty-partner-triage",
+            "description": "Rank the partner-application backlog by net-new value and hand back a short chase-list of applicants worth a personal nudge. Use when the user wants to triage, rank, or prioritize partner applications, find which applicants are worth chasing, run the daily or weekly application review, or asks \"who should I reach out to\" / \"which applications matter\". Reads the live partners workspace, read-only, never mutates a record.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "05ca72d08f01798d0ac03bdc03cd96ac2a8e91ca",
+                    "bytes": 5148,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "rank.py",
+                    "blob": "ad7469267ad1140a7403b3fde070395535ed2a81",
+                    "bytes": 7569,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 11599358,
+                        "login": "rashad",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "twenty-record-presentation-2752e44e4ea3",
+            "path": "packages/twenty-claude-skills/skills/twenty-record-presentation/SKILL.md",
+            "name": "twenty-record-presentation",
+            "description": "Retrieve and present Twenty CRM records as readable summaries or tables, using the connected Twenty MCP server to discover fields, fetch relevant data, format dates and values, build record links, and avoid raw API output.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "baf732b161107b502f938022ff59b3d49d0974f1",
+                    "bytes": 8314,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 19412894,
+                        "login": "Bonapara",
+                        "commits": 1
+                    },
+                    {
+                        "id": 45695613,
+                        "login": "etiennejouan",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "CLAUDE.md",
+        "blob": "86c0ed959b62ae4ed45a31aadc5406c19df9e1ea",
+        "bytes": 4853,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "085e0c6baf78a26688991d3f9a96a68a658c2662",
+        "bytes": 39949,
+        "text": true,
+        "mode": "100644"
+    }
+}

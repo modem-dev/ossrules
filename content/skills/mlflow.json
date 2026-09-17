@@ -1,0 +1,196 @@
+{
+    "version": 1,
+    "slug": "mlflow",
+    "repository": "mlflow/mlflow",
+    "branch": "master",
+    "sha": "5ca46a4bee290f417f43703f8657b8e41f213831",
+    "scannedAt": "2026-09-17T12:25:08.336Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "analyze-ci-ebb4d939cdcc",
+            "path": ".claude/skills/analyze-ci/SKILL.md",
+            "name": "analyze-ci",
+            "description": "Analyze failed GitHub Action jobs. Takes one or more GitHub URLs (job, workflow-run, or PR) and summarizes each failure with root cause and log paths.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "57307a46a8a147b020b19cef6dc0740941e71b5a",
+                    "bytes": 2493,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 17039389,
+                        "login": "harupy",
+                        "commits": 8
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "pr-review-cd587ae4a767",
+            "path": ".claude/skills/pr-review/SKILL.md",
+            "name": "pr-review",
+            "description": "Review a pull request and emit a validated review payload.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "36b8d52682e88811520fb3af02f65cfd0abbf2d2",
+                    "bytes": 8857,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "review-payload.schema.json",
+                    "blob": "31e75b7a77fa7a84811ee3d562e666de2e48fa6b",
+                    "bytes": 3773,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "search-web.sh",
+                    "blob": "472e6785ebc4af0d2569edee0cda761c8ef69036",
+                    "bytes": 2650,
+                    "text": true,
+                    "mode": "100755"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 17039389,
+                        "login": "harupy",
+                        "commits": 38
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "ui-review-89a16cf063e6",
+            "path": ".claude/skills/ui-review/SKILL.md",
+            "name": "ui-review",
+            "description": "Review a GitHub PR's UI/UX changes by launching the MLflow web app, driving a headless agent-browser over the changed surfaces, and writing a Markdown UI-review comment body (findings + screenshots) for the workflow to post.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "48b92ff8462f57a2bd079cc9f03180ec78fd97ba",
+                    "bytes": 10739,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 17039389,
+                        "login": "harupy",
+                        "commits": 2
+                    },
+                    {
+                        "id": 10621958,
+                        "login": "tanghaoji",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "upload-media-62b8aca966ac",
+            "path": ".claude/skills/upload-media/SKILL.md",
+            "name": "upload-media",
+            "description": "Upload one or more local images or videos to GitHub and get back a `user-attachments` URL for each, to embed in a PR body, issue, or comment. Use when asked to attach screenshots or screen recordings.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "e20c4a5a2c396798bd65476a46ccff4c34c7cab6",
+                    "bytes": 796,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 17039389,
+                        "login": "harupy",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "setup-9cb3c99b0e1c",
+            "path": "libs/typescript/integrations/claude-code/skills/setup/SKILL.md",
+            "name": "setup",
+            "description": "Configure MLflow tracing for Claude Code.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b53569d4f1e94e65077b36552cb06684338bed0d",
+                    "bytes": 599,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 31463517,
+                        "login": "B-Step62",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "status-900bf677c5bb",
+            "path": "libs/typescript/integrations/claude-code/skills/status/SKILL.md",
+            "name": "status",
+            "description": "Show the current MLflow tracing configuration for Claude Code.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "81883ffdaf8943978f02338da71c64b2de96375a",
+                    "bytes": 374,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 31463517,
+                        "login": "B-Step62",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "CLAUDE.md",
+        "blob": "947deff2fa134efbf9feb49ad8c3d8a459bd778c",
+        "bytes": 8176,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE.txt",
+        "blob": "db7cb10b5e330d56b40370bc178974ccabe71458",
+        "bytes": 11382,
+        "text": true,
+        "mode": "100644"
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "slug": "sglang",
+    "sha": "b819d2fb5bbdff3dfb969b4abd678cf54799e405",
+    "license": "Apache-2.0",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "docs/AGENTS.md",
+            "bytes": 15476,
+            "lines": 381
+        },
+        {
+            "path": "python/sglang/multimodal_gen/.claude/CLAUDE.md",
+            "bytes": 4635,
+            "lines": 112
+        }
+    ]
+}

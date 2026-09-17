@@ -1,0 +1,62 @@
+{
+    "slug": "continue",
+    "name": "Continue",
+    "owner": "continuedev",
+    "repo": "continue",
+    "language": "TypeScript",
+    "stars": 35941,
+    "defaultBranch": "main",
+    "instructionFile": "extensions/cli/AGENTS.md",
+    "lastCommit": {
+        "sha": "abb1fc0439bd335efafd2dc4f39907e25348c572",
+        "date": "2026-03-04T23:37:09Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 4302,
+        "lines": 94,
+        "words": 568,
+        "headings": 8,
+        "bullets": 51,
+        "codeBlocks": 0,
+        "docLinks": 0
+    },
+    "tagline": "An AI coding assistant with editor integrations and a command-line agent.",
+    "hook": "The CLI guide spells out hook configuration precedence and the difference between blocking and non-blocking exit codes.",
+    "summary": "Continue's analyzed instruction file lives under extensions/cli and describes that subsystem rather than the whole repository. It maps authentication, terminal interfaces, tools, and hooks, then records build and test conventions for the TypeScript CLI.",
+    "references": [],
+    "techniques": [
+        {
+            "title": "Make layered hook configuration explicit",
+            "body": "The hooks section lists user-global, project, and project-local settings in increasing precedence. Agents can inspect the correct layer instead of assuming the first configuration file controls behavior.",
+            "quote": "- **Config locations** (lowest to highest precedence):\n     - `~/.claude/settings.json`, `~/.continue/settings.json` (user-global)\n     - `.claude/settings.json`, `.continue/settings.json` (project)\n     - `.claude/settings.local.json`, `.continue/settings.local.json` (project-local)",
+            "pattern": "architecture-narrative"
+        },
+        {
+            "title": "Define the protocol meaning of exit codes",
+            "body": "The guide distinguishes a blocked operation from an error that should not block it. It also states how stderr becomes feedback when a hook rejects an action.",
+            "quote": "- **Exit code semantics**: 0 = proceed, 2 = block (stderr becomes feedback), other = non-blocking error",
+            "pattern": "architecture-narrative"
+        },
+        {
+            "title": "Name unsupported hook types",
+            "body": "The hook inventory separates implemented command and HTTP handlers from prompt and agent handlers that are not implemented. This keeps a familiar configuration name from being mistaken for a supported feature.",
+            "quote": "- **Hook types**: `command` (shell), `http` (POST request), `prompt`/`agent` (not yet implemented)",
+            "pattern": "architecture-narrative"
+        },
+        {
+            "title": "Show the import spelling required by the build",
+            "body": "The build section connects the package's module setup with explicit file extensions. A short contrasting example gives an agent the syntax needed for relative imports.",
+            "quote": "- Relative import paths require explicit file extensions, e.g. 'from \"./test.js\"' instead of 'from \"./test\"'",
+            "pattern": "worked-examples"
+        }
+    ],
+    "steal": [
+        "List configuration layers in precedence order.",
+        "Document the meaning of control-flow exit codes.",
+        "Mark recognized but unimplemented capabilities explicitly.",
+        "Pair module-system requirements with an exact import example."
+    ],
+    "outline": ["AGENTS.md", "Development Commands", "Architecture Overview"],
+    "patterns": ["architecture-narrative", "worked-examples"]
+}

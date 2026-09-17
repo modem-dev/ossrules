@@ -1,0 +1,39 @@
+{
+    "slug": "strapi",
+    "sha": "9148d2c2e3e52f73077e564a310f1ec9c3875b6e",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".github/PULL_REQUEST_TEMPLATE.md",
+            "bytes": 817,
+            "lines": 28
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 11763,
+            "lines": 262
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "AGENTS.md"
+                }
+            ]
+        },
+        {
+            "path": "CONTRIBUTING.md",
+            "bytes": 11360,
+            "lines": 259
+        },
+        {
+            "path": "docs/docs/docs/01-core/database/01-relations/polymorphic-relations.md",
+            "bytes": 4136,
+            "lines": 40
+        }
+    ]
+}

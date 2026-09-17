@@ -1,0 +1,25 @@
+name: Build Documentation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/**"
+  pull_request:
+    branches: [main]
+    paths:
+      - "docs/**"
+env:
+  MISE_ENV: ci
+
+jobs:
+  build:
+    name: Build Documentation
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+      - uses: jdx/mise-action@1648a7812b9aeae629881980618f079932869151
+
+      - name: Build documentation site
+        run: mise run docs-build

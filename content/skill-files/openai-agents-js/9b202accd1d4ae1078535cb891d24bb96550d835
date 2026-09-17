@@ -1,0 +1,4 @@
+interface:
+  display_name: "pnpm Upgrade"
+  short_description: "Preflight and refresh pnpm plus CI workflow pins"
+  default_prompt: "Use $pnpm-upgrade to preflight the CI installation path, update pnpm locally, align packageManager, and refresh pinned pnpm/action-setup workflow versions."

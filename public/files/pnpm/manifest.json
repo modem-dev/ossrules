@@ -1,0 +1,62 @@
+{
+    "slug": "pnpm",
+    "sha": "6b84edfb3a7cc7c374ebc3cb4d48b106149bc52b",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".agents/skills/pull-requests/SKILL.md",
+            "bytes": 8565,
+            "lines": 155
+        },
+        {
+            "path": ".agents/skills/testing-changes/SKILL.md",
+            "bytes": 4188,
+            "lines": 58
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 26219,
+            "lines": 399
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 9,
+            "lines": 1,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "AGENTS.md"
+        },
+        {
+            "path": "CONTRIBUTING.md",
+            "bytes": 24219,
+            "lines": 445
+        },
+        {
+            "path": "pnpm/AGENTS.md",
+            "bytes": 24722,
+            "lines": 464
+        },
+        {
+            "path": "pnpm/CLAUDE.md",
+            "bytes": 9,
+            "lines": 1,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "pnpm/AGENTS.md"
+        },
+        {
+            "path": "pnpm/CONTRIBUTING.md",
+            "bytes": 11630,
+            "lines": 205
+        },
+        {
+            "path": "pnpr/AGENTS.md",
+            "bytes": 7036,
+            "lines": 152
+        },
+        {
+            "path": "REVIEW_GUIDE.md",
+            "bytes": 17767,
+            "lines": 344
+        }
+    ]
+}

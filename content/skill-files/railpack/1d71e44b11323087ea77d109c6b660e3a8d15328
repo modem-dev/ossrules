@@ -1,0 +1,89 @@
+{
+ "deploy": {
+  "base": {
+   "image": "ghcr.io/railwayapp/railpack-runtime:mise-2026.9.9"
+  },
+  "inputs": [
+   {
+    "include": [
+     "."
+    ],
+    "step": "defaultsToUsing"
+   },
+   {
+    "include": [
+     "."
+    ],
+    "step": "usesSecrets"
+   }
+  ],
+  "startCommand": "./run.sh",
+  "variables": {
+   "RAILPACK_VERSION": "dev"
+  }
+ },
+ "secrets": [
+  "MY_SECRET",
+  "MY_OTHER_SECRET",
+  "HELLO_WORLD"
+ ],
+ "steps": [
+  {
+   "inputs": [
+    {
+     "image": "ghcr.io/railwayapp/railpack-builder:mise-2026.9.9"
+    }
+   ],
+   "name": "packages:mise"
+  },
+  {
+   "commands": [
+    {
+     "dest": ".",
+     "src": "."
+    },
+    {
+     "cmd": "sh -c './run.sh'",
+     "customName": "./run.sh"
+    }
+   ],
+   "inputs": [
+    {
+     "step": "packages:mise"
+    }
+   ],
+   "name": "defaultsToUsing",
+   "secrets": [
+    "*"
+   ],
+   "variables": {
+    "NOT_SECRET": "not secret"
+   }
+  },
+  {
+   "commands": [
+    {
+     "dest": ".",
+     "src": "."
+    },
+    {
+     "cmd": "sh -c './run.sh'",
+     "customName": "./run.sh"
+    }
+   ],
+   "inputs": [
+    {
+     "step": "packages:mise"
+    }
+   ],
+   "name": "usesSecrets",
+   "secrets": [
+    "MY_SECRET",
+    "MY_OTHER_SECRET"
+   ],
+   "variables": {
+    "NOT_SECRET": "not secret"
+   }
+  }
+ ]
+}

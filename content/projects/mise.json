@@ -1,0 +1,94 @@
+{
+    "slug": "mise",
+    "name": "mise",
+    "owner": "jdx",
+    "repo": "mise",
+    "language": "Rust",
+    "stars": 34029,
+    "defaultBranch": "main",
+    "instructionFile": "AGENTS.md",
+    "lastCommit": {
+        "sha": "a1117a8bb6aaefd64b92293fadd10c18eba8bb3a",
+        "date": "2026-09-12T18:56:20Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 30241,
+        "lines": 417,
+        "words": 4376,
+        "headings": 39,
+        "bullets": 171,
+        "codeBlocks": 1,
+        "docLinks": 1
+    },
+    "tagline": "A Rust tool for managing development tools, environment variables, and project tasks.",
+    "hook": "Warns that version strings are opaque and delegates “latest” to each backend, with examples showing why semver ordering is unsafe.",
+    "summary": "Mise’s repository guide combines detailed registry acceptance rules with development commands and domain-specific implementation constraints. It explains version resolution, Windows PATH boundaries, deprecation timing, dependency updates, and how PR text becomes release-note input.",
+    "references": [
+        {
+            "path": "CONTRIBUTING.md"
+        },
+        {
+            "path": "docs/contributing.md"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Name the domain assumption that breaks generic helpers",
+            "body": "Date versions, channels, language-specific prereleases, and tool-defined latest values make a universal semver comparator unreliable. The guide routes resolution to backend methods and treats lockfile versions as opaque strings.",
+            "quote": "**Do not assume tool versions follow semver or any other orderable scheme.**",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Offer a supported alternative to a rejected contribution",
+            "body": "The registry section requires evidence of popularity and maintenance for new shorthands. It also explains that explicit backend syntax already installs unlisted tools, separating registry acceptance from product capability.",
+            "quote": "The registry is *only* for shorthand convenience for popular tools — not for enabling installation.",
+            "pattern": "contribution-etiquette"
+        },
+        {
+            "title": "Test PATH behavior beyond its rendered shape",
+            "body": "Windows rules keep PATH native until an assignment is emitted into a positively identified emulator shell. Verification must execute through that PATH and inspect a native grandchild, rather than only matching a string.",
+            "quote": "Windows activation tests must execute a command through the emitted PATH and verify a native Windows grandchild receives a valid semicolon-delimited PATH. Output-shape assertions alone are insufficient.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Tie removal to the start of user warnings",
+            "body": "Deprecation normally warns immediately and removes after twelve months. A delayed warning is reserved for migrations that older supported clients cannot parse, and it moves the removal clock with it.",
+            "quote": "If a compatibility window is required, removal remains 12 months after `warn_at`, not 12 months after the initial documentation notice."
+        },
+        {
+            "title": "Unblock wrapper failures without weakening the check",
+            "body": "When the transparent Cargo cache wrapper fails, the guide permits the equivalent command with the wrapper disabled. A successful bypass becomes diagnostic evidence to report, while permanent disabling is prohibited.",
+            "quote": "Do not permanently disable the wrapper,\nand do not post externally without user authorization.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Treat PR prose as input to another product surface",
+            "body": "Release notes are generated from PR titles and descriptions. The guide requires rewriting them when scope changes and keeping essential behavior, examples, and adoption details understandable without opening images or reading the diff.",
+            "quote": "Communique uses PR titles and descriptions to generate release notes. Write them\nfor a mise user who has not read the diff or this conversation.",
+            "pattern": "contribution-etiquette"
+        }
+    ],
+    "steal": [
+        "Call out version formats that defeat generic ordering.",
+        "Offer a supported path when a contribution is out of scope.",
+        "Test shell behavior through real child processes.",
+        "Start deprecation removal clocks from user-visible warnings.",
+        "Provide an equivalent check when a cache wrapper fails.",
+        "Write PR descriptions for their downstream release-note audience."
+    ],
+    "outline": [
+        "Repository Agent Guide",
+        "mbx build cache",
+        "Registry Submissions: READ THIS FIRST",
+        "Development Commands",
+        "Code Architecture",
+        "Development Guidelines",
+        "Deprecation Policy",
+        "Important Implementation Notes",
+        "GitHub Interactions",
+        "Documentation",
+        "Cursor Cloud specific instructions"
+    ],
+    "patterns": ["hard-prohibition", "contribution-etiquette", "verification-matrix"]
+}

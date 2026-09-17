@@ -1,0 +1,69 @@
+{
+    "slug": "streamlit",
+    "name": "Streamlit",
+    "owner": "streamlit",
+    "repo": "streamlit",
+    "language": "Python",
+    "stars": 45774,
+    "defaultBranch": "develop",
+    "instructionFile": "AGENTS.md",
+    "lastCommit": {
+        "sha": "9bfd9f093e42755676bf862d17ba20624bae9670",
+        "date": "2026-08-21T22:05:41Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 8862,
+        "lines": 108,
+        "words": 1208,
+        "headings": 7,
+        "bullets": 72,
+        "codeBlocks": 0,
+        "docLinks": 1
+    },
+    "tagline": "A Python framework for creating interactive data applications and dashboards.",
+    "hook": "Separates application hot reload from library changes that require a restart, and explains how session log pointers can move.",
+    "summary": "Streamlit's root instructions map its Python, React, and protobuf layers to distinct verification tasks. The guide also records dependency-policy exceptions, debugging lifecycles, and test wrappers needed for reliable local evidence.",
+    "references": [
+        {
+            "path": ".claude/skills/debugging-streamlit/SKILL.md"
+        },
+        {
+            "path": "wiki/new-feature-guide.md"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Explain which changes hot reload observes",
+            "body": "The debugging section distinguishes application script reruns from edits to the Streamlit library itself. Agents must restart the combined server for library changes instead of trusting a page that still runs old code.",
+            "quote": "Backend hot-reload: Only changes to the **app script** trigger a rerun. Changes to the Streamlit library itself (`lib/streamlit/`) require restarting `make debug`.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Keep concurrent debugging evidence tied to a session",
+            "body": "Logs are stored per session, and the latest symlink can change when another session starts. The file recommends the printed session directory so an investigation does not silently switch to someone else's logs.",
+            "quote": "If multiple sessions are running simultaneously, this symlink can move—prefer using the session directory printed by `make debug`.",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Separate development locks from public dependency contracts",
+            "body": "The root dependency groups let the lockfile own versions, but published package ranges serve a different purpose. The explicit exception prevents an internal dependency policy from narrowing or weakening the user-facing package contract.",
+            "quote": "This does NOT apply to `lib/pyproject.toml`, whose version ranges are the published package's contract with users.",
+            "pattern": "single-source"
+        },
+        {
+            "title": "Account for the environment used by hooks",
+            "body": "The shell policy requires running hook-triggering Git commands inside uv. It gives the pre-commit tools' environment requirement as the reason, covering commands that do not look like Python tasks.",
+            "quote": "Pre-commit hooks require the uv environment to run linters and formatters.",
+            "pattern": "verification-matrix"
+        }
+    ],
+    "steal": [
+        "Document what hot reload can and cannot observe.",
+        "Use stable session paths for concurrent debugging evidence.",
+        "Scope dependency rules separately for development and published packages.",
+        "Include hook environments in command guidance."
+    ],
+    "outline": ["Streamlit Repo Overview", "Tech Stack", "Folder Structure", "Shell & Build Policy", "`make` commands", "Testing Strategy"],
+    "patterns": ["verification-matrix", "behavioral-conditioning", "single-source"]
+}

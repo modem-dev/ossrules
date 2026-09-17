@@ -1,0 +1,1417 @@
+{
+    "version": 1,
+    "slug": "nx",
+    "repository": "nrwl/nx",
+    "branch": "master",
+    "sha": "646e806da0f311f0498165e1a83a47c71e71d34a",
+    "scannedAt": "2026-09-17T12:23:57.304Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [
+        {
+            "path": ".claude/skills/check-docs-style/SKILL.md",
+            "reason": "Invalid YAML frontmatter."
+        },
+        {
+            "path": ".claude/skills/docs-website-update/SKILL.md",
+            "reason": "Invalid YAML frontmatter."
+        }
+    ],
+    "skills": [
+        {
+            "id": "link-workspace-packages-5a0a4a85a5af",
+            "path": ".agents/skills/link-workspace-packages/SKILL.md",
+            "name": "link-workspace-packages",
+            "description": "Link workspace packages in monorepos (npm, yarn, pnpm, bun). USE WHEN: (1) you just created or generated new packages and need to wire up their dependencies, (2) user imports from a sibling package and needs to add it as a dependency, (3) you get resolution errors for workspace packages (@org/*) like \"cannot find module\", \"failed to resolve import\", \"TS2307\", or \"cannot resolve\". DO NOT patch around with tsconfig paths or manual package.json edits - use the package manager's workspace commands to fix actual linking.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "de1313497a3ce22432f2711e00c72b542334ef08",
+                    "bytes": 3046,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 8104246,
+                        "login": "FrozenPandaz",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "monitor-ci-40e0f4cc1ac4",
+            "path": ".agents/skills/monitor-ci/SKILL.md",
+            "name": "monitor-ci",
+            "description": "Monitor Nx Cloud CI pipeline and handle self-healing fixes. USE WHEN user says \"monitor ci\", \"watch ci\", \"ci monitor\", \"watch ci for this branch\", \"track ci\", \"check ci status\", wants to track CI status, or needs help with self-healing CI fixes. Prefer this skill over native CI provider tools (gh, glab, etc.) for CI monitoring — it integrates with Nx Cloud self-healing which those tools cannot access.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ad1bbc975facacd85dfb6c41f0ab1f9e8d763bfa",
+                    "bytes": 19032,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/fix-flows.md",
+                    "blob": "b33aa02167ba131240f9db144ca4dabbd0a46245",
+                    "bytes": 4935,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/ci-poll-decide.mjs",
+                    "blob": "15190eb30b13b62f5fa07682d35edb5df1949816",
+                    "bytes": 15989,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/ci-state-update.mjs",
+                    "blob": "f2b1aa297328326fc9f0b0f04b1c281c230a05f6",
+                    "bytes": 4644,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 8104246,
+                        "login": "FrozenPandaz",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "nx-generate-83216b892166",
+            "path": ".agents/skills/nx-generate/SKILL.md",
+            "name": "nx-generate",
+            "description": "Generate code using nx generators. INVOKE IMMEDIATELY when user mentions scaffolding, setup, structure, creating apps/libs, or setting up project structure. Trigger words - scaffold, setup, create a new app, create a new lib, project structure, generate, add a new project. ALWAYS use this BEFORE calling nx_docs or exploring - this skill handles discovery internally.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "f16d8b99597f5caa89d7e0b6c31acd606c26c670",
+                    "bytes": 7766,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 8104246,
+                        "login": "FrozenPandaz",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "nx-import-81274cd19ca3",
+            "path": ".agents/skills/nx-import/SKILL.md",
+            "name": "nx-import",
+            "description": "Import, merge, or combine repositories into an Nx workspace using nx import. USE WHEN the user asks to adopt Nx across repos, move projects into a monorepo, or bring code/history from another repository.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b1cd381d3ddb5beabdb8207cecb17d68604f61f6",
+                    "bytes": 13914,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/ESLINT.md",
+                    "blob": "ea4f75faaa74219bcb323c3d5c561eca521295e9",
+                    "bytes": 4307,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/GRADLE.md",
+                    "blob": "30dface2ea425749ef98b2b16a6766844edf5015",
+                    "bytes": 895,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/JEST.md",
+                    "blob": "64de5b7a9503fd98951a2e4757da8cb4718bad9d",
+                    "bytes": 6867,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/NEXT.md",
+                    "blob": "d9ec1f0b557669edad769c0aee696ce81ab1785b",
+                    "bytes": 11647,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/TURBOREPO.md",
+                    "blob": "b322b54466af278d18bcc63174dfd2cd4591cb95",
+                    "bytes": 4399,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/VITE.md",
+                    "blob": "d1874bfba362bc13616ee6eeb42a88c291adff3a",
+                    "bytes": 18691,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 8104246,
+                        "login": "FrozenPandaz",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "nx-plugins-581fd9d0f5a5",
+            "path": ".agents/skills/nx-plugins/SKILL.md",
+            "name": "nx-plugins",
+            "description": "Find and add Nx plugins. USE WHEN user wants to discover available plugins, install a new plugin, or add support for a specific framework or technology to the workspace.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "89223c7f2abf88a458253f7591c324a4fea802ee",
+                    "bytes": 355,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 8104246,
+                        "login": "FrozenPandaz",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "nx-run-tasks-f439ff8f4ee0",
+            "path": ".agents/skills/nx-run-tasks/SKILL.md",
+            "name": "nx-run-tasks",
+            "description": "Helps with running tasks in an Nx workspace. USE WHEN the user wants to execute build, test, lint, serve, or run any other tasks defined in the workspace.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7f1263a572503a8a1180a2e71e2cd851c71516d6",
+                    "bytes": 2468,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 8104246,
+                        "login": "FrozenPandaz",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "nx-workspace-8eafc88ac010",
+            "path": ".agents/skills/nx-workspace/SKILL.md",
+            "name": "nx-workspace",
+            "description": "Explore and understand Nx workspaces. USE WHEN answering questions about the workspace, projects, or tasks. ALSO USE WHEN an nx command fails or you need to check available targets/configuration before running a task. EXAMPLES: 'What projects are in this workspace?', 'How is project X configured?', 'What depends on library Y?', 'What targets can I run?', 'Cannot find configuration for task', 'debug nx task failure'.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "4b5110ad05b0cbf3ae1af3a2c975848e866abd9e",
+                    "bytes": 7669,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/AFFECTED.md",
+                    "blob": "e30f18f6a446b90eac9d0eee0c75ff4fb26cc512",
+                    "bytes": 661,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 8104246,
+                        "login": "FrozenPandaz",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "author-migration-027476e8d66a",
+            "path": ".claude/skills/author-migration/SKILL.md",
+            "name": "author-migration",
+            "description": "Author or scope a first-party Nx migration. Use whenever code removes, renames, or deprecates an option/flag/executor/generator-schema field, changes a default, or bumps a dependency, and someone asks whether existing workspaces need a migration so they don't break on `nx migrate`/upgrade. Covers writing the colocated update-VER/NAME.{ts,spec.ts,md} set, the migrations.json entry (version, requires, implementation, prompt, documentation) or packageJsonUpdates group, and the AI-agent prompt/runbook .md for prompt-only or hybrid (generator + prompt) migrations. Also covers porting an upstream framework's own migrations into Nx. Invoke BEFORE writing, fixing, or editing any migration, migration prompt/runbook, or packageJsonUpdates group, and before concluding a breaking change needs no migration at all.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "84552b31d0c1d8d636fa40816adbc69d84d50e0d",
+                    "bytes": 48160,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "deprecated-patterns.md",
+                    "blob": "e7eef99a084103c9f4aa1ea140daadac4f76eed6",
+                    "bytes": 13309,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "runtime-contract.md",
+                    "blob": "143cbbdcf22df27313cca289bab9788d5d5d89a0",
+                    "bytes": 13907,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/compute-target-versions.mjs",
+                    "blob": "4b66a537081a8e0c38212f98a48cc08115b3debb",
+                    "bytes": 2352,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "templates/documentation-md.md",
+                    "blob": "507825df8163448bd9f5ee63790d83d18c60d327",
+                    "bytes": 2135,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "templates/migrations-json.md",
+                    "blob": "edd3ff76b96647e15155b6449d5b258ec2266270",
+                    "bytes": 4130,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "templates/prompt-runbook.md",
+                    "blob": "23b6cb375085c742721d097a932d934f86733d3e",
+                    "bytes": 2179,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "templates/spec-skeleton.md",
+                    "blob": "a9ab8313739047983715a33f9cd0439460ea5c70",
+                    "bytes": 3058,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 12051310,
+                        "login": "leosvelperez",
+                        "commits": 3
+                    },
+                    {
+                        "id": 35996,
+                        "login": "vsavkin",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "dist-build-migration-feb88b5120e2",
+            "path": ".claude/skills/dist-build-migration/SKILL.md",
+            "name": "dist-build-migration",
+            "description": "Migrate an Nx package to build to a local dist/ directory with nodenext module resolution, exports map, and @nx/nx-source condition.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "703175f8eed370af1d130fc0a281ef2c393affeb",
+                    "bytes": 33323,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 8104246,
+                        "login": "FrozenPandaz",
+                        "commits": 8
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "grill-me-658b77beeb06",
+            "path": ".claude/skills/grill-me/SKILL.md",
+            "name": "grill-me",
+            "description": "Grill the user relentlessly about a plan, design, decision, or set of review findings — working the decision tree in rounds until nothing is left silently assumed. Use when the user wants to stress-test their thinking, says \"grill me\", or when another skill (for example /review-pr) delegates its evaluation pass here.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "8ce7dc66aba4d632d3890067c627e90d1d5c3949",
+                    "bytes": 4976,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 8104246,
+                        "login": "FrozenPandaz",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "multi-version-compliance-6f81a2ae2f85",
+            "path": ".claude/skills/multi-version-compliance/SKILL.md",
+            "name": "multi-version-compliance",
+            "description": "Apply or review multi-version support compliance for first-party Nx plugins. Primary entry point: a Linear task ID (NXC-XXXX) from the \"Multi-version supported across plugins\" milestone — the task carries the resolved support window, findings, and \"Needs human decision\" items. Falls back to self-discovery when no task exists. Use when asked to \"fix multi-version compliance for @nx/X\", \"do NXC-XXXX\", \"review this compliance PR\", or when working on a branch / PR titled \"multi-version support compliance for @nx/X\". Covers the canonical shape (assertSupportedPackageVersion, all-generators-enforce-floor.spec.ts, peer dep alignment, requires-gate auditing, user-pin preservation, executor / inferred-plugin feature gating).\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "748938420932511f4525ded73ad74f60dee699f1",
+                    "bytes": 24341,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/anti-patterns.md",
+                    "blob": "dffc2d7f599b20bc1ace8f7b610ba9048bb72134",
+                    "bytes": 20654,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/canonical-shape.md",
+                    "blob": "27d56ed5866585ab87502caa74c6ffdfd4c81197",
+                    "bytes": 45920,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/examples.md",
+                    "blob": "b607aec9f12e9ac877fead16cfe8ee19d375c281",
+                    "bytes": 11815,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/gotchas.md",
+                    "blob": "7fc8499cfddc8ec123a36d0283849c64f28c03e9",
+                    "bytes": 19195,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 12051310,
+                        "login": "leosvelperez",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "nx-gradle-plugin-version-bump-45793dbd57fe",
+            "path": ".claude/skills/nx-gradle-plugin-version-bump/SKILL.md",
+            "name": "nx-gradle-plugin-version-bump",
+            "description": "Bump the dev.nx.gradle.project-graph plugin version. Use when updating the Gradle project graph plugin version across the codebase, creating the migration files, and updating migrations.json.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "94dc4e7a596fd9cf70d0656d7785ff0ac0d57e47",
+                    "bytes": 5147,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 56288712,
+                        "login": "lourw",
+                        "commits": 2
+                    },
+                    {
+                        "id": 12051310,
+                        "login": "leosvelperez",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "nx-multi-repo-migrate-e7769a48d785",
+            "path": ".claude/skills/nx-multi-repo-migrate/SKILL.md",
+            "name": "nx-multi-repo-migrate",
+            "description": "Migrate several repos to a target nx version (e.g. 23.0.0-beta.25) in one coordinated pass — delegates `nx migrate` + migrations to a Polygraph child agent per repo, then pushes branches and opens linked draft PRs. Use when asked to upgrade/migrate multiple repos to a specific nx version, or when working a Polygraph session whose goal is an nx version bump across repos.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "0685c0e04a61b293c3bc9c58962aa59535b4d1c9",
+                    "bytes": 19164,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 8104246,
+                        "login": "FrozenPandaz",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "reproduce-issue-cf441a5cadb4",
+            "path": ".claude/skills/reproduce-issue/SKILL.md",
+            "name": "reproduce-issue",
+            "description": "The single skill for reproducing an nx issue. Given a GitHub issue number (human entry) OR explicit repro parameters (agent entry), it runs the reproduction ENTIRELY inside an isolated Docker sandbox — gVisor on Linux, the Docker VM on macOS — so the untrusted repro's install scripts and commands never execute on the host, then reports whether it reproduces. Called by humans via \"/reproduce-issue",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "8c6278e00b478ee0ee67b7d201f913bb5aa6aee1",
+                    "bytes": 10544,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 8104246,
+                        "login": "FrozenPandaz",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "review-local-branch-7b7e4162a3bc",
+            "path": ".claude/skills/review-local-branch/SKILL.md",
+            "name": "review-local-branch",
+            "description": "Deep code review of the branch you are standing on, before it becomes a PR. Scope is merge-base..working-tree, so it covers commits, staged and unstaged changes together. Runs the same review lanes as review-pr — implementation, verification, approach, security — against the local checkout through the sandbox CLI, and saves a draft to ~/.nx-branch-reviews/<branch>.md. Use when asked to review \"this branch\", \"my changes\", or work that is not yet on GitHub.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "4a16735c751b55fa421e647765d56cb4789a3b4a",
+                    "bytes": 15241,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6933928,
+                        "login": "AgentEnder",
+                        "commits": 1
+                    },
+                    {
+                        "id": 8104246,
+                        "login": "FrozenPandaz",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "review-pending-pr-reviews-aa05a4b1def4",
+            "path": ".claude/skills/review-pending-pr-reviews/SKILL.md",
+            "name": "review-pending-pr-reviews",
+            "description": "Review, grill, edit, and post pending PR review drafts saved by /review-pr (or its batch/cron runners). Lists drafts that have not yet been posted, walks the maintainer through each finding, then posts, closes, or discards. Use when the user says \"post my pending reviews\", \"what reviews are waiting\", \"go through the review outbox\", or invokes /review-pending-pr-reviews.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "306a4b8cdfa96e7999f0df9ac85ab604e3001c3c",
+                    "bytes": 15631,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 8104246,
+                        "login": "FrozenPandaz",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "review-pr-d3868df87b01",
+            "path": ".claude/skills/review-pr/SKILL.md",
+            "name": "review-pr",
+            "description": "Deep code review of a single open PR in nrwl/nx. Checks the PR out only inside an isolated sandbox, then runs four fixed reviewers: implementation (correctness, errors, types, performance), verification (tests, ticket grounding, comments, and docs), approach, and security. A reproduce-verifier executes a runnable repro only when verification identifies one. The skill saves a GitHub-flavored draft to ~/.nx-pr-reviews/<NUMBER>.md and never posts it. Claude reads/executes PR code only through the sandbox CLI; credentials never enter the sandbox.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "68f56d4cdd14c2a75bf35d383d6635b220281322",
+                    "bytes": 130092,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/replay-prior-patch.sh",
+                    "blob": "146d1af665d6cf11ae8481fee0aae835f852a85c",
+                    "bytes": 816,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 8104246,
+                        "login": "FrozenPandaz",
+                        "commits": 16
+                    },
+                    {
+                        "id": 6933928,
+                        "login": "AgentEnder",
+                        "commits": 2
+                    },
+                    {
+                        "id": 53559,
+                        "login": "jaysoo",
+                        "commits": 1
+                    },
+                    {
+                        "id": 12051310,
+                        "login": "leosvelperez",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "run-nx-generator-ab4e6f159eb9",
+            "path": ".claude/skills/run-nx-generator/SKILL.md",
+            "name": "run-nx-generator",
+            "description": "Run Nx generators with prioritization for workspace-plugin generators. Use this when generating code, scaffolding new features, or automating repetitive tasks in the monorepo.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "128fd95cfd32dc3bdca6efe84935a72d8a3246ed",
+                    "bytes": 2381,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 8104246,
+                        "login": "FrozenPandaz",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "setup-review-sandbox-1aa580205dda",
+            "path": ".claude/skills/setup-review-sandbox/SKILL.md",
+            "name": "setup-review-sandbox",
+            "description": "One-time setup of the sandbox prerequisites used by the reproduce-issue skill and the reproduce-verifier agent — Docker, the isolation runtime (gVisor on Linux / Colima on macOS), healthy container networking, and the nx-review-sandbox toolchain image (built from the repo's mise.toml). Idempotent; re-run any time to verify or repair. Use when the user says \"set up the review sandbox\", \"install the sandbox prereqs\", \"build the sandbox image\", or a reproduce-issue preflight reports something MISSING.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "1aeaad4a0c128a2ac6cb3b47643820030449e8f7",
+                    "bytes": 7087,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 8104246,
+                        "login": "FrozenPandaz",
+                        "commits": 4
+                    },
+                    {
+                        "id": 6933928,
+                        "login": "AgentEnder",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "update-cnw-templates-591d3642469e",
+            "path": ".claude/skills/update-cnw-templates/SKILL.md",
+            "name": "update-cnw-templates",
+            "description": "Update the CNW (create-nx-workspace) template repos (nrwl/empty-template, nrwl/react-template, etc.) to a target nx version via nx migrate, verify each repo, and open a PR per repo. Clones repos it needs - assumes no local checkout. Use when asked to \"update the CNW templates\", \"migrate the templates to nx X\", \"bump the template repos\", or given a version like \"update templates to 23.2.0\".",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7434c0b35129877397ef8f6a2ad101e157eaa5da",
+                    "bytes": 7796,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "run-all-templates.sh",
+                    "blob": "09e9ddfca60c78872b45eebfaea2af4307391294",
+                    "bytes": 2622,
+                    "text": true,
+                    "mode": "100755"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 53559,
+                        "login": "jaysoo",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "ci-monitor-1844a46a2099",
+            "path": ".cursor/skills/ci-monitor/SKILL.md",
+            "name": "ci-monitor",
+            "description": "Monitor Nx Cloud CI pipeline and handle self-healing fixes automatically. Checks for Nx Cloud connection before starting.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "f38eeafde2282d44fe24cdc7220c996299b0ee3d",
+                    "bytes": 20959,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34165455,
+                        "login": "MaxKless",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "nx-generate-e7ccd6cc246c",
+            "path": ".cursor/skills/nx-generate/SKILL.md",
+            "name": "nx-generate",
+            "description": "Generate code using nx generators. USE WHEN scaffolding code or transforming existing code - for example creating libraries or applications, or anything else that is boilerplate code or automates repetitive tasks. ALWAYS use this first when generating code with Nx instead of calling MCP tools or running nx generate immediately.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "fcc525c87ab2deed21bb8f21022ba81aafc7d14d",
+                    "bytes": 8689,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34165455,
+                        "login": "MaxKless",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "nx-plugins-eec7e57c0369",
+            "path": ".cursor/skills/nx-plugins/SKILL.md",
+            "name": "nx-plugins",
+            "description": "Find and add Nx plugins. USE WHEN user wants to discover available plugins, install a new plugin, or add support for a specific framework or technology to the workspace.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "89223c7f2abf88a458253f7591c324a4fea802ee",
+                    "bytes": 355,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34165455,
+                        "login": "MaxKless",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "nx-run-tasks-dc92206c3a8c",
+            "path": ".cursor/skills/nx-run-tasks/SKILL.md",
+            "name": "nx-run-tasks",
+            "description": "Helps with running tasks in an Nx workspace. USE WHEN the user wants to execute build, test, lint, serve, or run any other tasks defined in the workspace.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7f1263a572503a8a1180a2e71e2cd851c71516d6",
+                    "bytes": 2468,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34165455,
+                        "login": "MaxKless",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "nx-workspace-514095c45cac",
+            "path": ".cursor/skills/nx-workspace/SKILL.md",
+            "name": "nx-workspace",
+            "description": "Explore and understand Nx workspaces. USE WHEN answering any questions about the nx workspace, the projects in it or tasks to run. EXAMPLES: 'What projects are in this workspace?', 'How is project X configured?', 'What targets can I run?', 'What's affected by my changes?', 'Which projects depend on library Y?', or any questions about Nx workspace structure, project configuration, or available tasks.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "a43955ca16efdc50f0fa6aeaa07995db7e9f8643",
+                    "bytes": 5471,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34165455,
+                        "login": "MaxKless",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "ci-monitor-ae7c90d65ff7",
+            "path": ".github/skills/ci-monitor/SKILL.md",
+            "name": "ci-monitor",
+            "description": "Monitor Nx Cloud CI pipeline and handle self-healing fixes automatically. Checks for Nx Cloud connection before starting.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "f38eeafde2282d44fe24cdc7220c996299b0ee3d",
+                    "bytes": 20959,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34165455,
+                        "login": "MaxKless",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "link-workspace-packages-7582dad2fb30",
+            "path": ".github/skills/link-workspace-packages/SKILL.md",
+            "name": "link-workspace-packages",
+            "description": "Link workspace packages in monorepos (npm, yarn, pnpm, bun). USE WHEN: (1) you just created or generated new packages and need to wire up their dependencies, (2) user imports from a sibling package and needs to add it as a dependency, (3) you get resolution errors for workspace packages (@org/*) like \"cannot find module\", \"failed to resolve import\", \"TS2307\", or \"cannot resolve\". DO NOT patch around with tsconfig paths or manual package.json edits - use the package manager's workspace commands to fix actual linking.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "de1313497a3ce22432f2711e00c72b542334ef08",
+                    "bytes": 3046,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 8104246,
+                        "login": "FrozenPandaz",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "monitor-ci-8b217cffc920",
+            "path": ".github/skills/monitor-ci/SKILL.md",
+            "name": "monitor-ci",
+            "description": "Monitor Nx Cloud CI pipeline and handle self-healing fixes. USE WHEN user says \"monitor ci\", \"watch ci\", \"ci monitor\", \"watch ci for this branch\", \"track ci\", \"check ci status\", wants to track CI status, or needs help with self-healing CI fixes. Prefer this skill over native CI provider tools (gh, glab, etc.) for CI monitoring — it integrates with Nx Cloud self-healing which those tools cannot access.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ad1bbc975facacd85dfb6c41f0ab1f9e8d763bfa",
+                    "bytes": 19032,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/fix-flows.md",
+                    "blob": "b33aa02167ba131240f9db144ca4dabbd0a46245",
+                    "bytes": 4935,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/ci-poll-decide.mjs",
+                    "blob": "15190eb30b13b62f5fa07682d35edb5df1949816",
+                    "bytes": 15989,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/ci-state-update.mjs",
+                    "blob": "f2b1aa297328326fc9f0b0f04b1c281c230a05f6",
+                    "bytes": 4644,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 8104246,
+                        "login": "FrozenPandaz",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "nx-generate-1ec159cb3a2d",
+            "path": ".github/skills/nx-generate/SKILL.md",
+            "name": "nx-generate",
+            "description": "Generate code using nx generators. INVOKE IMMEDIATELY when user mentions scaffolding, setup, structure, creating apps/libs, or setting up project structure. Trigger words - scaffold, setup, create a new app, create a new lib, project structure, generate, add a new project. ALWAYS use this BEFORE calling nx_docs or exploring - this skill handles discovery internally.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "f16d8b99597f5caa89d7e0b6c31acd606c26c670",
+                    "bytes": 7766,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 8104246,
+                        "login": "FrozenPandaz",
+                        "commits": 1
+                    },
+                    {
+                        "id": 34165455,
+                        "login": "MaxKless",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "nx-import-384d158f1c73",
+            "path": ".github/skills/nx-import/SKILL.md",
+            "name": "nx-import",
+            "description": "Import, merge, or combine repositories into an Nx workspace using nx import. USE WHEN the user asks to adopt Nx across repos, move projects into a monorepo, or bring code/history from another repository.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b1cd381d3ddb5beabdb8207cecb17d68604f61f6",
+                    "bytes": 13914,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/ESLINT.md",
+                    "blob": "ea4f75faaa74219bcb323c3d5c561eca521295e9",
+                    "bytes": 4307,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/GRADLE.md",
+                    "blob": "30dface2ea425749ef98b2b16a6766844edf5015",
+                    "bytes": 895,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/JEST.md",
+                    "blob": "64de5b7a9503fd98951a2e4757da8cb4718bad9d",
+                    "bytes": 6867,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/NEXT.md",
+                    "blob": "d9ec1f0b557669edad769c0aee696ce81ab1785b",
+                    "bytes": 11647,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/TURBOREPO.md",
+                    "blob": "b322b54466af278d18bcc63174dfd2cd4591cb95",
+                    "bytes": 4399,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/VITE.md",
+                    "blob": "d1874bfba362bc13616ee6eeb42a88c291adff3a",
+                    "bytes": 18691,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 8104246,
+                        "login": "FrozenPandaz",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "nx-plugins-f6f6dee09b77",
+            "path": ".github/skills/nx-plugins/SKILL.md",
+            "name": "nx-plugins",
+            "description": "Find and add Nx plugins. USE WHEN user wants to discover available plugins, install a new plugin, or add support for a specific framework or technology to the workspace.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "89223c7f2abf88a458253f7591c324a4fea802ee",
+                    "bytes": 355,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34165455,
+                        "login": "MaxKless",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "nx-run-tasks-3b15f490e08c",
+            "path": ".github/skills/nx-run-tasks/SKILL.md",
+            "name": "nx-run-tasks",
+            "description": "Helps with running tasks in an Nx workspace. USE WHEN the user wants to execute build, test, lint, serve, or run any other tasks defined in the workspace.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7f1263a572503a8a1180a2e71e2cd851c71516d6",
+                    "bytes": 2468,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34165455,
+                        "login": "MaxKless",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "nx-workspace-bfaa223f2893",
+            "path": ".github/skills/nx-workspace/SKILL.md",
+            "name": "nx-workspace",
+            "description": "Explore and understand Nx workspaces. USE WHEN answering questions about the workspace, projects, or tasks. ALSO USE WHEN an nx command fails or you need to check available targets/configuration before running a task. EXAMPLES: 'What projects are in this workspace?', 'How is project X configured?', 'What depends on library Y?', 'What targets can I run?', 'Cannot find configuration for task', 'debug nx task failure'.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "4b5110ad05b0cbf3ae1af3a2c975848e866abd9e",
+                    "bytes": 7669,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/AFFECTED.md",
+                    "blob": "e30f18f6a446b90eac9d0eee0c75ff4fb26cc512",
+                    "bytes": 661,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 8104246,
+                        "login": "FrozenPandaz",
+                        "commits": 1
+                    },
+                    {
+                        "id": 34165455,
+                        "login": "MaxKless",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "ci-monitor-f059c7b4ab84",
+            "path": ".opencode/skills/ci-monitor/SKILL.md",
+            "name": "ci-monitor",
+            "description": "Monitor Nx Cloud CI pipeline and handle self-healing fixes automatically. Checks for Nx Cloud connection before starting.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "f38eeafde2282d44fe24cdc7220c996299b0ee3d",
+                    "bytes": 20959,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34165455,
+                        "login": "MaxKless",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "link-workspace-packages-a47e235dcb46",
+            "path": ".opencode/skills/link-workspace-packages/SKILL.md",
+            "name": "link-workspace-packages",
+            "description": "Link workspace packages in monorepos (npm, yarn, pnpm, bun). USE WHEN: (1) you just created or generated new packages and need to wire up their dependencies, (2) user imports from a sibling package and needs to add it as a dependency, (3) you get resolution errors for workspace packages (@org/*) like \"cannot find module\", \"failed to resolve import\", \"TS2307\", or \"cannot resolve\". DO NOT patch around with tsconfig paths or manual package.json edits - use the package manager's workspace commands to fix actual linking.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "de1313497a3ce22432f2711e00c72b542334ef08",
+                    "bytes": 3046,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 8104246,
+                        "login": "FrozenPandaz",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "monitor-ci-869651775e9e",
+            "path": ".opencode/skills/monitor-ci/SKILL.md",
+            "name": "monitor-ci",
+            "description": "Monitor Nx Cloud CI pipeline and handle self-healing fixes. USE WHEN user says \"monitor ci\", \"watch ci\", \"ci monitor\", \"watch ci for this branch\", \"track ci\", \"check ci status\", wants to track CI status, or needs help with self-healing CI fixes. Prefer this skill over native CI provider tools (gh, glab, etc.) for CI monitoring — it integrates with Nx Cloud self-healing which those tools cannot access.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ad1bbc975facacd85dfb6c41f0ab1f9e8d763bfa",
+                    "bytes": 19032,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/fix-flows.md",
+                    "blob": "b33aa02167ba131240f9db144ca4dabbd0a46245",
+                    "bytes": 4935,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/ci-poll-decide.mjs",
+                    "blob": "15190eb30b13b62f5fa07682d35edb5df1949816",
+                    "bytes": 15989,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/ci-state-update.mjs",
+                    "blob": "f2b1aa297328326fc9f0b0f04b1c281c230a05f6",
+                    "bytes": 4644,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 8104246,
+                        "login": "FrozenPandaz",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "nx-generate-59f3a261231f",
+            "path": ".opencode/skills/nx-generate/SKILL.md",
+            "name": "nx-generate",
+            "description": "Generate code using nx generators. INVOKE IMMEDIATELY when user mentions scaffolding, setup, structure, creating apps/libs, or setting up project structure. Trigger words - scaffold, setup, create a new app, create a new lib, project structure, generate, add a new project. ALWAYS use this BEFORE calling nx_docs or exploring - this skill handles discovery internally.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "f16d8b99597f5caa89d7e0b6c31acd606c26c670",
+                    "bytes": 7766,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 8104246,
+                        "login": "FrozenPandaz",
+                        "commits": 1
+                    },
+                    {
+                        "id": 34165455,
+                        "login": "MaxKless",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "nx-import-05a0951ae766",
+            "path": ".opencode/skills/nx-import/SKILL.md",
+            "name": "nx-import",
+            "description": "Import, merge, or combine repositories into an Nx workspace using nx import. USE WHEN the user asks to adopt Nx across repos, move projects into a monorepo, or bring code/history from another repository.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b1cd381d3ddb5beabdb8207cecb17d68604f61f6",
+                    "bytes": 13914,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/ESLINT.md",
+                    "blob": "ea4f75faaa74219bcb323c3d5c561eca521295e9",
+                    "bytes": 4307,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/GRADLE.md",
+                    "blob": "30dface2ea425749ef98b2b16a6766844edf5015",
+                    "bytes": 895,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/JEST.md",
+                    "blob": "64de5b7a9503fd98951a2e4757da8cb4718bad9d",
+                    "bytes": 6867,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/NEXT.md",
+                    "blob": "d9ec1f0b557669edad769c0aee696ce81ab1785b",
+                    "bytes": 11647,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/TURBOREPO.md",
+                    "blob": "b322b54466af278d18bcc63174dfd2cd4591cb95",
+                    "bytes": 4399,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/VITE.md",
+                    "blob": "d1874bfba362bc13616ee6eeb42a88c291adff3a",
+                    "bytes": 18691,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 8104246,
+                        "login": "FrozenPandaz",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "nx-plugins-91d59e2c0091",
+            "path": ".opencode/skills/nx-plugins/SKILL.md",
+            "name": "nx-plugins",
+            "description": "Find and add Nx plugins. USE WHEN user wants to discover available plugins, install a new plugin, or add support for a specific framework or technology to the workspace.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "89223c7f2abf88a458253f7591c324a4fea802ee",
+                    "bytes": 355,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34165455,
+                        "login": "MaxKless",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "nx-run-tasks-fdbab3ffeebc",
+            "path": ".opencode/skills/nx-run-tasks/SKILL.md",
+            "name": "nx-run-tasks",
+            "description": "Helps with running tasks in an Nx workspace. USE WHEN the user wants to execute build, test, lint, serve, or run any other tasks defined in the workspace.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7f1263a572503a8a1180a2e71e2cd851c71516d6",
+                    "bytes": 2468,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 34165455,
+                        "login": "MaxKless",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "nx-workspace-b7dae8cd04c2",
+            "path": ".opencode/skills/nx-workspace/SKILL.md",
+            "name": "nx-workspace",
+            "description": "Explore and understand Nx workspaces. USE WHEN answering questions about the workspace, projects, or tasks. ALSO USE WHEN an nx command fails or you need to check available targets/configuration before running a task. EXAMPLES: 'What projects are in this workspace?', 'How is project X configured?', 'What depends on library Y?', 'What targets can I run?', 'Cannot find configuration for task', 'debug nx task failure'.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "4b5110ad05b0cbf3ae1af3a2c975848e866abd9e",
+                    "bytes": 7669,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/AFFECTED.md",
+                    "blob": "e30f18f6a446b90eac9d0eee0c75ff4fb26cc512",
+                    "bytes": 661,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 8104246,
+                        "login": "FrozenPandaz",
+                        "commits": 1
+                    },
+                    {
+                        "id": 34165455,
+                        "login": "MaxKless",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "d1e6bd3c5113ab4b1843ef7a175754ba45368337",
+        "bytes": 9130,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "00fa6062439cf3d8b94d7d651332ae58b8248aa6",
+        "bytes": 1093,
+        "text": true,
+        "mode": "100644"
+    }
+}

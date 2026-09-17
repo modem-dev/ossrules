@@ -1,0 +1,29 @@
+{
+    "slug": "moon",
+    "sha": "24a88ae41d4a5316031d49d5a8cc0f6bed30ba96",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 4871,
+            "lines": 101
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "AGENTS.md"
+                }
+            ]
+        },
+        {
+            "path": "CONTRIBUTING.md",
+            "bytes": 5934,
+            "lines": 164
+        }
+    ]
+}

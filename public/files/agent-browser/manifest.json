@@ -1,0 +1,57 @@
+{
+    "slug": "agent-browser",
+    "sha": "cd4719211666c7ba8170fc9d3f16c2946bcb1643",
+    "license": "Apache-2.0",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 7794,
+            "lines": 152
+        },
+        {
+            "path": "CHANGELOG.md",
+            "bytes": 78189,
+            "lines": 1358,
+            "truncated": true
+        },
+        {
+            "path": "docs/src/app/changelog/page.mdx",
+            "bytes": 75884,
+            "lines": 1589,
+            "truncated": true
+        },
+        {
+            "path": "examples/eve/AGENTS.md",
+            "bytes": 135,
+            "lines": 3
+        },
+        {
+            "path": "examples/eve/CLAUDE.md",
+            "bytes": 11,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "examples/eve/AGENTS.md"
+                }
+            ]
+        },
+        {
+            "path": "README.md",
+            "bytes": 99233,
+            "lines": 2005,
+            "truncated": true
+        },
+        {
+            "path": "skill-data/core/SKILL.md",
+            "bytes": 37490,
+            "lines": 578
+        },
+        {
+            "path": "skills/agent-browser/SKILL.md",
+            "bytes": 3457,
+            "lines": 52
+        }
+    ]
+}
