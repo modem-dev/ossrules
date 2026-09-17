@@ -1,0 +1,79 @@
+{
+    "slug": "payload",
+    "name": "Payload",
+    "owner": "payloadcms",
+    "repo": "payload",
+    "language": "TypeScript",
+    "stars": 44780,
+    "defaultBranch": "main",
+    "instructionFile": "CLAUDE.md",
+    "lastCommit": {
+        "sha": "2bdb79f1d6b99e829108f1bdfba392abfa892c33",
+        "date": "2026-09-08T16:03:32Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 20959,
+        "lines": 466,
+        "words": 2807,
+        "headings": 28,
+        "bullets": 126,
+        "codeBlocks": 14,
+        "docLinks": 1
+    },
+    "tagline": "A TypeScript CMS and application backend integrated with Next.js.",
+    "hook": "Shows how the local API bypasses access control by default and why development mode cannot verify bundling changes.",
+    "summary": "Payload's substantive instructions live in CLAUDE.md; its AGENTS.md is a short pointer. The guide combines CMS architecture and test-fixture conventions with concrete examples for access control, React memoization, CSS, and server/client imports.",
+    "references": [],
+    "techniques": [
+        {
+            "title": "Make an unsafe default visible at the call site",
+            "body": "Server functions and endpoints must supply both overrideAccess: false and the user to Payload operations. The guide contrasts a bare find call with the access-controlled form and explains the security consequence.",
+            "quote": "**Building server functions, views, or endpoints:** Always use `overrideAccess: false` and pass the `user` to payload operations. Without these, the operation runs with access control disabled, which is a security vulnerability.",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Put database lifecycle in the shared fixture",
+            "body": "Integration tests use the repository's test wrapper instead of initializing Payload or seeding the database themselves. The fixture owns initialization, per-test reset, and cleanup, with an explicit exception for existing shared-state suites.",
+            "quote": "Do not initialize Payload manually or add database reset/seed hooks; the fixture initializes\n  Payload once per file, resets and seeds before each test that uses it, and destroys it afterward",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Make visual baselines reproducible across machines",
+            "body": "Screenshot baselines must be generated inside the pinned Playwright Docker image. The reason is the effect of operating-system font rendering on comparisons, even when the UI has not changed.",
+            "quote": "**Baselines must be generated/updated inside the pinned Playwright Docker image**, never on a\n  bare host — font rendering differs enough between operating systems to fail the comparison on\n  CI even when nothing visually changed. Use `pnpm test:visual:update`.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Verify bundling in the mode where it can fail",
+            "body": "The server/client import rules explain why relative imports and barrel exports can cause production-only problems. The required verification builds and serves production output rather than relying on the dev server.",
+            "quote": "**Testing bundling changes:** Always test with `pnpm prepare-run-test-against-prod` followed by `pnpm dev:prod <suite>`. Dev mode (`pnpm dev`) doesn't catch these issues.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Show physical and logical CSS properties side by side",
+            "body": "A bad/good pair replaces left and right properties with inline-direction equivalents. The example makes the RTL requirement concrete across spacing, borders, and positioning.",
+            "quote": "/* BAD - physical properties don't flip for RTL */\npadding-left: var(--spacer-3);\nmargin-right: var(--spacer-2);\nborder-left: 1px solid var(--color-border);\nleft: 0;\n\n/* GOOD - logical properties adapt automatically */\npadding-inline-start: var(--spacer-3);\nmargin-inline-end: var(--spacer-2);\nborder-inline-start: var(--stroke-width-small) solid var(--color-border);\ninset-inline-start: 0;",
+            "pattern": "worked-examples"
+        }
+    ],
+    "steal": [
+        "Identify security-sensitive defaults and the parameters that override them.",
+        "Give shared test fixtures clear ownership of setup and cleanup.",
+        "Pin the environment used to generate visual baselines.",
+        "Map production-only failure modes to production-mode checks."
+    ],
+    "outline": [
+        "Project Structure",
+        "Quick Start",
+        "Build Commands",
+        "Development",
+        "Testing",
+        "Linting & Formatting",
+        "Internationalization",
+        "Commit & PR Guidelines",
+        "Additional Resources",
+        "Admin Panel"
+    ],
+    "patterns": ["hard-prohibition", "behavioral-conditioning", "verification-matrix", "worked-examples"]
+}

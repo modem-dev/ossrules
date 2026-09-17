@@ -1,0 +1,95 @@
+{
+    "slug": "pytorch",
+    "name": "PyTorch",
+    "owner": "pytorch",
+    "repo": "pytorch",
+    "language": "Python",
+    "stars": 103057,
+    "defaultBranch": "main",
+    "instructionFile": "CLAUDE.md",
+    "lastCommit": {
+        "sha": "a471a58d241b08025dcb4ec69c2d30e5a49a757a",
+        "date": "2026-08-08T22:41:23Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 15226,
+        "lines": 343,
+        "words": 2290,
+        "headings": 26,
+        "bullets": 36,
+        "codeBlocks": 6,
+        "docLinks": 0
+    },
+    "tagline": "A tensor and machine-learning framework with Python APIs and native CPU and GPU implementations.",
+    "hook": "Explains why a README edit can rebuild CI images and why one page of check results can make a failing PR look green.",
+    "summary": "PyTorch's root AGENTS.md points to CLAUDE.md, which combines contribution policy with native-build, testing, CUDA, and ghstack guidance. Many rules identify a failure mode that ordinary Python or Git habits would miss, then supply a specific replacement.",
+    "references": [
+        {
+            "path": "AI_POLICY.md"
+        },
+        {
+            "path": ".claude/skills/pr-review/SKILL.md"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Expose the cost hidden behind a documentation edit",
+            "body": "The Docker directory is content-hashed as a whole, so even its README participates in rebuild decisions. The guide warns against touching that directory during an upstream build outage unless a rebuild is intended.",
+            "quote": "Any file change inside `.ci/docker/` (including the README)\nchanges the hash and triggers a full Docker image rebuild.",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Distinguish intentional detached HEAD from a missing branch",
+            "body": "The Git section treats detached HEAD as part of ghstack, while ordinary branch work should branch first. The subsequent workflow preserves metadata trailers and routes submission through ghstack.",
+            "quote": "If HEAD is detached, that is intentional (the ghstack workflow). Do NOT\n  create a new branch; commit directly onto the current detached HEAD.",
+            "pattern": "scope-layering"
+        },
+        {
+            "title": "Name a verification result that can be falsely green",
+            "body": "A PR can have more check runs than one API page returns. The file replaces a fixed-size check-runs request with gh pr checks so omitted results are not interpreted as success.",
+            "quote": "A PR has hundreds of check-runs, so a single\n  `check-runs?per_page=100` call silently truncates and makes red look green.",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Reject a lint suppression that removes a runtime check",
+            "body": "The S101 guidance explains that Python optimization strips assert statements. It shows an explicit conditional and AssertionError replacement, then preserves the original message and NaN-sensitive comparison semantics.",
+            "quote": "# Bad - silences the rule; the check disappears under `python -O`\nassert isinstance(x, Foo)  # noqa: S101\n\n# Good\nif not isinstance(x, Foo):\n    raise AssertionError(f\"expected Foo, got {type(x)}\")",
+            "pattern": "worked-examples"
+        },
+        {
+            "title": "Edit type-stub templates rather than their products",
+            "body": "The type-stub section names .pyi.in as the editable source for generated .pyi files. The distinction is stated directly so a type fix survives regeneration.",
+            "quote": "Many `.pyi` files are generated from corresponding `.pyi.in` templates. Always\nedit the `.pyi.in` file, not the generated `.pyi`.",
+            "pattern": "generated-file-guard"
+        }
+    ],
+    "steal": [
+        "Name changes whose operational cost is larger than their diff suggests.",
+        "Detect the repository's workflow before applying generic Git habits.",
+        "Document pagination limits that can conceal verification failures.",
+        "Explain runtime semantics behind lint rules instead of recommending suppression."
+    ],
+    "outline": [
+        "AI Policy — MANDATORY",
+        "Scratch Space",
+        "PR Review",
+        "Environment",
+        "CI Docker Images",
+        "Build",
+        "Testing",
+        "Type Stubs",
+        "Linting",
+        "Git",
+        "Commit messages",
+        "ghstack Workflow",
+        "Coding Style Guidelines",
+        "cuda.bindings Error Checking",
+        "cuda.bindings Raw Handles",
+        "Dynamo Config",
+        "Fixing B950 line too long in multi-line string blocks",
+        "Logging and Structured Tracing",
+        "cuda::ptx"
+    ],
+    "patterns": ["behavioral-conditioning", "scope-layering", "worked-examples", "generated-file-guard"]
+}

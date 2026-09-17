@@ -1,0 +1,72 @@
+{
+    "slug": "ray",
+    "name": "Ray",
+    "owner": "ray-project",
+    "repo": "ray",
+    "language": "Python",
+    "stars": 43836,
+    "defaultBranch": "master",
+    "instructionFile": "AGENTS.md",
+    "lastCommit": {
+        "sha": "62618a9d012b258d73a6d7f1ab5c4c1a665ce471",
+        "date": "2026-07-14T18:33:21Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 3741,
+        "lines": 99,
+        "words": 533,
+        "headings": 11,
+        "bullets": 18,
+        "codeBlocks": 3,
+        "docLinks": 3
+    },
+    "tagline": "A distributed framework for scaling AI workloads and Python applications.",
+    "hook": "Treats duplicate PRs and trivial automated cleanups as a cost to maintainers, with explicit stop conditions.",
+    "summary": "Ray puts contribution policy before development setup. It supplies duplicate-work checks, requires human accountability and local test evidence, and routes build and style details to existing guides instead of duplicating them.",
+    "references": [
+        {
+            "path": "doc/source/ray-contribute/getting-involved.md"
+        },
+        {
+            "path": "doc/source/ray-contribute/development.md"
+        },
+        {
+            "path": "CONTRIBUTING.rst"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Explain the maintainer cost before prescribing behavior",
+            "body": "The opening connects a PR to notifications, CI runs, and reviewer attention. That rationale frames the later restrictions on duplicate work and mass-generated cleanup.",
+            "quote": "Every PR notifies CODEOWNERS, triggers CI, and\nconsumes maintainer attention.",
+            "pattern": "contribution-etiquette"
+        },
+        {
+            "title": "Specify when the agent should stop before submission",
+            "body": "Duplicate work, trivial busywork, and changes that a human cannot test or defend are separate reasons not to open a PR. The fallback is a short explanation of what is missing.",
+            "quote": "If the requested work is a duplicate, trivial busywork, or cannot be tested and\ndefended by a human, **do not open a PR**. Return a short explanation of what is\nmissing instead.",
+            "pattern": "hard-prohibition"
+        },
+        {
+            "title": "Require evidence in the PR description",
+            "body": "The description must establish that the work is distinct, identify test commands and outcomes, and disclose assistance. These requirements complement the instruction that the human review every changed line.",
+            "quote": "- PR descriptions for AI-assisted work **must** state:\n    - Why this is not duplicating an existing issue or PR.\n    - The test commands run and their results.\n    - That AI assistance was used.",
+            "pattern": "contribution-etiquette"
+        },
+        {
+            "title": "Route setup to existing contributor guides",
+            "body": "The root gives a short project layout and test timeout, then links to setup, build, and contribution documents. Detailed command guidance remains with those existing sources.",
+            "quote": "For build, test, lint, and\ncode-style details, follow Ray's existing guides rather than duplicating them\nhere:",
+            "pattern": "single-source"
+        }
+    ],
+    "steal": [
+        "Explain which shared resources an automated contribution consumes.",
+        "Give explicit stop conditions and a useful fallback response.",
+        "Require test outcomes and a duplicate-work check in contribution evidence.",
+        "Link to existing setup guides instead of copying their command lists."
+    ],
+    "outline": ["1. Contribution Policy (Mandatory)", "2. Development Workflow", "3. Editing these instructions"],
+    "patterns": ["contribution-etiquette", "hard-prohibition", "single-source"]
+}

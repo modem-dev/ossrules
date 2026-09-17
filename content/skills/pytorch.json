@@ -1,0 +1,622 @@
+{
+    "version": 1,
+    "slug": "pytorch",
+    "repository": "pytorch/pytorch",
+    "branch": "main",
+    "sha": "75c19b73eeff64589612fba95622856a621da4d5",
+    "scannedAt": "2026-09-17T12:02:18.141Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "add-uint-support-c2174b028f3d",
+            "path": ".claude/skills/add-uint-support/SKILL.md",
+            "name": "add-uint-support",
+            "description": "Add unsigned integer (uint) type support to PyTorch operators by updating AT_DISPATCH macros. Use when adding support for uint16, uint32, uint64 types to operators, kernels, or when user mentions enabling unsigned types, barebones unsigned types, or uint support.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "a4859fdeae55c524f3f83da9d7caf4e080b57a66",
+                    "bytes": 9281,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 13564,
+                        "login": "ezyang",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "aoti-debug-d6171ef18ad8",
+            "path": ".claude/skills/aoti-debug/SKILL.md",
+            "name": "aoti-debug",
+            "description": "Debug AOTInductor (AOTI) errors and crashes. Use when encountering AOTI segfaults, device mismatch errors, constant loading failures, or runtime errors from aot_compile, aot_load, aoti_compile_and_package, or aoti_load_package.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "a790d1b15c26ead3beed066ef3e523f90e2d20f8",
+                    "bytes": 6778,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "triton-index-out-of-bounds.md",
+                    "blob": "fee827e32feb2280c7d54b4bbc38d3d660c6279d",
+                    "bytes": 6661,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 22356083,
+                        "login": "yushangdi",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "at-dispatch-v2-f01b0bd3a7d6",
+            "path": ".claude/skills/at-dispatch-v2/SKILL.md",
+            "name": "at-dispatch-v2",
+            "description": "Convert PyTorch AT_DISPATCH macros to AT_DISPATCH_V2 format in ATen C++ code. Use when porting AT_DISPATCH_ALL_TYPES_AND*, AT_DISPATCH_FLOATING_TYPES*, or other dispatch macros to the new v2 API. For ATen kernel files, CUDA kernels, and native operator implementations.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "eb9946c1d03b20444e64cbe26af391c2483f38ed",
+                    "bytes": 8788,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 13564,
+                        "login": "ezyang",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "ci-metrics-e46012622ef0",
+            "path": ".claude/skills/ci-metrics/SKILL.md",
+            "name": "ci-metrics",
+            "description": "Query PyTorch CI, GitHub Actions, HUD, Grafana, and infrastructure metrics. Use when users ask about CI duration, job failures, queue times, workflow trends, runner health, dashboard data, or PyTorch infrastructure metrics.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "56fc3056334c7c65ef8fcf69d1cff08ee0e0e2d1",
+                    "bytes": 4579,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "gcx-wrapper.sh",
+                    "blob": "9cc6e7571fbc63532b57082053933b660dc0dcc7",
+                    "bytes": 2584,
+                    "text": true,
+                    "mode": "100755"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 4391247,
+                        "login": "jathu",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "cuda-index-width-7ad1bed52023",
+            "path": ".claude/skills/cuda-index-width/SKILL.md",
+            "name": "cuda-index-width",
+            "description": "Choose 32-bit vs 64-bit index math in PyTorch CUDA kernels. Use when fixing large-tensor indexing overflows, deciding whether to use int64_t, canUse32BitIndexMath, CUDA_KERNEL_LOOP_TYPE, or AT_DISPATCH_INDEX_TYPES, and when considering binary-size or performance impact of index-type templating.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "987e295470faca093b55287c925b9045d31f4c3b",
+                    "bytes": 6445,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 32754868,
+                        "login": "drisspg",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "distributed-triage-534859ec0c98",
+            "path": ".claude/skills/distributed-triage/SKILL.md",
+            "name": "distributed-triage",
+            "description": "Sub-triages issues in the oncall:distributed queue by assigning distributed module labels, routing to sub-oncalls, and marking triaged. Use when an issue has been routed to oncall:distributed and needs second-level triage.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "e04500ec5bf95c2ba1646ed5744c6664e465d1f2",
+                    "bytes": 11368,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "distributed-labels.json",
+                    "blob": "8304d25989033301603a3e660f0dbee0bbe44043",
+                    "bytes": 3156,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "distributed-rubric.md",
+                    "blob": "bd6eaf75c6649bdd8e46b412c3ac47c61c0a6425",
+                    "bytes": 11254,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "templates.json",
+                    "blob": "d8f4d30bd158284b80cf4c418ccc5244f3afc5b4",
+                    "bytes": 1723,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 189565299,
+                        "login": "anshul-si",
+                        "commits": 4
+                    },
+                    {
+                        "id": 32754868,
+                        "login": "drisspg",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "docstring-144440c8a9ce",
+            "path": ".claude/skills/docstring/SKILL.md",
+            "name": "docstring",
+            "description": "Write docstrings for PyTorch functions and methods following PyTorch conventions. Use when writing or updating docstrings in PyTorch code.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ec3fd32aab46b097d361c84b6cd42d8b03c8b646",
+                    "bytes": 10219,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 13564,
+                        "login": "ezyang",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "document-public-apis-d0ae0e8ed345",
+            "path": ".claude/skills/document-public-apis/SKILL.md",
+            "name": "document-public-apis",
+            "description": "Document undocumented public APIs in PyTorch by removing functions from coverage_ignore_functions and coverage_ignore_classes in docs/source/conf.py, running Sphinx coverage, and adding the appropriate autodoc directives to the correct .md or .rst doc files. Use when a user asks to remove functions from conf.py ignore lists.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "211b444fc5461032b976c4d3b84ae914be0fcc06",
+                    "bytes": 16682,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 224883113,
+                        "login": "liangel-02",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "fix-issue-8084681cf506",
+            "path": ".claude/skills/fix-issue/SKILL.md",
+            "name": "fix-issue",
+            "description": "Fix bugs reported in PyTorch GitHub issues by reproducing, root-causing, and implementing a fix in the local working tree. Use when the user asks to fix a PyTorch GitHub issue.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "434f904e072ca91858e8e20cee612549229b62c6",
+                    "bytes": 9207,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "torch_compile_manual.md",
+                    "blob": "1c504457b9f162e47b347768be09c9f90567d366",
+                    "bytes": 90520,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 533820,
+                        "login": "jansel",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "ghstack-ci-97d27651f8c1",
+            "path": ".claude/skills/ghstack-ci/SKILL.md",
+            "name": "ghstack-ci",
+            "description": "Manage CI for PyTorch ghstack stacks by running CI where its results are useful now and deferring other PRs with [no-ci]. Use when creating, submitting, updating, restacking, or landing a stack of PRs.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "deed2ef71d70feda332eca4690da161bf9bfa5d5",
+                    "bytes": 5715,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 1324201,
+                        "login": "bobrenjc93",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "metal-kernel-af262dc2ab31",
+            "path": ".claude/skills/metal-kernel/SKILL.md",
+            "name": "metal-kernel",
+            "description": "Write Metal/MPS kernels for PyTorch operators. Use when adding MPS device support to operators, implementing Metal shaders, or porting CUDA kernels to Apple Silicon. Covers native_functions.yaml dispatch, host-side operators, and Metal kernel implementation.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "83f7e36665243cb4db941a671419b61440a07f89",
+                    "bytes": 19817,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 2453524,
+                        "login": "malfet",
+                        "commits": 4
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "pr-review-readiness-91e564c761a8",
+            "path": ".claude/skills/pr-review-readiness/SKILL.md",
+            "name": "pr-review-readiness",
+            "description": "Readiness rubric for the hardened PR review workflow. Decides whether a pull request is ready for a human maintainer's time. Not the interactive /pr-review skill.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "9e8edadaf23902559fe84fcbb21a2647d2986d88",
+                    "bytes": 2258,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 108101595,
+                        "login": "izaitsevfb",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "pr-review-cd587ae4a767",
+            "path": ".claude/skills/pr-review/SKILL.md",
+            "name": "pr-review",
+            "description": "Review PyTorch pull requests for code quality, test coverage, security, and backward compatibility. Use when reviewing PRs, when asked to review code changes, or when the user mentions \"review PR\", \"code review\", or \"check this PR\".",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b5407be731f761df4597b9d33919a8a5df8aca68",
+                    "bytes": 12585,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "bc-guidelines.md",
+                    "blob": "5487570b0a6920d7d16ccd2d22e577db269f8eae",
+                    "bytes": 6054,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "review-checklist.md",
+                    "blob": "88469938794475cce36437b0cac46b83a86109f4",
+                    "bytes": 36122,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6359743,
+                        "login": "albanD",
+                        "commits": 8
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "pt2-bug-basher-8fccaa6808cf",
+            "path": ".claude/skills/pt2-bug-basher/SKILL.md",
+            "name": "pt2-bug-basher",
+            "description": "Debug PyTorch 2 compiler stack failures including Dynamo graph breaks, Inductor codegen errors, AOTAutograd crashes, and accuracy mismatches. Use when encountering torch.compile errors, BackendCompilerFailed exceptions, recompilation issues, Triton kernel failures, FX graph problems, or when the user mentions debugging PT2, Dynamo, Inductor, or compiled model issues.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "5c30f9002f79cb12b1bda29f6117181261a57a84",
+                    "bytes": 14042,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 20960393,
+                        "login": "Lucaskabela",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "pyrefly-type-coverage-ff808e06aebe",
+            "path": ".claude/skills/pyrefly-type-coverage/SKILL.md",
+            "name": "pyrefly-type-coverage",
+            "description": "Migrate a file to use stricter Pyrefly type checking with annotations required for all functions, classes, and attributes.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "7efe2c834d8341ff014b5f1d0dbbb1483fd06a08",
+                    "bytes": 11971,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 19294870,
+                        "login": "aorenste",
+                        "commits": 2
+                    },
+                    {
+                        "id": 20960393,
+                        "login": "Lucaskabela",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "scrub-issue-2cbfa5bb05ec",
+            "path": ".claude/skills/scrub-issue/SKILL.md",
+            "name": "scrub-issue",
+            "description": "Fetch, analyze, reproduce, and minimize GitHub issue reproductions. Use only when the user asks to check whether a GitHub issue reproduces, minimize a GitHub issue's repro, analyze a GitHub bug report, or scrub/triage a GitHub issue for reproducibility. Do not use for standalone reproduction requests without a GitHub issue.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "c48a527150477b524209819e44820eaec83aadcd",
+                    "bytes": 18571,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 6359743,
+                        "login": "albanD",
+                        "commits": 1
+                    },
+                    {
+                        "id": 19294870,
+                        "login": "aorenste",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "skill-writer-6c8c8c1d5b83",
+            "path": ".claude/skills/skill-writer/SKILL.md",
+            "name": "skill-writer",
+            "description": "Guide users through creating Agent Skills for Claude Code. Use when the user wants to create, write, author, or design a new Skill, or needs help with SKILL.md files, frontmatter, or skill structure.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "6d5983ef2f8d31690c6701f5e25d811f7a753a56",
+                    "bytes": 9602,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 13564,
+                        "login": "ezyang",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "triaging-issues-de80831a3b97",
+            "path": ".claude/skills/triaging-issues/SKILL.md",
+            "name": "triaging-issues",
+            "description": "Triages GitHub issues by routing to oncall teams, applying labels, and closing questions. Use when processing new PyTorch issues or when asked to triage an issue.",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "9560cb35affeb1dea06d2d8b6c353db8bf68a324",
+                    "bytes": 16678,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "README.md",
+                    "blob": "916c0ace01acd3937b42d666e074e4cb386e4405",
+                    "bytes": 2811,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "labels.json",
+                    "blob": "bdfbafd211c6aa06b6aaac96a4d7d91eb24126b5",
+                    "bytes": 34906,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "pt2-triage-rubric.md",
+                    "blob": "5eef36ca4748347c442ef391c6b8aa7341b2d357",
+                    "bytes": 9930,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/add_bot_triaged.py",
+                    "blob": "e6c9f0c9e00521691997b1e7a9a5cbc13361a2ff",
+                    "bytes": 2154,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/validate_issue_target.py",
+                    "blob": "3f1afc59a14a2a7803803920b0213f748e4eb56d",
+                    "bytes": 3146,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "scripts/validate_labels.py",
+                    "blob": "ef607a3c3154c1ae0ad760bd6533ff73f3c3f8c7",
+                    "bytes": 8112,
+                    "text": true,
+                    "mode": "100755"
+                },
+                {
+                    "path": "templates.json",
+                    "blob": "18a04929cc7116ea6960bdeaf9d86ce7677322f2",
+                    "bytes": 2917,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 32754868,
+                        "login": "drisspg",
+                        "commits": 10
+                    },
+                    {
+                        "id": 7563158,
+                        "login": "atalman",
+                        "commits": 3
+                    },
+                    {
+                        "id": 20960393,
+                        "login": "Lucaskabela",
+                        "commits": 2
+                    },
+                    {
+                        "id": 6359743,
+                        "login": "albanD",
+                        "commits": 1
+                    },
+                    {
+                        "id": 189565299,
+                        "login": "anshul-si",
+                        "commits": 1
+                    },
+                    {
+                        "id": 2453524,
+                        "login": "malfet",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "CLAUDE.md",
+        "blob": "9da553f79207dc33f0f57f675ab9efe60f949922",
+        "bytes": 15226,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "c23172f7aff0254e4f0f163fb2e6e355cbaec5f4",
+        "bytes": 3464,
+        "text": true,
+        "mode": "100644"
+    }
+}

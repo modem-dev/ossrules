@@ -246,7 +246,11 @@ export function FileTrayProvider({
     const path = request?.path;
     const isOpen = Boolean(path);
     const instructionFiles = files.filter(
-        (file) => !file.symlink && !file.missing && !file.unavailable && /(^|\/)(AGENTS|CLAUDE)\.md$/.test(file.path),
+        (file) =>
+            !file.symlink &&
+            !file.missing &&
+            !file.unavailable &&
+            (file.path === primaryFile || /(^|\/)(AGENTS|CLAUDE)\.md$/.test(file.path)),
     );
     const alternatives = instructionFiles.filter((file) => file.path !== path);
 
@@ -304,7 +308,7 @@ export function FileTrayProvider({
         setFailed(false);
 
         let live = true;
-        const url = `/files/${slug}/${path.split('/').map(encodeURIComponent).join('/')}`;
+        const url = `/files/${slug}?path=${encodeURIComponent(path)}`;
         fetch(url)
             .then((response) => (response.ok ? response.text() : Promise.reject(new Error(String(response.status)))))
             .then((text) => {
@@ -374,7 +378,7 @@ export function FileTrayProvider({
 
     const file = path ? byPath.get(path) : undefined;
     const lines = useMemo(() => source?.split('\n'), [source]);
-    const isMarkdown = /\.(md|markdown|mdx)$/i.test(path ?? '');
+    const isMarkdown = path === primaryFile || /\.(md|markdown|mdx)$/i.test(path ?? '');
 
     useEffect(() => {
         if (source === undefined || scrollRestore.current === undefined) return;

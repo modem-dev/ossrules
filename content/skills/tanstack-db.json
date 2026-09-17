@@ -1,0 +1,572 @@
+{
+    "version": 1,
+    "slug": "tanstack-db",
+    "repository": "TanStack/db",
+    "branch": "main",
+    "sha": "09776a892c73f4abd593d1eda4914cdbc20451b3",
+    "scannedAt": "2026-09-17T12:04:29.273Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "angular-db-f1aa000ebfc0",
+            "path": "packages/angular-db/skills/angular-db/SKILL.md",
+            "name": "angular-db",
+            "description": "Angular bindings for TanStack DB. injectLiveQuery inject function with Angular signals (Signal<T>) for all return values. Reactive params pattern ({ params: () => T, query: ({ params, q }) => QueryBuilder }) for dynamic queries. Must be called in injection context. Angular 17+ control flow (@if, @for) and signal inputs supported. Import from @tanstack/angular-db (re-exports all of @tanstack/db).\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "11f6ac3e4f3a65d651a4488406cd863842ec0526",
+                    "bytes": 8497,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 71047,
+                        "login": "KyleAMathews",
+                        "commits": 3
+                    },
+                    {
+                        "id": 17384006,
+                        "login": "kevin-dp",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "db-core-a9527f495438",
+            "path": "packages/db/skills/db-core/SKILL.md",
+            "name": "db-core",
+            "description": "TanStack DB core concepts: createCollection with queryCollectionOptions, electricCollectionOptions, powerSyncCollectionOptions, rxdbCollectionOptions, trailBaseCollectionOptions, localOnlyCollectionOptions. Live queries via query builder (from, where, join, select, groupBy, orderBy, limit). Optimistic mutations with draft proxy (collection.insert, collection.update, collection.delete). createOptimisticAction, createTransaction, createPacedMutations. Entry point for all TanStack DB skills.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "496c7405bc6fe29bcf9ae9764aefe5bc31b53613",
+                    "bytes": 3073,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "collection-setup/SKILL.md",
+                    "blob": "9673266c20f727367cc42ec7d7214dfe651d7734",
+                    "mode": "100644",
+                    "bytes": 14055,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "collection-setup/references/electric-adapter.md",
+                    "blob": "5886791c35f0d3846a41502b9db4889841714657",
+                    "mode": "100644",
+                    "bytes": 8590,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "collection-setup/references/local-adapters.md",
+                    "blob": "f145aa8aad107535c59d5286a4ddcba2892843d2",
+                    "mode": "100644",
+                    "bytes": 5668,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "collection-setup/references/powersync-adapter.md",
+                    "blob": "72e6b6e82a01008f7407908fe7d12278b44774d7",
+                    "mode": "100644",
+                    "bytes": 6926,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "collection-setup/references/query-adapter.md",
+                    "blob": "3f0b07f08e5f5b1ef0f3d15594720c5bf32a29d1",
+                    "mode": "100644",
+                    "bytes": 13746,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "collection-setup/references/rxdb-adapter.md",
+                    "blob": "18147bb70efd3f7fc46f5b69e4c64750a330f8dc",
+                    "mode": "100644",
+                    "bytes": 4535,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "collection-setup/references/schema-patterns.md",
+                    "blob": "1bee2c134fa36c8d009dbec75dbb268b88c35da3",
+                    "mode": "100644",
+                    "bytes": 5979,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "collection-setup/references/trailbase-adapter.md",
+                    "blob": "0ded8f17f7d711f200a114bc447be4ff3b75a0d6",
+                    "mode": "100644",
+                    "bytes": 3525,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "custom-adapter/SKILL.md",
+                    "blob": "212f3662c2c7029fd836cf057096d0ba7cff020d",
+                    "mode": "100644",
+                    "bytes": 13732,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "live-queries/SKILL.md",
+                    "blob": "92f234fcfce5499fd2cd225eac81714a94bb61f1",
+                    "mode": "100644",
+                    "bytes": 19528,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "live-queries/references/operators.md",
+                    "blob": "8d4082ea5cf3c8aa674cd63154464505b8a9230d",
+                    "mode": "100644",
+                    "bytes": 7239,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "mutations-optimistic/SKILL.md",
+                    "blob": "b3dda1471d17c192ed6f456199dc5d433c77b7bc",
+                    "mode": "100644",
+                    "bytes": 11850,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "mutations-optimistic/references/transaction-api.md",
+                    "blob": "e4cff2abcf1aefc8c0a4e83fc6b623645e24e5c8",
+                    "mode": "100644",
+                    "bytes": 7779,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                },
+                {
+                    "path": "persistence/SKILL.md",
+                    "blob": "8a5f657af016bc1549cb2ea0c753da62ce9bbf48",
+                    "mode": "100644",
+                    "bytes": 11074,
+                    "text": false,
+                    "omitted": "Belongs to a nested skill."
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 71047,
+                        "login": "KyleAMathews",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "collection-setup-b436998e0286",
+            "path": "packages/db/skills/db-core/collection-setup/SKILL.md",
+            "name": "db-core/collection-setup",
+            "description": "Creating typed collections with createCollection. Adapter selection: queryCollectionOptions (REST/TanStack Query), electricCollectionOptions (ElectricSQL real-time sync), powerSyncCollectionOptions (PowerSync SQLite), rxdbCollectionOptions (RxDB), trailBaseCollectionOptions (TrailBase), localOnlyCollectionOptions, localStorageCollectionOptions. CollectionConfig options: getKey, schema, sync, gcTime, autoIndex (default off), defaultIndexType, syncMode (eager/on-demand, plus progressive for Electric). StandardSchema validation with Zod/Valibot/ArkType. Collection lifecycle (idle/loading/ready/error). Adapter-specific sync patterns including Electric txid tracking, Query direct writes, Query initial data and scoped factories, and PowerSync query-driven sync with onLoad/onLoadSubset hooks.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "9673266c20f727367cc42ec7d7214dfe651d7734",
+                    "bytes": 14055,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/electric-adapter.md",
+                    "blob": "5886791c35f0d3846a41502b9db4889841714657",
+                    "bytes": 8590,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/local-adapters.md",
+                    "blob": "f145aa8aad107535c59d5286a4ddcba2892843d2",
+                    "bytes": 5668,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/powersync-adapter.md",
+                    "blob": "72e6b6e82a01008f7407908fe7d12278b44774d7",
+                    "bytes": 6926,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/query-adapter.md",
+                    "blob": "3f0b07f08e5f5b1ef0f3d15594720c5bf32a29d1",
+                    "bytes": 13746,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/rxdb-adapter.md",
+                    "blob": "18147bb70efd3f7fc46f5b69e4c64750a330f8dc",
+                    "bytes": 4535,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/schema-patterns.md",
+                    "blob": "1bee2c134fa36c8d009dbec75dbb268b88c35da3",
+                    "bytes": 5979,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/trailbase-adapter.md",
+                    "blob": "0ded8f17f7d711f200a114bc447be4ff3b75a0d6",
+                    "bytes": 3525,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 71047,
+                        "login": "KyleAMathews",
+                        "commits": 4
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "custom-adapter-1809016e1765",
+            "path": "packages/db/skills/db-core/custom-adapter/SKILL.md",
+            "name": "db-core/custom-adapter",
+            "description": "Building custom collection adapters for new backends. SyncConfig interface: sync function receiving begin, write, commit, markReady, markError, truncate, metadata primitives and returning cleanup, loadSubset, and optional unloadSubset handlers. ChangeMessage format (insert, update, delete). On-demand LoadSubsetOptions (where, orderBy, limit, offset, cursor). Expression parsing: parseWhereExpression, parseOrderByExpression, extractSimpleComparisons, parseLoadSubsetOptions. Collection options creator pattern. rowUpdateMode (partial vs full). Subscription lifecycle and cleanup functions. Persisted sync metadata API (metadata.row and metadata.collection) for storing per-row and per-collection adapter state.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "212f3662c2c7029fd836cf057096d0ba7cff020d",
+                    "bytes": 13732,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 71047,
+                        "login": "KyleAMathews",
+                        "commits": 5
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "live-queries-e8974559251e",
+            "path": "packages/db/skills/db-core/live-queries/SKILL.md",
+            "name": "db-core/live-queries",
+            "description": "Query builder fluent API: from, where, join, leftJoin, rightJoin, innerJoin, fullJoin, select, fn.select, groupBy, having, orderBy, limit, offset, distinct, findOne. Operators: eq, gt, gte, lt, lte, like, ilike, inArray, isNull, isUndefined, and, or, not. Aggregates: count, sum, avg, min, max. String functions: upper, lower, length, concat. Utility: coalesce, caseWhen. Math: add, subtract, multiply, divide. $selected namespace. createLiveQueryCollection. Derived collections. Predicate push-down. Incremental view maintenance via differential dataflow (d2ts). Virtual properties ($synced, $origin, $key, $collectionId). Includes subqueries for hierarchical data. Collection, toArray, materialize, and concat(toArray(...)) include modes. queryOnce for one-shot queries. createEffect for reactive side effects (onEnter, onUpdate, onExit, onBatch).\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "92f234fcfce5499fd2cd225eac81714a94bb61f1",
+                    "bytes": 19528,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/operators.md",
+                    "blob": "8d4082ea5cf3c8aa674cd63154464505b8a9230d",
+                    "bytes": 7239,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 71047,
+                        "login": "KyleAMathews",
+                        "commits": 5
+                    },
+                    {
+                        "id": 17384006,
+                        "login": "kevin-dp",
+                        "commits": 1
+                    },
+                    {
+                        "id": 5580297,
+                        "login": "tannerlinsley",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "mutations-optimistic-1bb698f2580b",
+            "path": "packages/db/skills/db-core/mutations-optimistic/SKILL.md",
+            "name": "db-core/mutations-optimistic",
+            "description": "collection.insert, collection.update (Immer-style draft proxy), collection.delete. createOptimisticAction (onMutate + mutationFn). createPacedMutations with debounceStrategy, throttleStrategy, queueStrategy. createTransaction, getActiveTransaction, ambient transaction context. Transaction lifecycle (pending/persisting/completed/failed). Mutation merging. onInsert/onUpdate/onDelete handlers. PendingMutation type. Transaction.isPersisted.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b3dda1471d17c192ed6f456199dc5d433c77b7bc",
+                    "bytes": 11850,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "references/transaction-api.md",
+                    "blob": "e4cff2abcf1aefc8c0a4e83fc6b623645e24e5c8",
+                    "bytes": 7779,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 71047,
+                        "login": "KyleAMathews",
+                        "commits": 6
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "persistence-95b427272fcd",
+            "path": "packages/db/skills/db-core/persistence/SKILL.md",
+            "name": "db-core/persistence",
+            "description": "SQLite-backed persistence for TanStack DB collections. persistedCollectionOptions wraps any adapter (Electric, Query, PowerSync, or local-only) with durable local storage. Platform adapters: browser (WA-SQLite OPFS), React Native (op-sqlite), Expo (expo-sqlite), Electron (IPC), Node (better-sqlite3), Capacitor, Tauri, Cloudflare Durable Objects. Multi-tab/multi-process coordination via BrowserCollectionCoordinator / ElectronCollectionCoordinator / SingleProcessCoordinator. schemaVersion for migration resets. Local-only mode for offline-first without a server. Applied transaction log pruning and safe full-reload recovery.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "8a5f657af016bc1549cb2ea0c753da62ce9bbf48",
+                    "bytes": 11074,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 71047,
+                        "login": "KyleAMathews",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "meta-framework-296c50dc68f9",
+            "path": "packages/db/skills/meta-framework/SKILL.md",
+            "name": "meta-framework",
+            "description": "Integrating TanStack DB with meta-frameworks (TanStack Start, Next.js, Remix, Nuxt, SvelteKit). Client-side only: SSR is NOT supported — routes must disable SSR. Preloading eager collections in route loaders with collection.preload(). On-demand Query Collections require preloading the live query because source collection preload is a no-op. Multiple collection preloading with Promise.all. Framework-specific loader APIs.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "bcc3c7a5dd7c096fa97407c0f361b61095ae7c09",
+                    "bytes": 10575,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 71047,
+                        "login": "KyleAMathews",
+                        "commits": 5
+                    },
+                    {
+                        "id": 5580297,
+                        "login": "tannerlinsley",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "offline-0503c7b4efd9",
+            "path": "packages/offline-transactions/skills/offline/SKILL.md",
+            "name": "offline",
+            "description": "Offline transaction support for TanStack DB. OfflineExecutor orchestrates persistent outbox (IndexedDB/localStorage), leader election (WebLocks/ BroadcastChannel), retry with backoff, and connectivity detection. createOfflineTransaction/createOfflineAction wrap TanStack DB primitives with offline persistence. Idempotency keys for at-least-once delivery. Graceful degradation to online-only mode when storage unavailable. React Native support via separate entry point.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "6bf6dfc326addb5460ebb2b9991ce4bbaee20b65",
+                    "bytes": 10260,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 71047,
+                        "login": "KyleAMathews",
+                        "commits": 3
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "react-db-3f1b608b12a6",
+            "path": "packages/react-db/skills/react-db/SKILL.md",
+            "name": "react-db",
+            "description": "React bindings for TanStack DB. Prefer useLiveQuery({ query }) with derived structured query identity. Provide queryKey only for opaque functional query variants or very hot render paths. Dependency arrays are legacy and warn before 1.0 removal. useLiveSuspenseQuery for React Suspense with Error Boundaries (data always defined). useLiveInfiniteQuery for cursor-based pagination (pageSize, fetchNextPage, hasNextPage, isFetchingNextPage). usePacedMutations for debounced React state updates. Return shape: data, state, collection, status, isLoading, isReady, isError. Import from @tanstack/react-db (re-exports all of @tanstack/db).\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "273fad8cbae58da63ff13c6021f6e3073a542cee",
+                    "bytes": 11314,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 71047,
+                        "login": "KyleAMathews",
+                        "commits": 4
+                    },
+                    {
+                        "id": 17384006,
+                        "login": "kevin-dp",
+                        "commits": 1
+                    },
+                    {
+                        "id": 5580297,
+                        "login": "tannerlinsley",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "solid-db-c261fa41e03c",
+            "path": "packages/solid-db/skills/solid-db/SKILL.md",
+            "name": "solid-db",
+            "description": "SolidJS bindings for TanStack DB. useLiveQuery returns an Accessor that doubles as data access (call as function) with state/status properties. Fine-grained reactivity: signal reads MUST happen inside the query function for tracking. Config passed as Accessor (() => config). Built-in Suspense support via createResource and errors through Solid ErrorBoundary. ReactiveMap for state. Import from @tanstack/solid-db (re-exports all of @tanstack/db).\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "0039c6cc89dca3f03c7a0a47e516d116bc2d4ad9",
+                    "bytes": 7242,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 71047,
+                        "login": "KyleAMathews",
+                        "commits": 3
+                    },
+                    {
+                        "id": 17384006,
+                        "login": "kevin-dp",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "svelte-db-a1ff3a529b32",
+            "path": "packages/svelte-db/skills/svelte-db/SKILL.md",
+            "name": "svelte-db",
+            "description": "Svelte 5 bindings for TanStack DB. useLiveQuery with Svelte 5 runes ($state, $derived, $effect). Dependency arrays use getter functions (() => value) for reactive props. Direct destructuring breaks reactivity — use dot notation or wrap with $derived. Conditional queries via returning undefined/null. Import from @tanstack/svelte-db (re-exports all of @tanstack/db).\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "295103a302638f3b514a3b894639d19a794d9425",
+                    "bytes": 5697,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 71047,
+                        "login": "KyleAMathews",
+                        "commits": 3
+                    },
+                    {
+                        "id": 17384006,
+                        "login": "kevin-dp",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "vue-db-fd0233dda20b",
+            "path": "packages/vue-db/skills/vue-db/SKILL.md",
+            "name": "vue-db",
+            "description": "Vue 3 bindings for TanStack DB. useLiveQuery composable with MaybeRefOrGetter query functions, ComputedRef return values for all fields (data, state, collection, status, isLoading, isReady, isError). Dependency arrays with Vue refs. Conditional queries via returning undefined/null. Pre-created collection support via ref or getter. Import from @tanstack/vue-db (re-exports all of @tanstack/db).\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "3779be9a5dcd8433f0de03e3f477f2dfd20d153f",
+                    "bytes": 5234,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 71047,
+                        "login": "KyleAMathews",
+                        "commits": 3
+                    },
+                    {
+                        "id": 17384006,
+                        "login": "kevin-dp",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": "AGENTS.md",
+        "blob": "a379183b228166b0cd900bc524012103e5e686a7",
+        "bytes": 20298,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "8be6fd58bd5694fd2028f55f5d576c3557aa9687",
+        "bytes": 1069,
+        "text": true,
+        "mode": "100644"
+    }
+}

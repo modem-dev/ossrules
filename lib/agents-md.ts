@@ -74,7 +74,7 @@ export function projectsWithPattern(pattern: string): AgentsProject[] {
  * The local copies of the files a project's AGENTS.md reads, as written by
  * scripts/sync-agents-md-files.ts.
  *
- * Only the index is read here. The file bodies are served as static assets and
+ * Only the index is read here. The file bodies are served by the source route and
  * fetched when a reader actually opens one, so a project with 18 referenced
  * documents does not put half a megabyte of other people's text into its page.
  */
@@ -128,13 +128,14 @@ export function sourceExcerpt(source: string | undefined, quote: string): { text
 
 /** Enrich only on the server; source and tokenizer remain out of browser bundles. */
 export function getInstructionDocuments(slug: string) {
+    const primaryFile = getAgentsProject(slug)?.instructionFile ?? 'AGENTS.md';
     const files = (getVendoredFiles(slug)?.files ?? []).map((file) => ({
         ...file,
         ...(!file.symlink ? { tokens: countSourceTokens(getDocumentSource(slug, file.path)) } : {}),
     }));
     const mentions: Record<string, DocumentMention[]> = {};
     for (const file of files) {
-        if (file.symlink || !/(^|\/)(AGENTS|CLAUDE)\.md$/.test(file.path)) continue;
+        if (file.symlink || (file.path !== primaryFile && !/(^|\/)(AGENTS|CLAUDE)\.md$/.test(file.path))) continue;
         for (const [target, passages] of Object.entries(
             documentMentions(
                 getDocumentSource(slug, file.path),

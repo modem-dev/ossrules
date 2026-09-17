@@ -11,6 +11,11 @@ source links, previews, and measurements. Check agent folders as well as the
 repository root when adding candidates. All instruction discovery and link resolution use
 the analysis commit. Skills retain their independent discovery snapshot.
 
+If an instruction entry point is a symlink, set `instructionFile` to its resolved
+regular file, such as `.rules`. The vendored manifest must record an `AGENTS.md`
+or `CLAUDE.md` symlink resolving to that source. Measurements and quotes describe
+the target's contents, not the symlink text.
+
 ## Adding a project
 
 Entries are one JSON file per project. The procedure is in

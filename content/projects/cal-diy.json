@@ -1,0 +1,99 @@
+{
+    "slug": "cal-diy",
+    "name": "Cal.diy",
+    "owner": "calcom",
+    "repo": "cal.diy",
+    "language": "TypeScript",
+    "stars": 48513,
+    "defaultBranch": "main",
+    "instructionFile": "AGENTS.md",
+    "lastCommit": {
+        "sha": "ab21c7f805a089fa3a11ffd61c4a9aecc349c16c",
+        "date": "2026-04-15T12:52:36Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 9225,
+        "lines": 244,
+        "words": 1317,
+        "headings": 25,
+        "bullets": 84,
+        "codeBlocks": 6,
+        "docLinks": 8
+    },
+    "tagline": "A scheduling platform for bookings, availability, calendars, and integrations.",
+    "hook": "Limits code PRs to 500 changed lines and ten files, then demonstrates how to split booking and calendar features.",
+    "summary": "Cal.diy's guide combines concise do/don't lists with detailed PR-size rules and code examples. It explains security-sensitive field selection, a package-specific exception to direct imports, and which larger workflows require an explicit request.",
+    "references": [
+        {
+            "path": "agents/rules/quality-code-comments.md"
+        },
+        {
+            "path": "agents/commands.md"
+        },
+        {
+            "path": "agents/rules/quality-error-handling.md"
+        },
+        {
+            "path": "SPEC-WORKFLOW.md"
+        },
+        {
+            "path": "agents/README.md"
+        },
+        {
+            "path": "agents/knowledge-base.md"
+        },
+        {
+            "path": "agents/rules/",
+            "kind": "pattern",
+            "label": "Modular engineering rules"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Make a size limit measurable and scoped",
+            "body": "The guide counts additions plus deletions and code files, while excluding documentation, lockfiles, and generated artifacts. It then offers layer, feature, preparatory-refactor, and dependency-order splits.",
+            "quote": "- **Lines changed**: Keep PRs under 500 lines of code (additions + deletions)\n- **Files changed**: Keep PRs under 10 code files\n- **Single responsibility**: Each PR should do one thing well",
+            "pattern": "contribution-etiquette"
+        },
+        {
+            "title": "Connect field selection to sensitive-data exposure",
+            "body": "Prisma examples contrast explicit select fields with include fetching an entire related record. The prohibitions separately name credential.key as a field that must never be exposed.",
+            "quote": "// Bad - Include fetches all fields including sensitive ones\nconst booking = await prisma.booking.findFirst({\n  include: { user: true }\n});",
+            "pattern": "worked-examples"
+        },
+        {
+            "title": "State the local exception to a repository-wide import rule",
+            "body": "The root favors direct source imports, but API v2 lacks path mappings for two packages. Its section requires re-exporting through platform-libraries and shows both steps and the failing direct import.",
+            "quote": "When importing from `@calcom/features` or `@calcom/trpc` into `apps/api/v2`, **do not import directly** because the API v2 app's `tsconfig.json` doesn't have path mappings for these modules, which causes \"module not found\" errors.",
+            "pattern": "behavioral-conditioning"
+        },
+        {
+            "title": "Keep a larger planning workflow opt-in",
+            "body": "Spec-driven development is offered for complex features, but its presence does not make it mandatory. The guide names the explicit user trigger and points to the separate workflow document.",
+            "quote": "For complex features, you can use spec-driven development when explicitly requested.",
+            "pattern": "skill-routing"
+        }
+    ],
+    "steal": [
+        "Define what counts toward a PR-size limit and show decomposition examples.",
+        "Explain which broad data-fetching patterns can expose sensitive fields.",
+        "Put package-specific exceptions beside the general rule they refine.",
+        "Make optional workflows conditional on an explicit trigger."
+    ],
+    "outline": [
+        "Do",
+        "Don't",
+        "PR Size Guidelines",
+        "Commands",
+        "Boundaries",
+        "Project Structure",
+        "Tech Stack",
+        "Code Examples",
+        "PR Checklist",
+        "When Stuck",
+        "Spec-Driven Development (Opt-In)",
+        "Extended Documentation"
+    ],
+    "patterns": ["contribution-etiquette", "worked-examples", "behavioral-conditioning", "skill-routing"]
+}

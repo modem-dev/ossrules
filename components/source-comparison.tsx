@@ -23,7 +23,7 @@ export function SourceComparison({
         const abort = new AbortController();
         setRight(undefined);
         setFailed(false);
-        fetch(`/files/${slug}/${rightPath.split('/').map(encodeURIComponent).join('/')}`, { signal: abort.signal })
+        fetch(`/files/${slug}?path=${encodeURIComponent(rightPath)}`, { signal: abort.signal })
             .then((response) => {
                 if (!response.ok) throw new Error('Source unavailable');
                 return response.text();

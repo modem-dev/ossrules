@@ -1,0 +1,154 @@
+{
+    "version": 1,
+    "slug": "diffusers",
+    "repository": "huggingface/diffusers",
+    "branch": "main",
+    "sha": "570b470947bd83987d57c1b2d3e4a5d8ded8763b",
+    "scannedAt": "2026-09-17T11:59:56.110Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": [
+        {
+            "id": "custom-blocks-ab50d1979721",
+            "path": ".ai/skills/custom-blocks/SKILL.md",
+            "name": "custom-blocks",
+            "description": "Use when the user has written (or wants to write) a `ModularPipelineBlocks` subclass in a local Python file and needs to package it into a Hub-uploadable directory. Covers the workflow from a single `block.py` file to a published custom-block repo that consumers can load via `ModularPipeline.from_pretrained(<repo>, trust_remote_code=True)`.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b98aa18b617e6cda8ce10b110413f7519b5b4819",
+                    "bytes": 6945,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 7529846,
+                        "login": "DN6",
+                        "commits": 2
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "diffusers-cli-1da4094e19a8",
+            "path": ".ai/skills/diffusers-cli/SKILL.md",
+            "name": "diffusers-cli",
+            "description": "Use when the user wants to run a diffusers pipeline from a terminal (one-off generation, batch jobs, smoke-testing a new model), run on HF Sandbox hardware via `--remote`, introspect a pipeline's input schema before calling it, or attach a LoRA at inference time. Prefer this over writing ad-hoc Python scripts for generation tasks.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "dd9ffd66dabd7896808197e70872667750637530",
+                    "bytes": 4327,
+                    "text": true,
+                    "mode": "100644"
+                },
+                {
+                    "path": "run.md",
+                    "blob": "5eb56d826535fdf4be1868288bcb04d0f2acecb1",
+                    "bytes": 16432,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 7529846,
+                        "login": "DN6",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "model-integration-932a5adb5645",
+            "path": ".ai/skills/model-integration/SKILL.md",
+            "name": "model-integration",
+            "description": "Use when adding a new model or pipeline to diffusers, setting up file structure for a new model, converting a pipeline to modular format, or converting weights for a new version of an already-supported model.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "b5b579975e0377e287c9821a9f5ba2a425dff543",
+                    "bytes": 8268,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 12631849,
+                        "login": "yiyixuxu",
+                        "commits": 4
+                    },
+                    {
+                        "id": 7529846,
+                        "login": "DN6",
+                        "commits": 1
+                    },
+                    {
+                        "id": 22957388,
+                        "login": "sayakpaul",
+                        "commits": 1
+                    },
+                    {
+                        "id": 59462357,
+                        "login": "stevhliu",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        },
+        {
+            "id": "self-review-3e7681ff33b1",
+            "path": ".ai/skills/self-review/SKILL.md",
+            "name": "self-review",
+            "description": "Use before opening a PR, or whenever asked to self-review a diffusers contribution. Applies the same rubric as the `@claude` CI (checks the diff against references/review-rules.md, traces call paths for dead code). Reports findings grouped by severity, flagging what to fix before submitting (blocking issues + dead code) vs what to leave for the actual review. Report-only — does not edit files.\n",
+            "files": [
+                {
+                    "path": "SKILL.md",
+                    "blob": "ccc7a95452610a9b8292b404d10e7776cbd9770b",
+                    "bytes": 2911,
+                    "text": true,
+                    "mode": "100644"
+                }
+            ],
+            "contributions": {
+                "contributors": [
+                    {
+                        "id": 12631849,
+                        "login": "yiyixuxu",
+                        "commits": 3
+                    },
+                    {
+                        "id": 7529846,
+                        "login": "DN6",
+                        "commits": 1
+                    }
+                ],
+                "unlinkedAuthors": 0
+            }
+        }
+    ],
+    "agentsFile": {
+        "path": ".ai/AGENTS.md",
+        "blob": "5afe68c7ebfadb736bcf65a5ea5caa14ff8301ce",
+        "bytes": 4103,
+        "text": true,
+        "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "038e32f6445e8f265bde482613cf0d2f43d86dbc",
+        "bytes": 11357,
+        "text": true,
+        "mode": "100644"
+    }
+}

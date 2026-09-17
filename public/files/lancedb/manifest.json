@@ -1,0 +1,49 @@
+{
+    "slug": "lancedb",
+    "sha": "a87cada90e0b4a7c7f6bfc5b82ec95f0f57765d2",
+    "license": "Apache-2.0",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": "AGENTS.md",
+            "bytes": 8100,
+            "lines": 157
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 9,
+            "lines": 1,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "AGENTS.md"
+        },
+        {
+            "path": "docs/src/python/python.md",
+            "bytes": 7908,
+            "lines": 358
+        },
+        {
+            "path": "nodejs/AGENTS.md",
+            "bytes": 463,
+            "lines": 13
+        },
+        {
+            "path": "nodejs/CLAUDE.md",
+            "bytes": 9,
+            "lines": 1,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "nodejs/AGENTS.md"
+        },
+        {
+            "path": "python/AGENTS.md",
+            "bytes": 1479,
+            "lines": 29
+        },
+        {
+            "path": "python/CLAUDE.md",
+            "bytes": 9,
+            "lines": 1,
+            "symlink": "AGENTS.md",
+            "resolvedPath": "python/AGENTS.md"
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+{
+    "slug": "zed",
+    "sha": "2890c340e07a4c4c7e6778e99a49f5414115b250",
+    "license": "Apache-2.0",
+    "licensePath": "LICENSE-APACHE",
+    "files": [
+        {
+            "path": ".factory/prompts/crash/fix.md",
+            "bytes": 3159,
+            "lines": 84
+        },
+        {
+            "path": ".factory/prompts/crash/investigate.md",
+            "bytes": 4900,
+            "lines": 89
+        },
+        {
+            "path": ".rules",
+            "bytes": 12115,
+            "lines": 189
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 6,
+            "lines": 1,
+            "symlink": ".rules",
+            "resolvedPath": ".rules"
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 6,
+            "lines": 1,
+            "symlink": ".rules",
+            "resolvedPath": ".rules"
+        },
+        {
+            "path": "docs/AGENTS.md",
+            "bytes": 11735,
+            "lines": 407
+        }
+    ]
+}

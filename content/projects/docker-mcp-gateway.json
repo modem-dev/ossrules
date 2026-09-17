@@ -1,0 +1,70 @@
+{
+    "slug": "docker-mcp-gateway",
+    "name": "Docker MCP Gateway",
+    "owner": "docker",
+    "repo": "mcp-gateway",
+    "language": "Go",
+    "stars": 1567,
+    "defaultBranch": "main",
+    "instructionFile": "CLAUDE.md",
+    "lastCommit": {
+        "sha": "fe073985c8eb6e0c9317d2f198c07686f70ea06d",
+        "date": "2025-10-20T19:18:00Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 4868,
+        "lines": 145,
+        "words": 662,
+        "headings": 32,
+        "bullets": 44,
+        "codeBlocks": 3,
+        "docLinks": 0
+    },
+    "tagline": "A Docker CLI plugin that connects AI clients to containerized MCP servers.",
+    "hook": "Explains the client-to-gateway-to-container flow and separates catalog definitions, runtime configuration, and server enablement.",
+    "summary": "Docker MCP Gateway's CLAUDE.md is a self-contained orientation to a Go CLI plugin. It describes the gateway and container lifecycle, distinguishes three configuration roles, and names the Docker and caching conditions needed for meaningful integration tests.",
+    "references": [],
+    "techniques": [
+        {
+            "title": "Start with the actors in the connection flow",
+            "body": "The architecture section describes an AI client connecting to the gateway, which manages multiple containerized servers. It then places routing, client management, server lifecycle, catalogs, and secrets in their implementation directories.",
+            "quote": "- **AI Client** connects to the **MCP Gateway** \n- **MCP Gateway** (this CLI) manages multiple **MCP Servers** running in Docker containers",
+            "pattern": "architecture-narrative"
+        },
+        {
+            "title": "Distinguish configuration by responsibility",
+            "body": "The same configuration directory holds catalogs, runtime settings, and the enabled-server registry. Naming their separate responsibilities helps prevent an edit to one kind of configuration from being mistaken for another.",
+            "quote": "- Server definitions are loaded from catalog files\n- Runtime configuration is managed through config.yaml\n- Server enablement tracked in registry.yaml",
+            "pattern": "architecture-narrative"
+        },
+        {
+            "title": "State the lifecycle obligations of managed containers",
+            "body": "The guide describes validation before use, naming conventions, health checks, logging, and shutdown cleanup. That sequence provides context for changes affecting how a server is started or stopped.",
+            "quote": "MCP servers run as Docker containers with proper lifecycle management:\n- Images are pulled and validated before use  \n- Containers have consistent naming patterns\n- Health checks and logging are built-in\n- Proper cleanup on shutdown",
+            "pattern": "architecture-narrative"
+        },
+        {
+            "title": "Make integration-test prerequisites explicit",
+            "body": "The testing section says that integration tests need a Docker daemon and long-lived tests run real containers. It also disables Go test caching when exercising those scenarios.",
+            "quote": "- Integration tests require Docker daemon\n- Long-lived tests run actual container scenarios\n- Mock configurations in testdata directories\n- Use `go test -count=1` to disable test caching",
+            "pattern": "verification-matrix"
+        }
+    ],
+    "steal": [
+        "Explain the actors and connection flow before listing directories.",
+        "Separate files by the configuration responsibility each owns.",
+        "Document startup and shutdown obligations for managed resources.",
+        "State external-service and cache requirements beside integration-test commands."
+    ],
+    "outline": [
+        "Overview",
+        "Architecture",
+        "Development Commands",
+        "Project Structure",
+        "Key Configuration Files",
+        "Important Patterns",
+        "CLI Plugin Development"
+    ],
+    "patterns": ["architecture-narrative", "verification-matrix"]
+}

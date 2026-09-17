@@ -2,6 +2,25 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { instructionImports, localTarget, resolveSymlink } from './instruction-files';
 
+test('quoted command examples are not imports, but quoted prose directives remain discoverable', () => {
+    const source = [
+        '> [!IMPORTANT]',
+        '> ```bash',
+        '> pnpm dlx @intellectronica/ruler@0.3.42 apply',
+        '> @not-an-import.md',
+        '> ```',
+        '> Read @docs/setup.md.',
+        '> > ~~~md',
+        '> > @also-not-an-import.md',
+        '> > ~~~',
+        '@AGENTS.md',
+    ].join('\n');
+    assert.deepEqual(instructionImports('CLAUDE.md', source), [
+        { target: 'docs/setup.md', path: 'docs/setup.md' },
+        { target: 'AGENTS.md', path: 'AGENTS.md' },
+    ]);
+});
+
 test('imports preserve their source-relative path and skip code examples', () => {
     const source = ['@../AGENTS.md', '`@example.md`', '```md', '@not-loaded.md', '```', 'See @docs/setup.md.', '@../AGENTS.md'].join('\n');
     assert.deepEqual(instructionImports('.claude/CLAUDE.md', source), [

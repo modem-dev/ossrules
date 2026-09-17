@@ -1,0 +1,106 @@
+{
+    "slug": "qwik",
+    "name": "Qwik",
+    "owner": "QwikDev",
+    "repo": "qwik",
+    "language": "TypeScript",
+    "stars": 22062,
+    "defaultBranch": "main",
+    "instructionFile": "AGENTS.md",
+    "lastCommit": {
+        "sha": "93f1b2a0187849a14c6872f9cb723a943655dc22",
+        "date": "2026-08-19T10:23:07Z"
+    },
+    "evaluatedAt": "2026-09-17",
+    "file": {
+        "bytes": 25732,
+        "lines": 582,
+        "words": 3733,
+        "headings": 54,
+        "bullets": 82,
+        "codeBlocks": 15,
+        "docLinks": 1
+    },
+    "tagline": "A web framework that resumes serialized application state in the browser.",
+    "hook": "Generates root instructions from .ruler sources and reserves hydration vocabulary for comparisons with other frameworks.",
+    "summary": "Qwik's root guide combines generated repository rules with the Ruler setup document. It separates committed source guidance from local tool-specific skill copies, routes work across six Qwik skills, and explains the vocabulary and verification boundaries of resumability.",
+    "references": [
+        {
+            "path": "CONTRIBUTING.md"
+        },
+        {
+            "path": ".ruler/AGENTS.md"
+        },
+        {
+            "path": ".ruler/README.md"
+        },
+        {
+            "path": ".ruler/skills/qwik-core-development/SKILL.md"
+        },
+        {
+            "path": ".ruler/skills/qwik-router-development/SKILL.md"
+        },
+        {
+            "path": ".ruler/skills/qwik-optimizer-development/SKILL.md"
+        },
+        {
+            "path": ".ruler/skills/qwik-e2e-verification/SKILL.md"
+        },
+        {
+            "path": ".ruler/skills/qwik-docs-development/SKILL.md"
+        },
+        {
+            "path": ".ruler/skills/qwik-guidance-maintenance/SKILL.md"
+        }
+    ],
+    "techniques": [
+        {
+            "title": "Keep shared guidance in a generator input",
+            "body": "Root AGENTS.md and CLAUDE.md are generated but committed, while tool-specific skill copies are regenerated locally. The file identifies .ruler as the editable source and describes a CI check for drift.",
+            "quote": "To change guidance, edit `.ruler/`, run `ruler apply`, and commit the regenerated root files\nalongside your `.ruler/` change. Never hand-edit the generated files.",
+            "pattern": "single-source"
+        },
+        {
+            "title": "Route work to six source skills",
+            "body": "A table maps core, router, optimizer, end-to-end testing, documentation, and guidance maintenance to named skills. If generated copies are absent, the guide gives the original .ruler path as the fallback.",
+            "quote": "If a skill above is not loadable, its copy has not been generated in this worktree yet — run the\n`ruler apply` step from Setup, or read the source directly at `.ruler/skills/<name>/SKILL.md`.",
+            "pattern": "skill-routing"
+        },
+        {
+            "title": "Define the vocabulary from the execution model",
+            "body": "The guide explains that client execution resumes from serialized state rather than reconstructing it. It forbids hydration terminology for Qwik mechanisms while allowing the term when explicitly comparing other frameworks.",
+            "quote": "Never describe Qwik or any part of how Qwik works as hydration. Qwik does not hydrate. Qwik is\nresumable: the server serializes application state and listeners into the HTML, and the client\nresumes execution exactly where the server left off, without re-running component code or\nrebuilding the framework state.",
+            "pattern": "house-vocabulary"
+        },
+        {
+            "title": "Check both sides of a protocol change",
+            "body": "Test guidance distinguishes unit tests, optimizer fixtures, and browser-dependent behavior. Changes to serialization or loader protocols require writer and reader coverage rather than a test of only the edited side.",
+            "quote": "For serialization, hydration, streaming, or loader protocol changes, test both the writer and the\n  reader path.",
+            "pattern": "verification-matrix"
+        }
+    ],
+    "steal": [
+        "Identify both the editable instruction source and its generated outputs.",
+        "Provide a source-path fallback when skill installation is missing.",
+        "Explain the technical distinction behind a vocabulary rule.",
+        "Require tests on both ends of a serialization or protocol change."
+    ],
+    "outline": [
+        "Qwik v2 agents reference, instructions and rules",
+        "Source Of Truth",
+        "Project Snapshot",
+        "Monorepo Map",
+        "Setup And Iteration Loop",
+        "Rules",
+        "Ruler Setup",
+        "Source Of Truth",
+        "AI Config Builder",
+        "Markdown Guidance Bundle",
+        "What Is Committed vs Regenerated",
+        "Generate Local Assistant Files",
+        "Project And Personal Configuration",
+        "Updating Instructions",
+        "Skills"
+    ],
+    "patterns": ["single-source", "skill-routing", "house-vocabulary", "verification-matrix"]
+}
