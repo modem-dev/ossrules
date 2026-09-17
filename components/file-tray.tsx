@@ -4,6 +4,7 @@ import * as Tabs from '@radix-ui/react-tabs';
 import dynamic from 'next/dynamic';
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import type { DocumentMention } from '@/lib/document-mentions';
+import { readSourceLocation, writeSourceLocation } from '@/lib/source-location';
 import type { VendoredFile } from './agents-md-data';
 import { HighlightedSource } from './highlighted-source';
 import { RelativeTime } from './last-updated';
@@ -170,6 +171,8 @@ export function FileTrayProvider({
     const [view, setView] = useState<'markdown' | 'raw'>('markdown');
     const [source, setSource] = useState<string | undefined>();
     const [failed, setFailed] = useState(false);
+    const [snapshotMismatch, setSnapshotMismatch] = useState(false);
+    const [linkStatus, setLinkStatus] = useState<'idle' | 'copied' | 'failed'>('idle');
     const [copyStatus, setCopyStatus] = useState<'idle' | 'copied' | 'failed'>('idle');
     const [returnDocument, setReturnDocument] = useState<{ request: TrayRequest; scrollTop: number; view: 'markdown' | 'raw' }>();
     const [expandedReferences, setExpandedReferences] = useState<Record<string, boolean>>({});
@@ -182,6 +185,36 @@ export function FileTrayProvider({
     const readable = useMemo(() => new Set(files.filter((file) => !file.missing && !file.unavailable).map((file) => file.path)), [files]);
     const missing = useMemo(() => new Set(files.filter((file) => file.missing || file.unavailable).map((file) => file.path)), [files]);
 
+    const rememberSource = useCallback(
+        (next: TrayRequest | undefined, mode: 'markdown' | 'raw', replace = false) => {
+            const url = new URL(window.location.href);
+            url.search = writeSourceLocation(url.search, next, mode, sha);
+            if (replace) window.history.replaceState(null, '', url);
+            else window.history.pushState(null, '', url);
+            setSnapshotMismatch(false);
+            setLinkStatus('idle');
+        },
+        [sha],
+    );
+
+    useEffect(() => {
+        const restore = () => {
+            const location = readSourceLocation(window.location.search, files, sha);
+            if (!location.request && panel.current?.contains(document.activeElement)) {
+                returnFocus.current?.focus({ preventScroll: true });
+            }
+            setRequest(location.request);
+            setView(location.view);
+            setSnapshotMismatch(location.mismatch);
+            setComparePath(undefined);
+            setReturnDocument(undefined);
+            setLinkStatus('idle');
+        };
+        restore();
+        window.addEventListener('popstate', restore);
+        return () => window.removeEventListener('popstate', restore);
+    }, [files, sha]);
+
     const open = useCallback(
         (next: TrayRequest) => {
             if (!panel.current?.contains(document.activeElement)) returnFocus.current = document.activeElement as HTMLElement | null;
@@ -190,10 +223,13 @@ export function FileTrayProvider({
             scrollRestore.current = undefined;
             const resolvedPath = byPath.get(next.path)?.resolvedPath;
             setComparePath(undefined);
-            setView(next.startLine !== undefined || next.match ? 'raw' : 'markdown');
-            setRequest(resolvedPath ? { ...next, via: next.path, path: resolvedPath } : next);
+            const mode = next.startLine !== undefined || next.match ? 'raw' : 'markdown';
+            const resolved = resolvedPath ? { ...next, via: next.path, path: resolvedPath } : next;
+            setView(mode);
+            setRequest(resolved);
+            rememberSource(resolved, mode);
         },
-        [byPath],
+        [byPath, rememberSource],
     );
 
     const close = useCallback(() => {
@@ -201,9 +237,10 @@ export function FileTrayProvider({
         panel.current?.close();
         setComparePath(undefined);
         setRequest(undefined);
+        rememberSource(undefined, 'markdown');
         setReturnDocument(undefined);
         if (restoreFocus && returnFocus.current?.isConnected) returnFocus.current.focus({ preventScroll: true });
-    }, []);
+    }, [rememberSource]);
 
     const context = useMemo(() => ({ open, readable, missing, primaryFile }), [open, readable, missing, primaryFile]);
     const path = request?.path;
@@ -219,7 +256,9 @@ export function FileTrayProvider({
         setView('raw');
         setSource(undefined);
         setCopyStatus('idle');
-        setRequest({ path: mention.sourcePath ?? primaryFile, startLine: mention.startLine, lineCount: mention.lines.length });
+        const next = { path: mention.sourcePath ?? primaryFile, startLine: mention.startLine, lineCount: mention.lines.length };
+        setRequest(next);
+        rememberSource(next, 'raw');
     };
 
     const backToDocument = () => {
@@ -229,6 +268,7 @@ export function FileTrayProvider({
         setCopyStatus('idle');
         setRequest(returnDocument.request);
         setView(returnDocument.view);
+        rememberSource(returnDocument.request, returnDocument.view);
         setReturnDocument(undefined);
     };
 
@@ -346,7 +386,7 @@ export function FileTrayProvider({
     // The line a technique quote starts on, so the tray can open where it is cited.
     const markedLine = useMemo(() => {
         if (!lines) return -1;
-        if (request?.startLine !== undefined) return request.startLine - 1;
+        if (request?.startLine !== undefined) return request.startLine <= lines.length ? request.startLine - 1 : -1;
         if (!request?.match) return -1;
         const needle = request.match.trim().split('\n')[0].trim();
         if (needle.length === 0) return -1;
@@ -359,6 +399,23 @@ export function FileTrayProvider({
     }, [markedLine, view, comparePath, source]);
 
     const markedCount = request?.lineCount ?? request?.match?.trimEnd().split('\n').length ?? 0;
+    const copyLink = async () => {
+        if (!request) return;
+        const url = new URL(window.location.href);
+        url.search = writeSourceLocation(
+            url.search,
+            { ...request, startLine: markedLine >= 0 ? markedLine + 1 : undefined, lineCount: markedCount },
+            view,
+            sha,
+        );
+        url.hash = '';
+        try {
+            await navigator.clipboard.writeText(url.href);
+            setLinkStatus('copied');
+        } catch {
+            setLinkStatus('failed');
+        }
+    };
     const sourceUrl = `https://github.com/${owner}/${repo}/blob/${sha}/${path?.split('/').map(encodeURIComponent).join('/') ?? ''}`;
 
     const showReferences = Boolean(
@@ -400,6 +457,12 @@ export function FileTrayProvider({
     return (
         <FileTrayContext.Provider value={context}>
             <div className="source-workspace" data-source-open={isOpen}>
+                {snapshotMismatch ? (
+                    <p role="alert" className="page-shell text-sm text-gray-550">
+                        This source link refers to a different snapshot. The analysis below uses commit {sha.slice(0, 7)}. Open a source
+                        file from this page to read that revision.
+                    </p>
+                ) : null}
                 {children}
             </div>
             {path ? (
@@ -412,7 +475,15 @@ export function FileTrayProvider({
                         close();
                     }}
                 >
-                    <Tabs.Root className="source-panel" value={view} onValueChange={(value) => setView(value as 'markdown' | 'raw')}>
+                    <Tabs.Root
+                        className="source-panel"
+                        value={view}
+                        onValueChange={(value) => {
+                            const mode = value as 'markdown' | 'raw';
+                            setView(mode);
+                            rememberSource(request, mode);
+                        }}
+                    >
                         <header className="source-header">
                             <div className="source-file-title">
                                 {instructionFiles.some((item) => item.path === path) && instructionFiles.length > 1 ? (
@@ -433,6 +504,9 @@ export function FileTrayProvider({
                                 )}
                             </div>
                             <div className="source-actions">
+                                <button type="button" className="source-control" onClick={copyLink} aria-label="Copy source link">
+                                    {linkStatus === 'copied' ? 'Link copied' : 'Copy link'}
+                                </button>
                                 <button
                                     type="button"
                                     onClick={copySource}
@@ -652,6 +726,13 @@ export function FileTrayProvider({
                                 : sourceContent}
                         </div>
                         <footer className="source-footer">
+                            <p role="status" className={linkStatus === 'failed' ? 'mb-2' : 'sr-only'}>
+                                {linkStatus === 'copied'
+                                    ? 'Source link copied to clipboard.'
+                                    : linkStatus === 'failed'
+                                      ? 'Could not copy the link. Copy the address from your browser instead.'
+                                      : ''}
+                            </p>
                             <p role="status" className={copyStatus === 'failed' ? 'mb-2' : 'sr-only'}>
                                 {copyStatus === 'copied'
                                     ? 'Source copied to clipboard.'
@@ -669,7 +750,7 @@ export function FileTrayProvider({
                                 </p>
                             ) : (
                                 <p>
-                                    Copy stored at the pinned commit.{' '}
+                                    Copy stored at commit {sha.slice(0, 7)}.{' '}
                                     {license ? `${owner}/${repo} is ${license}-licensed` : `See ${owner}/${repo} for its license`}
                                     {licensePath ? (
                                         <>
@@ -748,7 +829,17 @@ export function FileLink({
  * from. Every quote in the corpus is character-for-character from the file, so
  * the first line of one is enough to find it.
  */
-export function QuoteLink({ quote, sourcePath, children }: { quote: string; sourcePath?: string; children: React.ReactNode }) {
+export function QuoteLink({
+    quote,
+    startLine,
+    sourcePath,
+    children,
+}: {
+    quote: string;
+    startLine?: number;
+    sourcePath?: string;
+    children: React.ReactNode;
+}) {
     const tray = useFileTray();
 
     const path = sourcePath ?? tray?.primaryFile ?? 'AGENTS.md';
@@ -757,7 +848,12 @@ export function QuoteLink({ quote, sourcePath, children }: { quote: string; sour
     return (
         <div className="quote-block">
             {children}
-            <button type="button" data-source-trigger onClick={() => tray.open({ path, match: quote })} className="quote-open">
+            <button
+                type="button"
+                data-source-trigger
+                onClick={() => tray.open({ path, match: quote, startLine, lineCount: quote.trimEnd().split('\n').length })}
+                className="quote-open"
+            >
                 {path} · View in source <span aria-hidden>↗</span>
             </button>
         </div>

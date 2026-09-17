@@ -3,29 +3,19 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
+import { projectListing, withProjectSearch } from '@/lib/project-list';
 import { projectHref } from '@/lib/project-paths';
-import type { AgentsProject, PatternId, SortId } from './agents-md-data';
-import {
-    compareProjects,
-    formatStars,
-    languageColor,
-    languageFacets,
-    logoSrc,
-    matchesQuery,
-    PATTERNS_BY_ID,
-    patternFacets,
-    SORTS,
-    STATS_AS_OF,
-} from './agents-md-data';
+import type { AgentsProject, SortId } from './agents-md-data';
+import { formatStars, languageColor, languageFacets, logoSrc, PATTERNS_BY_ID, patternFacets, SORTS, STATS_AS_OF } from './agents-md-data';
 import { DirectorySelect } from './directory-select';
 
 const ALL = 'all';
 
-function ProjectEntry({ project }: { project: AgentsProject }) {
+function ProjectEntry({ project, search }: { project: AgentsProject; search: string }) {
     return (
         <li className="min-w-0 border-gray-750 border-b">
-            <Link href={projectHref(project)} className="project-entry group">
+            <Link href={withProjectSearch(projectHref(project), search)} className="project-entry group">
                 <Image src={logoSrc(project)} alt="" width={44} height={44} className="size-11 rounded-lg bg-gray-800 object-cover" />
                 <div className="min-w-0">
                     <div className="flex items-center justify-between gap-3">
@@ -69,44 +59,32 @@ function ProjectEntry({ project }: { project: AgentsProject }) {
     );
 }
 
-/** Search parameters let technique pages link directly to the matching collection. */
-export function ProjectExplorer({ projects }: { projects: AgentsProject[] }) {
+/** URL state is shared by initial HTML, reloads, and browser history. */
+export function ProjectExplorer({ projects, initialSearch }: { projects: AgentsProject[]; initialSearch: string }) {
     const searchParams = useSearchParams();
-    const requested = searchParams.get('technique');
-    const initialPattern = requested && Object.hasOwn(PATTERNS_BY_ID, requested) ? (requested as PatternId) : ALL;
-    return <ProjectExplorerContent key={initialPattern} projects={projects} initialPattern={initialPattern} />;
+    return <ProjectExplorerContent projects={projects} search={searchParams?.toString() ?? initialSearch} />;
 }
 
-/** Also prerendered as the Suspense fallback, so the full directory is present without JavaScript. */
-export function ProjectExplorerContent({
-    projects,
-    initialPattern = ALL,
-}: {
-    projects: AgentsProject[];
-    initialPattern?: PatternId | typeof ALL;
-}) {
-    const [query, setQuery] = useState('');
-    const [language, setLanguage] = useState(ALL);
-    const [pattern, setPattern] = useState<PatternId | typeof ALL>(initialPattern);
-    const [sort, setSort] = useState<SortId>('stars');
-    const [descending, setDescending] = useState(true);
+export function ProjectExplorerContent({ projects, search = '' }: { projects: AgentsProject[]; search?: string }) {
+    const { query, language, pattern, sort, descending, visible, filtered, canonicalSearch } = useMemo(
+        () => projectListing(projects, search),
+        [projects, search],
+    );
     const languages = useMemo(() => languageFacets(projects), [projects]);
     const patterns = useMemo(() => patternFacets(projects), [projects]);
-    const visible = useMemo(
-        () =>
-            projects
-                .filter((project) => matchesQuery(project, query))
-                .filter((project) => language === ALL || project.language === language)
-                .filter((project) => pattern === ALL || project.patterns.includes(pattern))
-                .sort((a, b) => compareProjects(a, b, sort, descending)),
-        [projects, query, language, pattern, sort, descending],
-    );
-    const filtered = query !== '' || language !== ALL || pattern !== ALL;
+
+    function remember(changes: Record<string, string>, replace = false) {
+        const url = new URL(window.location.href);
+        for (const [key, value] of Object.entries(changes)) {
+            if (value && value !== ALL) url.searchParams.set(key, value);
+            else url.searchParams.delete(key);
+        }
+        if (replace) window.history.replaceState(null, '', url);
+        else window.history.pushState(null, '', url);
+    }
 
     function clearFilters() {
-        setQuery('');
-        setLanguage(ALL);
-        setPattern(ALL);
+        remember({ q: '', language: '', technique: '' });
     }
 
     return (
@@ -120,7 +98,7 @@ export function ProjectExplorerContent({
                     <input
                         type="search"
                         value={query}
-                        onChange={(event) => setQuery(event.target.value)}
+                        onChange={(event) => remember({ q: event.target.value }, true)}
                         placeholder="Search projects…"
                         aria-label="Search projects"
                     />
@@ -128,7 +106,7 @@ export function ProjectExplorerContent({
                 <DirectorySelect
                     label="Language"
                     value={language}
-                    onValueChange={setLanguage}
+                    onValueChange={(value) => remember({ language: value })}
                     active={language !== ALL}
                     options={[
                         { value: ALL, label: 'All languages' },
@@ -143,7 +121,7 @@ export function ProjectExplorerContent({
                 <DirectorySelect
                     label="Technique"
                     value={pattern}
-                    onValueChange={(value) => setPattern(value as PatternId | typeof ALL)}
+                    onValueChange={(value) => remember({ technique: value })}
                     active={pattern !== ALL}
                     options={[
                         { value: ALL, label: 'All techniques' },
@@ -157,15 +135,14 @@ export function ProjectExplorerContent({
                         prefix="Sort: "
                         onValueChange={(value) => {
                             const next = value as SortId;
-                            setSort(next);
-                            setDescending(next !== 'name' && next !== 'lines');
+                            remember({ sort: next, direction: '' });
                         }}
                         options={SORTS.map((option) => ({ value: option.id, label: option.label }))}
                     />
                     <button
                         type="button"
                         className="sort-direction"
-                        onClick={() => setDescending((value) => !value)}
+                        onClick={() => remember({ direction: descending ? 'asc' : 'desc' })}
                         aria-label={descending ? 'Sort ascending' : 'Sort descending'}
                         title={descending ? 'Descending; switch to ascending' : 'Ascending; switch to descending'}
                     >
@@ -202,7 +179,7 @@ export function ProjectExplorerContent({
             ) : (
                 <ul className="grid gap-x-10 md:grid-cols-2">
                     {visible.map((project) => (
-                        <ProjectEntry key={project.slug} project={project} />
+                        <ProjectEntry key={project.slug} project={project} search={canonicalSearch} />
                     ))}
                 </ul>
             )}
