@@ -1,15 +1,10 @@
 import path from 'node:path';
 import Link from 'next/link';
-import { Children, isValidElement, type ReactNode } from 'react';
-import Markdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
+import type { ReactNode } from 'react';
+import { remarkSkillFileLinks } from '@/lib/skill-file-links';
+import type { SkillHeading } from '@/lib/skill-outline';
 import { bundleFilePath, safeRelativePath } from '@/lib/skill-schema';
-
-function headingText(children: ReactNode): string {
-    return Children.toArray(children)
-        .map((child) => (isValidElement<{ children?: ReactNode }>(child) ? headingText(child.props.children) : String(child)))
-        .join('');
-}
+import { DocumentMarkdown } from './document-markdown';
 
 export function SkillMarkdown({
     source,
@@ -17,17 +12,19 @@ export function SkillMarkdown({
     files,
     baseHref,
     upstreamRoot,
+    headings,
 }: {
     source: string;
     currentFile: string;
     files: string[];
     baseHref: string;
     upstreamRoot: string;
+    headings: SkillHeading[];
 }) {
     function destination(href: string): string {
         const relative = bundleFilePath(currentFile, href);
         if (relative && files.includes(relative))
-            return `${baseHref}?file=${encodeURIComponent(relative)}${href.includes('#') ? `#${href.split('#').slice(1).join('#')}` : ''}`;
+            return `${baseHref}?file=${encodeURIComponent(relative)}#${href.includes('#') ? href.split('#').slice(1).join('#') : 'skill-document-title'}`;
         if (/^(?:[a-z][a-z0-9+.-]*:|\/\/|#)/i.test(href)) return href;
         // GitHub resolves out-of-bundle references against the pinned repository.
         const url = new URL(upstreamRoot);
@@ -37,57 +34,48 @@ export function SkillMarkdown({
         if (!safeRelativePath(target)) return '';
         return `${url.origin}${parts.slice(0, 5).join('/')}/${target}${href.includes('#') ? `#${href.split('#').slice(1).join('#')}` : ''}`;
     }
-    const used = new Map<string, number>();
-    function heading(level: 1 | 2 | 3 | 4 | 5 | 6, children: ReactNode) {
-        const text = headingText(children)
-            .toLowerCase()
-            .replace(/[^\p{L}\p{N}\s_-]/gu, '')
-            .replace(/\s/g, '-');
-        const count = used.get(text) ?? 0;
-        used.set(text, count + 1);
+
+    function link(href: string, children: ReactNode) {
+        const to = href ? destination(href) : '';
+        if (!to) return <span>{children}</span>;
+        return to.startsWith(`${baseHref}?`) ? (
+            <Link href={to} className="skill-file-link" title={`Open ${bundleFilePath(currentFile, href)} in this skill`}>
+                <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.2">
+                    <path d="M9.5 1.5h-6v13h9v-10l-3-3Z" />
+                    <path d="M9.5 1.5v3h3M5.5 8h5M5.5 10.5h4" />
+                </svg>
+                {children}
+            </Link>
+        ) : (
+            <a href={to} target={to.startsWith('#') ? undefined : '_blank'} rel="noopener noreferrer">
+                {children}
+            </a>
+        );
+    }
+    const byLine = new Map(headings.map((heading) => [heading.line, heading]));
+    function heading(level: 1 | 2 | 3 | 4 | 5 | 6, children: ReactNode, line?: number) {
+        const item = line === undefined ? undefined : byLine.get(line);
         const Tag = `h${level}` as const;
-        return <Tag id={count ? `${text}-${count}` : text}>{children}</Tag>;
+        return (
+            <Tag id={item?.id} tabIndex={item ? -1 : undefined}>
+                {children}
+            </Tag>
+        );
     }
     return (
-        <div className="skill-markdown">
-            <Markdown
-                remarkPlugins={[remarkGfm]}
-                skipHtml
-                components={{
-                    a: ({ href, children }) => {
-                        const to = href ? destination(href) : '';
-                        if (!to) return <span>{children}</span>;
-                        return to.startsWith(`${baseHref}?`) ? (
-                            <Link href={to} scroll={false}>
-                                {children}
-                            </Link>
-                        ) : (
-                            <a href={to} target={to.startsWith('#') ? undefined : '_blank'} rel="noopener noreferrer">
-                                {children}
-                            </a>
-                        );
-                    },
-                    img: ({ src, alt }) =>
-                        typeof src === 'string' && src ? (
-                            <a href={destination(src)} target="_blank" rel="noopener noreferrer">
-                                {alt || 'View image'} ↗
-                            </a>
-                        ) : null,
-                    table: ({ children }) => (
-                        <div className="overflow-x-auto">
-                            <table>{children}</table>
-                        </div>
-                    ),
-                    h1: ({ children }) => heading(1, children),
-                    h2: ({ children }) => heading(2, children),
-                    h3: ({ children }) => heading(3, children),
-                    h4: ({ children }) => heading(4, children),
-                    h5: ({ children }) => heading(5, children),
-                    h6: ({ children }) => heading(6, children),
-                }}
-            >
-                {source}
-            </Markdown>
-        </div>
+        <DocumentMarkdown
+            source={source}
+            plugins={[[remarkSkillFileLinks, { currentFile, files }]]}
+            components={{
+                a: ({ href, children }) => link(href ?? '', children),
+                img: ({ src, alt }) => (typeof src === 'string' && src ? link(src, alt || 'View image') : null),
+                h1: ({ children, node }) => heading(1, children, node?.position?.start.line),
+                h2: ({ children, node }) => heading(2, children, node?.position?.start.line),
+                h3: ({ children, node }) => heading(3, children, node?.position?.start.line),
+                h4: ({ children, node }) => heading(4, children, node?.position?.start.line),
+                h5: ({ children, node }) => heading(5, children, node?.position?.start.line),
+                h6: ({ children, node }) => heading(6, children, node?.position?.start.line),
+            }}
+        />
     );
 }

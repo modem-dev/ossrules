@@ -19,6 +19,8 @@ export interface SkillRecord {
     description: string;
     license?: string;
     compatibility?: string;
+    tags?: string[];
+    platforms?: string[];
     files: SkillFile[];
     contributions?: SkillContributions;
 }
@@ -62,7 +64,16 @@ export function skillId(filePath: string): string {
     return `${name}-${createHash('sha256').update(filePath).digest('hex').slice(0, 12)}`;
 }
 
-export function parseSkill(source: string): Pick<SkillRecord, 'name' | 'description' | 'license' | 'compatibility'> {
+function stringList(value: unknown): string[] {
+    if (!Array.isArray(value) || !value.every((item) => typeof item === 'string')) return [];
+    return [...new Set(value.map((item) => item.trim()).filter(Boolean))];
+}
+
+function mapping(value: unknown): Record<string, unknown> | undefined {
+    return value && typeof value === 'object' && !Array.isArray(value) ? (value as Record<string, unknown>) : undefined;
+}
+
+export function parseSkill(source: string): Pick<SkillRecord, 'name' | 'description' | 'license' | 'compatibility' | 'tags' | 'platforms'> {
     const match = /^\uFEFF?---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/.exec(source);
     if (!match) throw new Error('Missing YAML frontmatter.');
     const doc = parseDocument(match[1], { uniqueKeys: true });
@@ -73,12 +84,18 @@ export function parseSkill(source: string): Pick<SkillRecord, 'name' | 'descript
     if (typeof data.description !== 'string' || !data.description.trim() || data.description.length > 1024) {
         throw new Error('Missing or invalid skill description.');
     }
+    const metadata = mapping(data.metadata);
+    const hermes = mapping(metadata?.hermes);
+    const tags = [...new Set([...stringList(data.tags), ...stringList(metadata?.tags), ...stringList(hermes?.tags)])];
+    const platforms = stringList(data.platforms);
     // Preserve upstream names; indexability is separate from strict authoring conformance.
     return {
         name: data.name,
         description: data.description,
         ...(typeof data.license === 'string' ? { license: data.license } : {}),
         ...(typeof data.compatibility === 'string' ? { compatibility: data.compatibility } : {}),
+        ...(tags.length ? { tags } : {}),
+        ...(platforms.length ? { platforms } : {}),
     };
 }
 

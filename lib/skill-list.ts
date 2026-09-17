@@ -1,4 +1,5 @@
 import type { SkillEntry } from '@/components/skill-explorer';
+import { isSkillTask } from './skill-tasks';
 
 export type SkillSearchParams = Record<string, string | string[] | undefined>;
 export const SKILL_PAGE_SIZE = 50;
@@ -6,7 +7,7 @@ export const SKILL_PAGE_SIZE = 50;
 /** Match URLSearchParams.get: repeated parameters use their first value. */
 export function skillSearchString(params: SkillSearchParams): string {
     const search = new URLSearchParams();
-    for (const key of ['q', 'project', 'resources', 'page']) {
+    for (const key of ['q', 'project', 'resources', 'task', 'page']) {
         const value = params[key];
         const first = Array.isArray(value) ? value[0] : value;
         if (first) search.set(key, first);
@@ -20,10 +21,13 @@ export function skillListing(entries: SkillEntry[], search = '', projectOnly = f
     const query = params.get('q') ?? '';
     const project = projectOnly ? 'all' : (params.get('project') ?? 'all');
     const resources = params.get('resources') === '1';
+    const requestedTask = params.get('task');
+    const task = isSkillTask(requestedTask) ? requestedTask : '';
     const visible = entries.filter(
         (entry) =>
             (project === 'all' || entry.project.slug === project) &&
             (!resources || entry.files > 1) &&
+            (!task || entry.tasks?.includes(task)) &&
             `${entry.name} ${entry.description} ${entry.path} ${entry.project.name} ${entry.project.repository}`
                 .toLowerCase()
                 .includes(query.trim().toLowerCase()),
@@ -36,12 +40,14 @@ export function skillListing(entries: SkillEntry[], search = '', projectOnly = f
     if (query.trim()) canonicalParams.set('q', query.trim());
     if (project !== 'all') canonicalParams.set('project', project);
     if (resources) canonicalParams.set('resources', '1');
+    if (task) canonicalParams.set('task', task);
     const filtered = canonicalParams.size > 0;
     if (page > 1) canonicalParams.set('page', String(page));
     return {
         query,
         project,
         resources,
+        task,
         visible,
         pageCount,
         page,

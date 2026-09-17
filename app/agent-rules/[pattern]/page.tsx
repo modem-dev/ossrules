@@ -139,14 +139,14 @@ export default async function PatternPage({ params }: Props) {
                                     <p className="mt-3 text-sm leading-relaxed text-gray-550">{technique.body}</p>
                                 </div>
                                 <div className="min-w-0">
-                                    <div className="pattern-source">
-                                        <div className="pattern-source-label">
+                                    <div className="source-excerpt">
+                                        <div className="source-excerpt-header">
                                             <span className="[overflow-wrap:anywhere]">{path}</span>
                                             <span>
                                                 {excerpt.startLine === endLine ? `L${endLine}` : `L${excerpt.startLine}–${endLine}`}
                                             </span>
                                         </div>
-                                        <div className="pattern-source-text">
+                                        <div>
                                             {excerpt.text.split('\n').length > 10 ? (
                                                 <>
                                                     <Excerpt
