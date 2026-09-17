@@ -12,6 +12,7 @@ const nextConfig = {
     // Server-rendered project pages read the committed corpus from content/.
     outputFileTracingIncludes: {
         '/**': ['./content/**'],
+        '/og': ['./public/logos/*.png', './public/fonts/*.ttf'],
     },
     async redirects() {
         const directory = path.join(process.cwd(), 'content/projects');

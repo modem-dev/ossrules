@@ -26,9 +26,9 @@ export async function generateMetadata({ params, searchParams }: Props) {
         openGraph: {
             title,
             description,
-            images: [{ url: ogImageUrl(title), width: 1200, height: 630 }],
+            images: [{ url: ogImageUrl(title, project.slug), width: 1200, height: 630 }],
         },
-        twitter: { card: 'summary_large_image', title, description, images: [ogImageUrl(title)] },
+        twitter: { card: 'summary_large_image', title, description, images: [ogImageUrl(title, project.slug)] },
         ...skillListingMetadata(projectSkillsHref(project), entries, skillSearchString(await searchParams), true),
     };
 }

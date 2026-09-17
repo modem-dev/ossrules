@@ -2,6 +2,7 @@ import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { SkillExplorer } from '@/components/skill-explorer';
 import { getAgentsProjects } from '@/lib/agents-md';
+import { ogImageUrl } from '@/lib/og';
 import { skillEntry } from '@/lib/skill-entries';
 import { type SkillSearchParams, skillListingMetadata, skillSearchString } from '@/lib/skill-list';
 import { getAllSkills, getSkillManifest } from '@/lib/skills';
@@ -15,9 +16,14 @@ function getEntries() {
 type Props = { searchParams: Promise<SkillSearchParams> };
 
 export async function generateMetadata({ searchParams }: Props) {
+    const title = 'Skills from open-source projects';
+    const description = 'Explore agent skills, their original instructions, and bundled files from real open-source projects.';
+    const image = ogImageUrl(title);
     return {
-        title: 'Skills from open-source projects',
-        description: 'Explore agent skills, their original instructions, and bundled files from real open-source projects.',
+        title,
+        description,
+        openGraph: { title, description, images: [{ url: image, width: 1200, height: 630 }] },
+        twitter: { card: 'summary_large_image', title, description, images: [image] },
         ...skillListingMetadata('/skills', getEntries(), skillSearchString(await searchParams)),
     };
 }
