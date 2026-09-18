@@ -8,5 +8,12 @@
     "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
     "excluded": [],
     "invalid": [],
-    "skills": []
+    "skills": [],
+    "repositoryLicense": {
+        "path": "LICENSE",
+        "blob": "9b73ea8111a4d1f17e4afffb93e867401c7be597",
+        "bytes": 10764,
+        "text": true,
+        "mode": "100644"
+    }
 }

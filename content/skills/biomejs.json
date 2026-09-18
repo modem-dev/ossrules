@@ -380,5 +380,12 @@
         "bytes": 4521,
         "text": true,
         "mode": "100644"
+    },
+    "repositoryLicense": {
+        "path": "LICENSE-APACHE",
+        "blob": "cd7ef7e8fb62176ffc2d5816059620132f33c580",
+        "bytes": 10858,
+        "text": true,
+        "mode": "100644"
     }
 }

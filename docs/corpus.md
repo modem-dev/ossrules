@@ -116,3 +116,12 @@ usernames support avatar groups without live API requests while browsing.
 Known bot accounts are filtered; co-author trailers and history before path
 renames are not included. Unlinked commit authors are recorded as a coverage
 notice rather than guessed GitHub identities.
+
+### Repair license coverage
+
+Run `pnpm sync:licenses` to verify and repair project and skill license metadata
+at their existing pinned commits. Use `--slug <slug>` to limit the run to one
+project. This preserves analysis, skill inventories, and scan dates. Both license
+reads must succeed before a project's snapshots are updated; fetch or hash
+failures retain that project's previous data. Requires authenticated `gh` and
+network access. Unrecognized license text remains linked without an inferred name.

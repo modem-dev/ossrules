@@ -15,6 +15,7 @@
         "lint:fix": "biome check --fix .",
         "format": "biome format --write .",
         "validate": "npx tsx scripts/validate-agents-md.ts",
+        "sync:licenses": "node --import tsx scripts/sync-licenses.ts",
         "sync:files": "npx tsx scripts/sync-agents-md-files.ts",
         "check:files": "npx tsx scripts/sync-agents-md-files.ts --check",
         "measure:files": "node --import tsx scripts/measure-instructions.ts",
