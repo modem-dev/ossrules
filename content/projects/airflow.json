@@ -115,22 +115,22 @@
         {
             "pattern": "contribution-etiquette",
             "title": "Open the pull request, not the issue",
-            "body": "When the fix is known, open a pull request instead of an issue. The pull request already holds the title, description, diff, and discussion, while an issue can attract duplicate fixes. A deferred fix still needs an issue that outlives the workaround.",
+            "body": "Known fixes go straight to a pull request to avoid duplicate work. Deferred fixes still need an issue that outlives the workaround.",
             "quote": "Open issues attract drive-by submissions, often from other agents, that\n  haven't seen the in-flight work."
         },
         {
             "title": "Deferred work linked from the code",
-            "body": "A workaround, version cap, or partial fix needs a tracking issue before the pull-request body is final. Reference its number in the pull request and put the full URL beside the workaround, where a bare issue number would not resolve."
+            "body": "Create a tracking issue before finalizing a workaround, version cap, or partial fix. Cite its number in the pull request and place the full URL beside the code."
         },
         {
             "pattern": "hard-prohibition",
             "title": "No agent co-author trailer",
-            "body": "The commit section ends with a line prohibiting the agent from adding itself as a co-author, with the stated distinction that agents are assistants rather than authors. A separate PR template field discloses the agent by name and version instead.",
+            "body": "Agents may not add themselves as co-authors. A separate pull-request field records the agent's name and version.",
             "quote": "NEVER add Co-Authored-By with yourself as co-author of the commit. Agents cannot be authors, humans can be, Agents are assistants."
         },
         {
             "title": "Remote names checked rather than assumed",
-            "body": "Two remote names are fixed by convention. The agent is told to run git remote -v before any remote command, and where the names do not match, to surface the mismatch and propose the exact rename commands rather than silently working with what is there."
+            "body": "Before remote commands, run git remote -v. If the two expected names differ, report the mismatch and propose the exact rename commands."
         },
         {
             "title": "A coverage target with an upper bound",

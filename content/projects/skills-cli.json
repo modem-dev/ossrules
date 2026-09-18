@@ -27,7 +27,7 @@
     "references": [],
     "techniques": [
         {
-            "title": "Describe authentication fallback without exporting credentials",
+            "title": "Keep fallback credentials inside GitHub CLI",
             "body": "The update algorithm starts anonymously, then checks explicit tokens, and finally delegates to GitHub CLI. The file states that the CLI credential stays inside that tool rather than being exported into the environment.",
             "quote": "Tree requests start anonymously, then use an explicit `GITHUB_TOKEN`/`GH_TOKEN`, then `gh api` without exporting the GitHub CLI credential.",
             "pattern": "architecture-narrative"

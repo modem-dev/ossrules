@@ -37,7 +37,7 @@
             "pattern": "architecture-narrative"
         },
         {
-            "title": "Rebuild a stale extension before declaring the environment blocked",
+            "title": "Rebuild stale extensions before giving up",
             "body": "Python validation uses the locked uv environment. Missing or stale Rust/PyO3 bindings have a prescribed rebuild path instead of being treated as final evidence that tests cannot run.",
             "quote": "If `lancedb._lancedb`\nis missing or stale, or if Rust/PyO3 binding code changed, rebuild the Python\nextension with the bootstrap command above before running tests.",
             "pattern": "behavioral-conditioning"

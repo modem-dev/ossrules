@@ -38,19 +38,19 @@
     "techniques": [
         {
             "title": "Explain what passing tests do not establish",
-            "body": "The opening gate names runtime setup that tests may omit: the full application, a TTY, and background threads. It requires a real interaction before a completion claim, with an explicit limitation when the environment cannot run the binary.",
+            "body": "Tests may omit the full application, a TTY, and background threads. Completion therefore requires a real interaction, or an explicit note that the environment cannot run the binary.",
             "quote": "A passing test suite is necessary, not sufficient — tests in this repo do not always construct the full runtime, attach a TTY, or spawn background threads, so they will not catch startup crashes, render regressions, or thread-lifetime bugs.",
             "pattern": "verification-matrix"
         },
         {
             "title": "Bind verification to the binary containing the change",
-            "body": "The guide requires the newly built executable from the checkout and explains why an installed version on PATH is not evidence. It also tells agents to investigate an incomplete fix rather than immediately blame the user's binary.",
+            "body": "Verify with the newly built executable from the checkout; an installed binary on PATH is not evidence. Investigate incomplete fixes before blaming the user's binary.",
             "quote": "* `zig build` writes to `zig-out/bin/fx`. That is the only binary that contains your latest change.",
             "pattern": "verification-matrix"
         },
         {
             "title": "Separate optimizer training from correctness coverage",
-            "body": "Every root E2E file must be classified as training, verification-only, or intentionally excluded from the optimization corpus. Rare or security-sensitive behavior can remain mandatory to pass without influencing hot-path optimization.",
+            "body": "Classify every root E2E file as training, verification-only, or intentionally excluded. Rare and security-sensitive cases can stay mandatory without influencing hot-path optimization.",
             "quote": "* **Verification-only:** important correctness, recovery, security, or rare\n  behavior that the final candidate must pass without making it hot",
             "pattern": "verification-matrix"
         },

@@ -75,13 +75,13 @@
         {
             "pattern": "ratchet",
             "title": "Shrink-only baselines and append-only tombstones",
-            "body": "The known-violations baseline may only shrink and the tombstone lists may only grow. Paying off a violation has a defined sequence: delete the copies, add a tombstone and an adversarial fixture, register the consumers, update the audit document.",
+            "body": "The known-violations baseline may only shrink, while tombstone lists may only grow. Removing a violation requires deleting copies, adding a tombstone and adversarial fixture, registering consumers, and updating the audit.",
             "quote": "The known-violations baseline is shrink-only: fix an edge, rerun `bun run deps:baseline`, and never add to it."
         },
         {
             "pattern": "verification-matrix",
             "title": "Checks selected by kind of change",
-            "body": "Rendering changes take a typecheck, tests, integration, TTY smoke and one real terminal run. Interaction and scrolling changes take PTY coverage. Broker changes take the Node adapter suite. The section also states which four suites the default test command excludes.",
+            "body": "Rendering changes need type, integration, TTY, and real-terminal checks. Interaction work needs PTY coverage; broker work needs the Node adapter suite. The guide also names four suites excluded by default.",
             "quote": "`bun run test` does not include review conformance, PTY, TTY smoke, or real-Node adapter\nconformance"
         },
         {
@@ -98,7 +98,7 @@
         {
             "pattern": "generated-file-guard",
             "title": "Generated files named with their generators",
-            "body": "The guide names four generated outputs, including the agent skill and session fixtures, with the source and rebuild command for each. Updating one fixture also requires a protocol version bump and deletion of the previous fixture."
+            "body": "Four generated outputs list their source and rebuild command. Updating a session fixture also requires a protocol version bump and deletion of the previous fixture."
         }
     ],
     "steal": [

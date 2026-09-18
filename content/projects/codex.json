@@ -40,7 +40,7 @@
         {
             "pattern": "context-budget",
             "title": "Limits on the model context",
-            "body": "Codex builds model history incrementally and avoids rewrites that break prompt caching. Every injected item has a size cap; anything over 1,000 tokens needs extra review. Injected fragments use structs that implement a named trait.",
+            "body": "Model history is incremental to preserve prompt caching. Every injected item has a hard size cap, anything over 1,000 tokens needs review, and fragments use a named trait.",
             "quote": "No unbounded items - everything injected in the model context must have a bounded size and a hard cap."
         },
         {
@@ -58,21 +58,21 @@
             "body": "Modules target 500 lines excluding tests, and past roughly 800 new functionality goes in a new module. The rule names the specific files it applies to most, on the stated grounds that they already attract unrelated changes."
         },
         {
-            "title": "The sandbox environment variables explained, not just protected",
-            "body": "Two environment variables are placed off limits, followed by the reason the code reads them: existing tests use them to exit early from cases the agent cannot run under its own sandbox. The explanation is what distinguishes the checks from dead code.",
+            "title": "Explain protected sandbox variables",
+            "body": "Two environment variables are off limits because existing tests use them to skip cases the agent cannot run in its sandbox. That rationale keeps the checks from looking like dead code.",
             "quote": "Any existing code that uses `CODEX_SANDBOX_NETWORK_DISABLED_ENV_VAR` was authored with this fact in mind. It is often used to early exit out of tests that the author knew you would not be able to run given your sandbox limitations."
         },
         {
             "pattern": "verification-matrix",
             "title": "Test scope that escalates, with a permission gate",
-            "body": "Run the changed project's tests first. If the change touched common, core or protocol, run the full suite, but ask the user before doing so because of its cost. A separate line tells the agent not to kill slow Rust commands by PID.",
+            "body": "Run the changed project's tests first. Common, core, or protocol changes require the full suite after user approval, and slow Rust commands must not be killed by PID.",
             "quote": "be patient with the command and never try to kill them using the PID"
         }
     ],
     "steal": [
         "Put a line budget on changes, and ask for a staging plan when one exceeds it.",
         "Name the modules that are already too big. An agent cannot infer which files attract unrelated changes.",
-        "Where code exists because of a constraint the code cannot express, record the reason where an agent will read it before deleting it.",
+        "Record constraints code cannot express where agents will see them before deleting related checks.",
         "Gate expensive test runs behind asking, and state which changes make them mandatory."
     ],
     "outline": [

@@ -43,7 +43,7 @@
     "techniques": [
         {
             "title": "Name the exception to a sandbox-only rule",
-            "body": "Example apps normally reproduce and test fixes rather than receive production changes. The guide explicitly identifies examples/complex as a migration test fixture used by CI, preserving the reason that particular example may need changes.",
+            "body": "Example apps normally reproduce fixes rather than receive production changes. The guide names examples/complex as the exception because CI uses it as a migration fixture.",
             "quote": "**Exception:** `examples/complex` is the **migration test fixture**",
             "pattern": "hard-prohibition"
         },
@@ -55,7 +55,7 @@
         },
         {
             "title": "Route content operations through the owning abstraction",
-            "body": "The architecture section identifies Document Service as the high-level content API and restricts raw database access to the database package. It also explains that content type schemas generate tables, rather than requiring raw migrations.",
+            "body": "Document Service owns high-level content access; raw queries belong only in the database package. Content-type schemas generate tables, so ordinary changes do not need raw migrations.",
             "quote": "Always use this for reading/writing content — never raw DB queries unless you're working inside `@strapi/database` itself.",
             "pattern": "hard-prohibition"
         },
@@ -73,7 +73,7 @@
         },
         {
             "title": "Distinguish an absent optional tool from a broken one",
-            "body": "The worktree bootstrap quietly continues when the optional brain-start skill is unavailable, which is the normal external-contributor path. If the tool is installed but refresh fails, the failure must be reported and remediated.",
+            "body": "A missing optional brain-start skill is a normal no-op for external contributors. If the installed tool fails to refresh, report and fix the failure.",
             "quote": "Only the absence of the optional skill is a clean no-op.",
             "pattern": "behavioral-conditioning"
         }
