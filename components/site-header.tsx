@@ -22,7 +22,7 @@ export function SiteHeader() {
                     className="inline-flex shrink-0 items-center gap-2.5 font-mono font-medium text-[17px] tracking-tight transition-colors hover:text-teal sm:text-lg"
                 >
                     <Image src="/logos/ossrules.svg" alt="" width={32} height={32} className="size-8 shrink-0" />
-                    <span className="hidden md:inline">
+                    <span className="hidden min-[440px]:inline">
                         ossrules<span className="text-teal">.md</span>
                     </span>
                 </Link>
