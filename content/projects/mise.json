@@ -35,7 +35,7 @@
     "techniques": [
         {
             "title": "Name the domain assumption that breaks generic helpers",
-            "body": "Date versions, channels, language-specific prereleases, and tool-defined latest values make a universal semver comparator unreliable. The guide routes resolution to backend methods and treats lockfile versions as opaque strings.",
+            "body": "Date versions, channels, language-specific prereleases, and tool-defined latest values defeat a universal semver comparator. Resolution belongs to backend methods; lockfile versions remain opaque.",
             "quote": "**Do not assume tool versions follow semver or any other orderable scheme.**",
             "pattern": "hard-prohibition"
         },
@@ -64,7 +64,7 @@
         },
         {
             "title": "Treat PR prose as input to another product surface",
-            "body": "Release notes are generated from PR titles and descriptions. The guide requires rewriting them when scope changes and keeping essential behavior, examples, and adoption details understandable without opening images or reading the diff.",
+            "body": "Release notes come from pull-request titles and descriptions. Rewrite them when scope changes, and make behavior, examples, and adoption clear without the diff or screenshots.",
             "quote": "Communique uses PR titles and descriptions to generate release notes. Write them\nfor a mise user who has not read the diff or this conversation.",
             "pattern": "contribution-etiquette"
         }

@@ -50,7 +50,7 @@
         },
         {
             "title": "Make a verification gap visible",
-            "body": "The file names the absence of tests instead of implying a test suite exists. Its development commands cover installation, builds, type checking, and formatting, leaving readers able to distinguish those checks from behavioral tests.",
+            "body": "The file states that no tests exist instead of implying otherwise. Its commands cover installation, builds, type checks, and formatting, clearly separating those checks from behavioral tests.",
             "quote": "No tests exist in the repo."
         }
     ],

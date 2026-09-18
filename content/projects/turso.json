@@ -85,7 +85,7 @@
         {
             "pattern": "hard-prohibition",
             "title": "Comments ruled out entirely",
-            "body": "A two-line section states that comments are not to be added, and directs the effort into making the code expressive instead. It is the most absolute position on comments in the directory, where other files ask for comments that explain why.",
+            "body": "A two-line section bans comments and directs the effort into expressive code instead. Unlike guides that reserve comments for rationale, this one allows no exception.",
             "quote": "Do not add comments. Instead, focus on making your code expressive."
         },
         {
@@ -99,7 +99,7 @@
     ],
     "steal": [
         "If reviewers keep rewriting the same vague phrasing, list the words rather than describing the tone.",
-        "Name the debugging shortcuts that waste time in your codebase, such as reverting to check whether a failure predates the change.",
+        "Name misleading debugging shortcuts, including checks that cannot distinguish old failures from new ones.",
         "State which test directory a new test belongs in, and which are off limits.",
         "If agents run in CI with a turn limit, tell them what to do when they hit it."
     ],

@@ -69,7 +69,7 @@
         {
             "pattern": "skill-routing",
             "title": "Task guides before rules",
-            "body": "Seven links open the file, covering command metadata, install scripts, the desktop shell, the icon font, acceptance tests, visual verification and migrations. Work that touches migrations loads the migrations guide; work that does not, does not pay for it."
+            "body": "Seven links route command metadata, install scripts, desktop work, icons, acceptance tests, visual checks, and migrations. Only migration work loads the migration guide."
         },
         {
             "title": "Three documentation trees, split by audience",
@@ -83,7 +83,7 @@
         {
             "pattern": "hard-prohibition",
             "title": "Defensive checks ruled out where they are noise",
-            "body": "Commands from the default package set are stated to be runtime invariants, so presence checks around them are wrong. Presence helpers are reserved for genuinely optional dependencies and code that can run before the default set is installed, with a listed set of exceptions.",
+            "body": "Default-package commands are runtime invariants, so presence checks around them are wrong. Reserve those checks for optional dependencies, pre-install code, and listed exceptions.",
             "quote": "Commands installed by Omarchy's default package set are runtime invariants. Invoke them directly; do not add defensive `omarchy-cmd-present` / `omarchy-cmd-missing` checks around them."
         },
         {
@@ -94,7 +94,7 @@
         },
         {
             "title": "A documented footgun",
-            "body": "The config refresh helper interpolates its argument into two paths and checks only for existence, so a path containing a traversal resolves and writes outside the config directory. The file states the behavior rather than describing the helper as validating."
+            "body": "The config refresh helper checks only whether an interpolated path exists. Traversal can therefore resolve and write outside the config directory, a limitation the guide states plainly."
         }
     ],
     "steal": [

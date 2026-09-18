@@ -55,12 +55,12 @@
         },
         {
             "title": "Account for CI-marked agent shells",
-            "body": "The environment section explains why some tasks run under CI flags while dev servers and build-graph tasks are skipped. It gives an explicit override for the latter rather than assuming a failed launch means the task is unavailable.",
+            "body": "CI-marked shells can run some tasks while skipping dev servers and build-graph work. The guide provides an explicit override instead of treating a failed launch as proof the task is unavailable.",
             "quote": "Most local moon tasks (formatters, benchmarks, worktree management) are\nconfigured with `runInCI: 'always'` so they keep working in CI-marked shells\nlike agent harnesses. Tasks connected to the build graph (dev servers, prod\nserves, e2e variants, publish guards) stay CI-skipped — run those with\n`moonx <target> --ignore-ci-checks`, e.g.\n`moonx docs:dev-diffs --ignore-ci-checks`. For non-moon commands that CI-gate\nthemselves, unset the var: `CI= pnpm publish --dry-run`."
         },
         {
             "title": "Separate the verification baseline from affected checks",
-            "body": "Formatting and linting form the common baseline. Type checks and focused tests depend on the changed area, while docs and instruction edits can stop at the baseline unless executable code or package configuration also changed.",
+            "body": "Formatting and linting are the baseline. Type checks and focused tests depend on the changed area; docs and instruction edits stop at the baseline unless they touch code or package config.",
             "quote": "Also run the affected typecheck and focused tests for the changed area, e.g.\n`moonx <project>:typecheck` and `moonx <project>:test` (or\n`moonx :typecheck --affected`). For docs-only or AGENTS/skill-only changes,\nformatting and linting are sufficient unless the edit touches executable code or\npackage config.",
             "pattern": "verification-matrix"
         }

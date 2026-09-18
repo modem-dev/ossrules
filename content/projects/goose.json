@@ -49,7 +49,7 @@
         },
         {
             "title": "Freeze additions without blocking migration maintenance",
-            "body": "New third-party entries in the old MCP directory are no longer accepted, while changes that maintain or remove entries remain possible. The policy makes the migration direction explicit without treating legacy data as untouchable.",
+            "body": "The old MCP directory accepts no new third-party entries, but maintenance and removals remain allowed. This states the migration direction without freezing legacy data.",
             "quote": "- Treat the existing goose directory as legacy data while registry-backed discovery and installation are implemented.",
             "pattern": "contribution-etiquette"
         },

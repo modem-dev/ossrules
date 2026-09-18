@@ -39,7 +39,7 @@
         },
         {
             "title": "A planning procedure with named trade-off categories",
-            "body": "Planning is broken into seven steps, ending with four trade-off dimensions to discuss (performance, scalability, complexity, security) and a requirement to reason about failure modes, given as crash behavior and a tenfold load increase."
+            "body": "Seven planning steps end with four trade-offs: performance, scalability, complexity, and security. Plans must also cover failure modes such as crashes and tenfold load."
         },
         {
             "pattern": "house-vocabulary",

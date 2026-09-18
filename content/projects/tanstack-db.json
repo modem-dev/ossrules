@@ -37,7 +37,7 @@
     ],
     "techniques": [
         {
-            "title": "Treat each review bug as evidence of a missing test dimension",
+            "title": "Turn review bugs into missing test dimensions",
             "body": "A confirmed defect should identify the missing law, state transition, generator dimension, adapter boundary, or assertion. The goal is to cover the class of failure rather than only pinning the reported example.",
             "quote": "When a reviewer agent confirms a bug, it must also ask why the existing tests\ndid not catch it.",
             "pattern": "behavioral-conditioning"
@@ -50,7 +50,7 @@
         },
         {
             "title": "Show where query intersections stop being intuitive",
-            "body": "The semantics section uses two limited queries to demonstrate that combining predicates and taking the smaller limit need not produce the intersection of the actual results. It connects the example to ordering, limits, and subset edge cases.",
+            "body": "Two limited-query examples show why combining predicates and taking the smaller limit may not produce the real intersection. The guide connects the failure to ordering, limits, and subsets.",
             "quote": "-- Query 1: WHERE age >= 18 LIMIT 1\n-- Query 2: WHERE age >= 20 LIMIT 3\n-- Naive intersection: WHERE age >= 20 LIMIT 1\n-- Problem: This may not return the actual intersection of results",
             "pattern": "worked-examples"
         },
