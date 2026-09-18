@@ -54,7 +54,7 @@
             "path": "code/core/src/shared/open-service/README.md"
         }
     ],
-    "hook": "Carries a Learned User Preferences section recording corrections from maintainers.",
+    "hook": "A broad guide to repository structure, architecture, commands, pull requests, tests, self-maintenance, and maintainer preferences.",
     "summary": "Storybook covers repository structure, architecture, commands, pull requests, and tests. Two sections govern the guide itself: one requires updates when the project changes, and another records maintainer preferences learned during earlier work.",
     "patterns": ["behavioral-conditioning", "single-source", "hard-prohibition", "verification-matrix", "nested-instructions"],
     "techniques": [

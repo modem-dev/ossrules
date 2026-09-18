@@ -65,7 +65,7 @@
             "path": "DESIGN.md"
         }
     ],
-    "hook": "Telemetry, observability, and the run log get different review rules, determined by file path rather than terminology.",
+    "hook": "An architecture guide to control-plane rules, company boundaries, shared contracts, database changes, and browser checks.",
     "summary": "Paperclip starts with an ordered reading list, then states the rules its agent control plane must preserve. It defines company boundaries, shared contracts, data destinations, and review expectations, with separate steps for database changes and browser checks.",
     "patterns": ["skill-routing", "house-vocabulary", "verification-matrix", "single-source"],
     "techniques": [

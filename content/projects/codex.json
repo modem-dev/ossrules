@@ -26,7 +26,7 @@
             "path": "codex-rs/tui/styles.md"
         }
     ],
-    "hook": "Includes rules governing what may enter the agent's own model context.",
+    "hook": "A dense Rust guide covering style, module boundaries, reviews, snapshot tests, app-server APIs, change scope, and model context.",
     "summary": "Codex packs 122 rules into its root file, covering Rust style, module size, reviews, snapshot tests, and app-server APIs. Several rules limit the size or scope of a change, not just the code it touches.",
     "patterns": [
         "context-budget",

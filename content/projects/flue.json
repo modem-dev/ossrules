@@ -22,7 +22,7 @@
         "docLinks": 0
     },
     "tagline": "A TypeScript framework for building and deploying autonomous agents.",
-    "hook": "Defines a durable conversation vocabulary and separates agent registration from HTTP routing.",
+    "hook": "An architecture guide defining agents, harnesses, sessions, operations, and turns, plus contribution workflows and their limits.",
     "summary": "Flue defines how agents, harnesses, sessions, operations, and turns relate before giving development rules. Its contribution section also makes clear which workflows are available and where they stop.",
     "references": [
         {

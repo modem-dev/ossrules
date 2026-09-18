@@ -62,7 +62,7 @@
             "path": ".github/pull_request_title_conventions.md"
         }
     ],
-    "hook": "Architecture rules name the lint checks that enforce them, including a baseline that can only shrink.",
+    "hook": "A monorepo guide to package boundaries, persistence, encryption, lint rules, memory-aware commands, tests, and contributions.",
     "summary": "n8n's root guide covers setup, package boundaries, tests, and public contributions. It names the intended APIs for persistence, encryption, and lint configuration, along with forbidden workarounds. Commands account for memory limits, large logs, package-local checks, and shared test state.",
     "patterns": ["architecture-narrative", "ratchet", "hard-prohibition", "worked-examples", "context-budget"],
     "techniques": [

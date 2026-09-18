@@ -22,7 +22,7 @@
         "docLinks": 1
     },
     "tagline": "A Rust-based tool for managing repositories, projects, and build tasks.",
-    "hook": "Treats Rust warnings as errors but JavaScript lint warnings as informational, with separate workflows for each side.",
+    "hook": "A Rust and JavaScript guide to separate task runners, environment requirements, warning policies, and branch rules.",
     "summary": "moon uses its own task runner for JavaScript packages and just for the Rust tool. The root guide lists environment requirements, applies different warning policies to each side, and sets branch rules for stable and breaking work.",
     "references": [
         {

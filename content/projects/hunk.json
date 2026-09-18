@@ -62,7 +62,7 @@
             "path": "test/README.md"
         }
     ],
-    "hook": "Documents a shared review seam as two ASCII data flows, then forbids re-deriving it in a renderer.",
+    "hook": "An architecture guide to the shared review model, renderer boundaries, interface-specific tests, and three core project terms.",
     "summary": "Hunk has one central constraint: every interface shares the same review model, and renderers may not rebuild it themselves. The file also maps changes to test commands and defines three project terms.",
     "patterns": ["architecture-narrative", "ratchet", "verification-matrix", "generated-file-guard", "house-vocabulary"],
     "techniques": [

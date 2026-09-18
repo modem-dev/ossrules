@@ -22,7 +22,7 @@
         "docLinks": 2
     },
     "tagline": "A headless CMS with a Node.js server, an admin interface, and a plugin ecosystem.",
-    "hook": "Treats example apps as test sandboxes, then names the migration fixture that is an explicit exception.",
+    "hook": "A Yarn and Nx guide to content access, dependency injection, shared types, edition boundaries, tests, skills, and migrations.",
     "summary": "Strapi's root guide maps its Yarn and Nx monorepo and sets boundaries for content access, dependency injection, shared types, and edition-specific code. Test areas use separate commands, while committed skills live in one directory and link into each tool.",
     "references": [
         {

@@ -22,7 +22,7 @@
         "docLinks": 0
     },
     "tagline": "A BuildKit-based builder that turns application source into runnable container images.",
-    "hook": "Explains why a build-only integration fixture cannot prove runtime behavior, and routes server checks through HTTP assertions.",
+    "hook": "A build-system guide tracing detection through containers, with mise tasks, generated files, fixtures, and runtime checks.",
     "summary": "Railpack's CLAUDE.md follows a project from language detection through build planning and container execution. It uses mise tasks, explains what integration fixtures prove, and names generated files and unsafe cleanup commands to leave alone.",
     "references": [
         {
