@@ -72,30 +72,32 @@ export default async function AgentsMdPage({ searchParams }: Props) {
 
             <main id="main" className="page-shell project-directory flex-1">
                 <header className="directory-hero brand-masthead modem-surface">
-                    <div>
-                        <h1 className="page-title max-w-xl">Agent rules and skills from open source.</h1>
-                        <p className="mt-5 text-gray-550 text-base leading-relaxed">
-                            Read real AGENTS.md and CLAUDE.md files. See what they do.
-                        </p>
+                    <div className="directory-hero-content">
+                        <div>
+                            <h1 className="page-title max-w-xl">Agent rules and skills from open source.</h1>
+                            <p className="mt-5 text-gray-550 text-base leading-relaxed">
+                                Read real AGENTS.md and CLAUDE.md files. See what they do.
+                            </p>
+                        </div>
+                        <dl className="directory-stats" aria-label="Library statistics">
+                            <div>
+                                <dt>Projects</dt>
+                                <dd>{projects.length.toLocaleString('en')}</dd>
+                            </div>
+                            <div>
+                                <dt>Skills</dt>
+                                <dd>{skillCount.toLocaleString('en')}</dd>
+                            </div>
+                            <div
+                                title={`${totalStars.toLocaleString('en')} GitHub stars across the listed repositories, from stored snapshots.`}
+                            >
+                                <dt>GitHub stars</dt>
+                                <dd>{compactStars}</dd>
+                            </div>
+                        </dl>
                     </div>
-                    <dl className="directory-stats" aria-label="Library statistics">
-                        <div>
-                            <dt>Projects</dt>
-                            <dd>{projects.length.toLocaleString('en')}</dd>
-                        </div>
-                        <div>
-                            <dt>Skills</dt>
-                            <dd>{skillCount.toLocaleString('en')}</dd>
-                        </div>
-                        <div
-                            title={`${totalStars.toLocaleString('en')} GitHub stars across the listed repositories, from stored snapshots.`}
-                        >
-                            <dt>GitHub stars</dt>
-                            <dd>{compactStars}</dd>
-                        </div>
-                    </dl>
+                    <AgentPrompt />
                 </header>
-                <AgentPrompt />
                 <section id="projects" aria-label="Projects">
                     <ProjectExplorer projects={projects} initialSearch={initialSearch} />
                 </section>

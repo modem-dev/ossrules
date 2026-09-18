@@ -535,6 +535,10 @@ select {
 }
 
 .directory-hero {
+    padding-bottom: 0;
+}
+
+.directory-hero-content {
     display: grid;
     grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
     align-items: center;
@@ -543,18 +547,25 @@ select {
 }
 
 .agent-prompt {
-    margin-block: 0 1rem;
-    padding-inline: 1rem;
-    border-left: 2px solid var(--color-teal);
-    background: color-mix(in srgb, var(--color-teal) 8%, transparent);
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto auto;
+    align-items: center;
+    gap: 0.625rem;
+    margin: 0 -2.5rem -2.5rem;
+    padding: 0.5rem 1rem;
+    border-top: 1px solid #26352e;
+    background: color-mix(in srgb, var(--color-teal) 6%, var(--color-marketing-black));
 }
 
 .agent-prompt .action-link {
-    padding: 0;
+    min-height: 2rem;
+    padding: 0.25rem 0.375rem;
     border: 0;
+    border-radius: 0;
     background: transparent;
     color: var(--color-gray-550);
     font-size: 0.75rem;
+    white-space: nowrap;
 }
 
 .agent-prompt .action-primary,
@@ -564,7 +575,29 @@ select {
 
 .agent-prompt h2 {
     color: var(--color-light-cream);
+    font-size: 0.75rem;
     font-weight: 500;
+    white-space: nowrap;
+}
+
+.agent-prompt-preview {
+    min-width: 0;
+    overflow: hidden;
+    color: var(--color-gray-550);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    line-height: 1.5;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.agent-prompt-text {
+    grid-column: 1 / -1;
+    padding-block: 0.625rem 0.25rem;
+    border-top: 1px solid #26352e;
+    color: var(--color-gray-550);
+    font-size: 0.75rem;
+    line-height: 1.65;
 }
 
 .directory-stats {
@@ -846,15 +879,23 @@ select {
     .directory-search {
         grid-column: 1 / -1;
     }
-    .directory-hero {
+    .directory-hero-content {
         gap: 1.5rem;
     }
 }
 
 @media (max-width: 767px) {
-    .directory-hero {
+    .directory-hero-content {
         grid-template-columns: 1fr;
         padding-bottom: 2rem;
+    }
+    .agent-prompt {
+        grid-template-columns: minmax(0, 1fr) auto auto;
+        margin: 0 -1.5rem -1.5rem;
+    }
+    .agent-prompt-preview {
+        grid-column: 1 / -1;
+        grid-row: 2;
     }
     .directory-stats {
         grid-template-columns: repeat(3, minmax(0, 1fr));
