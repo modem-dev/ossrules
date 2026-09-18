@@ -26,7 +26,7 @@ export function ProjectSkillsShell({ project, count, children }: { project: Agen
                 <ProjectTabs project={project} skills={count} active="skills" />
                 {children}
                 <ModemSponsor>
-                    Instructions describe how a codebase works. Modem keeps customer context current and attaches it to the work.
+                    Skills teach agents how your team works. Modem shows them what customers said, who is affected, and what changed.
                 </ModemSponsor>
             </main>
             <SiteFooter />
