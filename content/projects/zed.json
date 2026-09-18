@@ -63,7 +63,7 @@
             "pattern": "hard-prohibition"
         },
         {
-            "title": "Route crash work to distinct investigation and repair prompts",
+            "title": "Separate crash investigation from repair",
             "body": "The crash section names separate prompts for investigation and fixing, alongside commands for fetching reports. The file gives the agent an entry point without embedding the full crash workflow in every session.",
             "quote": "- Crash investigation prompts: `.factory/prompts/crash/investigate.md`\n- Crash fix prompts: `.factory/prompts/crash/fix.md`",
             "pattern": "skill-routing"

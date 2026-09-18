@@ -40,7 +40,7 @@
         },
         {
             "title": "Guard generated regions without freezing the whole file",
-            "body": "The barrel rule applies to marked sections, with an explicit exception for hand-maintained index files and unmarked sections. The following paragraph names the source directories for generated AI documentation and migration notes.",
+            "body": "The barrel rule protects only marked generated sections, not hand-maintained indexes or unmarked code. The guide also names the sources for generated AI docs and migration notes.",
             "quote": "Some `index.ts` sections marked with `@barrel` are generated. Do not edit those\nsections manually; update their source modules and run `pnpm codegen`.\nHand-maintained `index.ts` files and unmarked sections are not covered by this\nrule.",
             "pattern": "generated-file-guard"
         }

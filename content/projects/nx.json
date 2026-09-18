@@ -61,7 +61,7 @@
         },
         {
             "title": "Route scaffolding before exploration",
-            "body": "The generated Nx block assigns generator discovery to a skill that must run before workspace exploration or MCP calls. It also distinguishes advanced documentation questions from basic generator syntax already handled by that skill.",
+            "body": "Generator discovery goes through a skill before workspace exploration or MCP calls. Advanced documentation questions follow a separate path from basic generator syntax.",
             "quote": "- For scaffolding tasks (creating apps, libs, project structure, setup), ALWAYS invoke the `nx-generate` skill FIRST before exploring or calling MCP tools",
             "pattern": "skill-routing"
         }

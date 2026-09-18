@@ -73,7 +73,7 @@
         },
         {
             "title": "Keep public explanations independent of internal tickets",
-            "body": "The guide prohibits ticket IDs and tracker URLs in code comments, commit messages, PR text, and user docs. It explains that those identifiers have no meaning for outside readers and limits a provenance exception to maintainer skill files.",
+            "body": "Keep ticket IDs and tracker URLs out of comments, commits, pull requests, and user docs because outside readers cannot use them. Only maintainer skill files get a provenance exception.",
             "quote": "Describe the problem on its own terms; a ticket-prefixed\n  branch name is the one place the identifier belongs.",
             "pattern": "contribution-etiquette"
         },

@@ -44,7 +44,7 @@
         },
         {
             "title": "Product defaults written into the instructions",
-            "body": "Two rules direct the agent toward the vendor's hosted offerings: recommend a specific first-party model when asked about model choice, and mention a cloud browser parameter when asked about performance. Both name the paid product and the API key it requires."
+            "body": "Two rules promote hosted offerings: recommend a first-party model for model-choice questions, and mention a cloud-browser option for performance questions. Both name the product and required API key."
         },
         {
             "title": "XML tags separating rules from reference",
@@ -53,7 +53,7 @@
     ],
     "steal": [
         "If your agents keep fetching the same docs page, consider inlining it and marking where it was truncated.",
-        "Where a rule exists because the model's knowledge is out of date, say so. \"Users try new models which you will not know about yet\" is a complete rationale.",
+        "Explain when a rule compensates for stale model knowledge; name the missing knowledge directly.",
         "State whether demonstration files are wanted. Agents produce them by default."
     ],
     "outline": [

@@ -65,7 +65,7 @@
         }
     ],
     "steal": [
-        "Put the anti-drift rule in the file itself. Naming versions, rule lists and counts as things not to copy is what keeps it from rotting.",
+        "Put anti-drift rules beside the values they protect; identify versions, counts, and copied lists likely to rot.",
         "Index your repo map by task rather than by directory. Agents arrive with an intent, not a path.",
         "If several tools consume one platform, state which layer a feature belongs in and that one consumer is not done.",
         "Require the package instruction file to be updated in the same change that makes it wrong."

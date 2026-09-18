@@ -34,7 +34,7 @@
         {
             "pattern": "behavioral-conditioning",
             "title": "A rule against extracting helpers",
-            "body": "Logic stays in one function unless it is reused, hides a genuinely complex boundary, or has a name that improves the caller. The same instruction appears twice in the file, once in the general principles and once under complex logic.",
+            "body": "Keep logic inline unless it is reused, hides a real boundary, or has a name that improves the caller. The file repeats this rule in both general and complex-logic sections.",
             "quote": "Do not extract single-use helpers preemptively. Inline the logic at the call site unless the helper is reused, hides a genuinely complex boundary, or has a clear independent name that improves the caller."
         },
         {
@@ -48,7 +48,7 @@
         },
         {
             "title": "Runtime invariants written as prose",
-            "body": "The session core section states properties the type system does not hold: durable admission stays separate from model execution, one provider stream call per turn, no bridging through the legacy loop. They are written as standing constraints rather than as style.",
+            "body": "The session core records invariants the type system cannot hold: separate durable admission from model execution, allow one provider stream per turn, and never bridge through the legacy loop.",
             "quote": "Preserve one explicit `llm.stream(request)` call per provider turn and reload projected history before durable continuation."
         },
         {

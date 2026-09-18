@@ -41,7 +41,7 @@
     "techniques": [
         {
             "title": "A rule about the repository being public",
-            "body": "Pull requests, issues, and comments are public, so they may not contain absolute production metrics, internal vendor or pricing discussions, or competitor names. Use percentages or ratios for metrics and keep internal context in the tracker.",
+            "body": "Public pull requests, issues, and comments must omit absolute production metrics, internal vendor or pricing discussion, and competitor names. Use ratios for metrics and keep internal context in the tracker.",
             "quote": "Keep internal content out of them: absolute production metrics (event counts, user counts, revenue figures: state percentages, ratios, or relative change instead), internal decision detail (vendor, legal, pricing, or strategy discussions), and competitor names"
         },
         {
@@ -62,13 +62,13 @@
         },
         {
             "title": "One component named as the default",
-            "body": "The conventions section states which button component is the standard, and notes that a raw shadcn variant also exists but is rarely the right choice. Checking the package index before creating a new primitive is given as the rule."
+            "body": "The conventions name the standard button and explain why the raw shadcn variant is rarely right. Check the package index before creating another primitive."
         }
     ],
     "steal": [
-        "If your repository is public, state what may not go into PR descriptions, issues and comments, and where that content belongs instead.",
+        "For public repos, state what must stay out of pull requests, issues, and comments, and where internal context belongs.",
         "When two similarly named components exist, say which is the default and what the other one is for.",
-        "A warning count that may not increase turns a long tail of lint debt into a one-way door."
+        "Use a warning ceiling that may only shrink to turn lint debt into a one-way ratchet."
     ],
     "outline": ["Structure", "Common Commands", "CI", "Conventions", "Skills", "Studio"]
 }

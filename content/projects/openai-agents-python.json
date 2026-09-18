@@ -103,7 +103,7 @@
     "techniques": [
         {
             "title": "Define a concrete trigger for reconsidering complexity",
-            "body": "The guide requires grouping related findings by root cause and reassessing the complete diff against the original requirement. Its trigger prevents repeated review fixes from accumulating compatibility branches without checking whether the supported behavior needs them.",
+            "body": "Group related findings by root cause and reassess the full diff against the original requirement. This stops review fixes from accumulating compatibility branches without revisiting the design.",
             "quote": "A second related finding that adds another compatibility case or protocol hop triggers this reset.",
             "pattern": "behavioral-conditioning"
         },
@@ -132,7 +132,7 @@
         },
         {
             "title": "Write source documentation for reliable translation",
-            "body": "English source must make actors, ownership, ordering, and lifecycle subjects explicit while preserving exact API identifiers and technical meaning. The guide treats ambiguity as a compatibility concern for generated translations.",
+            "body": "English source must state actors, ownership, ordering, and lifecycle explicitly while preserving API names and meaning. Ambiguity becomes a compatibility risk for generated translations.",
             "quote": "Treat translation-safe English as a documentation compatibility requirement.",
             "pattern": "behavioral-conditioning"
         }
