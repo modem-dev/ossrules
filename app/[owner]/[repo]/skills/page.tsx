@@ -11,6 +11,9 @@ import { getSkillManifest } from '@/lib/skills';
 export function generateStaticParams() {
     return getAgentsProjects().map(({ owner, repo }) => ({ owner, repo }));
 }
+// Keep navigation on the current page until the requested content is ready.
+export const instant = false;
+
 type Props = { params: Promise<{ owner: string; repo: string }>; searchParams: Promise<SkillSearchParams> };
 
 export async function generateMetadata({ params, searchParams }: Props) {

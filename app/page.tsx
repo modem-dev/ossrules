@@ -33,7 +33,17 @@ const baseMetadata = {
     },
 };
 
+// Keep navigation on the current page until the requested content is ready.
+export const instant = false;
+
 type Props = { searchParams: Promise<ProjectSearchParams> };
+
+function projectsWithSkillCounts() {
+    return getProjectListings().map((project) => ({
+        ...project,
+        skillCount: getSkillManifest(project.slug)?.skills.length,
+    }));
+}
 
 export async function generateMetadata({ searchParams }: Props) {
     const listing = projectListing(getProjectListings(), projectSearchString(await searchParams));
@@ -42,10 +52,7 @@ export async function generateMetadata({ searchParams }: Props) {
 
 export default async function AgentsMdPage({ searchParams }: Props) {
     const initialSearch = projectSearchString(await searchParams);
-    const projects = getProjectListings().map((project) => ({
-        ...project,
-        skillCount: getSkillManifest(project.slug)?.skills.length,
-    }));
+    const projects = projectsWithSkillCounts();
     const skillCount = getAllSkills().length;
     const totalStars = projects.reduce((total, project) => total + project.stars, 0);
     const compactStars = new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 }).format(totalStars);

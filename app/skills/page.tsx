@@ -13,6 +13,9 @@ function getEntries() {
         .sort((a, b) => a.name.localeCompare(b.name));
 }
 
+// Keep navigation on the current page until the requested content is ready.
+export const instant = false;
+
 type Props = { searchParams: Promise<SkillSearchParams> };
 
 export async function generateMetadata({ searchParams }: Props) {

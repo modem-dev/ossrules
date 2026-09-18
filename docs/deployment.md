@@ -3,6 +3,27 @@
 The production site runs on Vercel. Its application build command is `pnpm build`.
 For a local production preview, see [development](development.md#preview-a-production-build).
 
+## Rendering and navigation
+
+Next.js Cache Components prerender project analysis, source excerpts, and token
+counts together. Breadcrumbs, tabs, and Previous/Next links stream separately
+and retain the requested collection. Keep these query reads inside their
+Suspense boundaries so they do not block the analysis or prevent its static
+content from being prefetched.
+
+Directories and skill readers resolve the requested content on the server.
+They deliberately omit loading-only Suspense fallbacks so navigation keeps the
+current page visible until the next page is ready. Their `instant = false`
+configuration permits these routes to block under Cache Components. Source
+selection, filters, pagination, and their canonical/indexing rules still resolve
+on the server. Download routes also run on request; the entire site is not static.
+
+The production build should report project pages as partial prerenders (`◐`).
+Use `pnpm check:routes` against a production preview to verify the complete
+streamed HTML, query-dependent links, metadata, downloads, and missing routes.
+Measure navigation using a production build; development does not exercise the
+same prerendering and prefetch behavior.
+
 ## Project URLs
 
 Project pages mirror GitHub: `https://ossrules.md/freshframework/fresh`.
