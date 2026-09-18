@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { AgentPrompt } from '@/components/agent-prompt';
 import { logoSrc, PATTERNS } from '@/components/agents-md-data';
 import { JsonLd } from '@/components/json-ld';
 import { SiteFooter } from '@/components/site-footer';
@@ -45,10 +46,11 @@ export default function TechniquesPage() {
             <SiteHeader />
 
             <main id="main" className="page-shell flex-1">
-                <header className="brand-masthead modem-surface">
+                <header className="prompt-masthead brand-masthead modem-surface">
                     <p className="eyebrow">Agent Rules / {PATTERNS.length} patterns</p>
                     <h1 className="page-title mt-5">Patterns from real projects.</h1>
                     <p className="mt-5 max-w-2xl text-gray-550 text-base leading-relaxed">See how each technique works in practice.</p>
+                    <AgentPrompt variant="rules" />
                 </header>
 
                 <details className="technique-jump mt-8">
