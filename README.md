@@ -89,6 +89,18 @@ bytes, corpus coverage, revision metadata, and pattern excerpt line numbers.
   redirects, indexing, and sitemap behavior.
 - [Project guidance](AGENTS.md): design intentions and source accuracy requirements.
 
+## Sponsor
+
+Sponsored by [Modem](https://modem.dev?utm_source=github&utm_medium=oss&utm_campaign=oss_ossrules&utm_content=readme_footer).
+
+<a href="https://modem.dev?utm_source=github&utm_medium=oss&utm_campaign=oss_ossrules&utm_content=readme_footer">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://modem.dev/images/logo/svg/modem-combined-white.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://modem.dev/images/logo/svg/modem-combined-black.svg">
+    <img src="https://modem.dev/images/logo/svg/modem-combined-black.svg" alt="Modem" width="220">
+  </picture>
+</a>
+
 ## License
 
 Original project code and authored documentation are available under the
