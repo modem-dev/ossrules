@@ -22,7 +22,7 @@
         "docLinks": 0
     },
     "references": [],
-    "hook": "A 19-line workflow starts with happy and failure paths, then lets a test harness own the running services.",
+    "hook": "A concise API guide to success and failure paths, environment-gated tests, one service harness, local runs, and CI.",
     "summary": "Firecrawl asks contributors to define the API's success and failure paths before coding. The guide names the environment checks behind optional tests and provides one harness command for the API and workers. Local runs stay focused; CI runs the full suite.",
     "patterns": ["behavioral-conditioning", "verification-matrix", "hard-prohibition"],
     "techniques": [

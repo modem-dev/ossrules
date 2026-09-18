@@ -31,7 +31,7 @@
             "label": "Relevant development skills"
         }
     ],
-    "hook": "Skills are selected from their frontmatter before their full instructions enter the context.",
+    "hook": "A short guide to task-selected skills, authoritative project files, agent limits, package licenses, and verification.",
     "summary": "Pierre keeps its root file short and puts domain detail in skills selected by task. The root names the authoritative tool and dependency files, explains limits of agent environments, and gives concrete checks for package licenses and verification.",
     "patterns": ["skill-routing", "single-source", "verification-matrix"],
     "techniques": [

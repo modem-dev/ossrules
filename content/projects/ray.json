@@ -22,7 +22,7 @@
         "docLinks": 3
     },
     "tagline": "A distributed framework for scaling AI workloads and Python applications.",
-    "hook": "Treats duplicate PRs and trivial automated cleanups as a cost to maintainers, with explicit stop conditions.",
+    "hook": "A contribution guide to duplicate work, accountability, local test evidence, stop conditions, and existing development docs.",
     "summary": "Ray puts contribution policy before setup. Contributors must check for duplicate work, remain accountable for the result, and provide local test evidence. Existing guides retain the build and style details.",
     "references": [
         {

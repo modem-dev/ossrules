@@ -22,7 +22,7 @@
         "docLinks": 0
     },
     "tagline": "A command-line tool for discovering, installing, and updating agent skills.",
-    "hook": "Documents a credential-preserving GitHub fallback chain and compares skill-folder tree hashes to detect updates.",
+    "hook": "A CLI guide to command ownership, updates, lockfiles, GitHub fallbacks, tree-hash comparisons, tests, and agent metadata.",
     "summary": "The Skills CLI guide maps each command to its implementation and walks through the update algorithm. It also covers lockfile compatibility, why tests invoke the current CLI directly, and how supported-agent metadata is generated.",
     "references": [],
     "techniques": [

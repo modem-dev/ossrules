@@ -22,7 +22,7 @@
         "docLinks": 0
     },
     "references": [],
-    "hook": "A reproducible error is not automatically a bug: first establish which contract it violates.",
+    "hook": "A contract-first guide to bug reports, shared Vitest helpers, and portable library code across Node.js, Bun, Deno, and Workers.",
     "summary": "Better Auth asks contributors to prove that a reported failure violates a contract before treating it as a bug. The guide checks versions and valid empty results, uses a shared Vitest harness, and keeps library code portable across Node.js, Bun, Deno, and Workers.",
     "patterns": ["behavioral-conditioning", "worked-examples", "hard-prohibition", "verification-matrix"],
     "techniques": [

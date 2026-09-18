@@ -35,7 +35,7 @@
             "path": "apps/studio/AGENTS.md"
         }
     ],
-    "hook": "75 lines, including a rule about what may not appear in a public repository's pull requests and comments.",
+    "hook": "A concise root guide to the directory map, core commands, conventions, public contributions, local instructions, and skills.",
     "summary": "Supabase's 75-line root guide contains a directory table, commands, and four short convention sections. Per-app files and named skills hold most subsystem detail.",
     "patterns": ["skill-routing", "ratchet", "generated-file-guard", "nested-instructions", "single-source"],
     "techniques": [

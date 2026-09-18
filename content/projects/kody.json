@@ -110,7 +110,7 @@
             "path": "docs/contributing/cloud-agents.md"
         }
     ],
-    "hook": "A 73-line index routes proposals through decision records and higher-risk changes through realistic preview testing.",
+    "hook": "An index to contributor docs, decision records, validation commands, preview testing, cloud-agent setup, and task-specific skills.",
     "summary": "Kody's 73-line root file is an index to contributor docs and skills. It names one validation command, requires new product areas to follow earlier decisions, and sends preview testing and cloud-agent setup to their own guides.",
     "patterns": ["single-source", "skill-routing"],
     "techniques": [

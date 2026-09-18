@@ -47,7 +47,7 @@
             "path": ".agents/docs/quality-standards.md"
         }
     ],
-    "hook": "A task-to-guide table routes parser, adapter, testing, and release work; focused tests still run through the root task graph.",
+    "hook": "A compact guide to URL-state rules, task routing, root-level tests, browser and server debugging, and completion criteria.",
     "summary": "nuqs states a few URL-state rules, then points each task to a detailed contributor guide. It also names the task-runner entry points, shows how to enable browser and server debug logs, and defines when a change is done.",
     "patterns": ["skill-routing"],
     "techniques": [
