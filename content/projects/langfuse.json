@@ -22,7 +22,7 @@
         "docLinks": 0
     },
     "tagline": "An LLM engineering platform for developing, monitoring, evaluating, and debugging AI applications.",
-    "hook": "Distinguishes a cached pass from an executed check and explains how stale shared-package builds can validate the wrong branch.",
+    "hook": "A contributor guide to monorepo dependencies, seed data, stale builds, handoff evidence, public explanations, and agent config.",
     "summary": "Langfuse keeps its canonical guide at .agents/AGENTS.md and gives outside contributors different context from maintainers. It covers monorepo dependencies, reproducible seed data, proof in handoffs, public explanations, and agent configuration generated from one source.",
     "references": [
         {

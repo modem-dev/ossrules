@@ -91,7 +91,7 @@
             "path": "providers/AGENTS.md"
         }
     ],
-    "hook": "Covers naming, the security model, commit form, and when to open a pull request instead of an issue.",
+    "hook": "A broad guide to repository structure, commands, security reports, newsfragments, remote naming, and commit rules.",
     "summary": "Airflow's file ranges from repository structure and commands to writing and contribution policy. It defines one domain term, classifies security reports, explains newsfragments, fixes remote names, and limits commit trailers.",
     "patterns": [
         "house-vocabulary",

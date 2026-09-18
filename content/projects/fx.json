@@ -22,7 +22,7 @@
         "docLinks": 0
     },
     "tagline": "A native coding-agent CLI written in Zig with an embeddable runtime.",
-    "hook": "Requires a real interaction with the freshly built binary before declaring work ready, because tests can miss TTY and thread-lifetime failures.",
+    "hook": "A detailed Zig guide to builds, interactive binary checks, CI, terminal replays, performance limits, and correctness.",
     "summary": "fx requires runtime evidence from the binary just built, not only a green test run. The guide also covers architecture, Zig style, exact-commit CI, repeatable terminal replays, performance limits, and the difference between optimizer training and correctness checks.",
     "references": [
         {

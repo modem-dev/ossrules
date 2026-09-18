@@ -22,7 +22,7 @@
         "docLinks": 1
     },
     "tagline": "A Python library for building web interfaces around machine-learning models and applications.",
-    "hook": "Explains how a handwritten changeset silently overrides the release note generated from a PR title.",
+    "hook": "A Python and Svelte guide to issue ownership, AI disclosure, human review, release notes, builds, and tests.",
     "summary": "Gradio's root file sets contribution rules for its Python and Svelte packages. It covers issue ownership, AI disclosure, human review, generated release notes, builds, and tests.",
     "references": [
         {

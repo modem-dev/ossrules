@@ -22,7 +22,7 @@
         "docLinks": 28
     },
     "tagline": "A Python SDK for building agents with tools, handoffs, tracing, and realtime capabilities.",
-    "hook": "Calls for a design reset when a second related finding adds another compatibility case, rather than letting review feedback grow an unbounded patch.",
+    "hook": "A Python SDK guide to scope, released contracts, branch-local choices, visible-behavior tests, architecture, and compatibility.",
     "summary": "The Python Agents SDK guide puts firm limits on implementation and review scope. It distinguishes released contracts from choices made only on the current branch, asks tests to prove visible behavior, and maps runtime work to architecture references.",
     "references": [
         {

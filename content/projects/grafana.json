@@ -22,7 +22,7 @@
         "docLinks": 0
     },
     "tagline": "An observability platform for dashboards, metrics, logs, and alerting.",
-    "hook": "Connects separate deployment cadences to PR boundaries and bidirectional compatibility requirements.",
+    "hook": "A Go and TypeScript guide to local instructions, test skills, generators, environment differences, deployments, and compatibility.",
     "summary": "Grafana's root guide maps its Go and TypeScript monorepo and points specialized work to local instructions and testing skills. Schema and service edits have generators; PATH and test-runner behavior vary by environment.",
     "references": [
         {

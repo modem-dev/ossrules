@@ -22,7 +22,7 @@
         "docLinks": 1
     },
     "references": [],
-    "hook": "PR guidance forbids skipping hooks, distinguishes external contributors, and defines title rules with examples.",
+    "hook": "A pull-request guide to commit and push hooks, external-contributor steps, and a narrow title format with examples.",
     "summary": "Turborepo's root AGENTS.md is a pull-request guide. It requires commit and push hooks, gives external contributors an extra step, and defines a narrow Conventional Commits title format.",
     "patterns": ["hard-prohibition", "scope-layering", "contribution-etiquette"],
     "techniques": [

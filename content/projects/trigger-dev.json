@@ -22,7 +22,7 @@
         "docLinks": 0
     },
     "tagline": "A platform for running background tasks with a TypeScript SDK, local development, and managed execution.",
-    "hook": "Chooses verification by package type and release notes by user impact, rather than treating every changed file as the same kind of work.",
+    "hook": "A task-execution guide to package workflows, tests, releases, retired paths, versioned SDK docs, and shared dependencies.",
     "summary": "Trigger.dev maps how tasks execute, then gives each package its development, test, and release steps. The guide also protects retired execution paths, versioned SDK docs, shared dependency versions, and temporary debug code.",
     "references": [
         {

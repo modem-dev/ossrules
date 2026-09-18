@@ -22,7 +22,7 @@
         "docLinks": 0
     },
     "tagline": "An event-based protocol and SDKs for communication between agents and user interfaces.",
-    "hook": "Defines which state survives sequential runs in one event stream and which per-run tracking must reset.",
+    "hook": "A protocol guide to event streams, persistent state, per-run resets, A2UI rendering, and separate language workflows.",
     "summary": "AG-UI's CLAUDE.md explains its typed event protocol, streaming model, and framework integrations. A dedicated skill covers A2UI rendering, while TypeScript and Python use separate development commands.",
     "references": [
         {

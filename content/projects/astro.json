@@ -35,7 +35,7 @@
             "label": "reference/unit-testing.md"
         }
     ],
-    "hook": "Opens with four sections on how to approach work, before any repository detail.",
+    "hook": "A monorepo guide covering work planning, repository structure, tests, background development servers, and browser automation.",
     "summary": "The first third is not Astro-specific. It covers assumptions, scope, and success criteria. The rest maps the monorepo and explains tests, background development servers, and browser automation.",
     "patterns": ["behavioral-conditioning", "skill-routing", "hard-prohibition", "house-vocabulary"],
     "techniques": [

@@ -22,7 +22,7 @@
         "docLinks": 0
     },
     "tagline": "An open-source CRM with a React frontend, NestJS backend, and application SDK.",
-    "hook": "Explains how branch-local build output and Nx caching can produce misleading failures or stale passes.",
+    "hook": "A compact CRM guide to package conventions, recurring mistakes, tests, migrations, branch output, and Nx cache traps.",
     "summary": "Twenty's AGENTS.md links to a compact CLAUDE.md for its multi-package CRM. The guide tells contributors to follow nearby code, names mistakes agents keep making, and records test and migration traps hidden behind ordinary commands.",
     "references": [
         {
