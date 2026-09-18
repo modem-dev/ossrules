@@ -1,0 +1,89 @@
+{
+    "slug": "duckdb",
+    "name": "DuckDB",
+    "owner": "duckdb",
+    "repo": "duckdb",
+    "tagline": "An in-process analytical database with a columnar, vectorized SQL engine.",
+    "language": "C++",
+    "stars": 41492,
+    "defaultBranch": "v2.0-cyanoptera",
+    "lastCommit": { "sha": "12da04d79e0101b0f9d2a281a7da1845c1551aa4", "date": "2026-09-11T04:50:57Z" },
+    "evaluatedAt": "2026-09-18",
+    "file": { "bytes": 17911, "lines": 493, "words": 2288, "headings": 46, "bullets": 112, "codeBlocks": 19, "docLinks": 3 },
+    "references": [
+        { "path": "src/parser/peg/README.md" },
+        { "path": ".github/patches/extensions/AGENTS.md" },
+        { "path": "CONTRIBUTING.md" },
+        { "path": "test/README.md" },
+        { "path": "LICENSE", "label": "MIT license" }
+    ],
+    "hook": "Pairs deprecated vector loops with replacement code and explains where query timeouts cannot intervene.",
+    "summary": "DuckDB's instructions connect the SQL execution pipeline to its C++ types, directories, and test format. They distinguish routine testing from CI repair, route external-extension changes to dedicated instructions, and show how to migrate vector operations without erasing legitimate exceptions.",
+    "patterns": [
+        "architecture-narrative",
+        "worked-examples",
+        "hard-prohibition",
+        "verification-matrix",
+        "nested-instructions",
+        "generated-file-guard"
+    ],
+    "techniques": [
+        {
+            "title": "Show the replacement beside the deprecated idiom",
+            "body": "The Vector API section places a legacy selection-and-validity loop beside an iterator-and-writer implementation. It then preserves exceptions for scalar executors and type-erased code, so the migration rule is not presented as an unconditional search-and-replace.",
+            "quote": "**The old-style vector loops are deprecated and must not be used in new code:**",
+            "pattern": "worked-examples"
+        },
+        {
+            "title": "Document the boundary of a safety setting",
+            "body": "The timeout example gives the units, default scope, and global alternative. It also identifies the interrupt-check call site and warns that planning and non-interruptible execution are not bounded, preventing an agent from treating the setting as a universal deadline.",
+            "quote": "Queries that check in frequently abort close to the limit, but time spent in planning or inside a long non-interruptible stretch is not bounded by it."
+        },
+        {
+            "title": "Separate the daily test loop from CI repair",
+            "body": "Routine work uses the optimized build with debug symbols because the debug build is slower. A separate CI section names four commands, including configuration and vector tests, that must succeed when the task is to fix CI.",
+            "quote": "If the user is asking you to fix CI make sure that the below commands succeed.",
+            "pattern": "verification-matrix"
+        },
+        {
+            "title": "Make the pipeline a navigation procedure",
+            "body": "A diagram walks from SQL through parsing, binding, optimization, physical planning, and execution. Component descriptions attach classes and directories to those stages, and the feature-investigation checklist tells the agent to follow the same path starting from tests.",
+            "quote": "Trace from parser → planner → optimizer → execution",
+            "pattern": "architecture-narrative"
+        },
+        {
+            "title": "Route extension changes by ownership boundary",
+            "body": "In-tree extensions may be edited directly, while external extensions are changed through patch files. Before changing an external extension or its revision, the file explicitly routes the agent to a nested instruction document.",
+            "quote": "Before adapting an out-of-tree extension, changing its pinned revision, or modifying `.github/patches/extensions`, read and follow `.github/patches/extensions/AGENTS.md`.",
+            "pattern": "nested-instructions"
+        },
+        {
+            "title": "Name obsolete test practices and generated outputs",
+            "body": "The testing section prohibits adding an obsolete verification pragma. Separately, the navigation section supplies the regeneration command and enumerates its outputs, including bindings, settings, and serialization code, so source edits have an explicit follow-up step.",
+            "quote": "Do not add `PRAGMA enable_verification` to tests - it should no longer be used in new tests.",
+            "pattern": "hard-prohibition"
+        }
+    ],
+    "steal": [
+        "Put a replacement code sample next to each deprecated idiom, and state the exceptions.",
+        "Explain where timeouts and other safety controls stop providing guarantees.",
+        "Separate fast local checks from the commands required to diagnose CI failures.",
+        "Use the system's execution stages as a repeatable code-navigation path.",
+        "Route changes across repository boundaries to the instructions that govern patching and version pins."
+    ],
+    "outline": [
+        "Overview",
+        "Build Commands",
+        "Testing",
+        "Code Formatting",
+        "Extensive Testing / Making CI Work",
+        "Architecture",
+        "Extensions",
+        "Key Development Patterns",
+        "Vector API",
+        "Coding Guidelines (Key Points)",
+        "Navigation Tips",
+        "Documentation",
+        "Important Files"
+    ]
+}

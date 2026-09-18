@@ -1,0 +1,49 @@
+{
+    "slug": "duckdb",
+    "sha": "12da04d79e0101b0f9d2a281a7da1845c1551aa4",
+    "license": "MIT",
+    "licensePath": "LICENSE",
+    "files": [
+        {
+            "path": ".github/patches/extensions/AGENTS.md",
+            "bytes": 4863,
+            "lines": 57
+        },
+        {
+            "path": "AGENTS.md",
+            "bytes": 17911,
+            "lines": 493
+        },
+        {
+            "path": "CLAUDE.md",
+            "bytes": 10,
+            "lines": 1,
+            "imports": [
+                {
+                    "target": "AGENTS.md",
+                    "path": "AGENTS.md"
+                }
+            ]
+        },
+        {
+            "path": "CONTRIBUTING.md",
+            "bytes": 10469,
+            "lines": 134
+        },
+        {
+            "path": "LICENSE",
+            "bytes": 1072,
+            "lines": 7
+        },
+        {
+            "path": "src/parser/peg/README.md",
+            "bytes": 8546,
+            "lines": 238
+        },
+        {
+            "path": "test/README.md",
+            "bytes": 10004,
+            "lines": 77
+        }
+    ]
+}
