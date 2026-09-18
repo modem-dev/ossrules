@@ -193,10 +193,10 @@ function SkillExplorerContent({
                 {pagination()}
             </div>
             {visible.length ? (
-                <ul className="grid gap-x-10 md:grid-cols-2">
+                <ul className="grid gap-4 md:grid-cols-2">
                     {pageEntries.map((entry) => (
                         <li key={`${entry.project.slug}/${entry.id}`} className="skill-entry">
-                            <Link href={entry.href} className="group block min-w-0">
+                            <Link href={entry.href} className="group block min-w-0 flex-1">
                                 <div className="flex items-start justify-between gap-4">
                                     <h2 className="min-w-0 font-mono text-[15px] leading-relaxed tracking-tight [overflow-wrap:anywhere] group-hover:text-teal">
                                         {entry.name}
@@ -209,9 +209,9 @@ function SkillExplorerContent({
                                     {entry.description}
                                 </p>
                             </Link>
-                            <p className="mt-3 break-all font-mono text-[10px] text-gray-600">{entry.path}</p>
+                            <p className="mt-3 mb-4 break-all font-mono text-[11px] text-gray-600">{entry.path}</p>
                             {entry.tasks?.length ? (
-                                <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1">
+                                <div className="mb-4 flex flex-wrap gap-x-3 gap-y-1">
                                     {entry.tasks.slice(0, 2).map((id) => (
                                         <button
                                             key={id}
@@ -224,37 +224,34 @@ function SkillExplorerContent({
                                     ))}
                                 </div>
                             ) : null}
-                            <div className="mt-5 flex flex-wrap items-center justify-between gap-3 font-mono text-[11px] text-gray-600">
-                                {!projectOnly ? (
-                                    <Link href={entry.project.href} className="inline-flex items-center gap-2 text-teal hover:underline">
-                                        <Image
-                                            src={entry.project.logo}
-                                            alt=""
-                                            width={24}
-                                            height={24}
-                                            className="size-6 rounded bg-gray-800 object-cover"
-                                        />
-                                        {entry.project.name}
-                                    </Link>
+                            <div className="skill-entry-footer">
+                                <div className="flex flex-wrap items-center justify-between gap-3 font-mono text-[11px] text-gray-600">
+                                    {!projectOnly ? (
+                                        <Link
+                                            href={entry.project.href}
+                                            className="inline-flex items-center gap-2 text-teal hover:underline"
+                                        >
+                                            <Image
+                                                src={entry.project.logo}
+                                                alt=""
+                                                width={24}
+                                                height={24}
+                                                className="size-6 rounded bg-gray-800 object-cover"
+                                            />
+                                            {entry.project.name}
+                                        </Link>
+                                    ) : null}
+                                    {projectOnly && !entry.complete ? <span>Incomplete bundle</span> : null}
+                                    <SkillContributors
+                                        contributions={entry.contributions}
+                                        historyUrl={entry.historyUrl}
+                                        skillName={entry.name}
+                                    />
+                                </div>
+                                {!projectOnly && !entry.complete ? (
+                                    <p className="mt-3 font-mono text-[11px] text-gray-600">Incomplete bundle</p>
                                 ) : null}
-                                {projectOnly ? (
-                                    <span>
-                                        {entry.files === 1 ? 'SKILL.md only' : `${entry.files} bundle files`}
-                                        {!entry.complete ? ' · Incomplete bundle' : ''}
-                                    </span>
-                                ) : null}
-                                <SkillContributors
-                                    contributions={entry.contributions}
-                                    historyUrl={entry.historyUrl}
-                                    skillName={entry.name}
-                                />
                             </div>
-                            {!projectOnly ? (
-                                <p className="mt-3 font-mono text-[11px] text-gray-600">
-                                    {entry.files === 1 ? 'SKILL.md only' : `${entry.files} bundle files`}
-                                    {!entry.complete ? ' · Incomplete bundle' : ''}
-                                </p>
-                            ) : null}
                         </li>
                     ))}
                 </ul>
