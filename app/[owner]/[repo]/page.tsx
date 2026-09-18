@@ -18,6 +18,7 @@ import { FileLink, FileTrayProvider, QuoteLink } from '@/components/file-tray';
 import { JsonLd } from '@/components/json-ld';
 import { RelativeTime } from '@/components/last-updated';
 import { ModemSponsor } from '@/components/modem-sponsor';
+import { PatternIcon } from '@/components/pattern-icons';
 import { Excerpt, PatternBadge } from '@/components/primitives';
 import { ProjectRepositoryLink } from '@/components/project-repository-link';
 import { ProjectTabs } from '@/components/project-tabs';
@@ -52,7 +53,7 @@ function ProjectPageNavigation({ heading = true }: { heading?: boolean }) {
                 {[
                     ['overview', 'Overview'],
                     ['documents', 'Documents'],
-                    ['techniques', 'Techniques'],
+                    ['techniques', 'Patterns'],
                     ['takeaways', 'Ideas for your repo'],
                 ].map(([id, label]) => (
                     <li key={id}>
@@ -307,7 +308,7 @@ async function ProjectContent({
                             </section>
 
                             <section id="techniques" className="reading-section mt-12">
-                                <h2 className="section-title">Techniques in this file</h2>
+                                <h2 className="section-title">Patterns in this file</h2>
                                 <div className="mt-8 space-y-9">
                                     {project.techniques.map((technique, position) => {
                                         const excerpt = technique.quote
@@ -320,7 +321,10 @@ async function ProjectContent({
                                             : undefined;
                                         return (
                                             <article key={technique.title}>
-                                                <p className="eyebrow">
+                                                <p className="eyebrow flex items-center gap-2">
+                                                    {technique.pattern ? (
+                                                        <PatternIcon pattern={technique.pattern} className="size-4" />
+                                                    ) : null}
                                                     {String(position + 1).padStart(2, '0')}
                                                     {technique.pattern ? ` / ${PATTERNS_BY_ID[technique.pattern].name}` : ''}
                                                 </p>

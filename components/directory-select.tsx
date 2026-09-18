@@ -1,12 +1,15 @@
 'use client';
 
 import * as Select from '@radix-ui/react-select';
+import type { PatternId } from './agents-md-data';
+import { PatternIcon } from './pattern-icons';
 
 interface DirectoryOption {
     value: string;
     label: string;
     count?: number;
     color?: string;
+    pattern?: PatternId;
 }
 
 function Chevron({ up = false }: { up?: boolean }) {
@@ -54,6 +57,7 @@ export function DirectorySelect({
                         </option>
                     ))}
                 </select>
+                {selected?.pattern ? <PatternIcon pattern={selected.pattern} className="size-4" /> : null}
                 {selected?.color ? (
                     <span className="directory-select-dot" style={{ backgroundColor: selected.color }} aria-hidden="true" />
                 ) : null}
@@ -74,6 +78,7 @@ export function DirectorySelect({
                     }}
                 >
                     <Select.Trigger className="directory-select-trigger" aria-label={label} data-active={active || undefined}>
+                        {selected?.pattern ? <PatternIcon pattern={selected.pattern} className="size-4" /> : null}
                         {selected?.color ? (
                             <span className="directory-select-dot" style={{ backgroundColor: selected.color }} aria-hidden="true" />
                         ) : null}
@@ -102,6 +107,7 @@ export function DirectorySelect({
                                             textValue={option.label}
                                             className="directory-select-item"
                                         >
+                                            {option.pattern ? <PatternIcon pattern={option.pattern} className="size-4" /> : null}
                                             {option.color ? (
                                                 <span
                                                     className="directory-select-dot"

@@ -3,10 +3,10 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { type AgentsProject, logoSrc, PATTERNS, type PatternId } from '@/components/agents-md-data';
 import { JsonLd } from '@/components/json-ld';
+import { PatternIcon } from '@/components/pattern-icons';
 import { Excerpt } from '@/components/primitives';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
-import { TechniqueIcon } from '@/components/technique-icons';
 import { getPatternGuide } from '@/lib/agent-rule-patterns';
 import { getAgentsProjects, projectsWithPattern } from '@/lib/agents-md';
 import { ogImageUrl } from '@/lib/og';
@@ -56,7 +56,7 @@ export default async function PatternPage({ params }: Props) {
                 <header className="pattern-heading">
                     <div>
                         <p className="eyebrow inline-flex items-center gap-2">
-                            <TechniqueIcon pattern={pattern.id} className="size-4" /> Agent rule pattern
+                            <PatternIcon pattern={pattern.id} className="size-4" /> Agent rule pattern
                         </p>
                         <h1 className="page-title mt-3">{pattern.name}</h1>
                         <p className="mt-4 max-w-2xl text-base leading-relaxed text-gray-500">{pattern.summary}</p>

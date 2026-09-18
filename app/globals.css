@@ -936,11 +936,11 @@ select {
     }
 }
 
-.technique-jump {
+.pattern-jump {
     padding-block: 1rem;
 }
 
-.technique-card {
+.pattern-card {
     min-width: 0;
     padding: 1.75rem;
     border: 1px solid var(--color-gray-750);
@@ -949,7 +949,7 @@ select {
     scroll-margin-top: 1.5rem;
 }
 
-.technique-card:target {
+.pattern-card:target {
     border-color: var(--color-teal);
     box-shadow: inset 3px 0 var(--color-teal);
 }
@@ -1144,7 +1144,7 @@ select {
 }
 
 @media (max-width: 640px) {
-    .technique-card {
+    .pattern-card {
         padding: 1.25rem;
     }
 }

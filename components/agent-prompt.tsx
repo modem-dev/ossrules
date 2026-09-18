@@ -12,7 +12,7 @@ const PROMPTS = {
     rules: {
         title: 'Discover rules with your agent',
         preview: 'Find rule patterns relevant to this repository and recommend the best fits…',
-        prompt: 'Read https://ossrules.md/llms.txt, then review the agent-rule patterns for examples relevant to this repository. Start with the pattern summaries; expand only promising matches. Recommend a few rule techniques, explain why they fit, show how open-source projects apply them, and link to pinned sources. Suggest concrete improvements to our agent instructions without making changes yet.',
+        prompt: 'Read https://ossrules.md/llms.txt, then review the agent-rule patterns for examples relevant to this repository. Start with the pattern summaries; expand only promising matches. Recommend a few rule patterns, explain why they fit, show how open-source projects apply them, and link to pinned sources. Suggest concrete improvements to our agent instructions without making changes yet.',
     },
     skills: {
         title: 'Discover skills with your agent',
