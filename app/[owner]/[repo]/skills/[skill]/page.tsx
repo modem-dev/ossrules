@@ -18,7 +18,7 @@ import { ogImageUrl } from '@/lib/og';
 import { projectHref, projectSkillsHref, skillHref } from '@/lib/project-paths';
 import { skillHeadings, skillOutline } from '@/lib/skill-outline';
 import { markdownBody, parseSkill } from '@/lib/skill-schema';
-import { getAllSkills, getSkillManifest, readSkillFile, skillSourceUrl } from '@/lib/skills';
+import { getSkillManifest, readSkillFile, skillSourceUrl } from '@/lib/skills';
 import { countSourceTokens } from '@/lib/token-count';
 
 type Params = { owner: string; repo: string; skill: string };

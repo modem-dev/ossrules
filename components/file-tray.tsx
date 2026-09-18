@@ -175,7 +175,6 @@ export function FileTrayProvider({
     const scrollRestore = useRef<number | undefined>(undefined);
     const cache = useRef(new Map<string, string>());
     const panel = useRef<HTMLDialogElement>(null);
-    const [selectPortal, setSelectPortal] = useState<HTMLDialogElement | null>(null);
     const returnFocus = useRef<HTMLElement | null>(null);
     const setPanel = useCallback((node: HTMLDialogElement | null) => {
         panel.current = node;
