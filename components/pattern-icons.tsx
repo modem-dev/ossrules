@@ -15,7 +15,7 @@ const paths: Record<PatternId, string> = {
     ratchet: 'M2 17h5v-5h5V7h5V2M12 2h5v5',
     'contribution-etiquette': 'M2 3h16v11h-8l-5 4v-4H2zM6 8l3 3 5-5',
     'scope-layering': 'M2 6l8-4 8 4-8 4zM2 10l8 4 8-4M2 14l8 4 8-4',
-    'context-budget': 'M3 15a8 8 0 1 1 14 0ZM10 12l4-5M5 10h1M7 6l1 1M13 5l-1 2',
+    'context-budget': 'M5 3H2v14h3M15 3h3v14h-3M6 6h8M6 10h5M6 14h8',
 };
 
 export function PatternIcon({ pattern, className = 'size-5' }: { pattern: PatternId; className?: string }) {
