@@ -54,6 +54,28 @@ script can re-derive; when the file itself has changed, the analysis describes a
 revision that no longer exists and that entry has to be re-read. `pnpm refresh`
 reports those separately.
 
+## Patterns
+
+All pattern pages use one template. Edit [the catalog](../content/patterns/catalog.json)
+for names, summaries, and explanations, and [the guides](../content/patterns/guides.json)
+for the three visual cues, application guidance, and selected example project slugs.
+Both files are keyed by the same pattern IDs.
+
+Examples reuse the matching techniques in `content/projects/*.json` and their
+pinned source files. Quotes, line numbers, project counts, and links are resolved
+automatically. The build checks selected examples against their pinned source;
+there is no runtime content generation. Guide content stays on the server.
+
+Run `pnpm lint`, `pnpm typecheck`, and `pnpm build` after content edits.
+
+## Instruction contributors
+
+Instruction-file contributor snapshots can be refreshed with
+`pnpm sync:instruction-contributors` (requires authenticated `gh`). This reads
+file history at each entry's pinned commit and preserves the previous snapshot
+if any request fails. Refresh after changing instruction paths or pinned
+commits; stale attribution is hidden until refreshed.
+
 ## Third-party content
 
 `public/files/` holds copies of other projects' documentation, stored at the
