@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -14,8 +15,14 @@ export function SiteHeader() {
                 Skip to content
             </a>
             <div className="mx-auto flex max-w-container flex-wrap items-center justify-between gap-x-6 gap-y-2 px-5 py-4 sm:px-12">
-                <Link href="/" className="font-mono font-medium text-[17px] tracking-tight transition-colors hover:text-teal sm:text-lg">
-                    ossrules<span className="text-teal">.md</span>
+                <Link
+                    href="/"
+                    className="inline-flex items-center gap-2.5 font-mono font-medium text-[17px] tracking-tight transition-colors hover:text-teal sm:text-lg"
+                >
+                    <Image src="/logos/ossrules.svg" alt="" width={32} height={32} className="size-8 shrink-0" />
+                    <span>
+                        ossrules<span className="text-teal">.md</span>
+                    </span>
                 </Link>
                 <nav aria-label="Main navigation" className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[13px] sm:gap-x-6">
                     <Link

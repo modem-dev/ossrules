@@ -25,6 +25,13 @@ export const metadata: Metadata = {
         'A reference library of agent instructions and skills from open source projects, with original source, analysis, and bundled resources.',
     openGraph: { siteName: 'ossrules.md', type: 'website' },
     twitter: { card: 'summary_large_image' },
+    icons: {
+        icon: [
+            { url: '/favicon.ico?v=bookmark', sizes: '16x16 32x32 48x48', type: 'image/x-icon' },
+            { url: '/icon.png?v=bookmark', sizes: '96x96', type: 'image/png' },
+            { url: '/logos/ossrules.svg?v=bookmark', sizes: 'any', type: 'image/svg+xml' },
+        ],
+    },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
