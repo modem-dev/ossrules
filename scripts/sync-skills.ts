@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import { licensePath } from '../lib/license';
 import {
     excludedSkillPath,
     parseSkill,
@@ -144,9 +145,10 @@ async function sync(entry: Entry) {
     if (manifest.skills.length) {
         const agents = tree.tree.find((f) => f.path === (entry.instructionFile ?? 'AGENTS.md'));
         if (agents) manifest.agentsFile = await read(agents, agents.path);
-        const license = tree.tree.find((f) => /^(LICENSE|LICENCE|COPYING)(\.(md|txt))?$/i.test(f.path));
-        if (license) manifest.repositoryLicense = await read(license, license.path);
     }
+    const selectedLicense = licensePath(tree.tree.filter((f) => f.type === 'blob').map((f) => f.path));
+    const license = tree.tree.find((f) => f.path === selectedLicense);
+    if (license) manifest.repositoryLicense = await read(license, license.path);
     fs.mkdirSync(path.join(filesDir, entry.slug), { recursive: true });
     for (const [blob, bytes] of writes) fs.writeFileSync(path.join(filesDir, entry.slug, blob), bytes);
     fs.mkdirSync(manifestDir, { recursive: true });

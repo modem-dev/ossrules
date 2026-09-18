@@ -1,6 +1,8 @@
 {
     "slug": "nextjs",
     "sha": "94327e8ade8dedd70a0d007d6a49ace64b75ed70",
+    "license": "MIT",
+    "licensePath": "license.md",
     "files": [
         {
             "path": ".github/AGENTS.md",
@@ -10,7 +12,7 @@
         {
             "path": ".github/CLAUDE.md",
             "bytes": 9,
-            "lines": 0,
+            "lines": 1,
             "symlink": "AGENTS.md",
             "resolvedPath": ".github/AGENTS.md"
         },
@@ -27,7 +29,7 @@
         {
             "path": "CLAUDE.md",
             "bytes": 9,
-            "lines": 0,
+            "lines": 1,
             "symlink": "AGENTS.md",
             "resolvedPath": "AGENTS.md"
         },
@@ -44,7 +46,7 @@
         {
             "path": "turbopack/CLAUDE.md",
             "bytes": 9,
-            "lines": 0,
+            "lines": 1,
             "symlink": "AGENTS.md",
             "resolvedPath": "turbopack/AGENTS.md"
         }

@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { formatStars, logoSrc, STATS_AS_OF } from '@/components/agents-md-data';
 import { HighlightedSource } from '@/components/highlighted-source';
 import { Excerpt } from '@/components/primitives';
+import { ProjectLicense } from '@/components/project-license';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { SkillContributors } from '@/components/skill-contributors';
@@ -14,6 +15,7 @@ import { SkillMarkdown } from '@/components/skill-markdown';
 import { SkillOutline } from '@/components/skill-outline';
 import { getAgentsProjectByRepository } from '@/lib/agents-md';
 import { documentMentions } from '@/lib/document-mentions';
+import { identifyLicense } from '@/lib/license';
 import { ogImageUrl } from '@/lib/og';
 import { projectHref, projectSkillsHref, skillHref } from '@/lib/project-paths';
 import { skillHeadings, skillOutline } from '@/lib/skill-outline';
@@ -67,6 +69,7 @@ export default async function SkillPage({
     const manifest = getSkillManifest(slug);
     const skill = manifest?.skills.find((skill) => skill.id === id);
     if (!manifest || !skill) notFound();
+    const licenseSource = manifest.repositoryLicense ? readSkillFile(slug, manifest.repositoryLicense)?.toString('utf8') : undefined;
     const file = skill.files.find((file) => file.path === (query.file ?? 'SKILL.md'));
     if (!file) notFound();
     const bytes = readSkillFile(slug, file);
@@ -169,6 +172,11 @@ export default async function SkillPage({
                 </div>
                 <div className="skill-reader">
                     <aside className="skill-outline" aria-label="Document navigation">
+                        <ProjectLicense
+                            license={licenseSource ? identifyLicense(licenseSource) : undefined}
+                            href={manifest.repositoryLicense ? skillSourceUrl(manifest, manifest.repositoryLicense.path) : undefined}
+                            skillLicense={skill.license}
+                        />
                         <SkillOutline
                             key={`${file.path}:${rendered}`}
                             headings={skillOutline(headings)}
@@ -189,20 +197,6 @@ export default async function SkillPage({
                                     {manifest.branch} · {manifest.sha.slice(0, 7)} ↗
                                 </a>
                                 <p className="mt-3">Scanned {manifest.scannedAt.slice(0, 10)}</p>
-                                <p className="eyebrow mt-6 mb-2">License</p>
-                                {skill.license ? <p className="[overflow-wrap:anywhere]">{skill.license}</p> : null}
-                                {manifest.repositoryLicense ? (
-                                    <a
-                                        href={skillSourceUrl(manifest, manifest.repositoryLicense.path)}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="mt-2 block text-teal hover:underline"
-                                    >
-                                        Repository license ↗
-                                    </a>
-                                ) : (
-                                    <p>Not declared in the snapshot.</p>
-                                )}
                                 {skill.compatibility ? (
                                     <>
                                         <p className="eyebrow mt-6 mb-2">Compatibility</p>

@@ -18,13 +18,14 @@ import { FileLink, FileTrayProvider, QuoteLink } from '@/components/file-tray';
 import { JsonLd } from '@/components/json-ld';
 import { RelativeTime } from '@/components/last-updated';
 import { ModemSponsor } from '@/components/modem-sponsor';
-import { Excerpt, FileStatGrid, PatternBadge } from '@/components/primitives';
+import { Excerpt, PatternBadge } from '@/components/primitives';
 import { ProjectRepositoryLink } from '@/components/project-repository-link';
 import { ProjectTabs } from '@/components/project-tabs';
 import { ProjectTitle } from '@/components/project-title';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { SkillContributors } from '@/components/skill-contributors';
+import { TokenLabel } from '@/components/token-label';
 import {
     getAgentsProject,
     getAgentsProjectByRepository,
@@ -223,10 +224,14 @@ async function ProjectContent({
     // Local copies of the files this AGENTS.md reads, pinned to the same commit
     // the entry was measured at. See scripts/sync-agents-md-files.ts.
     const vendored = getVendoredFiles(project.slug);
+    const licenseHref = vendored?.licensePath
+        ? `https://github.com/${project.owner}/${project.repo}/blob/${vendored.sha}/${vendored.licensePath.split('/').map(encodeURIComponent).join('/')}`
+        : undefined;
     const agentsSource = getAgentsSource(project.slug);
     const contributions = getInstructionContributions(project);
     const primaryFile = project.instructionFile ?? 'AGENTS.md';
     const documents = getInstructionDocuments(project.slug);
+    const tokens = countSourceTokens(agentsSource);
 
     return (
         <FileTrayProvider
@@ -357,52 +362,84 @@ async function ProjectContent({
 
                         <aside className="project-facts" aria-label="File facts and page navigation">
                             <ProjectPageNavigation />
-                            <h2 className="eyebrow mt-7">{primaryFile} at a glance</h2>
-                            <div className="mt-3">
-                                <FileStatGrid project={project} tokens={countSourceTokens(agentsSource)} />
-                            </div>
-                            {contributions?.contributors.length ? (
-                                <div className="mt-4 flex items-center justify-between gap-3 text-sm text-gray-550">
-                                    <span>Contributors</span>
-                                    <SkillContributors
-                                        contributions={contributions}
-                                        skillName={primaryFile}
-                                        fileName={primaryFile}
-                                        historyUrl={`https://github.com/${project.owner}/${project.repo}/commits/${project.lastCommit.sha}/${primaryFile.split('/').map(encodeURIComponent).join('/')}`}
-                                    />
-                                </div>
-                            ) : null}
-                            <dl className="provenance">
-                                <div>
-                                    <dt>Measured on</dt>
-                                    <dd>
-                                        {project.defaultBranch} ·{' '}
-                                        <a
-                                            href={agentsFileCommitUrl(project)}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="text-teal hover:underline"
-                                        >
-                                            {project.lastCommit.sha.slice(0, 7)}
-                                        </a>
-                                    </dd>
-                                </div>
-                                <div>
-                                    <dt>File changed</dt>
-                                    <dd>
-                                        <RelativeTime iso={project.lastCommit.date} />
-                                    </dd>
-                                </div>
-                                <div>
-                                    <dt>Analysis written</dt>
-                                    <dd>{project.evaluatedAt}</dd>
-                                </div>
-                                <div>
-                                    <dt>Star snapshot</dt>
-                                    <dd>{STATS_AS_OF}</dd>
-                                </div>
-                            </dl>
-
+                            <section className="project-document-summary" aria-label="Document summary">
+                                <h2 className="eyebrow [overflow-wrap:anywhere]">{primaryFile}</h2>
+                                <dl className="document-facts mt-3">
+                                    <div>
+                                        <dt>Lines</dt>
+                                        <dd>{project.file.lines.toLocaleString('en-US')}</dd>
+                                    </div>
+                                    <div>
+                                        <dt>
+                                            <TokenLabel />
+                                        </dt>
+                                        <dd>{tokens?.toLocaleString('en-US') ?? 'Unavailable'}</dd>
+                                    </div>
+                                    {contributions?.contributors.length ? (
+                                        <div>
+                                            <dt>Contributors</dt>
+                                            <dd>
+                                                <SkillContributors
+                                                    contributions={contributions}
+                                                    skillName={primaryFile}
+                                                    fileName={primaryFile}
+                                                    historyUrl={`https://github.com/${project.owner}/${project.repo}/commits/${project.lastCommit.sha}/${primaryFile.split('/').map(encodeURIComponent).join('/')}`}
+                                                />
+                                            </dd>
+                                        </div>
+                                    ) : null}
+                                    <div>
+                                        <dt>Last changed</dt>
+                                        <dd>
+                                            <RelativeTime iso={project.lastCommit.date} />
+                                        </dd>
+                                    </div>
+                                    <div>
+                                        <dt>License</dt>
+                                        <dd className="min-w-0 [overflow-wrap:anywhere]">
+                                            {licenseHref ? (
+                                                <a
+                                                    href={licenseHref}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="text-teal hover:underline"
+                                                >
+                                                    {vendored?.license ?? 'View terms'} ↗
+                                                </a>
+                                            ) : (
+                                                (vendored?.license ?? 'Not recorded')
+                                            )}
+                                        </dd>
+                                    </div>
+                                </dl>
+                            </section>
+                            <details className="project-facts-disclosure" open>
+                                <summary>Source &amp; review</summary>
+                                <dl className="provenance">
+                                    <div>
+                                        <dt>Measured on</dt>
+                                        <dd>
+                                            {project.defaultBranch} ·{' '}
+                                            <a
+                                                href={agentsFileCommitUrl(project)}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-teal hover:underline"
+                                            >
+                                                {project.lastCommit.sha.slice(0, 7)}
+                                            </a>
+                                        </dd>
+                                    </div>
+                                    <div>
+                                        <dt>Analysis written</dt>
+                                        <dd>{project.evaluatedAt}</dd>
+                                    </div>
+                                    <div>
+                                        <dt>Star snapshot</dt>
+                                        <dd>{STATS_AS_OF}</dd>
+                                    </div>
+                                </dl>
+                            </details>
                             <a
                                 href={rawAgentsFileUrl(project)}
                                 className="mt-5 inline-block text-gray-600 text-xs hover:text-teal"

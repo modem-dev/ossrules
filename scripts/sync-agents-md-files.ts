@@ -31,6 +31,7 @@ import path from 'node:path';
 import { instructionImports, localTarget, resolveSymlink } from '../lib/instruction-files';
 import { countSourceLines } from '../lib/instruction-measurements';
 import { isInstructionPath } from '../lib/instruction-path';
+import { identifyLicense, licensePath } from '../lib/license';
 import { excludedSkillPath } from '../lib/skill-schema';
 
 const CONTENT_DIR = path.join(process.cwd(), 'content', 'projects');
@@ -108,41 +109,12 @@ function clip(source: string): { text: string; truncated: boolean } {
     return { text: `${lastBreak > 0 ? head.slice(0, lastBreak) : head}\n`, truncated: true };
 }
 
-const LICENSE_PATHS = ['LICENSE', 'LICENSE.md', 'LICENSE.txt', 'LICENCE', 'COPYING', 'LICENSE-APACHE'];
-
-/**
- * Names the license from its own text. Only the families present in the corpus
- * are matched; anything else is recorded as the path so the page can link to it
- * rather than assert a license we did not identify.
- */
-const LICENSE_SIGNATURES: [RegExp, string][] = [
-    [/GNU AFFERO GENERAL PUBLIC LICENSE\s+Version 3/i, 'AGPL-3.0'],
-    [/GNU GENERAL PUBLIC LICENSE\s+Version 3/i, 'GPL-3.0'],
-    [/GNU LESSER GENERAL PUBLIC LICENSE\s+Version 3/i, 'LGPL-3.0'],
-    [/Apache License\s+Version 2\.0/i, 'Apache-2.0'],
-    [/Mozilla Public License Version 2\.0/i, 'MPL-2.0'],
-    [/Business Source License/i, 'BUSL-1.1'],
-    [/Functional Source License/i, 'FSL-1.1'],
-    [/Permission is hereby granted, free of charge/i, 'MIT'],
-    [
-        /Redistribution and use in source and binary forms[\s\S]*each copyright holder and contributor hereby grants[\s\S]*patent license/i,
-        'BSD-2-Clause-Patent',
-    ],
-    [/Redistribution and use in source and binary forms[\s\S]{0,600}Neither the name/i, 'BSD-3-Clause'],
-    [/Redistribution and use in source and binary forms/i, 'BSD-2-Clause'],
-    [/Permission to use, copy, modify, and\/or distribute/i, 'ISC'],
-    [/This is free and unencumbered software released into the public domain/i, 'Unlicense'],
-];
-
-async function detectLicense(entry: Entry): Promise<{ license?: string; licensePath?: string }> {
-    for (const candidate of LICENSE_PATHS) {
-        const response = await fetch(rawUrl(entry, candidate));
-        if (!response.ok) continue;
-        const text = await response.text();
-        const match = LICENSE_SIGNATURES.find(([pattern]) => pattern.test(text));
-        return { license: match?.[1], licensePath: candidate };
-    }
-    return {};
+async function detectLicense(entry: Entry, available: Set<string>): Promise<{ license?: string; licensePath?: string }> {
+    const candidate = licensePath([...available]);
+    if (!candidate) return {};
+    const response = await fetch(rawUrl(entry, candidate));
+    if (!response.ok) throw new Error(`${entry.slug}: could not fetch ${candidate} (${response.status}); previous snapshot retained.`);
+    return { license: identifyLicense(await response.text()), licensePath: candidate };
 }
 
 function readEntries(): Entry[] {
@@ -248,7 +220,7 @@ async function syncEntry(entry: Entry, problems: string[]): Promise<{ changed: b
     }
 
     files.sort((a, b) => a.path.localeCompare(b.path));
-    const { license, licensePath } = await detectLicense(entry);
+    const { license, licensePath } = await detectLicense(entry, available);
     const manifest: Manifest = {
         slug: entry.slug,
         sha: entry.lastCommit.sha,

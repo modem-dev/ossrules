@@ -5,8 +5,8 @@
  */
 
 import Link from 'next/link';
-import type { AgentsProject, PatternId } from './agents-md-data';
-import { formatStars, PATTERNS_BY_ID } from './agents-md-data';
+import type { PatternId } from './agents-md-data';
+import { PATTERNS_BY_ID } from './agents-md-data';
 
 export function PatternBadge({ pattern, href }: { pattern: PatternId; href?: string }) {
     const label = PATTERNS_BY_ID[pattern].name;
@@ -20,46 +20,6 @@ export function PatternBadge({ pattern, href }: { pattern: PatternId; href?: str
         <Link href={href} className={`${className} hover:border-teal/70 hover:text-teal transition-colors`}>
             {label}
         </Link>
-    );
-}
-
-/** The full measured profile of one AGENTS.md. */
-export function FileStatGrid({ project, tokens }: { project: AgentsProject; tokens?: number }) {
-    const stats: { value: string; label: string; hint?: string }[] = [
-        { value: project.file.lines.toLocaleString(), label: 'Lines' },
-        { value: tokens?.toLocaleString('en-US') ?? 'Unavailable', label: 'Tokens', hint: tokens === undefined ? undefined : 'o200k_base' },
-        { value: `${(project.file.bytes / 1024).toFixed(1)}kB`, label: 'File size' },
-        { value: String(project.file.headings), label: 'Headings' },
-        { value: String(project.file.bullets), label: 'Bullet lines' },
-        { value: String(project.file.codeBlocks), label: 'Fenced code blocks' },
-        {
-            value: String(project.file.docLinks),
-            label: 'Links to other docs',
-            hint: project.file.docLinks > 5 ? 'router style' : undefined,
-        },
-        { value: formatStars(project.stars), label: 'Repo stars' },
-    ];
-
-    function statRows(items: typeof stats) {
-        return items.map((stat) => (
-            <div key={stat.label}>
-                <dt>{stat.label}</dt>
-                <dd>
-                    {stat.value}
-                    {stat.hint ? <span>{stat.hint}</span> : null}
-                </dd>
-            </div>
-        ));
-    }
-
-    return (
-        <>
-            <dl className="file-stats">{statRows(stats.slice(0, 2))}</dl>
-            <details className="mt-2">
-                <summary className="inline-summary cursor-pointer text-teal text-xs">File details</summary>
-                <dl className="file-stats">{statRows(stats.slice(2))}</dl>
-            </details>
-        </>
     );
 }
 
