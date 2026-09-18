@@ -22,7 +22,7 @@
         "docLinks": 19
     },
     "tagline": "An agent framework and monorepo for planning, coding agents, tools, and partner integrations.",
-    "hook": "Keeps global rules short by routing to scoped guides, and rejects tests that merely restate the current implementation.",
+    "hook": "A short root guide to compatibility, repository searches, generated references, test quality, and focused local instructions.",
     "summary": "Deep Agents keeps shared constraints at the root and moves architecture, development, releases, and package work to focused guides. The root rules cover warning filters, API compatibility, repository searches, and generated reference material.",
     "references": [
         {

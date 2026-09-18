@@ -22,7 +22,7 @@
         "docLinks": 0
     },
     "tagline": "A JavaScript package manager with reusable dependency-graph and package-management libraries.",
-    "hook": "Evaluates a skill by its lift over a no-skill baseline, with deterministic checks and separate trigger tests.",
+    "hook": "A workspace guide to Cursor rules, ordered verification, docs-build traps, and skill evaluation with baselines and trigger tests.",
     "summary": "vlt points work to package workspaces and Cursor rule documents. The guide gives an ordered verification sequence, warns about documentation-build traps, and evaluates its dependency-query skill at three levels.",
     "references": [
         {

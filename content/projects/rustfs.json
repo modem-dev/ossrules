@@ -22,7 +22,7 @@
         "docLinks": 3
     },
     "tagline": "An S3-compatible object storage system written in Rust.",
-    "hook": "Keeps root verification tiers authoritative while letting the nearest AGENTS.md define storage invariants.",
+    "hook": "A layered guide to instruction precedence, permission-gated actions, verification tiers, storage rules, and review evidence.",
     "summary": "RustFS states which instructions win, what actions need permission, and how much verification each change requires before reaching storage rules. Reviews need evidence, with stricter steps for adversarial validation and focused references for specific tasks.",
     "references": [
         {

@@ -34,7 +34,7 @@
             "label": "each package's own AGENTS.md"
         }
     ],
-    "hook": "States that copied values go stale, and points at the config that defines them instead.",
+    "hook": "A task-oriented guide to commands, source configuration, shared work, tests, package boundaries, and subsystem instructions.",
     "summary": "Workers SDK opens by forbidding copied facts that will go stale. The rest covers commands, a task-to-location table, work shared across tools, and tests, while package files hold subsystem details.",
     "patterns": ["single-source", "nested-instructions", "hard-prohibition", "verification-matrix"],
     "techniques": [

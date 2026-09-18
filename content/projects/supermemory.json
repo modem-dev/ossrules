@@ -23,7 +23,7 @@
         "docLinks": 0
     },
     "references": [],
-    "hook": "The content-ingestion pipeline gives contributors a route through extraction, tagging, embeddings, and search.",
+    "hook": "A system map of web and MCP apps, API routes, shared packages, ingestion, search, deployment bindings, and generated schemas.",
     "summary": "Supermemory's CLAUDE.md maps the web and MCP apps, API routes, shared packages, ingestion pipeline, deployment bindings, and generated schema types. Its Web Application section is unfinished, so use it for orientation rather than as a complete workflow.",
     "patterns": ["architecture-narrative", "verification-matrix"],
     "techniques": [

@@ -36,7 +36,7 @@
             "label": "Specialized development and release skills"
         }
     ],
-    "hook": "Fork and branch contributions have different rules, and verification must match both the runtime mode and the bundler.",
+    "hook": "A development guide to iteration, tests, contributor permissions, source context, runtime and bundler combinations, and releases.",
     "summary": "Next.js keeps its detailed development guide on the canary branch, with CLAUDE.md linked to AGENTS.md. The file covers iteration, tests, contributor permissions, source context, and skills for runtime and release work.",
     "patterns": ["scope-layering", "verification-matrix", "single-source", "context-budget", "skill-routing", "contribution-etiquette"],
     "techniques": [

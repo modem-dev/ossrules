@@ -44,7 +44,7 @@
             "path": "vendor/libghostty-vt.patches.md"
         }
     ],
-    "hook": "Splits itself into four audiences and tells the agent how to determine which one it is.",
+    "hook": "Four audience-specific guides to maintainers, local development, external contributions, performance, compatibility, and releases.",
     "summary": "Herdr opens by choosing among four scopes: shared rules, maintainer workflow, one developer's machine, and external contributors. The rest covers performance-sensitive paths, wire compatibility, release channels, and which public actions an agent may take.",
     "patterns": ["scope-layering", "contribution-etiquette", "ratchet", "verification-matrix", "architecture-narrative"],
     "techniques": [

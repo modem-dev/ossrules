@@ -22,7 +22,7 @@
         "docLinks": 0
     },
     "tagline": "A serving framework for language and multimodal models, with a guide for its documentation site.",
-    "hook": "Scopes documentation commands by hardware platform, model identifier, parallelism, and credentials before supplying copyable examples.",
+    "hook": "A Mintlify guide to source priorities, page structure, components, navigation, validation, and hardware-specific examples.",
     "summary": "SGLang's docs/AGENTS.md applies to its Mintlify site and cookbook, not the whole runtime. It sets a source order for technical claims and covers page structure, components, navigation, and validation.",
     "references": [],
     "techniques": [

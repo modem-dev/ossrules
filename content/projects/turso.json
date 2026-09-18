@@ -62,7 +62,7 @@
             "path": "serverless/conformance/differential/README.md"
         }
     ],
-    "hook": "Bans a specific list of metaphorical words and asks for plain language.",
+    "hook": "A development guide to commands, subsystem boundaries, core principles, code and comment style, and banned metaphors.",
     "summary": "Turso's guide contains commands, a subsystem map, and core principles. Three sections focus on how code and comments are written, including a list of metaphors to avoid.",
     "patterns": ["house-vocabulary", "behavioral-conditioning", "hard-prohibition", "skill-routing", "verification-matrix"],
     "techniques": [

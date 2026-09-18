@@ -34,7 +34,7 @@
             "path": ".github/PULL_REQUEST_TEMPLATE.md"
         }
     ],
-    "hook": "An 11-line guide points to contributor requirements, gates PRs on the full suite, and routes performance investigations to a skill.",
+    "hook": "A minimal guide to contributor requirements, the full test suite, and a dedicated skill for performance work.",
     "summary": "Svelte's 11-line AGENTS.md points to existing contributor docs, requires the full test suite before a pull request, and sends performance investigations to a dedicated skill.",
     "patterns": ["single-source", "contribution-etiquette", "skill-routing"],
     "techniques": [
