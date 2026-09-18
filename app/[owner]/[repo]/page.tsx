@@ -416,8 +416,8 @@ async function ProjectContent({
 
                     <Suspense fallback={null}>{neighbors}</Suspense>
                     <ModemSponsor>
-                        {project.name}&apos;s file explains the codebase, but not which bugs customers are seeing now. Modem adds that
-                        context to the work.
+                        These instructions explain how to work in {project.name}. Modem shows your agents what customers said, who is
+                        affected, and what changed.
                     </ModemSponsor>
                 </main>
 
