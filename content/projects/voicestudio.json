@@ -48,7 +48,7 @@
             "label": "Pinned development skills"
         }
     ],
-    "hook": "Cross-platform parity means the same user-visible behavior, not the same hardware performance.",
+    "hook": "A cross-platform checklist for source precedence, user-visible parity, offline tests, review follow-up, and local-first operation.",
     "summary": "VoiceStudio uses AGENTS.md as a quick checklist; CLAUDE.md wins when they conflict. The rules cover consistent behavior across platforms, honest offline tests, review follow-up, and local-first operation. Tracker and domain details live elsewhere.",
     "patterns": ["house-vocabulary", "verification-matrix", "single-source", "contribution-etiquette", "hard-prohibition"],
     "techniques": [

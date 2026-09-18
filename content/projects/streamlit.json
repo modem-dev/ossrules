@@ -22,7 +22,7 @@
         "docLinks": 1
     },
     "tagline": "A Python framework for creating interactive data applications and dashboards.",
-    "hook": "Separates application hot reload from library changes that require a restart, and explains how session log pointers can move.",
+    "hook": "A Python, React, and protobuf guide to separate checks, dependency exceptions, restarts, debugging logs, and test wrappers.",
     "summary": "Streamlit gives its Python, React, and protobuf layers different checks. The guide also records exceptions to dependency policy, restart rules for debugging, and test wrappers needed for reliable local results.",
     "references": [
         {

@@ -22,7 +22,7 @@
         "docLinks": 13
     },
     "tagline": "A reactive client database for collections, live queries, and optimistic mutations.",
-    "hook": "Requires reviewers to explain why a bug escaped existing tests and keeps test oracles independent of production logic.",
+    "hook": "A review guide with good and bad query examples, independent test oracles, counterexamples, and escaped-bug analysis.",
     "summary": "TanStack DB turns recurring review problems into rules illustrated with good and bad code. Query and test guidance requires independent expected results, counterexamples for contract changes, and tests that fail for plausible wrong designs.",
     "references": [
         {

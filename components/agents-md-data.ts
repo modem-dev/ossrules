@@ -158,7 +158,7 @@ export interface AgentsProject {
     file: FileStats;
     /** Documents the file routes to. Empty when it is self-contained. */
     references: DocReference[];
-    /** The one-line reason this file is in the collection. Shown on the card. */
+    /** A compact preview of the instruction file's scope and contents. Shown on the directory card. */
     hook: string;
     /** Two or three sentences on what kind of document this is. */
     summary: string;

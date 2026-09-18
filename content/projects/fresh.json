@@ -22,7 +22,7 @@
         "docLinks": 0
     },
     "references": [],
-    "hook": "Nine numbered steps of the request lifecycle, with the owning file at each hop.",
+    "hook": "An architecture-heavy guide tracing requests, rendering, island hydration, two build paths, and repository rules.",
     "summary": "More than half of Fresh's file explains architecture: how a request becomes HTML, how islands hydrate, and how its two build paths differ. Repository rules take up less space.",
     "patterns": ["architecture-narrative", "hard-prohibition"],
     "techniques": [

@@ -22,7 +22,7 @@
         "docLinks": 0
     },
     "references": [],
-    "hook": "Opens by assigning the agent a persona and an output length limit.",
+    "hook": "A compact guide to agent role, response length, tone, repository structure, commands, tests, and planning.",
     "summary": "Temporal begins by assigning the agent a role and a strict response-length target. It then covers tone, repository structure, commands, tests, and planning without using code blocks.",
     "patterns": ["behavioral-conditioning", "hard-prohibition", "house-vocabulary", "verification-matrix"],
     "techniques": [

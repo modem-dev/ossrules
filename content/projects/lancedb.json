@@ -22,7 +22,7 @@
         "docLinks": 1
     },
     "tagline": "A database for vector, full-text, and hybrid retrieval with Rust, Python, TypeScript, and Java interfaces.",
-    "hook": "Traces a new table method through native and remote implementations, bindings, and both synchronous and asynchronous Python APIs.",
+    "hook": "A cross-language guide tracing table methods through native and remote code, bindings, Python APIs, generated code, and docs.",
     "summary": "LanceDB follows one table method from the Rust core through remote implementations and language bindings. The guide also warns about stale native extensions, hand-maintained API references, and documentation checks missing from pull-request CI.",
     "references": [
         {

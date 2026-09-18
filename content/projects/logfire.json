@@ -22,7 +22,7 @@
         "docLinks": 3
     },
     "tagline": "An open-source Python SDK for the Logfire observability platform, built on OpenTelemetry.",
-    "hook": "Locates the coverage gate in CI rather than pyproject.toml and explains why a local coverage percentage can mislead.",
+    "hook": "An SDK and docs guide to realistic telemetry tests, source locations, CI coverage gates, and repository-backed checks.",
     "summary": "Logfire's CLAUDE.md covers the open-source SDK and docs, not the closed-source service. It calls for realistic telemetry tests, points documentation work to the right files, and checks CI or review findings against the repository's actual configuration.",
     "references": [
         {

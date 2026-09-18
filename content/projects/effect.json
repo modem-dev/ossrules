@@ -22,7 +22,7 @@
         "docLinks": 0
     },
     "references": [],
-    "hook": "Validation distinguishes type tests, JSDoc text, and runnable examples; generated-file rules apply only to marked sections.",
+    "hook": "A task-routed guide to focused checks, generated output, protected indexes, type tests, JSDoc, and examples.",
     "summary": "Effect keeps its contributor guide in .agents/AGENTS.md. Each kind of change has a focused check, and generated output points back to its source. The guide also avoids watch-mode full suites and protects hand-maintained indexes and unmarked sections.",
     "patterns": ["verification-matrix", "hard-prohibition", "generated-file-guard"],
     "techniques": [

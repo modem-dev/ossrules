@@ -34,7 +34,7 @@
             "path": "crates/AGENTS.md"
         }
     ],
-    "hook": "42 lines that open with the precedence order between instruction sources.",
+    "hook": "A short root guide covering instruction precedence, repository structure, working style, and links to local instructions.",
     "summary": "GitButler's 42-line root file contains a repository map, a short working-style list, and two links to local instruction files.",
     "patterns": ["nested-instructions", "behavioral-conditioning", "single-source"],
     "techniques": [
