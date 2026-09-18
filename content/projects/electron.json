@@ -53,7 +53,7 @@
         },
         {
             "title": "Apply release labels only to users with write access",
-            "body": "Labeling guidance is explicitly scoped to contributors with repository write access. It distinguishes ordinary bug-fix backports from security fixes and derives active branches from label metadata instead of a copied release list.",
+            "body": "Only contributors with write access receive labeling guidance. It separates ordinary backports from security fixes and derives active branches from label metadata rather than a copied list.",
             "quote": "When the user has write access to `electron/electron`, add these labels when creating PRs:",
             "pattern": "scope-layering"
         },

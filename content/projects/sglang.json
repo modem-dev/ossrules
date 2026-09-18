@@ -28,13 +28,13 @@
     "techniques": [
         {
             "title": "Define which source owns each kind of fact",
-            "body": "The hierarchy assigns navigation and voice to the local site, migration context to the existing public documentation, release-sensitive behavior to the implementation, and recipe patterns to the cookbook. It tells writers where a claim should be checked.",
+            "body": "The source hierarchy assigns navigation and voice to the local site, migration context to public docs, release-sensitive behavior to code, and recipes to the cookbook.",
             "quote": "- `sgl-project/sglang` for anything that can change with releases (flags, env vars, defaults, supported models).",
             "pattern": "single-source"
         },
         {
             "title": "Make the execution context part of every command example",
-            "body": "Commands and configuration must identify hardware platform, relevant OS and version constraints, the model identifier, parallelism knobs, and required tokens. These details prevent a runnable-looking example from hiding its prerequisites.",
+            "body": "Every command example names its hardware, OS and version limits, model, parallelism settings, and required tokens so runnable-looking snippets do not hide prerequisites.",
             "quote": "* **Parallelism knobs** used in the example (`--tp`, `--dp`, node count, etc.)"
         },
         {

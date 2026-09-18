@@ -47,7 +47,7 @@
         },
         {
             "title": "Separate development locks from public dependency contracts",
-            "body": "The root dependency groups let the lockfile own versions, but published package ranges serve a different purpose. The explicit exception prevents an internal dependency policy from narrowing or weakening the user-facing package contract.",
+            "body": "The lockfile owns root dependency versions, but published package ranges are a user-facing contract. The explicit exception prevents internal policy from narrowing that contract.",
             "quote": "This does NOT apply to `lib/pyproject.toml`, whose version ranges are the published package's contract with users.",
             "pattern": "single-source"
         },

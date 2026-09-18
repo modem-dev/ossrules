@@ -57,7 +57,7 @@
         },
         {
             "title": "Keep test data separate from live state",
-            "body": "The guide permits reading and copying the developer's live database while forbidding write access or starting a server against it. The test-data section explains consistent snapshots and requires one-way copying rather than symlinks.",
+            "body": "The live database may be read and copied but never opened for writes or used by a server. Test data comes from consistent one-way snapshots, not symlinks.",
             "quote": "2. **Writing to the live install.** `~/.t3/userdata` is the developer's real T3 Code database, in use while you work. Reading it and copying from it are fine, and a good way to get real test data (see Test data). Never start a server against it, never open it read-write, never clean it up.",
             "pattern": "hard-prohibition"
         },

@@ -31,7 +31,7 @@
     ],
     "techniques": [
         {
-            "title": "Locate the enforcement point, not just the configuration file",
+            "title": "Find the real enforcement point",
             "body": "Coverage has a 100% CI gate even though the local report configuration does not set a failure threshold. The guide names the workflow step to prevent a successful local command from being mistaken for proof.",
             "quote": "`[tool.coverage.report]` sets no `fail_under`, so reading `pyproject.toml` suggests there is no bar and a plain `coverage report` exits 0 on a regression.",
             "pattern": "verification-matrix"

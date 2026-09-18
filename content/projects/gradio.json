@@ -34,7 +34,7 @@
     ],
     "techniques": [
         {
-            "title": "Explain the consequence of overriding generated release notes",
+            "title": "Explain why manual changesets are banned",
             "body": "The guide says a GitHub Action creates changesets from the PR title. A manually authored changeset takes precedence, which is why the instruction prohibits adding one rather than merely calling it unnecessary.",
             "quote": "The bot leaves an existing changeset alone, so a hand-written one silently replaces your title in the changelog.",
             "pattern": "generated-file-guard"
