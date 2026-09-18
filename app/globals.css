@@ -635,7 +635,30 @@ select {
     color: var(--color-gray-600);
 }
 
-.directory-select-trigger {
+.directory-select {
+    width: 100%;
+    min-width: 0;
+}
+
+.directory-select-custom {
+    width: 100%;
+}
+
+.directory-select-native {
+    position: relative;
+}
+
+.directory-select-native select {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.directory-select-trigger,
+.directory-select-native {
     display: flex;
     align-items: center;
     gap: 0.625rem;
@@ -654,13 +677,20 @@ select {
         background-color 150ms;
 }
 
+.directory-select-native {
+    display: none;
+}
+
 .directory-select-trigger:hover,
 .directory-select-trigger[data-state="open"],
-.directory-select-trigger[data-active] {
+.directory-select-trigger[data-active],
+.directory-select-native:focus-within,
+.directory-select-native[data-active] {
     border-color: var(--color-teal);
 }
 
-.directory-select-trigger[data-active] {
+.directory-select-trigger[data-active],
+.directory-select-native[data-active] {
     background: var(--color-dark-teal);
 }
 
@@ -770,6 +800,16 @@ select {
     height: 1.5rem;
     background: var(--color-medium-gray);
     color: var(--color-teal);
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .directory-select-custom {
+        display: none;
+    }
+
+    .directory-select-native {
+        display: flex;
+    }
 }
 
 .directory-sort {
@@ -1309,7 +1349,8 @@ select {
     min-width: 0;
 }
 
-.source-file-title .directory-select-trigger {
+.source-file-title .directory-select-trigger,
+.source-file-title .directory-select-native {
     height: 2.5rem;
     font-family: var(--font-mono);
     font-size: 0.75rem;
