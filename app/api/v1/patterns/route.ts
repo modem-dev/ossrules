@@ -2,8 +2,6 @@ import { PATTERNS } from '@/components/agents-md-data';
 import { absoluteUrl } from '@/lib/agent-api';
 import { getAgentsProjects } from '@/lib/agents-md';
 
-export const dynamic = 'force-static';
-
 export function GET() {
     return Response.json({
         version: 1,
