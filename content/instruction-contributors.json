@@ -1399,60 +1399,40 @@
             "unlinkedAuthors": 0
         }
     },
-    "langfuse": {
-        "repository": "langfuse/langfuse",
-        "sha": "1a2d1f21157ed7dfde63a4b332c5728d924ed557",
-        "path": ".agents/AGENTS.md",
+    "duckdb": {
+        "repository": "duckdb/duckdb",
+        "sha": "12da04d79e0101b0f9d2a281a7da1845c1551aa4",
+        "path": "AGENTS.md",
         "contributions": {
             "contributors": [
                 {
-                    "id": 175438,
-                    "login": "nkabardin",
-                    "commits": 19
-                },
-                {
-                    "id": 17686849,
-                    "login": "maxdeichmann",
-                    "commits": 12
-                },
-                {
-                    "id": 7667273,
-                    "login": "wochinge",
+                    "id": 3978469,
+                    "login": "Mytherin",
                     "commits": 4
                 },
                 {
-                    "id": 10088265,
-                    "login": "bezbac",
-                    "commits": 3
-                },
-                {
-                    "id": 68423100,
-                    "login": "hassiebp",
-                    "commits": 3
-                },
-                {
-                    "id": 222471,
-                    "login": "sumerman",
-                    "commits": 3
-                },
-                {
-                    "id": 1880943,
-                    "login": "niklassemmler",
-                    "commits": 2
-                },
-                {
-                    "id": 14163614,
-                    "login": "Steffen911",
-                    "commits": 2
-                },
-                {
-                    "id": 2834609,
-                    "login": "marcklingen",
+                    "id": 227792,
+                    "login": "hannes",
                     "commits": 1
                 },
                 {
-                    "id": 246059,
-                    "login": "nimarb",
+                    "id": 42851130,
+                    "login": "mattheworford",
+                    "commits": 1
+                },
+                {
+                    "id": 8699271,
+                    "login": "RK905",
+                    "commits": 1
+                },
+                {
+                    "id": 1402801,
+                    "login": "szarnyasg",
+                    "commits": 1
+                },
+                {
+                    "id": 17162323,
+                    "login": "Tishj",
                     "commits": 1
                 }
             ],

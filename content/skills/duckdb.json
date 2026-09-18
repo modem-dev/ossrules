@@ -1,0 +1,12 @@
+{
+    "version": 1,
+    "slug": "duckdb",
+    "repository": "duckdb/duckdb",
+    "branch": "v2.0-cyanoptera",
+    "sha": "55621334e51b405238ed99094ed89b632aee0b6f",
+    "scannedAt": "2026-09-18T12:58:20.325Z",
+    "scope": "Tracked SKILL.md files, excluding tests, fixtures, dependencies, and vendored directories.",
+    "excluded": [],
+    "invalid": [],
+    "skills": []
+}
