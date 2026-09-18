@@ -22,8 +22,8 @@
         "docLinks": 0
     },
     "tagline": "A framework for building desktop applications with Chromium, Node.js, and web technologies.",
-    "hook": "Uses a resolved patch artifact from CI before paying for a full local Chromium sync.",
-    "summary": "Electron's CLAUDE.md explains its multi-repository build and patch workflow, then adds constraints for garbage-collected C++ objects and release maintenance. Several rules replace familiar commands with repository-specific alternatives and explain the cost or failure they avoid.",
+    "hook": "A guide to multi-repository builds, patches, C++ object lifetimes, release maintenance, and alternatives to costly commands.",
+    "summary": "Electron's CLAUDE.md explains its multi-repository build and patch process, garbage-collected C++ objects, and release maintenance. Several familiar commands are forbidden because the repository has safer or cheaper alternatives.",
     "references": [
         {
             "path": ".claude/skills/electron-chromium-upgrade/SKILL.md"
@@ -53,7 +53,7 @@
         },
         {
             "title": "Apply release labels only to users with write access",
-            "body": "Labeling guidance is explicitly scoped to contributors with repository write access. It distinguishes ordinary bug-fix backports from security fixes and derives active branches from label metadata instead of a copied release list.",
+            "body": "Only contributors with write access receive labeling guidance. It separates ordinary backports from security fixes and derives active branches from label metadata rather than a copied list.",
             "quote": "When the user has write access to `electron/electron`, add these labels when creating PRs:",
             "pattern": "scope-layering"
         },

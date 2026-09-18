@@ -22,8 +22,8 @@
         "docLinks": 0
     },
     "tagline": "A Rust toolchain for parsing, linting, formatting, and transforming JavaScript and TypeScript.",
-    "hook": "Maps individual crates to different test systems and warns that ignored conformance suites disappear from ordinary searches.",
-    "summary": "Oxc organizes its instructions around the different tools in its Rust workspace. Crate-specific test locations, generators, external conformance suites, and Node bindings get separate verification paths, with contribution responsibilities stated before the development commands.",
+    "hook": "A Rust workspace guide to crate-specific tests, generators, conformance suites, Node bindings, and contribution responsibilities.",
+    "summary": "Oxc gives each tool in its Rust workspace its own verification path. The guide names crate-specific tests, generators, external conformance suites, and Node bindings, with contribution responsibilities stated before development commands.",
     "references": [
         {
             "path": "CONTRIBUTING.md"

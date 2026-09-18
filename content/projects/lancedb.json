@@ -22,8 +22,8 @@
         "docLinks": 1
     },
     "tagline": "A database for vector, full-text, and hybrid retrieval with Rust, Python, TypeScript, and Java interfaces.",
-    "hook": "Traces a new table method through native and remote implementations, bindings, and both synchronous and asynchronous Python APIs.",
-    "summary": "LanceDB uses a worked implementation plan to explain how its Rust core and language bindings fit together. It also documents stale native extensions, hand-maintained API references, and documentation checks that PR CI does not run.",
+    "hook": "A cross-language guide tracing table methods through native and remote code, bindings, Python APIs, generated code, and docs.",
+    "summary": "LanceDB follows one table method from the Rust core through remote implementations and language bindings. The guide also warns about stale native extensions, hand-maintained API references, and documentation checks missing from pull-request CI.",
     "references": [
         {
             "path": "docs/src/python/python.md"
@@ -37,7 +37,7 @@
             "pattern": "architecture-narrative"
         },
         {
-            "title": "Rebuild a stale extension before declaring the environment blocked",
+            "title": "Rebuild stale extensions before giving up",
             "body": "Python validation uses the locked uv environment. Missing or stale Rust/PyO3 bindings have a prescribed rebuild path instead of being treated as final evidence that tests cannot run.",
             "quote": "If `lancedb._lancedb`\nis missing or stale, or if Rust/PyO3 binding code changed, rebuild the Python\nextension with the bootstrap command above before running tests.",
             "pattern": "behavioral-conditioning"

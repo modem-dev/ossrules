@@ -22,8 +22,8 @@
         "docLinks": 3
     },
     "tagline": "An open-source Python SDK for the Logfire observability platform, built on OpenTelemetry.",
-    "hook": "Locates the coverage gate in CI rather than pyproject.toml and explains why a local coverage percentage can mislead.",
-    "summary": "Logfire's CLAUDE.md covers the open-source SDK and documentation, explicitly distinguishing them from the closed-source service. Its guidance concentrates on realistic telemetry tests, documentation routing, and interpreting CI and review findings against the repository's actual configuration.",
+    "hook": "An SDK and docs guide to realistic telemetry tests, source locations, CI coverage gates, and repository-backed checks.",
+    "summary": "Logfire's CLAUDE.md covers the open-source SDK and docs, not the closed-source service. It calls for realistic telemetry tests, points documentation work to the right files, and checks CI or review findings against the repository's actual configuration.",
     "references": [
         {
             "path": "dev-docs/documentation-style-guide.md"
@@ -31,7 +31,7 @@
     ],
     "techniques": [
         {
-            "title": "Locate the enforcement point, not just the configuration file",
+            "title": "Find the real enforcement point",
             "body": "Coverage has a 100% CI gate even though the local report configuration does not set a failure threshold. The guide names the workflow step to prevent a successful local command from being mistaken for proof.",
             "quote": "`[tool.coverage.report]` sets no `fail_under`, so reading `pyproject.toml` suggests there is no bar and a plain `coverage report` exits 0 on a regression.",
             "pattern": "verification-matrix"

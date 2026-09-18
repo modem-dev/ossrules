@@ -22,8 +22,8 @@
         "docLinks": 29
     },
     "tagline": "A persistent memory layer for agents, with Python and TypeScript SDKs and integrations.",
-    "hook": "Maps each package to its own instructions and toolchain, then distinguishes the contribution gate for a change from the gate for an account.",
-    "summary": "Mem0's root guide coordinates a polyglot repository whose formatting and testing rules differ by package. It provides a routing table, a change-to-deliverable matrix, and detailed explanations of its accepted-issue and contributor-account workflows.",
+    "hook": "A package-routing guide to language-specific tools, required deliverables, accepted issues, and contributor-account rules.",
+    "summary": "Mem0's packages use different languages, formatters, and tests, so the root guide starts with a routing table. A second table maps changes to required deliverables, followed by rules for accepted issues and contributor accounts.",
     "references": [
         {
             "path": "mem0/AGENTS.md"

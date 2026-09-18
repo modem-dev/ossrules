@@ -91,8 +91,8 @@
             "path": "providers/AGENTS.md"
         }
     ],
-    "hook": "Covers naming, the security model, commit form, and when to open a pull request instead of an issue.",
-    "summary": "The broadest file in the directory. Alongside structure and commands it covers how to spell one domain term, how to classify a security finding, what a newsfragment is for, how the git remotes must be named, and what an agent may put in a commit trailer.",
+    "hook": "A broad guide to repository structure, commands, security reports, newsfragments, remote naming, and commit rules.",
+    "summary": "Airflow's file ranges from repository structure and commands to writing and contribution policy. It defines one domain term, classifies security reports, explains newsfragments, fixes remote names, and limits commit trailers.",
     "patterns": [
         "house-vocabulary",
         "contribution-etiquette",
@@ -105,32 +105,32 @@
         {
             "pattern": "house-vocabulary",
             "title": "One word, with its exceptions enumerated",
-            "body": "The term is written in title case in all prose. The carve-out covers literal code tokens, which keep their original spelling even inside fenced code blocks, and includes a further exception for anti-pattern quotes that show the wrong form in order to teach the rule.",
+            "body": "The term uses title case in prose. Literal code tokens keep their original spelling, including inside fenced blocks, and anti-pattern quotes may show the wrong form when teaching the rule.",
             "quote": "Write **Dag** (title case) in all prose. Keep the all-caps or lowercase\nspelling only when reproducing a literal code token \u2014 never rewrite these,\neven inside fenced code blocks"
         },
         {
             "title": "How to classify a security finding",
-            "body": "Three categories are defined for anything the agent might flag: actual vulnerabilities that violate the documented security model, known limitations that are already tracked, and deployment hardening that belongs in operator guidance rather than as a code issue. The authoritative document is linked, including its chapter on what is not considered a vulnerability."
+            "body": "The guide separates security findings into vulnerabilities, known limitations, and deployment hardening. It links the security model, including the chapter that defines what is not a vulnerability."
         },
         {
             "pattern": "contribution-etiquette",
             "title": "Open the pull request, not the issue",
-            "body": "When the fix is already known, the file directs the agent past filing an issue. Two reasons are given: the PR already carries the title, description, diff and discussion, and an open issue attracts duplicate submissions. The exception is a workaround whose real fix is deferred, where the issue outlives the PR.",
+            "body": "Known fixes go straight to a pull request to avoid duplicate work. Deferred fixes still need an issue that outlives the workaround.",
             "quote": "Open issues attract drive-by submissions, often from other agents, that\n  haven't seen the in-flight work."
         },
         {
             "title": "Deferred work linked from the code",
-            "body": "A workaround, version cap or partial fix requires a tracking issue opened before the PR body is finalised, referenced by number in the PR, and linked at the workaround site in the code. The link is specified as a full URL rather than a bare number, because bare references do not resolve outside GitHub's web interface."
+            "body": "Create a tracking issue before finalizing a workaround, version cap, or partial fix. Cite its number in the pull request and place the full URL beside the code."
         },
         {
             "pattern": "hard-prohibition",
             "title": "No agent co-author trailer",
-            "body": "The commit section ends with a line prohibiting the agent from adding itself as a co-author, with the stated distinction that agents are assistants rather than authors. A separate PR template field discloses the agent by name and version instead.",
+            "body": "Agents may not add themselves as co-authors. A separate pull-request field records the agent's name and version.",
             "quote": "NEVER add Co-Authored-By with yourself as co-author of the commit. Agents cannot be authors, humans can be, Agents are assistants."
         },
         {
             "title": "Remote names checked rather than assumed",
-            "body": "Two remote names are fixed by convention. The agent is told to run git remote -v before any remote command, and where the names do not match, to surface the mismatch and propose the exact rename commands rather than silently working with what is there."
+            "body": "Before remote commands, run git remote -v. If the two expected names differ, report the mismatch and propose the exact rename commands."
         },
         {
             "title": "A coverage target with an upper bound",

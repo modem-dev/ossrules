@@ -22,8 +22,8 @@
         "docLinks": 0
     },
     "tagline": "A platform for running background tasks with a TypeScript SDK, local development, and managed execution.",
-    "hook": "Chooses verification by package type and release notes by user impact, rather than treating every changed file as the same kind of work.",
-    "summary": "Trigger.dev’s root instructions map its task execution architecture and explain package-specific development, testing, and release workflows. They also preserve boundaries around retired execution paths, versioned SDK documentation, shared dependency versions, and temporary debug instrumentation.",
+    "hook": "A task-execution guide to package workflows, tests, releases, retired paths, versioned SDK docs, and shared dependencies.",
+    "summary": "Trigger.dev maps how tasks execute, then gives each package its development, test, and release steps. The guide also protects retired execution paths, versioned SDK docs, shared dependency versions, and temporary debug code.",
     "references": [
         {
             "path": ".claude/rules/package-installation.md"
@@ -62,7 +62,7 @@
         },
         {
             "title": "Keep historical paths from reviving retired behavior",
-            "body": "The webapp still contains a v3 directory name, but the guide explains that it now serves Run Engine 2.0. Legacy V1 branches should only reject or finalize gracefully, preventing the path name from being mistaken for an active implementation.",
+            "body": "The webapp's v3 directory now serves Run Engine 2.0. Legacy V1 branches may only reject or finalize gracefully, preventing an old path name from reviving retired behavior.",
             "quote": "The `apps/webapp/app/v3/` directory name is historical - everything there now serves V2",
             "pattern": "architecture-narrative"
         },
@@ -80,7 +80,7 @@
         },
         {
             "title": "Separate development traces from release code",
-            "body": "The guide describes temporary agentcrumbs markers, lists approved namespaces, and states that instrumentation is stripped before merge. Review instructions account for that lifecycle instead of treating every debug marker as production code.",
+            "body": "Temporary agentcrumbs markers use approved namespaces and must be removed before merge. Review rules account for that lifecycle instead of treating every marker as production code.",
             "quote": "Do not invent new namespaces — pick from this table or ask first.",
             "pattern": "house-vocabulary"
         }

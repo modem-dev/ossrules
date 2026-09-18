@@ -30,8 +30,8 @@
             "path": ".claude/docs/landing-prs.md"
         }
     ],
-    "hook": "Tests must fail against the installed runtime and pass against the local build.",
-    "summary": "Bun makes its build wrapper the default route into development and testing, with an explicit exception for declaration-only edits. Its instructions distinguish real regressions from behavior that never worked, explain how debug and sanitizer builds change test costs, and route specialized review decisions to separate guides. AGENTS.md is a symlink to this CLAUDE.md source.",
+    "hook": "A build guide to wrapper commands, declaration-only exceptions, regression tests, costly native builds, and specialized reviews.",
+    "summary": "Bun sends most development and testing through its build wrapper, with an exception for declaration-only edits. The guide separates regressions from behavior that never worked, explains the cost of debug and sanitizer builds, and points specialized reviews to separate guides. AGENTS.md links to this CLAUDE.md file.",
     "patterns": ["verification-matrix", "scope-layering", "house-vocabulary", "architecture-narrative", "skill-routing"],
     "techniques": [
         {

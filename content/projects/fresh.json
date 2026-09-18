@@ -22,8 +22,8 @@
         "docLinks": 0
     },
     "references": [],
-    "hook": "Nine numbered steps of the request lifecycle, with the owning file at each hop.",
-    "summary": "Over half its length is architecture: how a request becomes HTML, how islands hydrate on the client, how the two build paths differ. Rules are the minority of the file.",
+    "hook": "An architecture-heavy guide tracing requests, rendering, island hydration, two build paths, and repository rules.",
+    "summary": "More than half of Fresh's file explains architecture: how a request becomes HTML, how islands hydrate, and how its two build paths differ. Repository rules take up less space.",
     "patterns": ["architecture-narrative", "hard-prohibition"],
     "techniques": [
         {
@@ -33,7 +33,7 @@
         },
         {
             "title": "The island mechanism, both halves",
-            "body": "On the server a diff hook wraps island components in HTML comment markers and collects their props into an array. On the client, boot walks the DOM for those markers and hydrates each one. The marker format is given, which is the contract the two halves share.",
+            "body": "On the server, a diff hook wraps island components in HTML comments and collects their props. On the client, boot finds those markers and hydrates each island. The documented marker format is their shared contract.",
             "quote": "<!--frsh:island:NAME:PROPSIDX:KEY-->...<!--/frsh:island-->"
         },
         {

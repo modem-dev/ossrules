@@ -158,13 +158,13 @@ export interface AgentsProject {
     file: FileStats;
     /** Documents the file routes to. Empty when it is self-contained. */
     references: DocReference[];
-    /** The one-line reason this file is in the collection. Shown on the card. */
+    /** A compact preview of the instruction file's scope and contents. Shown on the directory card. */
     hook: string;
     /** Two or three sentences on what kind of document this is. */
     summary: string;
-    /** The analysis: what this file does that others do not. */
+    /** Concrete techniques from the file, each with a short explanation of why it matters. */
     techniques: Technique[];
-    /** Concrete things a reader can copy into their own repo today. */
+    /** Direct, reusable instructions a reader can adapt for their own repository. */
     steal: string[];
     /** The file's own top-level sections, in order. */
     outline: string[];

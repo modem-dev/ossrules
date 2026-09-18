@@ -22,8 +22,8 @@
         "docLinks": 1
     },
     "tagline": "A Python framework for creating interactive data applications and dashboards.",
-    "hook": "Separates application hot reload from library changes that require a restart, and explains how session log pointers can move.",
-    "summary": "Streamlit's root instructions map its Python, React, and protobuf layers to distinct verification tasks. The guide also records dependency-policy exceptions, debugging lifecycles, and test wrappers needed for reliable local evidence.",
+    "hook": "A Python, React, and protobuf guide to separate checks, dependency exceptions, restarts, debugging logs, and test wrappers.",
+    "summary": "Streamlit gives its Python, React, and protobuf layers different checks. The guide also records exceptions to dependency policy, restart rules for debugging, and test wrappers needed for reliable local results.",
     "references": [
         {
             "path": ".claude/skills/debugging-streamlit/SKILL.md"
@@ -47,7 +47,7 @@
         },
         {
             "title": "Separate development locks from public dependency contracts",
-            "body": "The root dependency groups let the lockfile own versions, but published package ranges serve a different purpose. The explicit exception prevents an internal dependency policy from narrowing or weakening the user-facing package contract.",
+            "body": "The lockfile owns root dependency versions, but published package ranges are a user-facing contract. The explicit exception prevents internal policy from narrowing that contract.",
             "quote": "This does NOT apply to `lib/pyproject.toml`, whose version ranges are the published package's contract with users.",
             "pattern": "single-source"
         },

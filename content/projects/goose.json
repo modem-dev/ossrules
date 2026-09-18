@@ -22,8 +22,8 @@
         "docLinks": 0
     },
     "tagline": "An extensible AI agent with a Rust core, command-line interface, and Electron desktop app.",
-    "hook": "Requires behavior changes to stay aligned across both sides of an ongoing agent-loop migration.",
-    "summary": "Goose combines an issue-readiness workflow with practical constraints from its Rust and desktop architecture. The instructions describe concurrent old and new agent loops, a retiring MCP directory, and a macOS failure caused by overwriting a running executable.",
+    "hook": "A Rust desktop guide to issue readiness, parallel agent loops, retiring MCP code, and a macOS executable-replacement trap.",
+    "summary": "Goose checks whether an issue is ready before implementation and records constraints from its Rust desktop app. The guide covers old and new agent loops running side by side, a retiring MCP directory, and a macOS failure caused by overwriting a running executable.",
     "references": [
         {
             "path": ".github/ISSUE_TEMPLATE/",
@@ -49,7 +49,7 @@
         },
         {
             "title": "Freeze additions without blocking migration maintenance",
-            "body": "New third-party entries in the old MCP directory are no longer accepted, while changes that maintain or remove entries remain possible. The policy makes the migration direction explicit without treating legacy data as untouchable.",
+            "body": "The old MCP directory accepts no new third-party entries, but maintenance and removals remain allowed. This states the migration direction without freezing legacy data.",
             "quote": "- Treat the existing goose directory as legacy data while registry-backed discovery and installation are implemented.",
             "pattern": "contribution-etiquette"
         },

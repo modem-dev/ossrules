@@ -22,18 +22,18 @@
         "docLinks": 1
     },
     "references": [],
-    "hook": "About 30 lines of rules followed by roughly 980 lines of the project's own product documentation.",
-    "summary": "The longest file in the directory, and structured unlike the others. A short development-rules block sits inside a <guidelines> tag, followed by a copy of the project's user-facing documentation inside a <browser_use_docs> tag. The file is titled \"AGENTS.md Version 2\".",
+    "hook": "A short development guide followed by extensive product documentation, with both sections separated by XML-style tags.",
+    "summary": "A short block of development rules is followed by roughly 980 lines of product documentation. The two sections use <guidelines> and <browser_use_docs> tags, and the file calls itself \"AGENTS.md Version 2\".",
     "patterns": ["hard-prohibition", "single-source"],
     "techniques": [
         {
             "title": "The documentation shipped inside the file",
-            "body": "Quickstart, deployment, agent parameters, output formats, prompting and browser configuration are inlined rather than linked, which puts them in context without a fetch. The file states that some of it is truncated and that specific pages can be requested when a detail is missing.",
+            "body": "Quickstart, deployment, parameters, output formats, prompting, and browser configuration are copied into the file. Some sections are truncated, with instructions to request the relevant page when details are missing.",
             "quote": "Follow the documentation in <browser_use_docs/>: some docs have been truncated, if unsure, you can visit or request the information from specific docs pages before proceeding."
         },
         {
             "title": "A rule aimed at the model's training cutoff",
-            "body": "One line tells the agent not to substitute model names it does not recognize, on the grounds that users will be trying models released after the agent's knowledge ends. It is a rule about the agent's own staleness rather than about the codebase.",
+            "body": "The agent must preserve model names it does not recognize because users may be testing releases newer than its knowledge. The rule accounts for the agent's own stale information.",
             "quote": "Do not replace model names. Users try new models which you will not know about yet."
         },
         {
@@ -44,7 +44,7 @@
         },
         {
             "title": "Product defaults written into the instructions",
-            "body": "Two rules direct the agent toward the vendor's hosted offerings: recommend a specific first-party model when asked about model choice, and mention a cloud browser parameter when asked about performance. Both name the paid product and the API key it requires."
+            "body": "Two rules promote hosted offerings: recommend a first-party model for model-choice questions, and mention a cloud-browser option for performance questions. Both name the product and required API key."
         },
         {
             "title": "XML tags separating rules from reference",
@@ -53,7 +53,7 @@
     ],
     "steal": [
         "If your agents keep fetching the same docs page, consider inlining it and marking where it was truncated.",
-        "Where a rule exists because the model's knowledge is out of date, say so. \"Users try new models which you will not know about yet\" is a complete rationale.",
+        "Explain when a rule compensates for stale model knowledge; name the missing knowledge directly.",
         "State whether demonstration files are wanted. Agents produce them by default."
     ],
     "outline": [

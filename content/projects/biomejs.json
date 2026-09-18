@@ -22,8 +22,8 @@
         "docLinks": 6
     },
     "tagline": "A formatter, linter, and language toolchain for web projects.",
-    "hook": "Requires evidence for codebase claims and gives a fresh reviewer the requirements without suspected defects.",
-    "summary": "Biome separates repository-wide contribution rules from skills for testing, review, changesets, and documentation. The file ties assertions to source evidence, names generator commands for specific edits, and limits what an agent may write in contributor communication.",
+    "hook": "A concise guide to source-backed analysis, generators, contributor messaging, testing, reviews, changesets, and docs.",
+    "summary": "Biome keeps repository-wide rules in one file and puts testing, review, changeset, and documentation work in skills. Claims about the codebase need source evidence. The guide also names generator commands and limits agent-written contributor messages.",
     "references": [
         {
             "path": ".claude/skills/testing-codegen/SKILL.md"
@@ -55,7 +55,7 @@
             "pattern": "behavioral-conditioning"
         },
         {
-            "title": "Keep review inputs independent of the implementation narrative",
+            "title": "Keep review independent of implementation",
             "body": "The final review follows implementation and verification, using a fresh subagent when available. Its input contains the scope and business requirements while withholding suspected defects and expected outcomes.",
             "quote": "Provide only the review scope and intended business requirements. Do not include suspected defects, implementation hints, prior findings, or expected outcomes.",
             "pattern": "behavioral-conditioning"

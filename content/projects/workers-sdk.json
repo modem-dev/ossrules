@@ -34,14 +34,14 @@
             "label": "each package's own AGENTS.md"
         }
     ],
-    "hook": "States that copied values go stale, and points at the config that defines them instead.",
-    "summary": "Opens with a rule about its own maintenance, then covers commands, a task-to-location table, cross-tool development, and testing conventions. Subsystem detail is delegated to per-package files.",
+    "hook": "A task-oriented guide to commands, source configuration, shared work, tests, package boundaries, and subsystem instructions.",
+    "summary": "Workers SDK opens by forbidding copied facts that will go stale. The rest covers commands, a task-to-location table, work shared across tools, and tests, while package files hold subsystem details.",
     "patterns": ["single-source", "nested-instructions", "hard-prohibition", "verification-matrix"],
     "techniques": [
         {
             "pattern": "single-source",
             "title": "A stated policy against copying",
-            "body": "The second sentence of the file rules out copying details into it, naming versions, rule lists and counts as the things that go stale. Later sections apply it: the root package file is named as authoritative for scripts, and a validation command replaces a duplicated list of enforced lint rules.",
+            "body": "The file refuses to copy versions, rule lists, or counts that will go stale. Later sections follow through: the root package file owns scripts, and one validation command replaces a copied list of lint rules.",
             "quote": "Prefer authoritative configuration and documentation over copying\ndetails into this file: copied versions, rule lists, and counts become stale."
         },
         {
@@ -50,13 +50,13 @@
         },
         {
             "title": "A rule about which layer a feature belongs in",
-            "body": "Three tools consume the same development platform, so a feature is stated to be incomplete if it only works through one of them. Implementation goes in the shared layer wherever possible, with the integration layers kept thin, and intentional gaps documented in the pull request.",
+            "body": "Three tools share the development platform, so a feature is incomplete if only one can use it. Common behavior belongs in the shared layer; integration layers stay thin, and intentional gaps go in the pull request.",
             "quote": "A development feature is not complete merely\nbecause it works through one of them."
         },
         {
             "pattern": "nested-instructions",
             "title": "Package files kept current in the same change",
-            "body": "Packages carry their own instruction files, and the agent is directed to read the closest applicable one before making changes and to update it in the same change when the change makes it inaccurate. The division of content between the root file and package files is stated."
+            "body": "Packages have local instruction files. Read the closest one before editing, and update it in the same change if it becomes inaccurate. The root file also states which guidance belongs at each level."
         },
         {
             "pattern": "hard-prohibition",
@@ -65,7 +65,7 @@
         }
     ],
     "steal": [
-        "Put the anti-drift rule in the file itself. Naming versions, rule lists and counts as things not to copy is what keeps it from rotting.",
+        "Put anti-drift rules beside the values they protect; identify versions, counts, and copied lists likely to rot.",
         "Index your repo map by task rather than by directory. Agents arrive with an intent, not a path.",
         "If several tools consume one platform, state which layer a feature belongs in and that one consumer is not done.",
         "Require the package instruction file to be updated in the same change that makes it wrong."

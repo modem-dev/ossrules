@@ -22,8 +22,8 @@
         "docLinks": 2
     },
     "tagline": "A headless CMS with a Node.js server, an admin interface, and a plugin ecosystem.",
-    "hook": "Treats example apps as test sandboxes, then names the migration fixture that is an explicit exception.",
-    "summary": "Strapi’s root guide maps a Yarn and Nx monorepo and establishes the architectural boundaries for content access, dependency injection, shared types, and edition-specific behavior. It gives separate commands for testing surfaces and keeps committed skills in one canonical directory with local links for different tools.",
+    "hook": "A Yarn and Nx guide to content access, dependency injection, shared types, edition boundaries, tests, skills, and migrations.",
+    "summary": "Strapi's root guide maps its Yarn and Nx monorepo and sets boundaries for content access, dependency injection, shared types, and edition-specific code. Test areas use separate commands, while committed skills live in one directory and link into each tool.",
     "references": [
         {
             "path": "docs/docs/docs/01-core/database/01-relations/polymorphic-relations.md"
@@ -43,7 +43,7 @@
     "techniques": [
         {
             "title": "Name the exception to a sandbox-only rule",
-            "body": "Example apps normally reproduce and test fixes rather than receive production changes. The guide explicitly identifies examples/complex as a migration test fixture used by CI, preserving the reason that particular example may need changes.",
+            "body": "Example apps normally reproduce fixes rather than receive production changes. The guide names examples/complex as the exception because CI uses it as a migration fixture.",
             "quote": "**Exception:** `examples/complex` is the **migration test fixture**",
             "pattern": "hard-prohibition"
         },
@@ -55,7 +55,7 @@
         },
         {
             "title": "Route content operations through the owning abstraction",
-            "body": "The architecture section identifies Document Service as the high-level content API and restricts raw database access to the database package. It also explains that content type schemas generate tables, rather than requiring raw migrations.",
+            "body": "Document Service owns high-level content access; raw queries belong only in the database package. Content-type schemas generate tables, so ordinary changes do not need raw migrations.",
             "quote": "Always use this for reading/writing content — never raw DB queries unless you're working inside `@strapi/database` itself.",
             "pattern": "hard-prohibition"
         },
@@ -73,7 +73,7 @@
         },
         {
             "title": "Distinguish an absent optional tool from a broken one",
-            "body": "The worktree bootstrap quietly continues when the optional brain-start skill is unavailable, which is the normal external-contributor path. If the tool is installed but refresh fails, the failure must be reported and remediated.",
+            "body": "A missing optional brain-start skill is a normal no-op for external contributors. If the installed tool fails to refresh, report and fix the failure.",
             "quote": "Only the absence of the optional skill is a clean no-op.",
             "pattern": "behavioral-conditioning"
         }

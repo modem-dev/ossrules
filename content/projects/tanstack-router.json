@@ -26,8 +26,8 @@
             "path": "CONTRIBUTING.md"
         }
     ],
-    "hook": "Nx test filtering preserves task dependencies, and stalled sandbox runs get one reset and one retry.",
-    "summary": "TanStack Router’s guide spans the shared routing core, framework bindings, and Start packages. It gives a progressively narrower testing workflow, explicit sandbox recovery limits, and example applications for checking changes in context.",
+    "hook": "A package guide to the shared core, framework bindings, Start, focused Nx tests, sandbox recovery, and example apps.",
+    "summary": "TanStack Router covers the shared core, framework bindings, and Start packages. Its test process narrows from affected packages to focused cases, limits sandbox recovery to one reset and retry, and uses example apps for checks in context.",
     "patterns": ["hard-prohibition", "verification-matrix", "architecture-narrative"],
     "techniques": [
         {

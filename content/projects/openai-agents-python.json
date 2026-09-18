@@ -22,8 +22,8 @@
         "docLinks": 28
     },
     "tagline": "A Python SDK for building agents with tools, handoffs, tracing, and realtime capabilities.",
-    "hook": "Calls for a design reset when a second related finding adds another compatibility case, rather than letting review feedback grow an unbounded patch.",
-    "summary": "The Python Agents SDK guide combines contributor workflows with explicit limits on implementation and review scope. It distinguishes released contracts from branch-local choices, ties tests to observable outcomes, and routes runtime work through a detailed architecture reference map.",
+    "hook": "A Python SDK guide to scope, released contracts, branch-local choices, visible-behavior tests, architecture, and compatibility.",
+    "summary": "The Python Agents SDK guide puts firm limits on implementation and review scope. It distinguishes released contracts from choices made only on the current branch, asks tests to prove visible behavior, and maps runtime work to architecture references.",
     "references": [
         {
             "path": "SECURITY.md"
@@ -103,7 +103,7 @@
     "techniques": [
         {
             "title": "Define a concrete trigger for reconsidering complexity",
-            "body": "The guide requires grouping related findings by root cause and reassessing the complete diff against the original requirement. Its trigger prevents repeated review fixes from accumulating compatibility branches without checking whether the supported behavior needs them.",
+            "body": "Group related findings by root cause and reassess the full diff against the original requirement. This stops review fixes from accumulating compatibility branches without revisiting the design.",
             "quote": "A second related finding that adds another compatibility case or protocol hop triggers this reset.",
             "pattern": "behavioral-conditioning"
         },
@@ -132,7 +132,7 @@
         },
         {
             "title": "Write source documentation for reliable translation",
-            "body": "English source must make actors, ownership, ordering, and lifecycle subjects explicit while preserving exact API identifiers and technical meaning. The guide treats ambiguity as a compatibility concern for generated translations.",
+            "body": "English source must state actors, ownership, ordering, and lifecycle explicitly while preserving API names and meaning. Ambiguity becomes a compatibility risk for generated translations.",
             "quote": "Treat translation-safe English as a documentation compatibility requirement.",
             "pattern": "behavioral-conditioning"
         }

@@ -45,8 +45,8 @@
             "label": "test-t3-mobile verification skill"
         }
     ],
-    "hook": "The contributor may be running inside the app they are changing, so process and database rules protect the live session.",
-    "summary": "T3 Code grounds its contributor guide in product priorities, shared vocabulary, and the risks of developing through the running app itself. It checks changes across clients, providers, connection modes, and reverse actions, then explains the command-to-event architecture and when documentation adds lasting value.",
+    "hook": "A self-hosted guide to live-process safety, database protection, cross-client checks, providers, and command-to-event flow.",
+    "summary": "Contributors may be working inside the T3 Code app they are changing, so the guide protects the live process and database. It also checks changes across clients and providers, and explains how commands become events.",
     "patterns": ["hard-prohibition", "behavioral-conditioning", "architecture-narrative", "single-source", "house-vocabulary"],
     "techniques": [
         {
@@ -57,7 +57,7 @@
         },
         {
             "title": "Keep test data separate from live state",
-            "body": "The guide permits reading and copying the developer's live database while forbidding write access or starting a server against it. The test-data section explains consistent snapshots and requires one-way copying rather than symlinks.",
+            "body": "The live database may be read and copied but never opened for writes or used by a server. Test data comes from consistent one-way snapshots, not symlinks.",
             "quote": "2. **Writing to the live install.** `~/.t3/userdata` is the developer's real T3 Code database, in use while you work. Reading it and copying from it are fine, and a good way to get real test data (see Test data). Never start a server against it, never open it read-write, never clean it up.",
             "pattern": "hard-prohibition"
         },

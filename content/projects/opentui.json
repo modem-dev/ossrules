@@ -28,8 +28,8 @@
             "label": "terminal-control skill (installation-dependent)"
         }
     ],
-    "hook": "Terminal text has four different lengths, and native pointer lifetime depends on the order of two operations.",
-    "summary": "OpenTUI centers its instructions on the boundary between JavaScript runtimes and native terminal rendering. It separates TypeScript checks from native and distribution checks, then spells out the FFI representations and ownership rules that must survive across Bun and Node.",
+    "hook": "A terminal guide to TypeScript, native code, distribution, FFI types, text measurements, memory ownership, Bun, and Node.",
+    "summary": "OpenTUI's hardest rules sit between JavaScript runtimes and native terminal rendering. TypeScript, native, and distribution changes have different checks, while FFI types and memory ownership must work in both Bun and Node.",
     "patterns": ["hard-prohibition", "verification-matrix"],
     "techniques": [
         {

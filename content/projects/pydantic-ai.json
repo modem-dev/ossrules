@@ -22,8 +22,8 @@
         "docLinks": 29
     },
     "tagline": "A typed, provider-independent Python framework for building agents and working with language models.",
-    "hook": "Requires reproducing a sibling defect before expanding a bug fix, and treats a compatibility-preserving default as part of the API contract.",
-    "summary": "Pydantic AI's root guide defines contributor responsibility to the project and its users, then constrains scope, compatibility, and verification. It routes detailed coding work into topic and directory guides while distinguishing design philosophy from permission to broaden an individual fix.",
+    "hook": "A scope-conscious guide to user impact, compatibility, verification, sibling defects, API defaults, and focused local rules.",
+    "summary": "Pydantic AI tells contributors to protect both the project and its users, then limits scope, compatibility changes, and verification claims. Topic and directory guides hold coding details; broad design principles do not justify broadening a fix.",
     "references": [
         {
             "path": "docs/agent.md"
@@ -141,7 +141,7 @@
         },
         {
             "title": "Use scoped guides for implementation details",
-            "body": "The root file makes the topic index mandatory and then lists directory-specific instructions for models, providers, tools, durable execution, UI, and other areas. The global requirements remain separate from those local mechanics.",
+            "body": "The root file requires the topic index, then routes models, providers, tools, durable execution, UI, and other work to local guides. Global rules stay separate.",
             "quote": "When generating or reviewing code anywhere in this repo, always read [agent_docs/index.md](agent_docs/index.md) and follow/enforce those guidelines.",
             "pattern": "nested-instructions"
         }

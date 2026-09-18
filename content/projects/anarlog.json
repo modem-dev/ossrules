@@ -37,8 +37,8 @@
             "label": "Nearest component instructions"
         }
     ],
-    "hook": "A green workflow is not proof that skipped native jobs tested the release candidate.",
-    "summary": "Anarlog maps a TypeScript and Rust workspace to component-specific verification. It distinguishes desktop JavaScript checks from scheduled native jobs, requires evidence from the exact release candidate, and names generated artifacts and database compatibility constraints. The guide also keeps simple CLI screens from acquiring an unnecessary reducer and effect architecture.",
+    "hook": "Separate TypeScript and Rust guides to component checks, native release evidence, generated files, and database constraints.",
+    "summary": "Anarlog gives each TypeScript and Rust component its own checks. It separates desktop JavaScript tests from scheduled native jobs, requires evidence from the exact release candidate, and names generated files and database constraints. Simple CLI screens are told not to adopt reducer and effect machinery they do not need.",
     "patterns": ["verification-matrix", "generated-file-guard", "architecture-narrative", "behavioral-conditioning"],
     "techniques": [
         {

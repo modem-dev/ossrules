@@ -65,8 +65,8 @@
             "path": "DESIGN.md"
         }
     ],
-    "hook": "Telemetry, observability, and the run log get different review rules, determined by file path rather than terminology.",
-    "summary": "Paperclip starts with an ordered product and engineering reading list, then records the invariants of its agent control plane. Its instructions distinguish company boundaries, shared contracts, data destinations, and review expectations, with separate workflows for database changes and browser verification.",
+    "hook": "An architecture guide to control-plane rules, company boundaries, shared contracts, database changes, and browser checks.",
+    "summary": "Paperclip starts with an ordered reading list, then states the rules its agent control plane must preserve. It defines company boundaries, shared contracts, data destinations, and review expectations, with separate steps for database changes and browser checks.",
     "patterns": ["skill-routing", "house-vocabulary", "verification-matrix", "single-source"],
     "techniques": [
         {
@@ -77,18 +77,18 @@
         },
         {
             "title": "State invariants across layers",
-            "body": "The root guide lists the control-plane behaviors that changes must preserve, including atomic checkout, approval gates, budget stops, and mutation logging. This gives contributors constraints that span a schema, API, and interface change.",
+            "body": "The root guide lists cross-layer control-plane invariants, including atomic checkout, approval gates, budget stops, and mutation logging. These constraints apply across schemas, APIs, and interfaces.",
             "quote": "3. Preserve control-plane invariants.\n- Single-assignee task model\n- Atomic issue checkout semantics\n- Approval gates for governed actions\n- Budget hard-stop auto-pause behavior\n- Activity logging for mutating actions"
         },
         {
             "title": "Classify data paths before assigning review",
-            "body": "The guide distinguishes first-party telemetry, operator-configured tracing, and local run events. It maps each to source paths and different review requirements, and explicitly says that a matching word in a filename is not enough.",
+            "body": "First-party telemetry, operator tracing, and local run events map to different source paths and review rules. Classify them by path, not by words in a filename.",
             "quote": "7. Name the three data paths correctly.\nThis repo has three separate data paths. Do not confuse them. Match a change to a path by its file path, not by the word \"observability\" or \"telemetry\" alone.",
             "pattern": "house-vocabulary"
         },
         {
             "title": "Match review to where data goes",
-            "body": "The telemetry rule ties contract and documentation updates plus privacy review to the default outbound destination. The following rules distinguish opt-in tracing and instance-local run logs, avoiding one review policy for all three systems.",
+            "body": "Default outbound telemetry requires contract and docs updates plus privacy review. Opt-in tracing and local run logs have separate rules, so one policy does not govern all three.",
             "quote": "- **Telemetry change (strict review).** The author updates the generated contract first. The author updates `packages/shared/src/telemetry/README.md` in the same pull request. The author requests a privacy review. Reason: a Telemetry event goes to a Paperclip endpoint by default, so a mistake sends data immediately."
         },
         {

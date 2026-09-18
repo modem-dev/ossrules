@@ -22,8 +22,8 @@
         "docLinks": 1
     },
     "tagline": "A web framework that resumes serialized application state in the browser.",
-    "hook": "Generates root instructions from .ruler sources and reserves hydration vocabulary for comparisons with other frameworks.",
-    "summary": "Qwik's root guide combines generated repository rules with the Ruler setup document. It separates committed source guidance from local tool-specific skill copies, routes work across six Qwik skills, and explains the vocabulary and verification boundaries of resumability.",
+    "hook": "A generated root guide to resumability terms, committed and local guidance, verification, and six focused skills.",
+    "summary": "Qwik generates its root guide from Ruler sources and keeps committed guidance separate from local skill copies. Six skills cover focused tasks, while the root file defines the language and checks used for resumability.",
     "references": [
         {
             "path": "CONTRIBUTING.md"

@@ -22,8 +22,8 @@
         "docLinks": 0
     },
     "tagline": "A build system and workspace toolkit for monorepos and their plugins.",
-    "hook": "Selects planning or implementation from the request, then expands validation from the changed project to affected projects and E2E tests.",
-    "summary": "Nx's AGENTS.md combines contributor workflows with a generated block of workspace guidance. It routes documentation work to the Astro site guide, distinguishes issue-analysis requests from implementation requests, and explains how to test local packages in another repository.",
+    "hook": "A workspace guide to planning, generated sections, docs, affected-project tests, E2E checks, and external package testing.",
+    "summary": "Nx's AGENTS.md contains contributor workflows and a generated workspace section. It sends documentation work to the Astro site guide, distinguishes issue analysis from implementation, and explains how to test local packages in another repository.",
     "references": [
         {
             "path": "astro-docs/README.md"
@@ -61,7 +61,7 @@
         },
         {
             "title": "Route scaffolding before exploration",
-            "body": "The generated Nx block assigns generator discovery to a skill that must run before workspace exploration or MCP calls. It also distinguishes advanced documentation questions from basic generator syntax already handled by that skill.",
+            "body": "Generator discovery goes through a skill before workspace exploration or MCP calls. Advanced documentation questions follow a separate path from basic generator syntax.",
             "quote": "- For scaffolding tasks (creating apps, libs, project structure, setup), ALWAYS invoke the `nx-generate` skill FIRST before exploring or calling MCP tools",
             "pattern": "skill-routing"
         }

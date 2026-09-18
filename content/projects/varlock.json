@@ -28,8 +28,8 @@
             "label": "Local documentation source"
         }
     ],
-    "hook": "Build ordering and paid review costs both become concrete rules for how agents work.",
-    "summary": "Varlock's instructions cover the mechanics around a Bun and Turbo monorepo: dependency-aware builds, native binaries, tests, version bumps, and documentation. Several rules explain the cost they prevent. Filtered builds can miss workspace output; repeated pushes trigger paid reviews; rewriting technical examples during a tone edit can damage working documentation.",
+    "hook": "A Bun and Turbo guide to build order, native binaries, tests, version bumps, docs, paid reviews, and wording.",
+    "summary": "Varlock covers dependency-aware builds, native binaries, tests, version bumps, and docs in a Bun and Turbo monorepo. Its rules name their costs: filtered builds miss workspace output, repeated pushes trigger paid reviews, and tone edits can break technical examples.",
     "patterns": ["hard-prohibition", "single-source", "contribution-etiquette", "house-vocabulary"],
     "techniques": [
         {

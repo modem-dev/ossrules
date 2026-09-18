@@ -22,8 +22,8 @@
         "docLinks": 1
     },
     "tagline": "A Python library for building web interfaces around machine-learning models and applications.",
-    "hook": "Explains how a handwritten changeset silently overrides the release note generated from a PR title.",
-    "summary": "Gradio uses its root instructions to set contribution expectations across its Python and Svelte packages. The file connects issue ownership, disclosure, human review, and generated release notes with the build and test workflow.",
+    "hook": "A Python and Svelte guide to issue ownership, AI disclosure, human review, release notes, builds, and tests.",
+    "summary": "Gradio's root file sets contribution rules for its Python and Svelte packages. It covers issue ownership, AI disclosure, human review, generated release notes, builds, and tests.",
     "references": [
         {
             "path": ".github/PULL_REQUEST_TEMPLATE.md"
@@ -34,7 +34,7 @@
     ],
     "techniques": [
         {
-            "title": "Explain the consequence of overriding generated release notes",
+            "title": "Explain why manual changesets are banned",
             "body": "The guide says a GitHub Action creates changesets from the PR title. A manually authored changeset takes precedence, which is why the instruction prohibits adding one rather than merely calling it unnecessary.",
             "quote": "The bot leaves an existing changeset alone, so a hand-written one silently replaces your title in the changelog.",
             "pattern": "generated-file-guard"

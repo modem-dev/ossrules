@@ -22,8 +22,8 @@
         "docLinks": 9
     },
     "tagline": "A package manager for JavaScript projects, with TypeScript and Rust implementations and a registry server.",
-    "hook": "Distinguishes intentional v12-only features from shared bugs that must be fixed in both the Rust and TypeScript CLIs.",
-    "summary": "pnpm's root guide covers three products and delegates their local rules to nested instructions. It defines version-specific development policy, warns about stale bundled tests, and explains release identifiers and platform-dependent skill discovery.",
+    "hook": "A three-product guide to local instructions, version policy, dual CLIs, stale bundled tests, releases, and skill discovery.",
+    "summary": "pnpm's root guide covers three products and points each one to local instructions. It defines version-specific policy, warns when bundled tests can go stale, and explains release identifiers and platform-dependent skill discovery.",
     "references": [
         {
             "path": "pnpm/AGENTS.md"
@@ -74,7 +74,7 @@
         },
         {
             "title": "Document the platform prerequisite for shared instructions",
-            "body": "Claude's skill directory and root instructions use symlinks to canonical sources. The guide explains that a Windows clone without real symlink support produces text files instead, so agents fail to discover their instructions.",
+            "body": "Claude's skills and root instructions use symlinks. On Windows, a clone without symlink support produces text files instead, preventing agents from discovering those instructions.",
             "quote": "Without it `.claude/skills` is checked out as a text file holding the target path, and Claude Code finds no skills.",
             "pattern": "single-source"
         }

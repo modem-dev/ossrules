@@ -110,8 +110,8 @@
             "path": "docs/contributing/cloud-agents.md"
         }
     ],
-    "hook": "A 73-line index routes proposals through decision records and higher-risk changes through realistic preview testing.",
-    "summary": "Kody keeps its root instructions as a navigation layer over focused contributor documentation and skills. The index names one authoritative validation command, directs new product surfaces through prior decisions, and separates preview testing and cloud-agent setup from general repository guidance.",
+    "hook": "An index to contributor docs, decision records, validation commands, preview testing, cloud-agent setup, and task-specific skills.",
+    "summary": "Kody's 73-line root file is an index to contributor docs and skills. It names one validation command, requires new product areas to follow earlier decisions, and sends preview testing and cloud-agent setup to their own guides.",
     "patterns": ["single-source", "skill-routing"],
     "techniques": [
         {
@@ -128,7 +128,7 @@
         },
         {
             "title": "Tie preview testing to risk and realistic state",
-            "body": "Manual preview testing is called out for medium- and high-risk work and specifies a logged-in user with data. The index pairs a contributor document with a dedicated skill so the workflow can be loaded when that work needs it.",
+            "body": "Medium- and high-risk work gets manual preview testing with a logged-in user and real data. The index links both the contributor doc and the skill that runs the workflow.",
             "quote": "- Manual PR preview testing (medium/high risk, logged-in user + data):\n- [docs/contributing/preview-manual-testing.md](./docs/contributing/preview-manual-testing.md)\n  and the\n  [preview-manual-test skill](./.agents/skills/preview-manual-test/SKILL.md)",
             "pattern": "skill-routing"
         },

@@ -26,8 +26,8 @@
             "path": "docs/development.md"
         }
     ],
-    "hook": "A short build guide separates native compilation from Go-only iteration.",
-    "summary": "Ollama keeps its root instructions to two build paths and a link to the development guide. The full path configures and builds the native payload with CMake. The quicker path assumes that payload already exists and runs the Go code directly. There are no testing or contribution rules here; the linked guide carries the wider setup context.",
+    "hook": "A compact guide to native compilation, faster Go-only iteration, testing, contribution rules, and fuller setup docs.",
+    "summary": "Ollama's root file offers two build paths. One builds the native payload with CMake; the quicker one reuses that payload and runs the Go code. Testing, contribution rules, and fuller setup instructions live in the linked development guide.",
     "patterns": ["verification-matrix", "skill-routing"],
     "techniques": [
         {

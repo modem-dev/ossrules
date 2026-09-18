@@ -22,8 +22,8 @@
         "docLinks": 19
     },
     "tagline": "An agent framework and monorepo for planning, coding agents, tools, and partner integrations.",
-    "hook": "Keeps global rules short by routing to scoped guides, and rejects tests that merely restate the current implementation.",
-    "summary": "Deep Agents uses the root file for shared constraints while delegating architecture, development, releases, and package-specific work. It adds precise guidance for warning filters, API compatibility, repository searches, and the authority of generated reference material.",
+    "hook": "A short root guide to compatibility, repository searches, generated references, test quality, and focused local instructions.",
+    "summary": "Deep Agents keeps shared constraints at the root and moves architecture, development, releases, and package work to focused guides. The root rules cover warning filters, API compatibility, repository searches, and generated reference material.",
     "references": [
         {
             "path": "libs/DEVELOPMENT.md"
@@ -56,7 +56,7 @@
     "techniques": [
         {
             "title": "Reject tests that only freeze implementation shape",
-            "body": "The testing rules require meaningful observable behavior and warn against asserting incidental call order. Behavior-preserving refactors should not force mechanical test changes.",
+            "body": "Tests must assert visible behavior, not incidental call order. A refactor that preserves behavior should not require mechanical test changes.",
             "quote": "Refactors that preserve behavior should not require mechanical test updates; rewrite or remove tests that do.",
             "pattern": "behavioral-conditioning"
         },
@@ -74,7 +74,7 @@
         },
         {
             "title": "Constrain searches to the relevant package",
-            "body": "The routing section names SDK, coding-agent, ACP, eval, and partner paths. It excludes environment and generated trees from normal work and asks agents to locate the exact dependency file instead of searching every installed package.",
+            "body": "The routing section names SDK, coding-agent, ACP, eval, and partner paths while excluding environments and generated trees. Dependency searches start from the exact environment file.",
             "quote": "For dependency internals, find the exact environment file instead of searching all of `site-packages`.",
             "pattern": "context-budget"
         },

@@ -22,8 +22,8 @@
         "docLinks": 0
     },
     "tagline": "A TypeScript framework for building and deploying autonomous agents.",
-    "hook": "Defines a durable conversation vocabulary and separates agent registration from HTTP routing.",
-    "summary": "Flue uses its root instructions to establish the runtime concepts an agent must preserve. A terminology tree connects agents, harnesses, sessions, operations, and turns, while contribution and development sections state the available workflows and their limits.",
+    "hook": "An architecture guide defining agents, harnesses, sessions, operations, and turns, plus contribution workflows and their limits.",
+    "summary": "Flue defines how agents, harnesses, sessions, operations, and turns relate before giving development rules. Its contribution section also makes clear which workflows are available and where they stop.",
     "references": [
         {
             "path": "CONTRIBUTING.md"
@@ -50,7 +50,7 @@
         },
         {
             "title": "Make a verification gap visible",
-            "body": "The file names the absence of tests instead of implying a test suite exists. Its development commands cover installation, builds, type checking, and formatting, leaving readers able to distinguish those checks from behavioral tests.",
+            "body": "The file states that no tests exist instead of implying otherwise. Its commands cover installation, builds, type checks, and formatting, clearly separating those checks from behavioral tests.",
             "quote": "No tests exist in the repo."
         }
     ],

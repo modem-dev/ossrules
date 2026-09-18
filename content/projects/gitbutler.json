@@ -34,8 +34,8 @@
             "path": "crates/AGENTS.md"
         }
     ],
-    "hook": "42 lines that open with the precedence order between instruction sources.",
-    "summary": "A repo map, a working-style list and two pointers to nested instruction files. Second shortest in the directory.",
+    "hook": "A short root guide covering instruction precedence, repository structure, working style, and links to local instructions.",
+    "summary": "GitButler's 42-line root file contains a repository map, a short working-style list, and two links to local instruction files.",
     "patterns": ["nested-instructions", "behavioral-conditioning", "single-source"],
     "techniques": [
         {
@@ -52,7 +52,7 @@
         },
         {
             "title": "Reproduce before adding machinery",
-            "body": "A behavior bug is to be reproduced in a failing test first, and the existing loops and classifications in the target file surveyed as candidate homes for the fix. The tests, rather than the diagnosis, are named as what sets how much implementation the fix needs.",
+            "body": "Reproduce a behavior bug with a failing test, then inspect existing loops and classifications for the right home. The tests determine how much implementation the fix needs.",
             "quote": "let the tests, not the diagnosis, set how much implementation the fix needs"
         },
         {

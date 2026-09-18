@@ -22,8 +22,8 @@
         "docLinks": 0
     },
     "tagline": "An LLM engineering platform for developing, monitoring, evaluating, and debugging AI applications.",
-    "hook": "Distinguishes a cached pass from an executed check and explains how stale shared-package builds can validate the wrong branch.",
-    "summary": "Langfuse’s canonical .agents/AGENTS.md separates outside-contributor work from maintainer context, then maps the monorepo’s dependencies and verification requirements. It emphasizes reproducible seeded data, evidence in handoffs, public-facing explanations, and shared agent configuration generated from one source.",
+    "hook": "A contributor guide to monorepo dependencies, seed data, stale builds, handoff evidence, public explanations, and agent config.",
+    "summary": "Langfuse keeps its canonical guide at .agents/AGENTS.md and gives outside contributors different context from maintainers. It covers monorepo dependencies, reproducible seed data, proof in handoffs, public explanations, and agent configuration generated from one source.",
     "references": [
         {
             "path": "CONTRIBUTING.md"
@@ -55,7 +55,7 @@
         },
         {
             "title": "Keep test data reproducible through named scenarios",
-            "body": "The guide routes local test state through the seed CLI and asks whether a new bug’s data shape should become a seeder scenario. This makes a UI reproduction reusable instead of leaving it in a one-off database mutation.",
+            "body": "Local test state goes through the seed CLI. When a bug needs a new data shape, the guide asks whether it belongs in a reusable seeder scenario instead of a one-off database edit.",
             "quote": "Prefill local test data with the seed CLI (`pnpm run seed -- list` shows\n  scenarios; runs print UI deep links) — never with ad-hoc scripts or raw\n  ClickHouse inserts.",
             "pattern": "behavioral-conditioning"
         },
@@ -73,7 +73,7 @@
         },
         {
             "title": "Keep public explanations independent of internal tickets",
-            "body": "The guide prohibits ticket IDs and tracker URLs in code comments, commit messages, PR text, and user docs. It explains that those identifiers have no meaning for outside readers and limits a provenance exception to maintainer skill files.",
+            "body": "Keep ticket IDs and tracker URLs out of comments, commits, pull requests, and user docs because outside readers cannot use them. Only maintainer skill files get a provenance exception.",
             "quote": "Describe the problem on its own terms; a ticket-prefixed\n  branch name is the one place the identifier belongs.",
             "pattern": "contribution-etiquette"
         },

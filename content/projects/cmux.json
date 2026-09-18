@@ -35,8 +35,8 @@
             "label": "Task-specific contributor skills"
         }
     ],
-    "hook": "Tagged builds isolate app identities and sockets so agents do not control the wrong running application.",
-    "summary": "cmux centers its instructions on isolated development builds, explicit verification, and shared behavior across UI and CLI surfaces. A tag identifies the application, socket, and build output; companion helpers remove ambient terminal context before targeting that build. The guide also calls out ways a green test run can miss coverage and routes component work to contributor skills. AGENTS.md symlinks to this CLAUDE.md.",
+    "hook": "A macOS guide to isolated app builds, sockets, terminal testing gaps, component skills, and protecting the main app.",
+    "summary": "cmux gives every development build its own app name, socket, and build folder so it cannot control the user's main app. It also warns where tests miss real terminal behavior and points component work to dedicated skills. AGENTS.md links to this CLAUDE.md file.",
     "patterns": ["behavioral-conditioning", "hard-prohibition", "verification-matrix", "single-source"],
     "techniques": [
         {
@@ -47,7 +47,7 @@
         },
         {
             "title": "Remove ambient routing state",
-            "body": "The debug helper refuses an unspecified tag and strips inherited terminal identifiers before selecting the tagged socket. This makes the target explicit instead of depending on whichever build was launched most recently.",
+            "body": "The debug helper requires a tag and strips inherited terminal identifiers before selecting that build's socket. It never depends on whichever build ran most recently.",
             "quote": "The helper refuses to run without `CMUX_TAG`, targets `/tmp/cmux-debug-<tag>.sock`, and uses the matching tagged CLI from DerivedData. It scrubs ambient cmux terminal context (`CMUX_SOCKET`, `CMUX_SOCKET_PASSWORD`, workspace/surface/tab/panel IDs, cmuxd socket, debug log), then sets `CMUX_SOCKET_PATH`, `CMUX_BUNDLE_ID`, and `CMUX_BUNDLED_CLI_PATH` for the tag.",
             "pattern": "hard-prohibition"
         },

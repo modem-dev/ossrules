@@ -22,8 +22,8 @@
         "docLinks": 0
     },
     "tagline": "A Rust-based JavaScript and TypeScript bundler with a TypeScript API.",
-    "hook": "Splits internal documentation into design rationale and implementation mechanics, and assigns CI suites by change type.",
-    "summary": "Rolldown treats instructions as a route into the context missing from code. Its root guide describes a three-layer runtime, generated bindings, and the CI coverage needed for browser, Windows, and WebContainer changes.",
+    "hook": "A three-layer runtime guide to generated bindings, internal docs, and CI for browsers, Windows, and WebContainers.",
+    "summary": "Rolldown uses its root guide for context the code cannot show: a three-layer runtime, generated bindings, and the CI jobs required for browser, Windows, and WebContainer changes.",
     "references": [
         {
             "path": "docs/apis/rust-crates.md"

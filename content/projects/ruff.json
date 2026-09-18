@@ -22,8 +22,8 @@
         "docLinks": 3
     },
     "tagline": "A Python linter and formatter whose Rust workspace also contains the ty type checker.",
-    "hook": "Explains why a temporary reproduction inside the checkout silently inherits Python 3.7.",
-    "summary": "Ruff combines Rust workspace guidance with a scoped section for ty development. It explains environment traps, treats Markdown tests as readable specifications, and routes security reviews and specialized ty work to separate documents.",
+    "hook": "A Rust workspace guide to environment traps, Markdown tests, ty-specific work, security reviews, and focused references.",
+    "summary": "Ruff covers its Rust workspace and adds a focused section for ty. The guide explains environment traps, treats Markdown tests as readable specifications, and points security reviews and specialized ty work to separate documents.",
     "references": [
         {
             "path": "CONTRIBUTING.md"
@@ -47,7 +47,7 @@
     "techniques": [
         {
             "title": "Explain the hidden configuration behind a reproduction",
-            "body": "Temporary Python files belong outside the checkout because configuration discovery changes their inferred Python version. The rule names both the configuration key and the incorrect default that an in-repository reproduction would pick up.",
+            "body": "Keep temporary Python files outside the checkout because configuration discovery changes their inferred Python version. The rule names the controlling key and the wrong in-repository default.",
             "quote": "A file inside the checkout discovers Ruff's root `pyproject.toml`, whose `requires-python = \">=3.7\"` causes ty to infer Python 3.7 as the default Python version.",
             "pattern": "behavioral-conditioning"
         },

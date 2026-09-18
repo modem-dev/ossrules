@@ -22,8 +22,8 @@
         "docLinks": 0
     },
     "tagline": "An AI coding assistant with editor integrations and a command-line agent.",
-    "hook": "The CLI guide spells out hook configuration precedence and the difference between blocking and non-blocking exit codes.",
-    "summary": "Continue's analyzed instruction file lives under extensions/cli and describes that subsystem rather than the whole repository. It maps authentication, terminal interfaces, tools, and hooks, then records build and test conventions for the TypeScript CLI.",
+    "hook": "A focused CLI guide to authentication, terminal interfaces, tools, hooks, configuration precedence, exit codes, and tests.",
+    "summary": "Continue's analyzed file applies only to extensions/cli. It maps authentication, terminal interfaces, tools, and hooks, then gives the TypeScript CLI's build and test rules.",
     "references": [],
     "techniques": [
         {

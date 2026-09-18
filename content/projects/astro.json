@@ -35,14 +35,14 @@
             "label": "reference/unit-testing.md"
         }
     ],
-    "hook": "Opens with four sections on how to approach work, before any repository detail.",
-    "summary": "The first third contains no Astro-specific content: it covers stating assumptions, scope, and success criteria. The rest is a tooling guide covering the monorepo layout, test invocation, background dev servers and browser automation.",
+    "hook": "A monorepo guide covering work planning, repository structure, tests, background development servers, and browser automation.",
+    "summary": "The first third is not Astro-specific. It covers assumptions, scope, and success criteria. The rest maps the monorepo and explains tests, background development servers, and browser automation.",
     "patterns": ["behavioral-conditioning", "skill-routing", "hard-prohibition", "house-vocabulary"],
     "techniques": [
         {
             "pattern": "behavioral-conditioning",
             "title": "Four framing sections before any repository detail",
-            "body": "Think Before Coding, Simplicity First, Surgical Changes, Goal-Driven Execution. None reference Astro. They address stating assumptions out loud, building only what was asked, leaving adjacent code alone, and defining what done means before starting.",
+            "body": "Four general sections come first: Think Before Coding, Simplicity First, Surgical Changes, and Goal-Driven Execution. They cover assumptions, scope, adjacent code, and completion criteria.",
             "quote": "**Don't assume. Don't hide confusion. Surface tradeoffs.**"
         },
         {
@@ -53,7 +53,7 @@
         {
             "pattern": "house-vocabulary",
             "title": "A deletion test for comments",
-            "body": "A comment must state something the reader cannot recover from the code, written for someone reading at HEAD months later with no access to the conversation or the diff. Narrating change history and addressing the reviewer are both listed as prohibited.",
+            "body": "Keep comments only when the code cannot recover the information. Write for someone reading HEAD months later, without the conversation or diff; never narrate change history or address a reviewer.",
             "quote": "Deletion test: a comment must state something the reader cannot recover from the code. If names or types already carry it, don't write it."
         },
         {
@@ -72,10 +72,10 @@
         }
     ],
     "steal": [
-        "The four opening sections contain no repository-specific content and transfer to another repo unchanged.",
+        "Open with general working rules that transfer across repositories before adding project-specific guidance.",
         "Give scope creep a one-line test the agent can run against its own diff.",
         "Adopt the deletion test for comments. It addresses the \"this now correctly handles\" habit in one rule.",
-        "If your repo has long-running processes, document a start, logs, status, stop lifecycle rather than leaving it to the agent."
+        "Document the full lifecycle for long-running processes: start, logs, status, and stop."
     ],
     "outline": [
         "Think Before Coding",

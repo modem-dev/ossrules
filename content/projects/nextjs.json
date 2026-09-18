@@ -36,8 +36,8 @@
             "label": "Specialized development and release skills"
         }
     ],
-    "hook": "Fork and branch contributions have different rules, and verification must match both the runtime mode and the bundler.",
-    "summary": "Next.js maintains a detailed development guide on its canary branch, with CLAUDE.md symlinked to AGENTS.md. It combines iteration and testing instructions with contributor-role boundaries, source-context rules, and task-specific skills for runtime and release work.",
+    "hook": "A development guide to iteration, tests, contributor permissions, source context, runtime and bundler combinations, and releases.",
+    "summary": "Next.js keeps its detailed development guide on the canary branch, with CLAUDE.md linked to AGENTS.md. The file covers iteration, tests, contributor permissions, source context, and skills for runtime and release work.",
     "patterns": ["scope-layering", "verification-matrix", "single-source", "context-budget", "skill-routing", "contribution-etiquette"],
     "techniques": [
         {
@@ -48,7 +48,7 @@
         },
         {
             "title": "Match verification to mode and bundler",
-            "body": "Four test commands distinguish development from production and Turbopack from Webpack. This makes a test result meaningful for the runtime combination being changed.",
+            "body": "Four test commands cover development and production under both Turbopack and Webpack. The result must match the runtime combination being changed.",
             "quote": "**Test commands by mode:**\n\n- `pnpm test-dev-turbo` - Development mode with Turbopack (default)\n- `pnpm test-dev-webpack` - Development mode with Webpack\n- `pnpm test-start-turbo` - Production build+start with Turbopack\n- `pnpm test-start-webpack` - Production build+start with Webpack",
             "pattern": "verification-matrix"
         },

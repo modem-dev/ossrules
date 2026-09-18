@@ -54,25 +54,25 @@
             "path": "code/core/src/shared/open-service/README.md"
         }
     ],
-    "hook": "Carries a Learned User Preferences section recording corrections from maintainers.",
-    "summary": "Covers repository structure, architecture, commands, PR requirements and testing. Two of its sections are about the file itself: one instructs the agent to keep it updated, and one records preferences accumulated from previous work.",
+    "hook": "A broad guide to repository structure, architecture, commands, pull requests, tests, self-maintenance, and maintainer preferences.",
+    "summary": "Storybook covers repository structure, architecture, commands, pull requests, and tests. Two sections govern the guide itself: one requires updates when the project changes, and another records maintainer preferences learned during earlier work.",
     "patterns": ["behavioral-conditioning", "single-source", "hard-prohibition", "verification-matrix", "nested-instructions"],
     "techniques": [
         {
             "title": "A section of accumulated corrections",
-            "body": "Learned User Preferences records five specific preferences from earlier sessions: use worktrees for parallel work, avoid premature helpers, keep long interaction tests as a readable flow rather than forcing DRY, put story descriptions in JSDoc above the meta const, and keep telemetry string names stable across versions when renaming.",
+            "body": "Learned User Preferences records maintainer corrections about worktrees, premature helpers, readable interaction tests, story-description placement, and stable telemetry strings.",
             "quote": "Keep e2e and long interaction tests as a readable continuous flow; do not force DRY with loops or heavy helpers when repetition is clearer."
         },
         {
             "pattern": "single-source",
             "title": "The file names itself as canonical",
-            "body": "Other agent entrypoints are directed to reference this file rather than duplicate it, and the agent is instructed to update it when architecture, commands, versions or release flows change. A Maintenance Rules section states both in full.",
+            "body": "Other agent entrypoints reference this file instead of copying it. A maintenance section also requires updates when architecture, commands, versions, or release flows change.",
             "quote": "This file is the canonical instruction source for coding agents. Files like `CLAUDE.md` should point here instead of duplicating instructions."
         },
         {
             "pattern": "behavioral-conditioning",
             "title": "Principles labelled as observed failure modes",
-            "body": "The Code Authoring Principles section is introduced as recurring failure modes in agent-authored changes to this repo, and lists verifying environment assumptions with a throwaway probe before encoding them, preferring static checks over tests, and avoiding coverage already guaranteed by types or linting.",
+            "body": "Code Authoring Principles records failures seen in agent changes. It calls for throwaway probes before encoding environment assumptions, prefers static checks, and avoids testing guarantees enforced elsewhere.",
             "quote": "These are recurring failure modes in agent-authored changes to this repo. Apply them when writing or reviewing code, not just when asked."
         },
         {
@@ -82,7 +82,7 @@
         {
             "pattern": "hard-prohibition",
             "title": "A ban on direct global assignment in tests",
-            "body": "Assigning a global directly is prohibited, with the mechanism given: Vitest does not restore it, so the assignment leaks into unrelated test files and produces order-dependent flakiness. The replacement API and its cleanup call are both named.",
+            "body": "Direct global assignment is forbidden because Vitest does not restore it, causing order-dependent leaks across test files. The guide names the replacement API and cleanup call.",
             "quote": "Direct assignment leaks across tests and files — Vitest does not restore it — so it silently changes behavior in unrelated tests and creates order-dependent flakiness."
         },
         {
@@ -93,7 +93,7 @@
     "steal": [
         "Keep a section for corrections that came up in review. It is the cheapest way to stop repeating the same feedback.",
         "Name the commands that start long-running processes and tell the agent not to run them.",
-        "When a test rule exists because of a framework behavior, state the behavior. \"Vitest does not restore it\" is what makes the rule stick.",
+        "When framework behavior motivates a test rule, name it. \"Vitest does not restore it\" makes the rule memorable.",
         "If your repo has several agent entrypoints, name one canonical file and make the rest point at it."
     ],
     "outline": [

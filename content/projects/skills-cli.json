@@ -22,12 +22,12 @@
         "docLinks": 0
     },
     "tagline": "A command-line tool for discovering, installing, and updating agent skills.",
-    "hook": "Documents a credential-preserving GitHub fallback chain and compares skill-folder tree hashes to detect updates.",
-    "summary": "The Skills CLI guide maps commands to implementation files and explains the update algorithm step by step. It records lockfile compatibility, the reason for invoking the current CLI directly, and the generation workflow for supported-agent metadata.",
+    "hook": "A CLI guide to command ownership, updates, lockfiles, GitHub fallbacks, tree-hash comparisons, tests, and agent metadata.",
+    "summary": "The Skills CLI guide maps each command to its implementation and walks through the update algorithm. It also covers lockfile compatibility, why tests invoke the current CLI directly, and how supported-agent metadata is generated.",
     "references": [],
     "techniques": [
         {
-            "title": "Describe authentication fallback without exporting credentials",
+            "title": "Keep fallback credentials inside GitHub CLI",
             "body": "The update algorithm starts anonymously, then checks explicit tokens, and finally delegates to GitHub CLI. The file states that the CLI credential stays inside that tool rather than being exported into the environment.",
             "quote": "Tree requests start anonymously, then use an explicit `GITHUB_TOKEN`/`GH_TOKEN`, then `gh api` without exporting the GitHub CLI credential.",
             "pattern": "architecture-narrative"

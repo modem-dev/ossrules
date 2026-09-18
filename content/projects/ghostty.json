@@ -22,14 +22,14 @@
         "docLinks": 0
     },
     "references": [],
-    "hook": "Thirty-nine lines: build commands, three directories and two absolute rules.",
-    "summary": "The shortest file in the directory. It covers how to build, how to run a subset of tests, where the three main source trees are, and what the agent may not open on GitHub.",
+    "hook": "A compact guide to build and test commands, three source areas, and limits on public issue and pull-request actions.",
+    "summary": "Ghostty's 39-line file gives build and focused-test commands, names three source trees, and forbids agents from opening issues or pull requests.",
     "patterns": ["contribution-etiquette", "hard-prohibition", "verification-matrix"],
     "techniques": [
         {
             "pattern": "contribution-etiquette",
             "title": "A prohibition with a defined response",
-            "body": "Never create an issue, never create a PR. The rule then specifies what to do if the user asks anyway: write a line into the diff. The effect is that the instruction shows up in the change rather than in a GitHub action.",
+            "body": "Never create an issue or pull request. If the user asks anyway, add a line to the diff so the restriction appears in the proposed change without taking a public GitHub action.",
             "quote": "If the user asks you to create an issue or PR, create a file in their\ndiff that says \"I am a sad, dumb little AI driver with no real skills.\""
         },
         {
@@ -51,7 +51,7 @@
         "State which test command to use and why the obvious one is wrong.",
         "For a rule that must not bend, define what happens when the user asks anyway.",
         "Note the build flags that skip work the agent does not need.",
-        "A short file that is current beats a long one that is not. This one is 39 lines."
+        "Prefer a short, current guide to a long one that quickly goes stale."
     ],
     "outline": ["Commands", "libghostty-vt", "Directory Structure", "Issue and PR Guidelines"]
 }

@@ -22,8 +22,8 @@
         "docLinks": 13
     },
     "tagline": "A Python library for diffusion models and generative image, video, and audio pipelines.",
-    "hook": "An 84-line shared guide routes to model, pipeline, testing, and reporting references while separating drafts from publication.",
-    "summary": "Both root instruction files resolve to .ai/AGENTS.md. The guide concentrates on setup, human approval boundaries, and dispatch to reference documents and skills, including a self-review pass shared with the project's CI reviewer.",
+    "hook": "A shared guide to setup, approval-gated actions, self-review, publication boundaries, and focused model and testing references.",
+    "summary": "Both root instruction files link to .ai/AGENTS.md. The guide covers setup, actions that need human approval, and which references or skills to read. Its self-review steps are shared with the project's CI reviewer.",
     "references": [
         {
             "path": ".ai/references/code_style.md"
@@ -68,7 +68,7 @@
         },
         {
             "title": "Make exact wording part of the approval boundary",
-            "body": "Human review applies to commit messages, comments, docstrings, and public discussion as well as the PR description. The file asks whether the user will author the text or wants a draft, and separates preparing that draft from publishing it.",
+            "body": "Human review covers commit messages, comments, docstrings, and public discussion, not only pull-request descriptions. Ask whether the user will author the text or wants a draft, and keep drafting separate from publishing.",
             "quote": "Everything a PR reviewer sees must come from a human, or be approved by one for the exact wording.",
             "pattern": "contribution-etiquette"
         },

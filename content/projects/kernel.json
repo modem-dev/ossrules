@@ -26,8 +26,8 @@
             "path": "server/README.md"
         }
     ],
-    "hook": "Cloud-browser gotchas explain why telemetry timestamps must use wall-clock time and events must pass through one publisher.",
-    "summary": "Kernel Images keeps its instructions focused on the cloud VM and container environment used to develop the browser server. Alongside setup and test commands, it records concrete failures in CDP routing, recorder lifecycle, image quotas, and telemetry delivery.",
+    "hook": "A cloud VM and container guide to setup, tests, CDP routing, recorder cleanup, image quotas, telemetry, and events.",
+    "summary": "Kernel Images documents the cloud VM and container setup for its browser server. It pairs setup and test commands with known failures in CDP routing, recorder cleanup, image quotas, and telemetry.",
     "patterns": ["hard-prohibition", "verification-matrix"],
     "techniques": [
         {

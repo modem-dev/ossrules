@@ -22,8 +22,8 @@
         "docLinks": 3
     },
     "tagline": "A library of pretrained machine-learning models for text, vision, audio, and multimodal tasks.",
-    "hook": "Warns that AttributeError values are converter directives and that one modular edit can regenerate several models.",
-    "summary": "The root AGENTS.md and CLAUDE.md symlinks resolve to .ai/AGENTS.md. This short file concentrates on contribution coordination and generated-model mechanics, explaining how legacy copies and current modular sources must be edited and checked.",
+    "hook": "A short guide to contribution coordination, generated models, converter directives, modular sources, and required checks.",
+    "summary": "The root AGENTS.md and CLAUDE.md files link to .ai/AGENTS.md. This short guide covers contribution coordination and generated models, including how to edit and check both legacy copies and current modular sources.",
     "references": [
         {
             "path": "CONTRIBUTING.md"

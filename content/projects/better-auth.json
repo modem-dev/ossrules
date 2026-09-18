@@ -22,8 +22,8 @@
         "docLinks": 0
     },
     "references": [],
-    "hook": "A reproducible error is not automatically a bug: first establish which contract it violates.",
-    "summary": "Better Auth combines portable TypeScript conventions with a triage method for reported failures. Agents must distinguish invalid usage from valid empty results, check the reported version, and preserve intentional behavior. Its test guidance narrows execution to a focused Vitest command and requires the shared test harness, while runtime rules keep library code usable across Node.js, Bun, Deno, and Workers.",
+    "hook": "A contract-first guide to bug reports, shared Vitest helpers, and portable library code across Node.js, Bun, Deno, and Workers.",
+    "summary": "Better Auth asks contributors to prove that a reported failure violates a contract before treating it as a bug. The guide checks versions and valid empty results, uses a shared Vitest harness, and keeps library code portable across Node.js, Bun, Deno, and Workers.",
     "patterns": ["behavioral-conditioning", "worked-examples", "hard-prohibition", "verification-matrix"],
     "techniques": [
         {
@@ -34,7 +34,7 @@
         },
         {
             "title": "Separate invalid input from an empty result",
-            "body": "The session example distinguishes missing request headers from a real request without a session cookie. This makes a subtle API boundary concrete before an agent changes validation.",
+            "body": "The session example distinguishes missing request headers from a real request without a session cookie, showing the API boundary that validation must preserve.",
             "quote": "Distinguish invalid usage from valid empty state. Example: a server session check without request headers is invalid usage; a server session check with headers but no session cookie is a valid request that returns `null`.",
             "pattern": "worked-examples"
         },

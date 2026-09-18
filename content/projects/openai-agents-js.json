@@ -22,8 +22,8 @@
         "docLinks": 28
     },
     "tagline": "A TypeScript SDK for agent workflows, tools, handoffs, tracing, and realtime applications.",
-    "hook": "Requires every rendered TypeScript example to come from a compilable source file, so documentation snippets share the package’s verification workflow.",
-    "summary": "The JavaScript Agents SDK guide defines conditional skills, documentation risk tiers, supported-contract review rules, and architecture references for its monorepo. Its recurring concern is proving the behavior at the owning boundary without expanding a change into unsupported cases.",
+    "hook": "A TypeScript SDK guide to conditional skills, supported contracts, architecture, review scope, docs risk, and compiled examples.",
+    "summary": "The JavaScript Agents SDK guide covers conditional skills, documentation risk, supported contracts, and architecture references. Reviews must prove behavior where it is owned without expanding a change to unsupported cases.",
     "references": [
         {
             "path": "SECURITY.md"
@@ -115,13 +115,13 @@
         },
         {
             "title": "Look for stale ownership at asynchronous boundaries",
-            "body": "The review rules call out awaits, callbacks, retries, reconnects, cleanup, and rollback as places where older work can corrupt surviving work. A finding must identify the concrete interleaving and missing invariant where the mutation occurs.",
+            "body": "Review awaits, callbacks, retries, reconnects, cleanup, and rollback for stale ownership. Findings must name the concrete interleaving and missing invariant.",
             "quote": "When changed code mutates shared state across an `await`, callback, retry, reconnect, cancellation, cleanup, or rollback boundary, check whether stale or failing work can overwrite, revert, or dispose state owned by surviving work.",
             "pattern": "verification-matrix"
         },
         {
             "title": "Keep persisted data from granting runtime authority",
-            "body": "Serialized state, manifests, and provider data are not automatically trusted to control host-owned security, identity, or cleanup decisions. The guide requires a supported trust boundary before allowing those values to influence side effects.",
+            "body": "Serialized state, manifests, and provider data cannot control host-owned security, identity, or cleanup decisions without a supported trust boundary.",
             "quote": "Preserve trusted current configuration and validate untrusted state before it can affect side effects, replay, or resource ownership."
         },
         {
@@ -132,7 +132,7 @@
         },
         {
             "title": "Reuse scripted doubles except at their fidelity limit",
-            "body": "The testing section names common doubles for models, realtime transports, and sandbox sessions. Specialized replacements need a documented boundary such as wire conversion, controlled concurrency, or exact abort delivery that the shared utilities cannot represent.",
+            "body": "Reuse shared doubles for models, realtime transports, and sandbox sessions. A specialized replacement needs a documented fidelity gap such as wire conversion, concurrency, or exact abort delivery.",
             "quote": "For provider-neutral agent workflow tests, prefer `ScriptedModel` over a new mock or fake `Model`."
         }
     ],

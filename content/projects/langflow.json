@@ -22,8 +22,8 @@
         "docLinks": 0
     },
     "references": [],
-    "hook": "Authorization flags and component class names carry contracts that a routine refactor can break.",
-    "summary": "Langflow describes a layered Python backend alongside its frontend and component system. The architecture notes explain dependency direction and distinguish the shipped authorization interface from a plugin that actually denies access. Development guidance protects class names stored in saved flows and maps work to the appropriate package environment and tests.",
+    "hook": "A full-stack guide to dependencies, authorization boundaries, saved-flow class names, components, environments, and tests.",
+    "summary": "Langflow maps its Python backend, frontend, and component system. It explains dependency direction, distinguishes an authorization interface from the plugin that enforces it, and protects class names stored in saved flows. Each package has its own environment and tests.",
     "patterns": ["architecture-narrative", "hard-prohibition", "verification-matrix"],
     "techniques": [
         {

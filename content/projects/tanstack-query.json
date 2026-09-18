@@ -26,8 +26,8 @@
             "path": "CONTRIBUTING.md"
         }
     ],
-    "hook": "Ten lines make contributor rules apply to AI-assisted work and require one topic per change.",
-    "summary": "TanStack Query’s AGENTS.md is a short contribution gate. It points to the existing contributor guide and asks for focused changes whose generated code has been understood and verified.",
+    "hook": "A minimal guide linking contributor instructions, applying them to AI-assisted work, and limiting changes to one topic.",
+    "summary": "TanStack Query's ten-line AGENTS.md points to the contributor guide and requires one topic per change. Contributors must understand and verify any generated code they touch.",
     "patterns": ["single-source", "behavioral-conditioning"],
     "techniques": [
         {
