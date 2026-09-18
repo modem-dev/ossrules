@@ -10,7 +10,7 @@ import { getAgentsProjects, projectsWithPattern } from '@/lib/agents-md';
 import { ogImageUrl } from '@/lib/og';
 import { collectionPageSchema } from '@/lib/schema';
 
-const title = 'Agent Rules';
+const title = 'Rule Patterns';
 const description = 'Recurring patterns from AGENTS.md and CLAUDE.md files, with examples from the projects that use them.';
 
 export const metadata = {
@@ -20,13 +20,13 @@ export const metadata = {
     openGraph: {
         title,
         description,
-        images: [{ url: ogImageUrl('Agent Rules'), width: 1200, height: 630 }],
+        images: [{ url: ogImageUrl('Rule Patterns'), width: 1200, height: 630 }],
     },
     twitter: {
         card: 'summary_large_image',
         title,
         description,
-        images: [ogImageUrl('Agent Rules')],
+        images: [ogImageUrl('Rule Patterns')],
     },
 };
 
@@ -47,7 +47,7 @@ export default function PatternsPage() {
 
             <main id="main" className="page-shell flex-1">
                 <header className="prompt-masthead brand-masthead modem-surface">
-                    <p className="eyebrow">Agent Rules / {PATTERNS.length} patterns</p>
+                    <p className="eyebrow">{PATTERNS.length} patterns</p>
                     <h1 className="page-title mt-5">Patterns from real projects.</h1>
                     <p className="mt-5 max-w-2xl text-gray-550 text-base leading-relaxed">See how each pattern works in practice.</p>
                     <AgentPrompt variant="rules" />
