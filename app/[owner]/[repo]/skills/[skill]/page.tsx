@@ -144,7 +144,7 @@ export default async function SkillPage({
                                 Download bundle ↓
                             </a>
                         ) : (
-                            <span className="font-mono text-[11px] text-gray-600">Partial bundle · download unavailable</span>
+                            <span className="font-mono text-[11px] text-gray-600">Incomplete bundle · no download</span>
                         )}
                     </div>
                 </header>

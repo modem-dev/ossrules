@@ -241,7 +241,7 @@ function SkillExplorerContent({
                                             {entry.project.name}
                                         </Link>
                                     ) : null}
-                                    {projectOnly && !entry.complete ? <span>Partial bundle</span> : null}
+                                    {projectOnly && !entry.complete ? <span>Incomplete bundle</span> : null}
                                     <SkillContributors
                                         contributions={entry.contributions}
                                         historyUrl={entry.historyUrl}
@@ -249,7 +249,7 @@ function SkillExplorerContent({
                                     />
                                 </div>
                                 {!projectOnly && !entry.complete ? (
-                                    <p className="mt-3 font-mono text-[11px] text-gray-600">Partial bundle</p>
+                                    <p className="mt-3 font-mono text-[11px] text-gray-600">Incomplete bundle</p>
                                 ) : null}
                             </div>
                         </li>
