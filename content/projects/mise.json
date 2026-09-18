@@ -22,7 +22,7 @@
         "docLinks": 1
     },
     "tagline": "A Rust tool for managing development tools, environment variables, and project tasks.",
-    "hook": "Warns that version strings are opaque and delegates “latest” to each backend, with examples showing why semver ordering is unsafe.",
+    "hook": "A development guide to registry acceptance, version resolution, Windows paths, deprecations, dependencies, and release notes.",
     "summary": "Mise's guide covers registry acceptance, development commands, version resolution, Windows PATH handling, deprecations, and dependency updates. It also explains how pull-request text becomes release-note input.",
     "references": [
         {

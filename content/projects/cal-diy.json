@@ -22,7 +22,7 @@
         "docLinks": 8
     },
     "tagline": "A scheduling platform for bookings, availability, calendars, and integrations.",
-    "hook": "Limits code PRs to 500 changed lines and ten files, then demonstrates how to split booking and calendar features.",
+    "hook": "Practical examples and firm rules for pull-request size, imports, data access, security, and approval-gated work.",
     "summary": "Cal.diy uses short do-and-don't lists, code examples, and firm pull-request size limits. It also covers security-sensitive field selection, one exception to direct imports, and larger workflows that need explicit approval.",
     "references": [
         {

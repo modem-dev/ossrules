@@ -22,7 +22,7 @@
         "docLinks": 0
     },
     "references": [],
-    "hook": "Thirty-nine lines: build commands, three directories and two absolute rules.",
+    "hook": "A compact guide to build and test commands, three source areas, and limits on public issue and pull-request actions.",
     "summary": "Ghostty's 39-line file gives build and focused-test commands, names three source trees, and forbids agents from opening issues or pull requests.",
     "patterns": ["contribution-etiquette", "hard-prohibition", "verification-matrix"],
     "techniques": [

@@ -69,7 +69,7 @@
             "label": "Development workflow skill named by the guide"
         }
     ],
-    "hook": "Prompt-cache stability and a six-rung capability ladder constrain core growth; tests run through an isolation wrapper.",
+    "hook": "A root guide to the CLI, gateway, desktop app, plugins, prompt caching, isolated tests, and a six-step capability ladder.",
     "summary": "Hermes Agent limits core growth with a six-step capability ladder and rules that protect prompt caching. The root guide covers the CLI, gateway, desktop app, and plugins, while local AGENTS.md files handle area-specific work.",
     "patterns": ["context-budget", "behavioral-conditioning", "single-source", "verification-matrix", "worked-examples", "skill-routing"],
     "techniques": [

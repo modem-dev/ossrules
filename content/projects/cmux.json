@@ -35,7 +35,7 @@
             "label": "Task-specific contributor skills"
         }
     ],
-    "hook": "Tagged builds isolate app identities and sockets so agents do not control the wrong running application.",
+    "hook": "A macOS guide to isolated app builds, sockets, terminal testing gaps, component skills, and protecting the main app.",
     "summary": "cmux gives every development build its own app name, socket, and build folder so it cannot control the user's main app. It also warns where tests miss real terminal behavior and points component work to dedicated skills. AGENTS.md links to this CLAUDE.md file.",
     "patterns": ["behavioral-conditioning", "hard-prohibition", "verification-matrix", "single-source"],
     "techniques": [

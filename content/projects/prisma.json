@@ -22,7 +22,7 @@
         "docLinks": 22
     },
     "tagline": "A contract-first data access layer with typed query builders and structured schema artifacts.",
-    "hook": "Keeps tracked skills in skills-contrib and enforces a CI limit against increasing bare type casts.",
+    "hook": "A modular onboarding guide to contracts, canonical skills, type safety, architecture references, playbooks, and skill storage.",
     "summary": "Prisma ORM starts from contracts and gives newcomers a modular path through the codebase. Canonical skills and rules stay separate from tool-specific links, type-safety rules are explicit, and specialized work points to playbooks and architecture docs.",
     "references": [
         {

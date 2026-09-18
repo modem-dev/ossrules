@@ -22,7 +22,7 @@
         "docLinks": 3
     },
     "tagline": "A Python linter and formatter whose Rust workspace also contains the ty type checker.",
-    "hook": "Explains why a temporary reproduction inside the checkout silently inherits Python 3.7.",
+    "hook": "A Rust workspace guide to environment traps, Markdown tests, ty-specific work, security reviews, and focused references.",
     "summary": "Ruff covers its Rust workspace and adds a focused section for ty. The guide explains environment traps, treats Markdown tests as readable specifications, and points security reviews and specialized ty work to separate documents.",
     "references": [
         {

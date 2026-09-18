@@ -22,7 +22,7 @@
         "docLinks": 1
     },
     "references": [],
-    "hook": "About 30 lines of rules followed by roughly 980 lines of the project's own product documentation.",
+    "hook": "A short development guide followed by extensive product documentation, with both sections separated by XML-style tags.",
     "summary": "A short block of development rules is followed by roughly 980 lines of product documentation. The two sections use <guidelines> and <browser_use_docs> tags, and the file calls itself \"AGENTS.md Version 2\".",
     "patterns": ["hard-prohibition", "single-source"],
     "techniques": [

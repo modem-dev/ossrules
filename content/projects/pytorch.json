@@ -22,7 +22,7 @@
         "docLinks": 0
     },
     "tagline": "A tensor and machine-learning framework with Python APIs and native CPU and GPU implementations.",
-    "hook": "Explains why a README edit can rebuild CI images and why one page of check results can make a failing PR look green.",
+    "hook": "A contribution guide to native builds, tests, CUDA, ghstack, CI traps, and project-specific Python and Git commands.",
     "summary": "PyTorch's AGENTS.md points to CLAUDE.md for contribution policy, native builds, tests, CUDA, and ghstack. Many rules name a failure that normal Python or Git habits can cause, then give the repository-specific command instead.",
     "references": [
         {

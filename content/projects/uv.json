@@ -26,7 +26,7 @@
             "path": "CONTRIBUTING.md"
         }
     ],
-    "hook": "Lockfile updates must be precise; privileged webhook workflows go through one dispatcher instead of new dangerous triggers.",
+    "hook": "A concise constraint list for targeted tests, fallible operations, precise lockfiles, privileged webhooks, and clear prose.",
     "summary": "uv's root file is a compact list of constraints: run targeted tests, handle fallible operations explicitly, keep dependency updates precise, protect privileged workflows, and write prose for maintainers rather than the agent conversation.",
     "patterns": ["hard-prohibition", "single-source", "contribution-etiquette"],
     "techniques": [

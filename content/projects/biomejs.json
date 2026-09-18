@@ -22,7 +22,7 @@
         "docLinks": 6
     },
     "tagline": "A formatter, linter, and language toolchain for web projects.",
-    "hook": "Requires evidence for codebase claims and gives a fresh reviewer the requirements without suspected defects.",
+    "hook": "A concise guide to source-backed analysis, generators, contributor messaging, testing, reviews, changesets, and docs.",
     "summary": "Biome keeps repository-wide rules in one file and puts testing, review, changeset, and documentation work in skills. Claims about the codebase need source evidence. The guide also names generator commands and limits agent-written contributor messages.",
     "references": [
         {
