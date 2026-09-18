@@ -3,7 +3,7 @@
 A reference library that helps developers write better coding-agent instructions
 by learning from real open source projects.
 
-[Browse ossrules.md](https://ossrules.md) · Built by [Modem](https://modem.dev)
+[Browse ossrules.md](https://ossrules.md?utm_source=github&utm_medium=oss&utm_campaign=oss_ossrules&utm_content=readme_browse) · Built by [Modem](https://modem.dev?utm_source=github&utm_medium=oss&utm_campaign=oss_ossrules&utm_content=readme_top)
 
 ## Explore the library
 

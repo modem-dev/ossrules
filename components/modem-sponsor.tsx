@@ -6,7 +6,11 @@ export function ModemSponsor({ children }: { children: ReactNode }) {
         <section aria-label="Sponsored by Modem" className="modem-sponsor modem-surface mt-16">
             <div className="mb-6 flex flex-wrap items-center gap-3">
                 <span className="font-mono text-gray-550 text-xs">Sponsored by</span>
-                <a href="https://modem.dev" target="_blank" rel="noopener noreferrer">
+                <a
+                    href="https://modem.dev?utm_source=referral&utm_medium=referral&utm_campaign=oss_ossrules&utm_content=site_sponsor_logo"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
                     <Image src="/logos/modem-full-dark.svg" alt="Modem" width={800} height={146} className="h-5 w-auto" />
                 </a>
             </div>
@@ -15,7 +19,12 @@ export function ModemSponsor({ children }: { children: ReactNode }) {
                     <h2 className="section-title">Give your agents the whole story.</h2>
                     <p className="mt-3 text-gray-550 text-base leading-relaxed">{children}</p>
                 </div>
-                <a href="https://modem.dev" target="_blank" rel="noopener noreferrer" className="action-link action-primary shrink-0">
+                <a
+                    href="https://modem.dev?utm_source=referral&utm_medium=referral&utm_campaign=oss_ossrules&utm_content=site_sponsor_cta"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="action-link action-primary shrink-0"
+                >
                     See how Modem works <span aria-hidden>↗</span>
                 </a>
             </div>

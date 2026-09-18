@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 export default function CTAButton({
     children,
     className = '',
-    href = 'https://modem.dev',
+    href = 'https://modem.dev?utm_source=referral&utm_medium=referral&utm_campaign=oss_ossrules&utm_content=site_cta',
 }: {
     children: ReactNode;
     className?: string;

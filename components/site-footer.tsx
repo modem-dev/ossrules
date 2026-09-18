@@ -31,7 +31,7 @@ export function SiteFooter() {
                 <p className="flex items-center gap-2.5 self-end font-mono text-gray-550 text-xs md:self-auto">
                     Built by
                     <a
-                        href="https://modem.dev"
+                        href="https://modem.dev?utm_source=referral&utm_medium=referral&utm_campaign=oss_ossrules&utm_content=site_footer"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex min-h-11 items-center opacity-90 transition-opacity hover:opacity-100"
