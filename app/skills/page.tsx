@@ -1,3 +1,4 @@
+import { AgentPrompt } from '@/components/agent-prompt';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { SkillExplorer } from '@/components/skill-explorer';
@@ -41,10 +42,11 @@ export default async function SkillsPage({ searchParams }: Props) {
         <div className="min-h-screen bg-dark-gray flex flex-col">
             <SiteHeader />
             <main id="main" className="page-shell flex-1">
-                <header className="brand-masthead modem-surface">
+                <header className="prompt-masthead brand-masthead modem-surface">
                     <p className="eyebrow">Skills / Open-source projects</p>
                     <h1 className="page-title mt-5">Browse agent skills.</h1>
                     <p className="mt-5 max-w-2xl text-gray-550 text-base leading-relaxed">Read their instructions and supporting files.</p>
+                    <AgentPrompt variant="skills" />
                 </header>
                 <div className="mt-8">
                     <SkillExplorer entries={entries} initialSearch={initialSearch} />

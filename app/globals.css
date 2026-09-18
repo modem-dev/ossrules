@@ -600,6 +600,10 @@ select {
     line-height: 1.65;
 }
 
+.prompt-masthead .agent-prompt {
+    margin-top: 2.5rem;
+}
+
 .directory-stats {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -892,6 +896,9 @@ select {
     .agent-prompt {
         grid-template-columns: minmax(0, 1fr) auto auto;
         margin: 0 -1.5rem -1.5rem;
+    }
+    .prompt-masthead .agent-prompt {
+        margin-top: 1.5rem;
     }
     .agent-prompt-preview {
         grid-column: 1 / -1;
