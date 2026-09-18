@@ -2,7 +2,7 @@
 
 import * as Tabs from '@radix-ui/react-tabs';
 import dynamic from 'next/dynamic';
-import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import { createContext, useCallback, useContext, useEffect, useId, useMemo, useRef, useState } from 'react';
 import type { DocumentMention } from '@/lib/document-mentions';
 import { readSourceLocation, writeSourceLocation } from '@/lib/source-location';
 import type { VendoredFile } from './agents-md-data';
@@ -749,6 +749,19 @@ export function QuoteLink({
     children: React.ReactNode;
 }) {
     const tray = useFileTray();
+    const previewId = useId();
+    const content = useRef<HTMLDivElement>(null);
+    const [expanded, setExpanded] = useState(false);
+    const [overflows, setOverflows] = useState(false);
+    useEffect(() => {
+        const element = content.current;
+        if (!element) return;
+        const measure = () => setOverflows(element.scrollHeight > 224);
+        const observer = new ResizeObserver(measure);
+        observer.observe(element);
+        measure();
+        return () => observer.disconnect();
+    }, []);
 
     const path = sourcePath ?? tray?.primaryFile ?? 'AGENTS.md';
     if (!tray?.readable.has(path)) return <>{children}</>;
@@ -766,7 +779,20 @@ export function QuoteLink({
                     View in source <span aria-hidden>↗</span>
                 </span>
             </button>
-            {children}
+            <div id={previewId} className="quote-preview" data-expanded={expanded} data-collapsible={overflows}>
+                <div ref={content}>{children}</div>
+            </div>
+            {overflows ? (
+                <button
+                    type="button"
+                    className="quote-expand"
+                    aria-expanded={expanded}
+                    aria-controls={previewId}
+                    onClick={() => setExpanded((value) => !value)}
+                >
+                    {expanded ? 'Show less' : 'Show full excerpt'}
+                </button>
+            ) : null}
         </div>
     );
 }

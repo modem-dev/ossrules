@@ -1943,3 +1943,53 @@ select {
     font-family: var(--font-mono);
     font-variant-numeric: tabular-nums;
 }
+
+.quote-expand {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .project-reading-page {
+        padding-top: 1.25rem;
+    }
+    .project-reading-page .project-heading {
+        margin-block: 1.25rem;
+        gap: 0.875rem;
+    }
+    .project-reading-page .project-tabs {
+        margin: 1rem 0 0;
+    }
+    .project-reading-page .project-mobile-navigation {
+        margin-top: 0.5rem;
+        border-bottom: 1px solid var(--color-gray-750);
+    }
+    .project-mobile-navigation > summary {
+        min-height: 2.75rem;
+        align-content: center;
+        color: var(--color-teal);
+        font: 0.6875rem / 1.7 var(--font-mono);
+    }
+    .project-mobile-navigation[open] {
+        padding-bottom: 0.5rem;
+    }
+    .project-reading-page .project-layout {
+        margin-top: 1.5rem;
+    }
+    .quote-preview[data-collapsible="true"][data-expanded="false"] {
+        max-height: 14rem;
+        overflow: hidden;
+    }
+    .quote-expand {
+        position: relative;
+        z-index: 1;
+        display: block;
+        width: 100%;
+        min-height: 2.75rem;
+        padding: 0.625rem 1rem;
+        border-top: 1px solid var(--color-gray-750);
+        background: var(--color-medium-gray);
+        color: var(--color-teal);
+        text-align: left;
+        font: 0.6875rem / 1.7 var(--font-mono);
+    }
+}

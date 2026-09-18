@@ -44,10 +44,10 @@ import { webPageSchema } from '@/lib/schema';
 import { getSkillManifest } from '@/lib/skills';
 import { countSourceTokens } from '@/lib/token-count';
 
-function ProjectPageNavigation() {
+function ProjectPageNavigation({ heading = true }: { heading?: boolean }) {
     return (
         <nav aria-label="On this page">
-            <p className="eyebrow">On this page</p>
+            {heading ? <p className="eyebrow">On this page</p> : null}
             <ul className="mt-3 space-y-1 text-gray-550 text-xs">
                 {[
                     ['overview', 'Overview'],
@@ -257,7 +257,7 @@ async function ProjectContent({
                 />
                 <SiteHeader />
 
-                <main id="main" className="page-shell flex-1">
+                <main id="main" className="page-shell project-reading-page flex-1">
                     <nav
                         aria-label="Breadcrumb"
                         className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[11px] text-gray-600"
@@ -280,9 +280,10 @@ async function ProjectContent({
                         {tabs}
                     </Suspense>
 
-                    <div className="project-mobile-navigation">
-                        <ProjectPageNavigation />
-                    </div>
+                    <details className="project-mobile-navigation">
+                        <summary>On this page</summary>
+                        <ProjectPageNavigation heading={false} />
+                    </details>
                     <div className="project-layout">
                         <div className="min-w-0">
                             <section id="overview" className="reading-section">

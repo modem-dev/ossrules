@@ -42,10 +42,10 @@ export default async function ProjectSkillsPage({ params, searchParams }: Props)
     const project = getAgentsProjectByRepository(owner, repo);
     if (!project) notFound();
     const manifest = getSkillManifest(project.slug);
+    const initialSearch = skillSearchString(await searchParams);
     const licenseSource = manifest?.repositoryLicense
         ? readSkillFile(project.slug, manifest.repositoryLicense)?.toString('utf8')
         : undefined;
-    const initialSearch = skillSearchString(await searchParams);
     return (
         <ProjectSkillsShell project={project} count={manifest?.skills.length}>
             {!manifest ? (
