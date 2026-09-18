@@ -74,7 +74,7 @@
         },
         {
             "title": "Constrain searches to the relevant package",
-            "body": "The routing section names SDK, coding-agent, ACP, eval, and partner paths. It excludes environment and generated trees from normal work and asks agents to locate the exact dependency file instead of searching every installed package.",
+            "body": "The routing section names SDK, coding-agent, ACP, eval, and partner paths while excluding environments and generated trees. Dependency searches start from the exact environment file.",
             "quote": "For dependency internals, find the exact environment file instead of searching all of `site-packages`.",
             "pattern": "context-budget"
         },

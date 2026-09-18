@@ -51,7 +51,7 @@
         "State which test command to use and why the obvious one is wrong.",
         "For a rule that must not bend, define what happens when the user asks anyway.",
         "Note the build flags that skip work the agent does not need.",
-        "A short file that is current beats a long one that is not. This one is 39 lines."
+        "Prefer a short, current guide to a long one that quickly goes stale."
     ],
     "outline": ["Commands", "libghostty-vt", "Directory Structure", "Issue and PR Guidelines"]
 }

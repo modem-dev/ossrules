@@ -141,7 +141,7 @@
         },
         {
             "title": "Use scoped guides for implementation details",
-            "body": "The root file makes the topic index mandatory and then lists directory-specific instructions for models, providers, tools, durable execution, UI, and other areas. The global requirements remain separate from those local mechanics.",
+            "body": "The root file requires the topic index, then routes models, providers, tools, durable execution, UI, and other work to local guides. Global rules stay separate.",
             "quote": "When generating or reviewing code anywhere in this repo, always read [agent_docs/index.md](agent_docs/index.md) and follow/enforce those guidelines.",
             "pattern": "nested-instructions"
         }

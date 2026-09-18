@@ -55,7 +55,7 @@
             "pattern": "behavioral-conditioning"
         },
         {
-            "title": "Keep review inputs independent of the implementation narrative",
+            "title": "Keep review independent of implementation",
             "body": "The final review follows implementation and verification, using a fresh subagent when available. Its input contains the scope and business requirements while withholding suspected defects and expected outcomes.",
             "quote": "Provide only the review scope and intended business requirements. Do not include suspected defects, implementation hints, prior findings, or expected outcomes.",
             "pattern": "behavioral-conditioning"

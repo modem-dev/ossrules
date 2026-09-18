@@ -34,7 +34,7 @@
         },
         {
             "title": "Put database lifecycle in the shared fixture",
-            "body": "Integration tests use the repository's test wrapper instead of initializing Payload or seeding the database themselves. The fixture owns initialization, per-test reset, and cleanup, with an explicit exception for existing shared-state suites.",
+            "body": "Integration tests use the shared wrapper rather than initializing Payload or seeding data themselves. The fixture owns setup, per-test reset, and cleanup, except in existing shared-state suites.",
             "quote": "Do not initialize Payload manually or add database reset/seed hooks; the fixture initializes\n  Payload once per file, resets and seeds before each test that uses it, and destroys it afterward",
             "pattern": "behavioral-conditioning"
         },

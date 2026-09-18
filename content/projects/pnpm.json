@@ -74,7 +74,7 @@
         },
         {
             "title": "Document the platform prerequisite for shared instructions",
-            "body": "Claude's skill directory and root instructions use symlinks to canonical sources. The guide explains that a Windows clone without real symlink support produces text files instead, so agents fail to discover their instructions.",
+            "body": "Claude's skills and root instructions use symlinks. On Windows, a clone without symlink support produces text files instead, preventing agents from discovering those instructions.",
             "quote": "Without it `.claude/skills` is checked out as a text file holding the target path, and Claude Code finds no skills.",
             "pattern": "single-source"
         }

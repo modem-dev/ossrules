@@ -74,7 +74,7 @@ export async function generateMetadata({ params }: { params: Promise<{ owner: st
     }
 
     const title = `${project.name} Agent Rules: ${project.instructionFile ?? 'AGENTS.md'} Explained`;
-    const description = `${project.hook} A breakdown of ${project.instructionFile ?? 'AGENTS.md'} in ${project.owner}/${project.repo}, with the techniques worth copying.`;
+    const description = project.hook;
 
     return {
         title,

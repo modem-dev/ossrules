@@ -47,7 +47,7 @@
     "techniques": [
         {
             "title": "Explain the hidden configuration behind a reproduction",
-            "body": "Temporary Python files belong outside the checkout because configuration discovery changes their inferred Python version. The rule names both the configuration key and the incorrect default that an in-repository reproduction would pick up.",
+            "body": "Keep temporary Python files outside the checkout because configuration discovery changes their inferred Python version. The rule names the controlling key and the wrong in-repository default.",
             "quote": "A file inside the checkout discovers Ruff's root `pyproject.toml`, whose `requires-python = \">=3.7\"` causes ty to infer Python 3.7 as the default Python version.",
             "pattern": "behavioral-conditioning"
         },
