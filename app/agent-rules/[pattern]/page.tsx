@@ -3,10 +3,10 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { type AgentsProject, logoSrc, PATTERNS, type PatternId } from '@/components/agents-md-data';
 import { JsonLd } from '@/components/json-ld';
+import { PatternIcon } from '@/components/pattern-icons';
 import { Excerpt } from '@/components/primitives';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
-import { TechniqueIcon } from '@/components/technique-icons';
 import { getPatternGuide } from '@/lib/agent-rule-patterns';
 import { getAgentsProjects, projectsWithPattern } from '@/lib/agents-md';
 import { ogImageUrl } from '@/lib/og';
@@ -48,17 +48,17 @@ export default async function PatternPage({ params }: Props) {
             <main id="main" className="page-shell flex-1">
                 <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-3 font-mono text-[11px] text-gray-600">
                     <Link href="/agent-rules" className="text-teal hover:underline">
-                        Agent Rules
+                        Rule Patterns
                     </Link>
                     <span aria-hidden>/</span>
                     <span aria-current="page">{pattern.name}</span>
                 </nav>
                 <header className="pattern-heading">
                     <div>
-                        <p className="eyebrow inline-flex items-center gap-2">
-                            <TechniqueIcon pattern={pattern.id} className="size-4" /> Agent rule pattern
-                        </p>
-                        <h1 className="page-title mt-3">{pattern.name}</h1>
+                        <h1 className="page-title flex items-start gap-3">
+                            <PatternIcon pattern={pattern.id} className="mt-[0.15em] size-[0.8em] text-teal" />
+                            <span>{pattern.name}</span>
+                        </h1>
                         <p className="mt-4 max-w-2xl text-base leading-relaxed text-gray-500">{pattern.summary}</p>
                     </div>
                     <a href="#projects" className="pattern-usage hover:text-teal">
@@ -216,7 +216,7 @@ export default async function PatternPage({ params }: Props) {
                     ) : null}
                 </section>
                 <Link href="/agent-rules" className="mt-10 inline-block py-2 text-sm text-teal hover:underline">
-                    ← All agent rule patterns
+                    ← All rule patterns
                 </Link>
             </main>
             <SiteFooter />

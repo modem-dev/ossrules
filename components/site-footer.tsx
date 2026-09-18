@@ -12,7 +12,7 @@ export function SiteFooter() {
                             Projects
                         </Link>
                         <Link href="/agent-rules" className="hover:text-teal">
-                            Agent Rules
+                            Rule Patterns
                         </Link>
                         <Link href="/skills" className="hover:text-teal">
                             Skills

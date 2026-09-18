@@ -7,10 +7,17 @@
 import Link from 'next/link';
 import type { PatternId } from './agents-md-data';
 import { PATTERNS_BY_ID } from './agents-md-data';
+import { PatternIcon } from './pattern-icons';
 
 export function PatternBadge({ pattern, href }: { pattern: PatternId; href?: string }) {
-    const label = PATTERNS_BY_ID[pattern].name;
-    const className = 'inline-block rounded border border-gray-750 bg-medium-gray px-2.5 py-1.5 text-xs text-teal leading-relaxed';
+    const label = (
+        <>
+            <PatternIcon pattern={pattern} className="size-4" />
+            <span>{PATTERNS_BY_ID[pattern].name}</span>
+        </>
+    );
+    const className =
+        'inline-flex items-center gap-1.5 rounded border border-gray-750 bg-medium-gray px-2.5 py-1.5 text-xs text-teal leading-relaxed';
 
     if (!href) {
         return <span className={className}>{label}</span>;

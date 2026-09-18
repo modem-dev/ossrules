@@ -9,6 +9,7 @@ import { projectHref } from '@/lib/project-paths';
 import type { ProjectListingEntry, SortId } from './agents-md-data';
 import { formatStars, languageColor, languageFacets, logoSrc, PATTERNS_BY_ID, patternFacets, SORTS, STATS_AS_OF } from './agents-md-data';
 import { DirectorySelect } from './directory-select';
+import { PatternIcon } from './pattern-icons';
 
 const ALL = 'all';
 
@@ -121,13 +122,13 @@ export function ProjectExplorerContent({ projects, search = '' }: { projects: Pr
                     ]}
                 />
                 <DirectorySelect
-                    label="Technique"
+                    label="Pattern"
                     value={pattern}
                     onValueChange={(value) => remember({ technique: value })}
                     active={pattern !== ALL}
                     options={[
-                        { value: ALL, label: 'All techniques' },
-                        ...patterns.map((item) => ({ value: item.id, label: item.name, count: item.count })),
+                        { value: ALL, label: 'All patterns' },
+                        ...patterns.map((item) => ({ value: item.id, label: item.name, count: item.count, pattern: item.id })),
                     ]}
                 />
                 <div className="directory-sort">
@@ -157,7 +158,12 @@ export function ProjectExplorerContent({ projects, search = '' }: { projects: Pr
                     <span className="text-gray-550">Showing</span>
                     {query ? <span>“{query}”</span> : null}
                     {language !== ALL ? <span>{language}</span> : null}
-                    {pattern !== ALL ? <span>{PATTERNS_BY_ID[pattern].name}</span> : null}
+                    {pattern !== ALL ? (
+                        <span className="inline-flex items-center gap-1.5">
+                            <PatternIcon pattern={pattern} className="size-4" />
+                            {PATTERNS_BY_ID[pattern].name}
+                        </span>
+                    ) : null}
                     <button type="button" onClick={clearFilters} className="ml-auto min-h-8 text-teal hover:underline">
                         Clear filters ×
                     </button>

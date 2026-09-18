@@ -102,9 +102,9 @@ export default async function AgentsMdPage({ searchParams }: Props) {
                     <ProjectExplorer projects={projects} initialSearch={initialSearch} />
                 </section>
                 <div className="mt-10 flex flex-wrap items-center justify-between gap-4">
-                    <p className="text-gray-550 text-sm">See the techniques these projects share.</p>
+                    <p className="text-gray-550 text-sm">See the patterns these projects share.</p>
                     <Link href="/agent-rules" className="action-link">
-                        View all {PATTERNS.length} techniques <span aria-hidden>→</span>
+                        View all {PATTERNS.length} patterns <span aria-hidden>→</span>
                     </Link>
                 </div>
             </main>
