@@ -45,6 +45,41 @@ there is no runtime content generation. Guide content stays on the server.
 
 Run `pnpm lint`, `pnpm typecheck`, and `pnpm build` after content edits.
 
+## Agent access
+
+Start at [`/llms.txt`](https://ossrules.md/llms.txt) for a guide to the public,
+read-only API. No authentication or browser JavaScript is required.
+
+- `/api/v1/catalog`: small overview with counts, language facets, filters, and links.
+- `/api/v1/projects?q=router&language=TypeScript&limit=5`: project summaries;
+  also accepts a `pattern` ID. Follow each `apiUrl` for a project overview.
+- `/api/v1/projects/{owner}/{repo}`: summary and revision metadata, with links
+  to separate `?view=analysis`, `?view=instructions`, and `?view=skill-discovery` responses.
+- `/api/v1/skills?q=review&limit=5`: skill summaries; optionally filter by
+  `repository=owner/repo`. Follow `apiUrl` for one skill's full metadata and files.
+- `/api/v1/projects/{owner}/{repo}/skills/{id}`: one skill, original file URLs,
+  pinned source links, completeness, and available bundle download.
+- `/api/v1/patterns`: short pattern summaries; follow `apiUrl` for a single
+  guide with verified source excerpts and line numbers.
+
+Project and skill lists default to 10 results (maximum `limit=50`). Follow
+`nextUrl` until null to see all matches; `total` is the count before pagination.
+`q` searches case-insensitive substrings; other filters are exact matches,
+case-insensitive, combined with AND. Ordering is by repository, then skill ID.
+No matches returns an empty list. Unknown, duplicate, or invalid list parameters
+return JSON 400; missing resources return JSON 404. Summary previews may be
+shortened, while individual detail responses preserve the full content.
+
+These endpoints read the same committed corpus as the website and return JSON
+with `version: 1`. Missing scans are `null`, and expanded inventories retain
+missing, truncated, omitted, excluded, and invalid-source information.
+Instruction and skill revisions can differ. Upstream content retains its
+original licensing.
+
+Run `pnpm check:agent-api` against a running server (default
+`http://localhost:3001`; override with `BASE_URL`) to check discovery, source
+bytes, corpus coverage, revision metadata, and pattern excerpt line numbers.
+
 ## Documentation
 
 - [Development](docs/development.md): setup, running the server, and project layout.

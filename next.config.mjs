@@ -15,7 +15,11 @@ const nextConfig = {
     outputFileTracingIncludes: {
         '/**': ['./content/**'],
         '/files/*': ['./public/files/**/*'],
+        '/api/**': ['./public/files/**/*'],
         '/og': ['./public/logos/*.png', './public/fonts/*.ttf'],
+    },
+    async headers() {
+        return [{ source: '/:path*', headers: [{ key: 'Link', value: '</llms.txt>; rel="describedby"' }] }];
     },
     async redirects() {
         const directory = path.join(process.cwd(), 'content/projects');

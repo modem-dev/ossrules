@@ -163,7 +163,7 @@ export function ProjectExplorerContent({ projects, search = '' }: { projects: Pr
                     </button>
                 </div>
             ) : null}
-            <div className="flex flex-wrap items-center justify-between gap-3 py-5 font-mono text-[11px] text-gray-600">
+            <div className="flex flex-wrap items-center justify-between gap-3 py-4 font-mono text-[11px] text-gray-600">
                 <p role="status">
                     {visible.length} {visible.length === 1 ? 'project' : 'projects'}
                     {filtered ? ` of ${projects.length}` : ''}

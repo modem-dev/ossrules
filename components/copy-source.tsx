@@ -6,12 +6,14 @@ export function CopySource({
     source,
     label = 'Copy file source',
     iconAfter = false,
+    text = 'Copy',
 }: {
     source: string;
     label?: string;
     iconAfter?: boolean;
+    text?: string;
 }) {
-    const [status, setStatus] = useState('Copy');
+    const [status, setStatus] = useState('');
     async function copy() {
         try {
             await navigator.clipboard.writeText(source);
@@ -26,7 +28,7 @@ export function CopySource({
                 <rect x="7" y="7" width="10" height="11" rx="2" stroke="currentColor" strokeWidth="1.5" />
                 <path d="M13 7V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h3" stroke="currentColor" strokeWidth="1.5" />
             </svg>
-            <span role="status">{status}</span>
+            <span role="status">{status || text}</span>
         </button>
     );
 }

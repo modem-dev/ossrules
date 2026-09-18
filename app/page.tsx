@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { AgentPrompt } from '@/components/agent-prompt';
 import { PATTERNS } from '@/components/agents-md-data';
 import { JsonLd } from '@/components/json-ld';
 import { ProjectExplorer } from '@/components/project-explorer';
@@ -69,7 +70,7 @@ export default async function AgentsMdPage({ searchParams }: Props) {
             />
             <SiteHeader />
 
-            <main id="main" className="page-shell flex-1">
+            <main id="main" className="page-shell project-directory flex-1">
                 <header className="directory-hero brand-masthead modem-surface">
                     <div>
                         <h1 className="page-title max-w-xl">Agent rules and skills from open source.</h1>
@@ -94,6 +95,7 @@ export default async function AgentsMdPage({ searchParams }: Props) {
                         </div>
                     </dl>
                 </header>
+                <AgentPrompt />
                 <section id="projects" aria-label="Projects">
                     <ProjectExplorer projects={projects} initialSearch={initialSearch} />
                 </section>
