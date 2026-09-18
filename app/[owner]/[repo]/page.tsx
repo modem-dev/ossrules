@@ -290,11 +290,6 @@ async function ProjectContent({
                             <section id="overview" className="reading-section">
                                 <h2 className="section-title">Overview</h2>
                                 <p className="prose-copy mt-4">{project.summary}</p>
-                                <div className="mt-5 flex flex-wrap gap-2">
-                                    {project.patterns.map((pattern) => (
-                                        <PatternBadge key={pattern} pattern={pattern} href={`/agent-rules/${pattern}`} />
-                                    ))}
-                                </div>
                             </section>
 
                             <section id="documents" className="reading-section mt-8">
@@ -309,6 +304,11 @@ async function ProjectContent({
 
                             <section id="techniques" className="reading-section mt-12">
                                 <h2 className="section-title">Patterns in this file</h2>
+                                <div className="mt-5 flex flex-wrap gap-2">
+                                    {project.patterns.map((pattern) => (
+                                        <PatternBadge key={pattern} pattern={pattern} href={`/agent-rules/${pattern}`} />
+                                    ))}
+                                </div>
                                 <div className="mt-8 space-y-9">
                                     {project.techniques.map((technique, position) => {
                                         const excerpt = technique.quote
