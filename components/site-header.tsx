@@ -37,7 +37,7 @@ export function SiteHeader() {
                         aria-current={pathname === '/agent-rules' ? 'page' : patterns ? 'location' : undefined}
                         className={`border-b-2 py-2 transition-colors hover:text-light-cream ${patterns ? 'border-teal text-light-cream' : 'border-transparent text-gray-550'}`}
                     >
-                        Agent Rules
+                        Rule Patterns
                     </Link>
                     <Link
                         href="/skills"
