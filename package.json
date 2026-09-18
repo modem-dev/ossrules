@@ -10,6 +10,7 @@
         "start": "next start",
         "typecheck": "tsc --noEmit",
         "check:routes": "node --import tsx scripts/check-project-routes.ts",
+        "check:agent-api": "node --import tsx scripts/check-agent-api.ts",
         "lint": "biome check . && npx tsx scripts/validate-agents-md.ts && node --import tsx scripts/validate-skills.ts && node --import tsx scripts/measure-instructions.ts",
         "lint:fix": "biome check --fix .",
         "format": "biome format --write .",
