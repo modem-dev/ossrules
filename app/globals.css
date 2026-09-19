@@ -552,7 +552,7 @@ select {
     align-items: center;
     gap: 0.625rem;
     margin: 0 -2.5rem -2.5rem;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 2.5rem;
     border-top: 1px solid #26352e;
     background: color-mix(in srgb, var(--color-teal) 6%, var(--color-marketing-black));
 }
@@ -566,6 +566,10 @@ select {
     color: var(--color-gray-550);
     font-size: 0.75rem;
     white-space: nowrap;
+}
+
+.agent-prompt > .action-link:last-of-type {
+    padding-inline-end: 0;
 }
 
 .agent-prompt .action-primary,
@@ -896,9 +900,13 @@ select {
     .agent-prompt {
         grid-template-columns: minmax(0, 1fr) auto auto;
         margin: 0 -1.5rem -1.5rem;
+        padding-inline: 1.5rem;
     }
     .prompt-masthead .agent-prompt {
         margin-top: 1.5rem;
+    }
+    .agent-prompt h2 {
+        white-space: normal;
     }
     .agent-prompt-preview {
         display: none;
