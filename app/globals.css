@@ -2050,10 +2050,10 @@ select {
 }
 @media (min-width: 1024px) {
     .skill-directory-toolbar {
-        grid-template-columns: minmax(240px, 1.5fr) minmax(170px, 1fr) minmax(170px, 1fr) auto;
+        grid-template-columns: minmax(240px, 1.5fr) minmax(170px, 1fr) auto;
     }
     .skill-directory-project {
-        grid-template-columns: minmax(240px, 1.5fr) minmax(170px, 1fr) auto;
+        grid-template-columns: minmax(240px, 1.5fr) auto;
     }
 }
 @media (max-width: 767px) {
@@ -2071,4 +2071,14 @@ select {
 }
 .skills-directory .skill-directory-toolbar {
     padding-block: 0;
+}
+
+.skill-task-pills {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    margin-top: 1rem;
+    padding: 0.25rem 0.125rem 0.75rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-gray-700) transparent;
 }

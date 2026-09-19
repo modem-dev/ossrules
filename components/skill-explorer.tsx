@@ -51,7 +51,7 @@ function SkillExplorerContent({
     const { query, project, resources, task, visible, pageCount, page, start, pageEntries } = skillListing(entries, search, projectOnly);
     const [filtersOpen, setFiltersOpen] = useState(false);
     const filtersId = useId();
-    const activeFilters = Number(project !== 'all' && !projectOnly) + Number(resources) + Number(Boolean(task));
+    const activeFilters = Number(project !== 'all' && !projectOnly) + Number(resources);
     const resultCount = `Showing ${visible.length ? `${start + 1}–${start + pageEntries.length} of ` : ''}${visible.length} ${visible.length === 1 ? 'skill' : 'skills'}`;
     const taskSearch = new URLSearchParams(search);
     taskSearch.delete('task');
@@ -151,16 +151,6 @@ function SkillExplorerContent({
                     </button>
                 </div>
                 <div id={filtersId} className="directory-filter-controls" data-open={filtersOpen}>
-                    <DirectorySelect
-                        label="Filter by task"
-                        value={task || 'all'}
-                        active={Boolean(task)}
-                        onValueChange={(value) => remember({ task: value === 'all' ? '' : value })}
-                        options={[
-                            { value: 'all', label: 'All tasks', count: taskEntries.length },
-                            ...SKILL_TASKS.map((item) => ({ value: item.id, label: item.label, count: taskCounts.get(item.id) })),
-                        ]}
-                    />
                     {!projectOnly ? (
                         <DirectorySelect
                             label="Filter by project"
@@ -186,6 +176,20 @@ function SkillExplorerContent({
                     </label>
                 </div>
             </div>
+            <nav aria-label="Browse by task" className="skill-task-pills">
+                {[{ id: '', label: 'All skills' }, ...SKILL_TASKS].map((item) => (
+                    <button
+                        key={item.id}
+                        type="button"
+                        aria-pressed={task === item.id}
+                        onClick={() => remember({ task: item.id })}
+                        className={`inline-flex shrink-0 min-h-9 items-center gap-2 whitespace-nowrap rounded border px-3 py-1.5 text-xs ${task === item.id ? 'border-teal bg-dark-teal text-teal' : 'border-gray-750 text-gray-550 hover:border-teal hover:text-teal'}`}
+                    >
+                        {item.label}
+                        <span className="font-mono text-[11px]">{item.id ? taskCounts.get(item.id as SkillTask) : taskEntries.length}</span>
+                    </button>
+                ))}
+            </nav>
             <div
                 ref={resultsRef}
                 tabIndex={-1}
