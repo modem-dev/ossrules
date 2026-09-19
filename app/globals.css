@@ -291,10 +291,6 @@
     }
 }
 @media (max-width: 760px) {
-    .skill-page-header {
-        margin-top: 1.5rem;
-        gap: 1rem;
-    }
     .skill-desktop-outline {
         display: none;
     }

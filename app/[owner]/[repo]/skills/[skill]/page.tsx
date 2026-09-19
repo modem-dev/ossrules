@@ -1,10 +1,10 @@
 import path from 'node:path';
-import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { formatStars, logoSrc, STATS_AS_OF } from '@/components/agents-md-data';
+import { formatStars, STATS_AS_OF } from '@/components/agents-md-data';
 import { HighlightedSource } from '@/components/highlighted-source';
 import { Excerpt } from '@/components/primitives';
+import { ProjectTitle } from '@/components/project-title';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { SkillContributors } from '@/components/skill-contributors';
@@ -38,8 +38,8 @@ export async function generateMetadata({ params }: { params: Promise<Params> }) 
     const manifest = getSkillManifest(project.slug);
     const skill = manifest?.skills.find((skill) => skill.id === id);
     if (!skill) notFound();
-    const title = `${skill.name}: ${project.name} Agent Skill`;
-    const image = ogImageUrl(skill.name, project.slug, `${project.name} / Agent skill`);
+    const title = `${skill.name} Skill`;
+    const image = ogImageUrl(title, project.slug, `${project.name} / Agent skill`);
     return {
         title,
         description: skill.description,
@@ -93,8 +93,8 @@ export default async function SkillPage({
     return (
         <div className="min-h-screen bg-dark-gray flex flex-col">
             <SiteHeader />
-            <main id="main" className="page-shell flex-1">
-                <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-3 font-mono text-[11px] text-gray-600">
+            <main id="main" className="page-shell project-reading-page flex-1">
+                <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[11px] text-gray-600">
                     <Link href="/" className="text-teal hover:underline">
                         Projects
                     </Link>
@@ -120,20 +120,8 @@ export default async function SkillPage({
                         Skills
                     </Link>
                 </nav>
-                <header className="skill-page-header mt-9 flex flex-col items-start justify-between gap-5 sm:flex-row">
-                    <div className="min-w-0 flex-1">
-                        <div className="flex items-center gap-3 sm:gap-4">
-                            <Image
-                                src={logoSrc(project)}
-                                alt=""
-                                width={48}
-                                height={48}
-                                className="size-9 shrink-0 rounded object-cover sm:size-12"
-                            />
-                            <h1 className="page-title min-w-0 [overflow-wrap:anywhere]">{skill.name}</h1>
-                        </div>
-                        <p className="mt-4 max-w-3xl text-gray-500 text-sm leading-relaxed [overflow-wrap:anywhere]">{skill.description}</p>
-                    </div>
+                <header className="project-heading">
+                    <ProjectTitle project={project} name={skill.name} section="Skill" description={skill.description} />
                     <div className="relative flex shrink-0 flex-wrap items-center gap-2">
                         <SkillInstall command={installCommand} />
                         {complete ? (
