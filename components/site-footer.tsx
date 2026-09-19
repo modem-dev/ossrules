@@ -17,6 +17,9 @@ export function SiteFooter() {
                         <Link href="/skills" className="hover:text-teal">
                             Skills
                         </Link>
+                        <Link href="/about" className="hover:text-teal">
+                            About
+                        </Link>
                         <a
                             href="https://github.com/modem-dev/ossrules"
                             target="_blank"
