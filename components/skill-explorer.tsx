@@ -254,18 +254,13 @@ function SkillExplorerContent({
                 ) : null}
             </div>
             {visible.length ? (
-                <ul className="grid gap-4 md:grid-cols-2">
+                <ul className="grid gap-x-8 gap-y-7 md:grid-cols-2">
                     {pageEntries.map((entry) => (
                         <li key={`${entry.project.slug}/${entry.id}`} className="skill-entry">
-                            <Link href={entry.href} className="group block min-w-0 flex-1">
-                                <div className="flex items-start justify-between gap-4">
-                                    <h2 className="min-w-0 font-mono text-[15px] leading-relaxed tracking-tight [overflow-wrap:anywhere] group-hover:text-teal">
-                                        {entry.name}
-                                    </h2>
-                                    <span aria-hidden className="text-teal">
-                                        →
-                                    </span>
-                                </div>
+                            <Link href={entry.href} className="group block min-w-0">
+                                <h2 className="min-w-0 font-mono text-[15px] leading-relaxed tracking-tight [overflow-wrap:anywhere] group-hover:text-teal">
+                                    {entry.name}
+                                </h2>
                                 <p className="mt-3 line-clamp-3 text-gray-500 text-sm leading-relaxed [overflow-wrap:anywhere]">
                                     {entry.description}
                                 </p>
@@ -287,6 +282,7 @@ function SkillExplorerContent({
                                     ))}
                                 </div>
                             ) : null}
+                            {!entry.complete ? <p className="mb-3 font-mono text-[11px] text-gray-600">Incomplete bundle</p> : null}
                             <div className="skill-entry-footer">
                                 <div className="flex flex-wrap items-center justify-between gap-3 font-mono text-[11px] text-gray-600">
                                     <Link href={entry.project.href} className="inline-flex items-center gap-2 text-teal hover:underline">
@@ -305,7 +301,6 @@ function SkillExplorerContent({
                                         skillName={entry.name}
                                     />
                                 </div>
-                                {!entry.complete ? <p className="mt-3 font-mono text-[11px] text-gray-600">Incomplete bundle</p> : null}
                             </div>
                         </li>
                     ))}
