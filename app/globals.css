@@ -2035,3 +2035,86 @@ select {
         display: none;
     }
 }
+
+.skill-resource-filter {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 2.75rem;
+    padding-inline: 0.875rem;
+    border: 1px solid var(--color-gray-750);
+    border-radius: 0.375rem;
+    background: var(--color-medium-gray);
+    color: var(--color-gray-550);
+    font-size: 0.75rem;
+}
+@media (min-width: 1024px) {
+    .skill-directory-toolbar {
+        grid-template-columns: minmax(240px, 1.5fr) minmax(140px, 0.75fr) minmax(170px, 1fr) auto;
+    }
+    .skill-directory-project {
+        grid-template-columns: minmax(240px, 1.5fr) auto;
+    }
+}
+
+.skills-directory .brand-masthead {
+    margin-bottom: 1.5rem;
+}
+.skill-directory-toolbar {
+    padding-block: 0;
+}
+
+.skill-task-pills {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    margin-top: 1rem;
+    padding: 0.25rem 0.125rem 0.75rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-gray-700) transparent;
+}
+
+.skill-task-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    min-height: 2rem;
+    padding: 0.25rem 0.625rem;
+    border: 1px solid light-dark(#d7c1a3, #71604a);
+    border-radius: 999px;
+    background: light-dark(#f5ead8, #3a3026);
+    color: light-dark(#79501e, #e7bd80);
+    font-size: 0.6875rem;
+}
+.skill-task-badge:hover,
+.skill-task-badge[aria-pressed="true"] {
+    border-color: currentColor;
+    background: light-dark(#ecd9b8, #4b3a28);
+}
+
+.skill-task-pills button[aria-pressed="true"] {
+    border-color: light-dark(#d7c1a3, #71604a);
+    background: light-dark(#f5ead8, #3a3026);
+    color: light-dark(#79501e, #e7bd80);
+}
+.skill-task-pills button:hover {
+    border-color: light-dark(#79501e, #e7bd80);
+    color: light-dark(#79501e, #e7bd80);
+}
+
+.skill-type-mobile-filter {
+    display: none;
+}
+@media (max-width: 767px) {
+    .skill-type-mobile-filter {
+        display: block;
+    }
+    .skill-task-pills {
+        display: none;
+    }
+}
+.skill-type-mobile-filter [data-active="true"] {
+    border-color: light-dark(#d7c1a3, #71604a);
+    background: light-dark(#f5ead8, #3a3026);
+    color: light-dark(#79501e, #e7bd80);
+}

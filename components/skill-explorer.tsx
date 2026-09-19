@@ -3,12 +3,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { useRef, useState } from 'react';
+import { useId, useRef, useState } from 'react';
 import type { SkillContributions } from '@/lib/skill-contributors';
 import { skillListing } from '@/lib/skill-list';
 import { SKILL_TASKS, type SkillTask } from '@/lib/skill-tasks';
+import { languageColor, languageFacets } from './agents-md-data';
 import { DirectorySelect } from './directory-select';
 import { SkillContributors } from './skill-contributors';
+import { SkillTaskIcon } from './skill-task-icon';
 
 export interface SkillEntry {
     id: string;
@@ -18,10 +20,11 @@ export interface SkillEntry {
     description: string;
     path: string;
     files: number;
+    hasScripts?: boolean;
     complete: boolean;
     contributions?: SkillContributions;
     historyUrl?: string;
-    project: { href: string; slug: string; name: string; logo: string; repository: string };
+    project: { href: string; slug: string; name: string; logo: string; repository: string; language?: string };
 }
 
 export function SkillExplorer({
@@ -48,14 +51,26 @@ function SkillExplorerContent({
     projectOnly?: boolean;
     search?: string;
 }) {
-    const { query, project, resources, task, visible, pageCount, page, start, pageEntries } = skillListing(entries, search, projectOnly);
-    const [allTasks, setAllTasks] = useState(false);
+    const { query, project, language, resources, scripts, task, visible, pageCount, page, start, pageEntries } = skillListing(
+        entries,
+        search,
+        projectOnly,
+    );
+    const [filtersOpen, setFiltersOpen] = useState(false);
+    const filtersId = useId();
+    const hasFilters = Boolean(query.trim() || task || resources || scripts || language !== 'all' || (!projectOnly && project !== 'all'));
+    const activeFilters =
+        Number(project !== 'all' && !projectOnly) +
+        Number(resources) +
+        Number(scripts) +
+        Number(language !== 'all') +
+        Number(Boolean(task));
+    const resultCount = `Showing ${visible.length ? `${start + 1}–${start + pageEntries.length} of ` : ''}${visible.length} ${visible.length === 1 ? 'skill' : 'skills'}`;
     const taskSearch = new URLSearchParams(search);
     taskSearch.delete('task');
     taskSearch.delete('page');
     const taskEntries = skillListing(entries, taskSearch.toString(), projectOnly).visible;
     const taskCounts = new Map(SKILL_TASKS.map(({ id }) => [id, taskEntries.filter((entry) => entry.tasks?.includes(id)).length]));
-    const shownTasks = SKILL_TASKS.filter((item, index) => allTasks || index < 8 || item.id === task);
     const resultsRef = useRef<HTMLDivElement>(null);
     function remember(values: Record<string, string>) {
         const url = new URL(window.location.href);
@@ -69,6 +84,8 @@ function SkillExplorerContent({
     const projects = [...new Map(entries.map((entry) => [entry.project.slug, entry.project])).values()].sort((a, b) =>
         a.name.localeCompare(b.name),
     );
+
+    const languages = languageFacets(projects.filter((item) => item.language).map((item) => ({ language: item.language as string })));
 
     function pagination() {
         if (pageCount <= 1) return null;
@@ -117,8 +134,12 @@ function SkillExplorerContent({
     }
     return (
         <div>
-            <div className="directory-toolbar">
+            <div className={`directory-toolbar skill-directory-toolbar ${projectOnly ? 'skill-directory-project' : ''}`}>
                 <label className="directory-search">
+                    <svg viewBox="0 0 20 20" fill="none" aria-hidden className="size-4 shrink-0 text-gray-600">
+                        <circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" strokeWidth="1.5" />
+                        <path d="m13 13 4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                    </svg>
                     <input
                         type="search"
                         value={query}
@@ -129,44 +150,87 @@ function SkillExplorerContent({
                         placeholder={projectOnly ? 'Search this project’s skills…' : 'Search skills, tasks, or projects…'}
                     />
                 </label>
-                {!projectOnly ? (
-                    <DirectorySelect
-                        label="Filter by project"
-                        value={project}
-                        active={project !== 'all'}
-                        onValueChange={(value) => remember({ project: value === 'all' ? '' : value })}
-                        options={[
-                            { value: 'all', label: 'All projects' },
-                            ...projects.map((item) => ({ value: item.slug, label: item.name })),
-                        ]}
-                    />
-                ) : null}
-                <label className="flex min-h-11 items-center gap-2 text-gray-550 text-xs">
-                    <input
-                        type="checkbox"
-                        checked={resources}
-                        onChange={(event) => {
-                            remember({ resources: event.target.checked ? '1' : '' });
-                        }}
-                        className="accent-teal"
-                    />
-                    With supporting files
-                </label>
+                <div className="directory-mobile-summary">
+                    <button
+                        type="button"
+                        aria-expanded={filtersOpen}
+                        aria-controls={filtersId}
+                        onClick={() => setFiltersOpen(!filtersOpen)}
+                        className="mr-auto inline-flex min-h-11 items-center gap-2 text-xs text-teal"
+                    >
+                        Filters{activeFilters ? ` (${activeFilters})` : ''}
+                        <span aria-hidden>{filtersOpen ? '−' : '+'}</span>
+                    </button>
+                </div>
+                <div id={filtersId} className="directory-filter-controls" data-open={filtersOpen}>
+                    {!projectOnly ? (
+                        <DirectorySelect
+                            label="Project language"
+                            value={language}
+                            active={language !== 'all'}
+                            onValueChange={(value) => remember({ language: value === 'all' ? '' : value })}
+                            options={[
+                                { value: 'all', label: 'All languages' },
+                                ...languages.map((item) => ({
+                                    value: item.value,
+                                    label: item.value,
+                                    count: item.count,
+                                    color: languageColor(item.value),
+                                })),
+                            ]}
+                        />
+                    ) : null}
+                    {!projectOnly ? (
+                        <DirectorySelect
+                            label="Filter by project"
+                            value={project}
+                            active={project !== 'all'}
+                            onValueChange={(value) => remember({ project: value === 'all' ? '' : value })}
+                            options={[
+                                { value: 'all', label: 'All projects' },
+                                ...projects.map((item) => ({ value: item.slug, label: item.name, logo: item.logo })),
+                            ]}
+                        />
+                    ) : null}
+                    <div className="skill-type-mobile-filter">
+                        <DirectorySelect
+                            label="Skill type"
+                            value={task || 'all'}
+                            active={Boolean(task)}
+                            onValueChange={(value) => remember({ task: value === 'all' ? '' : value })}
+                            options={[
+                                { value: 'all', label: 'All skill types' },
+                                ...SKILL_TASKS.filter((item) => (taskCounts.get(item.id) ?? 0) > 0 || item.id === task).map((item) => ({
+                                    value: item.id,
+                                    label: item.label,
+                                    count: taskCounts.get(item.id) ?? 0,
+                                })),
+                            ]}
+                        />
+                    </div>
+                    <label className="skill-resource-filter">
+                        <input
+                            type="checkbox"
+                            checked={scripts}
+                            onChange={(event) => {
+                                remember({ scripts: event.target.checked ? '1' : '' });
+                            }}
+                            className="accent-teal"
+                        />
+                        Has scripts
+                    </label>
+                </div>
             </div>
-            <nav aria-label="Browse by task" className="mt-4 border-b border-gray-750 pb-4">
-                <p className="mb-2 font-mono text-[11px] text-gray-600">Browse by task</p>
-                <div className="flex flex-wrap items-center gap-2">
-                    {[{ id: '', label: 'All skills' }, ...shownTasks].map((item) => (
+            <nav aria-label="Browse by task" className="skill-task-pills">
+                {[{ id: '', label: 'All skills' }, ...SKILL_TASKS]
+                    .filter((item) => (item.id ? (taskCounts.get(item.id as SkillTask) ?? 0) : taskEntries.length) > 0)
+                    .map((item) => (
                         <button
                             key={item.id}
                             type="button"
                             aria-pressed={task === item.id}
                             onClick={() => remember({ task: item.id })}
-                            className={`inline-flex min-h-9 items-center gap-2 rounded border px-3 py-1.5 text-xs ${
-                                task === item.id
-                                    ? 'border-teal bg-dark-teal text-teal'
-                                    : 'border-gray-750 text-gray-550 hover:border-teal hover:text-teal'
-                            }`}
+                            className="inline-flex shrink-0 min-h-9 items-center gap-2 whitespace-nowrap rounded border border-gray-750 px-3 py-1.5 text-xs text-gray-550"
                         >
                             {item.label}
                             <span className="font-mono text-[11px]">
@@ -174,23 +238,20 @@ function SkillExplorerContent({
                             </span>
                         </button>
                     ))}
+            </nav>
+            <div ref={resultsRef} tabIndex={-1} className="flex scroll-mt-6 items-center justify-between gap-3 py-4">
+                <p role="status" className="font-mono text-[11px] text-gray-600">
+                    {resultCount}
+                </p>
+                {hasFilters ? (
                     <button
                         type="button"
-                        aria-expanded={allTasks}
-                        onClick={() => setAllTasks(!allTasks)}
-                        className="min-h-9 px-2 text-xs text-teal hover:underline"
+                        className="inline-flex shrink-0 min-h-9 items-center text-xs text-teal hover:underline"
+                        onClick={() => remember({ q: '', project: '', language: '', resources: '', scripts: '', task: '' })}
                     >
-                        {allTasks ? 'Fewer tasks ↑' : 'All tasks ↓'}
+                        Clear filters ×
                     </button>
-                </div>
-            </nav>
-            <div ref={resultsRef} tabIndex={-1} className="flex scroll-mt-6 flex-wrap items-center justify-between gap-x-6 gap-y-1 py-4">
-                <p role="status" className="font-mono text-[11px] text-gray-600">
-                    {visible.length ? `${start + 1}–${start + pageEntries.length} of ` : ''}
-                    {visible.length} {visible.length === 1 ? 'skill' : 'skills'}
-                    {visible.length !== entries.length ? ` · ${entries.length} total` : ''}
-                </p>
-                {pagination()}
+                ) : null}
             </div>
             {visible.length ? (
                 <ul className="grid gap-4 md:grid-cols-2">
@@ -211,14 +272,16 @@ function SkillExplorerContent({
                             </Link>
                             <p className="mt-3 mb-4 break-all font-mono text-[11px] text-gray-600">{entry.path}</p>
                             {entry.tasks?.length ? (
-                                <div className="mb-4 flex flex-wrap gap-x-3 gap-y-1">
+                                <div className="mb-4 flex flex-wrap gap-2">
                                     {entry.tasks.slice(0, 2).map((id) => (
                                         <button
                                             key={id}
                                             type="button"
                                             onClick={() => remember({ task: id })}
-                                            className="min-h-8 text-[11px] text-teal hover:underline"
+                                            className="skill-task-badge"
+                                            aria-pressed={task === id}
                                         >
+                                            <SkillTaskIcon task={id} />
                                             {SKILL_TASKS.find((item) => item.id === id)?.label}
                                         </button>
                                     ))}
@@ -226,31 +289,23 @@ function SkillExplorerContent({
                             ) : null}
                             <div className="skill-entry-footer">
                                 <div className="flex flex-wrap items-center justify-between gap-3 font-mono text-[11px] text-gray-600">
-                                    {!projectOnly ? (
-                                        <Link
-                                            href={entry.project.href}
-                                            className="inline-flex items-center gap-2 text-teal hover:underline"
-                                        >
-                                            <Image
-                                                src={entry.project.logo}
-                                                alt=""
-                                                width={24}
-                                                height={24}
-                                                className="size-6 rounded bg-gray-800 object-cover"
-                                            />
-                                            {entry.project.name}
-                                        </Link>
-                                    ) : null}
-                                    {projectOnly && !entry.complete ? <span>Incomplete bundle</span> : null}
+                                    <Link href={entry.project.href} className="inline-flex items-center gap-2 text-teal hover:underline">
+                                        <Image
+                                            src={entry.project.logo}
+                                            alt=""
+                                            width={24}
+                                            height={24}
+                                            className="size-6 rounded bg-gray-800 object-cover"
+                                        />
+                                        {entry.project.name}
+                                    </Link>
                                     <SkillContributors
                                         contributions={entry.contributions}
                                         historyUrl={entry.historyUrl}
                                         skillName={entry.name}
                                     />
                                 </div>
-                                {!projectOnly && !entry.complete ? (
-                                    <p className="mt-3 font-mono text-[11px] text-gray-600">Incomplete bundle</p>
-                                ) : null}
+                                {!entry.complete ? <p className="mt-3 font-mono text-[11px] text-gray-600">Incomplete bundle</p> : null}
                             </div>
                         </li>
                     ))}
@@ -263,7 +318,7 @@ function SkillExplorerContent({
                         type="button"
                         className="action-link mt-5"
                         onClick={() => {
-                            remember({ q: '', project: '', resources: '', task: '' });
+                            remember({ q: '', project: '', language: '', resources: '', scripts: '', task: '' });
                         }}
                     >
                         Clear filters
