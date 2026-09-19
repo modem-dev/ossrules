@@ -1,10 +1,9 @@
 'use client';
 
-import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import type { SkillHeading } from '@/lib/skill-outline';
 
-export function SkillOutline({ headings, readHref }: { headings: SkillHeading[]; readHref?: string }) {
+export function SkillOutline({ headings }: { headings: SkillHeading[] }) {
     const [active, setActive] = useState(headings[0]?.id ?? '');
     const mobile = useRef<HTMLDetailsElement>(null);
     const nav = useRef<HTMLElement>(null);
@@ -99,13 +98,7 @@ export function SkillOutline({ headings, readHref }: { headings: SkillHeading[];
     if (!headings.length) {
         return (
             <div className="skill-outline-empty">
-                {readHref ? (
-                    <Link href={readHref} scroll={false} className="text-teal hover:underline">
-                        Read with section navigation →
-                    </Link>
-                ) : (
-                    <p>No section headings in this file.</p>
-                )}
+                <p>No section headings in this file.</p>
             </div>
         );
     }

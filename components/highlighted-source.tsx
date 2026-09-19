@@ -10,12 +10,14 @@ export function HighlightedSource({
     numbered = false,
     markedLine = -1,
     markedCount = 0,
+    lineAnchors = [],
 }: {
     source: string;
     language: string;
     numbered?: boolean;
     markedLine?: number;
     markedCount?: number;
+    lineAnchors?: { id: string; line: number }[];
 }) {
     const [result, setResult] = useState<{ source: string; language: string; tokens: ThemedTokenWithVariants[][] }>();
     useEffect(() => {
@@ -33,6 +35,7 @@ export function HighlightedSource({
         };
     }, [source, language]);
     const tokens = result?.source === source && result.language === language ? result.tokens : undefined;
+    const anchors = new Map(lineAnchors.map(({ id, line }) => [line, id]));
     return (
         <pre className={numbered ? 'source-code' : undefined}>
             <code>
@@ -56,6 +59,8 @@ export function HighlightedSource({
                             // biome-ignore lint/suspicious/noArrayIndexKey: source line numbers identify positions.
                             key={index}
                             className="source-line"
+                            id={anchors.get(index + 1)}
+                            tabIndex={anchors.has(index + 1) ? -1 : undefined}
                             data-line={index}
                             data-highlight={index >= markedLine && index < markedLine + markedCount ? true : undefined}
                         >
