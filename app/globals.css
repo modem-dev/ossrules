@@ -1744,6 +1744,11 @@ select {
 .skill-contributors[data-align="start"] {
     margin-left: 0;
 }
+.skill-contributors > summary:focus-visible {
+    outline: none;
+    border-radius: 0;
+    box-shadow: 0 2px 0 var(--color-light-cream);
+}
 .skill-contributors > summary::-webkit-details-marker {
     display: none;
 }
