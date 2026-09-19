@@ -276,31 +276,23 @@ function SkillExplorerContent({
                             ) : null}
                             <div className="skill-entry-footer">
                                 <div className="flex flex-wrap items-center justify-between gap-3 font-mono text-[11px] text-gray-600">
-                                    {!projectOnly ? (
-                                        <Link
-                                            href={entry.project.href}
-                                            className="inline-flex items-center gap-2 text-teal hover:underline"
-                                        >
-                                            <Image
-                                                src={entry.project.logo}
-                                                alt=""
-                                                width={24}
-                                                height={24}
-                                                className="size-6 rounded bg-gray-800 object-cover"
-                                            />
-                                            {entry.project.name}
-                                        </Link>
-                                    ) : null}
-                                    {projectOnly && !entry.complete ? <span>Incomplete bundle</span> : null}
+                                    <Link href={entry.project.href} className="inline-flex items-center gap-2 text-teal hover:underline">
+                                        <Image
+                                            src={entry.project.logo}
+                                            alt=""
+                                            width={24}
+                                            height={24}
+                                            className="size-6 rounded bg-gray-800 object-cover"
+                                        />
+                                        {entry.project.name}
+                                    </Link>
                                     <SkillContributors
                                         contributions={entry.contributions}
                                         historyUrl={entry.historyUrl}
                                         skillName={entry.name}
                                     />
                                 </div>
-                                {!projectOnly && !entry.complete ? (
-                                    <p className="mt-3 font-mono text-[11px] text-gray-600">Incomplete bundle</p>
-                                ) : null}
+                                {!entry.complete ? <p className="mt-3 font-mono text-[11px] text-gray-600">Incomplete bundle</p> : null}
                             </div>
                         </li>
                     ))}
