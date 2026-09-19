@@ -146,9 +146,6 @@ export default async function SkillPage({
                     </div>
                 </header>
                 <div className="skill-snapshot mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[11px] text-gray-600">
-                    <a href={`https://github.com/${manifest.repository}/tree/${manifest.sha}`} className="hover:text-teal">
-                        {manifest.branch} · {manifest.sha.slice(0, 7)} ↗
-                    </a>
                     <SkillContributors
                         contributions={skill.contributions}
                         historyUrl={`https://github.com/${manifest.repository}/commits/${manifest.sha}/${skill.path.split('/').map(encodeURIComponent).join('/')}`}
@@ -158,6 +155,15 @@ export default async function SkillPage({
                 </div>
                 <div className="skill-reader">
                     <aside className="skill-outline" aria-label="Document navigation">
+                        <a
+                            href={skillSourceUrl(manifest, skill.path)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-mono text-[11px] text-teal hover:underline"
+                            aria-label="See pinned skill source file on GitHub (opens in a new tab)"
+                        >
+                            See source file ↗
+                        </a>
                         <ProjectLicense
                             license={licenseSource ? identifyLicense(licenseSource) : undefined}
                             href={manifest.repositoryLicense ? skillSourceUrl(manifest, manifest.repositoryLicense.path) : undefined}
@@ -175,12 +181,6 @@ export default async function SkillPage({
                             <details>
                                 <summary className="text-teal">Source &amp; attribution</summary>
                                 <p className="mt-4 [overflow-wrap:anywhere]">{skill.path}</p>
-                                <a
-                                    href={`https://github.com/${manifest.repository}/tree/${manifest.sha}`}
-                                    className="mt-3 block text-teal hover:underline"
-                                >
-                                    {manifest.branch} · {manifest.sha.slice(0, 7)} ↗
-                                </a>
                                 <p className="mt-3">Scanned {manifest.scannedAt.slice(0, 10)}</p>
                                 {skill.compatibility ? (
                                     <>
