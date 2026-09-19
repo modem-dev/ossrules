@@ -5,7 +5,6 @@ import { notFound } from 'next/navigation';
 import { formatStars, logoSrc, STATS_AS_OF } from '@/components/agents-md-data';
 import { HighlightedSource } from '@/components/highlighted-source';
 import { Excerpt } from '@/components/primitives';
-import { ProjectLicense } from '@/components/project-license';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { SkillContributors } from '@/components/skill-contributors';
@@ -147,17 +146,26 @@ export default async function SkillPage({
                 </header>
                 <div className="skill-reader">
                     <aside className="skill-outline" aria-label="Document navigation">
+                        <SkillOutline
+                            key={`${file.path}:${rendered}`}
+                            headings={skillOutline(headings)}
+                            readHref={
+                                !rendered && source !== undefined && /\.mdx?$/i.test(file.path)
+                                    ? `${baseHref}?file=${encodeURIComponent(file.path)}`
+                                    : undefined
+                            }
+                        />
                         <a
                             href={skillSourceUrl(manifest, skill.path)}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="font-mono text-[11px] text-teal hover:underline"
+                            className="mt-6 inline-block font-mono text-[11px] text-teal hover:underline"
                             aria-label="See pinned skill source file on GitHub (opens in a new tab)"
                         >
                             See source file ↗
                         </a>
-                        {skill.contributions?.contributors.length ? (
-                            <dl className="document-facts mt-3">
+                        <dl className="document-facts mt-3">
+                            {skill.contributions?.contributors.length ? (
                                 <div>
                                     <dt>Contributors</dt>
                                     <dd>
@@ -168,21 +176,25 @@ export default async function SkillPage({
                                         />
                                     </dd>
                                 </div>
-                            </dl>
-                        ) : null}
-                        <ProjectLicense
-                            license={licenseSource ? identifyLicense(licenseSource) : undefined}
-                            href={manifest.repositoryLicense ? skillSourceUrl(manifest, manifest.repositoryLicense.path) : undefined}
-                        />
-                        <SkillOutline
-                            key={`${file.path}:${rendered}`}
-                            headings={skillOutline(headings)}
-                            readHref={
-                                !rendered && source !== undefined && /\.mdx?$/i.test(file.path)
-                                    ? `${baseHref}?file=${encodeURIComponent(file.path)}`
-                                    : undefined
-                            }
-                        />
+                            ) : null}
+                            <div>
+                                <dt>License</dt>
+                                <dd className="[overflow-wrap:anywhere]">
+                                    {manifest.repositoryLicense ? (
+                                        <a
+                                            href={skillSourceUrl(manifest, manifest.repositoryLicense.path)}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-teal hover:underline"
+                                        >
+                                            {licenseSource ? identifyLicense(licenseSource) : 'View terms'} ↗
+                                        </a>
+                                    ) : (
+                                        'Not recorded'
+                                    )}
+                                </dd>
+                            </div>
+                        </dl>
                         <section className="skill-file-metadata font-mono text-[11px] text-gray-600" aria-label="Source and license">
                             <details>
                                 <summary className="text-teal">Source &amp; attribution</summary>
