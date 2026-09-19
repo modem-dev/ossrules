@@ -156,16 +156,7 @@ export default async function SkillPage({
                             }
                         />
                         <section className="project-document-summary" aria-label="Document summary">
-                            <a
-                                href={skillSourceUrl(manifest, skill.path)}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-block font-mono text-[11px] text-teal hover:underline"
-                                aria-label="See pinned skill source file on GitHub (opens in a new tab)"
-                            >
-                                See source file ↗
-                            </a>
-                            <dl className="document-facts mt-3">
+                            <dl className="document-facts">
                                 {skill.contributions?.contributors.length ? (
                                     <div>
                                         <dt>Contributors</dt>
@@ -196,6 +187,15 @@ export default async function SkillPage({
                                     </dd>
                                 </div>
                             </dl>
+                            <a
+                                href={skillSourceUrl(manifest, skill.path)}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="mt-3 inline-block font-mono text-[11px] text-teal hover:underline"
+                                aria-label="See pinned skill source file on GitHub (opens in a new tab)"
+                            >
+                                See source file ↗
+                            </a>
                         </section>
                         <section className="font-mono text-[11px] text-gray-600" aria-label="Source and license">
                             <details className="project-facts-disclosure">
