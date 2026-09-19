@@ -19,7 +19,7 @@ import { identifyLicense } from '@/lib/license';
 import { ogImageUrl } from '@/lib/og';
 import { projectHref, projectSkillsHref, skillHref } from '@/lib/project-paths';
 import { skillHeadings, skillOutline } from '@/lib/skill-outline';
-import { markdownBody, parseSkill } from '@/lib/skill-schema';
+import { markdownBody } from '@/lib/skill-schema';
 import { getAllSkills, getSkillManifest, readSkillFile, skillSourceUrl } from '@/lib/skills';
 import { countSourceTokens } from '@/lib/token-count';
 
@@ -88,7 +88,6 @@ export default async function SkillPage({
     const rootFile = skill.files.find((file) => file.path === 'SKILL.md');
     const rootSource = rootFile ? readSkillFile(slug, rootFile)?.toString('utf8') : undefined;
     const fileMentions = file.path !== 'SKILL.md' ? (documentMentions(rootSource, [file.path])[file.path] ?? []) : [];
-    const metadata = rootSource ? parseSkill(rootSource) : undefined;
     const body = rendered ? (file.path === 'SKILL.md' ? markdownBody(source) : source) : '';
     const headings = skillHeadings(body);
     return (
@@ -134,18 +133,6 @@ export default async function SkillPage({
                             <h1 className="page-title min-w-0 [overflow-wrap:anywhere]">{skill.name}</h1>
                         </div>
                         <p className="mt-4 max-w-3xl text-gray-500 text-sm leading-relaxed [overflow-wrap:anywhere]">{skill.description}</p>
-                        {metadata?.tags?.length ? (
-                            <ul className="skill-tags" aria-label="Tags declared in SKILL.md">
-                                {metadata.tags.map((tag) => (
-                                    <li key={tag}>{tag}</li>
-                                ))}
-                            </ul>
-                        ) : null}
-                        {metadata?.platforms?.length ? (
-                            <p className="mt-3 font-mono text-[11px] leading-relaxed text-gray-550 [overflow-wrap:anywhere]">
-                                Declared platforms: {metadata.platforms.join(' · ')}
-                            </p>
-                        ) : null}
                     </div>
                     <div className="relative flex shrink-0 flex-wrap items-center gap-2">
                         <SkillInstall command={installCommand} />
@@ -175,7 +162,6 @@ export default async function SkillPage({
                         <ProjectLicense
                             license={licenseSource ? identifyLicense(licenseSource) : undefined}
                             href={manifest.repositoryLicense ? skillSourceUrl(manifest, manifest.repositoryLicense.path) : undefined}
-                            skillLicense={skill.license}
                         />
                         <SkillOutline
                             key={`${file.path}:${rendered}`}
