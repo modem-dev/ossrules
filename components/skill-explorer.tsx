@@ -159,7 +159,7 @@ function SkillExplorerContent({
                             onValueChange={(value) => remember({ project: value === 'all' ? '' : value })}
                             options={[
                                 { value: 'all', label: 'All projects' },
-                                ...projects.map((item) => ({ value: item.slug, label: item.name })),
+                                ...projects.map((item) => ({ value: item.slug, label: item.name, logo: item.logo })),
                             ]}
                         />
                     ) : null}

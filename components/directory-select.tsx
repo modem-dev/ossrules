@@ -1,6 +1,7 @@
 'use client';
 
 import * as Select from '@radix-ui/react-select';
+import Image from 'next/image';
 import type { PatternId } from './agents-md-data';
 import { PatternIcon } from './pattern-icons';
 
@@ -10,6 +11,7 @@ interface DirectoryOption {
     count?: number;
     color?: string;
     pattern?: PatternId;
+    logo?: string;
 }
 
 function Chevron({ up = false }: { up?: boolean }) {
@@ -57,6 +59,9 @@ export function DirectorySelect({
                         </option>
                     ))}
                 </select>
+                {selected?.logo ? (
+                    <Image src={selected.logo} alt="" width={20} height={20} className="size-5 shrink-0 rounded object-contain" />
+                ) : null}
                 {selected?.pattern ? <PatternIcon pattern={selected.pattern} className="size-4" /> : null}
                 {selected?.color ? (
                     <span className="directory-select-dot" style={{ backgroundColor: selected.color }} aria-hidden="true" />
@@ -78,6 +83,9 @@ export function DirectorySelect({
                     }}
                 >
                     <Select.Trigger className="directory-select-trigger" aria-label={label} data-active={active || undefined}>
+                        {selected?.logo ? (
+                            <Image src={selected.logo} alt="" width={20} height={20} className="size-5 shrink-0 rounded object-contain" />
+                        ) : null}
                         {selected?.pattern ? <PatternIcon pattern={selected.pattern} className="size-4" /> : null}
                         {selected?.color ? (
                             <span className="directory-select-dot" style={{ backgroundColor: selected.color }} aria-hidden="true" />
@@ -107,6 +115,15 @@ export function DirectorySelect({
                                             textValue={option.label}
                                             className="directory-select-item"
                                         >
+                                            {option.logo ? (
+                                                <Image
+                                                    src={option.logo}
+                                                    alt=""
+                                                    width={20}
+                                                    height={20}
+                                                    className="size-5 shrink-0 rounded object-contain"
+                                                />
+                                            ) : null}
                                             {option.pattern ? <PatternIcon pattern={option.pattern} className="size-4" /> : null}
                                             {option.color ? (
                                                 <span
