@@ -2100,3 +2100,13 @@ select {
     border-color: currentColor;
     background: light-dark(#ecd9b8, #4b3a28);
 }
+
+.skill-task-pills button[aria-pressed="true"] {
+    border-color: light-dark(#d7c1a3, #71604a);
+    background: light-dark(#f5ead8, #3a3026);
+    color: light-dark(#79501e, #e7bd80);
+}
+.skill-task-pills button:hover {
+    border-color: light-dark(#79501e, #e7bd80);
+    color: light-dark(#79501e, #e7bd80);
+}

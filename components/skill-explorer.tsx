@@ -212,7 +212,7 @@ function SkillExplorerContent({
                             type="button"
                             aria-pressed={task === item.id}
                             onClick={() => remember({ task: item.id })}
-                            className={`inline-flex shrink-0 min-h-9 items-center gap-2 whitespace-nowrap rounded border px-3 py-1.5 text-xs ${task === item.id ? 'border-teal bg-dark-teal text-teal' : 'border-gray-750 text-gray-550 hover:border-teal hover:text-teal'}`}
+                            className="inline-flex shrink-0 min-h-9 items-center gap-2 whitespace-nowrap rounded border border-gray-750 px-3 py-1.5 text-xs text-gray-550"
                         >
                             {item.label}
                             <span className="font-mono text-[11px]">
