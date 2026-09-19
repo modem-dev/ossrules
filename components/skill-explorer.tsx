@@ -10,6 +10,7 @@ import { SKILL_TASKS, type SkillTask } from '@/lib/skill-tasks';
 import { languageColor, languageFacets } from './agents-md-data';
 import { DirectorySelect } from './directory-select';
 import { SkillContributors } from './skill-contributors';
+import { SkillTaskIcon } from './skill-task-icon';
 
 export interface SkillEntry {
     id: string;
@@ -248,14 +249,16 @@ function SkillExplorerContent({
                             </Link>
                             <p className="mt-3 mb-4 break-all font-mono text-[11px] text-gray-600">{entry.path}</p>
                             {entry.tasks?.length ? (
-                                <div className="mb-4 flex flex-wrap gap-x-3 gap-y-1">
+                                <div className="mb-4 flex flex-wrap gap-2">
                                     {entry.tasks.slice(0, 2).map((id) => (
                                         <button
                                             key={id}
                                             type="button"
                                             onClick={() => remember({ task: id })}
-                                            className="min-h-8 text-[11px] text-teal hover:underline"
+                                            className="skill-task-badge"
+                                            aria-pressed={task === id}
                                         >
+                                            <SkillTaskIcon task={id} />
                                             {SKILL_TASKS.find((item) => item.id === id)?.label}
                                         </button>
                                     ))}

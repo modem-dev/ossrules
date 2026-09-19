@@ -2082,3 +2082,21 @@ select {
     scrollbar-width: thin;
     scrollbar-color: var(--color-gray-700) transparent;
 }
+
+.skill-task-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    min-height: 2rem;
+    padding: 0.25rem 0.625rem;
+    border: 1px solid light-dark(#d7c1a3, #71604a);
+    border-radius: 999px;
+    background: light-dark(#f5ead8, #3a3026);
+    color: light-dark(#79501e, #e7bd80);
+    font-size: 0.6875rem;
+}
+.skill-task-badge:hover,
+.skill-task-badge[aria-pressed="true"] {
+    border-color: currentColor;
+    background: light-dark(#ecd9b8, #4b3a28);
+}
