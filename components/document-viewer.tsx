@@ -62,6 +62,19 @@ export function DocumentActions({
 }) {
     return (
         <div className="source-actions">
+            <a
+                href={sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="source-control source-icon"
+                aria-label="View on GitHub"
+                title="View on GitHub"
+            >
+                <span className="sr-only">View on GitHub</span>
+                <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75">
+                    <path d="M14 3h7v7M21 3 10 14M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5" />
+                </svg>
+            </a>
             <button type="button" className="source-control" onClick={copyLink} aria-label="Copy source link">
                 {linkStatus === 'copied' ? 'Link copied' : 'Copy link'}
             </button>
@@ -94,19 +107,6 @@ export function DocumentActions({
                 </svg>
                 <span className="hidden md:inline">{copyStatus === 'copied' ? 'Copied' : 'Copy'}</span>
             </button>
-            <a
-                href={sourceUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="source-control source-icon"
-                aria-label="View on GitHub"
-                title="View on GitHub"
-            >
-                <span className="sr-only">View on GitHub</span>
-                <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75">
-                    <path d="M14 3h7v7M21 3 10 14M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5" />
-                </svg>
-            </a>
             {onClose ? (
                 <button
                     type="button"
