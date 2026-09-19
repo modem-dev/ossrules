@@ -190,7 +190,7 @@ export function ProjectExplorerContent({ projects, search = '' }: { projects: Pr
                     </button>
                 </div>
             ) : null}
-            <div className="directory-desktop-summary flex flex-wrap items-center justify-between gap-3 py-4 font-mono text-[11px] text-gray-600">
+            <div className="directory-desktop-summary flex flex-wrap items-center justify-end gap-3 py-4 font-mono text-[11px] text-gray-600">
                 <p role="status">{resultCount}</p>
             </div>
             {visible.length === 0 ? (
