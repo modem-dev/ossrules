@@ -549,7 +549,7 @@ select {
 .agent-prompt {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr) auto auto;
-    align-items: center;
+    align-items: baseline;
     gap: 0.625rem;
     margin: 0 -2.5rem -2.5rem;
     padding: 0.5rem 2.5rem;
