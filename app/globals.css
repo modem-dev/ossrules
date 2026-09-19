@@ -316,8 +316,6 @@
     }
     .skill-mobile-outline {
         display: block;
-        border-bottom: 1px solid var(--color-gray-750);
-        padding-bottom: 0.75rem;
     }
     .skill-mobile-outline summary {
         min-height: 2.75rem;

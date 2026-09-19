@@ -155,49 +155,51 @@ export default async function SkillPage({
                                     : undefined
                             }
                         />
-                        <a
-                            href={skillSourceUrl(manifest, skill.path)}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="mt-6 inline-block font-mono text-[11px] text-teal hover:underline"
-                            aria-label="See pinned skill source file on GitHub (opens in a new tab)"
-                        >
-                            See source file ↗
-                        </a>
-                        <dl className="document-facts mt-3">
-                            {skill.contributions?.contributors.length ? (
+                        <section className="project-document-summary" aria-label="Document summary">
+                            <a
+                                href={skillSourceUrl(manifest, skill.path)}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-block font-mono text-[11px] text-teal hover:underline"
+                                aria-label="See pinned skill source file on GitHub (opens in a new tab)"
+                            >
+                                See source file ↗
+                            </a>
+                            <dl className="document-facts mt-3">
+                                {skill.contributions?.contributors.length ? (
+                                    <div>
+                                        <dt>Contributors</dt>
+                                        <dd>
+                                            <SkillContributors
+                                                contributions={skill.contributions}
+                                                historyUrl={`https://github.com/${manifest.repository}/commits/${manifest.sha}/${skill.path.split('/').map(encodeURIComponent).join('/')}`}
+                                                skillName={skill.name}
+                                            />
+                                        </dd>
+                                    </div>
+                                ) : null}
                                 <div>
-                                    <dt>Contributors</dt>
-                                    <dd>
-                                        <SkillContributors
-                                            contributions={skill.contributions}
-                                            historyUrl={`https://github.com/${manifest.repository}/commits/${manifest.sha}/${skill.path.split('/').map(encodeURIComponent).join('/')}`}
-                                            skillName={skill.name}
-                                        />
+                                    <dt>License</dt>
+                                    <dd className="[overflow-wrap:anywhere]">
+                                        {manifest.repositoryLicense ? (
+                                            <a
+                                                href={skillSourceUrl(manifest, manifest.repositoryLicense.path)}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-teal hover:underline"
+                                            >
+                                                {licenseSource ? identifyLicense(licenseSource) : 'View terms'} ↗
+                                            </a>
+                                        ) : (
+                                            'Not recorded'
+                                        )}
                                     </dd>
                                 </div>
-                            ) : null}
-                            <div>
-                                <dt>License</dt>
-                                <dd className="[overflow-wrap:anywhere]">
-                                    {manifest.repositoryLicense ? (
-                                        <a
-                                            href={skillSourceUrl(manifest, manifest.repositoryLicense.path)}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="text-teal hover:underline"
-                                        >
-                                            {licenseSource ? identifyLicense(licenseSource) : 'View terms'} ↗
-                                        </a>
-                                    ) : (
-                                        'Not recorded'
-                                    )}
-                                </dd>
-                            </div>
-                        </dl>
-                        <section className="skill-file-metadata font-mono text-[11px] text-gray-600" aria-label="Source and license">
-                            <details>
-                                <summary className="text-teal">Source &amp; attribution</summary>
+                            </dl>
+                        </section>
+                        <section className="font-mono text-[11px] text-gray-600" aria-label="Source and license">
+                            <details className="project-facts-disclosure">
+                                <summary>Source &amp; attribution</summary>
                                 <p className="mt-4 [overflow-wrap:anywhere]">{skill.path}</p>
                                 <p className="mt-3">Scanned {manifest.scannedAt.slice(0, 10)}</p>
                                 {skill.compatibility ? (
