@@ -59,7 +59,12 @@ function SkillExplorerContent({
     const [filtersOpen, setFiltersOpen] = useState(false);
     const filtersId = useId();
     const hasFilters = Boolean(query.trim() || task || resources || scripts || language !== 'all' || (!projectOnly && project !== 'all'));
-    const activeFilters = Number(project !== 'all' && !projectOnly) + Number(resources) + Number(scripts) + Number(language !== 'all');
+    const activeFilters =
+        Number(project !== 'all' && !projectOnly) +
+        Number(resources) +
+        Number(scripts) +
+        Number(language !== 'all') +
+        Number(Boolean(task));
     const resultCount = `Showing ${visible.length ? `${start + 1}–${start + pageEntries.length} of ` : ''}${visible.length} ${visible.length === 1 ? 'skill' : 'skills'}`;
     const taskSearch = new URLSearchParams(search);
     taskSearch.delete('task');
@@ -187,6 +192,22 @@ function SkillExplorerContent({
                             ]}
                         />
                     ) : null}
+                    <div className="skill-type-mobile-filter">
+                        <DirectorySelect
+                            label="Skill type"
+                            value={task || 'all'}
+                            active={Boolean(task)}
+                            onValueChange={(value) => remember({ task: value === 'all' ? '' : value })}
+                            options={[
+                                { value: 'all', label: 'All skill types' },
+                                ...SKILL_TASKS.filter((item) => (taskCounts.get(item.id) ?? 0) > 0 || item.id === task).map((item) => ({
+                                    value: item.id,
+                                    label: item.label,
+                                    count: taskCounts.get(item.id) ?? 0,
+                                })),
+                            ]}
+                        />
+                    </div>
                     <label className="skill-resource-filter">
                         <input
                             type="checkbox"

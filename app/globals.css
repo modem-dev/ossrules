@@ -2101,3 +2101,20 @@ select {
     border-color: light-dark(#79501e, #e7bd80);
     color: light-dark(#79501e, #e7bd80);
 }
+
+.skill-type-mobile-filter {
+    display: none;
+}
+@media (max-width: 767px) {
+    .skill-type-mobile-filter {
+        display: block;
+    }
+    .skill-task-pills {
+        display: none;
+    }
+}
+.skill-type-mobile-filter [data-active="true"] {
+    border-color: light-dark(#d7c1a3, #71604a);
+    background: light-dark(#f5ead8, #3a3026);
+    color: light-dark(#79501e, #e7bd80);
+}
