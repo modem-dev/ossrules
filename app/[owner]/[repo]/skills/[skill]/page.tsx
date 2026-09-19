@@ -87,8 +87,9 @@ export default async function SkillPage({
     const rootFile = skill.files.find((file) => file.path === 'SKILL.md');
     const rootSource = rootFile ? readSkillFile(slug, rootFile)?.toString('utf8') : undefined;
     const fileMentions = file.path !== 'SKILL.md' ? (documentMentions(rootSource, [file.path])[file.path] ?? []) : [];
-    const body = rendered ? (file.path === 'SKILL.md' ? markdownBody(source) : source) : '';
+    const body = source !== undefined && /\.mdx?$/i.test(file.path) ? (file.path === 'SKILL.md' ? markdownBody(source) : source) : '';
     const headings = skillHeadings(body);
+    const lineOffset = source === undefined ? 0 : source.slice(0, source.length - body.length).split('\n').length - 1;
     return (
         <div className="min-h-screen bg-dark-gray flex flex-col">
             <SiteHeader />
@@ -146,15 +147,7 @@ export default async function SkillPage({
                 </header>
                 <div className="skill-reader">
                     <aside className="skill-outline" aria-label="Document navigation">
-                        <SkillOutline
-                            key={`${file.path}:${rendered}`}
-                            headings={skillOutline(headings)}
-                            readHref={
-                                !rendered && source !== undefined && /\.mdx?$/i.test(file.path)
-                                    ? `${baseHref}?file=${encodeURIComponent(file.path)}`
-                                    : undefined
-                            }
-                        />
+                        <SkillOutline key={`${file.path}:${rendered}`} headings={skillOutline(headings)} />
                         <section className="project-document-summary" aria-label="Document summary">
                             <dl className="document-facts">
                                 {skill.contributions?.contributors.length ? (
@@ -259,6 +252,7 @@ export default async function SkillPage({
                                     source={source}
                                     language={/\.mdx?$/i.test(file.path) ? 'markdown' : (file.path.split('.').pop() ?? 'text')}
                                     numbered
+                                    lineAnchors={headings.map((heading) => ({ id: heading.id, line: heading.line + lineOffset }))}
                                 />
                             )}
                         </SkillDocumentViewer>
