@@ -145,14 +145,6 @@ export default async function SkillPage({
                         )}
                     </div>
                 </header>
-                <div className="skill-snapshot mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[11px] text-gray-600">
-                    <SkillContributors
-                        contributions={skill.contributions}
-                        historyUrl={`https://github.com/${manifest.repository}/commits/${manifest.sha}/${skill.path.split('/').map(encodeURIComponent).join('/')}`}
-                        skillName={skill.name}
-                        align="start"
-                    />
-                </div>
                 <div className="skill-reader">
                     <aside className="skill-outline" aria-label="Document navigation">
                         <a
@@ -164,6 +156,20 @@ export default async function SkillPage({
                         >
                             See source file ↗
                         </a>
+                        {skill.contributions?.contributors.length ? (
+                            <dl className="document-facts mt-3">
+                                <div>
+                                    <dt>Contributors</dt>
+                                    <dd>
+                                        <SkillContributors
+                                            contributions={skill.contributions}
+                                            historyUrl={`https://github.com/${manifest.repository}/commits/${manifest.sha}/${skill.path.split('/').map(encodeURIComponent).join('/')}`}
+                                            skillName={skill.name}
+                                        />
+                                    </dd>
+                                </div>
+                            </dl>
+                        ) : null}
                         <ProjectLicense
                             license={licenseSource ? identifyLicense(licenseSource) : undefined}
                             href={manifest.repositoryLicense ? skillSourceUrl(manifest, manifest.repositoryLicense.path) : undefined}

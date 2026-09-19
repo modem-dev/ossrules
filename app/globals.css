@@ -300,7 +300,6 @@
         margin-top: 1.5rem;
         gap: 1rem;
     }
-    .skill-snapshot,
     .skill-desktop-outline {
         display: none;
     }
@@ -1934,6 +1933,16 @@ select {
     text-align: right;
     font-family: var(--font-mono);
     font-variant-numeric: tabular-nums;
+}
+
+.skill-outline .document-facts > div {
+    position: relative;
+}
+.skill-outline .skill-contributors {
+    position: static;
+}
+.skill-outline .contributor-popover {
+    width: min(260px, 100%);
 }
 
 .quote-expand {
