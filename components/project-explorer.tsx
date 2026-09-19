@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { useMemo } from 'react';
+import { useId, useMemo, useState } from 'react';
 import { projectListing, withProjectSearch } from '@/lib/project-list';
 import { projectHref } from '@/lib/project-paths';
 import type { ProjectListingEntry, SortId } from './agents-md-data';
@@ -73,6 +73,10 @@ export function ProjectExplorerContent({ projects, search = '' }: { projects: Pr
         () => projectListing(projects, search),
         [projects, search],
     );
+    const [filtersOpen, setFiltersOpen] = useState(false);
+    const filtersId = useId();
+    const activeFilters = Number(language !== ALL) + Number(pattern !== ALL);
+    const resultCount = `${visible.length} ${visible.length === 1 ? 'project' : 'projects'}${filtered ? ` of ${projects.length}` : ''}`;
     const languages = useMemo(() => languageFacets(projects), [projects]);
     const patterns = useMemo(() => patternFacets(projects), [projects]);
 
@@ -106,51 +110,76 @@ export function ProjectExplorerContent({ projects, search = '' }: { projects: Pr
                         aria-label="Search projects"
                     />
                 </label>
-                <DirectorySelect
-                    label="Language"
-                    value={language}
-                    onValueChange={(value) => remember({ language: value })}
-                    active={language !== ALL}
-                    options={[
-                        { value: ALL, label: 'All languages' },
-                        ...languages.map((item) => ({
-                            value: item.value,
-                            label: item.value,
-                            count: item.count,
-                            color: languageColor(item.value),
-                        })),
-                    ]}
-                />
-                <DirectorySelect
-                    label="Pattern"
-                    value={pattern}
-                    onValueChange={(value) => remember({ technique: value })}
-                    active={pattern !== ALL}
-                    options={[
-                        { value: ALL, label: 'All patterns' },
-                        ...patterns.map((item) => ({ value: item.id, label: item.name, count: item.count, pattern: item.id })),
-                    ]}
-                />
-                <div className="directory-sort">
-                    <DirectorySelect
-                        label="Sort projects"
-                        value={sort}
-                        prefix="Sort: "
-                        onValueChange={(value) => {
-                            const next = value as SortId;
-                            remember({ sort: next, direction: '' });
-                        }}
-                        options={SORTS.map((option) => ({ value: option.id, label: option.label }))}
-                    />
+                <div className="directory-mobile-summary">
+                    <div className="flex items-center gap-2">
+                        <p role="status" className="font-mono text-[11px] text-gray-600">
+                            {resultCount}
+                        </p>
+                        <details className="directory-snapshot-info">
+                            <summary aria-label="About the star counts" className="cursor-pointer text-gray-600">
+                                ⓘ
+                            </summary>
+                            <p>Star snapshot · {STATS_AS_OF}</p>
+                        </details>
+                    </div>
                     <button
                         type="button"
-                        className="sort-direction"
-                        onClick={() => remember({ direction: descending ? 'asc' : 'desc' })}
-                        aria-label={descending ? 'Sort ascending' : 'Sort descending'}
-                        title={descending ? 'Descending; switch to ascending' : 'Ascending; switch to descending'}
+                        aria-expanded={filtersOpen}
+                        aria-controls={filtersId}
+                        onClick={() => setFiltersOpen(!filtersOpen)}
+                        className="inline-flex min-h-11 items-center gap-2 text-xs text-teal"
                     >
-                        <span aria-hidden>{descending ? '↓' : '↑'}</span>
+                        Filter &amp; sort{activeFilters ? ` (${activeFilters})` : ''}
+                        <span aria-hidden>{filtersOpen ? '−' : '+'}</span>
                     </button>
+                </div>
+                <div id={filtersId} className="directory-filter-controls" data-open={filtersOpen}>
+                    <DirectorySelect
+                        label="Language"
+                        value={language}
+                        onValueChange={(value) => remember({ language: value })}
+                        active={language !== ALL}
+                        options={[
+                            { value: ALL, label: 'All languages' },
+                            ...languages.map((item) => ({
+                                value: item.value,
+                                label: item.value,
+                                count: item.count,
+                                color: languageColor(item.value),
+                            })),
+                        ]}
+                    />
+                    <DirectorySelect
+                        label="Pattern"
+                        value={pattern}
+                        onValueChange={(value) => remember({ technique: value })}
+                        active={pattern !== ALL}
+                        options={[
+                            { value: ALL, label: 'All patterns' },
+                            ...patterns.map((item) => ({ value: item.id, label: item.name, count: item.count, pattern: item.id })),
+                        ]}
+                    />
+                    <div className="directory-sort">
+                        <DirectorySelect
+                            label="Sort projects"
+                            value={sort}
+                            prefix="Sort: "
+                            onValueChange={(value) => {
+                                const next = value as SortId;
+                                remember({ sort: next, direction: '' });
+                            }}
+                            options={SORTS.map((option) => ({ value: option.id, label: option.label }))}
+                        />
+                        <button
+                            type="button"
+                            className="sort-direction"
+                            onClick={() => remember({ direction: descending ? 'asc' : 'desc' })}
+                            aria-label={descending ? 'Sort ascending' : 'Sort descending'}
+                            title={descending ? 'Descending; switch to ascending' : 'Ascending; switch to descending'}
+                        >
+                            <span aria-hidden>{descending ? '↓' : '↑'}</span>
+                        </button>
+                    </div>
                 </div>
             </div>
             {filtered ? (
@@ -169,7 +198,7 @@ export function ProjectExplorerContent({ projects, search = '' }: { projects: Pr
                     </button>
                 </div>
             ) : null}
-            <div className="flex flex-wrap items-center justify-between gap-3 py-4 font-mono text-[11px] text-gray-600">
+            <div className="directory-desktop-summary flex flex-wrap items-center justify-between gap-3 py-4 font-mono text-[11px] text-gray-600">
                 <p role="status">
                     {visible.length} {visible.length === 1 ? 'project' : 'projects'}
                     {filtered ? ` of ${projects.length}` : ''}
