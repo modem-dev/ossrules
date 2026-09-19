@@ -901,8 +901,7 @@ select {
         margin-top: 1.5rem;
     }
     .agent-prompt-preview {
-        grid-column: 1 / -1;
-        grid-row: 2;
+        display: none;
     }
     .directory-stats {
         grid-template-columns: repeat(3, minmax(0, 1fr));
