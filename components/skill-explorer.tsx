@@ -232,7 +232,6 @@ function SkillExplorerContent({
                     </button>
                 ) : null}
             </div>
-            {pageCount > 1 ? <div className="mb-4 flex justify-end">{pagination()}</div> : null}
             {visible.length ? (
                 <ul className="grid gap-4 md:grid-cols-2">
                     {pageEntries.map((entry) => (
