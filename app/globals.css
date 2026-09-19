@@ -35,20 +35,6 @@
     padding-top: 1rem;
 }
 /* Skill reading desk: document sections stay visible; bundle files open on demand. */
-.skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.375rem;
-    margin-top: 1rem;
-}
-.skill-tags li {
-    padding: 0.2rem 0.5rem;
-    border: 1px solid var(--color-gray-750);
-    border-radius: 0.2rem;
-    color: var(--color-teal);
-    font: 0.6875rem / 1.7 var(--font-mono);
-    overflow-wrap: anywhere;
-}
 .skill-reader {
     display: grid;
     grid-template-columns: 200px minmax(0, 1fr);
@@ -314,7 +300,6 @@
         margin-top: 1.5rem;
         gap: 1rem;
     }
-    .skill-snapshot,
     .skill-desktop-outline {
         display: none;
     }
@@ -331,8 +316,6 @@
     }
     .skill-mobile-outline {
         display: block;
-        border-bottom: 1px solid var(--color-gray-750);
-        padding-bottom: 0.75rem;
     }
     .skill-mobile-outline summary {
         min-height: 2.75rem;
@@ -1773,6 +1756,9 @@ select {
     box-shadow: 0 8px 24px #0002;
     font-family: var(--font-inter);
 }
+.skill-outline .contributor-popover {
+    width: min(260px, 100%);
+}
 .skill-contributors[data-align="start"] .contributor-popover {
     right: auto;
     left: 0;
@@ -1948,6 +1934,13 @@ select {
     text-align: right;
     font-family: var(--font-mono);
     font-variant-numeric: tabular-nums;
+}
+
+.skill-outline .document-facts > div {
+    position: relative;
+}
+.skill-outline .skill-contributors {
+    position: static;
 }
 
 .quote-expand {
