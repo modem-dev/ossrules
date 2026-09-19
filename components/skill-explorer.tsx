@@ -177,18 +177,22 @@ function SkillExplorerContent({
                 </div>
             </div>
             <nav aria-label="Browse by task" className="skill-task-pills">
-                {[{ id: '', label: 'All skills' }, ...SKILL_TASKS].map((item) => (
-                    <button
-                        key={item.id}
-                        type="button"
-                        aria-pressed={task === item.id}
-                        onClick={() => remember({ task: item.id })}
-                        className={`inline-flex shrink-0 min-h-9 items-center gap-2 whitespace-nowrap rounded border px-3 py-1.5 text-xs ${task === item.id ? 'border-teal bg-dark-teal text-teal' : 'border-gray-750 text-gray-550 hover:border-teal hover:text-teal'}`}
-                    >
-                        {item.label}
-                        <span className="font-mono text-[11px]">{item.id ? taskCounts.get(item.id as SkillTask) : taskEntries.length}</span>
-                    </button>
-                ))}
+                {[{ id: '', label: 'All skills' }, ...SKILL_TASKS]
+                    .filter((item) => (item.id ? (taskCounts.get(item.id as SkillTask) ?? 0) : taskEntries.length) > 0)
+                    .map((item) => (
+                        <button
+                            key={item.id}
+                            type="button"
+                            aria-pressed={task === item.id}
+                            onClick={() => remember({ task: item.id })}
+                            className={`inline-flex shrink-0 min-h-9 items-center gap-2 whitespace-nowrap rounded border px-3 py-1.5 text-xs ${task === item.id ? 'border-teal bg-dark-teal text-teal' : 'border-gray-750 text-gray-550 hover:border-teal hover:text-teal'}`}
+                        >
+                            {item.label}
+                            <span className="font-mono text-[11px]">
+                                {item.id ? taskCounts.get(item.id as SkillTask) : taskEntries.length}
+                            </span>
+                        </button>
+                    ))}
             </nav>
             <div
                 ref={resultsRef}
