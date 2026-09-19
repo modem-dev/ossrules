@@ -110,15 +110,12 @@ export function ProjectExplorerContent({ projects, search = '' }: { projects: Pr
                     />
                 </label>
                 <div className="directory-mobile-summary">
-                    <p role="status" className="font-mono text-[11px] text-gray-600">
-                        {resultCount}
-                    </p>
                     <button
                         type="button"
                         aria-expanded={filtersOpen}
                         aria-controls={filtersId}
                         onClick={() => setFiltersOpen(!filtersOpen)}
-                        className="inline-flex min-h-11 items-center gap-2 text-xs text-teal"
+                        className="mr-auto inline-flex min-h-11 items-center gap-2 text-xs text-teal"
                     >
                         Filter &amp; sort{activeFilters ? ` (${activeFilters})` : ''}
                         <span aria-hidden>{filtersOpen ? '−' : '+'}</span>
@@ -173,15 +170,15 @@ export function ProjectExplorerContent({ projects, search = '' }: { projects: Pr
                     </div>
                 </div>
             </div>
-            {filtered ? (
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 py-3 text-xs">
-                    <button type="button" onClick={clearFilters} className="ml-auto min-h-8 text-teal hover:underline">
+            <div className="flex items-center justify-between gap-3 py-4">
+                <p role="status" className="font-mono text-[11px] text-gray-600">
+                    {resultCount}
+                </p>
+                {filtered ? (
+                    <button type="button" onClick={clearFilters} className="shrink-0 min-h-8 text-xs text-teal hover:underline">
                         Clear filters ×
                     </button>
-                </div>
-            ) : null}
-            <div className="directory-desktop-summary flex flex-wrap items-center justify-end gap-3 py-4 font-mono text-[11px] text-gray-600">
-                <p role="status">{resultCount}</p>
+                ) : null}
             </div>
             {visible.length === 0 ? (
                 <div className="rounded-lg border border-gray-750 bg-medium-gray px-6 py-12 text-center">
