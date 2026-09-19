@@ -85,3 +85,17 @@ test('recognize requested tasks and meaningful overlap', () => {
         'code-review',
     ]);
 });
+
+test('project language intersects with scripts and tasks and survives URL serialization', () => {
+    const python = { ...entry('python-tool', ['testing']), hasScripts: true, project: { ...entry('x', []).project, language: 'Python' } };
+    const typescript = { ...python, id: 'ts-tool', project: { ...python.project, language: 'TypeScript' } };
+    const docs = { ...python, id: 'docs', hasScripts: false };
+    const search = skillSearchString({ language: 'Python', scripts: '1', task: 'testing' });
+    const listing = skillListing([python, typescript, docs], search);
+    assert.deepEqual(
+        listing.visible.map((e) => e.id),
+        ['python-tool'],
+    );
+    assert.equal(skillListing([python], listing.canonicalSearch).language, 'Python');
+    assert.equal(skillListing([typescript], 'language=Python', true).visible.length, 1);
+});

@@ -28,6 +28,7 @@ export function skillEntry(skill: SkillRecord, project: AgentsProject): SkillEnt
             href: projectSkillsHref(project),
             slug: project.slug,
             name: project.name,
+            language: project.language,
             logo: logoSrc(project),
             repository: `${project.owner}/${project.repo}`,
         },

@@ -7,6 +7,7 @@ import { useId, useRef, useState } from 'react';
 import type { SkillContributions } from '@/lib/skill-contributors';
 import { skillListing } from '@/lib/skill-list';
 import { SKILL_TASKS, type SkillTask } from '@/lib/skill-tasks';
+import { languageColor, languageFacets } from './agents-md-data';
 import { DirectorySelect } from './directory-select';
 import { SkillContributors } from './skill-contributors';
 
@@ -22,7 +23,7 @@ export interface SkillEntry {
     complete: boolean;
     contributions?: SkillContributions;
     historyUrl?: string;
-    project: { href: string; slug: string; name: string; logo: string; repository: string };
+    project: { href: string; slug: string; name: string; logo: string; repository: string; language?: string };
 }
 
 export function SkillExplorer({
@@ -49,14 +50,14 @@ function SkillExplorerContent({
     projectOnly?: boolean;
     search?: string;
 }) {
-    const { query, project, resources, scripts, task, visible, pageCount, page, start, pageEntries } = skillListing(
+    const { query, project, language, resources, scripts, task, visible, pageCount, page, start, pageEntries } = skillListing(
         entries,
         search,
         projectOnly,
     );
     const [filtersOpen, setFiltersOpen] = useState(false);
     const filtersId = useId();
-    const activeFilters = Number(project !== 'all' && !projectOnly) + Number(resources) + Number(scripts);
+    const activeFilters = Number(project !== 'all' && !projectOnly) + Number(resources) + Number(scripts) + Number(language !== 'all');
     const resultCount = `Showing ${visible.length ? `${start + 1}–${start + pageEntries.length} of ` : ''}${visible.length} ${visible.length === 1 ? 'skill' : 'skills'}`;
     const taskSearch = new URLSearchParams(search);
     taskSearch.delete('task');
@@ -76,6 +77,8 @@ function SkillExplorerContent({
     const projects = [...new Map(entries.map((entry) => [entry.project.slug, entry.project])).values()].sort((a, b) =>
         a.name.localeCompare(b.name),
     );
+
+    const languages = languageFacets(projects.filter((item) => item.language).map((item) => ({ language: item.language as string })));
 
     function pagination() {
         if (pageCount <= 1) return null;
@@ -156,6 +159,23 @@ function SkillExplorerContent({
                     </button>
                 </div>
                 <div id={filtersId} className="directory-filter-controls" data-open={filtersOpen}>
+                    {!projectOnly ? (
+                        <DirectorySelect
+                            label="Project language"
+                            value={language}
+                            active={language !== 'all'}
+                            onValueChange={(value) => remember({ language: value === 'all' ? '' : value })}
+                            options={[
+                                { value: 'all', label: 'All languages' },
+                                ...languages.map((item) => ({
+                                    value: item.value,
+                                    label: item.value,
+                                    count: item.count,
+                                    color: languageColor(item.value),
+                                })),
+                            ]}
+                        />
+                    ) : null}
                     {!projectOnly ? (
                         <DirectorySelect
                             label="Filter by project"
@@ -280,7 +300,7 @@ function SkillExplorerContent({
                         type="button"
                         className="action-link mt-5"
                         onClick={() => {
-                            remember({ q: '', project: '', resources: '', scripts: '', task: '' });
+                            remember({ q: '', project: '', language: '', resources: '', scripts: '', task: '' });
                         }}
                     >
                         Clear filters

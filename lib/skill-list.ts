@@ -7,7 +7,7 @@ export const SKILL_PAGE_SIZE = 50;
 /** Match URLSearchParams.get: repeated parameters use their first value. */
 export function skillSearchString(params: SkillSearchParams): string {
     const search = new URLSearchParams();
-    for (const key of ['q', 'project', 'resources', 'scripts', 'task', 'page']) {
+    for (const key of ['q', 'project', 'language', 'resources', 'scripts', 'task', 'page']) {
         const value = params[key];
         const first = Array.isArray(value) ? value[0] : value;
         if (first) search.set(key, first);
@@ -20,6 +20,7 @@ export function skillListing(entries: SkillEntry[], search = '', projectOnly = f
     const params = new URLSearchParams(search);
     const query = params.get('q') ?? '';
     const project = projectOnly ? 'all' : (params.get('project') ?? 'all');
+    const language = projectOnly ? 'all' : (params.get('language') ?? 'all');
     const resources = params.get('resources') === '1';
     const scripts = params.get('scripts') === '1';
     const requestedTask = params.get('task');
@@ -27,6 +28,7 @@ export function skillListing(entries: SkillEntry[], search = '', projectOnly = f
     const visible = entries.filter(
         (entry) =>
             (project === 'all' || entry.project.slug === project) &&
+            (language === 'all' || entry.project.language === language) &&
             (!resources || entry.files > 1) &&
             (!scripts || entry.hasScripts === true) &&
             (!task || entry.tasks?.includes(task)) &&
@@ -41,6 +43,7 @@ export function skillListing(entries: SkillEntry[], search = '', projectOnly = f
     const canonicalParams = new URLSearchParams();
     if (query.trim()) canonicalParams.set('q', query.trim());
     if (project !== 'all') canonicalParams.set('project', project);
+    if (language !== 'all') canonicalParams.set('language', language);
     if (resources) canonicalParams.set('resources', '1');
     if (scripts) canonicalParams.set('scripts', '1');
     if (task) canonicalParams.set('task', task);
@@ -49,6 +52,7 @@ export function skillListing(entries: SkillEntry[], search = '', projectOnly = f
     return {
         query,
         project,
+        language,
         resources,
         scripts,
         task,

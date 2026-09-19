@@ -2050,7 +2050,7 @@ select {
 }
 @media (min-width: 1024px) {
     .skill-directory-toolbar {
-        grid-template-columns: minmax(240px, 1.5fr) minmax(170px, 1fr) auto;
+        grid-template-columns: minmax(240px, 1.5fr) minmax(140px, 0.75fr) minmax(170px, 1fr) auto;
     }
     .skill-directory-project {
         grid-template-columns: minmax(240px, 1.5fr) auto;
