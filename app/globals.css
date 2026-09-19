@@ -583,7 +583,7 @@ select {
 .agent-prompt-preview {
     min-width: 0;
     overflow: hidden;
-    color: var(--color-gray-550);
+    color: var(--color-gray-650);
     font-family: var(--font-mono);
     font-size: 0.6875rem;
     line-height: 1.5;
