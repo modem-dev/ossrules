@@ -149,7 +149,6 @@ export default async function SkillPage({
                     <a href={`https://github.com/${manifest.repository}/tree/${manifest.sha}`} className="hover:text-teal">
                         {manifest.branch} · {manifest.sha.slice(0, 7)} ↗
                     </a>
-                    <span>Scanned {manifest.scannedAt.slice(0, 10)}</span>
                     <SkillContributors
                         contributions={skill.contributions}
                         historyUrl={`https://github.com/${manifest.repository}/commits/${manifest.sha}/${skill.path.split('/').map(encodeURIComponent).join('/')}`}
