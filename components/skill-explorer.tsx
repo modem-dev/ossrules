@@ -18,6 +18,7 @@ export interface SkillEntry {
     description: string;
     path: string;
     files: number;
+    hasScripts?: boolean;
     complete: boolean;
     contributions?: SkillContributions;
     historyUrl?: string;
@@ -48,10 +49,14 @@ function SkillExplorerContent({
     projectOnly?: boolean;
     search?: string;
 }) {
-    const { query, project, resources, task, visible, pageCount, page, start, pageEntries } = skillListing(entries, search, projectOnly);
+    const { query, project, resources, scripts, task, visible, pageCount, page, start, pageEntries } = skillListing(
+        entries,
+        search,
+        projectOnly,
+    );
     const [filtersOpen, setFiltersOpen] = useState(false);
     const filtersId = useId();
-    const activeFilters = Number(project !== 'all' && !projectOnly) + Number(resources);
+    const activeFilters = Number(project !== 'all' && !projectOnly) + Number(resources) + Number(scripts);
     const resultCount = `Showing ${visible.length ? `${start + 1}–${start + pageEntries.length} of ` : ''}${visible.length} ${visible.length === 1 ? 'skill' : 'skills'}`;
     const taskSearch = new URLSearchParams(search);
     taskSearch.delete('task');
@@ -166,13 +171,13 @@ function SkillExplorerContent({
                     <label className="skill-resource-filter">
                         <input
                             type="checkbox"
-                            checked={resources}
+                            checked={scripts}
                             onChange={(event) => {
-                                remember({ resources: event.target.checked ? '1' : '' });
+                                remember({ scripts: event.target.checked ? '1' : '' });
                             }}
                             className="accent-teal"
                         />
-                        With supporting files
+                        Has scripts
                     </label>
                 </div>
             </div>
@@ -275,7 +280,7 @@ function SkillExplorerContent({
                         type="button"
                         className="action-link mt-5"
                         onClick={() => {
-                            remember({ q: '', project: '', resources: '', task: '' });
+                            remember({ q: '', project: '', resources: '', scripts: '', task: '' });
                         }}
                     >
                         Clear filters
