@@ -41,14 +41,14 @@ export default async function SkillsPage({ searchParams }: Props) {
     return (
         <div className="min-h-screen bg-dark-gray flex flex-col">
             <SiteHeader />
-            <main id="main" className="page-shell flex-1">
+            <main id="main" className="page-shell skills-directory flex-1">
                 <header className="prompt-masthead brand-masthead modem-surface">
                     <p className="eyebrow">Skills / Open-source projects</p>
                     <h1 className="page-title mt-5">Discover agent skills from real projects.</h1>
                     <p className="mt-5 max-w-2xl text-gray-550 text-base leading-relaxed">Read their instructions and supporting files.</p>
                     <AgentPrompt variant="skills" />
                 </header>
-                <div className="mt-8">
+                <div>
                     <SkillExplorer entries={entries} initialSearch={initialSearch} />
                 </div>
                 <p className="mt-8 font-mono text-[11px] text-gray-600">
