@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import test from 'node:test';
-import type { AgentsProject } from '../components/agents-md-data';
+import type { AgentsProject, ProjectListingEntry } from '../components/agents-md-data';
 import { languageFacets, patternFacets, SORTS, toProjectListingEntry } from '../components/agents-md-data';
 import { projectListing, projectNeighbors, projectSearchString, withProjectSearch } from './project-list';
 
@@ -22,11 +22,11 @@ test('directory URLs preserve combined filters and sort direction without unrela
         listing.visible.map((project) => project.slug),
         ['playwright', 'opencode'],
     );
-    assert.equal(listing.canonicalSearch, 'language=TypeScript&sort=name&direction=desc');
+    assert.equal(listing.canonicalSearch, 'language=TypeScript&sort=name');
     assert.deepEqual(projectListing(projects, listing.canonicalSearch).visible, listing.visible);
     assert.equal(
         withProjectSearch('/microsoft/playwright', listing.canonicalSearch),
-        '/microsoft/playwright?language=TypeScript&sort=name&direction=desc',
+        '/microsoft/playwright?language=TypeScript&sort=name',
     );
 });
 
@@ -73,4 +73,47 @@ test('compact records preserve directory search, facets, and every sort across t
     console.log(
         `Directory data: ${fullBytes.toLocaleString('en')} → ${compactBytes.toLocaleString('en')} bytes before compression (${(100 * (1 - compactBytes / fullBytes)).toFixed(1)}% smaller).`,
     );
+});
+
+test('all sorts default to descending while explicit ascending remains available', () => {
+    for (const { id } of SORTS) {
+        const listing = projectListing(projects, `sort=${id}`);
+        assert.equal(listing.descending, true, id);
+        const ascending = projectListing(projects, `sort=${id}&direction=asc`);
+        assert.equal(ascending.descending, false, id);
+        if (id !== 'skills')
+            assert.deepEqual(
+                listing.visible.map((project) => project.slug),
+                ascending.visible.map((project) => project.slug).reverse(),
+                id,
+            );
+        assert.equal(projectListing(projects, ascending.canonicalSearch).descending, false);
+    }
+    const byLines = projectListing(projects, 'sort=lines').visible;
+    assert.ok(byLines[0].file.lines >= byLines[1].file.lines);
+    const byDate = projectListing(projects, 'sort=updated').visible;
+    assert.ok(Date.parse(byDate[0].lastCommit.date) >= Date.parse(byDate[1].lastCommit.date));
+});
+
+test('retired bullet sort URLs fall back to the default sort', () => {
+    assert.equal(projectListing(projects, 'sort=rules').sort, 'stars');
+    assert.equal(projectListing(projects, 'sort=rules').canonicalSearch, '');
+});
+
+test('skill count sorts known counts and keeps unscanned projects last in either direction', () => {
+    const entries: ProjectListingEntry[] = [
+        { ...toProjectListingEntry(projects[0]), slug: 'zero', skillCount: 0 },
+        { ...toProjectListingEntry(projects[0]), slug: 'many', skillCount: 20 },
+        { ...toProjectListingEntry(projects[0]), slug: 'unknown' },
+        { ...toProjectListingEntry(projects[0]), slug: 'few', skillCount: 3 },
+    ];
+    assert.deepEqual(
+        projectListing(entries, 'sort=skills').visible.map((p) => p.slug),
+        ['many', 'few', 'zero', 'unknown'],
+    );
+    assert.deepEqual(
+        projectListing(entries, 'sort=skills&direction=asc').visible.map((p) => p.slug),
+        ['zero', 'few', 'many', 'unknown'],
+    );
+    assert.equal(projectNeighbors(entries, 'few', 'sort=skills').next?.slug, 'zero');
 });

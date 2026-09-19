@@ -30,15 +30,14 @@ export function projectListing<T extends ProjectListingEntry>(projects: T[], sea
     const pattern: PatternId | 'all' =
         requestedPattern && Object.hasOwn(PATTERNS_BY_ID, requestedPattern) ? (requestedPattern as PatternId) : 'all';
     const sort = SORTS.some((item) => item.id === params.get('sort')) ? (params.get('sort') as SortId) : 'stars';
-    const defaultDescending = sort !== 'name' && sort !== 'lines';
     const direction = params.get('direction');
-    const descending = direction === 'asc' ? false : direction === 'desc' ? true : defaultDescending;
+    const descending = direction !== 'asc';
     const canonical = new URLSearchParams();
     if (query.trim()) canonical.set('q', query.trim());
     if (language !== 'all') canonical.set('language', language);
     if (pattern !== 'all') canonical.set('technique', pattern);
     if (sort !== 'stars') canonical.set('sort', sort);
-    if (descending !== defaultDescending) canonical.set('direction', descending ? 'desc' : 'asc');
+    if (!descending) canonical.set('direction', 'asc');
     const visible = projects
         .filter((project) => matchesQuery(project, query))
         .filter((project) => language === 'all' || project.language === language)

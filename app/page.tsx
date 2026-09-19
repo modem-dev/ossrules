@@ -10,7 +10,7 @@ import { ogImageUrl } from '@/lib/og';
 import { type ProjectSearchParams, projectListing, projectSearchString } from '@/lib/project-list';
 import { projectHref } from '@/lib/project-paths';
 import { collectionPageSchema } from '@/lib/schema';
-import { getAllSkills, getSkillManifest } from '@/lib/skills';
+import { getAllSkills } from '@/lib/skills';
 
 const title = 'AGENTS.md Examples & Agent Skills';
 const socialTitle = 'OSS Agent Rules And Skill Files';
@@ -39,13 +39,6 @@ export const instant = false;
 
 type Props = { searchParams: Promise<ProjectSearchParams> };
 
-function projectsWithSkillCounts() {
-    return getProjectListings().map((project) => ({
-        ...project,
-        skillCount: getSkillManifest(project.slug)?.skills.length,
-    }));
-}
-
 export async function generateMetadata({ searchParams }: Props) {
     const listing = projectListing(getProjectListings(), projectSearchString(await searchParams));
     return { ...baseMetadata, robots: { index: !listing.filtered, follow: true } };
@@ -53,7 +46,7 @@ export async function generateMetadata({ searchParams }: Props) {
 
 export default async function AgentsMdPage({ searchParams }: Props) {
     const initialSearch = projectSearchString(await searchParams);
-    const projects = projectsWithSkillCounts();
+    const projects = getProjectListings();
     const skillCount = getAllSkills().length;
     const totalStars = projects.reduce((total, project) => total + project.stars, 0);
     const compactStars = new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 }).format(totalStars);
