@@ -6,7 +6,7 @@ import { SITE_URL } from '@/lib/schema';
 import { getSkillManifest } from '@/lib/skills';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const paths = ['/', '/agent-rules', '/skills', ...PATTERNS.map((pattern) => `/agent-rules/${pattern.id}`)];
+    const paths = ['/', '/about', '/agent-rules', '/skills', ...PATTERNS.map((pattern) => `/agent-rules/${pattern.id}`)];
     for (const project of getAgentsProjects()) {
         paths.push(projectHref(project));
         const skills = getSkillManifest(project.slug)?.skills ?? [];

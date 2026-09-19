@@ -33,7 +33,7 @@ export function SiteHeader() {
                     <Link
                         href="/"
                         aria-current={pathname === '/' ? 'page' : undefined}
-                        className={`border-b-2 py-2 transition-colors hover:text-light-cream ${!patterns && !skills ? 'border-teal text-light-cream' : 'border-transparent text-gray-550'}`}
+                        className={`border-b-2 py-2 transition-colors hover:text-light-cream ${!patterns && !skills && pathname !== '/about' ? 'border-teal text-light-cream' : 'border-transparent text-gray-550'}`}
                     >
                         Projects
                     </Link>
