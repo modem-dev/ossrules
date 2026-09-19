@@ -7,9 +7,8 @@ import { useId, useMemo, useState } from 'react';
 import { projectListing, withProjectSearch } from '@/lib/project-list';
 import { projectHref } from '@/lib/project-paths';
 import type { ProjectListingEntry, SortId } from './agents-md-data';
-import { formatStars, languageColor, languageFacets, logoSrc, PATTERNS_BY_ID, patternFacets, SORTS } from './agents-md-data';
+import { formatStars, languageColor, languageFacets, logoSrc, patternFacets, SORTS } from './agents-md-data';
 import { DirectorySelect } from './directory-select';
-import { PatternIcon } from './pattern-icons';
 
 const ALL = 'all';
 
@@ -176,15 +175,6 @@ export function ProjectExplorerContent({ projects, search = '' }: { projects: Pr
             </div>
             {filtered ? (
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-2 py-3 text-xs">
-                    <span className="text-gray-550">Showing</span>
-                    {query ? <span>“{query}”</span> : null}
-                    {language !== ALL ? <span>{language}</span> : null}
-                    {pattern !== ALL ? (
-                        <span className="inline-flex items-center gap-1.5">
-                            <PatternIcon pattern={pattern} className="size-4" />
-                            {PATTERNS_BY_ID[pattern].name}
-                        </span>
-                    ) : null}
                     <button type="button" onClick={clearFilters} className="ml-auto min-h-8 text-teal hover:underline">
                         Clear filters ×
                     </button>
