@@ -7,7 +7,7 @@ import { useId, useMemo, useState } from 'react';
 import { projectListing, withProjectSearch } from '@/lib/project-list';
 import { projectHref } from '@/lib/project-paths';
 import type { ProjectListingEntry, SortId } from './agents-md-data';
-import { formatStars, languageColor, languageFacets, logoSrc, PATTERNS_BY_ID, patternFacets, SORTS, STATS_AS_OF } from './agents-md-data';
+import { formatStars, languageColor, languageFacets, logoSrc, PATTERNS_BY_ID, patternFacets, SORTS } from './agents-md-data';
 import { DirectorySelect } from './directory-select';
 import { PatternIcon } from './pattern-icons';
 
@@ -76,7 +76,7 @@ export function ProjectExplorerContent({ projects, search = '' }: { projects: Pr
     const [filtersOpen, setFiltersOpen] = useState(false);
     const filtersId = useId();
     const activeFilters = Number(language !== ALL) + Number(pattern !== ALL);
-    const resultCount = `${visible.length} ${visible.length === 1 ? 'project' : 'projects'}${filtered ? ` of ${projects.length}` : ''}`;
+    const resultCount = `Showing ${visible.length} ${visible.length === 1 ? 'project' : 'projects'}${filtered ? ` of ${projects.length}` : ''}`;
     const languages = useMemo(() => languageFacets(projects), [projects]);
     const patterns = useMemo(() => patternFacets(projects), [projects]);
 
@@ -111,17 +111,9 @@ export function ProjectExplorerContent({ projects, search = '' }: { projects: Pr
                     />
                 </label>
                 <div className="directory-mobile-summary">
-                    <div className="flex items-center gap-2">
-                        <p role="status" className="font-mono text-[11px] text-gray-600">
-                            {resultCount}
-                        </p>
-                        <details className="directory-snapshot-info">
-                            <summary aria-label="About the star counts" className="cursor-pointer text-gray-600">
-                                ⓘ
-                            </summary>
-                            <p>Star snapshot · {STATS_AS_OF}</p>
-                        </details>
-                    </div>
+                    <p role="status" className="font-mono text-[11px] text-gray-600">
+                        {resultCount}
+                    </p>
                     <button
                         type="button"
                         aria-expanded={filtersOpen}
@@ -198,12 +190,8 @@ export function ProjectExplorerContent({ projects, search = '' }: { projects: Pr
                     </button>
                 </div>
             ) : null}
-            <div className="directory-desktop-summary flex flex-wrap items-center justify-between gap-3 py-4 font-mono text-[11px] text-gray-600">
-                <p role="status">
-                    {visible.length} {visible.length === 1 ? 'project' : 'projects'}
-                    {filtered ? ` of ${projects.length}` : ''}
-                </p>
-                <p>Star snapshot · {STATS_AS_OF}</p>
+            <div className="directory-desktop-summary flex flex-wrap items-center justify-end gap-3 py-4 font-mono text-[11px] text-gray-600">
+                <p role="status">{resultCount}</p>
             </div>
             {visible.length === 0 ? (
                 <div className="rounded-lg border border-gray-750 bg-medium-gray px-6 py-12 text-center">

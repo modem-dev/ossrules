@@ -7,7 +7,7 @@ const paths: Record<PatternId, string> = {
     'generated-file-guard': 'M10 18H3V2h8l4 4v2M10 2v5h5M14 10l4 2v3c0 2-4 4-4 4s-4-2-4-4v-3z',
     'verification-matrix': 'M2 3h7v6H2zM2 12h7v6H2zM12 5l2 2 4-4M12 14l2 2 4-4',
     'nested-instructions': 'M3 2h10v5H7v11H3zM7 7h10v11H7zM10 11h4M10 14h4',
-    'single-source': 'M10 7a3 3 0 1 0 0 6 3 3 0 0 0 0-6ZM2 10h5M13 10h5M10 2v5M10 13v5M1 8v4M18 8v4M8 1h4M8 18h4',
+    'single-source': 'M12 3H3v14h14v-6M11 2h6v8l-3-2-3 2zM6 7h2M6 11h2M6 14h8',
     'skill-routing': 'M2 8h4v4H2zM14 2h4v4h-4zM14 14h4v4h-4zM6 10h4V4h4M10 10v6h4',
     'behavioral-conditioning': 'M10 2v3M10 15v3M2 10h3M15 10h3M16 4l-4 8-8 4 4-8z',
     'house-vocabulary': 'M2 3h7l1 2 1-2h7v14h-7l-1 1-1-1H2zM10 5v13M4 7h3M4 10h3M13 7h3M13 10h3',
