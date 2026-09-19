@@ -549,7 +549,7 @@ select {
 .agent-prompt {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr) auto auto;
-    align-items: baseline;
+    align-items: center;
     gap: 0.625rem;
     margin: 0 -2.5rem -2.5rem;
     padding: 0.5rem 2.5rem;
@@ -565,6 +565,7 @@ select {
     background: transparent;
     color: var(--color-gray-550);
     font-size: 0.75rem;
+    line-height: 1rem;
     white-space: nowrap;
 }
 
@@ -580,6 +581,7 @@ select {
 .agent-prompt h2 {
     color: var(--color-light-cream);
     font-size: 0.75rem;
+    line-height: 1rem;
     font-weight: 500;
     white-space: nowrap;
 }
@@ -590,7 +592,7 @@ select {
     color: var(--color-gray-650);
     font-family: var(--font-mono);
     font-size: 0.6875rem;
-    line-height: 1.5;
+    line-height: 1rem;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
