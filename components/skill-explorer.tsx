@@ -146,15 +146,12 @@ function SkillExplorerContent({
                     />
                 </label>
                 <div className="directory-mobile-summary">
-                    <p role="status" className="font-mono text-[11px] text-gray-600">
-                        {resultCount}
-                    </p>
                     <button
                         type="button"
                         aria-expanded={filtersOpen}
                         aria-controls={filtersId}
                         onClick={() => setFiltersOpen(!filtersOpen)}
-                        className="inline-flex min-h-11 items-center gap-2 text-xs text-teal"
+                        className="mr-auto inline-flex min-h-11 items-center gap-2 text-xs text-teal"
                     >
                         Filters{activeFilters ? ` (${activeFilters})` : ''}
                         <span aria-hidden>{filtersOpen ? '−' : '+'}</span>
@@ -221,25 +218,21 @@ function SkillExplorerContent({
                         </button>
                     ))}
             </nav>
-            <div
-                ref={resultsRef}
-                tabIndex={-1}
-                className="skill-results-summary flex scroll-mt-6 flex-wrap items-center justify-between gap-x-6 gap-y-1 py-4"
-            >
-                {pagination()}
+            <div ref={resultsRef} tabIndex={-1} className="flex scroll-mt-6 items-center justify-between gap-3 py-4">
+                <p role="status" className="font-mono text-[11px] text-gray-600">
+                    {resultCount}
+                </p>
                 {hasFilters ? (
                     <button
                         type="button"
-                        className="inline-flex min-h-9 items-center text-xs text-teal hover:underline"
+                        className="inline-flex shrink-0 min-h-9 items-center text-xs text-teal hover:underline"
                         onClick={() => remember({ q: '', project: '', language: '', resources: '', scripts: '', task: '' })}
                     >
-                        Clear all ×
+                        Clear filters ×
                     </button>
                 ) : null}
-                <p role="status" className="directory-desktop-summary ml-auto font-mono text-[11px] text-gray-600">
-                    {resultCount}
-                </p>
             </div>
+            {pageCount > 1 ? <div className="mb-4 flex justify-end">{pagination()}</div> : null}
             {visible.length ? (
                 <ul className="grid gap-4 md:grid-cols-2">
                     {pageEntries.map((entry) => (

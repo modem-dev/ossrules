@@ -2056,15 +2056,6 @@ select {
         grid-template-columns: minmax(240px, 1.5fr) auto;
     }
 }
-@media (max-width: 767px) {
-    .skill-results-summary {
-        justify-content: flex-end;
-        padding-top: 0;
-    }
-    .skill-results-summary:has(> p:only-child) {
-        display: none;
-    }
-}
 
 .skills-directory .brand-masthead {
     margin-bottom: 1.5rem;
