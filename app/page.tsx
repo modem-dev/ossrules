@@ -67,9 +67,9 @@ export default async function AgentsMdPage({ searchParams }: Props) {
                 <header className="directory-hero brand-masthead modem-surface">
                     <div className="directory-hero-content">
                         <div>
-                            <h1 className="page-title max-w-xl">Agent rules and skills from open source.</h1>
+                            <h1 className="page-title max-w-xl">Agent rules and skills from popular OSS projects.</h1>
                             <p className="mt-5 text-gray-550 text-base leading-relaxed">
-                                Read real AGENTS.md and CLAUDE.md files. See what they do.
+                                Learn patterns, discover skills, and bring them back to your projects.
                             </p>
                         </div>
                         <dl className="directory-stats" aria-label="Library statistics">
