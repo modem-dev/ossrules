@@ -58,6 +58,7 @@ function SkillExplorerContent({
     );
     const [filtersOpen, setFiltersOpen] = useState(false);
     const filtersId = useId();
+    const hasFilters = Boolean(query.trim() || task || resources || scripts || language !== 'all' || (!projectOnly && project !== 'all'));
     const activeFilters = Number(project !== 'all' && !projectOnly) + Number(resources) + Number(scripts) + Number(language !== 'all');
     const resultCount = `Showing ${visible.length ? `${start + 1}–${start + pageEntries.length} of ` : ''}${visible.length} ${visible.length === 1 ? 'skill' : 'skills'}`;
     const taskSearch = new URLSearchParams(search);
@@ -226,6 +227,15 @@ function SkillExplorerContent({
                 className="skill-results-summary flex scroll-mt-6 flex-wrap items-center justify-between gap-x-6 gap-y-1 py-4"
             >
                 {pagination()}
+                {hasFilters ? (
+                    <button
+                        type="button"
+                        className="inline-flex min-h-9 items-center text-xs text-teal hover:underline"
+                        onClick={() => remember({ q: '', project: '', language: '', resources: '', scripts: '', task: '' })}
+                    >
+                        Clear all ×
+                    </button>
+                ) : null}
                 <p role="status" className="directory-desktop-summary ml-auto font-mono text-[11px] text-gray-600">
                     {resultCount}
                 </p>
