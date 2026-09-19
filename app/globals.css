@@ -1758,6 +1758,9 @@ select {
     box-shadow: 0 8px 24px #0002;
     font-family: var(--font-inter);
 }
+.skill-outline .contributor-popover {
+    width: min(260px, 100%);
+}
 .skill-contributors[data-align="start"] .contributor-popover {
     right: auto;
     left: 0;
@@ -1940,9 +1943,6 @@ select {
 }
 .skill-outline .skill-contributors {
     position: static;
-}
-.skill-outline .contributor-popover {
-    width: min(260px, 100%);
 }
 
 .quote-expand {
