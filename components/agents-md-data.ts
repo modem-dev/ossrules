@@ -323,13 +323,13 @@ export function patternFacets(projects: Pick<AgentsProject, 'patterns'>[]): { id
 }
 
 /** Sort IDs remain stable for saved URLs; labels describe the underlying measurements. */
-export type SortId = 'stars' | 'lines' | 'rules' | 'updated' | 'name';
+export type SortId = 'stars' | 'lines' | 'skills' | 'updated' | 'name';
 
 export const SORTS: { id: SortId; label: string }[] = [
     { id: 'stars', label: 'Stars' },
     { id: 'lines', label: 'Lines' },
-    { id: 'rules', label: 'Bullet lines' },
-    { id: 'updated', label: 'Source changed' },
+    { id: 'skills', label: 'Skill count' },
+    { id: 'updated', label: 'Last modified' },
     { id: 'name', label: 'Name' },
 ];
 
@@ -342,7 +342,15 @@ export function compareProjects(a: ProjectListingEntry, b: ProjectListingEntry, 
         const time = (p: ProjectListingEntry) => Date.parse(p.lastCommit.date);
         return sign * (time(a) - time(b)) || b.stars - a.stars;
     }
-    const value = (p: ProjectListingEntry) => (sort === 'stars' ? p.stars : sort === 'lines' ? p.file.lines : p.file.bullets);
+    if (sort === 'skills') {
+        if (a.skillCount === undefined || b.skillCount === undefined) {
+            if (a.skillCount !== undefined) return -1;
+            if (b.skillCount !== undefined) return 1;
+            return b.stars - a.stars;
+        }
+        return sign * (a.skillCount - b.skillCount) || b.stars - a.stars;
+    }
+    const value = (p: ProjectListingEntry) => (sort === 'stars' ? p.stars : p.file.lines);
     // Stars break ties so equal-length files keep a stable, meaningful order.
     return sign * (value(a) - value(b)) || b.stars - a.stars;
 }

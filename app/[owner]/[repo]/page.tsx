@@ -34,6 +34,7 @@ import {
     getAgentsSource,
     getDocumentSource,
     getInstructionDocuments,
+    getProjectListings,
     getVendoredFiles,
     sourceExcerpt,
 } from '@/lib/agents-md';
@@ -72,7 +73,7 @@ type CollectionProps = { project: AgentsProject; searchParams: Promise<ProjectSe
 // Only these links depend on the request. The analysis and source measurements
 // can stay in the prerendered page and be prefetched before a reader clicks.
 async function CollectionBreadcrumb({ searchParams }: Pick<CollectionProps, 'searchParams'>) {
-    const listing = projectListing(getAgentsProjects(), projectSearchString(await searchParams));
+    const listing = projectListing(getProjectListings(), projectSearchString(await searchParams));
     return (
         <Link href={withProjectSearch('/', listing.canonicalSearch)} className="text-teal hover:underline">
             Projects
@@ -81,7 +82,7 @@ async function CollectionBreadcrumb({ searchParams }: Pick<CollectionProps, 'sea
 }
 
 async function CollectionTabs({ project, searchParams }: CollectionProps) {
-    const listing = projectListing(getAgentsProjects(), projectSearchString(await searchParams));
+    const listing = projectListing(getProjectListings(), projectSearchString(await searchParams));
     return (
         <ProjectTabs
             project={project}
@@ -97,7 +98,7 @@ async function MoreProjects({ project, searchParams }: CollectionProps) {
         previous,
         next,
         search: collectionSearch,
-    } = projectNeighbors(getAgentsProjects(), project.slug, projectSearchString(await searchParams));
+    } = projectNeighbors(getProjectListings(), project.slug, projectSearchString(await searchParams));
     return (
         <>
             {previous || next ? (
