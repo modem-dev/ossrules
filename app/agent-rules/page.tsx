@@ -48,7 +48,7 @@ export default function PatternsPage() {
             <main id="main" className="page-shell flex-1">
                 <header className="prompt-masthead brand-masthead modem-surface">
                     <p className="eyebrow">{PATTERNS.length} patterns</p>
-                    <h1 className="page-title mt-5">Patterns from real projects.</h1>
+                    <h1 className="page-title mt-5">Agent rule patterns from real projects.</h1>
                     <p className="mt-5 max-w-2xl text-gray-550 text-base leading-relaxed">See how each pattern works in practice.</p>
                     <AgentPrompt variant="rules" />
                 </header>
