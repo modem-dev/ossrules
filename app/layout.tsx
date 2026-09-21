@@ -25,6 +25,9 @@ export const metadata: Metadata = {
         'A reference library of agent instructions and skills from open source projects, with original source, analysis, and bundled resources.',
     openGraph: { siteName: 'ossrules.md', type: 'website' },
     twitter: { card: 'summary_large_image' },
+    verification: {
+        other: { 'msvalidate.01': '52F7D018CCB02017E4EE44D920A99416' },
+    },
     icons: {
         icon: [
             { url: '/favicon.ico?v=bookmark', sizes: '16x16 32x32 48x48', type: 'image/x-icon' },
